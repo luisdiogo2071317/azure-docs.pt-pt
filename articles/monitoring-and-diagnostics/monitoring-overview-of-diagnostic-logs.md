@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 1a0eeb3c5ffadb50cf0a6c9fa313dff7d9fdef3c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384892"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436590"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -48,7 +48,7 @@ Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de evento
 >  Atualmente não é possível arquivar os registos de fluxo de rede para uma conta de armazenamento que está atrás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869059"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438715"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB ao utilizar o conector do Power BI
 
@@ -34,7 +34,19 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que
 
 * Transfira o [volcano dados de exemplo](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) do GitHub.
 
-* [Criar uma conta de base de dados do Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) e importar os dados de volcano utilizando o [ferramenta de migração de dados do Azure Cosmos DB](import-data.md).
+* [Criar uma conta de base de dados do Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) e importar os dados de volcano utilizando o [ferramenta de migração de dados do Azure Cosmos DB](import-data.md). Ao importar dados, considere as seguintes definições para a origem e os destinos na ferramenta de migração de dados:
+
+   * **Parâmetros de origem** 
+
+       * **Importe a partir de:** Ficheiros JSON
+
+   * **Parâmetros de destino** 
+
+      * **Cadeia de ligação:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Chave de partição:**  /país 
+
+      * **Débito da coleção:** 1000 
 
 Para partilhar os seus relatórios no PowerBI.com, tem de ter uma conta no PowerBI.com.  Para saber mais sobre o Power BI e Power BI Pro, veja [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 

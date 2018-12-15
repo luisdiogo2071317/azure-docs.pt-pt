@@ -3,18 +3,18 @@ title: Descrição geral do Azure Digital Twins | Microsoft Docs
 description: Saiba mais sobre o Azure Digital Twins, uma solução do Azure IoT para inteligência espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287375"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437117"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Descrição geral do Azure Digital Twins
 
@@ -27,12 +27,12 @@ Duplos Digital do Azure, pode consultar dados a partir de um espaço físico, em
 - Otimize a utilização de espaço disponível para um office.
 
 Os gémeos Digital do Azure aplica-se a todos os tipos de ambientes. Apenas alguns exemplos são armazéns, escritórios, instituições de ensino, hospitais e bancos. Ele ainda pode ser usado para stadiums, fábricas, muitos de estacionamento, parques, grades inteligentes e cidades. Os gémeos Digital do Azure podem ser utilizados nos seguintes cenários de exemplo para:
- 
-- Monitorizar a temperatura diária em vários Estados. 
+
+- Monitorizar a temperatura diária em vários Estados.
 - Monitorizar os caminhos de drones ocupado.
-- Identifica veículos autónomos. 
-- Analise os níveis de ocupação de um edifício. 
-- Encontre a caixa Registadora mais ocupada no seu arquivo. 
+- Identifica veículos autónomos.
+- Analise os níveis de ocupação de um edifício.
+- Encontre a caixa Registadora mais ocupada no seu arquivo.
 
 Qualquer que seja o cenário de negócio do mundo real, é possível aprovisionar uma instância digital correspondente através do Azure Digital Twins.
 
@@ -94,7 +94,7 @@ Os gémeos Digital do Azure é útil para representar o mundo físico e suas rel
 
 O Azure Digital Twins utiliza o Hub IoT do Azure para ligar os dispositivos de IoT e os sensores que mantêm tudo atualizado com o mundo físico. O diagrama seguinte mostra como duplos Digital do Azure se relaciona com outros serviços do Azure IoT.
 
-![O Azure Digital Twins é um serviço criado com base no Hub IoT do Azure](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![O Azure Digital Twins é um serviço criado com base no Hub IoT do Azure][1]
 
 Para obter mais informações sobre o IoT, veja [do Azure IoT tecnologias e soluções](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -102,15 +102,18 @@ Para obter mais informações sobre o IoT, veja [do Azure IoT tecnologias e solu
 
 Ir para uma breve demonstração sobre duplos Digital do Azure:
 
-> [!div class="nextstepaction"]
-> [Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure](./quickstart-view-occupancy-dotnet.md)
 
 Examinar um aplicativo de gerenciamento de recursos utilizando duplos Digital do Azure:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md) (Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial)
+>[!div class="nextstepaction"]
+>[Tutorial: Implementar duplos Digital do Azure e configurar um gráfico espacial](./tutorial-facilities-setup.md)
 
 Saiba mais sobre os principais conceitos do Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Compreender o modelo de objeto de duplos Digital e gráfico de inteligência espaciais](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Compreender o modelo de objeto de duplos Digital e gráfico de inteligência espaciais](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

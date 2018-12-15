@@ -137,7 +137,7 @@ items:
   - name: Visualizar os dados
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Integrações de parceiros
-    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+    href: platform/partners.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -219,7 +219,7 @@ items:
         - name: Ativar as definições de diagnóstico com modelos do Resource Manager
           href: platform/diagnostic-logs-stream-template.md
         - name: Preparar para o formato de registos de diagnóstico de Linhas JSON
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-append-blobs.md
         - name: Convidado de VM para o arquivo de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: Convidado de conjunto de dimensionamento de VM para o arquivo de métricas
@@ -651,7 +651,7 @@ items:
       - name: Exportar dados da aplicação
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Enviar dados para o Grafana
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      href: platform/grafana-plugin.md
   - name: Analisar dados
     items:
     - name: Criar gráficos de métricas no Explorador de Métricas
@@ -798,7 +798,7 @@ items:
     - name: Dimensionamento Automático
       items:
       - name: Instruções do dimensionamento automático
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-get-started.md
       - name: Compreender as definições de Dimensionamento Automático
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: Melhores práticas
@@ -806,7 +806,7 @@ items:
       - name: Métricas comuns
         href: platform/autoscale-common-metrics.md
       - name: Padrões comuns
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-scale-patterns.md
       - name: Dimensionamento automático através de uma métrica personalizada
         href: platform/autoscale-custom-metric.md
       - name: Dimensionar automaticamente os conjuntos de dimensionamento de VMs com modelos do Resource Manager
@@ -832,7 +832,7 @@ items:
   - name: Gerir a utilização e os custos
     items:
     - name: Utilização e custos estimados
-      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/usage-estimated-costs.md
     - name: Volume e retenção de dados da aplicação
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Detalhes do plano Enterprise da aplicação
@@ -866,7 +866,7 @@ items:
     - name: API
       items:
       - name: Guia de utilização da API REST
-        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+        href: platform/rest-api-walkthrough.md
       - name: API de Alerta
         href: platform/api-alerts.md
     - name: Aplicações
@@ -952,7 +952,7 @@ items:
   - name: Métricas
     items:
     - name: Métricas suportadas
-      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-supported.md
     - name: Métricas suportadas para os alertas mais recentes
       href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
   - name: Esquemas
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9be0566a2e0fddc61d5c7028e9ecc7a24930b2f2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384434"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438392"

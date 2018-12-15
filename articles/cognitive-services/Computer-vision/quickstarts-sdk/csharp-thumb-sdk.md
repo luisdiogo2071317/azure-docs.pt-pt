@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: gerar uma miniatura – SDK, C# – Imagem Digitalizada'
+title: 'Início rápido: Gere uma miniatura - SDK, C# -de imagem digitalizada'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura a partir de uma imagem através da biblioteca de cliente C# da Imagem Digitalizada do Windows.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 8c8a15af39972b79086a3eb2d392fdc4e7635323
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959432"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413290"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guia de Início Rápido: gerar uma miniatura com o SDK de Imagem Digitalizada e C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Início rápido: Gere uma miniatura com o SDK de visão do computador eC#
 
 Neste início rápido, irá gerar uma miniatura a partir de uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows.
 
@@ -30,7 +30,7 @@ Neste início rápido, irá gerar uma miniatura a partir de uma imagem através 
 ## <a name="generatethumbnailasync-method"></a>Método GenerateThumbnailAsync
 
 > [!TIP]
-> Obter o código mais recente como uma solução do Visual Studio a partir do [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens remotas e locais, respetivamente.  Pode utilizar estes métodos para gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 

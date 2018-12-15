@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: abd9aeab88dc723ddcdff90ce58268296841dc4e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705927"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413307"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o acesso condicional do Azure Active Directory  
 
@@ -87,7 +87,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
+3. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
     ![Acesso condicional](./media/app-sign-in-risk/03.png)
  

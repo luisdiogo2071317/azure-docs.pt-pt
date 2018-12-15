@@ -1,5 +1,5 @@
 ---
-title: Criar ou modificar laboratórios automaticamente utilizando os modelos Azure Resource Manager com o PowerShell | Microsoft Docs
+title: Criar ou modificar laboratórios automaticamente utilizando modelos Azure Resource Manager com o PowerShell | Documentos da Microsoft
 description: Saiba como utilizar os modelos Azure Resource Manager com o PowerShell para criar ou modificar laboratórios automaticamente num laboratório DevTest
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7cf6e5569e9d47b2a279f39cf837a4c0558bf3c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2c15cac7897e25018057aa47cc2043050ed0ae5b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788621"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413205"
 ---
-# <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Criar ou modificar laboratórios automaticamente com modelos Azure Resource Manager e o PowerShell
+# <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Criar ou modificar laboratórios automaticamente utilizando modelos Azure Resource Manager e o PowerShell
 
-DevTest Labs fornece muitos modelos Azure Resource Manager e scripts do PowerShell que podem ajudá-lo rapidamente e criar automaticamente laboratórios novo ou modificar laboratórios existentes e, em seguida, implementar estes recursos.
+DevTest Labs fornece muitos modelos Azure Resource Manager e scripts do PowerShell que podem ajudá-lo a rapidamente e criar automaticamente os novos laboratórios ou modificar laboratórios existentes e, em seguida, implementar esses recursos.
 
-Este artigo ajuda-ajudá-lo durante o processo de utilizar estes modelos e scripts para automatizar a criação, modificação e a implementação da sua laboratórios. Este artigo também mostra onde pode encontrar mais informações sobre como utilizar o PowerShell para efetuar algumas tarefas comuns no DevTest Labs.
+Este artigo ajuda a orientar o processo de usar esses modelos e scripts para automatizar a criação, modificação e implementação de seus laboratórios. Este artigo também mostra onde pode encontrar mais informações sobre como utilizar o PowerShell para efetuar algumas tarefas comuns no DevTest Labs.
 
-## <a name="step-1-gather-your-templates-and-scripts"></a>Passo 1: Recolher os modelos e scripts
-Pode encontrar previamente efetuadas [modelos Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) e [scripts do PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) no nosso público [repositório do Github](https://github.com/Azure/azure-devtestlab). Utilizá-los como-é, ou personalize-os para as suas necessidades e armazená-las na sua própria [repositório de Git privado](devtest-lab-add-artifact-repo.md). 
+## <a name="step-1-gather-your-templates-and-scripts"></a>Passo 1: Recolher os seus modelos e scripts
+Pode encontrar previamente criados [modelos Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) e [scripts do PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) em nosso público [repositório do GitHub](https://github.com/Azure/azure-devtestlab). Utilizá-los conforme-é, ou personalize-os para as suas necessidades e armazená-los em seus próprios [repositório de Git privado](devtest-lab-add-artifact-repo.md).
 
-## <a name="step-2-modify-your-azure-resource-manager-template"></a>Passo 2: Modificar o modelo Azure Resource Manager
-Pode seguir os passos indicados em [criar o primeiro modelo Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) se nunca tiver criado um modelo antes de.
+## <a name="step-2-modify-your-azure-resource-manager-template"></a>Passo 2: Alterar o seu modelo do Azure Resource Manager
+Pode seguir os passos indicados em [criar o primeiro modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) se nunca tiver criado um modelo de antes.
 
-Além disso, [melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferece muitas orientações e sugestões para ajudar a criar os modelos Azure Resource Manager que são fiáveis e fáceis de utilizar. Normalmente, irá utilizar uma variação de um dos abordagens ou exemplos fornecidos e modificar o modelo para as suas necessidades.
+Além disso, [melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferece muitas orientações e sugestões para ajudar a criar modelos Azure Resource Manager que são confiáveis e fáceis de usar. Normalmente, irá utilizar uma variação de um dos exemplos fornecidos ou abordagens e alterar o seu modelo para as suas necessidades.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>Passo 3: Implementar recursos com o PowerShell
-Depois de ter personalizada os modelos e os scripts, siga os passos necessários para [implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). O artigo fornece informações gerais sobre como utilizar o Azure PowerShell com modelos Azure Resource Manager para implementar os recursos no Azure.
+Depois de ter personalizada os modelos e os scripts, siga as etapas necessárias para [implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). O artigo fornece informações sobre como utilizar o Azure PowerShell com modelos Azure Resource Manager para implementar os seus recursos no Azure.
 
 
-## <a name="common-tasks-you-can-perform-in-devtest-labs-using-powershell"></a>Tarefas comuns que pode efetuar no DevTest labs através do PowerShell
-Existem muitas outras tarefas comuns que podem automatizar utilizando o PowerShell. As seguintes secções da documentação descrevem os passos necessários para efetuar estas tarefas.
+## <a name="common-tasks-you-can-perform-in-devtest-labs-using-powershell"></a>Tarefas comuns que pode efetuar no DevTest labs com o PowerShell
+Existem muitas outras tarefas comuns que podem automatizar com o PowerShell. As secções seguintes da documentação descrevem os passos necessários para executar estas tarefas.
 
-* [Criar uma imagem personalizada de um ficheiro VHD utilizando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-* [Carregar ficheiro VHD para a conta de armazenamento do laboratório com o PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+* [Criar uma imagem personalizada a partir de um ficheiro VHD com o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+* [Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 * [Adicionar um utilizador externo a um laboratório com o PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Criar uma função personalizada de laboratório com o PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
 ### <a name="next-steps"></a>Passos Seguintes
-* Saiba como criar um [repositório de Git privado](devtest-lab-add-artifact-repo.md) onde irá armazenar os seus modelos personalizados ou scripts.
-* Explorar o [modelos Azure Resource Manager na Galeria de modelo de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+* Saiba como criar uma [repositório de Git privado](devtest-lab-add-artifact-repo.md) onde irá armazenar seus modelos personalizados ou scripts.
+* Explore os [modelos do Azure Resource Manager da Galeria de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).

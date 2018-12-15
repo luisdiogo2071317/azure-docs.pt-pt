@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167006"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408923"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -63,7 +63,7 @@ Isto permite que a solução para a sua conta de automatização. A solução po
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o controlo de alterações e inventário
 
-Para saber como para integrar computadores para a solução visite: [soluções automatizadas de integração](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a integração com a solução de controlo de alterações e inventário pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, ele é habilitado para controlo de alterações e inventário.
+Para saber como para integrar computadores para a solução visite: [Soluções de automatização de inclusão](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a integração com a solução de controlo de alterações e inventário pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, ele é habilitado para controlo de alterações e inventário.
 
 Para controlar alterações em arquivos no Windows e Linux, são usados hashes MD5 dos ficheiros. Theses hashes, em seguida, são utilizados para detetar se uma alteração foi efetuada desde o último inventário.
 
@@ -85,7 +85,7 @@ Utilize os seguintes passos para configurar o controlo de ficheiros em computado
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue as ligações simbólicas e permite a alteração do conteúdo devolvido.     |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
 
 > [!NOTE]
 > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
@@ -105,7 +105,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Definições de caráter universal, recursão e ambiente
 
@@ -171,6 +171,17 @@ A tabela seguinte mostra a frequência de recolha de dados para os tipos de alte
 | Dos daemons do Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software do Linux | 5 minutos |
+
+A tabela seguinte mostra os limites de item controladas por máquina para controlo de alterações.
+
+| **Recurso** | **Limite**| **Notas** |
+|---|---|---|
+|Ficheiro|500||
+|Registo|250||
+|Software do Windows|250|Não inclui as atualizações de software|
+|Pacotes de Linux|1250||
+|Serviços|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Controlo de serviço do Windows
 

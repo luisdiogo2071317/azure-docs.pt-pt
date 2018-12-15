@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279862"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430022"
 ---
 Transações da chave (transações máx. permitidas dentro de 10 segundos, por cofre por região<sup>1</sup>):
 
-|Tipo de chave|Chave de HSM<br>Criar chave|HSM-key<br>Todas as outras transações|Chave de software<br>Criar chave|Chave de software<br>Todas as outras transações|
+|Tipo de chave|HSM-key<br>Criar chave|HSM-key<br>Todas as outras transações|Chave de software<br>Criar chave|Chave de software<br>Todas as outras transações|
 |:---|---:|---:|---:|---:|
 |RSA de 2048 bits|5|1000|10|2000|
 |RSA de 3072 bits|5|250|10|500|
@@ -23,6 +23,20 @@ Transações da chave (transações máx. permitidas dentro de 10 segundos, por 
 |P-521 ECC|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> Se examinar a tabela a seguir, verá que para as chaves de software de segurança, permitimos permitimos 1000 transações por 10 segundos de chaves de segurança de transações de 2000 por 10 segundos e por HSM. A proporção de transações de software de segurança de mensagens em fila para 3072 chaves para chaves de 2048 é 500/2000 ou 0.4. Isso significa que, se um cliente faz 500 3072 chave transações dentro de 10 segundos, atingem o seu limite máximo e não é possível fazer outras operações de chaves. 
+   
+|Tipo de chave  | Chave de software |HSM-key  |
+|---------|---------|---------|
+|RSA de 2048 bits     |    2000     |   1000    |
+|RSA de 3072 bits     |     500    |    250     |
+|RSA 4096 bits     |    125     |    250     |
+|P-256 ECC     |    2000     |  1000     |
+|P-384 ECC     |    2000     |  1000     |
+|P-521 ECC     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
 
 Segredos, chaves de conta de armazenamento gerida e transações de cofre:
 | Tipo de transações | Transações de máx. permitidas dentro de 10 segundos, por cofre por região<sup>1</sup> |

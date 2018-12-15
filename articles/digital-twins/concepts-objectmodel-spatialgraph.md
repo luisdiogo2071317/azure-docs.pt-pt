@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636888"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436930"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Compreender os modelos de objeto de duplos Digital e gráfico de inteligência espaciais
 
@@ -48,11 +48,11 @@ Outras categorias de objetos são:
 - **Funções** são conjuntos de permissões atribuídas a utilizadores e dispositivos no gráfico espacial, por exemplo, `Space Administrator`, `User Administrator`, e `Device Administrator`.
 - **Atribuições de funções** são a associação entre uma função e um objeto no gráfico espacial. Por exemplo, um utilizador ou um principal de serviço pode ser concedido permissão para gerir um espaço no gráfico espacial.
 - **Arquivos de chave de segurança** fornecer as chaves de segurança para todos os dispositivos da hierarquia num objeto de determinado espaço para permitir que o dispositivo de comunicar de forma segura duplos Digital.
-- **Funções definidas pelo utilizador** (UDFs) permitem dentro do gráfico geográfico de processamento de telemetria de sensores personalizáveis. Por exemplo, uma UDF pode: 
-    - Defina um valor de sensor. 
-    - Executar a lógica personalizada com base nas leituras dos sensores e definir a saída para um espaço. 
-    - Anexe metadados a um espaço. 
-    - Envie notificações quando forem cumpridas condições predefinidas. Atualmente, os UDFs podem ser escritos em JavaScript.
+- **Funções definidas pelo utilizador** (UDFs) permitem dentro do gráfico geográfico de processamento de telemetria de sensores personalizáveis. Por exemplo, uma UDF pode:
+  - Defina um valor de sensor.
+  - Executar a lógica personalizada com base nas leituras dos sensores e definir a saída para um espaço.
+  - Anexe metadados a um espaço.
+  - Envie notificações quando forem cumpridas condições predefinidas. Atualmente, os UDFs podem ser escritos em JavaScript.
 - **Matchers** são objetos que determinam quais UDFs são executados de uma mensagem de telemetria de determinado.
 - **Pontos finais** são os locais onde as mensagens de telemetria e eventos de duplos Digital podem ser encaminhados, por exemplo, `Event Hub`, `Service Bus`, e `Event Grid`.
 
@@ -103,9 +103,9 @@ Todas as chamadas de API tem de ser autenticadas utilizando [OAuth](https://docs
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a conectividade do dispositivo e como enviar mensagens de telemetria para o Digital duplos, leia [entrada de telemetria e de conectividade do dispositivo de duplos Digital do Azure](concepts-device-ingress.md).
+- Para saber mais sobre a conectividade do dispositivo e como enviar mensagens de telemetria para o Digital duplos, leia [entrada de telemetria e de conectividade do dispositivo de duplos Digital do Azure](concepts-device-ingress.md).
 
-* Para saber mais sobre as limitações de API de gestão e limitações, leia [gestão de API do Azure Digital duplos e limitações](concepts-service-limits.md).
+- Para saber mais sobre as limitações de API de gestão e limitações, leia [gestão de API do Azure Digital duplos e limitações](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

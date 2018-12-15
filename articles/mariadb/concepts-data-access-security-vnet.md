@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277331"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434346"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para MariaDB
 
@@ -33,13 +33,13 @@ Para criar uma regra de rede virtual, tem primeiro de existir uma [rede virtual]
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
-**Rede virtual:** pode ter redes virtuais associadas à subscrição do Azure.
+**Rede virtual:** Pode ter redes virtuais associadas à subscrição do Azure.
 
-**Sub-rede:** contém uma rede virtual **sub-redes**. Quaisquer máquinas virtuais (VMs) do Azure que tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Computação de nós que estão fora da sua rede virtual não é possível aceder à sua rede virtual, a menos que configura a sua segurança para permitir o acesso.
+**Sub-rede:** Contém uma rede virtual **sub-redes**. Quaisquer máquinas virtuais (VMs) do Azure que tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Computação de nós que estão fora da sua rede virtual não é possível aceder à sua rede virtual, a menos que configura a sua segurança para permitir o acesso.
 
-**Ponto final de serviço de rede virtual:** uma [ponto final de serviço de rede Virtual] [ vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Neste artigo estamos interessados em nome do tipo de **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL. Esta etiqueta de serviço também se aplica à base de dados do Azure para serviços MariaDB, MySQL e PostgreSQL. É importante ter em conta ao aplicar a **Microsoft. SQL** etiqueta de serviço para um ponto de extremidade do serviço de VNet-irá configurar o tráfego de ponto final de serviço para todos os SQL Database do Azure, base de dados do Azure para MariaDB, base de dados do Azure para MySQL e o Azure Base de dados para servidores PostgreSQL na sub-rede.
+**Endpoint de serviço de rede virtual:** R [ponto final de serviço de rede Virtual] [ vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Neste artigo estamos interessados em nome do tipo de **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL. Esta etiqueta de serviço também se aplica à base de dados do Azure para serviços MariaDB, MySQL e PostgreSQL. É importante ter em conta ao aplicar a **Microsoft. SQL** etiqueta de serviço para um ponto de extremidade do serviço de VNet-irá configurar o tráfego de ponto final de serviço para todos os SQL Database do Azure, base de dados do Azure para MariaDB, base de dados do Azure para MySQL e o Azure Base de dados para servidores PostgreSQL na sub-rede.
 
-**Regra de rede virtual:** uma regra de rede virtual para a base de dados do Azure para MariaDB server é uma sub-rede que está listada na lista de controlo de acesso (ACL) de sua base de dados do Azure para MariaDB server. Para ser na ACL da base de dados do Azure para MariaDB server, a sub-rede tem de conter o **Microsoft. SQL** nome do tipo.
+**Regra de rede virtual:** Uma regra de rede virtual para a base de dados do Azure para MariaDB server é uma sub-rede que está listada na lista de controlo de acesso (ACL) de sua base de dados do Azure para MariaDB server. Para ser na ACL da base de dados do Azure para MariaDB server, a sub-rede tem de conter o **Microsoft. SQL** nome do tipo.
 
 Uma regra de rede virtual informa ao seu banco de dados do Azure para MariaDB servidor para aceitar comunicações de cada nó que está na sub-rede.
 
@@ -93,8 +93,8 @@ Cada regra de rede virtual aplica-se à base de dados inteira do Azure para Mari
 
 Existe uma separação de funções de segurança na administração de pontos finais de serviço de rede Virtual. É necessária ação da cada uma das seguintes funções:
 
-- **Administrador de rede:** &nbsp; ativar o ponto final.
-- **Administrador da base de dados:** &nbsp; atualizar a lista de controlo de acesso (ACL) para adicionar a sub-rede especificada para a base de dados do Azure para MariaDB server.
+- **Administrador de rede:** &nbsp; Ative o ponto final.
+- **Administrador da base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a sub-rede especificada para a base de dados do Azure para MariaDB server.
 
 *Alternativa RBAC:*
 
@@ -117,7 +117,7 @@ Base de dados do Azure para MariaDB, a funcionalidade de regras de rede virtual 
 
 - Regras de rede virtual são aplicadas apenas a redes virtuais do Azure Resource Manager; e não à [modelo de implementação clássica] [ resource-manager-deployment-model-568f] redes.
 
-- Diante de ativar a rede virtual pontos finais de serviço à base de dados do Azure para MariaDB utilizando o **Microsoft. SQL** etiqueta de serviço também permite que os pontos finais para todos os serviços de base de dados do Azure: base de dados do Azure para MariaDB, base de dados do Azure para MySQL, Azure Base de dados para o PostgreSQL, base de dados SQL do Azure e Azure SQL Data Warehouse.
+- Diante de ativar a rede virtual pontos finais de serviço à base de dados do Azure para MariaDB utilizando o **Microsoft. SQL** etiqueta de serviço também permite que os pontos finais para todos os serviços de base de dados do Azure: Base de dados do Azure para MariaDB, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL, base de dados SQL do Azure e Azure SQL Data Warehouse.
 
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
@@ -149,7 +149,7 @@ Para artigos sobre a criação de regras de VNet, veja:
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

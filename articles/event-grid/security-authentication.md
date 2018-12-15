@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105738"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413494"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -35,9 +35,9 @@ Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar
 
 Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com o Event Grid. Event Grid suporta duas formas de validar a subscrição.
 
-1. **Handshake ValidationCode (programático)**: se controlar o código-fonte para o ponto final, este método é recomendado. No momento da criação de subscrição de eventos, o Event Grid envia um evento de validação de subscrição para o ponto final. O esquema deste evento é semelhante a qualquer outro evento do Event Grid. A parte de dados deste evento inclui um `validationCode` propriedade. A aplicação verifica que o pedido de validação é uma subscrição de evento esperado e ecoa o código de validação para o Event Grid. Esse mecanismo de handshake é suportado em todas as versões do Event Grid.
+1. **Handshake ValidationCode (programático)**: Se controlar o código-fonte para o ponto final, este método é recomendado. No momento da criação de subscrição de eventos, o Event Grid envia um evento de validação de subscrição para o ponto final. O esquema deste evento é semelhante a qualquer outro evento do Event Grid. A parte de dados deste evento inclui um `validationCode` propriedade. A aplicação verifica que o pedido de validação é uma subscrição de evento esperado e ecoa o código de validação para o Event Grid. Esse mecanismo de handshake é suportado em todas as versões do Event Grid.
 
-2. **O handshake de ValidationURL (manual)**: em certos casos, não é possível acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não pode responder por meio de programação com o código de validação.
+2. **O handshake de ValidationURL (manual)**: Em certos casos, não é possível acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não pode responder por meio de programação com o código de validação.
 
    A partir da versão de 2018-05-01-pré-visualização, o Event Grid suporta um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, o Event Grid envia um `validationUrl` propriedade na parte de dados do evento de validação de subscrição. Para concluir o handshake, encontrar essa URL nos dados de eventos e manualmente enviar um pedido GET para o mesmo. Pode utilizar um cliente REST ou de seu navegador da web.
 
@@ -79,6 +79,8 @@ Para provar a propriedade de ponto de extremidade, retornar o código de valida�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Tem de devolver um código de estado de resposta HTTP 200 OK. HTTP 202 aceite não é reconhecida como uma resposta de validação de subscrição do Event Grid válida.
 
 Em alternativa, pode validar manualmente a subscrição ao enviar um pedido GET para o URL de validação. A subscrição de evento permanece no estado pendente até que sejam validados.
 
@@ -271,7 +273,7 @@ Se tiver de especificar permissões que são diferentes de funções incorporada
 
 Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes. Estas funções personalizadas são diferentes das funções incorporadas, porque eles concedem um acesso mais abrangente do que apenas as subscrições de eventos.
 
-**EventGridReadOnlyRole.json**: permitir apenas operações só de leitura.
+**EventGridReadOnlyRole.json**: Permitir apenas operações só de leitura.
 
 ```json
 {
@@ -290,7 +292,7 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: permitir as ações post restrito, mas não permitam ações de eliminação.
+**EventGridNoDeleteListKeysRole.json**: Permitir as ações post restrito, mas não permitir ações de eliminação.
 
 ```json
 {
@@ -313,7 +315,7 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 }
 ```
 
-**EventGridContributorRole.json**: permite que todas as ações de grelha de eventos.
+**EventGridContributorRole.json**: Permite que todas as ações de grelha de eventos.
 
 ```json
 {

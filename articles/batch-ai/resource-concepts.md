@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057226"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407750"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Descrição geral dos recursos no Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Quando primeiro começa a utilizar o serviço Batch AI, vai querer compreender os recursos do Batch AI disponíveis. Como com outros serviços do Azure, criar recursos do Batch AI no Azure de um ou mais *grupos de recursos*. Criar um ou mais o Batch AI *áreas de trabalho* num grupo de recursos. Cada área de trabalho contém um misto de Batch AI *clusters*, *servidores de ficheiros*, e *experimentações*. Uma experimentação de Batch AI encapsula um grupo de *tarefas*.
 
@@ -50,7 +53,7 @@ Uma experimentação agrupa uma coleção de tarefas relacionadas que consultar 
 
 ## <a name="job"></a>Tarefa
 
-Uma tarefa é uma única tarefa ou um script que precisa ser executado, por exemplo, para preparar um modelo de aprendizagem profunda. Cada tarefa executa um script específico num cluster na área de trabalho. (O script pode ser armazenado num servidor de ficheiros de IA do Batch ou outra solução de armazenamento.) Cada tarefa do Batch AI tem um tipo de estrutura associado à mesma: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizadas ou personalizado. Para cada estrutura, o serviço Batch AI configura a infra-estrutura necessária e gere os processos de trabalho. Cada experimentação pode ter várias tarefas que são semelhantes, exceto por algumas alterações aos parâmetros diferentes.
+Uma tarefa é uma única tarefa ou um script que precisa ser executado, por exemplo, para preparar um modelo de aprendizagem profunda. Cada tarefa executa um script específico num cluster na área de trabalho. (O script pode ser armazenado num servidor de ficheiros de IA do Batch ou outra solução de armazenamento.) Cada tarefa do Batch AI tem um tipo de estrutura associado a ele: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, personalizadas MPI ou personalizado. Para cada estrutura, o serviço Batch AI configura a infra-estrutura necessária e gere os processos de trabalho. Cada experimentação pode ter várias tarefas que são semelhantes, exceto por algumas alterações aos parâmetros diferentes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

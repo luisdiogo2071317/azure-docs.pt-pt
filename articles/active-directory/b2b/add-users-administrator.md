@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335066"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436913"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure
 
@@ -24,7 +24,7 @@ Como um administrador global ou um utilizador que está atribuído a qualquer um
 Depois de adicionar um utilizador convidado ao diretório, pode optar por enviar o utilizador convidado uma ligação direta para uma aplicação partilhada ou o utilizador convidado pode clique no URL de resgate no e-mail de convite. Para obter mais informações sobre o processo de resgate, consulte [resgate de convite de colaboração do B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> Deve seguir os passos em [procedimentos: adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convite de tempo primeiro, um utilizador convidado tem de dar consentimento para os seus termos de privacidade para continuar. 
+> Deve seguir os passos em [procedimentos: Adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convite de tempo primeiro, um utilizador convidado tem de dar consentimento para os seus termos de privacidade para continuar. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Adicionar utilizadores convidados para o diretório
 
@@ -37,6 +37,9 @@ Para adicionar utilizadores de colaboração B2B ao diretório, siga estes passo
 
    ![Mostra onde o novo utilizador convidado está na interface do Usuário](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > O **novo utilizador convidado** opção também está disponível na **organizacionais relações** página. Na **do Azure Active Directory**, em **gerir**, selecione **relações organizacionais**.
+
 5. Em **Nome de utilizador**, introduza o endereço de e-mail do utilizador externo. Também tem a opção de incluir uma mensagem de boas-vindas. Por exemplo:
 
    ![Mostra onde o novo utilizador convidado está na interface do Usuário](./media/add-users-administrator/InviteGuest.png) 
@@ -59,7 +62,7 @@ Se precisar de adicionar manualmente utilizadores de colaboração B2B para um g
 3. Sob **Manage**, selecione **grupos**.
 4. Selecione um grupo (ou clique em **novo grupo** para criar um novo). É uma boa idéia para incluir na descrição do grupo que o grupo contém utilizadores convidados B2B.
 5. Selecione **membros**. 
-6. Efetue um dos seguintes procedimentos:
+6. Efetue uma das seguintes ações:
    - Se o utilizador convidado já existe no diretório, procure o utilizador B2B. Selecione o utilizador e, em seguida, clique em **selecione** para adicionar o utilizador ao grupo.
    - Se o utilizador convidado ainda não existir no diretório, convidá-los ao grupo, escrevendo o respetivo endereço de e-mail na caixa de pesquisa, escrevendo uma mensagem pessoal opcional e, em seguida, clicar em **selecione**. O convite sai automaticamente para o utilizador convidado.
      
@@ -81,7 +84,7 @@ Para adicionar utilizadores de colaboração B2B a uma aplicação como administ
 
 6. Selecione **adicionar utilizador**.
 7. Sob **adicionar atribuição**, selecione **grupos de utilizadores e**.
-8. Efetue um dos seguintes procedimentos:
+8. Efetue uma das seguintes ações:
    - Se o utilizador convidado já existe no diretório, procure o utilizador B2B. Selecione o utilizador, clique em **selecionar**e, em seguida, clique em **atribuir** para adicionar o utilizador para a aplicação.
    - Se o utilizador convidado ainda não existir no diretório, em **selecione o membro ou Convide um utilizador externo**, escreva o endereço de e-mail do utilizador. Na caixa de mensagem, escreva uma mensagem pessoal opcional. Na caixa de mensagem, clique em **convidar**.
            

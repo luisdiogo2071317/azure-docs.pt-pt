@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054991"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434050"
 ---
 # <a name="os-patching-for-hdinsight"></a>Sistema operacional a aplicação de patches para HDInsight 
-Como um serviço gerido do Hadoop HDInsight assume o controlo de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, alteramos a política de aplicação de patches de SO convidado para clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido a aplicação de patches. A nova política irá continuar a máquinas de virtuais de patch (VMs) em clusters do Linux cada segunda-feira ou a partir de 12 AM UTC de forma escalonada em todos os nós em qualquer determinado cluster de quinta-feira. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a partir da data de criação do cluster. Patches entrarão em vigor assim que as VMs são reiniciadas.
+Como um serviço gerido do Apache Hadoop, HDInsight assume o controlo de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, alteramos a política de aplicação de patches de SO convidado para clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido a aplicação de patches. A nova política irá continuar a máquinas de virtuais de patch (VMs) em clusters do Linux cada segunda-feira ou a partir de 12 AM UTC de forma escalonada em todos os nós em qualquer determinado cluster de quinta-feira. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a partir da data de criação do cluster. Patches entrarão em vigor assim que as VMs são reiniciadas.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como configurar o sistema operacional a aplicação de patches de agendamento para clusters do HDInsight baseado em Linux
 As máquinas virtuais num cluster do HDInsight tem de ser reiniciado, ocasionalmente, para que podem ser instaladas patches de segurança importantes. A partir de 1 de Agosto de 2016, os novos clusters do HDInsight baseado em Linux (versão 3.4 ou superior,) são reiniciados através da agenda seguinte:
@@ -31,7 +31,7 @@ Com a ação de script descrita neste artigo, pode modificar o sistema operacion
 2. Conjunto a frequência dos reinícios (dias entre reinícios)
 3. Definir o dia da semana quando ocorre uma reinicialização
 
-> [!NOTE]
+> [!NOTE]  
 > Esta ação de script só funciona com clusters do HDInsight baseado em Linux criados após 1 de Agosto de 2016. Patches entrarão em vigor apenas quando as VMs são reiniciadas. 
 >
 
@@ -52,10 +52,8 @@ Quando utilizar este script requer as seguintes informações:
     | Dia da semana |1 a 7 (inclusive). Um valor de 1 indica que o reinício deve ocorrer numa segunda-feira e 7 indica um exemplo de Sunday.For, utilizando parâmetros de 2 de 60 1 resulta em automático é reiniciado a cada 60 dias (no máximo) na Terça-feira. |
     | Persistência |Ao aplicar uma ação de script a um cluster existente, pode marcar o script como persistente. Os scripts persistentes são aplicados quando workernodes novos são adicionados ao cluster através de operações de dimensionamento. |
 
-> [!NOTE]
-> Tem de marcar esse script como persistente ao aplicar a um cluster existente. Caso contrário, qualquer novos nós criado por meio de operações de dimensionamento irão utilizar a predefinição de agenda de correções.
-Se aplicar o script como parte do processo de criação do cluster, ele é mantido automaticamente.
->
+> [!NOTE]  
+> Tem de marcar esse script como persistente ao aplicar a um cluster existente. Caso contrário, qualquer novos nós criado por meio de operações de dimensionamento irão utilizar a predefinição de agenda de correções.  Se aplicar o script como parte do processo de criação do cluster, ele é mantido automaticamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

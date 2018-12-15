@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ac108d65b42221189e50987238ad3d7edad1e30
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005347"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437202"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning no HDInsight
 
-HDInsight permite que o machine learning com grandes volumes de dados, fornecendo a capacidade para obter informações valiosas de grandes quantidades (petabytes ou até mesmo exabytes) de não estruturados e os dados de rápida evolução. Existem opções de vários machine learning no HDInsight: SparkML e MLlib, R, Hive e o Microsoft Cognitive Toolkit.
+HDInsight permite que o machine learning com grandes volumes de dados, fornecendo a capacidade para obter informações valiosas de grandes quantidades (petabytes ou até mesmo exabytes) de não estruturados e os dados de rápida evolução. Existem vários aprendizagem automática opções no HDInsight:  SparkML e MLlib, R, Apache Hive e o Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML e o MLlib
 
-[Spark do HDInsight](spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Spark](http://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que suporta o processamento de dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. Existem duas bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base no RDDs. SparkML é um pacote mais recente que fornece uma API de nível mais alto assentes DataFrames para a criação de pipelines de ML. SparkML ainda não suporta todas as funcionalidades de MLlib, mas está a substituir o MLlib como biblioteca de aprendizagem automática padrão do Spark.
+[Spark do HDInsight](spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Apache Spark](http://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que suporta o processamento de dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. Existem duas bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base no RDDs. SparkML é um pacote mais recente que fornece uma API de nível mais alto assentes DataFrames para a criação de pipelines de ML. SparkML ainda não suporta todas as funcionalidades de MLlib, mas está a substituir o MLlib como biblioteca de aprendizagem automática padrão do Spark.
 
 A biblioteca do Microsoft Machine Learning para Apache Spark está [MMLSpark](https://github.com/Azure/mmlspark). Esta biblioteca foi concebida para tornar os cientistas de dados mais produtivos no Spark, aumentam a taxa de experimentação e tirar partido das técnicas de aprendizagem de última geração, incluindo a aprendizagem profunda, em conjuntos de dados muito grandes. MMLSpark fornece uma camada sobre APIs de baixo nível do SparkML durante a criação de modelos de ML dimensionáveis, como cadeias de caracteres de indexação, impor dados num layout esperado pela máquina algoritmos de aprendizagem e a criação de vetores de funcionalidade. A biblioteca de MMLSpark simplifica estas e outras tarefas comuns para a criação de modelos no PySpark.
 
@@ -36,7 +36,7 @@ Nó de extremidade de um cluster fornece um local conveniente para ligar ao clus
 
 Com os serviços no HDInsight com o Spark ML, consegue paralelizar tão treinamento em todos os nós de um cluster através de um contexto de cálculo do Spark. Pode executar R scripts diretamente no nó de extremidade, com todos os núcleos disponíveis em paralelo, conforme necessário. Em alternativa, pode executar o código a partir do nó de extremidade para iniciar o processamento que é distribuído por todos os nós do cluster. Os serviços de ML no HDInsight com o Spark também permitem a paralelização de funções a partir de pacotes de R de código aberto, se assim o desejar.
 
-## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning e o Hive
+## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e o Apache Hive
 
 O Azure Machine Learning fornece ferramentas para Análise Preditiva do modelo, bem como um serviço totalmente gerido que pode utilizar para implementar os seus modelos preditivos como serviços web prontos a consumir. O Azure Machine Learning é uma solução completa de Análise Preditiva na cloud que pode utilizar para criar, testar, operacionalizar e gerir modelos de previsão. Selecionar a partir de uma grande biblioteca de algoritmos, utilize um studio baseado na web para a criação de modelos e implementar facilmente o seu modelo como um serviço web.
 
@@ -54,14 +54,14 @@ Para ajudar a desenvolver a sua própria trabalho na aprendizagem profunda, a Mi
 
 ### <a name="scenarios"></a>Cenários
 
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Gerar recomendações de filmes com o Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
-* [Hive e do Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
-* [Hive e o Azure Machine Learning ponto-a-ponto](../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Machine learning com o Spark no HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Gerar recomendações de filmes com o Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
+* [Apache Hive e do Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
+* [Apache Hive e o Azure Machine Learning ponto-a-ponto](../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Machine learning com o Apache Spark no HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
 
 ### <a name="deep-learning-resources"></a>Recursos de aprendizagem profunda
 
-* [Kit de ferramentas de aprendizagem profunda com o Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
-* [Classificação de imagens constrangedoramente paralelas com o conjunto de ferramentas cognitivos + Tensorflow no Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
+* [Kit de ferramentas com o Apache Spark de aprendizagem profunda](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
+* [Classificação de imagens constrangedoramente paralelas com o conjunto de ferramentas cognitivos + Tensorflow no Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)

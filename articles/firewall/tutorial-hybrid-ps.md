@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: 467e8242ffeec435976f3f8fa5740908ea93d262
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260910"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435570"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -54,6 +55,12 @@ Existem três requisitos chave para este cenário funcionar corretamente:
 - Certifique-se de que define **AllowGatewayTransit** no peering de VNet-Hub para VNet-Spoke e que utiliza **UseRemoteGateways** no peering de VNet-Spoke para VNet-Hub.
 
 Veja a secção [Criar Rotas](#create-routes) neste tutorial para perceber como estas rotas são criadas.
+
+>[!NOTE]
+>Firewall do Azure tem de ter conectividade à internet direta. Se tiver ativado o túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, terá de configurar 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**e, em seguida, atribua-o para  **AzureFirewallSubnet**.
+
+>[!NOTE]
+>Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se UIR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, o UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -309,9 +316,6 @@ Em seguida, crie duas rotas:
 
 - Uma rota da sub-rede de gateway do hub para a sub-rede spoke através do endereço IP da firewall
 - Uma rota predefinida da sub-rede spoke através do endereço IP da firewall
-
->[!NOTE]
->Firewall do Azure tem de ter conectividade à internet direta. Se tiver ativado o túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, terá de configurar 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**e, em seguida, atribua-o para  **AzureFirewallSubnet**.
 
 ```azurepowershell
 #Create a route table

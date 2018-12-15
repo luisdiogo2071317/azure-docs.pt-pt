@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185720"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409875"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -35,7 +35,6 @@ Computação do Azure Machine Learning podem ser criado em Python, através do p
 > Recomendamos que crie uma nova área de trabalho para utilizar a computação do Azure Machine Learning. Há uma chance remota que os utilizadores a tentar criar a computação do Azure Machine Learning a partir de uma área de trabalho existente poderão ver um erro. Computação existente na sua área de trabalho deve continuar a trabalhar afetada.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning SDK for Python v1.0.2
-
 + **Alterações recentes**
   + Com esta versão, estamos a remover suporte para criar uma VM do Azure Machine Learning. Ainda pode anexar uma VM de nuvem existente ou remoto no servidor local. 
   + Estamos também a remover o suporte para BatchAI, todos os quais devem ser suportados por meio de computação do Azure Machine Learning agora.
@@ -56,7 +55,6 @@ Computação do Azure Machine Learning podem ser criado em Python, através do p
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>SDK v0.5.2 de preparação de dados do Azure Machine Learning
-
 + **Alterações recentes** 
   * `SummaryFunction.N` nome foi mudado para `SummaryFunction.Count`.
   
@@ -66,6 +64,9 @@ Computação do Azure Machine Learning podem ser criado em Python, através do p
   * to_spark_dataframe() já não irá falhar quando são Spark utiliza Kryo serialização
   * Inspetor de contagem de valores agora pode mostrar mais de 1000 valores exclusivos
   * Divisão aleatória já não falha se o fluxo de dados original não tiver um nome  
+
++ **Mais informações**
+  * [SDK de Preparação de Dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>Documentos e blocos de notas
 + Pipelines de ML

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104584"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435553"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix no HDInsight
 
-[O Apache Phoenix](http://phoenix.apache.org/) é uma código-fonte aberto, camada de base de dados relacional paralelo em massa criada na [HBase](hbase/apache-hbase-overview.md). Phoenix permite-lhe utilizar consultas do tipo SQL através de HBase. Phoenix utiliza controladores JDBC por baixo, para permitir que os utilizadores a criar, eliminar, alter tabelas SQL, índices, Exibições e sequências e linhas de upsert individualmente e em massa. Phoenix usa a compilação nativo do noSQL, em vez de utilizar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase. Phoenix adiciona coprocessors para suportar a execução do código fornecido pelo cliente no espaço de endereços de servidor, executando o código na mesma localização os dados. Essa abordagem minimiza a transferência de dados de cliente/servidor.
+[O Apache Phoenix](http://phoenix.apache.org/) é uma código-fonte aberto, camada de base de dados relacional paralelo em massa criada na [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite-lhe utilizar consultas do tipo SQL através de HBase. Phoenix utiliza controladores JDBC por baixo, para permitir que os utilizadores a criar, eliminar, alter tabelas SQL, índices, Exibições e sequências e linhas de upsert individualmente e em massa. Phoenix usa a compilação nativo do noSQL, em vez de utilizar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase. Phoenix adiciona coprocessors para suportar a execução do código fornecido pelo cliente no espaço de endereços de servidor, executando o código na mesma localização os dados. Essa abordagem minimiza a transferência de dados de cliente/servidor.
 
-O Apache Phoenix abre-se as consultas de macrodados para não-desenvolvedores que podem utilizar uma sintaxe semelhante do SQL em vez de programação. Phoenix está altamente otimizado para o HBase, ao contrário de outras ferramentas, tal como [Hive](hadoop/hdinsight-use-hive.md) e o Spark SQL. A vantagem para os desenvolvedores, é altamente escrever consultas de alto desempenho com muito menos código.
+O Apache Phoenix abre-se as consultas de macrodados para não-desenvolvedores que podem utilizar uma sintaxe semelhante a SQL em vez de programação. Phoenix está altamente otimizado para o HBase, ao contrário de outras ferramentas, tal como [Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL. A vantagem para os desenvolvedores, é altamente escrever consultas de alto desempenho com muito menos código.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando submete uma consulta SQL, o Phoenix compila a consulta para chamadas nativas do HBase e executa a análise (ou o plano) em paralelo para a otimização. Essa camada de abstração libera o desenvolvedor da escrita de tarefas de MapReduce, para se concentrar em vez disso, a lógica de negócios e o fluxo de trabalho de seu aplicativo em todo o armazenamento de grandes volumes de dados do Phoenix.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Ativar e otimizar o Phoenix com Ambari
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Ativar e otimizar o Phoenix com Apache Ambari
 
 Um cluster do HBase do HDInsight inclui a [IU do Ambari](hdinsight-hadoop-manage-ambari.md) para alterações de configuração.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316954"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409467"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -468,20 +468,17 @@ Ao definir este valor de registo, o agente do Azure File Syn vai aceitar qualque
 | **Cadeia de erro** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediação necessária** | Sim |
 
-Este erro ocorre normalmente porque a hora do servidor está incorreta ou o certificado utilizado para autenticação expirou. Se a hora do servidor estiver correta, execute os passos seguintes para eliminar o certificado expirado (se a expirou) e repor o estado de registo do servidor:
+Este erro ocorre normalmente porque a hora do servidor está incorreta ou o certificado utilizado para autenticação expirou. Se a hora do servidor estiver correta, execute os seguintes passos para renovar o certificado expirado:
 
 1. Abra o snap-in MMC de certificados, selecione a conta de computador e navegue para \Personal\Certificates certificados (computador Local).
-2. Eliminar o certificado de autenticação de cliente se a expirou e feche o snap-in MMC de certificados.
-3. Abra Regedit e eliminar a chave de ServerSetting no registo: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. No portal do Azure, navegue para a secção de servidores registados do serviço de sincronização de armazenamento. Faça duplo clique no servidor com o certificado expirado e clique em "Servidor de anular o registo".
-5. Execute os seguintes comandos do PowerShell no servidor:
+2. Verifique se o certificado de autenticação de cliente expirou. Se o certificado está expirado, feche o snap-in MMC de certificados e proceeed com os restantes passos. 
+3. Verifique se o agente do Azure File Sync versão 4.0.1.0 ou posterior está instalado.
+4. Execute os seguintes comandos do PowerShell no servidor:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Volte a registar o servidor ao executar ServerRegistration.exe (a localização predefinida é c:\Programas\Microsoft Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**O volume onde está localizado o ponto final do servidor é baixo espaço em disco.**  
 | | |

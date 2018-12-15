@@ -1,19 +1,19 @@
 ---
-title: 'Requisitos de encaminhamento - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Encaminhamento requisitos - ExpressRoute: Azure | Documentos da Microsoft'
 description: Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 52ef636424a67c5f0d0bc77cec7667f6436f8276
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135802"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406560"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -101,7 +101,7 @@ Se os prefixos e o número SA não estiverem atribuídos a si nos registos anter
 É permitido um Número AS privado com Peering da Microsoft, mas também irá precisar de validação manual. Além disso, removemos os números privados COMO no COMO Caminho para os prefixos recebidos. Por consequência, não pode acrescentar números privados COMO no COMO Caminho de modo a [influenciar o encaminhamento para o Peering da Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Não anuncie a mesma rota IP pública para a Internet pública e através do ExpressRoute. Recomendamos vivamente que anuncia uma rota mais específica através do ExpressRoute e uma rota mais geral para a Internet para [NAT](expressroute-nat.md). Além da rota pública para NAT, também pode anunciar através do ExpressRoute o IP público endereços utilizados pelos servidores na sua rede no local que comunicam com pontos finais do Office 365 na Microsoft. 
+> Não anuncie a mesma rota IP pública para a Internet pública e através do ExpressRoute. Para reduzir o risco de configuração incorreta, causam encaminhamento assimétrico, é altamente recomendável que o [endereços NAT IP](expressroute-nat.md) anunciados à Microsoft via ExpressRoute ser de um intervalo que não é anunciado à internet de todo. Se isso não é possível obter, é essencial para garantir a que anunciar um intervalo mais específico através do ExpressRoute que uma sobre a ligação à Internet. Além da rota pública para NAT, também pode anunciar através do ExpressRoute o IP público endereços utilizados pelos servidores na sua rede no local que comunicam com pontos finais do Office 365 na Microsoft. 
 > 
 > 
 

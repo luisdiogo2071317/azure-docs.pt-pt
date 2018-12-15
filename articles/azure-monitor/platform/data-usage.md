@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e709f1bed10ee1f7d45bea18b8bdf2c6653be6a6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277357"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433986"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
 > [!NOTE]
 > Este artigo descreve como analisar a utilização de dados do Log Analytics.  Veja os artigos seguintes para obter informações relacionadas.
 > - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
-> - [Monitorizar a utilização e custos estimados](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
+> - [Monitorizar a utilização e custos estimados](../../azure-monitor/platform/usage-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
 
 ## <a name="understand-usage"></a>Compreender a utilização
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009197"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412943"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com ficheiros de NetApp do Azure
 Pode utilizar ficheiros de NetApp do Azure para criar um instantâneo de sob demanda para um volume ou restaurar a partir de um instantâneo para um novo volume.
@@ -43,29 +43,33 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
 
 4. Na janela do novo Volume, fornecem informações para o novo volume:  
     * **Nome**   
-        Especifique o nome para o volume que está a criar.  
+        Especifique o nome do volume que está a criar.  
         
-        O nome tem de ser exclusivo dentro de um grupo de recursos. Tem de ser, pelo menos, 3 carateres de comprimento.  Pode utilizar quaisquer carateres alfanuméricos.
+        O nome tem de ser exclusivo dentro de um grupo de recursos. Tem de ser, pelo menos, três carateres de comprimento.  Pode utilizar carateres alfanuméricos.
 
     * **Caminho do ficheiro**     
-        Especifique o caminho de ficheiro que será utilizado para criar o caminho de exportação para o novo volume. O caminho de exportação é utilizado para montar e aceder ao volume.   
+        Especifique o caminho de ficheiro que será utilizado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e aceder ao volume.   
         
         Um destino de montagem é o ponto final do endereço IP do serviço NFS. É gerado automaticamente.   
         
-        O nome de caminho de ficheiro pode conter letras, números e hífenes ("-") apenas. Tem de estar entre 16 e 40 carateres de comprimento. 
+        O nome de ficheiro pode conter apenas letras, números e hífenes ("-"). Tem de ter entre 16 e 40 carateres. 
 
     * **Quota**  
-        Especifique a quantidade de armazenamento lógico, que é atribuído ao volume.  
+        Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
 
-        O **quota disponível** campo mostra a quantidade de espaço não utilizado no agrupamento de escolhido de capacidade que pode utilizar para a criação de um novo volume. O tamanho do novo volume não pode exceder a quota disponível.
+        O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.
 
     *   **Rede virtual**  
-        Especifique a rede virtual do Azure (Vnet) do qual pretende aceder ao volume. 
-        
-        A Vnet que especificar tem de ter ficheiros de NetApp do Azure configurado. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir de uma Vnet que está na mesma localização que o volume.  
+        Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
+        A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route. 
 
-    ![Restaurado novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **Sub-rede**  
+        Especifique a sub-rede que pretende utilizar para o volume.  
+        A sub-rede que especificar deve ser delegada para o serviço de ficheiros do Azure NetApp. Pode criar uma nova sub-rede, selecionando **criar novo** sob o campo de sub-rede.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. Clique em **OK**.   
     O novo volume para que o instantâneo é restaurado aparece no painel do Volumes.
 

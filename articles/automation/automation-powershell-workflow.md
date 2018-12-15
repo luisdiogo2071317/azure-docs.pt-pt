@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239428"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437100"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender os principais conceitos de fluxo de trabalho do Windows PowerShell para runbooks de automatização
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-Pode utilizar o **ForEach-Parallel** construção para processar comandos para cada item na coleção em simultâneo. Os itens na coleção são processados paralelamente enquanto os comandos no bloco de script são executados sequencialmente. Esta opção utiliza a seguinte sintaxe indicada abaixo. Neste caso, Activity1 inicia-se ao mesmo tempo para todos os itens na coleção. Para cada item, Activity2 começa depois de activity1 ter sido concluído. Activity3 começa apenas depois de Activity1 e Activity2 concluiu todos os itens.
+Pode utilizar o **ForEach-Parallel** construção para processar comandos para cada item na coleção em simultâneo. Os itens na coleção são processados paralelamente enquanto os comandos no bloco de script são executados sequencialmente. Esta opção utiliza a seguinte sintaxe indicada abaixo. Neste caso, Activity1 inicia-se ao mesmo tempo para todos os itens na coleção. Para cada item, Activity2 começa depois de activity1 ter sido concluído. Activity3 começa apenas depois de Activity1 e Activity2 concluiu todos os itens. Usamos o `ThrottleLimit` parâmetro para limitar o paralelismo. Demasiado elevado um `ThrottleLimit` pode causar problemas. O valor ideal para o `ThrottleLimit` parâmetro depende de vários fatores no seu ambiente. Deve começar com um valor baixo de experimentar e tente aumentar os valores diferentes até encontrar uma que funcione para suas circunstâncias específicas.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Uma vez que as credenciais de nome de utilizador não são mantidas depois de chamar o [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) atividade ou após o último ponto de verificação, tem de definir as credenciais para nulo e, em seguida, recuperá-los novamente a partir do arquivo de recurso após  **Suspend-Workflow** ou ponto de verificação é chamado.  Caso contrário, poderá receber a seguinte mensagem de erro: *não é possível retomar a tarefa de fluxo de trabalho, porque os dados de persistência não foi possível ser guardados completamente ou guardar dados de persistência tem sido danificados. Tem de reiniciar o fluxo de trabalho.*
+Uma vez que as credenciais de nome de utilizador não são mantidas depois de chamar o [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) atividade ou após o último ponto de verificação, tem de definir as credenciais para nulo e, em seguida, recuperá-los novamente a partir do arquivo de recurso após  **Suspend-Workflow** ou ponto de verificação é chamado.  Caso contrário, poderá receber a seguinte mensagem de erro: *Não é possível retomar a tarefa de fluxo de trabalho, seja porque os dados de persistência não foi possível ser guardados completamente ou guardar dados de persistência está danificada. Tem de reiniciar o fluxo de trabalho.*
 
 O mesmo código seguinte demonstra como lidar com isso em seus runbooks de fluxo de trabalho do PowerShell.
 

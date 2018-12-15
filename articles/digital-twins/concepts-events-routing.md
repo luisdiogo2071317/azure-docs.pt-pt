@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615352"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438018"
 ---
 # <a name="routing-events-and-messages"></a>Encaminhar eventos e mensagens
 
@@ -23,7 +23,7 @@ Soluções de IoT unam-se, muitas vezes, vários serviços poderosos que incluem
 
 Os gémeos Digital do Azure oferece duas maneiras de integrar eventos de IoT para outros serviços do Azure ou para aplicativos de negócios:
 
-* **Eventos de roteamento duplos Digital do Azure**: um objeto a geográficos no gráfico que são alterados, os dados telemétricos recebidos, ou uma função definida pelo utilizador que cria uma notificação com base nas condições predefinidas pode acionar eventos de duplos Digital do Azure. Os utilizadores podem enviar estes eventos para [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Service bus do Azure](https://azure.microsoft.com/services/service-bus/), ou [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
+* **Eventos de roteamento duplos Digital do Azure**: Um objeto a geográficos no gráfico que são alterados, os dados telemétricos recebidos, ou uma função definida pelo utilizador que cria uma notificação com base nas condições predefinidas pode acionar eventos de duplos Digital do Azure. Os utilizadores podem enviar estes eventos para [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Service bus do Azure](https://azure.microsoft.com/services/service-bus/), ou [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
 
 * **Telemetria do dispositivo de encaminhamento**: Além de eventos de roteamento, duplos Digital do Azure pode também encaminhar mensagens de telemetria do dispositivo sem formato para os Hubs de eventos para obter mais informações e análises. Esses tipos de mensagens não são processados por duplos Digital do Azure. E eles apenas são reencaminhados para o hub de eventos.
 

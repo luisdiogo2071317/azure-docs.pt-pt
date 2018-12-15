@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 4ea00d1e23ce26855fe4bf01dc473c6b8672db47
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384552"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434210"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -75,7 +75,7 @@ Recursos do Azure que suportam [o Azure monitor](../../azure-monitor/overview.md
 >
 >
 
-* Para obter os detalhes das métricas disponíveis, consulte [suportado métricas com o Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Para obter os detalhes das métricas disponíveis, consulte [suportado métricas com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 * Para obter os detalhes dos registos disponíveis, consulte [suportada serviços e o esquema para os registos de diagnóstico](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Ativar diagnósticos com o PowerShell

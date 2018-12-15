@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017625"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434142"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight
 
@@ -25,18 +25,18 @@ Saiba como executar os exemplos de MapReduce incluídos com o Apache Hadoop no H
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do HDInsight**: consulte [introdução ao Hadoop com o Hive no HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster do HDInsight**: Consulte [começar a utilizar o Apache Hadoop com o Apache Hive no HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* **Um cliente SSH**: para obter mais informações, consulte [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**: Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Os exemplos de MapReduce
 
-**Localização**: os exemplos estão localizados no cluster do HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Localização**: Os exemplos estão localizados no cluster do HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**Conteúdo**: os exemplos seguintes estão contidos deste arquivo:
+**Conteúdo**: Os exemplos seguintes estão contidos deste arquivo:
 
 * `aggregatewordcount`: Um agregado com base em programa mapreduce que conte as palavras nos ficheiros de entrada.
 * `aggregatewordhist`: Um agregado com base em programa mapreduce que computa o histograma das palavras nos ficheiros de entrada.
@@ -44,9 +44,9 @@ Saiba como executar os exemplos de MapReduce incluídos com o Apache Hadoop no H
 * `dbcount`: Uma tarefa de exemplo que conte os registos de visualização de página armazenados numa base de dados.
 * `distbbp`: Um programa mapreduce que utiliza uma fórmula de tipo BBP para bits exatas de instalador de plataforma de computação.
 * `grep`: Um programa mapreduce que conte as correspondências de um regex na entrada.
-* `join`: Uma tarefa que efetua uma junção através de ordenados, igualmente particionados conjuntos de dados.
+* `join`: Uma tarefa que executa uma junção em conjuntos de dados classificados, igualmente particionados.
 * `multifilewc`: Uma tarefa que conte de palavras de vários arquivos.
-* `pentomino`: Um mapreduce mosaico programa de apresentação de mensagens em fila para encontrar soluções para problemas de pentomino.
+* `pentomino`: Programa de apresentação de mensagens em fila para encontrar soluções para problemas de pentomino do mosaico de um mapreduce.
 * `pi`: Um programa mapreduce que as estimativas de Pi usando um quasi-Monte de método Carlo.
 * `randomtextwriter`: Um programa mapreduce que escreve 10 GB de dados textuais aleatórios por nó.
 * `randomwriter`: Um programa mapreduce que escreve 10 GB de dados aleatórios por nó.
@@ -61,7 +61,7 @@ Saiba como executar os exemplos de MapReduce incluídos com o Apache Hadoop no H
 * `wordmedian`: Um programa mapreduce que conte o comprimento mediano das palavras nos ficheiros de entrada.
 * `wordstandarddeviation`: Um programa mapreduce que conte o desvio-padrão de comprimento de palavras nos ficheiros de entrada.
 
-**O código-fonte**: estes exemplos de código-fonte está incluído no cluster do HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+**O código-fonte**: Estes exemplos de código-fonte está incluído no cluster do HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Executar o exemplo de wordcount
 
@@ -95,7 +95,7 @@ Saiba como executar os exemplos de MapReduce incluídos com o Apache Hadoop no H
 
     Para esta tarefa é lida a partir de entrada `/example/data/gutenberg/davinci.txt`. Saída para este exemplo é armazenado no `/example/data/davinciwordcount`. Os dois caminhos estão localizados no armazenamento de predefinido para o cluster, não o sistema de arquivos local.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Conforme observado na ajuda para o exemplo de wordcount, também pode especificar vários ficheiros de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contabilizaria palavras em davinci.txt e ulysses.txt.
 
 5. Depois de concluída a tarefa, utilize o seguinte comando para ver o resultado:
@@ -171,13 +171,13 @@ Este exemplo utiliza um modesto 10 GB de dados para que podem ser executada rela
 
 Este exemplo utiliza três conjuntos de programas MapReduce:
 
-* **TeraGen**: MapReduce de um programa que gera linhas de dados para classificar
+* **TeraGen**: Um programa MapReduce que gera linhas de dados para classificar
 
-* **TeraSort**: os dados de entrada de exemplo e usa o MapReduce para classificar os dados para um total do pedido
+* **TeraSort**: Os dados de entrada de exemplo e usa o MapReduce para classificar os dados para um total do pedido
 
     TeraSort é uma espécie de MapReduce padrão, exceto um particionador personalizado. O particionador utiliza uma lista ordenada de chaves do objeto de amostragem de n-1 que definem o intervalo de chaves para cada reduza. Em particular, todas as chaves desse tipo que fornecem uma amostra [i-1] < = chave < exemplo [i] são enviadas para reduzir a i. Este particionador são todas as garantias de que as saídas de reduzem i menores do que a saída de reduzir i + 1.
 
-* **TeraValidate**: MapReduce de um programa que valida que a saída globalmente está classificada
+* **TeraValidate**: Um programa MapReduce que valida que a saída globalmente está classificada
 
     Ele cria um mapa por ficheiro no diretório de saída, e cada mapa garante que cada chave é menor ou igual ao anterior. A função map gera registos das chaves próprio e apelidos de cada arquivo. A função de reduza garante que a primeira chave de ficheiro i é maior do que a última chave do i-1 de ficheiro. Todos os problemas são apresentados como uma saída da fase de reduza, com as chaves que estão fora de ordem.
 
@@ -209,9 +209,9 @@ Utilize os seguintes passos para gerar dados, ordenar e, em seguida, validar o r
 
 Neste artigo, aprendeu a executar os exemplos incluídos com os clusters do HDInsight baseado em Linux. Para tutoriais sobre como utilizar o Pig, Hive e o MapReduce com o HDInsight, consulte os tópicos seguintes:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

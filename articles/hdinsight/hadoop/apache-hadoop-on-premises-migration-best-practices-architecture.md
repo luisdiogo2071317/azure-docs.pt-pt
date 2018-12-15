@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7558a853657e3e3764cd8e3faf6dd466e9ead35e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994156"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434013"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de arquitetura
 
@@ -75,7 +75,9 @@ Computação clusters são criados perto dos recursos da conta de armazenamento 
 
 ## <a name="use-external-metadata-stores"></a>Utilizar arquivos de metadados externos
 
+
 Existem dois metastores principais que funcionam com clusters do HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). O metastore Hive é o repositório do esquema central que pode ser utilizado por motores de processamento de dados, incluindo o Hadoop, Spark, o LLAP, Presto e o Apache Pig. O metastore Oozie armazena os detalhes sobre o agendamento e o estado de em curso e concluídas tarefas do Hadoop.
+
 
 HDInsight utiliza a base de dados do Azure SQL para Hive e Oozie metastores. Existem duas formas de configurar um metastore em clusters do HDInsight:
 

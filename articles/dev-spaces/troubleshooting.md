@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104599"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413613"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -138,6 +138,18 @@ O erro significa que azds.exe não está na variável de ambiente PATH, como vis
 
 Inicie o VS Code a partir de um prompt de comando em que a variável de ambiente PATH está definida corretamente.
 
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Erro "as ferramentas necessárias para compilar e depurar 'projectname' estão Desatualizadas."
+
+Verá este erro no Visual Studio Code se tiver uma versão mais recente da extensão do VS Code para espaços de desenvolvimento do Azure, mas uma versão mais antiga da CLI de espaços de desenvolvimento do Azure.
+
+### <a name="try"></a>Experimente
+
+Transfira e instale a versão mais recente da CLI de espaços de desenvolvimento do Azure:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Erro 'azds' não é reconhecido como um comando interno ou externo, programa operável ou arquivo em lotes
  
 Poderá ver este erro se azds.exe não está instalado ou configurado corretamente.
@@ -172,8 +184,8 @@ A porta do contentor não está disponível. Esse problema pode ocorrer porque:
 ### <a name="try"></a>Experimente:
 1. Se o contentor está no processo a ser criado/implementado, pode aguardar 2 a 3 segundos e tente acessar o serviço novamente. 
 1. Verifique a configuração de porta. Os números de porta especificado devem estar **idênticos** em todos os recursos abaixo:
-    * **O Dockerfile:** especificado pelo `EXPOSE` instrução.
-    * **[Gráfico do Helm](https://docs.helm.sh):** especificado pela `externalPort` e `internalPort` valores para um serviço (muitas vezes, localizados num `values.yml` ficheiro),
+    * **Dockerfile:** Especificado pelo `EXPOSE` instrução.
+    * **[Gráfico do Helm](https://docs.helm.sh):** Especificado pela `externalPort` e `internalPort` valores para um serviço (muitas vezes, localizados num `values.yml` ficheiro),
     * Nenhuma porta de que está a ser aberta no código da aplicação, por exemplo, no node. js: `var server = app.listen(80, function () {...}`
 
 
@@ -187,7 +199,7 @@ Tem de executar `azds up` do diretório de raiz do código que pretende executar
 1. Altere o diretório atual para a pasta de raiz que contém o código de serviço. 
 1. Se não tiver uma _azds.yaml_ ficheiro na pasta do código, executar `azds prep` para gerar os ativos de Docker, Kubernetes e espaços de desenvolvimento do Azure.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro: "o pipe programa 'azds' terminado inesperadamente com o código 126."
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro: "O programa de pipe 'azds' terminou inesperadamente com o código 126."
 A iniciar o depurador do VS Code, às vezes, pode resultar em erro.
 
 ### <a name="try"></a>Experimente:

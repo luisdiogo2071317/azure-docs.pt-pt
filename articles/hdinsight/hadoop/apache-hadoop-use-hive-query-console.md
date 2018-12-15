@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99cb1c4aed8e82afd819185d7acab88cdae6c418
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016798"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409705"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>Executar consultas do Apache Hive, utilizando a consola de consulta
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Neste artigo, aprenderá a utilizar a consola de consulta do HDInsight para executar consultas do Apache Hive num cluster do HDInsight Hadoop a partir do seu browser.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A consola de consulta do HDInsight só está disponível em clusters do HDInsight baseado em Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 >
-> Para o HDInsight 3.4 ou superior, consulte [executar consultas do Hive no modo de exibição do Ambari Hive](apache-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive a partir de um navegador da web.
+> Para o HDInsight 3.4 ou superior, consulte [Apache. Hive. Execute consultas no modo de exibição do Ambari Hive](apache-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive a partir de um navegador da web.
 
 ## <a id="prereq"></a>Pré-requisitos
 Para concluir os passos neste artigo, terá de fazer o seguinte.
@@ -32,7 +32,7 @@ Para concluir os passos neste artigo, terá de fazer o seguinte.
 * Um cluster de Hadoop do HDInsight baseado em Windows
 * Um navegador da web modernos
 
-## <a id="run"></a> Executar consultas do Hive utilizando a consola de consulta
+## <a id="run"></a> Executar consultas do Apache Hive, utilizando a consola de consulta
 1. Abra um browser e navegue para **https://CLUSTERNAME.azurehdinsight.net**, em que **CLUSTERNAME** é o nome do cluster do HDInsight. Se lhe for pedido, introduza o nome de utilizador e palavra-passe que utilizou quando criou o cluster.
 2. As ligações na parte superior da página, selecione **Editor do Hive**. Esta ação apresenta um formulário que pode ser usado para inserir as declarações HiveQL que pretende executar no cluster do HDInsight.
 
@@ -49,20 +49,20 @@ Para concluir os passos neste artigo, terá de fazer o seguinte.
 
     Essas instruções executam as seguintes ações:
 
-   * **DROP TABLE**: elimina a tabela e o ficheiro de dados, se a tabela já existe.
-   * **Criar tabela externa**: cria uma nova tabela de "externa" no Hive. Tabelas externas armazenam apenas a definição de tabela no Hive; os dados são deixados na localização original.
+   * **TABELA DE SOLTAR**: Elimina a tabela e o ficheiro de dados se a tabela já existe.
+   * **CRIAR TABELA EXTERNA**: Cria uma nova tabela de "externa" no Hive. Tabelas externas armazenam apenas a definição de tabela no Hive; os dados são deixados na localização original.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Tabelas externas devem ser utilizadas quando espera que os dados subjacentes sejam atualizados por uma origem externa (por exemplo, um processo de carregamento de dados automatizada) ou por outra operação de MapReduce, mas é sempre melhor consultas do Hive para utilizar os dados mais recentes.
      >
      > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
      >
      >
-   * **FORMATO de linha**: informa ao Hive como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
-   * **LOCALIZAÇÃO de TEXTFILE AS ARMAZENADOS**: informa ao ramo de registo onde os dados são armazenados (o diretório/dados de exemplo) e que são armazenados como texto
-   * **SELECIONE**: selecione uma contagem de todas as linhas em que coluna **t4** conter o valor **[erro]**. Isto deverá devolver um valor de **3** porque existem três linhas que contêm este valor.
+   * **FORMATO DE LINHA**: Informa ao Hive como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
+   * **ARMAZENADO COMO LOCALIZAÇÃO DE TEXTFILE**: Indica onde estão armazenados os dados de Hive (o diretório/dados de exemplo) e que são armazenados como texto
+   * **SELECIONE**: Selecione uma contagem de todas as linhas em que coluna **t4** conter o valor **[erro]**. Isto deverá devolver um valor de **3** porque existem três linhas que contêm este valor.
    * **INPUT__FILE__NAME como '%.log'** -informa ao Hive que podemos deverá devolver apenas dados de ficheiros terminados em. log. Isso restringe a pesquisa para o ficheiro Sample log que contém os dados e impede que ela retornar dados do outro exemplo, ficheiros de dados que não correspondem o esquema que definimos.
-3. Clique em **submeter**. O **tarefa sessão** na parte inferior da página deve apresentar os detalhes da tarefa.
+3. Clique em **Submit** (Submeter). O **tarefa sessão** na parte inferior da página deve apresentar os detalhes da tarefa.
 4. Quando o **Status** campo é alterado para **concluído**, selecione **ver detalhes** para a tarefa. Na página de detalhes, o **saída da tarefa** contém `[ERROR]    3`. Pode utilizar o **transferir** botão sob este campo para transferir um ficheiro que contém o resultado da tarefa.
 
 ## <a id="summary"></a>Resumo
@@ -73,17 +73,17 @@ Para saber mais sobre como utilizar a consola de consulta do Hive para executar 
 ## <a id="nextsteps"></a>Passos seguintes
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Se estiver a utilizar com o Hive no Tez, consulte os seguintes documentos para informações de depuração:
 
-* [Utilize a IU do Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
-* [Utilize a vista Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
+* [Utilizar a interface do Usuário do Apache Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
+* [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

@@ -1,6 +1,6 @@
 ---
-title: Migrar para a API de AI de lote do Azure atualizada | Microsoft Docs
-description: Como atualizar o código de AI do Azure Batch e scripts para utilizar a área de trabalho e experimente recursos
+title: Migrar para o API atualizada de IA do Azure Batch | Documentos da Microsoft
+description: Como atualizar o código do Azure Batch AI e scripts para utilizar a área de trabalho e recursos de experimentação
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -15,41 +15,44 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ROBOTS: NOINDEX
+ms.openlocfilehash: 75a9a5e9bafd62b320397c00ef6574b7536d9e09
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294965"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407785"
 ---
-# <a name="migrate-to-the-updated-batch-ai-api"></a>Migrar para a API de AI do lote atualizado
+# <a name="migrate-to-the-updated-batch-ai-api"></a>Migrar para a API de IA do Batch atualizada
 
-Na API de REST do Batch AI versão 2018-05-01 e relacionados SDKs de AI do Batch e das ferramentas, as alterações significativas e novas funcionalidades foram introduzidas.
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
-Se utilizou uma versão anterior da API de AI do Batch, este artigo explica como modificar o código e a funcionar com a nova API de scripts. 
+Na API de REST do Batch AI versão 2018-05-01 e SDKs de IA do Batch relacionados e ferramentas, alterações significativas e os novos recursos foram introduzidos.
+
+Se já usou uma versão anterior da API de IA do Batch, este artigo explica como modificar seus scripts para trabalhar com a nova API e código. 
 
 ## <a name="whats-changing"></a>O que está a mudar?
 
-Em resposta a comentários de clientes, iremos estiver a remover os limites no número de tarefas e a tornar mais fácil de gerir recursos de AI do Batch. A nova API introduz dois novos recursos *área de trabalho* e *experimentação*. Tarefas de preparação relacionados sob uma experimentação de recolher e organizar todos os recursos relacionados com Batch AI (clusters de servidores de ficheiros, experimentações, as tarefas) na área de trabalho.  
+Em resposta aos comentários dos clientes, iremos estiver a remover limites no número de tarefas e tornando mais fácil gerir os recursos do Batch AI. A nova API introduz dois novos recursos, *área de trabalho* e *experimentar*. Tarefas de formação relacionados numa experimentação de recolher e organizar todas as respetivas o Batch AI recursos (clusters, servidores de ficheiros, experiências, tarefas) numa área de trabalho.  
 
-* **Área de trabalho** -uma coleção de nível superior de todos os tipos de recursos de AI do Batch. Clusters e servidores de ficheiros estão contidos numa área de trabalho. Áreas de trabalho que pertencem a diferentes grupos ou projetos de trabalho, normalmente, separado. Por exemplo, pode ter um dev e uma área de trabalho de teste. Provavelmente terá apenas um número limitado de áreas de trabalho por subscrição. 
+* **Área de trabalho** -uma coleção de nível superior de todos os tipos de recursos do Batch AI. Clusters e os servidores de ficheiros estão contidos numa área de trabalho. Áreas de trabalho que pertencem a diferentes grupos ou os projetos de trabalho geralmente separado. Por exemplo, pode ter um desenvolvimento e uma área de trabalho de teste. Provavelmente, precisa apenas um número limitado de áreas de trabalho por subscrição. 
 
-* **Experimentação** -uma coleção de tarefas relacionadas que pode ser consultado e gerido em conjunto. Por exemplo, utilize uma experimentação para todas as tarefas que são efetuadas como parte de um paramétrico de otimização de hyper-parâmetro de grupo. 
+* **Experimentação** -uma coleção de tarefas relacionadas que podem ser consultadas e geridos em conjunto. Por exemplo, utilize uma experimentação para agrupar todas as tarefas que são executadas como parte do hyper-otimização varrimentos. 
 
 A imagem seguinte mostra um exemplo de hierarquia de recursos. 
 
 ![](./media/migrate-to-new-api/batch-ai-resource-hierarchy.png)
 
-## <a name="monitor-and-manage-existing-resources"></a>Monitorizar e gerir recursos existentes
-Cada grupo de recursos em que já criou clusters AI do Batch, tarefas ou servidores de ficheiros, o serviço Batch AI irá criar uma área de trabalho com o nome `migrated-<region>` (por exemplo, `migrated-eastus`) e uma experimentação denominado `migrated`. Para aceder a tarefas criadas anteriormente, clusters ou servidores de ficheiros, terá de utilizar a área de trabalho migrada e experimente. 
+## <a name="monitor-and-manage-existing-resources"></a>Monitorizar e gerir os recursos existentes
+Cada grupo de recursos em que já criou clusters, tarefas ou servidores de ficheiros do Batch AI, o serviço Batch AI irá criar uma área de trabalho com o nome `migrated-<region>` (por exemplo, `migrated-eastus`) e uma experimentação com o nome `migrated`. Para acessar as tarefas criadas anteriormente, clusters ou servidores de ficheiros, terá de utilizar a área de trabalho migrada e experimente. 
 
 ### <a name="portal"></a>Portal 
-Para aceder a tarefas criadas anteriormente, clusters ou servidores de ficheiros através do portal, selecione o `migrated-<region>` área de trabalho. Depois de selecionar a área de trabalho, efetue operações como redimensionamento ou eliminar um cluster e ver o estado da tarefa e saídas. 
+Para acessar tarefas criadas anteriormente, clusters ou servidores de ficheiros com o portal, selecione o `migrated-<region>` área de trabalho. Depois de selecionar a área de trabalho, execute operações como redimensionar ou eliminar um cluster e ver o estado da tarefa e saídas. 
 
 ### <a name="sdks"></a>SDKs 
-Para aceder aos trabalhos, clusters ou servidores de ficheiros que criou anteriormente através de SDKs de AI do Batch, forneça o nome da área de trabalho e experimentar parâmetros de nome. 
+Para aceder às tarefas, clusters ou servidores de ficheiros anteriormente criados através de SDKs de IA do Batch, fornecem o nome de área de trabalho em os parâmetros de nome de experimentação. 
 
-Se utilizar o SDK Python, alterações relevantes são mostradas nos exemplos seguintes. As alterações são semelhantes em outros SDKs do Batch AI. 
+Se utilizar o SDK de Python, alterações relevantes são mostradas nos exemplos a seguir. As alterações são semelhantes em outros SDKs do Batch AI. 
 
 
 #### <a name="get-old-cluster"></a>Obter o cluster antigo 
@@ -83,7 +86,7 @@ client.fileservers.delete(resource_group_name, 'migrated-<region>', fileserver_n
 cluster = client.jobs.get(resource_group_name, 'migrated-<region>', 'migrated', job_name)
 ```
 
-#### <a name="delete-old-job"></a>Eliminar a tarefa antiga
+#### <a name="delete-old-job"></a>Eliminar tarefa antiga
 
 ```python
 client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_name)
@@ -91,7 +94,7 @@ client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_nam
  
 ### <a name="azure-cli"></a>CLI do Azure 
  
-Quando utilizar a CLI do Azure para as tarefas de acesso que criou anteriormente, clusters ou servidores de ficheiros, utilize o `-w` e `-e` parâmetros para fornecer a área de trabalho e os nomes de experimentação. 
+Ao utilizar a CLI do Azure para tarefas de acesso que criou anteriormente, clusters ou servidores de ficheiros, utilize o `-w` e `-e` parâmetros para fornecer a área de trabalho e nomes de experimentação. 
 
 
 #### <a name="get-old-cluster"></a>Obter o cluster antigo
@@ -128,7 +131,7 @@ az batchai job show -g resource-group-name -w migrated-<region> -e migrated -n j
 ```
 
 
-#### <a name="delete-old-job"></a>Eliminar a tarefa antiga 
+#### <a name="delete-old-job"></a>Eliminar tarefa antiga 
 
 ```azurecli
 az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
@@ -136,19 +139,19 @@ az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n
 
 ## <a name="create-batch-ai-resources"></a>Criar recursos do Batch AI 
  
-Se estiver a utilizar um dos SDKs de AI existentes do Batch, pode continuar a utilizá-la para criar recursos do Batch AI (tarefas, clusters ou servidores de ficheiros) sem fazer alterações de código. No entanto, depois de atualizar para o novo SDK, terá de efetuar as seguintes alterações.
+Se estiver a utilizar um dos SDKs de IA do Batch existentes, pode continuar a utilizá-lo para criar recursos do Batch AI (tarefas, clusters ou servidores de arquivos) sem fazer alterações de código. No entanto, após a atualização para o novo SDK, terá de efetuar as seguintes alterações.
  
 ### <a name="create-workspace"></a>Criar área de trabalho 
-Dependendo do seu cenário, pode criar uma área de trabalho manualmente Monouso através do portal ou a CLI. Se estiver a utilizar a CLI, crie uma área de trabalho utilizando o seguinte comando: 
+Dependendo do seu cenário, pode criar uma área de trabalho manualmente uma única vez através do portal ou na CLI. Se estiver a utilizar a CLI, crie uma área de trabalho com o seguinte comando: 
 
 ```azurecli
 az batchai workspace create -g resource-group-name -n workspace-name
 ```
 
-### <a name="create-experiment"></a>Criar experimentação 
+### <a name="create-experiment"></a>Criar a experimentação 
 
 
-Dependendo do seu cenário, pode criar uma experimentação manualmente Monouso através do portal ou a CLI. Se estiver a utilizar a CLI, crie uma experimentação utilizando o seguinte comando: 
+Dependendo do seu cenário, pode criar uma experimentação manualmente uma única vez através do portal ou na CLI. Se estiver a utilizar a CLI, crie uma experimentação com o seguinte comando: 
 
 ```azurecli
 az batchai experiment create -g resource-group-name -w workspace-name -n experiment-name
@@ -157,9 +160,9 @@ az batchai experiment create -g resource-group-name -w workspace-name -n experim
 
 ### <a name="create-clusters-file-servers-and-jobs"></a>Criar clusters, servidores de ficheiros e tarefas
  
-Se utilizar o portal para criar tarefas, clusters ou servidores de ficheiros, o portal irá ajudá-lo durante a experiência de criação para fornecer o nome da área de trabalho e experimente parâmetros de nome.
+Se utilizar o portal para criar tarefas, clusters ou servidores de ficheiros, o portal irá guiá-lo durante a experiência de criação para fornecer o nome de área de trabalho e os parâmetros de nome de experimentação.
 
-Para criar tarefas, clusters ou servidores de ficheiros através do SDK atualizado, forneça o parâmetro de nome de área de trabalho. Se utilizar o SDK Python, alterações relevantes são mostradas nos exemplos seguintes. Substitua *workspace_name* e *experiment_name* com a área de trabalho e a experimentação que criou anteriormente. As alterações são semelhantes em outros SDKs do Batch AI. 
+Para criar tarefas, clusters ou servidores de ficheiros através do SDK atualizado, forneça o parâmetro de nome de área de trabalho. Se utilizar o SDK de Python, alterações relevantes são mostradas nos exemplos a seguir. Substitua *workspace_name* e *experiment_name* com a área de trabalho e a experimentação que criou anteriormente. As alterações são semelhantes em outros SDKs do Batch AI. 
 
 
 #### <a name="create-cluster"></a>Criar cluster 
@@ -168,7 +171,7 @@ Para criar tarefas, clusters ou servidores de ficheiros através do SDK atualiza
 _ = client.clusters.create(resource_group_name, workspace_name, cluster_name, cluster_create_parameters).result()
 ```
 
-#### <a name="create-file-server"></a>Criar o servidor de ficheiros 
+#### <a name="create-file-server"></a>Criar servidor de ficheiros 
 
 ```python
 _ = client.fileservers.create(resource_group_name, workspace_name, fileserver_name, fileserver_create_parameters).result()
@@ -183,4 +186,4 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Consulte a referência da API do Batch AI: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai)e [REST](/rest/api/batchai)
+* Consulte a referência de API do Batch AI: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [node. js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai), e [REST](/rest/api/batchai)

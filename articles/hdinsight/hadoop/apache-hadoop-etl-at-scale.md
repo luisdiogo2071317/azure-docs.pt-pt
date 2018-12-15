@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633330"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438103"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) em escala
 
@@ -32,11 +32,11 @@ Orquestração abrange todas as fases do pipeline ETL. Tarefas ETL no HDInsight 
 
 Orquestração é necessário para executar a tarefa de adequado no momento adequado.
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>O Apache Oozie
 
-Apache Oozie é um sistema de coordenação do fluxo de trabalho que gere as tarefas do Hadoop. Oozie é executado dentro de um cluster do HDInsight e está integrada com a pilha do Hadoop. Oozie suporta tarefas do Hadoop para MapReduce do Apache, Apache Pig, Apache Hive e Apache Sqoop. Oozie também pode ser utilizado para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
+Apache Oozie é um sistema de coordenação do fluxo de trabalho que gere as tarefas do Hadoop. Oozie é executado dentro de um cluster do HDInsight e está integrada com a pilha do Hadoop. Oozie suporta tarefas do Hadoop para MapReduce do Apache Hadoop, Apache Pig, Apache Hive e Apache Sqoop. Oozie também pode ser utilizado para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
-Para obter mais informações, consulte [utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md) para uma descrição aprofundada, que mostra como utilizar o Oozie para acionar um pipeline ponto a ponto, consulte [Operacionalizar o Pipeline de dados](../hdinsight-operationalize-data-pipeline.md). 
+Para obter mais informações, consulte [utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md) para uma descrição aprofundada, que mostra como utilizar o Oozie para acionar um pipeline ponto a ponto, consulte [Operacionalizar o Pipeline de dados](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -52,7 +52,7 @@ Para obter mais informações sobre o Azure Data Factory, consulte a [documenta�
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Armazenamento de ficheiros e armazenamento de resultado de ingestão
 
-Ficheiros de origem de dados normalmente são carregados para uma localização no armazenamento do Azure ou do Azure Data Lake Store. Ficheiros podem estar em qualquer formato, mas normalmente são arquivos simples, como CSVs. 
+Ficheiros de origem de dados normalmente são carregados para uma localização no armazenamento do Azure ou o armazenamento do Azure Data Lake. Ficheiros podem estar em qualquer formato, mas normalmente são arquivos simples, como CSVs. 
 
 ### <a name="azure-storage"></a>Storage do Azure 
 
@@ -66,11 +66,11 @@ O armazenamento do Azure também tem uma camada de API de WebHDFS para o armazen
 
 Dados normalmente são ingeridos no armazenamento do Azure com o PowerShell, o SDK de armazenamento do Azure ou AZCopy.
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-storage"></a>Armazenamento do Azure Data Lake
 
-Azure Data Lake Store (ADLS) é um repositório de hiperescala gerido, de dados de análise que é compatíveis com HDFS.  ADLS usa um paradigma de design que é semelhante ao HDFS e que oferece escalabilidade ilimitada em termos de capacidade total e o tamanho dos ficheiros individuais. ADLS é muito bom ao trabalhar com ficheiros grandes, uma vez que um arquivo grande pode ser armazenado em vários nós.  A criação de partições de dados no ADLS é feita em segundo plano.  Desta forma, fornece um débito maciço para executar tarefas de análise com milhares de executores simultâneos que leem e escrevem centenas de terabytes de dados de forma eficaz.
+O Azure Data Lake Storage (ADLS) é um repositório de hiperescala gerido, de dados de análise que é compatíveis com HDFS.  ADLS usa um paradigma de design que é semelhante ao HDFS e que oferece escalabilidade ilimitada em termos de capacidade total e o tamanho dos ficheiros individuais. ADLS é muito bom ao trabalhar com ficheiros grandes, uma vez que um arquivo grande pode ser armazenado em vários nós.  A criação de partições de dados no ADLS é feita em segundo plano.  Desta forma, fornece um débito maciço para executar tarefas de análise com milhares de executores simultâneos que leem e escrevem centenas de terabytes de dados de forma eficaz.
 
-Dados normalmente são ingeridos no ADLS através do Azure Data Factory, SDKs do ADLS, serviço AdlCopy, Apache DistCp ou Apache Sqoop.  Que estes serviços em grande parte a utilizar depende de onde os dados são.  Se os dados estão atualmente num cluster de Hadoop existente, poderá utilizar o Apache DistCp, o serviço de AdlCopy ou o Azure Data Factory.  Se estiver no armazenamento de Blobs do Azure, poderá utilizar o SDK de .NET do Azure Data Lake Store, o Azure PowerShell ou o Azure Data Factory.
+Dados normalmente são ingeridos no ADLS através do Azure Data Factory, SDKs do ADLS, serviço AdlCopy, Apache DistCp ou Apache Sqoop.  Que estes serviços em grande parte a utilizar depende de onde os dados são.  Se os dados estão atualmente num cluster de Hadoop existente, poderá utilizar o Apache DistCp, o serviço de AdlCopy ou o Azure Data Factory.  Se estiver no armazenamento de Blobs do Azure, poderá utilizar o SDK de .NET de armazenamento do Azure Data Lake, o Azure PowerShell ou o Azure Data Factory.
 
 ADLS também está otimizado para ingestão de eventos com o Hub de eventos do Azure ou o Apache Storm.
 
@@ -78,9 +78,9 @@ ADLS também está otimizado para ingestão de eventos com o Hub de eventos do A
 
 Para carregar conjuntos de dados no intervalo na casa dos terabytes, latência de rede pode ser um grande problema, especialmente se os dados é proveniente de uma localização no local.  Nesses casos, pode usar as opções abaixo:
 
-* O Azure ExpressRoute: Azure ExpressRoute permite criar ligações privadas entre os datacenters do Azure e a sua infraestrutura no local. Estas ligações fornecem uma opção fiável para transferir grandes quantidades de dados. Para obter mais informações, consulte [documentação do Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
+* O Azure ExpressRoute:  O Azure ExpressRoute permite-lhe criar ligações privadas entre os datacenters do Azure e a sua infraestrutura no local. Estas ligações fornecem uma opção fiável para transferir grandes quantidades de dados. Para obter mais informações, consulte [documentação do Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-* "Offline" carregamento de dados. Pode usar [serviço importar/exportar do Azure](../../storage/common/storage-import-export-service.md) enviar unidades de disco rígido com os seus dados para um centro de dados do Azure. Os dados pela primeira vez são carregados para Blobs de armazenamento do Azure. Em seguida, pode utilizar [do Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) ou o [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) ferramenta para copiar dados dos blobs de armazenamento do Azure para o Data Lake Store.
+* "Offline" carregamento de dados. Pode usar [serviço importar/exportar do Azure](../../storage/common/storage-import-export-service.md) enviar unidades de disco rígido com os seus dados para um centro de dados do Azure. Os dados pela primeira vez são carregados para Blobs de armazenamento do Azure. Em seguida, pode utilizar [do Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) ou o [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) ferramenta para copiar dados dos blobs de armazenamento do Azure para armazenamento do Data Lake.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -88,7 +88,7 @@ Armazém de dados SQL do Azure é uma ótima opção para armazenar limpos e pre
 
 O Azure SQL Data Warehouse (SQL DW) é um arquivo de banco de dados relacional otimizado para cargas de trabalho de análise.  Armazém de dados SQL do Azure dimensiona com base em tabelas particionadas.  Tabelas podem ser particionadas em vários nós.  Nós de armazém de dados SQL do Azure estão selecionadas no momento da criação.  Após o fato de podem ser dimensionado, mas o que é um processo ativo que poderão necessitar de movimento de dados. Ver [SQL Data Warehouse - gerir a computação](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) para obter mais informações.
 
-### <a name="hbase"></a>HBase
+### <a name="apache-hbase"></a>Apache HBase
 
 O Apache HBase é um arquivo de chave-valor, disponível no Azure HDInsight.  O Apache HBase é uma base de dados NoSQL open source baseada no Hadoop e modelada segundo o Google BigTable. HBase fornece acesso aleatório de alto desempenho e consistência segura para grandes quantidades de dados não estruturados e semiestruturados numa base de dados sem esquema, organizada por famílias de colunas.
 
@@ -118,17 +118,17 @@ Cubos do Analysis podem Dimensionar ao alterar as camadas para cada cubo individ
 
 Depois que os dados de existem no Azure, pode utilizar vários serviços para extrair e carregá-los para outros produtos.  HDInsight suporta Sqoop e Flume. 
 
-### <a name="sqoop"></a>Sqoop
+### <a name="apache-sqoop"></a>O Apache Sqoop
 
 Apache Sqoop é uma ferramenta projetada para transferência de dados com eficiência entre origens de dados estruturados, semiestruturados e não estruturados. 
 
 Sqoop utiliza o MapReduce para importar e exportar os dados, para fornecer a operação simultânea e tolerância a falhas.
 
-### <a name="flume"></a>Flume
+### <a name="apache-flume"></a>Apache Flume
 
 Apache Flume é um serviço de distribuída, confiável e disponível para com eficiência a recolher, Agregar e mover grandes quantidades de dados de registo. Flume tem uma arquitetura de simple e flexível com base nos fluxos de dados de transmissão em fluxo. Flume é robusto e tolerante a falhas com mecanismos de fiabilidade ajustável e vários mecanismos de ativação pós-falha e recuperação. Flume usa um modelo de dados extensível simples que permite a aplicação de análise online.
 
-Apache Flume não pode ser utilizado com o Azure HDInsight.  Uma instalação de Hadoop no local pode utilizar o Flume para enviar dados para Blobs de armazenamento do Azure ou do Azure Data Lake Store.  Para obter mais informações, consulte [utilizando o Apache Flume com HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume não pode ser utilizado com o Azure HDInsight.  Uma instalação de Hadoop no local pode utilizar o Flume para enviar dados para o Azure Storage Blobs ou para o armazenamento do Azure Data Lake.  Para obter mais informações, consulte [utilizando o Apache Flume com HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Transformação
 
@@ -136,5 +136,5 @@ Depois de dados existem na localização escolhida, terá de limpá-lo, combiná
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Utilizar o Apache Hive como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

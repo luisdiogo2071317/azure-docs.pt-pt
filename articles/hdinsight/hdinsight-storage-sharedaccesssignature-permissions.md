@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016191"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409926"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure Storage para restringir o acesso aos dados no HDInsight
 
 HDInsight tem acesso total aos dados nas contas de armazenamento do Azure associadas ao cluster. Pode utilizar assinaturas de acesso partilhado no contentor de BLOBs para restringir o acesso aos dados. Assinaturas de acesso partilhado (SAS) são uma funcionalidade de contas de armazenamento do Azure que permite-lhe limitar o acesso a dados. Por exemplo, fornecendo acesso só de leitura aos dados.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Para uma solução com o Apache Ranger, considere utilizar o HDInsight associado a um domínio. Para obter mais informações, consulte a [configurar o HDInsight associado a um domínio](./domain-joined/apache-domain-joined-configure.md) documento.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight tem de ter acesso total para o armazenamento predefinido para o cluster.
 
 ## <a name="requirements"></a>Requisitos
@@ -34,9 +34,9 @@ HDInsight tem acesso total aos dados nas contas de armazenamento do Azure associ
   * Visual Studio tem de ser a versão 2013, 2015 ou 2017
   * Python tem de ser a versão 2.7 ou superior
 
-* Um cluster do HDInsight baseado em Linux ou [do Azure PowerShell] [ powershell] -se tiver um cluster baseado em Linux, pode utilizar Ambari para adicionar uma assinatura de acesso partilhado para o cluster. Caso contrário, pode utilizar o Azure PowerShell para criar um cluster e adicione uma assinatura de acesso partilhado durante a criação do cluster.
+* Um cluster do HDInsight baseado em Linux ou [do Azure PowerShell] [ powershell] -se tiver um cluster baseado em Linux, pode utilizar o Apache Ambari para adicionar uma assinatura de acesso partilhado para o cluster. Caso contrário, pode utilizar o Azure PowerShell para criar um cluster e adicione uma assinatura de acesso partilhado durante a criação do cluster.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * O exemplo ficheiros a partir [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositório contém os seguintes itens:
@@ -51,7 +51,7 @@ Existem duas formas de assinaturas de acesso partilhado:
 
 * Ad hoc: A hora de início, hora de expiração e as permissões para a SAS são todos especificadas no URI de SAS.
 
-* Armazenados a política de acesso: é definida uma política de acesso armazenadas num contêiner de recursos, como um contentor de Blobs. Uma política pode ser utilizada para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenado, a SAS herda as restrições - a hora de início, hora de expiração e permissões - definidas para a política de acesso armazenado.
+* Política de acesso armazenado: É definida uma política de acesso armazenadas num contêiner de recursos, como um contentor de Blobs. Uma política pode ser utilizada para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenado, a SAS herda as restrições - a hora de início, hora de expiração e permissões - definidas para a política de acesso armazenado.
 
 A diferença entre as duas formas é importante para um cenário de chave: revogação. Uma SAS é um URL, para que qualquer pessoa que obtém a SAS pode utilizá-lo, independentemente do que o pedido para começar. Se uma SAS é publicada publicamente, ele pode ser usado por qualquer pessoa no mundo. Uma SAS que é distribuída é válida até que uma das quatro coisas acontece:
 
@@ -66,7 +66,7 @@ A diferença entre as duas formas é importante para um cenário de chave: revog
 
 4. A chave da conta que utilizou para criar a SAS é regenerada. Regenerar a chave faz com que todas as aplicações que utilizam a chave de anterior para falha na autenticação. Atualize todos os componentes para a nova chave.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Um URI de assinatura de acesso partilhado é associado a chave da conta utilizada para criar a assinatura e o associados armazenados política de acesso (se houver). Não se for especificada nenhuma política de acesso armazenado, é a única forma de revogar uma assinatura de acesso partilhado alterar a chave de conta.
 
 Recomendamos que sempre usar políticas de acesso armazenadas. Quando utilizar políticas de armazenado, pode revogar assinaturas ou expandir a data de expiração, conforme necessário. Os passos neste documento utiliza armazenados políticas de acesso para gerar a SAS.
@@ -177,7 +177,7 @@ Um exemplo de como criar um cluster do HDInsight que utiliza a SAS está incluí
 
     Se estiver a criar um cluster baseado em Linux, lhe for pedido um nome de conta de utilizador SSH e a palavra-passe. Esta conta é utilizada para iniciar sessão remotamente no cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Quando lhe for pedido para o HTTP/s ou o nome de utilizador SSH e a palavra-passe, tem de fornecer uma palavra-passe que cumpra os seguintes critérios:
    >
    > * Tem de ser no mínimo 10 carateres de comprimento
@@ -200,7 +200,7 @@ Se tiver um cluster baseado em Linux, pode adicionar a SAS para o **core-site** 
 4. Expanda a **core-site personalizado** secção, em seguida, desloque-se para o final e selecione o **Adicionar propriedade...**  ligação. Utilize os seguintes valores para o **chave** e **valor** campos:
 
    * **Chave**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Valor**: O SAS devolvidos pela aplicação c# ou Python que executou anteriormente
+   * **Valor**: A SAS devolvido pelo C# ou a aplicação de Python que executou anteriormente
 
      Substitua **CONTAINERNAME** com o nome do contentor utilizados com o aplicativo em C# ou SAS. Substitua **STORAGEACCOUNTNAME** com o nome de conta de armazenamento que utilizou.
 
@@ -208,7 +208,7 @@ Se tiver um cluster baseado em Linux, pode adicionar a SAS para o **core-site** 
 
     Clique em **OK** quando as alterações foram concluídas.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Tem de reiniciar vários serviços para a alteração tem efeito.
 
 6. Na IU web do Ambari, selecione **HDFS** da lista à esquerda e, em seguida, selecione **reiniciar todos os afetados** do **ações de serviço** lista pendente lista à direita. Quando lhe for pedido, selecione __confirmar reiniciar todos os__.
@@ -277,7 +277,7 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
 
 ### <a name="a-task-was-canceled"></a>Uma tarefa foi cancelada
 
-**Os sintomas**: ao criar um cluster com o script do PowerShell, poderá receber a seguinte mensagem de erro:
+**Os sintomas**: Ao criar um cluster com o script do PowerShell, poderá receber a seguinte mensagem de erro:
 
     New-AzureRmHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
@@ -288,7 +288,7 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
 
 **Causa**: Este erro pode ocorrer se usar uma palavra-passe para o utilizador de administrador/HTTP para o cluster, ou (para clusters baseados em Linux) o utilizador SSH.
 
-**Resolução**: utilizar uma palavra-passe que cumpra os seguintes critérios:
+**Resolução**: Utilize uma palavra-passe que cumpra os seguintes critérios:
 
 * Tem de ser no mínimo 10 carateres de comprimento
 * Tem de conter, pelo menos, um dígito
@@ -299,8 +299,8 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
 
 Agora que sabe como adicionar armazenamento de acesso limitado ao seu cluster do HDInsight, saiba outras formas de trabalhar com dados no seu cluster:
 
-* [Utilizar o Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilizar o Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilizar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

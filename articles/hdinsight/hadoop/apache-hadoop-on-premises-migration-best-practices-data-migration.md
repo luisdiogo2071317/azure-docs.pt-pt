@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994393"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433428"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de migração de dados
 
@@ -25,7 +25,7 @@ Este artigo oferece recomendações para a migração de dados para o Azure HDIn
 Existem duas opções principais para migrar os dados no local para o ambiente do Azure:
 
 1.  Transferir dados através de rede com TLS
-    1. Internet - pode transferir dados para o armazenamento do Azure através de uma ligação de internet regulares através de qualquer uma das várias ferramentas, como: Explorador de armazenamento do Azure, o AzCopy, o Azure Powershell e CLI do Azure.  Ver [mover dados para e do armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
+    1. Internet - pode transferir dados para o armazenamento do Azure através de uma ligação de internet regulares através de qualquer uma das várias ferramentas, como: Explorador de armazenamento do Azure, o AzCopy, o Azure Powershell e o Azure CLI.  Ver [mover dados para e do armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
     2. Expressroute – o ExpressRoute é um serviço do Azure que lhe permite criar ligações privadas entre os datacenters da Microsoft e de infraestrutura no local ou numa instalação de colocalização. As ligações ExpressRoute não entram na Internet pública e oferecem maior segurança, fiabilidade e velocidade com latências mais baixas que as ligações normais pela Internet. Para obter mais informações, consulte [criar e modificar um circuito do ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transferência de dados online de caixa de dados - limite de caixa de dados e dados de caixa de Gateway são produtos de transferência de dados online que atuam como gateways de armazenamento para gerir os dados entre o Azure e o site de rede. O Data Box Edge, um dispositivo de rede no local, transfere dados de e para o Azure e utiliza computação edge ativada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma aplicação virtual com capacidades de gateway de armazenamento. Para obter mais informações, consulte [documentação de caixa de dados do Azure - transferir Online](https://docs.microsoft.com/azure/databox-online/).
 1.  O envio de dados Offline
@@ -47,9 +47,11 @@ A tabela a seguir com duração de transferência de dados aproximada com base n
 |1 PB|6 anos|3 anos|97 dias|10 dias|
 |2 PB|há 12 anos|5 anos|dias 194|dias de 19|
 
-Ferramentas nativas para o Azure, como DistCp, Azure Data Factory e AzureCp, podem ser usadas para transferir dados através da rede. A ferramenta de terceiros que wandisco também pode ser utilizado com o mesmo objetivo. Kafka Mirrormaker e Sqoop podem ser utilizado para transferência de dados em curso no local para sistemas de armazenamento do Azure.
+Ferramentas nativas para o Azure, como o Apache Hadoop DistCp, Azure Data Factory e AzureCp, podem ser usadas para transferir dados através da rede. A ferramenta de terceiros que wandisco também pode ser utilizado com o mesmo objetivo. Apache Kafka Mirrormaker e Apache Sqoop podem ser utilizado para transferência de dados em curso no local para sistemas de armazenamento do Azure.
 
-## <a name="performance-considerations-with-apache-distcp"></a>Considerações de desempenho com o Apache DistCp
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Considerações de desempenho ao utilizar o DistCp do Apache Hadoop
+
 
 DistCp é um projeto do Apache que utiliza uma tarefa de MapReduce mapa para transferir dados, manipular os erros e recuperar esses erros. Atribui uma lista de ficheiros de origem para cada tarefa de mapa. A tarefa de mapa, em seguida, copia todos os seus ficheiros atribuídos para o destino. Existem várias técnicas podem melhorar o desempenho de DistCp.
 
@@ -86,7 +88,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Migração de metadados
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 O metastore hive pode ser migrado usando os scripts ou utilizando a replicação de DB.
 
@@ -106,7 +108,7 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - Exporte políticas do Ranger no local para arquivos xml.
 - Transforme no local com base no HDFS caminhos específicos para WASB/ADLS usando uma ferramenta como XSLT.

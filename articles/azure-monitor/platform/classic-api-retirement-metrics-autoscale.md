@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192197"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433097"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor extinção do modelo de implementação clássica APIs para métricas e dimensionamento automático
 
@@ -24,7 +24,7 @@ As mesmas operações já são suportadas através de um conjunto do Azure Resou
 
 Se estiver a gerir o dimensionamento automático através do portal do Azure, o [novo SDK do Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), modelos do PowerShell, CLI ou do Resource Manager, é necessária nenhuma ação.  
 
-Se está a consumir métricas através do portal do Azure ou diversos [monitorizar os serviços de parceiro](../../monitoring-and-diagnostics/monitoring-partners.md), é necessária nenhuma ação. Microsoft está trabalhando com parceiros para migrar para as novas APIs de monitorização.
+Se está a consumir métricas através do portal do Azure ou diversos [monitorizar os serviços de parceiro](../../azure-monitor/platform/partners.md), é necessária nenhuma ação. Microsoft está trabalhando com parceiros para migrar para as novas APIs de monitorização.
 
 ## <a name="who-is-affected"></a>Quem é afetada
 

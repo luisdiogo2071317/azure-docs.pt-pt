@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c13650d53098c891b168cb88516dbee53f3da5cc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260264"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413137"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
@@ -40,7 +40,7 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
 1. Na **carregar repositório do GitHub** que aparece, introduza ou defina os seguintes detalhes, em seguida, selecione **importação**:
 
-    - **Repositório do Github**: Microsoft/cognitivos-services-blocos de notas (este nome clona os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+    - **Repositório do GitHub**: Microsoft/cognitivos-services-blocos de notas (este nome clona os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Clonar recursivamente**: (limpo)
     - **Nome do projeto**: Clone de serviços cognitivos
     - **ID do projeto**: clone de serviços cognitivos

@@ -1,5 +1,5 @@
 ---
-title: Recolher o desempenho de aplicações do Linux no Log Analytics | Documentos da Microsoft
+title: Recolher o desempenho de aplicações do Linux no Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece detalhes para configurar o agente do Log Analytics para Linux recolher contadores de desempenho para o MySQL e Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186519"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434635"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux no Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolher contadores de desempenho de aplicações do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Este artigo fornece detalhes para configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho de aplicações específicas.  Os aplicativos incluídos neste artigo são:  
+Este artigo fornece detalhes para configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho de aplicações específicas sobre os registos do Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -114,7 +114,7 @@ Esses privilégios podem ser concedidos ao executar os seguintes comandos de con
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
+Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
 | Nome do Objeto | Nome do Contador |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
+Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
 | Nome do Objeto | Nome do Contador |
 |:--|:--|
@@ -168,4 +168,4 @@ Depois de configurar o agente do Log Analytics para Linux enviar dados para o Lo
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho](data-sources-performance-counters.md) agentes de Linux.
-* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [registar as consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

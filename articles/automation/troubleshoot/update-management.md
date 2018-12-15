@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342890"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434737"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -164,7 +164,7 @@ Tiver máquinas que mostram como **não avaliados** sob **conformidade**, e ver�
 
 #### <a name="cause"></a>Causa
 
-Atualização do Windows não está configurada corretamente na máquina.
+Windows Update ou dos WSUS não está configurado corretamente na máquina. Baseia-se da gestão de atualizações do Windows Update ou WSUS para fornecer as atualizações que são necessários, o status de patch e os resultados de patches implementados. Sem essas informações a gestão de atualizações não pode corretamente relatório sobre as correções que são necessárias ou instaladas.
 
 #### <a name="resolution"></a>Resolução
 

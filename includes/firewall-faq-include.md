@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/20/2018
+ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254596"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413732"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -37,7 +37,7 @@ Pode implantar o Firewall do Azure em qualquer rede virtual, mas os clientes nor
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Firewall do Azure?
 
-Pode configurar Firewall do Azure com o portal do Azure, PowerShell, REST API, ou com os modelos. Ver [Tutorial: implementar e configurar a Firewall do Azure no portal do Azure](../articles/firewall/tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
+Pode configurar Firewall do Azure com o portal do Azure, PowerShell, REST API, ou com os modelos. Consulte [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](../articles/firewall/tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
 
 ### <a name="what-are-some-azure-firewall-concepts"></a>Quais são alguns conceitos de Firewall do Azure?
 
@@ -45,8 +45,8 @@ Firewall do Azure oferece suporte a regras e coleções de regras. Uma coleção
 
 Existem dois tipos de coleções de regras:
 
-* *Regras de aplicações*: permitem-lhe configurar nomes de domínio completamente qualificado (FQDN) que podem ser acedidos a partir de uma sub-rede.
-* *Regras de rede*: permitem-lhe configurar as regras que contêm os endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras de aplicações*: Permitem-lhe configurar nomes de domínio completamente qualificado (FQDN) que podem ser acedidos a partir de uma sub-rede.
+* *Regras de rede*: Permitem-lhe configurar as regras que contêm os endereços de origem, protocolos, portas de destino e endereços de destino.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure suporta a filtragem de tráfego de entrada?
 
@@ -54,7 +54,7 @@ Firewall do Azure suporta a filtragem de entrada e saída. Proteção de entrada
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Os serviços de registo e análise são suportados pela Firewall do Azure?
 
-Firewall do Azure está integrado com o Azure Monitor para visualizar e analisar os registos de firewall. Os registos podem ser enviados para o Log Analytics, o armazenamento do Azure ou os Hubs de eventos. Eles podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e Power BI. Para obter mais informações, consulte [Tutorial: registos de Firewall de Azure Monitor](../articles/firewall/tutorial-diagnostics.md).
+Firewall do Azure está integrado com o Azure Monitor para visualizar e analisar os registos de firewall. Os registos podem ser enviados para o Log Analytics, o armazenamento do Azure ou os Hubs de eventos. Eles podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e Power BI. Para obter mais informações, consulte [Tutorial: Monitorize registos de Firewall do Azure](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como Firewall do Azure funciona forma diferente de serviços existentes como NVAs no marketplace?
 
@@ -117,10 +117,14 @@ Para os limites do serviço de Firewall do Azure, consulte [subscrição do Azur
 
 Sim, pode utilizar a Firewall do Azure numa rede virtual para o tráfego e filtro de rota entre a rede virtual do spoke dois hub. As sub-redes em cada uma das redes virtuais "spoke" tem de ter UDR apontando para o Firewall do Azure como um gateway predefinido para este cenário funcione corretamente.
 
-### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Pode reencaminhar o Firewall do Azure e filtrar o tráfego de rede entre sub-redes na mesma rede virtual?
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pode reencaminhar o Firewall do Azure e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou em modo de peering de redes virtuais?
 
 O tráfego entre sub-redes na mesma rede virtual ou numa rede virtual diretamente em modo de peering é encaminhado diretamente, mesmo que o UDR aponta para o Firewall do Azure como o gateway predefinido. O método recomendado para segmentação de rede interna é usar os grupos de segurança de rede. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, o UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem qualquer firewall restrições do grupo de recursos?
 
 Sim. O firewall, sub-rede, VNet e o endereço IP público, que todos têm de estar no mesmo grupo de recursos.
+
+### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego de rede de entrada, é também necessário configurar uma regra de rede correspondente para permitir que o tráfego?
+
+Não. Regras NAT implicitamente adicione uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](../articles/firewall/rule-processing.md).

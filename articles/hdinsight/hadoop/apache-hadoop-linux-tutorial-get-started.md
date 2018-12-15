@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: 3f5c842a4e902fe6d4aa9f87cb82252a78d0a1c3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 845aa85a025d75dcc0e80b59fbc1620d8cbae082
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166390"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435747"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 
@@ -38,7 +38,7 @@ Nesta secção, vai criar um cluster do Hadoop no HDInsight com um modelo do Azu
 
 2. Introduza ou selecione os valores conforme sugerido na seguinte captura de ecrã:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Os valores que forem fornecidos têm de ser exclusivos e devem seguir as diretrizes de nomenclatura. O modelo não realiza verificações de validação. Caso os valores fornecidos já estejam a ser utilizados ou não sigam as diretrizes, receberá um erro depois de ter submetido o modelo.       
     > 
     >
@@ -57,7 +57,7 @@ Nesta secção, vai criar um cluster do Hadoop no HDInsight com um modelo do Azu
     |**Nome e palavra-passe de início de sessão no cluster**     | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |**Nome de utilizador e palavra-passe de SSH**     | O nome de utilizador predefinido é **sshuser**.  Pode mudar o nome de utilizador do SSH.  A palavra-passe de utilizador do SSH tem os mesmos requisitos que a palavra-passe de início de sessão do cluster.|
        
-    Algumas propriedades foram codificadas no modelo.  Pode configurar estes valores a partir do modelo. Para obter mais explicações sobre estas propriedades, veja [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Algumas propriedades foram codificadas no modelo.  Pode configurar estes valores a partir do modelo. Para obter mais explicações sobre estas propriedades, consulte [Apache Hadoop criar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecione **Concordo com os termos e condições indicados acima** e **Afixar ao dashboard**. Em seguida, clique em **Comprar**. Irá ver um novo mosaico intitulado **A submeter a implementação** no dashboard do portal. A criação de um cluster demora cerca de 20 minutos.
 
@@ -70,10 +70,9 @@ Nesta secção, vai criar um cluster do Hadoop no HDInsight com um modelo do Azu
 5. O mosaico indica igualmente o armazenamento predefinido associado ao cluster. Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. O cluster do HDInsight e a respetiva conta do Storage predefinida devem estar colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
     
 
-> [!NOTE]
+> [!NOTE]  
 > Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+
 
 ## <a name="use-vscode-to-run-hive-queries"></a>Utilizar o VSCode para executar consultas do Hive
 
@@ -100,7 +99,7 @@ Com as Ferramentas do HDInsight para o VSCode, pode submeter consultas do Hive i
 
     - **MENSAGENS** painel: Quando seleciona **linha** número, ele salta para a primeira linha do script em execução.
 
-A execução da consulta interativa demora muito menos tempo que [executar uma tarefa de lote do Hive](#submit-hive-batch-scripts).
+Executar a consulta interativa demora muito menos tempo do que [em execução uma tarefa do batch Apache Hive](#submit-hive-batch-scripts).
 
 ### <a name="submit-hive-batch-scripts"></a>Submeter scripts de lote do Hive
 
@@ -121,7 +120,7 @@ A execução da consulta interativa demora muito menos tempo que [executar uma t
 
    ![submeter o resultado da tarefa do Hive](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
 
-[Submeter consultas interativas do Hive](#submit-interactive-hive-queries) demora muito menos tempo que submeter uma tarefa de lote.
+[Submeter consultas do Apache Hive interativas](#submit-interactive-hive-queries) demora muito menos tempo do que submeter uma tarefa do batch.
 
 ## <a name="use-visualstudio-to-run-hive-queries"></a>Utilizar o VisualStudio para executar consultas do Hive
 
@@ -148,7 +147,7 @@ Para criar e executar consultas ad hoc:
    
     ![Captura de ecrã de um exemplo do IntelliSense do HDInsight Visual Studio Tools IntelliSense 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
    
-   > [!NOTE]
+   > [!NOTE]  
    > O IntelliSense sugere apenas os metadados do cluster selecionado na barra de ferramentas do HDInsight.
    > 
    
@@ -181,7 +180,7 @@ Para criar e executar uma solução do Hive:
 
 ## <a name="run-hive-queries"></a>Executar consultas do Hive
 
-O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no HDInsight. Existem várias formas de executar tarefas do Hive no HDInsight. Neste tutorial, vai utilizar a vista Ambari Hive do portal. Para conhecer outros métodos de submissão de tarefas do Hive, consulte [Utilizar o Hive no HDInsight](hdinsight-use-hive.md).
+O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no HDInsight. Existem várias formas de executar tarefas do Hive no HDInsight. Neste tutorial, vai utilizar a vista Ambari Hive do portal. Para outros métodos para submeter tarefas do Hive, consulte [utilizar o Apache Hive no HDInsight](hdinsight-use-hive.md).
 
 1. Para abrir o Ambari, a partir da captura de ecrã anterior, selecione **Dashboard de Clusters**.  Também pode procurar em **https://&lt;ClusterName>.azurehdinsight.net**, onde &lt;ClusterName> é o cluster que criou na secção anterior.
 
@@ -199,10 +198,9 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
 
     ![Vistas do Hive do HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "Editor de Consulta do Hive View do HDInsight")
    
-   > [!NOTE]
+   > [!NOTE]  
    > O Hive requer a utilização do ponto e vírgula.       
-   > 
-   > 
+
 
 5. Selecione **Executar**. O separador **RESULTADOS** aparece por baixo do separador **CONSULTA** e apresenta informações sobre a tarefa. 
    
@@ -218,7 +216,7 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
 
     ![Guardar o resultado da consulta do Hive](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Guardar o resultado da consulta do Hive")
 
-Depois de concluir uma tarefa deo Hive, pode [exportar os resultados para a SQL Database do Azure ou a base de dados do SQL Server](apache-hadoop-use-sqoop-mac-linux.md). Do mesmo modo, pode [visualizar os resultados com o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como utilizar o Hive no HDInsight, consulte [Utilizar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um ficheiro Apache log4j de exemplo](hdinsight-use-hive.md).
+Depois de concluir uma tarefa deo Hive, pode [exportar os resultados para a SQL Database do Azure ou a base de dados do SQL Server](apache-hadoop-use-sqoop-mac-linux.md). Do mesmo modo, pode [visualizar os resultados com o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como utilizar o Hive no HDInsight, consulte [utilizar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight, para analisar um ficheiro de exemplo Apache log4j](hdinsight-use-hive.md).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
@@ -227,10 +225,8 @@ Caso se depare com problemas com a criação de clusters do HDInsight, veja [ace
 ## <a name="clean-up-resources"></a>Limpar recursos
 Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. 
 
-> [!NOTE]
+> [!NOTE]  
 > Se avançar *imediatamente* para o tutorial seguinte para saber como executar operações de ETL com o Hadoop no HDInsight, é recomendado que mantenha o cluster em execução. Isto porque tem de voltar a criar um cluster do Hadoop no tutorial. No entanto, se não avançar já para o tutorial seguinte, tem de eliminar o cluster agora.
-> 
-> 
 
 **Para eliminar o cluster e/ou a conta de armazenamento predefinida**
 
@@ -256,8 +252,8 @@ Se estiver pronto para começar a trabalhar com os seus próprios dados e precis
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 
-* Para saber mais sobre como utilizar o Hive com o HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, veja [Use Hive with HDInsight](hdinsight-use-hive.md) (Utilizar o Hive com o HDInsight).
-* Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, veja [Use Pig with HDInsight](hdinsight-use-pig.md) (Utilizar o Pig com o HDInsight).
+* Para saber mais sobre como utilizar o Hive com HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, veja [utilizar o Apache Hive com HDInsight](hdinsight-use-hive.md).
+* Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, veja [utilizar o Apache Pig com o HDInsight](hdinsight-use-pig.md).
 * Para saber mais sobre o MapReduce, uma forma de escrever programas que processam dados no Hadoop, veja [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md) (Utilizar o MapReduce com o HDInsight).
 * Para saber mais sobre como utilizar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 * Para saber mais sobre como utilizar as Ferramentas do HDInsight para o VSCode para analisar dados no HDInsight, consulte [Utilizar as Ferramentas do HDInsight para o Visual Studio Code](../hdinsight-for-vscode.md).
@@ -265,7 +261,7 @@ Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artig
 
 Se gostaria de saber mais sobre como criar ou gerir um cluster do HDInsight, consulte os seguintes artigos:
 
-* Para saber mais sobre a gestão do seu cluster do HDInsight baseado em Linux, consulte [Gerir clusters do HDInsight com o Ambari](../hdinsight-hadoop-manage-ambari.md).
+* Para saber mais sobre a gestão do seu cluster do HDInsight baseado em Linux, veja [clusters do HDInsight gerir com o Apache Ambari](../hdinsight-hadoop-manage-ambari.md).
 * Para saber mais sobre as opções que pode selecionar ao criar um cluster do HDInsight, consulte [Criar HDInsight no Linux utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md).
 
 

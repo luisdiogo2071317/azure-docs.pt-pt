@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 21186c522e46dac11c1dc88bbad5c4b330bc1e3f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e45c5a37c4ba12d93ff7f78bb465cb650a7faffb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012033"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435094"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# funções definidas pelo utilizador com o Apache Hive e Apache Pig, transmissão em fluxo no Apache Hadoop no HDInsight
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 ## <a name="create-the-c-projects"></a>Criar o C\# projetos
 
-### <a name="hive-udf"></a>Hive UDF
+### <a name="apache-hive-udf"></a>Apache Hive UDF
 
 1. Abra o Visual Studio e crie uma solução. Para o tipo de projeto, selecione **aplicação de consola (.NET Framework)** e dê o nome do novo projeto **HiveCSharp**.
 
@@ -115,7 +115,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 3. Crie o projeto.
 
-### <a name="pig-udf"></a>PIg UDF
+### <a name="apache-pig-udf"></a>Apache Pig UDF
 
 1. Abra o Visual Studio e crie uma solução. Para o tipo de projeto, selecione **aplicação de consola**e dê o nome do novo projeto **PigUDF**.
 
@@ -168,7 +168,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
     * Se esta entrada pode ser expandida, estiver a utilizar um __conta de armazenamento do Azure__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, expanda a entrada e, em seguida, faça duplo clique nas __(contentor predefinido)__.
 
-    * Se esta entrada não pode ser expandida, estiver a utilizar __do Azure Data Lake Store__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, clique duas vezes o __(conta de armazenamento predefinida)__ entrada.
+    * Se esta entrada não pode ser expandida, estiver a utilizar __armazenamento do Azure Data Lake__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, clique duas vezes o __(conta de armazenamento predefinida)__ entrada.
 
 6. Para carregar os ficheiros de .exe, utilize um dos seguintes métodos:
 
@@ -176,11 +176,11 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
         ![carregar ícone](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Se utilizar __do Azure Data Lake Store__, uma área vazia na listagem de ficheiros com o botão direito e, em seguida, selecione __carregar__. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **aberto**.
+    * Se utilizar __armazenamento do Azure Data Lake__, uma área vazia na listagem de ficheiros com o botão direito e, em seguida, selecione __carregar__. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **aberto**.
 
     Uma vez a __HiveCSharp.exe__ carregamento for concluído, repita o processo de carregamento para o __PigUDF.exe__ ficheiro.
 
-## <a name="run-a-hive-query"></a>Executar uma consulta do Hive
+## <a name="run-an-apache-hive-query"></a>Executar uma consulta Apache Hive
 
 1. No Visual Studio, abra **Explorador de servidores**.
 
@@ -193,7 +193,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment the following if you are using Azure Data Lake Storage
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -212,7 +212,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 6. Clique em **Atualize** para atualizar o resumo até **estado da tarefa** é alterado para **concluído**. Para ver o resultado da tarefa, clique em **saída da tarefa**.
 
-## <a name="run-a-pig-job"></a>Executar uma tarefa Pig
+## <a name="run-an-apache-pig-job"></a>Executar uma tarefa de Apache Pig
 
 1. Utilize um dos seguintes métodos para ligar ao cluster do HDInsight:
 
@@ -256,10 +256,10 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste documento, aprendeu como utilizar uma aplicação .NET Framework a partir do Hive e Pig no HDInsight. Se gostaria de saber como utilizar Python com Hive e Pig, veja [utilizar Python com Hive e Pig no HDInsight](python-udf-hdinsight.md).
+Neste documento, aprendeu como utilizar uma aplicação .NET Framework a partir do Hive e Pig no HDInsight. Se gostaria de saber como utilizar Python com Hive e Pig, veja [utilizar Python com o Apache Hive e Apache Pig no HDInsight](python-udf-hdinsight.md).
 
 Para outras formas de utilizar o Pig e Hive e para saber como utilizar o MapReduce, consulte os seguintes documentos:
 
-* [Utilizar o Hive com o HDInsight](hdinsight-use-hive.md)
-* [Utilizar o Pig com o HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [Utilizar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)

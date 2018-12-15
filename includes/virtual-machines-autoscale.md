@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 7bafc30bbf8661f7054e49c36af420507f37c989
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326468"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399965"
 ---
-Pode facilmente [Dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
+Pode facilmente [Dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Dimensionamento horizontal ou vertical
 

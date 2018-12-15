@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343977"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407869"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -45,7 +45,6 @@ ms.locfileid: "53343977"
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Foi adicionado suporte para a manipulação de divisão em coleções que utilizam o débito de base de dados partilhada.
   * Esta versão corrige um problema que possam ocorrer durante a divisão em coleções com débito de base de dados partilhada, quando dividir o resultado em partição balanceamento novamente com o intervalo de chaves de partição de apenas um filho criado, em vez de dois. Quando isto acontecer, processador do Feed de alterações pode ficar bloqueado a eliminar a concessão para o intervalo de chaves de partição antigo e não a criar novas concessões. O problema é resolvido nesta versão.
-  * Alteração significativa secundárias: adicionar o novo método IChangeFeedDocumentClient.ReadOffersFeedAsync, que é utilizado para verificar se colleciton atribuiu débito dedicado ou partilha débito com outras coleções na base de dados. Fornecer uma implementação personalizada de IChangeFeedDocumentClient é um cenário avançado e pode ser utilizada para monitorizar todas as chamadas por processador do Feed de alterações para monitorizado e coleções da concessão. Com esta alteração, tem de ser alterada IChangeFeedDocumentClient implementação ao implementar o novo método.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Feed adicionada nova propriedade ChangeFeedProcessorOptions.StartContinuation para suportar a alteração de partida do token de continuação do pedido. Esta opção só é utilizada quando a coleção de concessão está vazia ou uma concessão não tem ContinuationToken definido. Para concessões na coleção de concessão com ContinuationToken definido, é utilizado o ContinuationToken e ChangeFeedProcessorOptions.StartContinuation é ignorada.
@@ -159,6 +158,10 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 de Dezembro de 2018 |--- |
+| [2.2.4](#2.2.4) |29 de Novembro de 2018 |--- |
+| [2.2.3](#2.2.3) |19 de Novembro de 2018 |--- |
+| [2.2.2](#2.2.2) |31 de Outubro de 2018 |--- |
 | [2.2.1](#2.2.1) |24 de Outubro de 2018 |--- |
 | [1.3.3](#1.3.3) |08 de Maio de 2018 |--- |
 | [1.3.2](#1.3.2) |18 de abril de 2018 |--- |

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: eabdeb9aaf57db2281cb6450d9e21f1b2f098c01
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087326"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413052"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -31,10 +31,10 @@ O [de imagem digitalizada](Computer-vision/Home.md), [Face](Face/Overview.md), [
 
 ## <a name="features-and-benefits"></a>Funcionalidades e benefícios
 
-- **Controlo sobre os dados**: permitir aos clientes escolherem onde estes serviços cognitivos processa os dados.  Isto é essencial para os clientes que não é possível enviar dados para a cloud, mas precisam de acesso à tecnologia de serviços cognitivos. Suporte consistência em ambientes híbridos – em dados, gestão, identidade e segurança.
-- **Controle sobre atualizações do modelo**: fornecer aos clientes flexibilidade no controlo de versões e a atualização dos modelos implementados em suas soluções.
-- **Arquitetura portátil**: Ativar a criação de uma arquitetura de aplicativos portáteis que pode ser implementada no Azure, no local e o limite. Contentores podem ser implementados diretamente à [serviço Kubernetes do Azure](/azure/aks/), [Azure Container Instances](/azure/container-instances/), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [Azure Pilha](/azure/azure-stack/). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Alto débito / baixa latência**: fornecer aos clientes a capacidade de dimensionar para um débito elevado e requisitos de baixa latência, permitindo que os serviços cognitivos executar fisicamente perto dos seus dados e lógica do aplicativo. Os contentores não limite de transações por segundo (TPS) e podem ser feitos para aumentar verticalmente e horizontalmente para lidar com a pedido, se fornecer os recursos de hardware necessários. 
+- **Controlo sobre os dados**: Permita aos clientes escolherem onde estes serviços cognitivos processa os dados. Isto é essencial para os clientes que não é possível enviar dados para a cloud, mas precisam de acesso à tecnologia de serviços cognitivos. Suporte consistência em ambientes híbridos – em dados, gestão, identidade e segurança.
+- **Controle sobre atualizações do modelo**: Fornece aos clientes flexibilidade no controlo de versões e a atualização dos modelos implementados em suas soluções.
+- **Arquitetura portátil**: Ative a criação de uma arquitetura de aplicativos portáteis que pode ser implementada no Azure, no local e o limite. Contentores podem ser implementados diretamente à [serviço Kubernetes do Azure](/azure/aks/), [Azure Container Instances](/azure/container-instances/), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [Azure Pilha](/azure/azure-stack/). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Alto débito / baixa latência**: Fornece aos clientes a capacidade de dimensionar para um débito elevado e requisitos de baixa latência, permitindo que os serviços cognitivos executar fisicamente perto dos seus dados e lógica do aplicativo. Os contentores não limite de transações por segundo (TPS) e podem ser feitos para aumentar verticalmente e horizontalmente para lidar com a pedido, se fornecer os recursos de hardware necessários.
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contentores nos serviços cognitivos do Azure
@@ -43,7 +43,7 @@ Contentores de serviços cognitivos do Azure fornecem o seguinte conjunto de con
 
 | Serviço | Contentor| Descrição |
 |---------|----------|-------------|
-|[Imagem Digitalizada](Computer-vision/computer-vision-how-to-install-containers.md) |**Reconhecer texto** |Extrai texto impresso partir de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.<br/><br/>**Importante:** o contentor de reconhecer texto atualmente funciona apenas com o inglês.<br>[Pedir acesso](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Imagem Digitalizada](Computer-vision/computer-vision-how-to-install-containers.md) |**Reconhecer texto** |Extrai texto impresso partir de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.<br/><br/>**Importante:** O contentor de reconhecer texto atualmente funciona apenas com o inglês.<br>[Pedir acesso](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |**Face** |Deteta rostos humanos em imagens e identifica os atributos, incluindo pontos de referência do rosto (como noses e olhos), sexo, idade e outras funcionalidades faciais prevista de máquina. Além de deteção, Face pode verificar se dois rostos na mesma imagem ou imagens diferentes são o mesmo com uma pontuação de confiança, ou comparam rostos em relação a uma base de dados para ver se um aspeto semelhante ou idêntica face já existe. Ele também pode organizar o rostos semelhantes em grupos, com as características de visual partilhadas.<br>[Pedir acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204))|Carrega um modelo de compreensão de idiomas treinado ou publicado, também conhecido como uma aplicação LUIS, para um contentor do docker e fornece acesso para as previsões de consulta a partir de pontos finais de API do contentor. Pode recolher registos de consulta do contêiner e carregar esses anterior para o [portal de LUIS](https://www.luis.ai) para melhorar a exatidão da previsão da aplicação.|
 |[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Extração de expressões chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extrai as expressões-chave para identificar os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
@@ -61,11 +61,11 @@ Contentores de serviços cognitivos do Azure estão publicamente disponíveis at
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de serviços cognitivos do Azure:
 
-**Motor do docker**: tem de ter o motor de Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](/azure/aks/) ou [Azure Container Instances](/azure/container-instances/).
+**Motor do docker**: Tem de ter o motor do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](/azure/aks/) ou [Azure Container Instances](/azure/container-instances/).
 
 Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure.
 
-**Familiaridade com o registo de contentor da Microsoft e a Docker**: deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento de básico `docker` comandos.  
+**Familiaridade com o registo de contentor da Microsoft e a Docker**: Deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.
 
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -73,7 +73,7 @@ Contentores individuais podem ter seus próprios requisitos, além disso, inclui
 
 ## <a name="developer-samples"></a>Exemplos de programador
 
-Exemplos de programador estão disponíveis em nosso [repositório do Github](https://github.com/Azure-Samples/cognitive-services-containers-samples). 
+Exemplos de programador estão disponíveis em nosso [repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

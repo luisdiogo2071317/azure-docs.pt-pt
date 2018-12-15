@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 292247ae2881bd60616728ad857fab58c8ed7fd5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309548"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435434"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -53,7 +53,11 @@ Este tutorial parte do princípio de que está familiarizado com:
 -  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
   
 
-Para configurar o cenário neste artigo, precisa de ter a [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) instalada. 
+Para configurar o cenário neste artigo, precisa:
+
+- No local do Active Directory (AD) com um nível de esquema do 85 ou posterior. Para obter mais informações, consulte [atualizar o esquema do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- O [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a serem instalados. 
 
 Certifique-se de que o Azure AD Connect sincronizou os objetos de computador dos dispositivos que pretende que sejam associados ao Azure AD híbrido para o Azure AD. Se os objetos de computador pertencerem a unidades organizacionais (UO) específicas, essas UOs também têm de ser configuradas para sincronização no Azure AD Connect.
 

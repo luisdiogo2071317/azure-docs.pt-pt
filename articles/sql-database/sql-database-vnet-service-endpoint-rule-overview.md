@@ -1,5 +1,5 @@
 ---
-title: Pontos finais de serviço de rede virtual e regras para a base de dados SQL do Azure | Documentos da Microsoft
+title: Pontos finais de serviço de rede virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
 description: Marca uma sub-rede como um ponto de extremidade do serviço de rede Virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados do SQL do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/13/2018
+ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958393"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438596"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
 
-*Regras de rede virtual* são um recurso de segurança de firewall que controla se do Azure [base de dados SQL](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server aceita comunicações que são enviadas do sub-redes específicos em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção para permitir com segurança a comunicação para a base de dados do SQL do Azure.
+*Regras de rede virtual* são um recurso de segurança de firewall que controla se do Azure [base de dados SQL](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server aceita comunicações que são enviadas do sub-redes específicos em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção de forma segura que permite a comunicação para a sua base de dados do Azure SQL e SQL Data Warehouse.
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
@@ -36,13 +36,13 @@ Se apenas criar uma regra de rede virtual, pode avançar diretamente para os pas
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
-**Rede virtual:** pode ter redes virtuais associadas à subscrição do Azure.
+**Rede virtual:** Pode ter redes virtuais associadas à subscrição do Azure.
 
-**Sub-rede:** contém uma rede virtual **sub-redes**. Quaisquer máquinas virtuais (VMs) do Azure que tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Computação de nós que estão fora da sua rede virtual não é possível aceder à sua rede virtual, a menos que configura a sua segurança para permitir o acesso.
+**Sub-rede:** Contém uma rede virtual **sub-redes**. Quaisquer máquinas virtuais (VMs) do Azure que tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Computação de nós que estão fora da sua rede virtual não é possível aceder à sua rede virtual, a menos que configura a sua segurança para permitir o acesso.
 
-**Ponto final de serviço de rede virtual:** uma [ponto final de serviço de rede Virtual] [ vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Neste artigo estamos interessados em nome do tipo de **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL.
+**Endpoint de serviço de rede virtual:** R [ponto final de serviço de rede Virtual] [ vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Neste artigo estamos interessados em nome do tipo de **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL.
 
-**Regra de rede virtual:** uma regra de rede virtual para o servidor de base de dados SQL é uma sub-rede que está listada na lista de controle de acesso (ACL) do seu servidor de base de dados SQL. Para ser na ACL para base de dados SQL, a sub-rede tem de conter o **Microsoft. SQL** nome do tipo.
+**Regra de rede virtual:** Uma regra de rede virtual para o servidor de base de dados SQL é uma sub-rede que está listada na lista de controle de acesso (ACL) do seu servidor de base de dados SQL. Para ser na ACL para base de dados SQL, a sub-rede tem de conter o **Microsoft. SQL** nome do tipo.
 
 Uma regra de rede virtual informa ao seu servidor de base de dados SQL para aceitar comunicações de cada nó que está na sub-rede.
 
@@ -92,8 +92,8 @@ Cada regra de rede virtual aplica-se ao seu servidor de base de dados do Azure S
 
 Existe uma separação de funções de segurança na administração de pontos finais de serviço de rede Virtual. É necessária ação da cada uma das seguintes funções:
 
-- **Administrador de rede:** &nbsp; ativar o ponto final.
-- **Administrador da base de dados:** &nbsp; atualizar a lista de controlo de acesso (ACL) para adicionar a sub-rede especificada para o servidor de base de dados SQL.
+- **Administrador de rede:** &nbsp; Ative o ponto final.
+- **Administrador da base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a sub-rede especificada para o servidor de base de dados SQL.
 
 *Alternativa RBAC:*
 
@@ -129,7 +129,7 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
 
 Quando utilizar pontos finais de serviço para a base de dados do Azure SQL, reveja as seguintes considerações:
 
-- **Saída para IPs públicos do Azure SQL da base de dados é necessária**: grupos de segurança de rede (NSGs) devem ser abertos para IPs de base de dados SQL do Azure para permitir a ligação. Pode fazê-lo ao utilizar o NSG [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para a base de dados do Azure SQL.
+- **Saída para IPs públicos do Azure SQL da base de dados é necessária**: Grupos de segurança de rede (NSGs) devem ser abertos para IPs de base de dados SQL do Azure para permitir a ligação. Pode fazê-lo ao utilizar o NSG [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para a base de dados do Azure SQL.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -243,19 +243,19 @@ Erro de ligação 40914 está relacionado à *regras de rede virtual*, conforme 
 
 ### <a name="error-40914"></a>Erro 40914
 
-*Texto da mensagem:* não é possível abrir o servidor '*[nome do servidor]*"pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.
+*Texto da mensagem:* Não é possível abrir o servidor de '*[nome do servidor]*"pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.
 
-*Descrição do erro:* o cliente está numa sub-rede que tem pontos finais do servidor de rede virtual. Mas o servidor de base de dados do Azure SQL não tem nenhuma regra de rede virtual que concede à sub-rede à direita para comunicar com a base de dados SQL.
+*Descrição do erro:* O cliente está numa sub-rede que tem pontos finais do servidor de rede virtual. Mas o servidor de base de dados do Azure SQL não tem nenhuma regra de rede virtual que concede à sub-rede à direita para comunicar com a base de dados SQL.
 
-*Resolução de erro:* painel no Firewall do portal do Azure, utilize as regras de rede virtual controlam [adicionar uma regra de rede virtual](#anchor-how-to-by-using-firewall-portal-59j) para a sub-rede.
+*Resolução de erro:* No painel de Firewall do portal do Azure, utilize o controlo de regras de rede virtual para [adicionar uma regra de rede virtual](#anchor-how-to-by-using-firewall-portal-59j) para a sub-rede.
 
 ### <a name="error-40615"></a>Erro 40615
 
-*Texto da mensagem:* não é possível abrir o servidor '{0}"pedida pelo início de sessão. Cliente com o endereço IP{1}' não tem permissão para aceder ao servidor.
+*Texto da mensagem:* Não é possível abrir o servidor '{0}"pedida pelo início de sessão. Cliente com o endereço IP{1}' não tem permissão para aceder ao servidor.
 
-*Descrição do erro:* o cliente está a tentar ligar a partir de um endereço IP que não está autorizado a ligar ao servidor de base de dados do Azure SQL. O firewall do servidor não tem nenhuma regra de endereço IP que permite que um cliente de comunicação entre o endereço IP indicado para a base de dados SQL.
+*Descrição do erro:* O cliente está a tentar ligar a partir de um endereço IP que não está autorizado a ligar ao servidor de base de dados do Azure SQL. O firewall do servidor não tem nenhuma regra de endereço IP que permite que um cliente de comunicação entre o endereço IP indicado para a base de dados SQL.
 
-*Resolução de erro:* introduza o endereço IP do cliente como uma regra de IP. Tal, utilize o painel de Firewall no portal do Azure.
+*Resolução de erro:* Introduza o endereço IP do cliente como uma regra de IP. Tal, utilize o painel de Firewall no portal do Azure.
 
 Uma lista de várias mensagens de erro de base de dados SQL está documentada [aqui][sql-database-develop-error-messages-419g].
 
@@ -278,7 +278,7 @@ Um script do PowerShell, também pode criar regras de rede virtual. O cmdlet cru
 
 Internamente, os cmdlets do PowerShell para ações de VNet de SQL chamar as APIs REST. Pode chamar as APIs REST diretamente.
 
-- [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r]
+- [Regras de rede virtual: Operações][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -320,10 +320,10 @@ Já tem de ter uma sub-rede que está marcada com o ponto de extremidade de serv
 
 > [!NOTE]
 > Os seguintes Estados ou Estados aplicam às regras:
-> - **Pronto para:** indica que a operação iniciada foi concluída com êxito.
-> - **Falhou:** indica que a operação iniciada falhou.
-> - **Eliminado:** apenas aplica-se para a operação de eliminação e indica que a regra foi eliminada e já não se aplica.
-> - **Em curso:** indica que a operação está em curso. Se aplica a regra antiga enquanto a operação estiver neste estado.
+> - **Pronto:** Indica que a operação iniciada foi concluída com êxito.
+> - **Falhou:** Indica que a operação iniciada falhou.
+> - **Eliminado:** Apenas aplica-se para a operação de eliminação e indica que a regra foi eliminada e já não se aplica.
+> - **Em curso:** Indica que a operação está em curso. Se aplica a regra antiga enquanto a operação estiver neste estado.
 
 <a name="anchor-how-to-links-60h" />
 
@@ -347,7 +347,7 @@ O recurso de regra de rede virtual para o Azure SQL Database tornou-se disponív
 
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
@@ -369,7 +369,7 @@ O recurso de regra de rede virtual para o Azure SQL Database tornou-se disponív
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-<!-- Link references, to text, Outside this Github repo (HTTP). -->
+<!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 

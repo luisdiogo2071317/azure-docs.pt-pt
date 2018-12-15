@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: eba0901561b7c1455b7b06849e1773629d9d357f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388037"
+ms.locfileid: "53406935"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -43,6 +43,9 @@ Navegue para a sua função no portal do Azure e clique em **Manage** e localize
 ![Copiar a chave mestra do ecrã de gestão de função](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
 Depois de copiar a chave mestra, clique no nome da função para regressar à janela de arquivo de código. Em seguida, clique nas **registos** separador. Verá mensagens a partir da função registado, aqui, quando executa manualmente a função do Postman.
+
+> [!CAUTION]  
+> Devido a permissões elevadas na sua aplicação de função concedidas pela chave mestra, não deve partilhar esta chave com terceiros ou distribuí-la num aplicativo.
 
 ## <a name="call-the-function"></a>Chamar a função
 

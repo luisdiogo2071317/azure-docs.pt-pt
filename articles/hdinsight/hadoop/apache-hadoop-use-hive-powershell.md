@@ -9,26 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633116"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410181"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas do Apache Hive com o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Este documento fornece um exemplo de utilização do Azure PowerShell no modo de grupo de recursos do Azure para executar consultas do Hive num Apache Hadoop num cluster do HDInsight.
 
-> [!NOTE]
-> Este documento não fornece uma descrição detalhada do que fazem as declarações HiveQL que são utilizadas nos exemplos. Para obter informações sobre o HiveQL que é utilizado neste exemplo, consulte [utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
+> [!NOTE]  
+> Este documento não fornece uma descrição detalhada do que fazem as declarações HiveQL que são utilizadas nos exemplos. Para obter informações sobre o HiveQL que é utilizado neste exemplo, consulte [utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um baseado em Linux Apache Hadoop em clusters do HDInsight versão 3.4 ou superior.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Um cliente com o Azure PowerShell.
@@ -41,12 +41,12 @@ O Azure PowerShell disponibiliza *cmdlets* que permitem-lhe executar remotamente
 
 Os cmdlets seguintes são utilizados durante a execução de consultas do Hive num cluster HDInsight remoto:
 
-* `Connect-AzureRmAccount`: Autentica o Azure PowerShell para a sua subscrição do Azure.
+* `Connect-AzureRmAccount`: Efetua a autenticação do Azure PowerShell para a sua subscrição do Azure.
 * `New-AzureRmHDInsightHiveJobDefinition`: Cria um *definição de tarefa* ao utilizar as declarações HiveQL especificadas.
-* `Start-AzureRmHDInsightJob`: A definição de tarefa envia para o HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
+* `Start-AzureRmHDInsightJob`: Envia a definição de tarefa ao HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
 * `Wait-AzureRmHDInsightJob`: Usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa é concluída ou o tempo de espera foi excedido.
-* `Get-AzureRmHDInsightJobOutput`: Utilizado para obter o resultado da tarefa.
-* `Invoke-AzureRmHDInsightHiveJob`: Utilizado para executar declarações HiveQL. Este cmdlet de blocos a consulta estiver concluída, em seguida, devolve os resultados.
+* `Get-AzureRmHDInsightJobOutput`: Usada para recuperar o resultado da tarefa.
+* `Invoke-AzureRmHDInsightHiveJob`: Utilizada para executar declarações HiveQL. Este cmdlet de blocos a consulta estiver concluída, em seguida, devolve os resultados.
 * `Use-AzureRmHDInsightCluster`: Define o cluster atual para utilizar para o `Invoke-AzureRmHDInsightHiveJob` comando.
 
 Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tarefa no seu cluster do HDInsight:
@@ -59,7 +59,7 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
 
         .\hivejob.ps1
 
-    Quando o script é executado, lhe for pedido para introduzir o nome do cluster e as credenciais da conta de administrador/HTTPS para o cluster. Poderá também ser-lhe pedido para iniciar sessão na sua subscrição do Azure.
+    Quando o script é executado, lhe for pedido para introduzir o nome do cluster e as credenciais da conta de administrador de HTTPS/Cluster. Poderá também ser-lhe pedido para iniciar sessão na sua subscrição do Azure.
 
 3. Quando a tarefa é concluída, ele retorna informações semelhantes ao seguinte texto:
 
@@ -78,7 +78,7 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-   > [!NOTE]
+   > [!NOTE]  
    > Para consultas de HiveQL mais tempo, pode utilizar o Azure PowerShell **cadeias de caracteres aqui** cmdlet ou HiveQL arquivos de script. O fragmento seguinte mostra como utilizar o `Invoke-Hive` cmdlet para executar um arquivo de script de HiveQL. Tem de ser carregado o ficheiro de script de HiveQL para wasb: / /.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
@@ -108,9 +108,9 @@ Como pode ver, o Azure PowerShell fornece uma forma fácil de executar consultas
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

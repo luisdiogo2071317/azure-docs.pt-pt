@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 5998396faf746bd54d4f2dbd9c633ad3b4003878
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193404"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409246"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -291,7 +291,7 @@ Certifique-se de que são cumpridos os seguintes pré-requisitos:
 
 
 - ITSMC instalado. Mais informações: [Adicionar o IT a solução de conector de gestão de serviço](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Aplicação de provance deve ser registada no Azure AD – e ID de cliente é disponibilizado. Para obter informações detalhadas, consulte [como configurar a autenticação do Active Directory](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Aplicação de provance deve ser registada no Azure AD – e ID de cliente é disponibilizado. Para obter informações detalhadas, consulte [como configurar a autenticação do Active Directory](../../app-service/configure-authentication-provider-aad.md).
 
 - Função de utilizador:  Administrador.
 
@@ -319,7 +319,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 | **Nome de Utilizador**   | Escreva o nome de utilizador que possam ligar à ITSMC.    |
 | **Palavra-passe**   | Escreva a palavra-passe associada com este nome de utilizador. **Nota:** Nome de utilizador e palavra-passe são utilizados para gerar tokens de autenticação apenas e não são armazenadas em qualquer lugar no âmbito do serviço ITSMC. _|
 | **URL do servidor**   | Escreva o URL da sua instância de Provance que pretende ligar a ITSMC. |
-| **ID de cliente**   | Escreva o ID de cliente para autenticar esta ligação, que gerou na sua instância de Provance.  Obter mais informações sobre o ID de cliente, consulte [como configurar a autenticação do Active Directory](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **ID de cliente**   | Escreva o ID de cliente para autenticar esta ligação, que gerou na sua instância de Provance.  Obter mais informações sobre o ID de cliente, consulte [como configurar a autenticação do Active Directory](../../app-service/configure-authentication-provider-aad.md). |
 | **Âmbito de sincronização de dados**   | Selecione os itens de trabalho de Provance que pretende sincronizar com o Azure Log Analytics, através do ITSMC.  Estes itens são importados para o log analytics de trabalho.   **Opções:**   Incidentes, pedidos de alteração.|
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, ITSMC cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado.|

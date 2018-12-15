@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fcf11d10a05b553c85532d9092c42b515328b5c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f9c2324eb429c82f7e937b4f18311bf204eeb193
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188083"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408758"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
@@ -35,14 +36,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 Para voltar a Ativar monitorização do seu cluster, veja [ativar a monitorização com a CLI do Azure](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-São fornecido dois modelo Azure Resource Manager para suportar a remoção os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificar a configuração para *para anular* e a outra contém valores de parâmetros que pode configurar para especificar o grupo de recurso e o ID de recurso de cluster para AKS que o cluster é implementado no. 
+São fornecido dois modelo Azure Resource Manager para suportar a remoção os recursos de solução de forma consistente e repetida no seu grupo de recursos. Uma é um modelo JSON especificar a configuração para parar a monitorização e a outra contém valores de parâmetros que pode configurar para especificar o grupo de recurso e o ID de recurso de cluster para AKS que o cluster é implementado no. 
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->O modelo precisa ser implantado no mesmo grupo de recursos do cluster.
+>O modelo precisa ser implantado no mesmo grupo de recursos do cluster. Se omitir quaisquer outras propriedades ou suplementos ao utilizar este modelo, pode resultar na respetiva remoção do cluster. Por exemplo, *enableRBAC*.  
 >
 
 Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.27 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -148,5 +149,5 @@ A alteração de configuração pode demorar alguns minutos a concluir. Quando f
 ProvisioningState       : Succeeded
 ```
 
-Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../../azure-monitor/platform/delete-workspace.md). Não se esqueça da **ID de recurso da área de trabalho** copiou anteriormente no passo 4, vai precisar que. 
+Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID de recurso da área de trabalho** copiou anteriormente no passo 4, vai precisar que. 
 

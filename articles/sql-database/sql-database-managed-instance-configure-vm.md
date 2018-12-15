@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/07/2018
-ms.openlocfilehash: ecaf0f0d490decae0fc6298415b15d4d5ddbb4fd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.date: 12/13/2018
+ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139100"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410070"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
 
@@ -84,7 +84,7 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilizar esta palavra-passe sempre que [ligar à VM](#connect-to-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | A predefinição neste modelo de **Standard_B2s** é suficiente para este início rápido. |
    | **Localização**|[resourceGroup (). location].| Não altere este valor. |
-   | **Nome da rede virtual**|A localização que selecionou anteriormente|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
+   | **Nome da rede virtual**|O netword virtual em que criou a instância gerida.|
    | **Nome da sub-rede**|O nome da sub-rede que criou no procedimento anterior| Não escolha a sub-rede na qual criou a instância gerida.|
    | **artefactos de localização** | [implementação ().properties.templateLink.uri] | Não altere este valor. |
    | **token de Sas de localização de artefactos** | Deixe em branco | Não altere este valor. |

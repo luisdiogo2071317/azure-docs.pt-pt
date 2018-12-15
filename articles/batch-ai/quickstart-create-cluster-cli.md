@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057803"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407138"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Início Rápido: Criar um cluster para tarefas de preparação do Batch AI com a CLI do Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Início rápido: Criar um cluster para tarefas de formação de IA do Batch com a CLI do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como utilizar a CLI do Azure para criar um cluster do Batch AI que pode utilizar para preparar modelos de machine learning e IA. O Batch AI é um serviço gerido que permite aos cientistas de dados e investigadores de IA preparar modelos de machine learning e IA em escala em clusters de máquinas virtuais do Azure.
 
@@ -168,7 +171,7 @@ Quando já não for necessário, pode utilizar o comando `az group delete` para 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a criar um cluster do Batch AI com a CLI do Azure. Para saber mais sobre como utilizar um cluster do Batch AI para preparar um modelo, avance para o início rápido para preparar um modelo de aprendizagem aprofundada.
 

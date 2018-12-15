@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284987"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409671"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-using-tags.md).
@@ -29,7 +29,7 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | configuração | Não | 
 | agentes | Não | 
 | aadsupportcases | Não | 
-| Relatórios | Não | 
+| relatórios | Não | 
 | servicehealthmetrics | Não | 
 | registos | Não | 
 | anonymousapiusers | Não | 
@@ -68,18 +68,6 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | batchAccounts | Sim | 
-
-## <a name="batch-ai"></a>Batch AI
-| Tipo de recurso | Suporta etiquetas |
-| ------------- | ----------- |
-| Clusters | Sim | 
-| tarefas | Sim | 
-| fileservers | Sim | 
-| áreas de trabalho | Sim | 
-| áreas de trabalho/clusters | Não | 
-| áreas de trabalho/fileservers | Não | 
-| áreas de trabalho/experimentações | Não | 
-| áreas de trabalho/experimentações/tarefas | Não | 
 
 ## <a name="bing-maps"></a>Mapas Bing
 | Tipo de recurso | Suporta etiquetas |

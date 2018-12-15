@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 431781d190a552020989600774fde0f36761699b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/13/2018
+ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274841"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409773"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na base de dados do Azure SQL
 
@@ -40,6 +40,7 @@ Pode melhorar a proteção da sua base de dados contra utilizadores mal intencio
 > - Configurar regras de firewall ao nível do servidor para o seu servidor no portal do Azure
 > - Configurar regras de firewall ao nível da base de dados para a sua base de dados com o SSMS
 > - Ligar à sua base de dados através de uma cadeia de ligação segura
+> - Configurar o administrador do Azure Active Directory para o SQL do Azure
 > - Gerir o acesso de utilizador
 > - Proteger os seus dados com encriptação
 > - Ativar a auditoria da Base de Dados SQL
@@ -54,6 +55,9 @@ Para concluir este tutorial, certifique-se de que tem o seguinte:
 - Instalou a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 - Instalou o Microsoft Excel
 - Criou um servidor e uma base de dados SQL do Azure. Consulte [Criar uma base de dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md), [Criar uma base de dados SQL do Azure única com a CLI do Azure](sql-database-cli-samples.md) e [Criar uma base de dados SQL do Azure única com o PowerShell](sql-database-powershell-samples.md).
+
+> [!NOTE]
+> Este tutorial pressupõe que tem ambos já configurado do Azure Active Directory ou que está a utilizar o inicial do Azure Active Directory gerida domínio. Para obter informações sobre como configurar o Azure Active Directory para uma variedade de cenários, consulte [integrar as identidades no local com o Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [adicionar seu próprio nome de domínio para o Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [administrar o seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md), [gerir do Azure AD com o Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0), e [identidade híbrida portas e protocolos necessários](../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -123,6 +127,27 @@ Isto estabelece uma ligação com TLS (Transport Layer Security) e reduz o risco
 
     ![Cadeia de ligação de ADO.NET](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Aprovisionar um administrador do Azure Active Directory para o seu servidor de base de dados do Azure SQL
+
+Aprovisione um administrador do Azure Active Directory para o seu servidor SQL do Azure no portal do Azure.
+
+1. Na [portal do Azure](https://portal.azure.com/), no canto superior direito, selecione a ligação a uma lista de diretórios Active Directory possível pendente. Escolha o Active Directory correto como padrão do Azure AD. Este passo liga o Active Directory associado à subscrição com o servidor SQL do Azure, tornando-se de que a mesma subscrição é utilizada para o Azure AD e o SQL Server. (O servidor SQL do Azure pode ser a alojar a base de dados do Azure SQL ou armazém de dados SQL do Azure.)
+
+    ![ad escolha](./media/sql-database-aad-authentication/8choose-ad.png)
+
+2. No **SQL Server** página, selecione **administrador do Active Directory**e, no **administrador do Active Directory** página, selecione **definir administrador**.  ![selecione active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+3. Na **Adicionar administrador** página, procure por um utilizador, selecione o utilizador ou grupo para ser um administrador e, em seguida, selecione **selecione**. (A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Não não possível selecionar utilizadores ou grupos que são bloqueados porque não são suportadas como administradores do Azure AD. (Ver a lista de administradores suportados no **funcionalidades do Azure AD e limitações** secção [utilizar do Azure Active Directory a autenticação para a autenticação com base de dados SQL ou SQL Data Warehouse](sql-database-aad-authentication.md).) Controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado para o SQL Server.
+    ![Selecione o administrador](./media/sql-database-aad-authentication/select-admin.png)  
+
+4. Na parte superior a **administrador do Active Directory** página, selecione **guardar**.
+    ![Guardar admin](./media/sql-database-aad-authentication/save-admin.png)
+
+O processo de alterar o administrador pode demorar vários minutos. Em seguida, o administrador do novo é apresentado na **administrador do Active Directory** caixa.
+
+   > [!NOTE]
+   > Ao definir o administrador do Azure AD, o novo nome de administrador (utilizador ou grupo) não pode já estar presente na base de dados mestra virtual como um utilizador de autenticação do SQL Server. Se estiver presente, a configuração de administração do Azure AD irá falhar; a reverter a sua criação e indicando que tal um administrador (nome) já existe. Uma vez que tal um utilizador de autenticação do SQL Server não faz parte do Azure AD, falha qualquer esforço para ligar ao servidor com a autenticação do Azure AD.
+
 ## <a name="creating-database-users"></a>Criar utilizadores de base de dados
 
 Antes de criar os utilizadores, primeiro tem de escolher um dos dois tipos de autenticação suportados pela Base de Dados SQL Azure:
@@ -131,9 +156,9 @@ Antes de criar os utilizadores, primeiro tem de escolher um dos dois tipos de au
 
 **Autenticação do Azure Active Directory**, que utiliza identidades geridas pelo Azure Active Directory.
 
-Se quiser utilizar o [Azure Active Directory](./sql-database-aad-authentication.md) para se autenticar na Base de Dados SQL, tem de existir um Azure Active Directory povoado antes de poder continuar.
+### <a name="create-a-user-using-sql-authentication"></a>Criar um utilizador com a autenticação SQL
 
-Siga estes passos para criar um utilizador que utiliza a Autenticação de SQL:
+Siga estes passos para criar um utilizador com a autenticação SQL:
 
 1. Estabeleça ligação à sua base de dados, por exemplo, através do [SQL Server Management Studio](./sql-database-connect-query-ssms.md), com as suas credenciais de administrador de servidor.
 
@@ -155,6 +180,27 @@ Siga estes passos para criar um utilizador que utiliza a Autenticação de SQL:
     ```
 
 É considerada uma melhor prática criar estas contas sem ser de administrador ao nível da base de dados para ligar à sua base de dados, a menos que precise de executar tarefas de administrador, como criar novos utilizadores. Reveja o [Tutorial do Azure Active Directory](./sql-database-aad-authentication-configure.md) sobre como efetuar a autenticação com o Azure Active Directory.
+
+### <a name="create-a-user-using-azure-active-directory-authentication"></a>Criar um utilizador através da autenticação do Azure Active Directory
+
+Autenticação do Azure Active Directory requer que os utilizadores da base de dados ser criadas como usuários do banco de dados independente. Um utilizador de base de dados contida, com base numa identidade do Azure AD, é um utilizador de base de dados que não tem um início de sessão na base de dados mestra, e que é mapeado para uma identidade no diretório do Azure AD que estão associado com a base de dados. A identidade do Azure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de base de dados contida, consulte [tomada de utilizadores de base de dados contidas sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+
+> [!NOTE]
+> Os utilizadores de base de dados (com exceção dos administradores) não não possível criar com o portal do Azure. Funções RBAC não são propagadas para o SQL Server, base de dados SQL ou SQL Data Warehouse. Funções RBAC do Azure são utilizadas para gerir recursos do Azure e não se aplicam às permissões de base de dados. Por exemplo, o **contribuinte do SQL Server** função não concede acesso para ligar à base de dados SQL ou SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente na base de dados com instruções Transact-SQL.
+> [!WARNING]
+> Carateres especiais, como dois pontos `:` ou e comercial `&` quando incluídas como nomes de utilizador nas instruções T-SQL CREATE LOGIN e criar o utilizador não são suportados.
+
+1. Ligar ao seu servidor de SQL do Azure com uma conta do Azure Active Directory com, pelo menos, o **ALTER ANY utilizador** permissão.
+2. No Object Explorer, clique com o botão direito do rato na base de dados à qual quer adicionar um novo utilizador e clique em **Nova Consulta**. É aberta uma janela de consulta em branco que está ligada à base de dados selecionada.
+
+3. Na janela da consulta, introduza a seguinte consulta e modificar `<Azure_AD_principal_name>` para o nome do principal de utilizador pretendido de um utilizador ou o nome a apresentar para um grupo do Azure AD:
+
+   ```sql
+   CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+   ```
+
+   > [!NOTE]
+   > Utilizadores do Azure AD são marcados nos metadados da base de dados com o tipo E (EXTERNAL_USER) e para grupos com o tipo de X (EXTERNAL_GROUPS). Para obter mais informações, consulte [database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 
 ## <a name="protect-your-data-with-encryption"></a>Proteger os seus dados com encriptação
 
@@ -249,6 +295,7 @@ Neste tutorial, aprendeu a melhorar a proteção da sua base de dados contra uti
 > [!div class="checklist"]
 > - Configurar regras de firewall para o servidor e/ou a base de dados
 > - Ligar à sua base de dados através de uma cadeia de ligação segura
+> - Configurar o administrador do Azure Active Directory para o SQL do Azure
 > - Gerir o acesso de utilizador
 > - Proteger os seus dados com encriptação
 > - Ativar a auditoria da Base de Dados SQL

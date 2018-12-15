@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254994"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435332"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite de colaboração do Azure Active Directory B2B
 
@@ -52,6 +52,12 @@ Depois de qualquer utilizador convidado inicia sessão aceder aos recursos numa 
 ![Captura de ecrã que mostra as definições de utilizador no painel de acesso](media/redemption-experience/ConsentScreen.png) 
 
 Para obter informações sobre como, como um administrador inquilino pode ligar a declaração de privacidade da sua organização, consulte [procedimentos: Adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Termos de utilização
+
+Pode apresentar termos de utilização para o utilizador convidado durante o processo de resgate inicial ao utilizar os termos de AD do Azure da funcionalidade de utilização. No Azure Active Directory, pode aceder a esta funcionalidade sob **Manage** > **relações organizacionais** > **termos de utilização** ou em **Security** > **acesso condicional** > **termos de utilização**. Para obter detalhes, consulte [do Azure AD termos de funcionalidade utilização](../governance/active-directory-tou.md).
+
+![Captura de ecrã que mostra os novos termos de utilização](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

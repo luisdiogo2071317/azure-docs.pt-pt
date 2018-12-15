@@ -4,25 +4,25 @@ description: Saiba como resolver problemas com o agente de gestão de atualizaç
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 68bac54de4f6a9f16f54032b10031bcf7222c676
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969316"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434771"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Windows na gestão de atualizações
 
-Há muitos motivos por que a máquina do Azure não poderá mostrar uma **pronto** estado na gestão de atualizações do Azure. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo descreve como executar a resolução de problemas de gestão de atualizações do portal do Azure e em cenários offline.
+Podem existir muitos motivos pelos quais sua máquina não estiver visível **pronto** na gestão de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo descreve como executar a resolução de problemas para as máquinas do Azure a partir do portal do Azure e máquinas não Azure no [cenário offline](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
 
-No portal do Azure, o **resolver problemas de Windows Update Agent** página apresenta problemas com o agente. Na página, existe uma ligação para este artigo para ajudá-lo a resolver problemas. Para ir para o **resolver problemas de agente de atualização** página, selecione a **resolver** ligação no **preparação do agente de atualização** coluna.
+Para máquinas do Azure, ao clicar o **resolução de problemas** ligação sob o **preparação do agente de atualização** coluna em lançamentos de portais a **resolver problemas de agente de atualização** página. Para as máquinas não Azure, a ligação leva a este artigo. Consulte a [instruções offline](#troubleshoot-offline) para resolver problemas de uma máquina não Azure.
 
 ![Atualizar a lista de gestão de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 

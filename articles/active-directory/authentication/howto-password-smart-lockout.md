@@ -5,30 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/14/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685808"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435281"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Active Directory do Azure
 
-Bloqueio inteligente utiliza inteligência da cloud para bloquear mal-intencionadas, que estão tentando adivinhar suas senhas ou usar métodos de força bruta para entrar. Esse intelligence pode reconhecer inícios de sessão geradas por usuários válidos e tratá-los de forma diferente do que aqueles de invasores e outras origens desconhecidas. Bloqueio inteligente bloqueia os invasores, ao mesmo tempo permitindo que os utilizadores continuam a aceder às suas contas e ser produtivo.
+Bloqueio inteligente auxilia no bloqueio da mal-intencionadas, que estão tentando adivinhar suas senhas ou usar métodos de força bruta para entrar. Ele pode reconhecer inícios de sessão geradas por usuários válidos e tratá-los de forma diferente do que aqueles de invasores e outras origens desconhecidas. Bloqueio inteligente bloqueia os invasores, ao mesmo tempo permitindo que os utilizadores continuam a aceder às suas contas e ser produtivo.
 
 Por predefinição, o bloqueio inteligente bloqueia a conta de tentativas de início de sessão de um minuto após 10 tentativas falhadas. Os bloqueios de conta novamente após cada subsequente início de sessão tentativa falhada, durante um minuto em primeiro e mais tempo nas tentativas subsequentes.
 
-* Bloqueio inteligente controla os três últimos hashes de palavra-passe incorreta para evitar reincrementing o contador de bloqueio. Se alguém insere a mesma palavra-passe errada várias vezes, esse comportamento não fará com que a conta de bloqueio.
-   * Esta funcionalidade não está disponível para clientes com a autenticação pass-through ativada.
+Bloqueio inteligente controla os três últimos hashes de palavra-passe incorreta para evitar reincrementing o contador de bloqueio. Se alguém insere a mesma palavra-passe errada várias vezes, esse comportamento não fará com que a conta de bloqueio.
+
+ > [!NOTE]
+ > Funcionalidade de controlo de hash não está disponível para clientes com a autenticação pass-through ativada como a autenticação ocorre no local não na cloud.
 
 Bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com estas definições predefinidas que oferecem a combinação certa de segurança e usabilidade. Personalização das definições de bloqueio inteligente, com valores específicos da sua organização, requer o Azure AD básico ou superior licenças para os seus utilizadores.
 
-Utilizar o bloqueio inteligente não garante que um utilizador original será nunca ser bloqueado. Quando o bloqueio inteligente bloqueia uma conta de utilizador, tentamos melhor para bloqueio o usuário original. O serviço de bloqueio tenta Certifique-se de que pessoas mal-intencionadas não é possível obter acesso a uma conta de utilizadores original.  
+Utilizar o bloqueio inteligente não garante que um utilizador original será nunca ser bloqueado. Quando o bloqueio inteligente bloqueia uma conta de utilizador, tentamos melhor para bloqueio o usuário original. O serviço de bloqueio tenta Certifique-se de que pessoas mal-intencionadas não é possível obter acesso a uma conta de utilizador original.  
 
 * Cada Datacenter do Azure Active Directory controla o bloqueio de forma independente. Um usuário terá (threshold_limit * datacenter_count) número de tentativas, se o usuário acessa cada centro de dados.
 * Bloqueio inteligente utiliza localização desconhecida do vs localização familiar para diferenciar entre um ator indevido e o utilizador original. Localizações desconhecidas e familiares terão ambos os contadores de bloqueio separado.

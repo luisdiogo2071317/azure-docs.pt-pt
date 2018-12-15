@@ -1,6 +1,6 @@
 ---
-title: Recolher registos personalizados no Azure Log Analytics | Documentos da Microsoft
-description: O log Analytics pode recolher eventos de arquivos de texto em computadores Windows e Linux.  Este artigo descreve como definir um registo personalizado novo e detalhes dos registos que criaram na área de trabalho do Log Analytics.
+title: Recolher registos personalizados no Azure Monitor | Documentos da Microsoft
+description: O Azure Monitor pode recolher eventos de arquivos de texto em computadores Windows e Linux.  Este artigo descreve como definir um registo personalizado novo e detalhes dos registos que criaram no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: bwren
-ms.openlocfilehash: 167f0fd9e06e731a6a2fef15d762d8815f5d4f9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 28c8ca5a81f76e10e7c8b84897f77702ee68cdc0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189987"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434397"
 ---
-# <a name="custom-logs-in-log-analytics"></a>Registos personalizados no Log Analytics
-A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
+# <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
+A origem de dados de registos personalizado no Azure Monitor permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
 
 ![Recolha de registos personalizado](media/data-sources-custom-logs/overview.png)
 
@@ -35,7 +35,7 @@ Os ficheiros de registo a recolher devem coincidir com os seguintes critérios.
 - O ficheiro de registo deve usar a codificação ASCII ou UTF-8.  Não são suportados outros formatos, como o UTF-16.
 
 >[!NOTE]
->Se existirem entradas duplicadas no ficheiro de registo, o Log Analytics recolhê-los.  No entanto, os resultados da pesquisa serão inconsistente onde os filtrar os resultados mostram mais eventos que a contagem de resultado.  É importante que validar o registo para determinar se o aplicativo que cria a mesma está a causar esse comportamento e solucioná-lo se for possível antes de criar a definição de coleção de registo personalizado.  
+>Se existirem entradas duplicadas no ficheiro de registo, o Azure Monitor recolhê-los.  No entanto, os resultados da consulta serão inconsistente onde os filtrar os resultados mostram mais eventos que a contagem de resultado.  É importante que validar o registo para determinar se o aplicativo que cria a mesma está a causar esse comportamento e solucioná-lo se for possível antes de criar a definição de coleção de registo personalizado.  
 >
   
 >[!NOTE]
@@ -54,11 +54,11 @@ O Assistente de registo personalizado é executado no portal do Azure e permite-
 4. Clique em **adicionar +** para abrir o Assistente de registo personalizado.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um registo de exemplo
-Começa carregando um exemplo do log personalizado.  O assistente irá analisar e apresentar as entradas existentes neste ficheiro para que possa validar.  O log Analytics irá utilizar o delimitador que especificar para identificar cada registo.
+Começa carregando um exemplo do log personalizado.  O assistente irá analisar e apresentar as entradas existentes neste ficheiro para que possa validar.  O Azure Monitor irá utilizar o delimitador que especificar para identificar cada registo.
 
 **Nova linha** é o delimitador padrão e é utilizado para ficheiros de registo que têm uma única entrada por linha.  Se a linha começa com uma data e hora dos formatos disponíveis, em seguida, pode especificar uma **Timestamp** delimitador que suporta as entradas que abrangem mais de uma linha.
 
-Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGenerated de cada registo armazenado no Log Analytics será preenchida com a data/hora especificada para essa entrada no ficheiro de registo.  Se for utilizado um delimitador de linha nova, TimeGenerated é preenchida com a data e hora em que o Log Analytics recolhidos a entrada.
+Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGenerated de cada registo armazenado no Azure Monitor será preenchida com a data/hora especificada para essa entrada no ficheiro de registo.  Se for utilizado um delimitador de linha nova, TimeGenerated é preenchida com a data e hora em que o Azure Monitor recolhidos a entrada.
 
 
 1. Clique em **procurar** e navegue para um ficheiro de exemplo.  Tenha em atenção que isto pode botão pode ser rotulada como **Escolher ficheiro** em alguns navegadores.
@@ -97,16 +97,16 @@ O nome que especificar será utilizado para o tipo de registo, conforme descrito
 3. Clique em **seguinte** para guardar a definição de registo personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5. Validar que estão a ser recolhidos os registos personalizados
-Ele poderá demorar até uma hora para os dados iniciais de um registo personalizado novo para aparecer no Log Analytics.  Irá iniciar a recolha de entradas dos registos encontrados no caminho especificado do ponto de que definiu o registo personalizado.  Ele não irá reter as entradas que carregou durante a criação de registo personalizado, mas ele irá recolher entradas já existentes nos ficheiros de registo que ele localiza.
+Ele poderá demorar até uma hora para os dados iniciais de um registo personalizado novo para que sejam apresentadas no Monitor do Azure.  Irá iniciar a recolha de entradas dos registos encontrados no caminho especificado do ponto de que definiu o registo personalizado.  Ele não irá reter as entradas que carregou durante a criação de registo personalizado, mas ele irá recolher entradas já existentes nos ficheiros de registo que ele localiza.
 
-Assim que o Log Analytics começa a recolher de log personalizado, seus registos de estará disponíveis com uma pesquisa de registos.  Utilize o nome que deu o registo personalizado, como o **tipo** na sua consulta.
+Assim que o Azure Monitor inicia a recolha de log personalizado, seus registos de estará disponíveis com uma consulta de registo.  Utilize o nome que deu o registo personalizado, como o **tipo** na sua consulta.
 
 > [!NOTE]
-> Se a propriedade de RawData está em falta da pesquisa, terá de fechar e reabrir o browser.
+> Se a propriedade de RawData está em falta da consulta, terá de fechar e reabrir o browser.
 
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passo 6. Analisar as entradas de registo personalizado
-A entrada de registo inteiro será armazenada numa única propriedade chamada **RawData**.  Provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais para cada registo. Consulte a [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para obter as opções na análise **RawData** em várias propriedades.
+A entrada de registo inteiro será armazenada numa única propriedade chamada **RawData**.  Provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais para cada registo. Consulte a [analisar dados de texto no Azure Monitor](../log-query/parse-text.md) para obter as opções na análise **RawData** em várias propriedades.
 
 ## <a name="removing-a-custom-log"></a>Remover um registo personalizado
 Utilize o seguinte processo no portal do Azure para remover um registo personalizado que definiu anteriormente.
@@ -116,16 +116,16 @@ Utilize o seguinte processo no portal do Azure para remover um registo personali
 
 
 ## <a name="data-collection"></a>Recolha de dados
-O log Analytics recolherá novas entradas de cada registo personalizado, aproximadamente a cada 5 minutos.  O agente registrará seu lugar em cada arquivo de log recolhidos dos.  Se o agente ficar offline durante um período de tempo, em seguida, do Log Analytics recolherá entradas onde pela última vez parou, mesmo que essas entradas foram criadas, enquanto o agente estava offline.
+O Azure Monitor irá recolher novas entradas de cada registo personalizado aproximadamente a cada 5 minutos.  O agente registrará seu lugar em cada arquivo de log recolhidos dos.  Se o agente ficar offline durante um período de tempo, em seguida, do Azure Monitor recolherá entradas onde pela última vez parou, mesmo que essas entradas foram criadas, enquanto o agente estava offline.
 
-Todo o conteúdo da entrada de log é gravado numa única propriedade chamada **RawData**.  Ver [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
+Todo o conteúdo da entrada de log é gravado numa única propriedade chamada **RawData**.  Ver [analisar dados de texto no Azure Monitor](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
 
 ## <a name="custom-log-record-properties"></a>Propriedades de registo de registo personalizado
 Registros de log personalizado tem um tipo com o nome de registo que fornece e as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| TimeGenerated |Data e hora em que o registo foi recolhido pelo Log Analytics.  Se o registo de utilizar um delimitador baseados no tempo, em seguida, esta é a vez recolhida a partir da entrada. |
+| TimeGenerated |Data e hora em que o registo foi recolhido pelo Azure Monitor.  Se o registo de utilizar um delimitador baseados no tempo, em seguida, esta é a vez recolhida a partir da entrada. |
 | SourceSystem |Tipo de registo foi recolhido a partir do agente. <br> Ligar OpsManager – agente de Windows, direta ou System Center Operations Manager <br> Linux – todos os agentes do Linux |
 | RawData |Texto completo da entrada recolhido. Provavelmente vai querer [analisar estes dados em propriedades individuais](../log-query/parse-text.md). |
 | ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
@@ -166,5 +166,5 @@ Podemos usar campos personalizados para definir o *EventTime*, *código*, *estad
 ![Consulta de registo com campos personalizados](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Ver [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
-* Saiba mais sobre [pesquisas de registos](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Ver [analisar dados de texto no Azure Monitor](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

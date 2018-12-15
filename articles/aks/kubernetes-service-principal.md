@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578354"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435400"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -113,6 +113,10 @@ Terá de aceder aos recursos de disco existentes noutro grupo de recursos. Atrib
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
 - Ou, atribuir os [contribuinte de conta de armazenamento] [ rbac-storage-contributor] função incorporada no grupo de recursos
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+Se usar o Virtual Kubelet para integrar com o AKS e optar por executar o Azure Container Instances (ACI) no grupo de recursos separados para o cluster do AKS, tem de ser concedido o principal de serviço do AKS *contribuinte* permissões no recurso do ACI grupo.
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 

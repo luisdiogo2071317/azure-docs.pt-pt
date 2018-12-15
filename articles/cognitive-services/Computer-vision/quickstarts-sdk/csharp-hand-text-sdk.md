@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: extrair texto – SDK, C# – Imagem Digitalizada'
+title: 'Início rápido: Extrair texto - SDK, C# -de imagem digitalizada'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto de uma imagem através da biblioteca de cliente C# do Windows de Imagem Digitalizada.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c0323c215e83850dc53acd5e350d7eeeeb9a05b1
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852491"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413222"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Guia de Início Rápido: extrair texto com o SDK de Imagem Digitalizada e C#
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Início rápido: Extrair texto com o SDK de visão do computador eC#
 
 Neste guia de início rápido, irá extrair texto manuscrito ou impresso de uma imagem através da biblioteca de cliente do Windows de Imagem Digitalizada.
 
@@ -30,7 +30,7 @@ Neste guia de início rápido, irá extrair texto manuscrito ou impresso de uma 
 ## <a name="recognizetextasync-method"></a>Método RecognizeTextAsync
 
 > [!TIP]
-> Obter o código mais recente como uma solução do Visual Studio a partir do [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Os métodos `RecognizeTextAsync` e `RecognizeTextInStreamAsync` encapsulam num wrapper a [API de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para imagens remotas e locais, respetivamente. O método `GetTextOperationResultAsync` encapsula num wrapper a [API para Obter Resultados da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Pode utilizar estes métodos para detetar texto numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
 
@@ -188,7 +188,7 @@ namespace ExtractText
 
 Uma resposta com êxito apresenta as linhas de texto reconhecido para cada imagem.
 
-Veja [Guia de Início Rápido: extrair texto manuscrito – REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response) para obter um resultado de JSON não processado.
+Consulte [início rápido: Extrair texto manuscrito - REST, C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response) para obter um exemplo de JSON não processado de saída.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

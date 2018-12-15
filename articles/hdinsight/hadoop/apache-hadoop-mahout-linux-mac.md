@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 9e0f614344372d08974bc7592ccb88e7382e4cb4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017547"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435196"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes com o Apache Mahout com baseado em Linux Apache Hadoop no HDInsight (SSH)
 
@@ -28,14 +28,14 @@ O manhout é uma [machine learning] [ ml] biblioteca para o Apache Hadoop. Mahou
 
 * Um cluster do HDInsight baseado em Linux. Para obter informações sobre como criar um, consulte [começar a utilizar o Hadoop baseado em Linux no HDInsight][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Um cliente SSH. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="mahout-versioning"></a>Mahout controle de versão
+## <a name="apache-mahout-versioning"></a>Controle de versão do Apache Mahout
 
-Para obter mais informações sobre a versão do Mahout no HDInsight, consulte [HDInsight versões e componentes do Hadoop](../hdinsight-component-versioning.md).
+Para obter mais informações sobre a versão do Mahout no HDInsight, consulte [HDInsight versões e componentes do Apache Hadoop](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Recomendações de compreensão
 
@@ -43,11 +43,11 @@ Uma das funções que é fornecida pelo Mahout é um motor de recomendação. Es
 
 O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados do filme:
 
-* **Ocorrência conjunta**: Joe, Alice e Bob, todos os gostos *estrela personagens da guerra*, *o império Strikes volta*, e *retorno do Jedi*. Mahout determina que os utilizadores que, como qualquer um desses filmes também como os outros dois.
+* **Ocorrência conjunta**: Joe, Alice e Bob, todos os gostos *estrela personagens da guerra*, *The império Strikes volta*, e *retorno do Jedi*. Mahout determina que os utilizadores que, como qualquer um desses filmes também como os outros dois.
 
-* **Ocorrência conjunta**: também gostaram Bob e Alice *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostaram três filmes anteriores também como estes três filmes.
+* **Ocorrência conjunta**: Também gostaram BOB e Alice *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostaram três filmes anteriores também como estes três filmes.
 
-* **Recomendação de semelhança**: gostaram de Joe porque os primeiros três filmes, Mahout analisa filmes que outras pessoas com as preferências semelhante que gostou, mas o João tem não assistiu (gostou/classificados). Neste caso, recomenda a Mahout *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*.
+* **Recomendação de semelhança**: Uma vez que o João gostou os primeiros três filmes, Mahout analisa filmes que outras pessoas com as preferências semelhante que gostou, mas Joe não já viu (gostou/classificados). Neste caso, recomenda a Mahout *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*.
 
 ### <a name="understanding-the-data"></a>Compreender os dados
 
@@ -59,8 +59,8 @@ Os dados contidos no utilizador ratings.txt tem uma estrutura de `userID`, `movi
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>Executar a análise
@@ -71,7 +71,7 @@ A partir de uma ligação SSH ao cluster, utilize o seguinte comando para execut
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > A tarefa pode demorar vários minutos a concluir e pode executar várias tarefas de MapReduce.
 
 ## <a name="view-the-output"></a>Ver o resultado
@@ -188,7 +188,7 @@ Mahout tarefas remove os dados temporários que são criados ao processar a tare
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Se quiser executar o comando novamente, também tem de eliminar o diretório de saída. Utilize o seguinte para eliminar este diretório:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,8 +198,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Agora que aprendeu como utilizar o Mahout, descobrir outras formas de trabalhar com dados no HDInsight:
 
-* [O Hive com o HDInsight](hdinsight-use-hive.md)
-* [PIg com o HDInsight](hdinsight-use-pig.md)
+* [Apache Hive com o HDInsight](hdinsight-use-hive.md)
+* [Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: https://mahout.apache.org/developers/buildingmahout.html

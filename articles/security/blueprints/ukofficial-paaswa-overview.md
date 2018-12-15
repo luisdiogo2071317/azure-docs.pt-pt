@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321993"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409025"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: PaaS Web de hospedagem de aplicativos para cargas de trabalho oficial do Reino Unido
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Segurança do Azure e Esquemas de Conformidade
 
@@ -39,7 +39,7 @@ Usando [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resour
 
 Este esquema é uma arquitetura de base. Os nossos clientes podem usar esse plano gráfico como base para a classificação OFFICIAL baseada na web cargas de trabalho e expandir os modelos e recursos com seus próprios requisitos. Esta arquitetura baseia-se sobre os princípios dos [esquema de aplicativos de Web de IaaS de três camadas do Reino Unido OFFICAL](https://aka.ms/ukofficial-iaaswa) para oferecer os nossos clientes [infraestrutura como serviço (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) e opções de implementação de PaaS para alojar cargas de trabalho baseadas na web.
 
-Para implementar esta arquitetura, é necessária uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode inscrever-se rapidamente e facilmente sem encargos: introdução ao Azure. Clique em [aqui](https://aka.ms/ukofficial-paaswa-repo/) para obter instruções de implementação.
+Para implementar esta arquitetura, é necessária uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode inscrever-se rapidamente e facilmente, sem qualquer custo: Introdução ao Azure. Clique em [aqui](https://aka.ms/ukofficial-paaswa-repo/) para obter instruções de implementação.
 
 ## <a name="architecture-and-components"></a>Arquitetura e componentes
 
@@ -79,7 +79,7 @@ As seguintes tecnologias fornecem capacidades de gestão no ambiente do Azure de
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) é multi-inquilino com base na cloud diretório e identidade do serviço de gestão da Microsoft. Todos os utilizadores para a solução foram criados no Azure Active Directory, incluindo os utilizadores que acedem a base de dados SQL.
 - Autenticação para o operador com acesso à aplicação web e acesso para a administração de recursos do Azure é efetuada a utilizar o Azure AD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Encriptação de coluna de base de dados utiliza o Azure AD para autenticar a aplicação à base de dados do Azure SQL. Para obter mais informações, consulte [Always Encrypted: proteger dados confidenciais na base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Encriptação de coluna de base de dados utiliza o Azure AD para autenticar a aplicação à base de dados do Azure SQL. Para obter mais informações, consulte [Always Encrypted: Proteger dados confidenciais na base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - O recurso de linha com acesso à aplicação web está configurado para acesso público. Para permitir a fornecedores de identidade de rede de criação da conta e a autenticação através do Active Directory ou redes sociais [do Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) podem ser integradas se necessário.
 - [O Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades e contas de risco fornece recomendações para melhorar a postura de segurança de identidades da sua organização, configura as respostas automáticas para detetado ações suspeitas relacionadas com identidades da sua organização e investiga os incidentes suspeitos e tome as medidas adequadas para resolvê-los.
 - [Do Azure com base em função de controlo de acesso (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite a gestão de acesso direcionado precisamente para o Azure. Acesso à subscrição está limitado ao administrador da subscrição e o acesso do Azure Key Vault é limitado apenas aos utilizadores que necessitam de acesso de gestão de chaves.
@@ -104,14 +104,14 @@ Os dados é o trânsito de fora e entre os componentes do Azure protegidos utili
 
 Aplicações Web do Azure fornece um ambiente para o aplicativo web desenvolvido no Java, PHP, node. js Python, HTML e c#, sem ter de gerir a infraestrutura de alojamento na web completamente gerida. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite automatizada implementações a partir [do Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou de qualquer repositório baseada no Git.
 
-Serviço de aplicações é [ISO, SOC e PCI em conformidade](https://www.microsoft.com/TrustCenter/) e pode autenticar utilizadores com [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) ou com início de sessão social ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), e [autenticação da Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+Serviço de aplicações é [ISO, SOC e PCI em conformidade](https://www.microsoft.com/TrustCenter/) e pode autenticar utilizadores com [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) ou com início de sessão social ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), e [autenticação da Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Básico, Standard, e os planos Premium são para cargas de trabalho de produção e executados em instâncias de Máquina Virtual dedicadas. Cada instância pode suportar várias aplicações e domínios. Aplicação também dos serviços de suporte [restrições de endereço IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) para proteger o tráfego para endereços IP fidedignos se for necessário e também [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para uma ligação segura a outros serviços PaaS Por exemplo, [Cofre de chaves](https://azure.microsoft.com/services/key-vault/) e [base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). Sempre que for necessário segurança adicional o nosso plano isolado aloja as suas aplicações num ambiente privado e dedicado do Azure e é ideal para aplicações que exigem ligações seguras com sua rede no local, ou o desempenho adicional e o dimensionamento.
 
 Este modelo implementa as seguintes funcionalidades do serviço de aplicações:
 
 - [Padrão](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) escalão do plano de serviço de aplicações
-- Aplicação de Web vários [blocos de implementação](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): programador, pré-visualização, controle de qualidade, UAT e certamente produção (bloco padrão).
+- Aplicação de Web várias [blocos de implementação](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Desenvolvimento, pré-visualização, controle de qualidade, UAT e certamente produção (bloco padrão).
 - [Gerido identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para ligar ao [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Isto também pode ser utilizado para fornecer acesso a [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integração com o [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) para monitorizar o desempenho
 - [Registos de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
@@ -232,7 +232,7 @@ Foram fornecidas três abordagens para a implementação; Um simples "expressa" 
 1.  Clonar ou transferir [isso](https://aka.ms/ukofficial-paaswa-repo) repositório do GitHub para a estação de trabalho local.
 2.  Revisão [método 1: 2 de CLI do Azure (versão Express)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) e execute os comandos fornecidos.
 3.  Revisão [método 1a: 2 de CLI do Azure (configurar a implantação por meio de argumentos de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) e execute os comandos fornecidos
-4.  Revisão [método 2: processo de implementação do Portal do Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
+4.  Revisão [método 2: Processo de implementação do Portal do Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
 
 ## <a name="guidance-and-recommendations"></a>Orientações e recomendações
 

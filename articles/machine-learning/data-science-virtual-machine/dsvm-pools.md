@@ -14,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: acae59922f5a46f059e19db6865491f5186139f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103409"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408957"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas de virtuais de ciência de dados
 
 Este artigo aborda como criar um conjunto partilhado de dados de máquinas virtuais de ciência (DSVMs) para uma equipe a utilizar. As vantagens de utilizar um conjunto partilhado são melhor utilização de recursos, facilitação de partilha e colaboração e gerenciamento mais eficiente de recursos DSVM. 
 
-Pode usar vários métodos e tecnologias para criar um conjunto de DSVMs. Este artigo se concentra em conjuntos para processamento em lotes e VMs interativas.
-
-## <a name="batch-processing-pool"></a>Conjunto de processamento em lote
-Se pretender configurar um conjunto de DSVMs principalmente para executar tarefas em lote offline, pode utilizar o [do Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) ou [do Azure Batch](https://docs.microsoft.com/azure/batch/) serviço. Este artigo concentra-se no Azure Batch AI.
-
-A edição Ubuntu da DSVM é suportada como uma das imagens no Azure Batch AI. Na CLI do Azure ou o SDK de Python, onde criar o cluster do Azure Batch AI, pode especificar a `image` parâmetro e defini-lo como `UbuntuDSVM`. Pode escolher o tipo de nós de processamento Desejamos: as instâncias baseadas em GPU versus instâncias só na CPU, o número de CPUs e memória de um [wide choice de instâncias de VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) disponíveis no Azure. 
-
-Quando utiliza a imagem de Ubuntu DSVM no Batch AI connosco baseada em GPU, todos os controladores de GPU e estruturas de aprendizagem profunda necessário pré-instalados. A pré-instalação do economiza um tempo considerável na preparação os nós do batch. Na verdade, se estiver desenvolvendo numa DSVM do Ubuntu interativamente, observará que os nós do Batch AI são exatamente a mesma configuração e a configuração do ambiente. 
-
-Normalmente, quando cria um cluster do Batch AI, também é criar uma partilha de ficheiros que está montada por todos os nós. A partilha de ficheiros é utilizada para entrada e saída de dados, bem como os tarefa batch código/scripts de armazenamento. 
-
-Depois de criar um cluster do Batch AI, pode utilizar o mesmo CLI ou Python SDK para submeter tarefas para serem executados. Paga apenas o tempo que é utilizado para executar as tarefas de lote. 
-
-Para obter mais informações, consulte:
-* Instruções passo a passo sobre a utilização [CLI do Azure](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) para gerir o Batch AI
-* Instruções passo a passo sobre a utilização [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) para gerir o Batch AI
-* [Receitas de IA do batch](https://github.com/Azure/BatchAI) que demonstram como utilizar várias IA e estruturas com o Batch AI de aprendizagem profunda
+Pode usar vários métodos e tecnologias para criar um conjunto de DSVMs. Este artigo se concentra em conjuntos para VMs interativas. Uma infraestrutura de computação gerida alternativo é a computação do Azure Machine Learning. Ver [configurar destinos de computação](../service/how-to-set-up-training-targets.md#amlcompute) para obter mais informações.
 
 ## <a name="interactive-vm-pool"></a>Pool de VMS interativa
 

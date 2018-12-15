@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984318"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407292"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory para um cluster do HDInsight
 
@@ -40,11 +40,11 @@ Para ver os seus anfitriões, abra a interface do Usuário de Web do Ambari. Cad
 
 4. Selecione **Criar**.
 
-## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>Utilizar a API de REST do Ambari para sincronizar os utilizadores
+## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Utilizar a API de REST do Apache Ambari para sincronizar utilizadores
 
 Grupos de utilizadores especificados durante o processo de criação do cluster são sincronizados nesse momento. Sincronização do usuário ocorre automaticamente uma vez por hora. Para sincronizar os utilizadores imediatamente ou, para sincronizar um grupo que não seja os grupos especificados durante a criação do cluster, utilize a API de REST do Ambari.
 
-O método seguinte utiliza o POST com a API de REST do Ambari. Para obter mais informações, consulte [clusters do HDInsight gerir com a API de REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+O método seguinte utiliza o POST com a API de REST do Ambari. Para obter mais informações, consulte [clusters do HDInsight gerir utilizando a API de REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 1. [Ligar ao cluster com SSH](hdinsight-hadoop-linux-use-ssh-unix.md). No painel de descrição geral do seu cluster no portal do Azure, selecione o **Secure Shell (SSH)** botão.
 
@@ -123,12 +123,12 @@ O método seguinte utiliza o POST com a API de REST do Ambari. Para obter mais i
 
 5. Este resultado mostra que o estado é **COMPLETE**, foi criado um novo utilizador e o utilizador foi atribuído uma associação. Neste exemplo, é atribuída ao utilizador para o sincronizados "HiveUsers" grupo de LDAP, uma vez que o utilizador foi adicionado para esse mesmo grupo no Azure AD.
 
-> [!NOTE]
+> [!NOTE]  
 > O método anterior sincroniza apenas os grupos do Azure AD especificados na **grupo de utilizadores de acesso** propriedade das definições de domínio durante a criação do cluster. Para obter mais informações, consulte [criar um cluster do HDInsight](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Certifique-se recentemente adicionado utilizador do Azure AD
 
-Abra o [IU Web do Ambari](hdinsight-hadoop-manage-ambari.md) para verificar se o novo utilizador do Azure AD foi adicionado. Aceder à IU Web do Ambari, navegando até **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Introduza o nome de utilizador de administrador de cluster e a palavra-passe.
+Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar se o novo utilizador do Azure AD foi adicionado. Aceder à IU Web do Ambari, navegando até **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Introduza o nome de utilizador de administrador de cluster e a palavra-passe.
 
 1. A partir do dashboard do Ambari, selecione **gerir Ambari** sob a **administrador** menu.
 
@@ -148,6 +148,6 @@ Quando o utilizador novo (ou qualquer outro utilizador de domínio) inicia sess�
 
 ## <a name="see-also"></a>Consulte também
 
-* [Configurar políticas do Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
+* [Configurar políticas de Apache Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
 * [Gerir clusters do HDInsight com o ESP](hdinsight-domain-joined-manage.md)
-* [Autorizar os utilizadores a Ambari](hdinsight-authorize-users-to-ambari.md)
+* [Autorizar utilizadores para Apache Ambari](hdinsight-authorize-users-to-ambari.md)

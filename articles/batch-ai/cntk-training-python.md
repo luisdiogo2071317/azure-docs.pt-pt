@@ -15,14 +15,17 @@ ms.devlang: Python
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0c805deb85a999d3c23be24b81c1d97ed5fe55eb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 86ce9fd77ccf83ed6f5f1c722b4c8c809ef0eedf
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407921"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>Executar uma tarefa de preparação CNTK com o SDK Python
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este artigo mostra-lhe como utilizar o SDK Python do Azure para preparar um modelo do Microsoft Cognitive Toolkit (CNTK) de exemplo com o serviço Batch AI.
 
@@ -303,6 +306,6 @@ Utilize o seguinte código para eliminar todos os recursos alocados:
 ```Python
 resource_management_client.resource_groups.delete('myresourcegroup')
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como utilizar o Batch AI com arquiteturas diferentes, veja as [receitas de preparação](https://github.com/Azure/BatchAI).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3929e4d2a915e58922d26f6d4b81c7d3a4fc8afe
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322282"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434108"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
 
@@ -200,6 +200,8 @@ Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado,
 3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confirme [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) está configurado corretamente.
+
+5. Se não tem uma dependência, certificar-se de que ele está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode ainda controlá-lo manualmente com um [controlar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Comentários do portal
 Para enviar comentários, utilize a opção de comentários do portal.

@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 75f615f63b0741899995c2728f93231d8e46734a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016185"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406798"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas de MapReduce com o Apache Hadoop no HDInsight com REST
 
-Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce num Apache Hadoop num cluster do HDInsight. Curl é utilizado para demonstrar como pode interagir com o HDInsight através da utilização de pedidos HTTP não processados para executar tarefas de MapReduce.
+Saiba como utilizar a API REST do WebHCat de ramo de registo Apache para executar tarefas de MapReduce num Apache Hadoop num cluster do HDInsight. Curl é utilizado para demonstrar como pode interagir com o HDInsight através da utilização de pedidos HTTP não processados para executar tarefas de MapReduce.
 
-> [!NOTE]
-> Se já estiver familiarizado com a utilização do Hadoop baseado em Linux servidores, mas estiver familiarizado com o HDInsight, consulte a [o que precisa saber sobre o Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md) documento.
+> [!NOTE]  
+> Se já estiver familiarizado com a utilização do Hadoop baseado em Linux servidores, mas estiver familiarizado com o HDInsight, consulte a [o que precisa saber sobre baseado em Linux Apache Hadoop no HDInsight](../hdinsight-hadoop-linux-information.md) documento.
 
 
 ## <a id="prereq"></a>Pré-requisitos
@@ -31,7 +31,7 @@ Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce 
 
 ## <a id="curl"></a>Executar uma tarefa de MapReduce
 
-> [!NOTE]
+> [!NOTE]  
 > Quando utilizar Curl ou quaisquer outras comunicações REST com WebHCat, tem de autenticar os pedidos, fornecendo o nome de utilizador do administrador de cluster do HDInsight e a palavra-passe. Tem de utilizar o nome do cluster como parte do URI que é utilizado para enviar os pedidos para o servidor.
 >
 > É protegida com a API REST [autenticação de acesso básico](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos através de HTTPS para garantir que as suas credenciais são enviadas de forma segura para o servidor.
@@ -75,8 +75,8 @@ Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce 
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-u**: indica o nome de utilizador e palavra-passe utilizada para autenticar o pedido
-   * **-G**: indica que esta operação é uma solicitação GET
+   * **-u**: Indica o nome de utilizador e palavra-passe utilizada para autenticar o pedido
+   * **-G**: Indica que esta operação é uma solicitação GET
 
    O início do URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todos os pedidos.
 
@@ -108,9 +108,9 @@ Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce 
 
    * **-d**: `-G` não for utilizado, pelo que o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
     * **User.name**: O utilizador que está a executar o comando
-    * **JAR**: A localização do ficheiro jar que contém a classe para ser executado
+    * **JAR**: A localização do ficheiro jar que contém a classe para ser executada
     * **classe**: A classe que contém a lógica de MapReduce
-    * **arg**: os argumentos transmitidos para a tarefa de MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
+    * **arg**: Os argumentos transmitidos para a tarefa de MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
 
    Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa:
 
@@ -136,7 +136,7 @@ Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce 
 
     Se a tarefa estiver concluída, o estado devolvido é `SUCCEEDED`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Este pedido Curl devolve um documento JSON com informações sobre a tarefa. Jq é usado para recuperar apenas o valor de estado.
 
 6. Quando o estado da tarefa foi alterado para `SUCCEEDED`, pode recuperar os resultados da tarefa de armazenamento de Blobs do Azure. O `statusdir` parâmetro que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a localização é `/example/curl`. Este endereço armazena o resultado da tarefa no armazenamento do padrão de clusters em `/example/curl`.
@@ -147,11 +147,11 @@ Pode listar e transferir estes ficheiros ao utilizar o [CLI do Azure](https://do
 
 Para obter informações gerais sobre tarefas de MapReduce no HDInsight:
 
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
 Para obter mais informações sobre a interface REST, que é utilizada neste artigo, consulte a [referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277975"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434958"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios federados
 
 Da forma semelhante ao utilizador, o dispositivo está a tornar-se outra identidade que deve proteger e também utilizar para proteger os seus recursos em qualquer momento e em qualquer lugar. Pode concretizar este objetivo ao trazer as identidades dos seus dispositivos para o Azure AD através de um dos seguintes métodos:
 
@@ -53,9 +53,12 @@ Este tutorial parte do princípio de que está familiarizado com:
 -  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
 
 
+
 Para configurar o cenário neste tutorial, precisa do:
 
 - Windows Server 2012 R2 com o AD FS
+
+- No local do Active Directory (AD) com um nível de esquema do 85 ou posterior. Para obter mais informações, consulte [atualizar o esquema do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versão 1.1.819.0 ou superior. 
  
@@ -167,7 +170,7 @@ Para registar dispositivos de nível inferior do Windows, terá de se certificar
 
 
     
-A seguinte política tem de ser definida como **Todos**: **os utilizadores podem registar os seus dispositivos com o Azure AD**
+A seguinte política tem de ser definida **todos os**: **Os utilizadores podem registar os seus dispositivos com o Azure AD**
 
 ![Registar dispositivos](./media/hybrid-azuread-join-federated-domains/23.png)
 
@@ -224,7 +227,7 @@ Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos d
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar a associação ao Azure Active Directory híbrido de domínios federados](hybrid-azuread-join-managed-domains.md)

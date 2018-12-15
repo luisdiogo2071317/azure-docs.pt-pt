@@ -9,27 +9,37 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901333"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408362"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do serviço de visão personalizada
 
-## <a name="october-9-2018"></a>9 de Outubro de 2018
+
+## <a name="december-12-2018"></a>12 de Dezembro de 2018
+- Suporte à exportação para modelos de deteção de objetos (introduzida objeto deteção Compact domínio).
+- Um número fixo de problemas de acessibilidade do leitor de ecrã aprimoradas e suporte à navegação do teclado. 
+- Atualizações de experiência do Usuário para o Visualizador de imagens e deteção de objetos melhorada experiência para marcar o mais rápido de marcação.  
+- Atualizado base modelo para o domínio de deteção de objeto para deteção de objetos do melhor qualidade. 
+- Bugfixes.
+
+## <a name="november-6-2018"></a>6 de Novembro de 2018
+- Foi adicionado suporte para o domínio de logótipo na deteção de objetos.
+
+## <a name="october-9-2018"></a>9 de outubro de 2018
 - Deteção de objetos introduz a pré-visualização paga. Agora, pode criar projetos de deteção de objetos com um recurso do Azure.
 - Funcionalidade de "Mover para o Azure" foi adicionada ao site, para que seja mais fácil atualizar um projeto de versão de avaliação limitada para ligar a do Azure. projeto de ligado de recursos (F0 ou S0). Pode encontrar isto na página Definições do seu produto.  
 - Exportação foi adicionada para 1.2 ONNX, para suportar a versão de atualização de Outubro de 2018 do Windows do Windows ML.
 Exportar Bugfixes, incluindo para ONNX com carateres especiais. 
 
-
 ## <a name="august-14-2018"></a>14 de Agosto de 2018
 - Foi adicionado widget "Iniciar" para o site de customvision.ai orientar os usuários por meio de treinamento do project. 
 - Ainda mais melhorias para o pipeline de machine learning para beneficiar multilabel projetos (nova camada de perda).
 
-## <a name="june-28-2018"></a>28 de Junho de 2018
+## <a name="june-28-2018"></a>28 de junho de 2018
 - Melhorias de Bugfixes & back-end.
 - Ativar a classificação de várias classes, para projetos em que as imagens têm exatamente uma etiqueta. Somam em previsões para o modo de várias classes, probabilidades para um (todas as imagens são classificadas entre as suas etiquetas especificadas).
 

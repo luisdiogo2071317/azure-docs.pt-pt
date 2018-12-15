@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 687ff4a7411113721b16636e1d11b30573e41642
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410266"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migrar de Federação para a sincronização de hash de palavra-passe para o Azure AD
 O documento seguinte fornece orientações sobre a migração do AD FS para sincronização de hash de palavra-passe.
@@ -29,7 +29,7 @@ O documento seguinte fornece orientações sobre a migração do AD FS para sinc
 Os seguintes pré-requisitos são necessários para poder migrar.
 ### <a name="update-azure-ad-connect"></a>Atualização do Azure AD Connect
 
-Mínimo para realizar com êxito os passos para migrar para a autenticação pass-through, deve ter [do Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. Esta versão contém alterações significativas na forma como o início de sessão de conversão é executada e reduz o tempo geral para migrar de Federação para autenticação em nuvem de potencialmente horas e minutos.
+Mínimo para realizar com êxito os passos para migrar para a autenticação pass-through, deve ter [do Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Esta versão contém alterações significativas na forma como o início de sessão de conversão é executada e reduz o tempo geral para migrar de Federação para autenticação em nuvem de potencialmente horas e minutos.
 
 > [!IMPORTANT]
 > Desatualizado documentação, ferramentas e blogs indicam que a conversão de utilizador é uma etapa necessária ao converter domínios federados gerida. Tenha em atenção que a conversão dos usuários não é necessária mais e a Microsoft está trabalhando na atualização de documentação e ferramentas para refletir isso.
@@ -82,7 +82,7 @@ Na secção de sessão do utilizador, certifique-se de que o Federação está a
    
    3. No ecrã de rever a sua solução, tome nota do Estado da sincronização de palavra-passe.</br> 
 
-   Se a sincronização de Hash de palavra-passe está definida como desativado, terá de seguir os passos neste guia para ativá-la. Se a sincronização de Hash de palavra-passe está definida como ativado, pode ignorar com segurança a secção [passo 1 – ativar a sincronização de Hash de palavra-passe](#_Step_1_–) neste guia.
+   Se a sincronização de Hash de palavra-passe está definida como desativado, terá de seguir os passos neste guia para ativá-la. Se a sincronização de Hash de palavra-passe está definida como ativado, pode ignorar com segurança a secção [passo 1 – ativar a sincronização de Hash de palavra-passe](#step-1--enable-password-hash-synchronization) neste guia.
    4. No ecrã de rever a sua solução, desloque para baixo para o serviços de Federação do Active Directory (AD FS).</br>
  
    Se vir que a configuração do AD FS está nesta secção, em seguida, pode presumir com segurança do AD FS foi originalmente configurado através do Azure AD Connect e, por conseguinte, a conversão de seus domínios de federadas para gerido pode ser acionada por meio do Azure AD Connect "alteração de sessão de utilizador -em "opção, este processo é detalhado na secção **opção A - comutador da Federação da sincronização de Hash de palavra-passe através da utilização do Azure AD Connect**.
@@ -132,10 +132,9 @@ Antes de federados a converter para gerido, deve examinar mais atentamente como 
 | IF| em seguida |
 |-|-|
 | Pretender manter o AD FS para os outros aplicativos.| Vai utilizar o AD FS e o Azure AD e será necessário considerar a experiência de utilizador final como resultado. Os usuários podem precisar para se autenticar duas vezes em alguns cenários, uma vez para o Azure AD (onde irá obter SSO em diante para outros aplicativos como o Office 365) e novamente para todos os aplicativos ainda vinculados ao AD FS como uma fidedignidade de entidade confiadora. |
-| O AD FS é bastante dependente de definições de personalização específicos no ficheiro onload.js que não pode ser duplicado no Azure AD e personalizadas 
-(por exemplo, foram alterados a experiência de início de sessão para que os utilizadores apenas introduzir um formato de SamAccountName para o respetivo nome de utilizador em vez de um UPN ou tem um intensamente com marca a experiência de início de sessão)| Terá de verificar se os seus requisitos de personalização atual podem ser atendidos pelo Azure AD antes de continuar. Consulte as secções de marca do AD FS e personalização do AD FS para obter mais informações e orientações.|
+| O AD FS é bastante dependente de definições de personalização específicos no ficheiro onload.js que não pode ser duplicado no Azure AD e personalizadas (por exemplo, que tenha alterado a experiência de início de sessão para que os utilizadores apenas de introduzir um formato de SamAccountName para o respetivo nome de utilizador em vez de para um UPN, ou tem um intensamente com marca a experiência de início de sessão)| Terá de verificar se os seus requisitos de personalização atual podem ser atendidos pelo Azure AD antes de continuar. Consulte as secções de marca do AD FS e personalização do AD FS para obter mais informações e orientações.|
 | Estão a bloquear os clientes de autenticação através do AD FS.| Considere substituir os controles deve bloquear clientes antigos de autenticação atualmente presentes no AD FS com uma combinação de [controla o acesso condicional para a autenticação de legado](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [acesso de cliente do Exchange Online Regras](http://aka.ms/EXOCAR).|
-| Exigir que os usuários realizem MFA em relação a uma solução de servidor MFA no local durante a autenticação do AD FS.| Não será possível inserir uma submissão da MFA através da solução MFA no local para o fluxo de autenticação para um domínio gerido, no entanto, pode utilizar o serviço de MFA do Azure para fazê-lo daqui para frente uma vez o domínio é convertido. Se os utilizadores não estiver a utilizar hoje de MFA do Azure, em seguida, isso envolverá um passo de registo de utilizador final de uma única vez que tem para preparar e comunicar aos seus utilizadores finais. |
+| Exigir que os usuários realizem MFA em relação a uma solução de servidor MFA no local durante a autenticação do AD FS.| Não será possível inserir uma submissão da MFA através da solução MFA no local para o fluxo de autenticação para um domínio gerido, no entanto, pode utilizar o serviço de MFA do Azure para fazê-lo daqui para frente uma vez o domínio é convertido. Se os utilizadores não estiver a utilizar hoje de MFA do Azure, em seguida, isso envolverá um passo de registo de utilizador final de uma única vez que tem para preparar e comunicar aos seus utilizadores finais.|
 | Utilize políticas de controlo de acesso (regras de AuthZ) hoje no AD FS para controlar o acesso ao Office 365.| Considere substitui-los com o equivalente do Azure AD [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e [regras de acesso de cliente Online do Exchange](http://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Considerações comuns personalizações do AD FS
@@ -298,7 +297,7 @@ Utilize este método quando o AD FS foi inicialmente configurado com o Azure AD 
    7. Abra o portal do Azure AD, selecione Azure Active Directory e, em seguida, selecione Azure AD Connect.
    8. Certifique-se de que o Federação está desativada durante o início de sessão único totalmente integrado- e sincronização de palavra-passe estão ativadas.  
   ![Figura 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
-   9. Aceda a [etapas de testes e seguintes](#_Next_Steps_and).
+   9. Aceda a [etapas de testes e seguintes](#testing-and-next-steps).
    
    > [!IMPORTANT]
    > Ignorar a seção opção B - mudar da Federação para a sincronização de Hash de palavra-passe com o Azure AD Connect e o PowerShell como os passos nesta secção não se aplicam.  
@@ -351,11 +350,14 @@ A conversão é efetuada utilizando o módulo do PowerShell do Azure AD.
 
    1. Abra o PowerShell e o início de sessão para o Azure AD através de uma conta de Administrador Global.  
    2. Para converter o primeiro domínio, execute o seguinte comando:  
+   
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
    ```
+   
    3. Abra o portal do Azure AD, selecione Azure Active Directory e, em seguida, selecione Azure AD Connect.
    4. Certifique-se de que o domínio foi convertido em gerida, executando o seguinte comando:
+   
    ``` PowerShell
    Get-MsolDomain -DomainName <domainname>
    ```
@@ -391,14 +393,14 @@ Em seguida, o utilizador irá obter redirecionado e iniciou sessão no painel de
 > [!NOTE]
 > Totalmente integrado Single Sign-On funciona em serviços do Office 365, que oferece suporte a sugestão de domínio (por exemplo, myapps.microsoft.com/contoso.com). Portal do Office 365 (portal.office.com) atualmente não suporta a sugestão de domínio e, portanto, é esperado que os utilizadores terão de digitar o respetivo UPN. Assim que um UPN é o início de sessão único totalmente integrado, introduzido no pode obter a permissão de Kerberos em nome do utilizador e registrá-los em sem escrever uma palavra-passe. 
 
-> [!NOTE]
+> [!TIP]
 > Considere implementar [associação do Azure AD híbrido no Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) para uma única início de sessão experiência melhorada.
 
 ### <a name="removal-of-the-relying-party-trust"></a>Remoção da confiança de entidade confiadora
 
 Depois de validar que todos os utilizadores e os clientes são autenticar com êxito através do Azure AD, ele pode ser considerado seguro remover o Office 365 confiança de entidade confiadora.
 
-Se o AD FS não está a ser utilizado para outros fins (outra entidade Confiadora confianças foram configurados), é seguro desativar o ADFS agora.
+Se o AD FS não está a ser utilizado para outros fins (outra entidade Confiadora confianças foram configurados), é seguro desativar o AD FS agora.
 
 ### <a name="rollback"></a>Reversão
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322760"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438205"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
 O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados de máquinas virtuais com o Microsoft Windows e Linux alojados no Azure, o seu datacenter ou outros fornecedores de cloud. Os três tipos de agentes disponíveis para monitorizar uma VM são:
@@ -44,7 +44,7 @@ Pode optar por coletar:
 O agente de diagnóstico do Azure deve ser utilizado quando pretender:
 
 * Arquivar registos e métricas para o armazenamento do Azure
-* Integre dados de monitorização com as ferramentas de terceiros. Essas ferramentas usam uma variedade de métodos, incluindo consultar reencaminhada para a conta de armazenamento [os Hubs de eventos](../../event-hubs/event-hubs-about.md), ou consultar com o [API de REST de monitorização do Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* Integre dados de monitorização com as ferramentas de terceiros. Essas ferramentas usam uma variedade de métodos, incluindo consultar reencaminhada para a conta de armazenamento [os Hubs de eventos](../../event-hubs/event-hubs-about.md), ou consultar com o [API de REST de monitorização do Azure](../../azure-monitor/platform/rest-api-walkthrough.md)
 * Carregar dados para o Azure Monitor para criar gráficos de métricas no portal do Azure ou crie quase em tempo real [alertas de métricas](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Os conjuntos de dimensionamento de máquinas virtuais do dimensionamento automático e os serviços de Cloud clássico com base em métricas de SO convidado.
 * Investigar problemas de arranque de VMS com [diagnóstico de arranque](../../virtual-machines/troubleshooting/boot-diagnostics.md).

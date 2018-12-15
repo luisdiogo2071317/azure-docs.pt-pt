@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185771"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438766"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
@@ -229,7 +229,7 @@ Balanceador de carga Standard é um produto cobrado com base no número de regra
 - Saiba mais sobre [sondas de estado de funcionamento](load-balancer-custom-probe-overview.md).
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
 - Saiba mais sobre [diagnósticos do Balanceador de carga Standard](load-balancer-standard-diagnostics.md).
-- Saiba mais sobre [suportado métricas multidimensionais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para obter um diagnóstico no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Saiba mais sobre [suportado métricas multidimensionais](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para obter um diagnóstico no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
 - Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).
 - Saiba mais sobre [TCP repor ociosos](load-balancer-tcp-reset.md).

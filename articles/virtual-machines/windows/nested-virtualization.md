@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465253"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435111"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada na VM do Azure
 
@@ -54,7 +54,7 @@ Pode configurar estas definições manualmente ou fornecemos um script do PowerS
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Utilizar um script do PowerShell para configurar a virtualização aninhada
 Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Reinício da VM do Azure é necessário para concluir a configuração. Este script pode funcionar em outros ambientes, mas não é garantido. Veja a mensagem de blogue do Azure com uma demonstração em vídeo em direto em Virtualização aninhada em execução no Azure! https://aka.ms/AzureNVblog.
 
-### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar a virtualização aninhada manualmente
+### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar manualmente a virtualização aninhada
 
 1. Na VM do Azure, abra o PowerShell como administrador. 
 
@@ -134,7 +134,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 Pode atribuir um endereço IP para a máquina de virtual de convidado ao manualmente a definição de um endereço IP estático na máquina de virtual de convidado ou configurar o DHCP na VM do Azure para atribuir o endereço IP dinamicamente.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar DHCP para atribuir dinamicamente um endereço IP a máquina virtual convidada
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar o DHCP para atribuir dinamicamente um endereço IP a máquina virtual convidada
 Siga os passos abaixo para configurar o DHCP na máquina de virtual de anfitrião para a atribuição de endereço dinâmico.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Instalar o servidor DHCP na VM do Azure
@@ -157,11 +157,11 @@ Siga os passos abaixo para configurar o DHCP na máquina de virtual de anfitriã
   
 4. Defina um intervalo de IP do servidor DHCP (por exemplo, 192.168.0.100 para 192.168.0.200).
   
-5. Clique em **seguinte** até a página de Gateway predefinido. Introduza o endereço de IP que criou anteriormente (por exemplo, 192.168.0.1) como o Gateway predefinido.
+5. Clique em **seguinte** até a página de Gateway predefinido. Introduza o endereço de IP que criou anteriormente (por exemplo, 192.168.0.1) como o Gateway predefinido, em seguida, clique em **adicionar**.
   
 6. Clique em **próxima** até que o assistente ser concluído, deixando todos os valores predefinidos, clique em **concluir**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Configurar manualmente um endereço IP estático na máquina virtual convidada
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Definir manualmente um endereço IP estático na máquina virtual convidada
 Se não tiver configurado o DHCP para atribuir dinamicamente um endereço IP para a máquina virtual convidada, siga estes passos para definir um endereço IP estático.
 
 1. Na VM do Azure, abra o PowerShell como administrador.

@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413158"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory 
 
@@ -79,17 +79,17 @@ Na sua política, defina:
 
 **Para configurar a política de acesso condicional:**
 
-1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 
 2. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**. 
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
+3. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
     ![Acesso condicional](./media/app-based-mfa/03.png)
  
-4. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **Add**.
+4. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **nova política**.
 
     ![Adicionar](./media/app-based-mfa/04.png)
 
@@ -153,7 +153,7 @@ Na sua política, defina:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto neste início de sessão tem em suas diretivas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
 

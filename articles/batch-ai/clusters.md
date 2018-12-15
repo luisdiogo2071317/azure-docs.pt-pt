@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057232"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410096"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Trabalhar com clusters de IA do Batch 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este artigo explica como trabalhar com clusters no Azure Batch AI. Ele introduz o conceito de clusters, os tipos de configurações que são possíveis e exemplos. A maioria dos exemplos para criar e gerir um cluster neste artigo usa a CLI do Azure. No entanto, pode utilizar outras ferramentas, incluindo o portal do Azure e os SDKs do Azure Batch AI para trabalhar com clusters.
 
@@ -152,7 +155,7 @@ O resultado deve ser semelhante ao seguinte.
 }
 ```
 
-### <a name="list-cluster-nodes"></a>Nós de cluster de lista
+### <a name="list-cluster-nodes"></a>Listar nós de cluster
 
 Se precisar de ligar a nós do cluster, o comando seguinte obtém a lista de nós e as informações de ligação.  
 

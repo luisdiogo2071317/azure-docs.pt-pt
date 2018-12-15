@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052704"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408056"
 ---
 # <a name="what-is-azure-batch-ai"></a>O que é o Azure Batch AI?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 O Azure Batch AI é um serviço gerido para ajudar os cientistas de dados e investigadores de IA a preparar e testar modelos de aprendizagem automática e IA à escala no Azure, sem que seja preciso de gerir infraestruturas complexas. Descreva os recursos de computação, as tarefas que quer executar, onde armazenar as entradas e saídas de modelos e o Batch AI trata do resto.
 
@@ -49,13 +52,13 @@ Quando tiver preparado um modelo, utilize o Batch AI para testá-lo, caso não f
 
 ## <a name="how-it-works"></a>Como funciona
 
-Utilize os SDKs do Batch AI, scripts da linha de comandos ou o portal do Azure para gerir os recursos de computação e agendar tarefas para preparação e teste de IA: 
+Utilize os SDKs do Batch AI, scripts da linha de comandos ou o portal do Azure para gerir os recursos de computação e agendar tarefas para preparação e teste de IA: 
 
 * **Aprovisionar e dimensionar clusters de VMs** – Escolha o número de nós (VMs) e selecione um tamanho ativado para GPU ou outro tamanho de VM que satisfaça as suas necessidades de preparação. Aumente ou reduza verticalmente o número de nós automática ou manualmente para utilizar os recursos apenas quando for necessário. 
 
 * **Gerir dependências e contentores** – Por predefinição, os clusters do Batch AI executam imagens de VM do Linux que têm dependências pré-instaladas para executar arquiteturas de preparação baseadas em contentores em GPUs ou CPUs. Para configuração adicional, utilize imagens personalizadas ou execute scripts de arranque.
 
-* **Distribuir dados** -Escolha uma ou várias opções de armazenamento para gerir scripts e dados de entrada, e a saída da tarefa: Ficheiros do Azure, armazenamento de Blobs do Azure ou um servidor NFS gerido. O Batch AI suporta também soluções de armazenamento personalizadas, incluindo sistemas de ficheiros paralelos de elevado desempenho. Monte sistemas de ficheiros de armazenamento nos nós de cluster e contentores de tarefas com ficheiros de configuração simples.
+* **Distribuir dados** -escolha uma ou várias opções de armazenamento para gerir dados de entrada e scripts e o resultado da tarefa: Os ficheiros do Azure, armazenamento de Blobs do Azure ou um servidor NFS gerido. O Batch AI suporta também soluções de armazenamento personalizadas, incluindo sistemas de ficheiros paralelos de elevado desempenho. Monte sistemas de ficheiros de armazenamento nos nós de cluster e contentores de tarefas com ficheiros de configuração simples.
 
 * **Agendar tarefas** – Submeta as tarefas para uma fila de tarefas com base na prioridade para partilhar os recursos de cluster e tirar partido de VMs de baixa prioridade e instâncias reservadas.
 
@@ -65,7 +68,7 @@ Utilize os SDKs do Batch AI, scripts da linha de comandos ou o portal do Azure p
 
 Como serviço do Azure, o Batch AI suporta ferramentas comuns, como o controlo de acesso baseado em funções (RBAC) e redes virtuais do Azure para segurança.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre os [recursos do Batch AI](resource-concepts.md) para preparar um modelo de machine learning ou IA.
 

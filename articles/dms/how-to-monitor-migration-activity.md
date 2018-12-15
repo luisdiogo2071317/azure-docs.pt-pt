@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961183"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413069"
 ---
 # <a name="monitor-migration-activity"></a>Monitorizar a atividade de migração
 Neste artigo, saiba como monitorizar o progresso de uma migração num nível de base de dados e um nível de tabela.
@@ -136,7 +136,7 @@ A tabela seguinte descreve os campos exibidos em curso de nível de migração d
 | **Atualização** | Número de atualizações de CDC em linhas aplicadas ao destino.      |
 | **Eliminar**      | Número de CDC elimina em linhas aplicadas ao destino. |
 | **Total aplicado**      | Total de CDC atualizações, inserções e elimina em linhas aplicadas ao destino. |
-| **Erros de dados** | Número de erros de dados ocorreu nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter em tipo de dados %ls %ls.*  Cliente deve consultar da tabela de attms_apply_exceptions no destino do Azure para ver os detalhes do erro.    |
+| **Erros de dados** | Número de erros de dados ocorreu nesta tabela. Alguns exemplos dos erros são *511: Não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: Tipo de dados de conversão de erro %ls para %ls.*  Cliente deve consultar da tabela de dms_apply_exceptions no destino do Azure para ver os detalhes do erro.    |
 
 > [!NOTE]
 > Valores de CDC de Insert, Update e Delete e aplicadas Total podem diminuir quando a base de dados é transferência ou migração é reiniciada.

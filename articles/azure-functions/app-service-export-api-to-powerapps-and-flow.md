@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997863"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410470"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportar uma API alojado no Azure para o PowerApps e Microsoft Flow
 
@@ -146,7 +146,7 @@ PowerApps e Microsoft Flow suportam uma coleção de fornecedores de identidade 
 ``` 
 Durante a exportação, forneça os valores de configuração que permitem que o PowerApps e Microsoft Flow autenticar os utilizadores.
 
-Esta secção abrange os tipos de autenticação que são suportados no **Express** modo: chave de API, Azure Active Directory e genérico OAuth 2.0. PowerApps e Microsoft Flow também oferecem suporte a autenticação básica e o OAuth 2.0 para serviços específicos, como o Dropbox, Facebook e SalesForce.
+Esta secção abrange os tipos de autenticação que são suportados no **Express** modo: Chave de API, Azure Active Directory e genérico OAuth 2.0. PowerApps e Microsoft Flow também oferecem suporte a autenticação básica e o OAuth 2.0 para serviços específicos, como o Dropbox, Facebook e SalesForce.
 
 ### <a name="api-key"></a>Chave de API
 Quando utilizar uma chave de API, os utilizadores do seu conector for pedidos para fornecer a chave de quando criam uma ligação. Especifique um nome de chave de API para os ajudar a compreender qual a chave é necessária. No exemplo anterior, utilizamos o nome `API Key (contact meganb@contoso.com)` para que as pessoas saibam onde pode obter informações sobre a chave de API. Para as funções do Azure, a chave é normalmente uma das chaves de anfitrião, que abrangem várias funções dentro da aplicação de função.
@@ -154,7 +154,7 @@ Quando utilizar uma chave de API, os utilizadores do seu conector for pedidos pa
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 Ao utilizar o Azure AD, tem dois registos de aplicação do Azure AD: uma para a API propriamente dita e outra para o conector personalizado:
 
-- Para configurar o registo para a API, utilize o [aplicação serviço de autenticação/autorização](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) funcionalidade.
+- Para configurar o registo para a API, utilize o [aplicação serviço de autenticação/autorização](../app-service/configure-authentication-provider-aad.md) funcionalidade.
 
 - Para configurar o registo para o conector, siga os passos em [adicionar uma aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). O registo deve ter acesso delegado à sua API e um URL de resposta de `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

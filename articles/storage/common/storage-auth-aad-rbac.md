@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e1482b4238211db45a7f317d874bbb3a8c974cb2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fce89cc754ac179054a60ce837949bb02b2102c6
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337908"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408702"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gerir os direitos de acesso para BLOBs do Azure e dados de fila com o RBAC (pré-visualização)
 
@@ -27,7 +27,7 @@ Uma identidade do Azure AD pode ser um utilizador, grupo ou principal de serviç
 
 O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas. O armazenamento do Azure oferece essas funções RBAC incorporadas para utilização com o Azure AD:
 
-- [Proprietário de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Utilize para definir a propriedade e ACLs de geração 2 de armazenamento do Azure Data Lake (pré-visualização). Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
+- [Proprietário de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Utilize para definir a propriedade e gerir o controlo de acesso POSIX para geração 2 de armazenamento do Azure Data Lake (pré-visualização). Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
 - [Contribuinte de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Utilize para conceder permissões de leitura/escrita/eliminar recursos de armazenamento de Blobs.
 - [Leitor de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Utilize para conceder permissões só de leitura para os recursos de armazenamento de Blobs.
 - [Contribuinte de dados de fila de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Utilize para conceder permissões de leitura/escrita/eliminar para as filas do Azure.
@@ -45,10 +45,10 @@ Atribua uma função RBAC para uma identidade do Azure para conceder permissões
 
 |Âmbito|Proprietário de dados de blob|Contribuinte de dados de blob|Leitor de dados de blob|Contribuinte de dados de fila|Leitor de dados de fila|
 |---|---|---|---|---|---|
-|Nível de assinatura|Definir a propriedade e ACLS para recursos de armazenamento do Data Lake na subscrição|Acesso de leitura/escrita/eliminar a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/escrita/eliminar a todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
-|Ao nível do grupo de recursos|Defina a propriedade e ACLS para recursos de armazenamento do Data Lake no grupo de recursos|Acesso de leitura/escrita/eliminar a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/escrita/eliminar a todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
-|Nível de conta de armazenamento|Defina a propriedade e ACLS para recursos de armazenamento do Data Lake na conta de armazenamento|Acesso de leitura/escrita/eliminar a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/escrita/eliminar a todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
-|Nível de sistema/contentores/fila de ficheiros|Defina a propriedade e ACLS para recursos de armazenamento do Data Lake no sistema de ficheiros|Acesso de leitura/escrita/eliminar o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita/eliminar a da fila especificada|Acesso de leitura para a fila especificada|
+|Nível de assinatura|Gestão de controlo a todos os contentores e blobs na subscrição de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
+|Ao nível do grupo de recursos|Gestão de controlo a todos os contentores e blobs, no grupo de recursos de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/gravação para todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
+|Nível de conta de armazenamento|Gestão de controlo a todos os contentores e blobs na conta de armazenamento de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/gravação para todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
+|Nível de contêiner/fila|Gestão de controlo para o contentor especificado e respetivos blobs de acesso POSIX e acesso de leitura/escrita.|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita para a fila especificada|Acesso de leitura para a fila especificada|
 
 > [!NOTE]
 > Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.

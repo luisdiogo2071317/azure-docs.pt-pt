@@ -1,6 +1,6 @@
 ---
-title: Funções de modelo do Azure Resource Manager - implementação | Microsoft Docs
-description: Descreve as funções de utilizar um modelo Azure Resource Manager para obter informações de implementação.
+title: Funções de modelo do Resource Manager do Azure - implementação | Documentos da Microsoft
+description: Descreve as funções para utilizar num modelo do Azure Resource Manager para obter informações de implementação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358239"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407359"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implementação de modelos Azure Resource Manager 
+# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos Azure Resource Manager 
 
-O Resource Manager fornece as seguintes funções, para obter os valores de secções do modelo e os valores relacionados com a implementação:
+O Resource Manager proporciona as seguintes funções para obter valores de secções do modelo e os valores relacionados com a implementação:
 
 * [deployment](#deployment)
 * [parameters](#parameters)
-* [variáveis](#variables)
+* [Variáveis](#variables)
 
-Para obter os valores de recursos, grupos de recursos ou subscrições, consulte [funções recursos](resource-group-template-functions-resource.md).
+Para obter valores de recursos, grupos de recursos ou subscrições, veja [funções de recursos](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
 
@@ -38,9 +38,9 @@ Para obter os valores de recursos, grupos de recursos ou subscrições, consulte
 
 Devolve informações sobre a operação de implementação atual.
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Esta função devolve o objeto que é transmitido durante a implementação. As propriedades no objeto devolvido divergir com base em se o objeto de implementação é transmitido como uma ligação ou como um objeto na linha. Quando o objeto de implementação é transmitido em linha, tal como quando utilizar o **- TemplateFile** parâmetro no Azure PowerShell para apontar para um ficheiro local, o objeto devolvido tem o seguinte formato:
+Esta função devolve o objeto que é passado durante a implementação. As propriedades no objeto retornado diferem com base no se o objeto de implementação é passado como um link ou como um objeto inline. Quando o objeto de implementação é transmitido em linha, por exemplo, ao utilizar o **- TemplateFile** parâmetro no Azure PowerShell para apontar para um ficheiro local, o objeto retornado tem o seguinte formato:
 
 ```json
 {
@@ -62,7 +62,7 @@ Esta função devolve o objeto que é transmitido durante a implementação. As 
 }
 ```
 
-Quando o é transmitido um objeto como uma hiperligação, tal como quando utilizar o **- TemplateUri** parâmetro para apontar para um objecto remoto, o objeto é devolvido o seguinte formato: 
+Quando em que o objeto é passado como como uma ligação, ao utilizar o **- TemplateUri** parâmetro para apontar para um objeto remoto, o objeto é retornado no seguinte formato: 
 
 ```json
 {
@@ -86,9 +86,11 @@ Quando o é transmitido um objeto como uma hiperligação, tal como quando utili
 }
 ```
 
+Quando [implementar para uma subscrição do Azure](deploy-to-subscription.md), em vez de um grupo de recursos, o objeto de retorno inclui um `location` propriedade. A propriedade de localização está incluída quando implementar um modelo de local ou um modelo externo.
+
 ### <a name="remarks"></a>Observações
 
-Pode utilizar deployment() para ligar a outro modelo baseado no URI do modelo principal.
+Pode usar deployment() para ligar a outro modelo com base no URI do modelo principal.
 
 ```json
 "variables": {  
@@ -98,7 +100,7 @@ Pode utilizar deployment() para ligar a outro modelo baseado no URI do modelo pr
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) devolve o objeto de implementação:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) retorna o objeto de implementação:
 
 ```json
 {
@@ -114,7 +116,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-O exemplo anterior devolve o objeto seguinte:
+O exemplo anterior devolve o seguinte objeto:
 
 ```json
 {
@@ -150,6 +152,8 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+Para um modelo de nível de assinatura que utiliza a função de implementação, consulte [função de implementação de subscrição](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implementado com um `az deployment create` ou `New-AzureRmDeployment` comandos.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>parâmetros
@@ -161,15 +165,15 @@ Devolve um valor de parâmetro. O nome de parâmetro especificado tem de ser def
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |cadeia |O nome do parâmetro para devolver. |
+| parameterName |Sim |cadeia |O nome do parâmetro para retornar. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 O valor do parâmetro especificado.
 
 ### <a name="remarks"></a>Observações
 
-Normalmente, utilize os parâmetros para definir os valores de recursos. O exemplo a seguir define o nome do web site para o valor do parâmetro transmitido durante a implementação.
+Normalmente, é usar parâmetros para definir valores de recursos. O exemplo seguinte define o nome do web site para o valor do parâmetro passado durante a implementação.
 
 ```json
 "parameters": { 
@@ -189,7 +193,7 @@ Normalmente, utilize os parâmetros para definir os valores de recursos. O exemp
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) mostra uma utilização simplificada da função de parâmetros.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) mostra um uso simplificado da função de parâmetros.
 
 ```json
 {
@@ -248,11 +252,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | opção 1 |
+| stringOutput | Cadeia | Opção 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"um": "a", "dois": "b"} |
+| objectOutput | Object | {"um": "a", "duas": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Cadeia | opção 1 |
+| crossOutput | Cadeia | Opção 1 |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -268,7 +272,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="variables" />
 
-## <a name="variables"></a>variáveis
+## <a name="variables"></a>Variáveis
 `variables(variableName)`
 
 Devolve o valor da variável. O nome de variável especificado tem de ser definido na secção de variáveis do modelo.
@@ -277,15 +281,15 @@ Devolve o valor da variável. O nome de variável especificado tem de ser defini
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |Cadeia |O nome da variável para devolver. |
+| Nomedavariável |Sim |Cadeia |O nome da variável a devolver. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 O valor da variável especificada.
 
 ### <a name="remarks"></a>Observações
 
-Normalmente, pode utilizar variáveis para simplificar o seu modelo ao construir valores complexos apenas uma vez. O exemplo seguinte constrói um nome exclusivo para uma conta de armazenamento.
+Normalmente, utiliza as variáveis para simplificar o seu modelo com a construção valores complexos apenas uma vez. O exemplo seguinte constrói um nome exclusivo para uma conta de armazenamento.
 
 ```json
 "variables": {
@@ -309,7 +313,7 @@ Normalmente, pode utilizar variáveis para simplificar o seu modelo ao construir
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) devolve diferentes valores de variáveis.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) devolve os valores das variáveis diferentes.
 
 ```json
 {
@@ -370,7 +374,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

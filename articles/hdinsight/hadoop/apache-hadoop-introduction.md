@@ -9,22 +9,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 12/07/2018
-ms.openlocfilehash: dc11f6dc780cdd548b4f7aa1854b08c705d37d06
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ca247fc5d5eab925e352fe717365c382427b05b1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166443"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438783"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Apache Hadoop
 
-Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. O Azure HDInsight é um serviço de análise completamente gerido, de espectro completo e open-source para empresas. Pode utilizar as estruturas de open source, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R e muitos mais. 
+Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. O Azure HDInsight é um serviço de análise completamente gerido, de espectro completo e open-source para empresas. Pode usar as estruturas de open source, como Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, o Apache Storm, R e muito mais. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>O que é o HDInsight e a pilha de tecnologia do Hadoop?
 
-O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. A pilha de tecnologia do Hadoop inclui software e utilitários relacionados, entre os quais Apache Hive, HBase, Spark, Kafka e muitos outros.
+
+O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. A pilha de tecnologia do Hadoop inclui software e utilitários, incluindo Apache Hive, Apache HBase, Spark, Kafka e muitos outros relacionados.
+
 
 O Azure HDInsight é uma distribuição de cloud dos componentes do Hadoop da [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. Pode utilizar as estruturas de código aberto mais populares, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R, entre outras. Com estas estruturas, pode permitir um vasto leque de cenários como extrair, transformar e carregar (ETL), armazenamento de dados, machine learning e IoT.
 
@@ -101,7 +103,9 @@ O HDInsight inclui tipos de clusters específicos e capacidades de personalizaç
 
 ## <a name="open-source-components-in-hdinsight"></a>Componentes de código aberto no HDInsight
 
-O Azure HDInsight permite-lhe criar clusters com estruturas de código aberto, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o HBase e o R. Estes clusters, por predefinição, são fornecidos com outros componentes de código aberto incluídos no cluster, como o [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), o [Avro](https://avro.apache.org/docs/current/spec.html), o [Hive](https://hive.apache.org), o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), o [Mahout](https://mahout.apache.org/), o [MapReduce](https://wiki.apache.org/hadoop/MapReduce), o [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), o [Phoenix](https://phoenix.apache.org/), o [Pig](https://pig.apache.org/), o [Sqoop](https://sqoop.apache.org/), o [Tez](https://tez.apache.org/), o [Oozie](https://oozie.apache.org/) e o [ZooKeeper](https://zookeeper.apache.org/).  
+
+O Azure HDInsight permite-lhe criar clusters com estruturas de open source, como Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase e R. Estes clusters, por predefinição, são fornecidos com outros componentes de código-fonte aberto que estão incluídos no cluster [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [ HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://wiki.apache.org/hadoop/MapReduce), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/).  
+
 
 
 ## <a name="programming-languages-in-hdinsight"></a>Linguagens de programação no HDInsight
@@ -132,13 +136,15 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 
 * [Apache Spark BI a utilizar ferramentas de visualização de dados com o Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 
-* [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Visualize os dados do Apache Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
 
 * [Visualizar dados de Consulta Interativa do Hive com o Power BI no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
-* [Ligar o Excel ao Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md) (requer o Windows)
 
-* [Ligar o Excel ao Hadoop com o Controlador Microsoft Hive ODBC](apache-hadoop-connect-excel-hive-odbc-driver.md) (requer o Windows) 
+* [Ligar o Excel para Apache Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md) (requer o Windows) 
+
+
+* [Ligar o Excel para Apache Hadoop com o controlador Microsoft Hive ODBC](apache-hadoop-connect-excel-hive-odbc-driver.md) (requer o Windows) 
 
 * [Utilizar o SQL Server Analysis Services com o HDInsight](https://msdn.microsoft.com/library/dn749857.aspx)
 
@@ -149,7 +155,7 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 Neste artigo, aprendeu o que é o Azure HDInsight e como fornece o Hadoop e outros tipos de cluster no Azure. Avance para o artigo seguinte para saber como criar um cluster do Apache Hadoop no HDInsight.
 
 > [!div class="nextstepaction"]
-> [Criar um cluster do Hadoop no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+> [Criar cluster do Apache Hadoop no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
 
 
 [component-versioning]: ../hdinsight-component-versioning.md

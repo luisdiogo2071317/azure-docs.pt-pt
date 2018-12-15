@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a81cb9041b905cfb00183981036116fbc61f376a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000879"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436066"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir preços e volumes de dados no Application Insights
 
 > [!NOTE]
 > Este artigo descreve como analisar a utilização dos dados do Application Insights.  Veja os artigos seguintes para obter informações relacionadas.
-> - [Monitorizar a utilização e custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
+> - [Monitorizar a utilização e custos estimados](../azure-monitor/platform/usage-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
 
 Preços para [do Azure Application Insights] [ start] baseia-se no volume de dados por aplicação. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a faturação da sua subscrição do Azure.
 
-O Application Insights tem dois planos de preços: básico e empresarial. O plano de preços básico é o plano predefinido. Inclui todas as funcionalidades do plano de Enterprise, sem custos adicionais. As listas de plano básico, principalmente no volume de dados que são ingeridos. 
+O Application Insights tem dois planos de preços: Básico e Enterprise. O plano de preços básico é o plano predefinido. Inclui todas as funcionalidades do plano de Enterprise, sem custos adicionais. As listas de plano básico, principalmente no volume de dados que são ingeridos. 
 
 O plano de Enterprise tem uma cobrança por nó e cada nó recebe um montante diário de dados. Na empresa preços do plano, é-lhe cobrada aos dados ingeridos acima do montante incluído. Se utilizar o Operations Management Suite, deve escolher o plano Enterprise. 
 
@@ -86,14 +86,14 @@ Custos do Application Insights são adicionados à sua fatura do Azure. Pode ver
 ## <a name="data-rate"></a>Taxa de dados
 O volume de dados que envia é limitado de três formas:
 
-* **Amostragem**: pode utilizar amostragem para reduzir a quantidade de telemetria, que é enviada a partir das suas aplicações de servidor e cliente, com o mínimo distorção de métricas. A amostragem é a principal ferramenta, que pode usar para ajustar a quantidade de dados que envia. Saiba mais sobre [funcionalidades de amostragem](app-insights-sampling.md). 
+* **Amostragem**: Pode usar amostragem para reduzir a quantidade de telemetria é enviada a partir do seu servidor e aplicações de cliente, com o mínimo distorção de métricas. A amostragem é a principal ferramenta, que pode usar para ajustar a quantidade de dados que envia. Saiba mais sobre [funcionalidades de amostragem](app-insights-sampling.md). 
 * **Limite diário**: Quando cria um recurso do Application Insights no portal do Azure, o limite diário está definido para 100 GB/dia. Quando cria um recurso do Application Insights no Visual Studio, a predefinição é pequena (apenas 32,3 MB/dia). A predefinição de limite diário está definida para facilitar os testes. Seu objetivo é que o utilizador irá elevar o limite diário antes de implementar a aplicação para produção. 
 
     O limite máximo é de 1000 GB/dia, a menos que solicitar um máximo de superior para uma aplicação de tráfego elevado. 
 
     Utilize o cuidado ao definir o limite diário. Deve ser sua intenção *nunca atingirá o limite diário*. Se tiver atingido o limite diário, perde os dados para o resto do dia, e não é possível monitorizar a sua aplicação. Para alterar o limite diário, utilize o **limite de volume diário** opção. Pode aceder a esta opção no **utilização e custos estimados** painel (descrito mais detalhadamente posteriormente neste artigo).
     Removemos a restrição em alguns tipos de subscrição que utilizam crédito não foi possível utilizar para o Application Insights. Anteriormente, se a subscrição tem um limite de gastos, a caixa de diálogo do limite diário tem instruções para remover o limite de gastos e ativar o limite diário a ser gerado para além dos 32,3 MB/dia.
-* **Limitação**: limites de conjunto de dados média da taxa de 32.000 eventos por segundo, for mais 1 minuto para cada chave de instrumentação.
+* **Limitação**: Limites de conjunto a taxa de dados para 32.000 eventos por segundo, média das mais 1 minuto para cada chave de instrumentação.
 
 *O que acontece se a minha aplicação exceder a taxa de aceleração?*
 

@@ -1,6 +1,6 @@
 ---
-title: Recolher dados recolhidos no Log Analytics | Documentos da Microsoft
-description: Recolhidos é um daemon de Linux do código-fonte aberto que periodicamente recolhe dados de aplicativos e suas informações de nível de sistema.  Este artigo fornece informações sobre a recolha de dados recolhidos no Log Analytics.
+title: Recolher dados recolhidos no Azure Monitor | Documentos da Microsoft
+description: Recolhidos é um daemon de Linux do código-fonte aberto que periodicamente recolhe dados de aplicativos e suas informações de nível de sistema.  Este artigo fornece informações sobre a recolha de dados recolhidos no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 66b36fc66a889bc156edc55198b9f415e297a4bf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 72f47794d8798c6d4b7bcc1c75c3c6d4dc41e6a3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193965"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434618"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de recolhidos nos agentes do Linux no Log Analytics
-[Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Log Analytics.
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados de recolhidos nos agentes do Linux no Azure Monitor
+[Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Azure Monitor.
 
 Uma lista completa de plug-ins disponíveis pode ser encontrada em [tabela de plug-ins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -57,7 +57,7 @@ A configuração de recolhidos utiliza a predefinição`write_http` Plug-in para
 > [!NOTE]
 > Esta porta pode ser configurada para uma porta definida pelo personalizada, se necessário.
 
-O agente do Log Analytics para Linux também escuta na porta 26000 para métricas recolhidos e, em seguida, converte-os para as métricas de esquema do Log Analytics. Segue-se o agente do Log Analytics para a configuração do Linux `collectd.conf`.
+O agente do Log Analytics para Linux também escuta na porta 26000 para métricas recolhidos e, em seguida, converte-os para métricas de esquema do Azure Monitor. Segue-se o agente do Log Analytics para a configuração do Linux `collectd.conf`.
 
     <source>
       type http
@@ -71,12 +71,12 @@ O agente do Log Analytics para Linux também escuta na porta 26000 para métrica
 
 
 ## <a name="versions-supported"></a>Versões suportadas
-- Atualmente, o log Analytics suporta recolhidos versão 4.8 e acima.
+- Atualmente, o Monitor do Azure suporta recolhidos versão 4.8 e acima.
 - Agente do log Analytics para Linux v1.1.0-217 ou superior é necessário para a recolha de métrica recolhidos.
 
 
 ## <a name="configuration"></a>Configuração
-Seguem-se passos básicos para configurar a recolha de dados recolhidos no Log Analytics.
+Seguem-se passos básicos para configurar a recolha de dados recolhidos no Azure Monitor.
 
 1. Configure recolhidos para enviar dados para o agente do Log Analytics para Linux utilizar o plug-in de write_http.  
 2. Configure o agente do Log Analytics para Linux escutar os dados recolhidos na porta adequada.
@@ -107,10 +107,10 @@ Seguem-se passos básicos para configurar a recolha de dados recolhidos no Log A
 
     sudo recolhidos reinício sudo /opt/microsoft/omsagent/bin/service_control reiniciar o serviço do
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Métricas de recolhidos para a conversão do esquema do Log Analytics
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métricas de recolhidos para conversão de esquema do Azure Monitor
 Para manter um modelo familiar entre as métricas de infraestrutura recolhidas pelo agente de Log Analytics para Linux e novas métricas recolhidas pelo recolhidos é utilizado o seguinte mapeamento do esquema:
 
-| Campo de métrica recolhidos | Campo do log Analytics |
+| Campo de métrica recolhidos | Campo de Monitor do Azure |
 |:--|:--|
 | anfitrião | Computador |
 | Plug-in | Nenhuma |
@@ -122,6 +122,5 @@ Para manter um modelo familiar entre as métricas de infraestrutura recolhidas p
 | valores [] | CounterValue |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
-* Uso [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados de registos de syslog em campos individuais.
-
+* Saiba mais sobre [registar as consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Uso [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.

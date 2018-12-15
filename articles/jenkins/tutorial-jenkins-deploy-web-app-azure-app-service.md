@@ -8,14 +8,14 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854688"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438477"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar do GitHub no App Service do Azure com a integração contínua Jenkins e implementação
+# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub App Service do Azure com a integração contínua Jenkins e implementação
 
 Este tutorial implementa uma aplicação web de Java de exemplo do GitHub para [serviço de aplicações do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) ao configurar a integração contínua (CI) e a implementação contínua (CD) no Jenkins. Quando atualizar a aplicação ao emitir consolidações para o GitHub, o Jenkins compila automaticamente e republishes a sua aplicação no App Service do Azure. A aplicação de exemplo neste tutorial, foi desenvolvida utilizando o [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, precisa destes itens:
 
 * R [Jenkins](https://jenkins.io/) servidor com as ferramentas do Kit de desenvolvimento Java (JDK) e o Maven instalado numa VM do Linux do Azure
 
-  Se não tiver um servidor do Jenkins, conclua estes passos agora no portal do Azure: [criar Jenkins server numa VM do Linux do Azure](/azure/jenkins/install-jenkins-solution-template)
+  Se não tiver um servidor do Jenkins, conclua estes passos agora no portal do Azure: [Criar servidor do Jenkins numa VM do Linux do Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * R [GitHub](https://github.com) da conta para que possa obter uma cópia de trabalho ([fork](#fork)) para a aplicação de web de Java de exemplo. 
 
@@ -92,7 +92,7 @@ Para que o Jenkins, GitHub de monitorizar e responder quando novas consolidaçõ
 > 
 > Estes passos criam credenciais de token do Jenkins trabalhar com o GitHub com o seu nome de utilizador do GitHub e a palavra-passe de acesso pessoal. 
 > No entanto, se a sua conta do GitHub utiliza a autenticação de dois fatores, criar o token no GitHub e configurar o Jenkins para utilizar esse token em vez disso. 
-> Para obter mais informações, consulte a [Jenkins GitHub Plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentação.
+> Para obter mais informações, consulte a [Jenkins GitHub Plug-in](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) documentação.
 
 1. Partir do **gerir Jenkins** página, selecione **configurar o sistema**. 
 

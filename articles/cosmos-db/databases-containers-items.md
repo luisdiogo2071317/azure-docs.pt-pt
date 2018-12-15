@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090277"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409546"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -26,10 +26,10 @@ Pode criar um ou mais bases de dados do Cosmos do Azure na sua conta. Uma base d
 
 | **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | ND | ND |
+|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | ND |
 
 > [!NOTE]
-> Com o Gremlin e APIs de tabela contas, ao criar seu primeiro gráfico ou um banco de dados padrão de tabela é automaticamente criado na sua conta do Cosmos do Azure.
+> Com as contas de APIs de tabela, ao criar a primeira tabela uma base de dados predefinida é automaticamente criado na sua conta do Cosmos do Azure.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Operações num banco de dados do Cosmos do Azure
 
@@ -49,7 +49,7 @@ Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito ap
 
 Ao criar um contentor do Cosmos do Azure, configure o débito dos seguintes modos:
 
-* **Débito dedicado** modo: débito aprovisionado num contêiner é reservado exclusivamente para ele e, conta com os SLAs. Para obter mais informações, consulte [como aprovisionar o débito num contentor Azure Cosmos](how-to-provision-container-throughput.md).
+* **Débito dedicado** modo: Débito aprovisionado num contêiner é reservado exclusivamente para ele e, conta com os SLAs. Para obter mais informações, consulte [como aprovisionar o débito num contentor Azure Cosmos](how-to-provision-container-throughput.md).
 
 * **Débito aprovisionado partilhado** modo: Estes contentores partilham o débito aprovisionado com outros contentores no mesmo banco de dados (excluindo desses contentores que tenham sido configurados com um débito aprovisionado dedicado). Em outras palavras, o débito aprovisionado na base de dados é partilhado entre todos os contentores "partilhados". Para obter mais informações, consulte [como configurar o débito aprovisionado numa base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
 
@@ -69,7 +69,7 @@ Um contentor do Cosmos do Azure é especializado em entidades de API específica
 
 | **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Contentor do Cosmos do Azure | Contentor | Tabela | Coleção | Graph | Tabela |
+|Contentor do Cosmos do Azure | Coleção | Tabela | Coleção | Graph | Tabela |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contentor do Cosmos do Azure
 
@@ -105,7 +105,7 @@ Consoante a opção da API, um item do Cosmos do Azure pode representar qualquer
 
 | **Entidade de cosmos** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Item do Cosmos do Azure | Item | linha | Documento | Nó ou de extremidade | Item |
+|Item do Cosmos do Azure | Documento | Linha | Documento | Nó ou de extremidade | Item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 

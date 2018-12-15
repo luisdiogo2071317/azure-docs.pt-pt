@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703825"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413562"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
 Serviços do Service Fabric com monitorização de estado de teste de unidade revela erros comuns que seriam não necessariamente detetados por aplicativo convencional ou teste de unidade específica do domínio. Durante o desenvolvimento de testes de unidade para serviços com estado, existem algumas considerações especiais que devam ser mantidas em mente.
@@ -34,7 +34,7 @@ Este artigo pressupõe que [teste de unidade serviços com estado no Service Fab
 A partir da versão 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornece uma API para a simulação de orquestração de réplicas e a gestão de estado. Isso será usado nos exemplos.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks não é pertencentes à empresa ou mantido pela Microsoft. No entanto, esta é atualmente a biblioteca para serviços com estado de teste de unidade de recomendação da Microsoft.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
@@ -100,7 +100,7 @@ PromoteNewReplicaToPrimaryAsync()
 PromoteNewReplicaToPrimaryAsync(4)
 ```
 
-## <a name="putting-it-all-together"></a>Juntando as peças
+## <a name="putting-it-all-together"></a>Juntar tudo
 O teste seguinte demonstra como configurar um conjunto de réplicas de três nós e verificar que os dados estão disponíveis a partir de uma secundária após uma alteração de função. Um problema típico, isso pode capturar é se os dados adicionados durante `InsertAsync` foi guardado para algo na memória ou para uma coleção fiável sem executar `CommitAsync`. Em ambos os casos, seria dessincronizado com o principal secundário. Isso poderia levar a respostas inconsistentes depois de serviço ser movida.
 
 ```csharp

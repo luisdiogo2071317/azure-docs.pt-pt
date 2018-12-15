@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 1a24079292ce8fdd6a514a85484fc10b77491ba6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 4f124be9ef2247ab91d1e968b4533297ee8dba02
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868343"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437253"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um acionador que é executado um pipeline numa janela em cascata
 Este artigo fornece passos para criar, iniciar e monitorizar um acionador de janela em cascata. Para obter informações gerais sobre os acionadores e os tipos suportados, consulte [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
@@ -79,14 +79,14 @@ A tabela seguinte fornece uma visão geral dos principais elementos JSON que est
 | Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | **tipo** | O tipo de Acionador. O tipo é o valor fixo "TumblingWindowTrigger." | Cadeia | "TumblingWindowTrigger" | Sim |
-| **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Tenha em atenção**: este elemento está \<só de leitura >. | Cadeia | "Iniciado", "parada" "Desativada" | Sim |
+| **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Tenha em atenção**: Este elemento está \<só de leitura >. | Cadeia | "Iniciado", "parada" "Desativada" | Sim |
 | **frequency** | Uma cadeia de caracteres que representa a unidade de frequência (minutos ou horas) com que o acionador voltar a ocorrer. Se o **startTime** valores de data são mais granulares do que o **frequência** valor, o **startTime** datas são consideradas quando os limites da janela são computados. Por exemplo, se o **frequência** valor é de hora a hora e o **startTime** valor é 2017-09-01T10:10:10Z, a primeira janela está (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Cadeia | "minuto", "hour"  | Sim |
 | **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** é 3 e o **frequência** é a "hour", o acionador voltar a ocorrer em três horas. | Número inteiro | Um número inteiro positivo. | Sim |
 | **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de Acionador é (**startTime**, **startTime** + **intervalo**). | DateTime | Um valor de DateTime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DateTime. | Sim |
-| **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define o tempo que o acionador aguarda posterior à hora de conclusão antes de acionar uma execução de novo. O **atraso** não altera a janela **startTime**. Por exemplo, um **atraso** valor de 00:00 10: implica um atraso de 10 minutos. | Timespan  | Um valor de hora em que a predefinição é 00:00:00. | Não |
+| **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define o tempo que o acionador aguarda posterior à hora de conclusão antes de acionar uma execução de novo. O **atraso** não altera a janela **startTime**. Por exemplo, um **atraso** valor de 00:00 10: implica um atraso de 10 minutos. | Timespan<br/>(hh: mm:)  | Um valor de intervalo de tempo em que a predefinição é 00:00:00. | Não |
 | **maxConcurrency** | O número de execuções de Acionador simultâneas que são acionadas para o windows que estão prontos. Por exemplo, para preencher novamente hora a hora é executado para resultados de ontem no 24 windows. Se **maxConcurrency** = 10, o acionador de eventos são disparados apenas para os primeiros 10 windows (01 00:00:00 - 09:00-10:00). Depois de concluir as primeiras 10 execuções de pipeline acionadas, são acionadas execuções do acionador para os 10 em seguida windows (10:00-UTC+11:00-19: - 20 00:00). Continuar com este exemplo de **maxConcurrency** = 10, se existirem 10 windows estiver prontos, há 10 execuções de total pipeline. Se existir apenas 1 janela pronto, só existe 1 execução de pipeline. | Número inteiro | Um número inteiro entre 1 e 50. | Sim |
-| **retryPolicy: Count** | O número de tentativas antes da execução de pipeline está marcado como "Falhado".  | Número inteiro | Um número inteiro, em que a predefinição é 0 (não existem repetições). | Não |
+| **retryPolicy: Contagem** | O número de tentativas antes da execução de pipeline está marcado como "Falhado".  | Número inteiro | Um número inteiro, em que a predefinição é 0 (não existem repetições). | Não |
 | **retryPolicy: intervalInSeconds** | O atraso entre tentativas de repetição especificado em segundos. | Número inteiro | O número de segundos, em que a predefinição é 30. | Não |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart e WindowEnd variáveis do sistema

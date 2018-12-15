@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634486"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435791"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight com o ambiente de trabalho remoto
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Neste artigo, irá aprender como ligar a um Apache Hadoop no HDInsight cluster utilizando o ambiente de trabalho remoto e, em seguida, executar tarefas de MapReduce com o comando de Hadoop.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Área de trabalho remota só está disponível em clusters do HDInsight baseado em Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 >
 > Para o HDInsight 3.4 ou superior, consulte [utilizar o MapReduce com SSH](apache-hadoop-use-mapreduce-ssh.md) para obter informações sobre a ligação ao HDInsight cluster e executar tarefas de MapReduce.
@@ -40,7 +40,7 @@ Quando estiver ligado ao ambiente de trabalho para o cluster do HDInsight, utili
 
 1. A partir da área de trabalho do HDInsight, inicie o **linha de comandos do Hadoop**. É aberta numa nova linha de comandos do **c:\apps\dist\hadoop-&lt;número de versão >** diretório.
 
-   > [!NOTE]
+   > [!NOTE]  
    > O número da versão alterado conforme Hadoop é atualizado. O **HADOOP_HOME** variável de ambiente pode ser utilizada para localizar o caminho. Por exemplo, `cd %HADOOP_HOME%` altera os diretórios para o diretório de Hadoop, sem necessidade de saber o número de versão.
    >
    >
@@ -94,5 +94,5 @@ Para obter informações gerais sobre tarefas de MapReduce no HDInsight:
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)

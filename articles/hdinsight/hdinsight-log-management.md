@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988497"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434890"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -24,13 +24,13 @@ Gestão de registos de cluster do HDInsight inclui a reter informações sobre t
 
 As etapas típicas na gestão de registos do HDInsight são:
 
-* Passo 1: Determinar políticas de retenção de registo
+* Passo 1: Determinar as políticas de retenção do registo
 * Passo 2: Gerir registos de configuração de versões de serviço de cluster
 * Passo 3: Gerir ficheiros de registo de execução de tarefa de cluster
-* Passo 4: Prever os custos e tamanhos de armazenamento de volume de registo
-* Passo 5: Determinar políticas de arquivo de log e os processos
+* Passo 4: Previsão de tamanhos de armazenamento de volume de registo e os custos
+* Passo 5: Determinar as políticas de arquivo de log e de processos
 
-## <a name="step-1-determine-log-retention-policies"></a>Passo 1: Determinar políticas de retenção de registo
+## <a name="step-1-determine-log-retention-policies"></a>Passo 1: Determinar as políticas de retenção do registo
 
 É a primeira etapa na criação de uma estratégia de gestão de registo de cluster do HDInsight recolher informações sobre cenários de negócios e requisitos de armazenamento de histórico de execução de tarefa.
 
@@ -51,7 +51,7 @@ Pode aproveitar essas informações de nível superior do portal do Azure.  Em a
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Também pode utilizar o PowerShell para ver estas informações.  Para obter mais informações, consulte [Hadoop gerir clusters no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
+Também pode utilizar o PowerShell para ver estas informações.  Para obter mais informações, consulte [Apache Hadoop para gerir clusters no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Compreender as cargas de trabalho em execução nos seus clusters
 
@@ -69,7 +69,7 @@ Também pode utilizar o PowerShell para ver estas informações.  Para obter mai
 
 * Considere como pode recolher registos do cluster, ou a partir de mais de um cluster e agrupá-los para fins de auditoria, monitorização, planeamento e os alertas. Poderá utilizar uma solução personalizada para aceder e transferir os ficheiros de registo numa base regular e combinar e analisá-los para fornecer uma exibição de dashboard. Também pode adicionar capacidades adicionais para os alertas de segurança ou a deteção de falhas. Pode criar estes utilitários com o PowerShell, os SDKs do HDInsight ou o código que acede ao modelo de implementação clássica do Azure.
 
-* Considere se uma solução de monitorização ou serviço seria uma vantagem útil. O Microsoft System Center fornece uma [pacote de gestão do HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Também pode utilizar ferramentas de terceiros, como Chukwa e Ganglia para recolher e centralizar os registos. Muitas empresas oferecem serviços para monitorizar soluções de macrodados baseada no Hadoop, por exemplo Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
+* Considere se uma solução de monitorização ou serviço seria uma vantagem útil. O Microsoft System Center fornece uma [pacote de gestão do HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Também pode utilizar ferramentas de terceiros, como Apache Chukwa e Ganglia para recolher e centralizar os registos. Muitas empresas oferecem serviços para monitorizar soluções de macrodados baseada no Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Passo 2: Gerir versões de serviço de cluster e ver os registos de ação de Script
 
@@ -136,7 +136,7 @@ IU de ResourceManager do YARN é executado no nó principal do cluster e é aced
 2. Na lista de serviços no lado esquerdo, selecione YARN.
 3. Na lista pendente Links rápidos, selecione um de nós principais do cluster e, em seguida, selecione **registos de ResourceManager**. É apresentada uma lista de ligações para os registos YARN.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Prever os custos e tamanhos de armazenamento de volume de registo
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Previsão de tamanhos de armazenamento de volume de registo e os custos
 
 Depois de concluir os passos anteriores, tem um conhecimento dos tipos e volumes de ficheiros de registo que estão produzindo seus clusters do HDInsight.
 
@@ -144,7 +144,7 @@ Em seguida, analise o volume de dados de registo em localizações de armazename
 
 Agora tem informação suficiente para criar uma estratégia de gestão de registo para os registos de chave.  Use sua folha de cálculo (ou ferramenta de escolha) para prever os dois crescimento de tamanho do registo e registar os custos de serviço do Azure de armazenamento no futuro.  Considere também os requisitos de retenção de registo para o conjunto de registos que está examinando.  Agora pode reforecast log futuros custos de armazenamento, depois de determinar quais arquivos de log podem ser eliminados (se aplicável) e os registos que devem ser mantidos e arquivados para o armazenamento do Azure mais barato.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Passo 5: Determinar políticas de arquivo de log e os processos
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Passo 5: Determinar as políticas de arquivo de log e de processos
 
 Depois de determinar quais arquivos de log podem ser eliminados, pode ajustar os parâmetros de registo em muitos serviços do Hadoop para eliminar automaticamente os ficheiros de registo após um período de tempo especificado.
 
@@ -177,5 +177,5 @@ Para recolher os registos de todos os nós para um local central, pode criar um 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Monitorização e registo prática para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Registo de aplicações do YARN de acesso no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Como controlar o tamanho dos ficheiros de registo para vários componentes do Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Registo de aplicações do acesso Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Como controlar o tamanho dos ficheiros de registo para vários componentes do Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

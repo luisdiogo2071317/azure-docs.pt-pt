@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341750"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410368"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -298,7 +298,7 @@ Para configurar a proteção para uma base de dados SQL:
 
     ![Selecione Configurar cópia de segurança](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    O serviço de cópia de segurança do Azure apresenta todas as instâncias do SQL Server com bases de dados autónomas e grupos de disponibilidade Always On do SQL Server. Para ver as bases de dados autónomo na instância do SQL Server, selecione a divisa para a esquerda do nome de instância. Da mesma forma, selecione a divisa para a esquerda do grupo de disponibilidade Always On para ver a lista de bases de dados. A imagem seguinte é um exemplo de uma instância autónoma e um grupo de disponibilidade Always On.
+    O serviço de cópia de segurança do Azure apresenta todas as instâncias do SQL Server com bases de dados autónomas e SQL Server sempre em grupos de disponibilidade. Para ver as bases de dados autónomo na instância do SQL Server, selecione a divisa para a esquerda do nome de instância. Da mesma forma, selecione a divisa para a esquerda do grupo de sempre disponibilidade para ver a lista de bases de dados. A imagem seguinte é um exemplo de uma instância autónoma e um grupo de sempre disponibilidade.
 
       ![Exibir todas as instâncias do SQL Server com bases de dados autónomas](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -312,7 +312,7 @@ Para configurar a proteção para uma base de dados SQL:
     > Para otimizar cargas de cópia de segurança, cópia de segurança do Azure divide grandes trabalhos de cópia de segurança em vários lotes. O número máximo de bases de dados numa tarefa de cópia de segurança é 50.
     >
 
-      Em alternativa, pode habilitar [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) no toda instância ou sempre no grupo de disponibilidade ao selecionar o **ON** opção na lista pendente correspondente no **AUTOPROTECT**  coluna. O [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funcionalidade não só permite a proteção em todos os bancos de dados existentes de uma vez, mas também automaticamente protege novas bases de dados que serão adicionados a essa instância ou o grupo de disponibilidade no futuro.  
+      Em alternativa, pode ativar [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) no toda instância ou grupo de sempre disponibilidade ao selecionar o **ON** opção na lista pendente correspondente no **AUTOPROTECT**  coluna. O [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funcionalidade não só permite a proteção em todos os bancos de dados existentes de uma vez, mas também automaticamente protege novas bases de dados que serão adicionados a essa instância ou o grupo de disponibilidade no futuro.  
 
       ![Ativar a proteção automática no grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -347,9 +347,7 @@ Para configurar a proteção para uma base de dados SQL:
 
 ## <a name="auto-protect-sql-server-in-azure-vm"></a>Auto-proteger o SQL Server numa VM do Azure  
 
-A proteção automática é uma funcionalidade que permite-lhe proteger automaticamente todos os bancos de dados existentes, bem como as bases de dados futuras que adicionaria numa instância do SQL Server autónomo ou um grupo de disponibilidade Always On do SQL Server.
-
-No caso de uma instância ou um grupo de disponibilidade já tem algumas das respetivas bases de dados protegidos, ainda pode transformar **ON** a opção de auto-protect. Neste caso, a política de cópia de segurança, por isso, definida só será aplicável às bases de dados não protegidos, enquanto as bases de dados já protegidos irão continuar a ser protegidos com as respetivas políticas.
+A proteção automática permite-lhe proteger automaticamente bases de dados de contas existentes e bases de dados que adicionaria no futuro para uma instância do SQL Server autónomo ou um SQL Server sempre no grupo de disponibilidade. Transformando **ON** proteção automática e escolhendo uma política de cópia de segurança serão aplicada para bases de dados recentemente protegidas, as bases de dados protegidos existentes vão continuar a utilizar a política anterior.
 
 ![Ativar a proteção automática no grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -479,7 +477,7 @@ Também pode selecionar um backup completo ou diferencial específico para resta
     - **Substituir a BD**: Restaure os dados para a mesma instância do SQL Server como a origem original. O efeito desta opção é substituir a base de dados original.
 
     > [!Important]
-    > Se a base de dados selecionada pertence a um grupo de disponibilidade Always On, o SQL Server não permite que a base de dados sejam substituídas. Neste caso, apenas os **localização alternativa** opção está ativada.
+    > Se a base de dados selecionada pertence a um grupo de sempre disponibilidade, o SQL Server não permite que a base de dados sejam substituídas. Neste caso, apenas os **localização alternativa** opção está ativada.
     >
 
     ![Restaurar o menu de configuração](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 748eefd78f8235a906d0e87874b29432b4b869c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106792"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413681"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 
@@ -44,9 +44,9 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
-- Cria um armazém do Azure SQL Data Warehouse e uma regra de firewall ao nível do servidor e liga ao servidor como administrador do servidor. Siga as instruções em [Início Rápido: Criar um armazém do Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
+- Cria um armazém do Azure SQL Data Warehouse e uma regra de firewall ao nível do servidor e liga ao servidor como administrador do servidor. Siga as instruções em [início rápido: Criar um armazém de dados SQL do Azure](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Crie uma chave mestra de base de dados para o Azure SQL Data Warehouse. Siga as instruções em [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) (Criar uma Chave Mestra de Base de Dados).
-- Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Siga as instruções em [Início Rápido: Criar uma conta de armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Siga as instruções em [início rápido: Criar uma conta de armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -54,7 +54,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
-Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure. 
+Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
@@ -65,7 +65,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     ![Criar uma área de trabalho do Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
     Forneça os seguintes valores:
-     
+    
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
@@ -106,11 +106,11 @@ Nesta secção, vai criar uma conta do Azure Data Lake Store e associar um princ
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Armazenamento** > **Data Lake Store**.
 3. No painel **Novo Data Lake Store**, forneça os valores, conforme mostrado na captura de ecrã seguinte:
-   
+
     ![Criar uma nova conta do Azure Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Criar uma nova conta do Azure Data Lake")
 
-    Forneça os seguintes valores: 
-     
+    Forneça os seguintes valores:
+    
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome**     | Introduza um nome exclusivo para a conta do Data Lake Store.        |
@@ -125,7 +125,7 @@ Nesta secção, vai criar uma conta do Azure Data Lake Store e associar um princ
 Agora, vai criar um principal de serviço do Azure Active Directory e associá-lo à conta do Data Lake Store que criou.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Criar um principal de serviço do Azure Active Directory
-   
+
 1. No [Portal do Azure](https://portal.azure.com), selecione **Todos os serviços** e procure **Azure Active Directory**.
 
 2. Selecione **Registos das aplicações**.
@@ -193,7 +193,7 @@ Ao iniciar sessão programaticamente, tem de transmitir o ID de inquilino com o 
 
 ## <a name="upload-data-to-data-lake-store"></a>Carregar dados para o Data Lake Store
 
-Nesta secção, vai carregar um ficheiro de dados de exemplo para o Data Lake Store. Este ficheiro vai ser utilizado mais tarde no Azure Databricks para executar algumas transformações. Os dados de exemplo (**small_radio_json.json**) que vai utilizar neste tutorial estão disponíveis neste [repositório do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+Nesta secção, vai carregar um ficheiro de dados de exemplo para o Data Lake Store. Este ficheiro vai ser utilizado mais tarde no Azure Databricks para executar algumas transformações. Os dados de exemplo (**small_radio_json**) que utilizou neste tutorial está disponível neste [repositório do GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. No [portal do Azure](https://portal.azure.com), selecione a conta do Data Lake Store que criou.
 
@@ -378,7 +378,7 @@ Nesta secção, vai carregar os dados transformados para o Azure SQL Data Wareho
 
 Como mencionado anteriormente, o conector de armazém de dados SQL utiliza armazenamento de Blobs do Azure como localização de armazenamento temporário para carregar dados entre o Azure Databricks e o Azure SQL Data Warehouse. Assim, comece por indicar a configuração para ligar à conta de armazenamento. Já deverá ter criado a conta como parte dos pré-requisitos deste artigo.
 
-1. Indique a configuração para aceder à conta de Armazenamento do Azure a partir do Azure Databricks. Se copiar o URL para o armazenamento de Blobs do portal, certifique-se de que remova *https://* desde o início. 
+1. Indique a configuração para aceder à conta de Armazenamento do Azure a partir do Azure Databricks. Se copiar o URL para o armazenamento de Blobs do portal, certifique-se de que remova *https://* desde o início.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Como mencionado anteriormente, o conector de armazém de dados SQL utiliza armaz
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

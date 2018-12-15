@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103460"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408039"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código nas funções do Azure
 
@@ -93,9 +93,9 @@ namespace Functions.Tests
 
 O `ListLogger` classe implementa os seguintes membros como contratado pelo `ILogger` interface:
 
-- **BeginScope**: âmbitos Adicionar contexto para seu registro de log. Neste caso, o teste apenas aponta para a instância estática sobre o [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) classe para permitir que o teste funcione.
+- **BeginScope**: Âmbitos Adicionar contexto para seu registro de log. Neste caso, o teste apenas aponta para a instância estática sobre o [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) classe para permitir que o teste funcione.
 
-- **IsEnabled**: um valor padrão de `false` é fornecido.
+- **IsEnabled**: Um valor padrão de `false` é fornecido.
 
 - **Registo**: Este método utiliza fornecido `formatter` funcionar para formatar a mensagem e, em seguida, adiciona o texto resultante para o `Logs` coleção.
 
@@ -178,13 +178,13 @@ namespace Functions.Tests
 ```
 O `TestFactory` classe implementa os seguintes membros:
 
-- **Dados**: Esta propriedade devolve um [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) recolha de dados de exemplo. Os pares de chave-valor representam valores que são transmitidas numa cadeia de caracteres de consulta.
+- **Dados**: Essa propriedade retorna um [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) recolha de dados de exemplo. Os pares de chave-valor representam valores que são transmitidas numa cadeia de caracteres de consulta.
 
-- **CreateDictionary**: Este método aceita um par chave/valor como argumentos e devolve um novo `Dictionary` utilizado para criar `QueryCollection` para representar valores de cadeia de caracteres de consulta.
+- **CreateDictionary**: Esse método aceita um par chave/valor como argumentos e devolve um novo `Dictionary` utilizado para criar `QueryCollection` para representar valores de cadeia de caracteres de consulta.
 
 - **CreateHttpRequest**: Este método cria um pedido HTTP foi inicializado com os parâmetros de cadeia de caracteres de consulta especificada.
 
-- **CreateLogger**: com base no tipo de agente de log, esse método retorna uma classe logger usada para teste. O `ListLogger` mantém um registro de mensagens anteriormente registadas disponíveis para avaliação em testes.
+- **CreateLogger**: Com base no tipo de agente de log, esse método retorna uma classe logger usada para teste. O `ListLogger` mantém um registro de mensagens anteriormente registadas disponíveis para avaliação em testes.
 
 Em seguida, **com o botão direito** sobre o *Functions.Test* aplicativo e selecione **adicionar > classe**, um nome **FunctionsTests.cs** e introduza o código a seguir:
 
@@ -357,6 +357,6 @@ Em seguida, defina um ponto de interrupção em seu teste e prima **F5**.
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como escrever testes automatizados para as suas funções, continue com estes recursos:
-
+- [Executar manualmente uma função não acionada por HTTP](./functions-manually-run-non-http.md)
 - [Tratamento de erros de funções do Azure](./functions-bindings-error-pages.md)
 - [Função do Azure Event Grid acionador Local depuração](./functions-debug-event-grid-trigger-local.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 8adff94a4cb536c3d8dbf7382b8acb69184030b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325850"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435774"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar pedidos para os serviços cognitivos do Azure
 
@@ -23,6 +23,10 @@ Cada pedido num serviço cognitivos do Azure tem de incluir um cabeçalho de aut
 * [Autenticar com uma chave de subscrição de serviço único](#authenticate-with-a-single-service-subscription-key)
 * [Autenticar com uma chave de subscrição de múltiplos serviços](#authenticate-with-a-multi-service-subscription-key)
 * [Autenticar com um token](#authenticate-with-an-authentication-token)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de fazer um pedido, terá de uma conta do Azure e uma subscrição de serviços cognitivos do Azure. Se já tiver uma conta, vá em frente e avançar para a secção seguinte. Se não tiver uma conta, temos um guia para ajudá-lo a configurar em minutos: [Criar uma conta dos serviços cognitivos para o Azure](cognitive-services-apis-create-account.md).
 
 ## <a name="authentication-headers"></a>Cabeçalhos de autenticação
 

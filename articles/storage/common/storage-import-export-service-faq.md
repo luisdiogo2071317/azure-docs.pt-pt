@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236726"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435009"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>O serviço importar/exportar do Azure: Perguntas mais frequentes 
 Seguem-se perguntas e respostas que possa ter quando utiliza o serviço importar/exportar do Azure para transferir dados para o armazenamento do Azure. As perguntas e respostas estão organizadas pelas seguintes categorias:
@@ -66,7 +66,10 @@ Sim. Pode cancelar uma tarefa quando o respetivo estado é **Creating** ou **env
 Pode ver o estado de tarefas concluídas durante 90 dias. Tarefas concluídas são eliminadas passados 90 dias.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?
-Uma importação ou a tarefa de exportação pode referenciar apenas 10 unidades numa única tarefa. Para enviar mais de 10 unidades, deve criar várias tarefas. Unidades associadas à mesma tarefa devem ser enviadas em conjunto no mesmo pacote. Para obter mais informações e orientações que quando a capacidade de dados abrange vários disco importar tarefas, contacte a Microsoft em bulkimport@microsoft.com.                                                              
+Uma importação ou a tarefa de exportação pode referenciar apenas 10 unidades numa única tarefa. Para enviar mais de 10 unidades, deve criar várias tarefas. Unidades associadas à mesma tarefa devem ser enviadas em conjunto no mesmo pacote. Para obter mais informações e orientações que quando a capacidade de dados abrange vários disco importar tarefas, contacte a Microsoft em bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>O blob carregado mostra o estado como "Expirada de concessão". O que devo fazer?
+Pode ignorar o campo "A concessão expirou". Importar/exportar demora concessão no blob durante o carregamento para se certificar de que nenhum outro processo pode atualizar o blob em paralelo. Concessão expirado implica que importar/exportar já não está a carregar a ele e o blob está disponível para utilização. 
 
 ## <a name="shipping-disks"></a>Discos de envio
 

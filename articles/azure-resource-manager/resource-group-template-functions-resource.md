@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139234"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438416"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -509,6 +509,8 @@ O objeto devolvido é no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
+O `resourceGroup()` função não é possível utilizar um modelo que é [implementadas ao nível da subscrição](deploy-to-subscription.md). Só pode ser utilizada em modelos que são implementados para um grupo de recursos.
+
 Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
 
 ```json
@@ -593,9 +595,9 @@ O identificador é devolvido no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-Os valores de parâmetro que especifica dependem se o recurso é o mesmo grupo de recursos e subscrição como a implementação atual.
+Quando utilizado com um [implementação de nível de assinatura](deploy-to-subscription.md), o `resourceId()` função só é possível obter o ID de recursos implementados nesse nível. Por exemplo, pode obter o ID de uma definição de política ou a definição de função, mas não o ID de uma conta de armazenamento. Para implementações de um grupo de recursos, o oposto é verdadeiro. Não é possível obter o ID de recurso de recursos implementados ao nível da subscrição.
 
-Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição e grupo de recursos, utilize:
+Os valores de parâmetro que especifica dependem se o recurso é o mesmo grupo de recursos e subscrição como a implementação atual. Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição e grupo de recursos, utilize:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -617,6 +619,12 @@ Para obter o ID de recurso para uma base de dados no grupo de recursos diferente
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Para obter o ID de recurso de um recurso de nível de assinatura durante a implementação no âmbito da subscrição, utilize:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armazenamento ou a rede virtual num grupo de recursos alternativos. O exemplo seguinte mostra como um recurso de um grupo de recurso externo pode ser facilmente utilizado:

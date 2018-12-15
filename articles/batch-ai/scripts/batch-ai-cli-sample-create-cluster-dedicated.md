@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
-ms.openlocfilehash: 10f3444f81dfaeac4331f0b7798ade7eefbd29fb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058132"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410130"
 ---
-# <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>Exemplo da CLI: Criar e gerir um cluster do Batch AI de nós dedicados
+# <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>Exemplo da CLI: Criar e gerir um cluster de IA do Batch de nós dedicados
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Este script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerir um cluster do Batch AI constituído por nós dedicados (máquinas virtuais).
 
@@ -59,6 +62,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Redimensiona o cluster do Batch AI.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 81057271fefddf7d204217d73b56e2734c8c3d48
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162839"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436692"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Aprofunde-se-análises avançadas
 
@@ -56,14 +56,16 @@ Além de selecionar o melhor fitting algorithm(s), precisa considerar se ou não
 
 HDInsight tem aprendizagem várias opções para um fluxo de trabalho de análise avançada:
 
-* [Machine Learning e Spark](#machine-learning-and-spark)
+* [Machine Learning e do Apache Spark](#machine-learning-and-spark)
 * [R e os serviços de ML](#r-and-r-server)
-* [Azure Machine Learning e o Hive](#azure-machine-learning-and-hive)
-* [Spark e de aprendizagem profunda](#spark-and-deep-learning)
+* [Azure Machine Learning e o Apache Hive](#azure-machine-learning-and-hive)
+* [Apache Spark e de aprendizagem profunda](#spark-and-deep-learning)
 
-### <a name="machine-learning-and-spark"></a>Machine Learning e Spark
+### <a name="machine-learning-and-apache-spark"></a>Machine Learning e do Apache Spark
 
-[Spark do HDInsight](../spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Spark](https://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que utiliza o processamento dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. 
+
+[Spark do HDInsight](../spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Apache Spark](https://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que utiliza o processamento dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. 
+
 
 Existem três bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído:
 
@@ -75,11 +77,11 @@ Existem três bibliotecas de aprendizado de máquina dimensionável que fornecer
 
 Como parte do HDInsight, pode criar um cluster do HDInsight com o [serviços ML](../r-server/r-server-overview.md) pronta para ser utilizada com modelos e conjuntos de dados maciços. Esta nova capacidade fornece cientistas de dados e estatísticos com uma interface familiar do R que pode ser dimensionado a pedido através do HDInsight, sem a sobrecarga de manutenção e configuração do cluster.
 
-### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning e o Hive
+### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e o Apache Hive
 
 [O Azure Machine Learning Studio](https://studio.azureml.net/) fornece ferramentas para Análise Preditiva do modelo, bem como um serviço totalmente gerido que pode utilizar para implementar os seus modelos preditivos como serviços web prontos a consumir. O Azure Machine Learning fornece ferramentas para criar soluções completas de Análise Preditiva na cloud para rapidamente criar, testar, operacionalizar e gerir modelos de previsão. Selecionar a partir de uma grande biblioteca de algoritmos, utilize um studio baseado na web para a criação de modelos e implementar facilmente o seu modelo como um serviço web.
 
-### <a name="spark-and-deep-learning"></a>Spark e de aprendizagem profunda
+### <a name="apache-spark-and-deep-learning"></a>Apache Spark e de aprendizagem profunda
 
 [Aprendizagem profunda](https://www.microsoft.com/research/group/dltc/) é um ramo do machine learning que utiliza *redes neurais profundas* (DNNs), inspirado pelos processos biológicos do cérebro humano. Pesquisadores de muitos aprendizagem profunda, consulte como uma abordagem promissor para inteligência artificial. Alguns exemplos de aprendizagem profunda são conversores de um idioma falado, sistemas de reconhecimento de imagem e raciocínio de máquina. Para ajudar a avançar seu próprio trabalho na aprendizagem profunda, a Microsoft desenvolveu o gratuito, fácil de usar, open source [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). O Kit de ferramentas está sendo usada extensivamente por uma grande variedade de produtos da Microsoft, as empresas em todo o mundo com a necessidade de implementar a aprendizagem profunda à escala e estudantes interessados nos algoritmos e as técnicas mais recentes. 
 
@@ -118,16 +120,16 @@ Siga [deste tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Hive e do Azure Machine Learning
+Apache Hive e do Azure Machine Learning
 
-* [Hive e o Azure Machine Learning ponto-a-ponto](../../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive e o Azure Machine Learning ponto-a-ponto](../../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [Utilizar um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
-Spark e o MLLib
+Apache Spark e o MLLib
 
-* [Machine learning com o Spark no HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine learning com o Apache Spark no HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Spark com Machine Learning: Utilizar o Apache Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Apache Spark no HDInsight para prever resultados de inspeções alimentares](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Aprendizagem profunda, Cognitive Toolkit e outros
 

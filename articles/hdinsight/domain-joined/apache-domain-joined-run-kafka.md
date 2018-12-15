@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633053"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438613"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (pré-visualização)
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 1. Num browser, ligue à interface de utilizador do Ranger Admin através do URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Não se esqueça de alterar `<ClusterName>` para o nome do cluster do Kafka.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > As credenciais do Ranger não são iguais às credenciais de cluster do Hadoop. Para impedir que os browsers utilizem credenciais em cache do Hadoop, utilize uma nova janela do browser InPrivate para ligar à IU do Ranger Admin.
 
 2. Inicie sessão com as suas credenciais de administrador do Azure Active Directory (AD). As credenciais de administrador do Azure AD não iguais às credenciais de cluster do HDInsight ou às credenciais SSH de nó HDInsight do Linux.
@@ -74,7 +74,7 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
    ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador**.
 
 4. Clique em **Adicionar** para guardar a política.
@@ -113,17 +113,17 @@ Para criar dois tópicos, **salesevents** e **marketingspend**:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Utilize os comandos seguintes para obter os anfitriões de mediador do Kafka e os anfitriões do Zookeeper. Quando lhe for pedido, introduza a palavra-passe da conta de administrador do cluster.
+3. Utilize os seguintes comandos para obter o mediador Kafka anfitriões e os anfitriões de Apache Zookeeper. Quando lhe for pedido, introduza a palavra-passe da conta de administrador do cluster.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > Antes de continuar, terá de configurar o ambiente de desenvolvimento, se ainda não o tiver feito. Precisará de componentes, como o Java JDK, Apache Maven e um cliente SSH com scp. Veja estas [instruções de configuração](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) para obter mais detalhes.
 1. Transfira os [exemplos de consumidor produtor associados a um domínio do Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Siga os passos 2 e 3 em **Criar e implementar o exemplo** no [Tutorial: utilizar APIs de Produtor e Consumidor do Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Siga os passos 2 e 3 sob **criar e implementar o exemplo** no [Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
 
 1. Execute os seguintes comandos:
 
@@ -132,7 +132,7 @@ Para criar dois tópicos, **salesevents** e **marketingspend**:
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Apenas o proprietário de processo do serviço Kafka, como a raiz, pode escrever nos znodes `/config/topics` do Zookeeper. As políticas do Ranger não são impostas quando um utilizador sem privilégios cria um tópico. Isto acontece porque o script `kafka-topics.sh` comunica diretamente com o Zookeeper para criar o tópico. As entradas são adicionadas aos nós do Zookeeper, enquanto os observadores do lado do mediador monitorizam e criam tópicos em conformidade. A autorização não pode ser feita por meio do plug-in do Ranger, e o comando acima é executado com `sudo` através do mediador do Kafka.
 
 
@@ -210,5 +210,5 @@ Com base nas políticas do Ranger configuradas, o **sales_user** pode produzir/c
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Traga a sua própria chave para o Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Uma introdução à segurança do Hadoop com o Pacote de Segurança Enterprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Traga a sua própria chave ao Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

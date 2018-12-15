@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189076"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437437"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e do Azure Machine Learning: Criar e implementar modelos de IA interoperáveis
 
@@ -69,7 +69,7 @@ Com o serviço do Azure Machine Learning, pode implementar, gerir e monitorizar 
 
 ### <a name="install-and-configure-onnx-runtime"></a>Instalar e configurar o tempo de execução ONNX
 
-Tempo de execução ONNX é um motor de inferência de tipos de alto desempenho do código-fonte aberto para modelos ONNX. Ele fornece a aceleração de hardware na CPU e GPU, com as APIs disponíveis para o Python, C#, e o tempo de execução do C. ONNX suporta ONNX 1.2 + modelos e é executada em Linux, Windows e Mac. Pacotes de Python estão disponíveis em [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), e [ C# pacote](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) no [Nuget.org](https://www.nuget.org). Ver mais informações sobre o projeto no [Github](https://github.com/Microsoft/onnxruntime). 
+Tempo de execução ONNX é um motor de inferência de tipos de alto desempenho do código-fonte aberto para modelos ONNX. Ele fornece a aceleração de hardware na CPU e GPU, com as APIs disponíveis para o Python, C#, e o tempo de execução do C. ONNX suporta ONNX 1.2 + modelos e é executada em Linux, Windows e Mac. Pacotes de Python estão disponíveis em [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), e [ C# pacote](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) no [Nuget.org](https://www.nuget.org). Ver mais informações sobre o projeto no [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 Para instalar o Runtime de ONNX para Python, utilize:
 ```python
@@ -202,6 +202,6 @@ Saiba mais sobre ONNX ou contribuir para o projeto:
 + [Código ONNX no GitHub](https://github.com/onnx/onnx)
 
 Saiba mais sobre o tempo de execução ONNX ou contribuir para o projeto:
-+ [Repositório do Github de tempo de execução ONNX](https://github.com/Microsoft/onnxruntime)
++ [Repositório do GitHub de tempo de execução ONNX](https://github.com/Microsoft/onnxruntime)
 
 

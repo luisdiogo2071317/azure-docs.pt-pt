@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7affc60e3504b9b43d7663a4b7799c52fef79e7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082786"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434533"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utilizar blocos de notas do Jupyter para explorar o serviço Azure Machine Learning
 
@@ -29,7 +29,7 @@ Saiba como utilizar o serviço com a documentação sobre este site e utilizar e
 
 Concluir o [guia de início rápido do Azure Machine Learning Python](quickstart-get-started.md) para criar uma área de trabalho e iniciar os blocos de notas do Azure.
 
-## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Experimente os blocos de notas do Azure: Gratuita blocos de notas Jupyter na cloud
+## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Experimente os blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
 
 É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si nos blocos de notas do Azure. A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
   
@@ -98,7 +98,7 @@ Embora seja possível usar qualquer uma das opções acima, também pode instala
    >[!NOTE]
    >Pode usar um conda existente como há muito tempo, dado que é a versão 4.4.10 ou posterior. Utilize `conda -V` para apresentar a versão. Pode atualizar uma versão de conda com o comando: `conda update conda`. Não é necessário para instalar a mini-conda especificamente.
 
-1. Transferir os blocos de notas de exemplo da [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Transferir os blocos de notas de exemplo da [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) como um zip e extraia o conteúdo para um diretório local. Os blocos de notas de aprendizagem automatizada estão no `how-to-use-azureml/automated-machine-learning` pasta.
 
 1. Configure um novo ambiente de Conda. 
@@ -116,9 +116,10 @@ Embora seja possível usar qualquer uma das opções acima, também pode instala
       + Configura o widget
       + Inicia um bloco de notas do jupyter
       
-      O script aceita o nome do ambiente de conda como um parâmetro opcional. O nome de ambiente de conda predefinido é `azure_automl`. O comando exato depende do sistema operativo. 
+   >[!NOTE]
+   > O script aceita o nome do ambiente de conda como um parâmetro opcional. O nome de ambiente de conda predefinido é `azure_automl`. O comando exato depende do sistema operativo. Isto é útil se estiver a criar um novo ambiente ou a atualização para uma nova versão. Por exemplo pode utilizar "automl_setup.cmd azure_automl_sandbox" para criar um azure_automl_sandbox de nome de evironment. 
       
-      Assim que o script tiver concluído, verá uma home page de bloco de notas do Jupyter no seu browser.
+1. Assim que o script tiver concluído, verá uma home page de bloco de notas do Jupyter no seu browser.
 
 1. Navegue para o caminho onde guardou os blocos de notas. 
 

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 34db8900d285baa7e9c4f97874023bbb52d5e864
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087903"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408835"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Resolver problemas YARN utilizando o Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Hadoop YARN com o Azure HDInsight
 
 Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads de Apache Hadoop YARN no Apache Ambari.
 
@@ -59,7 +59,7 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [CapacityScheduler YARN](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como transferir registos do YARN a partir de um cluster?
@@ -131,7 +131,7 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 
 ### <a name="additional-reading-2"></a>Leitura adicional
 
-- [Ligar ao HDInsight (Hadoop) através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Ligar ao HDInsight (Apache Hadoop) através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Conceitos do Apache Hadoop YARN e aplicações](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

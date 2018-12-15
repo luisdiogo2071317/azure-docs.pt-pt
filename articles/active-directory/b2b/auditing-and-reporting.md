@@ -5,20 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: fbe1cfdcfb1b5ec295748c3c77030df45323ee54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984607"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434329"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios um utilizador de colaboração B2B
-Com os utilizadores convidados, tem capacidades semelhantes de auditoria com utilizadores membros. Eis um exemplo do histórico de convite e resgate de convidado Sam Oogle:
+Com os utilizadores convidados, tem capacidades semelhantes de auditoria com utilizadores membros. 
+
+## <a name="access-reviews"></a>Revisões de acesso
+Pode utilizar as revisões de acesso para verificar periodicamente se os utilizadores convidados ainda precisam de acesso aos seus recursos. O **as revisões de acesso** funcionalidade está disponível no **Azure Active Directory** sob **gerir** > **relações organizacionais**. (Também pode procurar "revisões de acesso" partir **todos os serviços** no portal do Azure.) Para saber como utilizar as revisões de acesso, veja [revisões de acesso de convidado de gerir com o acesso do Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+
+## <a name="audit-logs"></a>Registos de auditoria
+
+A auditoria do Azure AD registos fornecem registos das atividades de sistema e do usuário, incluindo atividades iniciadas por utilizadores convidados. Para aceder aos registos de auditoria, no **do Azure Active Directory**, em **monitorização**, selecione **registos de auditoria**. Eis um exemplo do histórico de convite e resgate de convidado Sam Oogle:
 
 ![registo de Auditoria](./media/auditing-and-reporting/audit-log.png)
 
@@ -30,5 +37,5 @@ Também pode exportar estes registos do Azure AD e utilize a ferramenta de gera�
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-- [Propriedades de utilizador de colaboração B2B](user-properties.md)
+- [Propriedades do utilizador de colaboração B2B](user-properties.md)
 

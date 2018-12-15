@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615608"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408005"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store entrada da tarefa de IA do Batch e de saída com o armazenamento do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este guia descreve como utilizar o armazenamento do Azure para armazenar ficheiros de entrada e saídos, ao executar uma tarefa. Armazenamento do Azure é uma das várias opções de armazenamento suportadas pelo Batch AI. O batch AI integra-se com o armazenamento do Azure ao montar a sistemas de armazenamento do Azure para um Batch AI tarefa ou cluster de sistema de ficheiros, permitindo o acesso totalmente integrado aos ficheiros armazenados na cloud. 
 

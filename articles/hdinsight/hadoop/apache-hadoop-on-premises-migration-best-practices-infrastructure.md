@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993388"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437525"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de infraestrutura
 
@@ -39,7 +39,7 @@ Ver [predefinido de tamanhos de máquina virtual e configuração de nó para cl
 
 Cada versão do HDInsight é uma distribuição de nuvem de uma versão do Hortonworks Data Platform (HDP) e consiste num conjunto de componentes do Hadoop sistema ao meio ambiente. Ver [controlo de versões de componente de HDInsight](../hdinsight-component-versioning.md) para obter detalhes sobre todos os componentes do HDInsight e suas versões atuais.
 
-Também pode utilizar a IU do Ambari ou a API de REST do Ambari para verificar as versões no HDInsight e componentes do Hadoop.
+Também pode utilizar a IU do Apache Ambari ou a API de REST do Ambari para verificar as versões no HDInsight e componentes do Hadoop.
 
 Aplicativos ou componentes que estavam disponíveis em clusters no local, mas não fazem parte dos clusters do HDInsight podem ser adicionados num nó de extremidade ou numa VM na mesma VNet que o cluster do HDInsight. Uma aplicação do Hadoop de terceiros que não está disponível no Azure HDInsight pode ser instalada utilizando a opção de "Aplicações" no cluster do HDInsight. Aplicações do Hadoop personalizadas podem ser instaladas num cluster do HDInsight com "ações de script". A tabela seguinte lista alguns dos aplicativos comuns e as opções de integração do HDInsight:
 
@@ -90,7 +90,7 @@ HDInsight fornece pré-escritos scripts para instalar os seguintes componentes e
 - Pré-carregar as bibliotecas do Hive
 - Instalar ou atualizar o Mono
 
-> [!Note]
+> [!Note]  
 > HDInsight não fornece suporte direto para componentes do hadoop personalizadas ou instalado utilizando as ações de script.
 
 Ações de script também podem ser publicadas no Azure Marketplace como uma aplicação do HDInsight.
@@ -140,7 +140,9 @@ Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferra
 
 Nós de extremidade podem ser criados e eliminado através do portal do Azure e podem ser utilizadas durante ou após a criação de cluster. Depois do nó de extremidade tiver sido criado, pode ligar ao nó de extremidade através de SSH e executar as ferramentas de cliente para aceder ao cluster de Hadoop no HDInsight. Nó de extremidade ssh ponto final é `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
+
 Para obter mais informações, consulte o artigo [utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight](../hdinsight-apps-use-edge-node.md).
+
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Funcionalidade de ampliação e redução vertical de utilização de clusters
 
@@ -188,7 +190,7 @@ Utilizar Rede Virtual do Azure com o HDInsight permite que os seguintes cenário
 
 HDInsight também pode ser adicionados a uma rede de Virtual de Azure nova ou existente. Se o HDInsight está a ser adicionado a uma rede Virtual existente, existente a grupos de segurança de rede e as rotas definidas pelo utilizador tem de ser atualizado para permitir o acesso sem restrições aos [vários endereços IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) no Centro de dados do Azure. Além disso, certifique-se de que não bloqueia o tráfego para o [portas](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) que estão a ser utilizada pelos serviços do HDInsight.
 
-> [!Note]
+> [!Note]  
 > HDInsight não suporta atualmente o túnel forçado. O túnel forçado é uma definição de sub-rede que força o tráfego de Internet de saída para um dispositivo para inspeção e registo. Remova o túnel forçado antes de instalar HDInsight numa sub-rede ou criar uma nova sub-rede para o HDInsight. HDInsight também não suporta a restringir a conectividade de rede de saída.
 
 Para obter mais informações, veja os artigos seguintes:

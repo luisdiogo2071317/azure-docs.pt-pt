@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b083b9a09b478ca5ad68e19d3a2133fb529da851
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342957"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434703"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores de singleton nas funções durável (funções do Azure)
 
-Para tarefas em segundo plano ou orquestrações de estilo de ator, muitas vezes, precisam garantir que apenas uma instância de um orquestrador específico é executado cada vez. Isso pode ser feito [funções duráveis](durable-functions-overview.md) atribuindo específicas de uma ID de instância para um orquestrador durante a criação.
+Para tarefas em segundo plano, muitas vezes, precisa garantir que apenas uma instância de um orquestrador específico é executado cada vez. Isso pode ser feito [funções duráveis](durable-functions-overview.md) atribuindo específicas de uma ID de instância para um orquestrador durante a criação.
 
 ## <a name="singleton-example"></a>Exemplo de singleton
 

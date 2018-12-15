@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634469"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434822"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters do HDInsight com o Enterprise Security Package
 Saiba os utilizadores e as funções no pacote de segurança de Enterprise do HDInsight (ESP) e como gerir clusters do ESP.
@@ -22,7 +22,7 @@ Saiba os utilizadores e as funções no pacote de segurança de Enterprise do HD
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Utilizar o VSCode para ligar a um cluster associado a um domínio
 
 Pode ligar um cluster do normal com o nome de utilizador do Apache ambari destina gerida, também ligar um cluster do Apache Hadoop de segurança com o nome de utilizador de domínio (como: user1@contoso.com).
-1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um cluster**.
+1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: Ligar um cluster**.
 
    ![comando de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -30,14 +30,14 @@ Pode ligar um cluster do normal com o nome de utilizador do Apache ambari destin
    
    ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > O nome de utilizador ligado e a palavra-passe são utilizados se o cluster tanto registado na subscrição do Azure e ligadas um cluster. 
    
 3. Pode ver um cluster de ligado, utilizando o comando **cluster de lista**. Agora pode submeter um script para este cluster ligado.
 
    ![cluster ligado](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. Também pode desassociar um cluster ao inserir **HDInsight: desassociar um cluster** da paleta de comandos.
+4. Também pode desassociar um cluster ao inserir **HDInsight: Desassociar um cluster** da paleta de comandos.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Utilizar o IntelliJ para ligar a um cluster associado a um domínio
 
@@ -50,7 +50,7 @@ Pode ligar um cluster do normal com o nome de utilizador do Ambari gerida, tamb�
    
    ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Usamos a chave de armazenamento ligada, o nome de utilizador e a palavra-passe se o cluster tanto registado na subscrição do Azure e ligadas um cluster.
    > ![Explorador de armazenamento no IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
@@ -74,7 +74,7 @@ Pode ligar um cluster do normal com o nome de utilizador do Ambari gerida, tamb�
    
    ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Usamos a chave de armazenamento ligada, o nome de utilizador e a palavra-passe se o cluster tanto registado na subscrição do Azure e ligadas um cluster.
    > ![Explorador de armazenamento no Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
@@ -94,13 +94,13 @@ Isolamento de segurança e de utilizador são importantes para um cluster do HDI
 
 |Carga de trabalho|Cenário|Método de acesso|
 |--------|--------|-------------|
-|Hadoop|Hive – tarefas/consultas interativas |<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Consultas interativas do tarefas /, interativo do PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin com o Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Cenários do batch – envio de Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Apache Hadoop|Hive – tarefas/consultas interativas  |<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Consultas interativas do tarefas /, interativo do PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin com o Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Cenários do batch – envio de Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Interactive Query (LLAP)|Interativo|<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Qualquer|Instalar aplicação personalizada|<ul><li>[Ações de script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
-   > [!NOTE]
+   > [!NOTE]  
    > Jupyter não está instalado/suporte no Enterprise Security Package.
 
 Com as APIs padrão ajuda a partir da perspectiva de segurança. Além disso, obtém os seguintes benefícios:
@@ -143,12 +143,12 @@ Para localizar o nome de domínio completamente qualificado de um nó principal,
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Utilizadores de clusters do HDInsight com ESP
 Um cluster do HDInsight não ESP tem duas contas de utilizador que são criadas durante a criação de cluster:
 
-* **Administrador de Ambari**: esta conta também é conhecido como *utilizador do Hadoop* ou *utilizador HTTP*. Esta conta pode ser utilizada para iniciar sessão no Ambari em https://&lt;clustername >. azurehdinsight.net. Ele também pode ser usado para executar consultas em vistas do Ambari, executar tarefas através de ferramentas externas (por exemplo, PowerShell, Templeton, Visual Studio) e autenticar com o controlador ODBC do Hive e as ferramentas de BI (por exemplo, Excel, Power BI ou Tableau).
+* **Administrador de Ambari**: Esta conta também é conhecido como *utilizador do Hadoop* ou *utilizador HTTP*. Esta conta pode ser utilizada para iniciar sessão no Ambari em https://&lt;clustername >. azurehdinsight.net. Ele também pode ser usado para executar consultas em vistas do Ambari, executar tarefas através de ferramentas externas (por exemplo, PowerShell, Templeton, Visual Studio) e autenticar com o controlador ODBC do Hive e as ferramentas de BI (por exemplo, Excel, Power BI ou Tableau).
 
 Um cluster do HDInsight com ESP tem três novos usuários, além do administrador do Ambari.
 
-* **Ranger admin**: esta conta é a conta de administrador local do Apache Ranger. Não é um utilizador de domínio do Active Directory. Esta conta pode ser utilizada para configurar políticas e fazer a outros utilizadores administradores ou administradores delegados (para que os utilizadores podem gerir políticas). Por predefinição, é o nome de utilizador *administrador* e a palavra-passe é o mesmo que a palavra-passe de administrador do Ambari. A palavra-passe pode ser atualizada a partir da página de definições no Ranger.
-* **Utilizador de domínio de administrador de cluster**: esta conta é um utilizador de domínio do Active Directory designado como o administrador de cluster Hadoop, incluindo Ambari e Ranger. Tem de fornecer credenciais deste utilizador durante a criação do cluster. Este utilizador tem os seguintes privilégios:
+* **Ranger admin**:  Esta conta é a conta de administrador local do Apache Ranger. Não é um utilizador de domínio do Active Directory. Esta conta pode ser utilizada para configurar políticas e fazer a outros utilizadores administradores ou administradores delegados (para que os utilizadores podem gerir políticas). Por predefinição, é o nome de utilizador *administrador* e a palavra-passe é o mesmo que a palavra-passe de administrador do Ambari. A palavra-passe pode ser atualizada a partir da página de definições no Ranger.
+* **Utilizador de domínio de administrador de cluster**: Esta conta é um utilizador de domínio do Active Directory designado como o administrador de cluster Hadoop, incluindo Ambari e Ranger. Tem de fornecer credenciais deste utilizador durante a criação do cluster. Este utilizador tem os seguintes privilégios:
 
   * Associar máquinas ao domínio e colocá-las na UO que especificou durante a criação do cluster.
   * Crie principais de serviço na UO que especificou durante a criação do cluster.
@@ -157,7 +157,7 @@ Um cluster do HDInsight com ESP tem três novos usuários, além do administrado
     Tenha em atenção de que os outros utilizadores do AD também tem estes privilégios.
 
     Existem alguns pontos finais dentro do cluster (por exemplo, Templeton) que não são geridos pelo Ranger e, por conseguinte, não são seguras. Estes pontos finais estão bloqueados para todos os utilizadores, exceto o utilizador de domínio de administrador de cluster.
-* **Regular**: durante a criação do cluster, pode fornecer vários grupos do Active Directory. Os utilizadores nestes grupos são sincronizados para o Ranger e Ambari. Esses usuários são usuários de domínio e tem acesso a apenas gerido Ranger pontos finais (por exemplo, Hiveserver2). Todas as políticas RBAC e auditoria vão ser aplicáveis a estes utilizadores.
+* **Regular**: Durante a criação do cluster, pode fornecer vários grupos do Active Directory. Os utilizadores nestes grupos são sincronizados para o Ranger e Ambari. Esses usuários são usuários de domínio e tem acesso a apenas gerido Ranger pontos finais (por exemplo, Hiveserver2). Todas as políticas RBAC e auditoria vão ser aplicáveis a estes utilizadores.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>Funções de clusters do HDInsight com ESP
 HDInsight Enterprise Security Package tem as seguintes funções:
@@ -223,4 +223,4 @@ HDInsight Enterprise Security Package tem as seguintes funções:
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para configurar um cluster do HDInsight com o Enterprise Security Package, veja [clusters do HDInsight configurar com ESP](apache-domain-joined-configure.md).
-* Para configurar políticas do Hive e executar consultas do Hive, veja [configurar políticas do Hive para HDInsight clusters com ESP](apache-domain-joined-run-hive.md).
+* Para configurar políticas do Hive e executar consultas do Hive, veja [clusters do Apache Hive configurar políticas para o HDInsight com ESP](apache-domain-joined-run-hive.md).

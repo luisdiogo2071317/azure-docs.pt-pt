@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632752"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407852"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -26,7 +26,7 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
 * Um baseado em Linux Apache Hadoop em clusters do HDInsight versão 3.4 ou superior.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Um navegador da web
@@ -81,7 +81,7 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
    * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [erro].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Deixe o __base de dados__ seleção na __padrão__. Os exemplos neste documento utilizam a base de dados padrão incluído com o HDInsight.
 
 5. Para iniciar a consulta, utilize o **Execute** botão abaixo da folha de cálculo. O botão fica laranja e o texto muda para **parar**.
@@ -93,7 +93,7 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
     Pode utilizar o **registos** separador para ver as informações de registo que criou a tarefa.
 
-   > [!TIP]
+   > [!TIP]  
    > Baixe ou guardar resultados a partir do **guardar resultados** caixa de diálogo de lista suspensa no canto superior esquerdo do **resultados do processo de consulta** secção.
 
 ### <a name="visual-explain"></a>Explicar o elemento Visual
@@ -106,7 +106,7 @@ O **explicar Visual** vista da consulta pode ser útil na compreensão do fluxo 
 
 Para apresentar a IU do Tez para a consulta, selecione o **Tez** separador abaixo da folha de cálculo.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez não é utilizado para resolver todas as consultas. Pode resolver muitas consultas sem utilizar Tez. 
 
 Se Tez foi usado para resolver a consulta, é apresentado o direcionado acíclicos Graph (DAG). Se desejar exibir o DAG para consultas que já executou no passado, ou se quiser depurar o processo de Tez, utilize o [Tez vista](../hdinsight-debug-ambari-tez-view.md) em vez disso.
@@ -129,7 +129,7 @@ Partir do **consulta** separador, opcionalmente, pode guardar consultas. Depois 
 
 ![Imagem do separador de consultas guardadas](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Consultas guardadas são armazenadas no armazenamento de cluster predefinido. Pode encontrar as consultas guardadas no caminho `/user/<username>/hive/scripts`. Eles são armazenados como texto sem formatação `.hql` ficheiros.
 >
 > Se eliminar o cluster, mas manter o armazenamento, pode utilizar um utilitário como [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) ou o Explorador de armazenamento do Data Lake (da [Portal do Azure](https://portal.azure.com)) para obter as consultas.
@@ -165,8 +165,8 @@ Em seguida, pode usar a UDF na sua consulta. Por exemplo, `SELECT myawesomeudf(n
 
 Para obter mais informações sobre como utilizar UDFs com o Hive no HDInsight, consulte os artigos seguintes:
 
-* [Utilizar Python com Hive e Pig no HDInsight](python-udf-hdinsight.md)
-* [Como adicionar uma UDF do ramo de registo personalizado para o HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Utilizar Python com o Apache Hive e Apache Pig no HDInsight](python-udf-hdinsight.md)
+* [Como adicionar um Apache Hive UDF personalizado ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Definições do Hive
 
@@ -176,9 +176,9 @@ Pode alterar várias definições do Hive, tal como alterar o motor de execuçã
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

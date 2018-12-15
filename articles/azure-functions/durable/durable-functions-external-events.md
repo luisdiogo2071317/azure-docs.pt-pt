@@ -10,16 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: fefbdffdeb3db86447038a3b3d4d24e8c7cd3803
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340441"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437083"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Manipulação de eventos externos nas funções durável (funções do Azure)
 
 As funções do Orchestrator têm a capacidade de esperar e escutar eventos externos. Esta funcionalidade de [funções duráveis](durable-functions-overview.md) , muitas vezes, é útil para lidar com interação humana ou outros acionadores externos.
+
+> [!NOTE]
+> Eventos externos são unidirecionais operações assíncronas. Eles não são adequados para situações em que o cliente enviar o evento precisa de uma resposta síncrona da função de orquestrador.
 
 ## <a name="wait-for-events"></a>Aguardar por eventos
 

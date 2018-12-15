@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43615caf00bec79c1f87736b6ca0d2b74bfb95d7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857237"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399960"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/application-insights/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Pode configurar e monitorizar a coleção de [dados de diagnóstico](https://doc
 
 ## <a name="alerts"></a>Alertas
 
-Pode criar [alertas](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), utilizando [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou o [da CLI do Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), utilizando [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou o [da CLI do Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -50,7 +50,7 @@ Algumas das coisas que pode fazer com o registo de atividades incluem:
 - Criar uma [alertas num evento do registo de atividade](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Stream-lo para um Hub de eventos](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 - Analise-o no Power BI com o [pacote de conteúdos do Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Guarde-o para uma conta de armazenamento](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) para inspeção de arquivamento ou manual. Pode especificar o período de retenção (em dias) com o perfil de registo.
+- [Guarde-o para uma conta de armazenamento](../articles/azure-monitor/platform/archive-activity-log.md) para inspeção de arquivamento ou manual. Pode especificar o período de retenção (em dias) com o perfil de registo.
 
 Também pode acessar os dados de registo de atividade usando [do Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), o [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor), ou [APIs de REST do Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -58,7 +58,7 @@ Também pode acessar os dados de registo de atividade usando [do Azure PowerShel
 
 Algumas das coisas que pode fazer com os registos de diagnóstico incluem:
 
-- [Salvá-los numa conta de armazenamento](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias) com as definições de diagnóstico de recursos.
+- [Salvá-los numa conta de armazenamento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias) com as definições de diagnóstico de recursos.
 - [Stream-los para os Hubs de eventos](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 - Analisá-los com [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 

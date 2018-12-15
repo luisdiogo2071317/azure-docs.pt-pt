@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 1cc382049261c82b3aa085a21fe31f3d562b292b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 8c61ad4acc812f3572936995e8f64e10911388cc
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044106"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53439361"
 ---
 > [!NOTE] 
-> Os ficheiros de solução completos estão disponíveis a partir do repositório do Github [**Azure-Samples/cognitive-services-qnamaker-python** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-python).
+> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-python** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-python).

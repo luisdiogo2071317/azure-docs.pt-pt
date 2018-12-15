@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901891"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413375"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir termos de utilização para ser aceite antes de aceder a aplicações na cloud 
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud 
 
 Antes de aceder a determinadas aplicações na cloud no seu ambiente, pode querer obter consentimento de utilizadores na forma de aceitar os termos de utilização (ToU). Acesso condicional do Azure Active Directory (Azure AD) fornece-lhe: 
 
@@ -72,13 +72,13 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
 
 2. Tipo **meu termos de utilização**e, em seguida, guarde o documento no seu computador como **mytou.pdf**.
 
-3. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
+3. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 
 4. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**. 
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
+5. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
     ![Acesso condicional](./media/require-tou/03.png) 
 

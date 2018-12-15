@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101020"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410011"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual de ciência de dados de Inteligência Artificial de Geo
 
@@ -43,11 +43,11 @@ A ponte de R para ArcGIS é instalada como uma biblioteca de R com o nome [arcgi
 Além do ML e exemplos com base na estrutura da VM de ciência de dados base de aprendizagem profunda, um conjunto de exemplos de geoespacial também é fornecido como parte da VM de ciência de dados de IA geográfica. Estes exemplos podem ajudar a promover seu desenvolvimento de aplicações de IA com dados Geoespaciais e o software de ArcGIS. 
 
 
-1. [Introdução declarado com análise Geoespacial com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um introdutórios, que mostra como trabalhar com dados Geoespaciais através da interface de Python para o ArcGIS fornecida pela [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Ela também mostra como pode combinar a aprendizagem automática tradicional com dados geoespaciais e visualizar o resultado num mapa na ArcGIS. 
+1. [Introdução declarado com análise Geoespacial com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Um exemplo introdutório que mostra como trabalhar com dados Geoespaciais através da interface de Python para o ArcGIS fornecida pelos [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Ela também mostra como pode combinar a aprendizagem automática tradicional com dados geoespaciais e visualizar o resultado num mapa na ArcGIS. 
 
-2. [Introdução declarado com análise Geoespacial com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um introdutórios que mostra como trabalhar com dados Geoespaciais através da interface de R para ArcGIS fornecida pela [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteca. 
+2. [Introdução declarado com análise Geoespacial com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Um exemplo introdutório que mostra como trabalhar com dados Geoespaciais através da interface de R para ArcGIS fornecida pelos [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteca. 
 
-3. [Nível de pixel terra utilizar a classificação](https://github.com/Azure/pixel_level_land_classification): um tutorial que ilustra como criar um modelo de rede neural profunda que aceita uma imagem aéreas como entrada e retorna uma etiqueta de capa da terra. Estes são exemplos de etiquetas de capa ' s land "forested" ou "água." O modelo devolve tal uma etiqueta para cada pixel na imagem. O modelo é criado usando o código aberto da Microsoft [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) framework de aprendizagem profunda. O exemplo também mostra como ampliar o treinamento sobre [do Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) e consumir as previsões do modelo no software ArcGIS Pro. 
+3. [Nível de pixel terra utilizar a classificação](https://github.com/Azure/pixel_level_land_classification): Um tutorial que ilustra como criar um modelo de rede neural profunda que aceita uma imagem aéreas como entrada e retorna uma etiqueta de capa da terra. Estes são exemplos de etiquetas de capa ' s land "forested" ou "água." O modelo devolve tal uma etiqueta para cada pixel na imagem. O modelo é criado usando o código aberto da Microsoft [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) framework de aprendizagem profunda. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

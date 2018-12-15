@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975895"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434669"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
-As funções do Azure é executado em dois modos diferentes: plano de consumo e plano de serviço de aplicações do Azure. O plano de consumo aloca automaticamente a potência de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código não está em execução. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.
+As funções do Azure é executado em dois modos diferentes: Plano de consumo e plano de serviço de aplicações do Azure. O plano de consumo aloca automaticamente a potência de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código não está em execução. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.
 
 > [!NOTE]  
 > [Alojamento do Linux](functions-create-first-azure-function-azure-cli-linux.md) só se encontra disponível num plano do serviço de aplicações.
@@ -68,7 +68,7 @@ Considere um plano do serviço de aplicações nos seguintes casos:
 
 Uma VM dissocia o custo do número de execuções, tempo de execução e a memória utilizada. Como resultado, não paga mais do que o custo da instância VM que aloca. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Com um plano do serviço de aplicações, manualmente pode aumentar horizontalmente ao adicionar mais instâncias VM ou, pode ativar o dimensionamento automático. Para obter mais informações, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Também pode aumentar verticalmente ao escolher um plano de serviço de aplicações diferente. Para obter mais informações, consulte [aumentar verticalmente uma aplicação no Azure](../app-service/web-sites-scale.md). 
+Com um plano do serviço de aplicações, manualmente pode aumentar horizontalmente ao adicionar mais instâncias VM ou, pode ativar o dimensionamento automático. Para obter mais informações, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Também pode aumentar verticalmente ao escolher um plano de serviço de aplicações diferente. Para obter mais informações, consulte [aumentar verticalmente uma aplicação no Azure](../app-service/web-sites-scale.md). 
 
 Ao executar as funções JavaScript num plano do serviço de aplicações, deve escolher um plano que tem menos de vCPUs. Para obter mais informações, consulte a [escolha planos de serviço de aplicações de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
 

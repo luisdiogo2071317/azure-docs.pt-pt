@@ -8,17 +8,17 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: cab2c7aabf23ba8636f46a92c8d864b1c9b74120
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2ebfc4b0d9bb71cf51e0927e6399d30488c2f939
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594850"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409433"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster do HDInsight para uma versão mais recente
 Para tirar partido das funcionalidades mais recentes do HDInsight, é recomendável que os clusters do HDInsight ser atualizados para a versão mais recente. Siga as diretrizes para atualizar seu HDInsight abaixo as versões de cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Para obter informações sobre versões suportadas do HDInsight, consulte [versões de componente de HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
@@ -45,5 +45,5 @@ Assim que tiver verificado que tudo funciona conforme esperado, agende o períod
 ## <a name="next-steps"></a>Próximos Passos
 * [Saiba como criar clusters do HDInsight baseado em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ligar ao HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Gerir um cluster baseado em Linux com o Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gerir um cluster baseado em Linux com o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 

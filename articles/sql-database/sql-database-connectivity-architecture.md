@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de conectividade da base de dados SQL do Azure | Documentos da Microsoft
-description: Este documento explica a arquitetura de conectividade SQL Database do Azure de dentro do Azure ou a partir de fora do Azure.
+title: Direcionar o tráfego do Azure para a base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
+description: Este documento explica a base de dados do Azure SQL e SQL Data Warehouse conectividade arquitetura de dentro do Azure ou a partir de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,17 +11,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 986741a68113da00800a18cb58648ac66b1de116
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322027"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435723"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de banco de dados SQL do Azure
+# <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
-Este artigo explica a arquitetura de conectividade da base de dados do Azure SQL, bem como a forma como os diferentes componentes de função para direcionar o tráfego para a sua instância de base de dados do Azure SQL. Estes função componentes conectividade SQL Database do Azure que se para direcionar o tráfego de rede para a base de dados do Azure com os clientes ligar a partir de dentro do Azure e com os clientes ligar a partir de fora do Azure. Este artigo também fornece exemplos de script para alterar a forma como ocorre a conectividade e as considerações relacionadas com a alteração das definições de conectividade do padrão.
+Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectividade arquitetura, bem como a forma como os diferentes componentes de função para direcionar o tráfego à sua instância do SQL do Azure. Estes função de componentes de conectividade para direcionar o tráfego de rede para a base de dados do Azure SQL ou SQL Data Warehouse com os clientes ligar a partir de dentro do Azure e com os clientes ligar a partir de fora do Azure. Este artigo também fornece exemplos de script para alterar a forma como ocorre a conectividade e as considerações relacionadas com a alteração das definições de conectividade do padrão.
 
 > [!IMPORTANT]
 > **[Alteração futura] Para ligações de ponto final de serviço para servidores SQL do Azure, um `Default` comportamento de conectividade é alterado para `Redirect`.**
@@ -36,7 +36,10 @@ Este artigo explica a arquitetura de conectividade da base de dados do Azure SQL
 > - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos 
 > - Lógica de implementação automatizada cria um servidor lógico, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy` 
 >
-> Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags). Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
+> Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
+
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 
@@ -54,7 +57,7 @@ Os passos seguintes descrevem como é estabelecida uma ligação para uma base d
 
 Base de dados SQL do Azure suporta as seguintes três opções para a definição de política de ligação de um servidor de base de dados SQL:
 
-- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente para o nó que aloja a base de dados. Para ativar a conectividade, os clientes têm de permitir regras de firewall de saída para todos os endereços de IP do Azure na região a utilizar grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags)), não apenas os endereços IP de gateway a base de dados do Azure SQL. Porque pacotes ir diretamente para a base de dados, latência e débito melhoraram o desempenho.
+- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente para o nó que aloja a base de dados. Para ativar a conectividade, os clientes têm de permitir regras de firewall de saída para todos os endereços de IP do Azure na região a utilizar grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags)) para portas 11000-12000, não apenas o IP do gateway de base de dados do Azure SQL endereços na porta 1433. Porque pacotes ir diretamente para a base de dados, latência e débito melhoraram o desempenho.
 - **Proxy:** Neste modo, todas as ligações são transmitidas por proxy através de gateways de base de dados do Azure SQL. Para ativar a conectividade, o cliente tem de ter regras de firewall de saída que permitam apenas o gateway da base de dados do Azure SQL endereços IP (normalmente, dois endereços IP por região). Escolher este modo pode resultar numa maior latência e débito mais baixo, dependendo da natureza da carga de trabalho. Recomendamos vivamente o `Redirect` política de ligação ao longo o `Proxy` política de ligação para a menor latência e o débito mais elevado.
 - **predefinição:** Esta é a ligação política em vigor em todos os servidores após a criação, a menos que alterar explicitamente a diretiva de conexão para um `Proxy` ou `Redirect`. A política em vigor depende se conexões têm origem no Azure (`Redirect`) ou fora do Azure (`Proxy`).
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ae9b374e97c0f4be32d6c6a7d47fd803a1a0e5
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011526"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436335"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorize clusters Hadoop no HDInsight usando a API do Ambari
-Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Ambari.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Monitorizar clusters do Apache Hadoop no HDInsight usando a API do Apache Ambari
+Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Apache Ambari.
 
-> [!NOTE]
-> As informações neste artigo são principalmente para os clusters do HDInsight baseado em Windows, que fornecem uma versão só de leitura da API de REST do Ambari. Para clusters baseados em Linux, consulte [clusters do Hadoop de gerir com o Ambari](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> As informações neste artigo são principalmente para os clusters do HDInsight baseado em Windows, que fornecem uma versão só de leitura da API de REST do Ambari. Para clusters baseados em Linux, consulte [clusters do Apache Hadoop gerir com o Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ Antes de começar este tutorial, tem de ter os seguintes itens:
 * **Uma estação de trabalho com o Azure PowerShell**.
 * (Opcional) [cURL][curl]. Para instalá-lo, veja [cURL versões e Downloads][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > Quando utilizar o comando cURL no Windows, utilize aspas em vez de aspas de único passo para os valores de opção.
   > 
   > 
@@ -120,7 +120,7 @@ O resultado é:
 Ao utilizar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o *host_name* campo Devolve o nome de domínio completamente qualificado (FQDN) do nó em vez do nome de anfitrião. Antes do lançamento 10/8/2014, neste exemplo devolvido simplesmente "**headnode0**". Após o lançamento de 10/8/2014, obtenha o FQDN "**headnode0. { . Azurehdinsight.NET de ClusterDNS} .net**", conforme mostrado no exemplo anterior. Esta alteração era necessária para facilitar cenários onde vários tipos de cluster (por exemplo, HBase e o Hadoop) podem ser implementados numa rede virtual (VNET). Isto acontece, por exemplo, quando utilizar o HBase como uma plataforma de back-end para o Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>Monitorizar as APIs do Ambari
-A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari mais comuns. Para obter mais informações sobre a API, consulte [referência de API do Ambari][ambari-api-reference].
+A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari mais comuns. Para obter mais informações sobre a API, consulte [referência da API do Apache Ambari][ambari-api-reference].
 
 | Chamada de API do monitor | URI | Descrição |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari 
 | Obtenha informações de configuração. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Tipos de configuração: site principal, o site de hdfs, o mapred-site, o site do hive |
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora aprendeu a utilizar a monitorização de chamadas de API do Ambari. Para saber mais, consulte:
+Agora aprendeu a utilizar o Apache Ambari a monitorização de chamadas de API. Para saber mais, consulte:
 
 * [Gerir clusters do HDInsight com o portal do Azure][hdinsight-admin-portal]
 * [Gerir clusters do HDInsight com o Azure PowerShell][hdinsight-admin-powershell]

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321106"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410079"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são condições no acesso condicional do Azure Active Directory? 
 
@@ -74,7 +74,7 @@ Selecione:
 
 - **Todas as aplicações na cloud** às políticas de linha de base para se aplicam a toda a organização. Utilize esta selecção para políticas que exigem a autenticação multifator quando é detetado um risco de início de sessão para qualquer aplicação na cloud. Uma política aplicada ao **todas as aplicações na cloud** aplica-se para o acesso a todos os Web sites e serviços. Esta definição não se limita às aplicações de cloud que são apresentadas na **selecionar aplicações** lista. 
 
-- Aplicações de cloud individuais para serviços específicos do destino pela política. Por exemplo, pode exigir que os utilizadores tenham uma [dispositivo em conformidade](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aceder ao SharePoint Online. Esta política também é aplicada a outros serviços, quando acede a conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
+- **Selecione spps** para serviços específicos do destino pela sua política. Por exemplo, pode exigir que os utilizadores tenham uma [dispositivo em conformidade](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aceder ao SharePoint Online. Esta política também é aplicada a outros serviços, quando acede a conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
 
 Pode excluir aplicações específicas de uma política. No entanto, estas aplicações estão ainda sujeitos as políticas aplicadas para os serviços que acedem. 
 
@@ -137,16 +137,16 @@ Para obter mais informações, consulte [o que é a condição de localização 
 
 Por predefinição, uma política de acesso condicional aplica-se para as seguintes aplicações:
 
-- [Aplicações de browser](technical-reference.md#supported-browsers) -aplicações de Browser incluem Web sites através de SAML, WS-Federation e OpenID Connect protocolos SSO de web. Isto também se aplica a qualquer serviço web ou sites que foi registado como um cliente confidencial do OAuth. Por exemplo, o site do SharePoint do Office 365. 
+- **[Aplicações de browser](technical-reference.md#supported-browsers)**  -aplicações de Browser incluem Web sites através de SAML, WS-Federation e OpenID Connect protocolos SSO de web. Isto também se aplica a qualquer serviço web ou sites que foi registado como um cliente confidencial do OAuth. Por exemplo, o site do SharePoint do Office 365. 
 
-- [Aplicações de ambiente de trabalho que utilizam autenticação moderna móveis e](technical-reference.md#supported-mobile-applications-and-desktop-clients) -estas aplicações incluem as aplicações de ambiente de trabalho do Office e aplicações de telemóvel. 
+- **[Móveis e aplicações de ambiente de trabalho que utilizam autenticação moderna](technical-reference.md#supported-mobile-applications-and-desktop-clients)**  -estas aplicações incluem as aplicações de ambiente de trabalho do Office e aplicações de telemóvel. 
 
 
 Além disso, pode direcionar uma política para aplicações de cliente específico que não estiver a utilizar autenticação moderna, por exemplo:
 
-- Aplicações de cliente utilizando o protocolo do Microsoft Exchange ActiveSync. Quando um blocos de política com o Exchange ActiveSync, os utilizadores afetados receber um e-mail de quarentena único com informações sobre por que estão bloqueados. Se necessário, o e-mail inclui instruções para inscrever o respetivo dispositivo com o Intune.
+- **[Clientes do Exchange ActiveSync](conditions.md#exchange-activesync-clients)**  - quando um blocos de política com o Exchange ActiveSync, os utilizadores afetados recebem um e-mail de quarentena único com informações sobre por que estão bloqueados. Se necessário, o e-mail inclui instruções para inscrever o respetivo dispositivo com o Intune.
 
-- Outros clientes. Estas aplicações incluem os clientes que utilizam autenticação básica com protocolos de email, como o IMAP, MAPI, POP, SMTP e aplicações do Office mais antigas que não utilizam autenticação moderna. Para obter mais informações, consulte [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Outros clientes](block-legacy-authentication.md)**  -estas aplicações incluem os clientes que utilizam autenticação básica com protocolos de email, como o IMAP, MAPI, POP, SMTP e aplicações do Office mais antigas que não utilizam autenticação moderna. Para obter mais informações, consulte [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Aplicações do cliente](./media/conditions/41.png)
 
@@ -154,7 +154,7 @@ Casos de utilização comuns para esta condição são as políticas com os segu
 
 - **[Exigir um dispositivo gerido](require-managed-devices.md)**  para aplicativos móveis e de ambiente de trabalho que transfere dados para um dispositivo. Ao mesmo tempo, permita o acesso ao browser a partir de qualquer dispositivo. Este cenário impede que o salvamento e sincronização de documentos para um dispositivo não gerido. Com esse método, pode reduzir a probabilidade de perda de dados se o dispositivo é perdido ou roubado.
 
-- **[Exigir um dispositivo gerido](require-managed-devices.md)**  aplicações com o ActiveSync para aceder ao Exchange Online.
+- **[Exigir um dispositivo gerido](require-managed-devices.md)**  para aplicações que utilizam o ActiveSync para aceder ao Exchange Online.
 
 - **[Autenticação de legado do bloco](block-legacy-authentication.md)**  para o Azure AD (outros clientes)
 

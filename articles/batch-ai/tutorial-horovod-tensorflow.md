@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058133"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408634"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutorial: preparar um modelo distribuído com o Horovod
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutorial: Preparar um modelo distribuído com Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Neste tutorial, vai preparar um modelo de aprendizagem aprofundada distribuído ao executá-lo em paralelo em vários nós num cluster do Batch AI. O Batch AI é um serviço gerido para preparação de modelos de machine learning e IA em escala em clusters de GPUs do Azure. 
 
@@ -473,7 +476,7 @@ Se não planeia utilizar a área de trabalho e a conta de armazenamento no futur
 az group delete --name batchai.horovod
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

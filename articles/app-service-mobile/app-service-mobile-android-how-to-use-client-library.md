@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 5acc9bfdd674d6677ad6da69b87bb8053cc43a19
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972223"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409331"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o SDK de aplicações móveis do Azure para Android
 
@@ -189,14 +189,14 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para saber como criar tabelas adicionais no seu back-end de aplicações móveis, consulte [como: definir um table controller] [ 15] (back-end do .NET) ou [definir tabelas com um esquema dinâmico] [ 16] (Back-end do node. js).
+Para saber como criar tabelas adicionais no seu back-end de aplicações móveis, consulte [como: Definir um table controller] [ 15] (back-end do .NET) ou [definir tabelas com um esquema dinâmico] [ 16] (back-end do node. js).
 
 Uma tabela de back-end de aplicações móveis do Azure define cinco campos especiais, quatro delas são disponibilizados aos clientes:
 
 * `String id`: O ID exclusivo global para o registo.  Como melhor prática, verifique o id a representação de cadeia de caracteres de um [UUID] [ 17] objeto.
 * `DateTimeOffset updatedAt`: A data/hora da última atualização.  O campo de updatedAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
 * `DateTimeOffset createdAt`: A data/hora que o objeto foi criado.  O campo de createdAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
-* `byte[] version`: Normalmente representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
+* `byte[] version`: Normalmente, é representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
 * `boolean deleted`: Indica que o registo foi eliminado, mas não removido ainda.  Não utilize `deleted` como uma propriedade na sua classe.
 
 O campo `id` é obrigatório.  O `updatedAt` campo e `version` campo são utilizados para sincronização offline (para a resolução de sincronização e o conflito incremental, respectivamente).  O `createdAt` campo é um campo de referência e não é utilizado pelo cliente.  Os nomes são "entre-the-wire" nomes das propriedades e não são ajustável.  No entanto, pode criar um mapeamento entre o objeto e os nomes de "entre-the-wire" com o [gson] [ 3] biblioteca.  Por exemplo:
@@ -446,7 +446,7 @@ Um pedido para todos os registos ao utilizar este método cria um mínimo de dua
 > [!TIP]
 > Escolher o tamanho de página correta é um equilíbrio entre a utilização de memória enquanto o pedido está a acontecer, a utilização de largura de banda e a atraso em receber os dados completamente.  A predefinição (50 registos) é adequada para todos os dispositivos.  Se trabalha exclusivamente em dispositivos de memória maior, aumente até 500.  Descobrimos que a aumentar o tamanho de página além dos 500 regista resultados em atrasos inaceitáveis e problemas de memória de grandes dimensões.
 
-### <a name="chaining"></a>Como: concatenar os métodos de consulta
+### <a name="chaining"></a>Como: Concatenar os métodos de consulta
 
 Os métodos utilizados na consulta de tabelas de back-end podem ser concatenados. Encadeamento de métodos de consulta permite-lhe selecionar colunas específicas de linhas filtradas que são classificadas e bloco paginadas. Pode criar filtros complexos de lógicos.  Cada método de consulta retorna um objeto de consulta. Para terminar a série de métodos e, na verdade, execute a consulta, chame o **executar** método. Por exemplo:
 
@@ -672,7 +672,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Como: trabalhar com dados sem tipo
+## <a name="untyped"></a>Como: Trabalhar com dados sem tipo
 
 O modelo de programação sem tipo dá-lhe exatamente o controle sobre a serialização do JSON.  Existem alguns cenários comuns em que poderá pretender utilizar um modelo de programação sem tipo. Por exemplo, se a sua tabela de back-end contém o número de colunas e só precisa de fazer referência a um subconjunto das colunas.  O modelo de tipo exige que defina todas as colunas definidas no back-end de aplicações móveis na sua classe de dados.  A maioria das chamadas de API para aceder aos dados são semelhantes às chamadas de programação de tipos. A principal diferença é que no modelo sem tipo invocar métodos no **MobileServiceJsonTable** objeto, em vez do **MobileServiceTable** objeto.
 
@@ -767,10 +767,10 @@ O mesmo conjunto de filtragem, filtragem e métodos que estão disponíveis para
 
 O SDK de cliente de aplicações do Azure Mobile também implementa a sincronização offline de dados ao utilizar uma base de dados do SQLite para armazenar uma cópia dos dados de servidor localmente.  As operações executadas numa tabela offline não necessitam de conectividade móvel para trabalhar.  Sincronização offline auxilia na resiliência e desempenho às custas de uma lógica mais complexa para resolução de conflitos.  O Azure Mobile Apps cliente SDK implementa as seguintes funcionalidades:
 
-* Sincronização incremental: Registros novos e atualizados apenas são transferidos, salvar o consumo de largura de banda e de memória.
-* A simultaneidade otimista: Operações devem ter êxito.  Resolução de conflito for adiada até que as atualizações são executadas no servidor.
+* Sincronização incremental: Apenas são transferidos registros novos e atualizados, salvar o consumo de largura de banda e de memória.
+* Simultaneidade otimista: Operações devem ter êxito.  Resolução de conflito for adiada até que as atualizações são executadas no servidor.
 * Resolução de conflitos: O SDK Deteta quando uma alteração em conflito foi efetuada no servidor e forneça ganchos para alertar o utilizador.
-* Eliminação de forma recuperável: Registos eliminados são marcado como excluídos, permitindo que os outros dispositivos atualizar a respetiva cache offline.
+* Eliminação de forma recuperável: Registos eliminados são marcadas como eliminados, permitindo que os outros dispositivos atualizar a respetiva cache offline.
 
 ### <a name="initialize-offline-sync"></a>Inicializar a Sincronização Offline
 
@@ -892,7 +892,7 @@ O **invokeApi** método é chamado no cliente, que envia um pedido POST para a n
 
 Tutoriais descrevem já em detalhes como adicionar esses recursos.
 
-Serviço de aplicações suporta [autenticar os utilizadores da aplicação](app-service-mobile-android-get-started-users.md) com vários fornecedores de identidade externo: Facebook, Google, Microsoft Account, Twitter e do Azure Active Directory. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
+Serviço de aplicações suporta [autenticar os utilizadores da aplicação](app-service-mobile-android-get-started-users.md) com vários fornecedores de identidade externo: Do Facebook, Google, conta Microsoft, Twitter e o Azure Active Directory. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
 
 Dois fluxos de autenticação são suportados: uma **servidor** fluxo e um **cliente** fluxo. O fluxo de servidor fornece a experiência de autenticação mais simples, como ele conta com a interface de web de fornecedores de identidade.  Não existem SDKs adicionais são necessários para implementar a autenticação de fluxo de servidor. Autenticação de fluxo de servidor não fornece uma integração profunda num dispositivo móvel e só é recomendada para uma prova de cenários de conceito.
 
@@ -1314,6 +1314,6 @@ Esse código tem de ser executado antes de criar uma referência de cliente móv
 [19]: https://www.odata.org/documentation/odata-version-3-0/
 [20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

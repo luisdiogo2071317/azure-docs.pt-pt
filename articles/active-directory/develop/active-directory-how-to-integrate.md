@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d3b2edefd602a90ff28b8e0645d3c48932ba44dd
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954713"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410317"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
 
@@ -36,7 +36,7 @@ Existem várias formas para a sua aplicação integrar com o Azure AD. Tire part
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Suporte do Azure AD como uma forma de início de sessão na sua aplicação
 **Reduza a fricção de início de sessão e reduzir os custos de suporte.** Ao utilizar o Azure AD para iniciar sessão na sua aplicação, os utilizadores não terão um nome mais e a palavra-passe para se lembrar. Como desenvolvedor, terá uma menos palavra-passe para armazenar e proteger. Não ter de lidar com redefinições de senha esquecida pode ser uma economia significativa sozinha. Azure AD alimenta o início de sessão para algumas das mais populares aplicações na cloud do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões utilizadores de milhões de organizações, as chances são de seu usuário já tem sessão iniciado no Azure AD. Saiba mais sobre [adicionando suporte para início de sessão do Azure AD](authentication-scenarios.md).
 
-**Simplificar o início de sessão cópia de segurança para a sua aplicação.**  Durante a inscrição para a sua aplicação do Azure AD pode enviar informações essenciais sobre um usuário para que possa preencher previamente a formulário de inscrição ou eliminá-la completamente. Os utilizadores podem inscrever-se para a sua aplicação com a respetiva conta do Azure AD através de uma experiência de consentimento familiares semelhante àquelas encontradas em aplicações móveis e de redes sociais. Qualquer utilizador pode inscrever-se e iniciar sessão a uma aplicação que está integrada com o Azure AD sem a necessidade de envolvimento de TI. Saiba mais sobre [inscrever-se a sua aplicação para início de sessão de conta do Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Simplificar o início de sessão cópia de segurança para a sua aplicação.**  Durante a inscrição para a sua aplicação do Azure AD pode enviar informações essenciais sobre um usuário para que possa preencher previamente a formulário de inscrição ou eliminá-la completamente. Os utilizadores podem inscrever-se para a sua aplicação com a respetiva conta do Azure AD através de uma experiência de consentimento familiares semelhante àquelas encontradas em aplicações móveis e de redes sociais. Qualquer utilizador pode inscrever-se e iniciar sessão a uma aplicação que está integrada com o Azure AD sem a necessidade de envolvimento de TI. Saiba mais sobre [inscrever-se a sua aplicação para início de sessão de conta do Azure AD](../../app-service/configure-authentication-provider-aad.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Navegue para os utilizadores, gerir o aprovisionamento de utilizadores e controlar o acesso à sua aplicação
 **Navegue para os utilizadores no diretório.**  Utilizar a Graph API para ajudar os utilizadores procurar e navegue para outras pessoas na sua organização ao convidar outras pessoas ou endereços de conceder acesso, em vez de exigi-los para o tipo de e-mail. Os utilizadores podem procurar através de uma interface de estilo de livro endereço familiares, incluindo ver os detalhes da hierarquia organizacional. Saiba mais sobre o [Graph API](active-directory-graph-api.md).

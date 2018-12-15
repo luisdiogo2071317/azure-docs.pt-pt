@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166154"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433819"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulte o Apache Hive através do controlador JDBC no HDInsight
 
@@ -164,14 +164,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Agora que aprendeu a utilizar o JDBC para trabalhar com o Hive, utilize as seguintes ligações para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Visualizar dados de Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualize os dados do Apache Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualizar dados de consulta interativa do Hive com o Power BI no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Utilizar o Zeppelin para executar consultas do Hive no Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Utilizar Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Ligar o Excel ao HDInsight com o controlador Microsoft Hive ODBC](apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Ligar o Excel ao Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Ligar ao Azure HDInsight e executar consultas do Hive com o Data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Ligar o Excel para Apache Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Ligar ao Azure HDInsight e executar consultas do Apache Hive com o Data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Utilize a ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * [Carregar dados para o HDInsight](../hdinsight-upload-data.md)
-* [Utilizar o Hive com o HDInsight](hdinsight-use-hive.md)
-* [Utilizar o Pig com o HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [Utilizar tarefas de MapReduce com o HDInsight](hdinsight-use-mapreduce.md)

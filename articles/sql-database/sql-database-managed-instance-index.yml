@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7f55d0591fbcbb274ab76b5bd17ce77703813cd3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 11832a3b7fb68dce6fb24f44ceec5ffb9a57eb69
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310040"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437559"
 documentType: LandingData
 title: Instância Gerida da Base de Dados SQL do Azure
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 12/05/2018
+  ms.date: 12/14/2018
   ms.author: jovanpop
 abstract:
   description: Instância de gerida de base de dados de SQL do Azure é totalmente gerido da base de dados motor de instância do SQL Server alojado na cloud do Azure. Esta é a melhor opção de PaaS para migrar a sua base de dados do SQL Server para a cloud. Saiba como criar e utilizar a instância gerida com os nossos inícios rápidos, tutoriais e amostras.
@@ -73,11 +73,12 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Camada de serviços críticos de negócios</a> está agora na <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">disponibilidade geral (GA)</a>.
-    - html: (Pré-visualização) <a href="https://aka.ms/managed-instance-aadlogins">Inícios de sessão de criação do Azure AD</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">criar início de sessão do fornecedor externo</a> .
+    - html: (Pré-visualização) Crie <a href="https://aka.ms/managed-instance-aadlogins">ao nível da instância inícios de sessão do Azure AD</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">criar início de sessão do fornecedor externo</a> .
     - html: (Pré-visualização) Criar instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento ao nível do servidor da sua preferência</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar a retenção de cópia de segurança até 35 dias</a> para o restauro de ponto no tempo. Tenha em atenção que retenção de cópia de segurança de longa duração (até 10 anos) ainda não está ativada para que possa usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">cópias de segurança apenas de cópia</a> como alternativa.
     - html: (Pré-visualização) Uso <a href="https://aka.ms/managed-instance-failover-groups">grupos de ativação pós-falha distribuída geograficamente</a> para manter uma cópia da instância noutra região e certifique-se de que os dados estarão disponíveis até mesmo no cenário de desastre regional.
     - html: (Pré-visualização) <a href="https://aka.ms/managed-instance-tde-byok">Traga as suas próprias chaves de encriptação</a> enquanto a migração no local bases de dados que já têm ativada a encriptação de dados transparente (TDE).
+    - html: Instâncias geridas estão protegidas com <a href="sql-database-managed-instance-endpoint-verify-built-in-firewall">firewall interno</a>.
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -129,7 +130,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Saiba mais sobre <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware e as limitações</a> e <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">limitações de idioma SQL</a>.
+    - html: Saiba mais sobre <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware e as limitações</a> e <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferenças de linguagem do Transact-SQL</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurar</a> VNet do Azure onde a instância gerida vai ser implementada.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Validar</a> que a VNet do Azure existente pode ser usado para implementar as instâncias geridas.
     - html: Ligar ao seu com instância <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">ligaçãopontoasitede</a>, ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicativos</a>.
@@ -138,7 +139,7 @@ sections:
     - html: Mover seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">do Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, e relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Aplicam-se <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">práticas recomendadas de armazenamento e considerações sobre a camada de serviços de fins gerais</a>.
     - html: Encontre as melhores práticas e recomendações para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger a sua instância</a>.
-    - html: Distribuir os seus dados através de <a href="/azure/sql-database/replication-with-sql-database-managed-instance">replicação transacional</a>.
+    - html: Encontre mais <a href="sql-database-howto-managed-instance.md">guias de procedimentos</a> que pode ajudá-lo a configurar a sua instância gerida.
 - title: Referência
   items:
   - type: list

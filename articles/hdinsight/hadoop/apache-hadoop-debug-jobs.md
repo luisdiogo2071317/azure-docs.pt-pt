@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166511"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438817"
 ---
-# <a name="analyze-hadoop-logs"></a>Analisar os registos de Hadoop
+# <a name="analyze-apache-hadoop-logs"></a>Analisar registos do Apache Hadoop
 
-Cada cluster do Apache Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
+Cada cluster do Apache Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Apache Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
 
 ## <a name="logs-written-to-azure-tables"></a>Registos escritos para as tabelas do Azure
 
@@ -101,9 +101,11 @@ Agora, pode utilizar o Excel para filtrar e ordenar conforme necessário. Convé
 ## <a name="logs-written-to-azure-blob-storage"></a>Registos escritos no armazenamento de Blobs do Azure
 [Os registos escritos para as tabelas do Azure](#log-written-to-azure-tables) fornecer um nível de informações sobre o que acontece com um cluster do HDInsight. No entanto, estas tabelas não fornecer registos de nível de tarefa, os quais podem ser úteis na exploração mais detalhadamente problemas quando estes ocorrerem. Para fornecer esse próximo nível de detalhe, os clusters do HDInsight são configurados para escrever registos de tarefas para a sua conta de armazenamento de BLOBs para qualquer tarefa que é enviada por meio de Templeton. Na prática, isso significa que as tarefas submetidas através de cmdlets do Microsoft Azure PowerShell ou as APIs de submissão de tarefa no .NET, não as tarefas submetidas por meio do acesso RDP/linha de comandos para o cluster. 
 
-Para ver os registos, consulte [registos de aplicações de acesso YARN no HDInsight baseado em Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Para ver os registos, consulte [registos de aplicações de acesso Apache Hadoop YARN no HDInsight baseado em Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Para obter mais informações sobre os registos de aplicação, consulte [simplifica a gestão de registos de utilizador e o acesso no YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+Para obter mais informações sobre os registos de aplicação, consulte [simplifica a gestão de registos de utilizador e o acesso no Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Ver os registos de estado de funcionamento e a tarefa de cluster
 ### <a name="access-the-ambari-ui"></a>Aceder à IU do Ambari
@@ -313,6 +315,6 @@ Algumas dessas mensagens de erro podem também ser vistas no portal do Azure qua
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Utiliza as vistas Ambari para depurar tarefas do Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
-* [Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Gerir clusters HDInsight através da IU Web do Ambari](../hdinsight-hadoop-manage-ambari.md)
+* [Utilizar vistas do Apache Ambari para depurar tarefas do Apache Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Gerir clusters do HDInsight através da IU do Apache Ambari Web](../hdinsight-hadoop-manage-ambari.md)

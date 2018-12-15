@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310458"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409756"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilização avançada de autenticação e autorização no serviço de aplicações do Azure
 
@@ -29,11 +29,11 @@ Para começar rapidamente a utilizar, consulte um dos seguintes tutoriais:
 
 * [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure para Linux](containers/tutorial-auth-aad.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão do Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](configure-authentication-provider-aad.md)
+* [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](configure-authentication-provider-facebook.md)
+* [Como configurar a sua aplicação para utilizar o início de sessão do Google](configure-authentication-provider-google.md)
+* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](configure-authentication-provider-microsoft.md)
+* [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Utilizar vários fornecedores de início de sessão
 
@@ -183,7 +183,7 @@ Quando o token de acesso do seu fornecedor expira, terá de autenticar o utiliza
 - **Google**: Acrescentar um `access_type=offline` consultar o parâmetro de cadeia de caracteres para seu `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um da `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Não fornece tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração do Facebook e extensão de Tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Tokens de acesso não expiram (consulte [FAQ de OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o `wl.offline_access` âmbito.
+- **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](configure-authentication-provider-microsoft.md), selecione o `wl.offline_access` âmbito.
 - **O Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
     1. Na parte superior da página, selecione **leitura/escrita**.
     1. No navegador à esquerda, navegue até **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **provedores** > **Microsoft. Web** > **sites** > _**\<aplicação \_name >**_ > **config** > **authsettings**. 

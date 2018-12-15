@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635174"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413273"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 
@@ -96,7 +96,23 @@ As secções seguintes deste artigo explicam cada propriedade de nível superior
 
 Esta definição é um elemento subordinado [registo](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controles a [funcionalidade de amostragem no Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|isEnabled|true|Ativa ou desativa a amostragem.| 
+|maxTelemetryItemsPerSecond|5|O limiar em que amostragem começa.| 
 
 ## <a name="cosmosdb"></a>cosmos DB
 
@@ -185,7 +201,28 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define o nível de registo de ficheiros está ativado.  As opções são `never`, `always`, `debugOnly`. |
 |LogLevel|n/d|Objeto que define a categoria de registo de filtragem para as funções na aplicação. Versão 2.x segue o layout do ASP.NET Core para filtragem de categoria do registo. Isto permite-lhe filtrar o registo para funções específicas. Para obter mais informações, consulte [filtragem de Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|consola|n/d| O [consola](#console) definição de registo. |
 |applicationInsights|n/d| O [Application Insights](#applicationinsights) definição. |
+
+## <a name="console"></a>consola
+
+Esta definição é um elemento subordinado [registo](#logging). Ele controla a consola do registo quando não estiver no modo de depuração.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|isEnabled|false|Ativa ou desativa o registo da consola.| 
 
 ## <a name="queues"></a>filas
 

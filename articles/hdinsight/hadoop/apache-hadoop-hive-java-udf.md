@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012492"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435077"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilizar um Java UDF com o Apache Hive no HDInsight
 
@@ -213,7 +213,7 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
     ```
 
     > [!NOTE]
-    > Este exemplo assume que o armazenamento do Azure é armazenamento predefinido para o cluster. Se o cluster utilizar o Data Lake Store em vez disso, alterar os `wasb:///` valor a `adl:///`.
+    > Este exemplo assume que o armazenamento do Azure é armazenamento predefinido para o cluster. Se o cluster utiliza armazenamento do Data Lake em vez disso, altere a `wasb:///` valor a `adl:///`.
 
 3. Utilize a UDF para converter valores obtidos a partir de uma tabela de cadeias de caracteres em minúsculas.
 
@@ -240,6 +240,6 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para outras formas de trabalhar com o Hive, consulte [utilizar o Hive com HDInsight](hdinsight-use-hive.md).
+Para outras formas de trabalhar com o Hive, consulte [utilizar o Apache Hive com HDInsight](hdinsight-use-hive.md).
 
-Para obter mais informações sobre as funções de Hive User-Defined, consulte [Hive operadores e funções definidas pelo utilizador](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) secção do wiki do Hive em apache.org.
+Para obter mais informações sobre as funções de Hive User-Defined, consulte [operadores do Hive do Apache e funções definidas pelo utilizador](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) secção do wiki do Hive em apache.org.

@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232805"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407818"
 ---
-# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Exemplo da CLI: Criar um cluster do Batch AI com um ficheiro de configuração de cluster
+# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Exemplo da CLI: Criar um cluster do Batch AI através de um ficheiro de configuração de cluster
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Este script demonstra como utilizar um ficheiro de configuração JSON para especificar definições para um cluster do Batch AI. Utilize estas definições em vez dos parâmetros de linha de comandos correspondentes para `az batchai cluster create`. Um ficheiro de configuração é útil quando precisar de montar vários sistemas de ficheiros nos nós de cluster ou quiser utilizar uma configuração idêntica em vários clusters.
 
@@ -56,6 +59,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Mostra informações sobre um cluster do Batch AI. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

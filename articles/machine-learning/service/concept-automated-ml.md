@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270931"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436964"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -53,7 +53,14 @@ Pode inspecionar as informações de execução com sessão iniciada, que conté
 
 ## <a name="model-explainability"></a>Modelo explainability
 
-Uma armadilha comum da aprendizagem automática é uma incapacidade de ver o processo de ponto-a-ponto. O Azure Machine Learning permite-lhe ver informações detalhadas sobre os modelos para aumentar a transparência no que está sendo executado no back-end. Saída mostra importância de funcionalidade geral no modelo de otimização, classificação os resultados pelos recursos que influenciada mais o seu modelo. Além disso, para problemas de classificação pode ver a importância de recurso por classe e classificação.
+Uma armadilha comum da aprendizagem automática é uma incapacidade de ver o processo de ponto-a-ponto. O Azure Machine Learning permite-lhe ver informações detalhadas sobre os modelos para aumentar a transparência no que está sendo executado no back-end. Alguns modelos, como a regressão linear, são considerados como bastante simples e, portanto, fácil de entender. Mas, tal como podemos adicionar mais recursos e utilizar modelos mais complicada de aprendizagem, compreendê-los para obtém mais difícil. Existem dois aspetos fundamentais a transparência de processos no machine learning:
+
+1. Reconhecimento de pipeline e todos os passos de aprendizagem automática envolvidos incluindo o pré-processamento de dados/featurization e valores de hiper-parâmetros.
+1. Compreender a relação entre a variáveis de entrada (também conhecido como "recursos") e a saída de modelo.  Saber a magnitude e a direção do impacto de cada funcionalidade no valor previsto ajuda a compreender melhor e a explicar o modelo. Isso é conhecido como importância de funcionalidade.
+
+Pode ativar a formação a pedido post de importância de recurso global para o pipeline da sua preferência ou ativá-la para todos os pipelines como parte de treinamento de ML automatizado.  Esta é uma funcionalidade de pré-visualização e Vamos continuar a investir em fornecendo informações mais detalhadas para o ajudar a compreender melhor os seus modelos de ML.  
+
+Siga este [bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) fazer experiências com explicações de modelo no Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

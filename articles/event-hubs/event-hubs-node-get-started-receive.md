@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9d7ec781fbc559b434b51db4a5dd8ffb1b6ef11f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103235"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434074"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Receber eventos dos Hubs de eventos do Azure com node. js
 
@@ -28,7 +28,7 @@ Este tutorial mostra como receber eventos de um hub de eventos ao utilizar o Azu
 O código para este início rápido está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/processor).
 
 > [!NOTE]
->  Para enviar eventos para Hubs de eventos com o node. js, consulte este artigo: [enviar eventos para Hubs de eventos do Azure com node. js](event-hubs-node-get-started-send.md). 
+>  Para enviar eventos para Hubs de eventos com o node. js, consulte este artigo: [Enviar eventos para Hubs de eventos do Azure com node. js](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ O primeiro passo consiste em utilizar o portal do Azure para criar um espaço de
 Para utilizar o EventProcessorHost, tem de ter uma conta de armazenamento do Azure. As informações de estado como concessões em partições e os pontos de verificação no fluxo de eventos são partilhados entre recetores com um contentor de armazenamento do Azure. Pode criar uma conta de armazenamento do Azure ao seguir as instruções em [este artigo](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clone-the-git-repository"></a>Clonar o repositório de Git
-Transfira ou clone a [exemplo](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) do Github. 
+Transfira ou clone a [exemplo](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) do GitHub. 
 
 ## <a name="install-the-eventprocessorhost"></a>Instalar o EventProcessorHost
 Instale o EventProcessorHost para o módulo de Hubs de eventos. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c8d40587ec6feee9b1ae16e383341fc0f2d1ffb6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137899"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438511"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
@@ -75,14 +75,14 @@ Para ativar o registo de diagnóstico no portal do Azure, siga os passos abaixo:
 
 2. Na **das definições de diagnóstico** página, efetue os seguintes passos: 
 
-    * **Nome**: introduza um nome para os registos criar.
+    * **Nome**: Introduza um nome para os registos criar.
 
-    * **Arquivo para uma conta de armazenamento**: para utilizar esta opção, precisa de uma conta de armazenamento existente para ligar a. Para criar uma nova conta de armazenamento no portal, veja [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar um Azure Resource Manager, conta para fins gerais. Em seguida, regresse a esta página no portal para selecionar a sua conta de armazenamento. Poderá demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
-    * **Stream para um hub de eventos**: para utilizar esta opção, terá dos Hubs de eventos espaço de nomes e o evento hub existente para ligar a. Para criar um espaço de nomes de Hubs de eventos, consulte [para criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hubs de eventos.
-    * **Enviar para o Log Analytics**: para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como ver os registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-in-loganalytics).
-    * **Inicie sessão DataPlaneRequests**: selecione esta opção para registar pedidos de back-end do Azure Cosmos DB distribuída plataforma subjacente para contas SQL, de gráficos, MongoDB, Cassandra e API de tabela. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
-    * **Inicie sessão MongoRequests**: selecione esta opção para registar pedidos iniciada pelo utilizador a partir do Azure Cosmos DB front-end para satisfazer as necessidades contas da API do MongoDB. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
-    * **Pedidos de métrica**: selecione esta opção para armazenar dados verbosos no [métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
+    * **Arquivo para uma conta de armazenamento**: Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Para criar uma nova conta de armazenamento no portal, veja [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar um Azure Resource Manager, conta para fins gerais. Em seguida, regresse a esta página no portal para selecionar a sua conta de armazenamento. Poderá demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
+    * **Stream para um hub de eventos**: Para utilizar esta opção, terá dos Hubs de eventos espaço de nomes e o evento hub existente para ligar a. Para criar um espaço de nomes de Hubs de eventos, consulte [para criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hubs de eventos.
+    * **Enviar para o Log Analytics**: Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como ver os registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-in-loganalytics).
+    * **Inicie sessão DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end do Azure Cosmos DB distribuída plataforma subjacente para contas SQL, de gráficos, MongoDB, Cassandra e API de tabela. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
+    * **Inicie sessão MongoRequests**: Selecione esta opção para registar pedidos iniciada pelo utilizador a partir do Azure Cosmos DB front-end para satisfazer as necessidades contas da API do MongoDB. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
+    * **Pedidos de métrica**: Selecione esta opção para armazenar dados detalhados no [métricas do Azure](../azure-monitor/platform/metrics-supported.md). Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
 
 3. Selecione **Guardar**.
 
@@ -442,11 +442,11 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | **tempo** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
 | **resourceId** | **Recurso** | A conta do Azure Cosmos DB para o qual os registos estão ativados.|
 | **category** | **Categoria** | Para os registos do Azure Cosmos DB, **DataPlaneRequests** é o valor só estão disponível. |
-| **operationName** | **OperationName** | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: criar, atualização, leitura, ReadFeed, eliminar, Replace, Execute, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
+| **operationName** | **OperationName** | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: Criar, atualizar, ler, ReadFeed, eliminação, substituição, executar, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
 | **Propriedades** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUID exclusivo para a operação com sessão iniciada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente de utilizador do cliente que está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
-| **resourceType** | **ResourceType** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: base de dados, contentor, documentos, anexo, utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
+| **resourceType** | **ResourceType** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: Base de dados, contentores, documentos, anexo, utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
 | **statusCode** | **statusCode_s** | O estado de resposta da operação. |
 | **requestResourceId** | **ResourceId** | O resourceId que diz respeito ao pedido. O valor pode apontar para databaseRid, collectionRid ou documentRid dependendo da operação efetuada.|
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |

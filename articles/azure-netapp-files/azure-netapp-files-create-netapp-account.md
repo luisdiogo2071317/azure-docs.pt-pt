@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010349"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413188"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 Criar uma conta NetApp permite-lhe configurar um conjunto de capacidade e, em seguida, criar um volume. Pode utilizar o painel do Azure NetApp Files para criar uma nova conta NetApp.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Tem de estar na lista de permissões para aceder ao Fornecedor de Recursos do Azure, Microsoft.NetApp, e configurado para utilizar o serviço Azure NetApp Files.  
+Tem de ter registado a sua subscrição para utilizar o fornecedor de recursos de NetApp e a funcionalidade de pré-visualização pública.
 
-[Página de inscrição na Pré-visualização Pública do Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+[Registre-se para os ficheiros do Azure NetApp](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Passos 
 
-1. Localize o URL do portal do Azure de pré-visualização no convite de pré-visualização e inicie sessão no portal. 
+1. Localize a pré-visualização do portal do Azure URL a partir do seu convite de pré-visualização e inicie sessão no portal. 
 2.  Aceda ao painel do Azure NetApp Files através de um dos seguintes métodos:  
   * Procure **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
   * Clique em **Todos os serviços** na navegação e, em seguida, filtre para Azure NetApp Files.  
@@ -58,8 +58,7 @@ Tem de estar na lista de permissões para aceder ao Fornecedor de Recursos do Az
 5. Clique em **Criar**.     
   A conta NetApp que criou aparece agora no painel do Azure NetApp Files. 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos Seguintes  
 
-1. [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
-2. [Criar um volume para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Configurar a política de exportação para um volume (opcional)](azure-netapp-files-configure-export-policy.md)
+[Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
+

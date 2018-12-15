@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251713"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436165"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -30,13 +30,13 @@ No cenário seguinte, os dados de entrada são um arquivo simples que contém um
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-O pipeline de exemplo aguarda até que os dados de um novo período de tempo de voo chegam, em seguida, armazena essas informações de voo detalhadas para o armazém de dados de Hive para análises de longo prazo. O pipeline cria também um muito mais pequeno conjunto de dados que resume apenas os dados diários de voo. Estes dados de resumo de voo diária são enviados para uma base de dados SQL para fornecer relatórios, por exemplo, para um Web site.
+O pipeline de exemplo aguarda até que os dados de um novo período de tempo de voo chegam, em seguida, armazena essas informações de voo detalhadas para o armazém de dados do Apache Hive para análises de longo prazo. O pipeline cria também um muito mais pequeno conjunto de dados que resume apenas os dados diários de voo. Estes dados de resumo de voo diária são enviados para uma base de dados SQL para fornecer relatórios, por exemplo, para um Web site.
 
 O diagrama seguinte ilustra o pipeline de exemplo.
 
 ![Pipeline de dados de voo](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Descrição geral da solução de Oozie
+## <a name="apache-oozie-solution-overview"></a>Descrição geral da solução do Apache Oozie
 
 Este pipeline utiliza o Apache Oozie em execução num cluster do HDInsight Hadoop.
 
@@ -139,7 +139,7 @@ A base de dados do SQL do Azure está agora pronta.
 
 Para utilizar a consola Web do Oozie para ver o estado das coordenador e das instâncias de fluxo de trabalho, configure um túnel SSH ao seu cluster do HDInsight. Para obter mais informações, consulte [túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Também pode utilizar o Chrome com o [Foxy Proxy](https://getfoxyproxy.org/) extensão para procurar recursos da web do seu cluster através do túnel SSH. Configurar a proxy de todos os pedidos através do anfitrião do `localhost` na porta do túnel 9876. Essa abordagem é compatível com o subsistema Windows para Linux, também conhecido como Bash no Windows 10.
 
 1. Execute o seguinte comando para abrir um túnel SSH para o cluster:
@@ -430,7 +430,7 @@ A tabela seguinte resume a cada uma das propriedades e indica onde é possível 
 | mês | O componente de mês do dia para a qual voo resumos são computados. Deixe, tal como está. |
 | dia | O dia do componente de mês do dia para a qual voo resumos são computados. Deixe, tal como está. |
 
-> [!NOTE]
+> [!NOTE]  
 > Certifique-se de que atualizar a sua cópia do `job.properties` ficheiro com valores específicos ao seu ambiente, antes de poder implementar e executar o fluxo de trabalho do Oozie.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Implementar e executar o fluxo de trabalho do Oozie

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2cce962058357e104ee2f8b8677af8fa4a31f80a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445740"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409280"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -41,15 +41,24 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 > Recomendamos obter sempre o KB mais recente para a sua versão do Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-* **Nome da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa do nome da conta de armazenamento.
+* **Nome da conta de armazenamento**: Montar uma partilha de ficheiros do Azure, terá o nome da conta de armazenamento.
 
-* **Chave da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
+* **Chave da conta de armazenamento**: Para montar uma partilha de ficheiros do Azure, terá da chave de armazenamento primária (ou secundário). Atualmente, não são suportadas chaves SAS para a montagem.
 
-* **Confirmar que a porta 445 está aberta**: o protocolo SMB requer que a porta TCP 445 esteja aberta; se estive bloqueada, as ligações falham. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. Não se esqueça de substituir `your-storage-account-name` pelo nome relevante para a sua conta de armazenamento.
+* **Certifique-se de que a porta 445 está aberta**: Porta TCP 445 estar abertas; requer que o protocolo SMB ligações irão falhar se a porta 445 estiver bloqueada. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. O seguinte código do PowerShell pressupõe que tem o módulo do PowerShell AzureRM instalado; veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     Se a ligação for bem-sucedida, deverá ver o resultado seguinte:

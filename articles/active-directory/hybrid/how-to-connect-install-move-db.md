@@ -10,12 +10,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a42deb6bc039602c4bda523d2ab1ee5a69bb5644
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303541"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434125"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mova a base de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -30,7 +30,7 @@ Seguem-se algumas informações breves sobre este cenário.  Neste cenário, a v
 Utilize os seguintes passos para mover a base de dados do Azure AD Connect para um SQL Server remoto.
 
 1.  No servidor do Azure AD Connect, aceda a **Serviços** e pare o serviço **Microsoft Azure AD Sync**.
-2. Localize a pasta **%Program Files%\Microsoft Azure AD Sync/Data/** e copie os ficheiros **ADSync.mdf** e **ADSync_log.mdf** para o SQL Server remoto.
+2. Localize a **% Program Files%\Microsoft do Azure AD Sync/dados/** pastas e copia o **ADSync.mdf** e **ADSync_log.ldf** ficheiros para o SQL Server remoto.
 3. Reinicie o serviço **Microsoft Azure AD Sync** no servidor do Azure AD Connect.
 4. Desinstale o Azure AD Connect ao aceder ao Painel de Controlo - Programas - Programas e Funcionalidades.  Selecione o Microsoft Azure AD Connect e clique em desinstalar na parte superior.
 5. No SQL server remoto, abra o SQL Server Management Studio.
@@ -69,7 +69,7 @@ Utilize os seguintes passos para mover a base de dados do Azure AD Connect para 
  
 18. Assim que a instalação estiver concluída, o servidor do Azure AD Connect é ativado automaticamente para o Modo de Teste. É recomendado que reveja se existem alterações inesperadas na configuração do servidor e nas exportações pendentes antes de desativar o Modo de Teste. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 - [Instalar o Azure AD Connect com uma base de dados ADSync existente](how-to-connect-install-existing-database.md)

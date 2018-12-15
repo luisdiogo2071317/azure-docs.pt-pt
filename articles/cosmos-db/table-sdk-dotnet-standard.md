@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: dox
-ms.openlocfilehash: 38e8c0c16c51ee1885187263c9016c1411e4e95b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dd095328f8ba4cc22eea21133e7c8600a2cd64e1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874061"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438664"
 ---
-# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API do Azure Cosmos DB tabela .NET Standard: Transferir e notas de versão
+# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API padrão do .NET da tabela do Azure Cosmos DB: Transferir e notas de versão
 > [!div class="op_single_selector"]
 
 > * [.NET](table-sdk-dotnet.md)
@@ -32,16 +32,18 @@ ms.locfileid: "52874061"
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-Preview
+* Adicione suporte para as principais operações CRUD, batch e a consulta relativamente aos pontos finais de tabelas de armazenamento do Azure. [!NOTE] Algumas funcionalidades no anterior SDKs de tabela de armazenamento do Azure ainda não são suportadas, como a encriptação do lado do cliente.
+
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-Preview
-* SDK do Azure Cosmos DB tabela .NET Standard é uma biblioteca de .NET de várias plataformas que fornece acesso eficiente ao modelo de dados de tabela no Cosmos DB. Esta versão inicial suporta o conjunto completo de tabela e entidade CRUD + funcionalidades de consulta com APIs similares como o [Cosmos DB tabela SDK para .NET Framework](table-sdk-dotnet.md).
-[!NOTE]
-Pontos finais de tabela de armazenamento do Azure ainda não são suportados na versão 0.9.1-preview.
+* SDK do Azure Cosmos DB tabela .NET Standard é uma biblioteca de .NET de várias plataformas que fornece acesso eficiente ao modelo de dados de tabela no Cosmos DB. Esta versão inicial suporta o conjunto completo de tabela e entidade CRUD + funcionalidades de consulta com APIs similares como o [Cosmos DB tabela SDK para .NET Framework](table-sdk-dotnet.md). [!NOTE] Pontos finais de tabela de armazenamento do Azure ainda não são suportados na versão 0.9.1-preview.
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
 A Microsoft fornece notificação, pelo menos, **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [0.10.0-Preview](#0.10.0-preview) |18 de Dezembro de 2018 |--- |
 | [0.9.1-Preview](#0.9.1-preview) |18 de Outubro de 2018 |--- |
 
 

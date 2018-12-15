@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 67995b4cc9c212f1798a37b54873bd349ac36576
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384926"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438528"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -171,7 +171,7 @@ Em seguida, determine onde será preparado o modelo. Uma experimentação de pre
 *   Seu computador local, como uma área de trabalho local ou computador portátil – em geral, quando tem pequeno conjunto de dados e estiver na fase de exploração.
 *   Um computador remoto na cloud – [Machine Learning geridos de computação no Azure](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) é um serviço gerido que permite a capacidade preparar modelos de machine learning em clusters de máquinas virtuais do Azure.
 
-Consulte a [site do Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) por exemplo o destinos de computação de blocos de notas com o local e remoto.
+Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) por exemplo o destinos de computação de blocos de notas com o local e remoto.
 
 <a name='configure-experiment'/>
 

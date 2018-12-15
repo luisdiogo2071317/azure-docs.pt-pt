@@ -3,8 +3,7 @@ title: Manutenção e atualizações para VMs do Linux no Azure | Documentos da 
 description: Descrição geral de manutenção e atualizações para máquinas virtuais do Linux em execução no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: shants123
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
-ms.author: cynthn
-ms.openlocfilehash: 70a62608b7c55caad827400587f867440ad87566
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 12/13/2018
+ms.author: shants
+ms.openlocfilehash: d48a8d2f937cee67d6ab9a12618607d367cdaed8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "30177768"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409960"
 ---
-# <a name="planned-maintenance-for-linux-virtual-machines"></a>Manutenção planeada para máquinas virtuais do Linux 
+# <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre como gerir a necessidade de um reinício de manutenção, consulte [planejado de manipulação de notificações de manutenção](maintenance-notifications.md). 
+Para obter informações sobre a manutenção planeada afetar as máquinas virtuais, consulte [planejado de manipulação de notificações de manutenção](maintenance-notifications.md).

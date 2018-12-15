@@ -1,5 +1,5 @@
 ---
-title: 'Ligar uma rede virtual a um circuito - ExpressRoute: portal do Azure | Documentos da Microsoft'
+title: 'Ligar uma rede virtual a um circuito - ExpressRoute: Portal do Azure | Documentos da Microsoft'
 description: Ligar uma rede virtual a um circuito do ExpressRoute do Azure. Instruções passo a passo.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f2b22eb779a8ebe1d1fd804443663abc9a4245ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141650"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438834"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o portal
 > [!div class="op_single_selector"]
@@ -88,6 +88,10 @@ O proprietário do circuito tem o poder para modificar e revogar autorizações 
 **Para criar uma autorização de conexão**
 
 O proprietário do circuito cria uma autorização. Isso resulta na criação de uma chave de autorização que pode ser utilizada por um utilizador do circuito para ligar os seus gateways de rede virtual para o circuito do ExpressRoute. Uma autorização é válida para apenas uma ligação.
+
+> [!NOTE]
+> Cada ligação requer uma autorização separada.
+>
 
 1. Na página do ExpressRoute, clique em **autorizações** e, em seguida, escreva um **nome** da autorização e clique em **guardar**.
 

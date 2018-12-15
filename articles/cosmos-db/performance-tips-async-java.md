@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 8cfc62948df679fa900099c0e5dbb33a60e42b08
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 440dc13e2c6f4d9acc270b644cc549280e6d91be
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876254"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413579"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Java assíncrono
 
@@ -35,7 +35,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     Sempre que possível, coloque todas as aplicações do Azure Cosmos DB ao chamar na mesma região que a base de dados do Azure Cosmos DB. Para obter uma comparação aproximada, chamadas para o Azure Cosmos DB na mesma região são concluídas em 1-2 ms, mas a latência entre a Costa Leste dos EUA e oeste é > 50 ms. Esta latência provavelmente pode variar para cada solicitação, dependendo da rota executada pelo pedido, à medida que passa do cliente com o limite de datacenter do Azure. A menor latência possível é obtida ao garantir que o aplicativo de chamada está localizado na mesma região do Azure como o ponto de final aprovisionado do Azure Cosmos DB. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustração da política de ligação do Azure Cosmos DB](./media/performance-tips/same-region.png)
-   
+
 ## <a name="sdk-usage"></a>Utilização do SDK
 1. **Instalar o SDK mais recente**
 
@@ -54,17 +54,17 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
     Azure Cosmos DB SQL Async Java SDK suporta consultas paralelas, permitindo-lhe consultar uma coleção com partições em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionadas ao trabalho com os SDKs. Consultas paralelas foram concebidas para melhorar o débito e latência de consulta em sua contraparte serial.
 
-    (a) ***otimização setMaxDegreeOfParallelism\:***  paralelo funcionam as consultas ao consultar várias partições em paralelo. No entanto, os dados a partir de uma coleção com partições individual são obtidos em série em relação a consulta. Por isso, uso setMaxDegreeOfParallelism para definir o número de partições que tem a chance de máxima de conseguir a maioria dos consulta de alto desempenho, fornecida todas as outras condições do sistema permanecem os mesmos. Se não souber o número de partições, pode usar setMaxDegreeOfParallelism para definir um número alto e o sistema escolhe o mínimo (número de partições, entrada do usuário fornecida) como o grau máximo de paralelismo. 
+    (a) ***otimização setMaxDegreeOfParallelism\:***  paralelo funcionam as consultas ao consultar várias partições em paralelo. No entanto, os dados a partir de uma coleção com partições individual são obtidos em série em relação a consulta. Por isso, uso setMaxDegreeOfParallelism para definir o número de partições que tem a chance de máxima de conseguir a maioria dos consulta de alto desempenho, fornecida todas as outras condições do sistema permanecem os mesmos. Se não souber o número de partições, pode usar setMaxDegreeOfParallelism para definir um número alto e o sistema escolhe o mínimo (número de partições, entrada do usuário fornecida) como o grau máximo de paralelismo.
 
     É importante observar que consultas paralelas produzem os benefícios de melhor se os dados são distribuídos uniformemente por todas as partições em relação a consulta. Se a coleção particionada está particionada de forma que todos os ou a maioria dos dados retornados por uma consulta é concentrada em algumas partições (uma partição na pior das hipóteses), em seguida, o desempenho da consulta poderia ser um afunilamento nessas partições.
 
     (b) ***otimização setMaxBufferedItemCount\:***  paralela da consulta destina-se na pré-busca resultados enquanto o lote atual dos resultados está a ser processado pelo cliente. A obtenção prévia ajuda a melhoria geral de latência de uma consulta. setMaxBufferedItemCount limita o número de resultados previamente foram obtidos. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receber o máximo benefício de obtenção prévia.
 
-    Obtenção prévia funciona da mesma forma, independentemente do MaxDegreeOfParallelism e não existe uma única memória intermédia para os dados de todas as partições.  
+    Obtenção prévia funciona da mesma forma, independentemente do MaxDegreeOfParallelism e não existe uma única memória intermédia para os dados de todas as partições.
 
 5. **Implementar o término em intervalos de getRetryAfterInMilliseconds**
 
-    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições. 
+    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições.
 6. **Aumentar horizontalmente o seu cliente e carga de trabalho**
 
     Se estiver a testar em níveis de débito elevado (> 50 000 RU/s), a aplicação cliente pode se tornar o afunilamento devido a máquina capping horizontalmente na utilização da CPU ou de rede. Se atingir este ponto, pode continuar a enviar por push ainda mais a conta do Azure Cosmos DB, aumente horizontalmente as suas aplicações de cliente em vários servidores.
@@ -81,7 +81,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     Para reduzir o número de percursos de ida necessária para obter resultados de todos os aplicáveis e rede, pode aumentar o tamanho de página utilizando a [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) cabeçalho do pedido para até 1000. Em casos em que precisa exibir apenas alguns resultados, por exemplo, se a API de interface ou a aplicação do utilizador devolve apenas 10 resulta de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
     Também pode definir o tamanho da página usando o método setMaxItemCount.
-    
+
 9. **Utilizar o agendador apropriado (evite roubo de threads Netty de e/s do loop de eventos)**
 
     Utiliza o SDK de Java Async [netty](https://netty.io/) para sem bloqueio e/s. O SDK utiliza um número fixo de threads de loop de evento netty de e/s (tantos núcleos de CPU tem o seu computador) para executar operações de e/s. Observable devolvido pela API emite o resultado em um dos partilhado e/s eventos loop netty threads. Portanto, é importante não bloquear os e/s eventos loop netty threads partilhados. Fazendo o trabalho com utilização intensiva da CPU ou a operação no thread de netty do loop de eventos de e/s de bloqueio pode causar deadlocks ou reduzir significativamente a taxa de transferência do SDK.
@@ -123,7 +123,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
     Com base no tipo de seu trabalho deve usar o agendador apropriado de RxJava existente para o seu trabalho. Saiba aqui [ ``Schedulers`` ](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-    Para mais informações, consulte a [página do Github](https://github.com/Azure/azure-cosmosdb-java) para Async Java SDK.
+    Para mais informações, consulte a [página do GitHub](https://github.com/Azure/azure-cosmosdb-java) para Async Java SDK.
 
 10. **Desativar o registo do netty** registo da biblioteca Netty é chatty e tem de ser desativada (suprimir a configuração de início de sessão pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver no modo de depuração, netty de Desativação registo completamente. Então, se estiver a utilizar log4j para remover os custos de CPU adicionais cobrados por ``org.apache.log4j.Category.callAppenders()`` no netty adicione a seguinte linha à sua base de código:
 
@@ -175,7 +175,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte a estas instruç
  
 1. **Excluir caminhos não utilizados de indexação para escritas mais rápidas**
 
-    Política de indexação do Azure Cosmos DB permite-lhe especificar os caminhos de documento para incluir ou excluir da indexação ao tirar partido da indexação caminhos (setIncludedPaths e setExcludedPaths). O uso de caminhos de indexação pode oferecer desempenho aprimorado de escrita e de armazenamento de índice mais baixo para cenários em que os padrões de consulta são previamente conhecidos, como os custos de indexação são correlacionados diretamente para o número de caminhos exclusivos indexados.  Por exemplo, o código seguinte mostra como excluir uma seção inteira de documentos (também conhecido como uma subárvore) da utilização de indexação a "*" caráter universal.
+    Política de indexação do Azure Cosmos DB permite-lhe especificar os caminhos de documento para incluir ou excluir da indexação ao tirar partido da indexação caminhos (setIncludedPaths e setExcludedPaths). O uso de caminhos de indexação pode oferecer desempenho aprimorado de escrita e de armazenamento de índice mais baixo para cenários em que os padrões de consulta são previamente conhecidos, como os custos de indexação são correlacionados diretamente para o número de caminhos exclusivos indexados. Por exemplo, o código seguinte mostra como excluir uma seção inteira de documentos (também conhecido como uma subárvore) da utilização de indexação a "*" caráter universal.
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -196,7 +196,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte a estas instruç
 
     O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e acionadores-tudo isto em documentos dentro de uma coleção de base de dados. O custo associado a cada uma destas operações varia consoante a CPU, IO e memória necessários para concluir a operação. Em vez de pensar e gerir recursos de hardware, pode pensar numa unidade de pedido (RU) como medida única para os recursos necessários para executar várias operações de base de dados e servir um pedido de aplicação.
 
-    Débito aprovisionado com base no número de [unidades de pedido](request-units.md) definido para cada contentor. Consumo de unidades de pedido é avaliado como uma taxa por segundo. Aplicações que excedem a taxa de unidade de pedido aprovisionadas para o contentor estão limitadas até que a velocidade cai abaixo do nível de aprovisionamento do contentor. Se seu aplicativo exigir um nível de débito mais elevado, pode aumentar o débito por unidades de pedido de aprovisionamento. 
+    Débito aprovisionado com base no número de [unidades de pedido](request-units.md) definido para cada contentor. Consumo de unidades de pedido é avaliado como uma taxa por segundo. Aplicações que excedem a taxa de unidade de pedido aprovisionadas para o contentor estão limitadas até que a velocidade cai abaixo do nível de aprovisionamento do contentor. Se seu aplicativo exigir um nível de débito mais elevado, pode aumentar o débito por unidades de pedido de aprovisionamento.
 
     A complexidade de uma consulta tem impacto sobre o número de unidades de pedido são consumidas para uma operação. O número de predicados, a natureza dos predicados, UDFs e o tamanho do conjunto de dados de origem todos os influenciar o custo das operações de consulta.
 
@@ -206,7 +206,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte a estas instruç
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
                                                      false).toBlocking.single();
     response.getRequestCharge();
-    ```             
+    ```
 
     O custo de pedido devolvido neste cabeçalho é uma fração do débito aprovisionado. Por exemplo, se tiver de 2000 RU/s aprovisionada, e se a consulta anterior devolve 1000 1KB-documentos, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes dos pedidos subsequentes de limitação de taxas. Para obter mais informações, consulte [unidades de pedido](request-units.md) e o [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
@@ -222,7 +222,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte a estas instruç
 
     Se tiver mais do que um cliente cumulativamente e a funcionar consistentemente acima a taxa de pedidos, a contagem de repetições de predefinição atualmente definida para 9 internamente pelo cliente não ser suficientes; Neste caso, o cliente gera um DocumentClientException com código de estado 429 à aplicação. A contagem de repetições padrão pode ser alterada utilizando setRetryOptions na instância ConnectionPolicy. Por predefinição, o DocumentClientException com código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos se o pedido continuar a operar acima a taxa de pedidos. Isto ocorre mesmo quando o número atual de tentativas é menor que o número máximo de tentativas, seja ele o padrão de 9 ou de um valor definido pelo utilizador.
 
-    Embora o comportamento de repetição automatizada ajuda a melhorar a resiliência e facilidade de utilização para a maioria dos aplicativos, podem surgir em desacordo durante a realização de testes de desempenho, especialmente ao medir a latência.  A latência observado o cliente será expandam se a experimentação atinge a limitação de servidor e faz com que o cliente SDK para repetir automaticamente. Para evitar picos de latência durante experimentos de desempenho, a cobrança devolvida por cada operação de medir e certifique-se de que pedidos estão a funcionar abaixo a taxa de pedido reservadas. Para obter mais informações, consulte [unidades de pedido](request-units.md).
+    Embora o comportamento de repetição automatizada ajuda a melhorar a resiliência e facilidade de utilização para a maioria dos aplicativos, podem surgir em desacordo durante a realização de testes de desempenho, especialmente ao medir a latência. A latência observado o cliente será expandam se a experimentação atinge a limitação de servidor e faz com que o cliente SDK para repetir automaticamente. Para evitar picos de latência durante experimentos de desempenho, a cobrança devolvida por cada operação de medir e certifique-se de que pedidos estão a funcionar abaixo a taxa de pedido reservadas. Para obter mais informações, consulte [unidades de pedido](request-units.md).
 3. **Design para documentos mais pequenos para um débito mais elevado**
 
     O custo de pedido (o custo de processamento da solicitação) de uma determinada operação diretamente é correlacionado com o tamanho do documento. Operações em documentos grandes custam mais do que operações para pequenos documentos.

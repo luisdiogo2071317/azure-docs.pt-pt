@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2ee5eca6f138d9aaa1a2b7cebb61b56fd26e17cc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017214"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409178"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -54,10 +54,9 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Cache de Redis do Azure](#azure-redis-cache-limits)
+* [Cache do Azure para Redis](#azure-redis-cache-limits)
 * [Cópia de segurança](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [Serviços BizTalk](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Serviços Cloud](#cloud-services-limits)
@@ -219,9 +218,6 @@ Os seguintes limites de serviço de aplicações incluem limites para aplicaçõ
 
 ### <a name="batch-limits"></a>Limites do batch
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
-
-### <a name="batch-ai-limits"></a>Limites de IA do batch
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### <a name="biztalk-services-limits"></a>Limites dos serviços BizTalk
 A tabela seguinte mostra os limites de serviços Biztalk do Azure.

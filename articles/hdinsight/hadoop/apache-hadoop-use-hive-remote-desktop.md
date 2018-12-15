@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c1d9adc3b4ff66e2f02617df551e496a5482c8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014621"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409059"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o Apache Hive com o Apache Hadoop no HDInsight com o ambiente de trabalho remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, irá aprender a ligar a um cluster do HDInsight com o ambiente de trabalho remoto e, em seguida, executar consultas do Hive com o ramo de registo Interface de linha de comandos (CLI).
+Neste artigo, irá aprender a ligar a um cluster do HDInsight com o ambiente de trabalho remoto e, em seguida, executar consultas do Apache Hive com o ramo de registo Interface de linha de comandos (CLI).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Área de trabalho remota só está disponível em clusters do HDInsight que utilizam o Windows como o sistema operativo. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 >
-> Para o HDInsight 3.4 ou superior, consulte [utilizar o Hive com o HDInsight e o Beeline](apache-hadoop-use-hive-beeline.md) para informações sobre como executar consultas do Hive diretamente no cluster a partir de uma linha de comandos.
+> Para o HDInsight 3.4 ou superior, consulte [utilizar o Apache Hive com o HDInsight e o Beeline](apache-hadoop-use-hive-beeline.md) para informações sobre como executar consultas do Hive diretamente no cluster a partir de uma linha de comandos.
 
 ## <a id="prereq"></a>Pré-requisitos
 Para concluir os passos neste artigo, precisará do seguinte:
@@ -55,18 +55,18 @@ Quando tiver ligado à área de trabalho para o cluster do HDInsight, utilize os
 
     Essas instruções executam as seguintes ações:
 
-   * **DROP TABLE**: elimina a tabela e o ficheiro de dados, se a tabela já existe.
-   * **Criar tabela externa**: cria uma nova tabela de "externa" no Hive. Tabelas externas armazenam apenas a definição de tabela no Hive (resta os dados na localização original).
+   * **TABELA DE SOLTAR**: Elimina a tabela e o ficheiro de dados se a tabela já existe.
+   * **CRIAR TABELA EXTERNA**: Cria uma nova tabela de "externa" no Hive. Tabelas externas armazenam apenas a definição de tabela no Hive (resta os dados na localização original).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Tabelas externas devem ser utilizadas quando espera que os dados subjacentes sejam atualizados por uma origem externa (por exemplo, um processo de carregamento de dados automatizada) ou por outra operação de MapReduce, mas é sempre melhor consultas do Hive para utilizar os dados mais recentes.
      >
      > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
      >
      >
-   * **FORMATO de linha**: informa ao Hive como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
-   * **LOCALIZAÇÃO de TEXTFILE AS ARMAZENADOS**: informa ao ramo de registo onde os dados são armazenados (o diretório/dados de exemplo) e que são armazenados como texto.
-   * **SELECIONE**: seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]**. Isto deverá devolver um valor de **3** porque existem três linhas que contêm este valor.
+   * **FORMATO DE LINHA**: Informa ao Hive como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
+   * **ARMAZENADO COMO LOCALIZAÇÃO DE TEXTFILE**: Indica onde estão armazenados os dados de Hive (o diretório/dados de exemplo) e que são armazenados como texto.
+   * **SELECIONE**: Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]**. Isto deverá devolver um valor de **3** porque existem três linhas que contêm este valor.
    * **INPUT__FILE__NAME como '%.log'** -informa ao Hive que podemos deverá devolver apenas dados de ficheiros terminados em. log. Isso restringe a pesquisa para o ficheiro Sample log que contém os dados e impede que ela retornar dados do outro exemplo, ficheiros de dados que não correspondem o esquema que definimos.
 4. Utilize as seguintes instruções para criar uma nova tabela de "interna" com o nome **registos de erros**:
 
@@ -75,14 +75,14 @@ Quando tiver ligado à área de trabalho para o cluster do HDInsight, utilize os
 
     Essas instruções executam as seguintes ações:
 
-   * **Criar tabela se não existe**: cria uma tabela se ainda não exista. Uma vez que o **externo** palavra-chave não é utilizado, esta é uma tabela interna, que é armazenada no armazém de dados de Hive e é gerenciada completamente o Hive.
+   * **CRIAR TABELA SE AINDA NÃO EXISTS**: Cria uma tabela se ainda não exista. Uma vez que o **externo** palavra-chave não é utilizado, esta é uma tabela interna, que é armazenada no armazém de dados de Hive e é gerenciada completamente o Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Ao contrário **externo** tabelas, remover uma tabela interna também elimina os dados subjacentes.
      >
      >
-   * **ARMAZENADOS ORC de AS**: armazena os dados no formato de (ORC) em colunas de linha otimizada. Este é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
-   * **SUBSTITUIR INSERT... SELECIONE**: seleciona linhas do **log4jLogs** tabela que contêm **[erro]**, em seguida, insere os dados no **registos de erros** tabela.
+   * **ARMAZENADO COMO ORC**: Armazena os dados em formato de (ORC) em colunas de linha otimizada. Este é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
+   * **SUBSTITUIR INSERT... SELECIONE**: Seleciona as linhas do **log4jLogs** tabela que contêm **[erro]**, em seguida, insere os dados no **registos de erros** tabela.
 
      Para verificar que apenas linhas que contêm **[erro]** na coluna t4 foram armazenados para o **registos de erros** da tabela, utilize a seguinte instrução para retornar todas as linhas da **registos de erros**:
 
@@ -96,17 +96,17 @@ Como pode ver, o comando de ramo de registo fornece uma forma fácil de executar
 ## <a id="nextsteps"></a>Passos seguintes
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Se estiver a utilizar com o Hive no Tez, consulte os seguintes documentos para informações de depuração:
 
-* [Utilize a IU do Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
-* [Utilize a vista Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
+* [Utilizar a interface do Usuário do Apache Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
+* [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

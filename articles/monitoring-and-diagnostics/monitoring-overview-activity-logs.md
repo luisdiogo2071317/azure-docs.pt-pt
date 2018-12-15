@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 9b2566458bc32f9b1d7a36790fbdd5fbb2419ec1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: debc5ac2771b57fe1a6091ef8dc97291aa11365e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384302"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437048"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -102,7 +102,7 @@ Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja n
 >  Atualmente não é possível arquivar dados para uma conta de armazenamento que está atrás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento foi alterado para linhas de JSON no dia 1 de Novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento foi alterado para linhas de JSON no dia 1 de Novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

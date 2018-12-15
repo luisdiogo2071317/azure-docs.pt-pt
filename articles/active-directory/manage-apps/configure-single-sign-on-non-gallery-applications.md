@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622198"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408137"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
 
@@ -46,7 +46,7 @@ Para ligar uma aplicação com um modelo de integração de aplicações, inicie
 
 Na Galeria de aplicações, pode adicionar uma aplicação não listada, selecionando o **aplicação da Galeria não** mosaico que mostra os resultados da pesquisa se a aplicação pretendida não foi encontrada. Depois de introduzir um nome para a sua aplicação, pode configurar o comportamento e as opções de início de sessão único. 
 
-**Dica rápida**: como melhor prática, utilize a função de pesquisa para verificar se a aplicação já existe na Galeria de aplicações. Se a aplicação for encontrada e sua descrição menciona início de sessão único, a aplicação já é suportada para o início de sessão único federado.
+**Dica rápida**:  Como melhor prática, utilize a função de pesquisa para verificar se a aplicação já existe na Galeria de aplicações. Se a aplicação for encontrada e sua descrição menciona início de sessão único, a aplicação já é suportada para o início de sessão único federado.
 
   ![Pesquisa](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Assim que a página de início de sessão é capturada, podem ser atribuídos a 
 >
 
 ## <a name="existing-single-sign-on"></a>Existente início de sessão único
-Selecione esta opção para adicionar uma ligação para uma aplicação ao portal de painel de acesso do Azure AD ou Office 365 da sua organização. Pode utilizar este para adicionar ligações a aplicações web personalizado que a utilizam atualmente o Azure Active Directory Federation Services (ou outro serviço de Federação) em vez do Azure AD para autenticação. Em alternativa, pode adicionar ligações avançadas para páginas específicas do SharePoint ou outras páginas da web que pretende são apresentadas nos painéis de acesso dos seus utilizadores. 
+Selecione esta opção para adicionar uma ligação para uma aplicação ao portal de painel de acesso do Azure AD ou Office 365 da sua organização. Pode utilizar este para adicionar ligações a aplicações web personalizado que a utilizam atualmente os serviços de Federação do Active Directory (ou outro serviço de Federação) em vez do Azure AD para autenticação. Em alternativa, pode adicionar ligações avançadas para páginas específicas do SharePoint ou outras páginas da web que pretende são apresentadas nos painéis de acesso dos seus utilizadores. 
 
 Depois de selecionar **seguinte**, será solicitado que introduza o URL da aplicação para ligar a. Depois de concluído, os utilizadores e grupos podem ser atribuídos à aplicação, que faz com que as aplicações apareçam no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](end-user-experiences.md) para esses utilizadores.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d8c652d75b01b3a13ef06475190ad81980f31e44
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270370"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437474"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -343,7 +343,7 @@ Na imagem seguinte, verá um exemplo com três métricas apresentadas nos últim
 
 [![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-Para ver uma lista atual de métricas, veja [suportado métricas com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Para ver uma lista atual de métricas, veja [suportado métricas com o Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="alert-rules"></a>Regras de alerta
 

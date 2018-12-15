@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2b059c9a8808db3b2426db0d997df15196be604d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012084"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409688"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive com as ferramentas do Data Lake para Visual Studio
 
@@ -24,7 +24,7 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
 * Um cluster do Azure HDInsight (Apache Hadoop no HDInsight)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Visual Studio (uma das seguintes versões):
@@ -37,7 +37,7 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
 * Ferramentas do HDInsight para Visual Studio ou o Azure Data Lake tools para Visual Studio. Ver [começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
-## <a id="run"></a> Executar consultas do Hive com o Visual Studio
+## <a id="run"></a> Executar consultas do Apache Hive com o Visual Studio
 
 1. Open **Visual Studio** e selecione **New** > **projeto** > **Azure Data Lake**  >   **HIVE** > **Hive aplicação**. Forneça um nome para este projeto.
 
@@ -58,7 +58,7 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
    * `CREATE EXTERNAL TABLE`: Cria uma nova tabela de "externa" no Hive. Tabelas externas apenas armazenam a definição da tabela no Hive (resta os dados na localização original).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Tabelas externas devem ser usadas quando espera que os dados subjacentes ser atualizados por uma origem externa. Por exemplo, uma tarefa de MapReduce ou serviço do Azure.
      >
      > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
@@ -95,12 +95,12 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
    * `CREATE TABLE IF NOT EXISTS`: Cria uma tabela se ainda não exista. Uma vez que o `EXTERNAL` palavra-chave não é utilizado, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados de Hive e são geridas através do Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Ao contrário de `EXTERNAL` tabelas, remover uma tabela interna também elimina os dados subjacentes.
 
    * `STORED AS ORC`: Armazena os dados em formato de (ORC) em colunas de linha otimizada. ORC é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: Seleciona linhas do `log4jLogs` tabela que contêm `[ERROR]`, em seguida, insere os dados no `errorLogs` tabela.
+   * `INSERT OVERWRITE ... SELECT`: Seleciona as linhas do `log4jLogs` tabela que contêm `[ERROR]`, em seguida, insere os dados no `errorLogs` tabela.
 
 8. Na barra de ferramentas, selecione **submeter** para executar a tarefa. Utilize o **estado da tarefa** para determinar se a tarefa foi concluída com êxito.
 
@@ -112,13 +112,13 @@ Como pode ver, as ferramentas do HDInsight para Visual Studio fornecem uma forma
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter mais informações sobre as ferramentas do HDInsight para Visual Studio:
 

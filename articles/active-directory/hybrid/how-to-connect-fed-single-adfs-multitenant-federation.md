@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621267"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412440"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -39,13 +39,13 @@ Um único farm do AD FS altamente disponível pode federar várias florestas se 
 
 Considere que um domínio contoso.com no contoso.onmicrosoft.com do Azure Active Directory já está federado com o AD FS no local instalado no ambiente do Active Directory no local contoso.com. Fabrikam.com é um domínio no Azure Active Directory do .fabrikam.onmicrosoft.com.
 
-## <a name="step-1-establish-a-two-way-trust"></a>Passo 1: Estabelecer uma confiança bidirecional
+## <a name="step-1-establish-a-two-way-trust"></a>Passo 1: Estabeleça uma fidedignidade bidirecional
  
 Para o AD FS no contoso.com conseguir autenticar utilizadores no fabrikam.com, é necessária uma confiança bidirecional entre o contoso.com e o fabrikam.com. Siga a documentação de orientação neste [artigo](https://technet.microsoft.com/library/cc816590.aspx) para criar a confiança bidirecional.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>Passo 2: Modificar as definições de federação do contoso.com 
+## <a name="step-2-modify-contosocom-federation-settings"></a>Passo 2: Modificar as definições de Federação do contoso.com 
  
-O emissor predefinido num único domínio federado para o AD FS é “http://ADFSServiceFQDN/adfs/services/trust”, por exemplo, “http://fs.contoso.com/adfs/services/trust”. O Azure Active Directory requer um emissor exclusivo para cada domínio federado. Uma vez que o mesmo AD FS vai federar dois domínios, o valor do emissor tem de ser modificado para que seja exclusivo para cada domínio que o AD FS federa com o Azure Active Directory. 
+O emissor predefinido definido para um único domínio federado para o AD FS é "http://ADFSServiceFQDN/adfs/services/trust", por exemplo, `http://fs.contoso.com/adfs/services/trust`. O Azure Active Directory requer um emissor exclusivo para cada domínio federado. Uma vez que o mesmo AD FS vai federar dois domínios, o valor do emissor tem de ser modificado para que seja exclusivo para cada domínio que o AD FS federa com o Azure Active Directory. 
  
 No servidor do AD FS, abra o PowerShell do Azure AD (Certifique-se de que o módulo MSOnline está instalado) e execute os seguintes passos:
  
@@ -55,7 +55,7 @@ O emissor na definição de federação do domínio será alterado para "http://
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Passo 3: Federar o fabrikam.com com o AD FS
  
-No sessão de powershell do Azure AD execute os seguintes passos: ligar ao Azure Active Directory que contém o domínio fabrikam.com
+Numa sessão do powershell do Azure AD execute os seguintes passos: Ligar ao Azure Active Directory que contém o domínio fabrikam.com
 
     Connect-MsolService
 Converta o domínio gerido fabrikam.com para federado:

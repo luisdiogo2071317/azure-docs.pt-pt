@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057736"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408941"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início Rápido: criar um cluster para tarefas de preparação do Batch AI com o portal do Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início rápido: Criar um cluster para tarefas de formação de IA do Batch no portal do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como utilizar o portal do Azure para criar um cluster do Batch AI que pode utilizar para preparar modelos de machine learning e IA. O Batch AI é um serviço gerido que permite aos cientistas de dados e investigadores de IA preparar modelos de machine learning e IA em escala em clusters de máquinas virtuais do Azure.
 
@@ -91,7 +94,7 @@ Os passos seguintes criam um cluster com um único nó de GPU. O nó de cluster 
    |**Tamanho da VM**     |Standard NC6|
    |**Número de nós de destino**     |1|
 
-3. Introduza um **Nome de utilizador de administrador** e copie o conteúdo do ficheiro de chave pública SSH para **Chave SSH**. Aceite as predefinições para os restantes valores nesta página e selecione **Seguinte: Configuração do nó**.
+3. Introduza um **Nome de utilizador de administrador** e copie o conteúdo do ficheiro de chave pública SSH para **Chave SSH**. Aceite as predefinições para os restantes valores nesta página e selecione **seguinte: Configuração de nó**.
 
    ![Introduzir as informações de cluster básicas](./media/quickstart-create-cluster-portal/create-cluster.png)
 
@@ -135,7 +138,7 @@ São cobrados o cluster e o servidor de ficheiros do Batch AI enquanto as máqui
 
 Quando já não for necessária, elimine a área de trabalho do Batch AI que contém o cluster e o servidor de ficheiros. Para tal, selecione a área de trabalho do Batch AI e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a criar um cluster e um servidor de ficheiros anexado do Batch AI com o portal do Azure. Para saber mais sobre como utilizar um cluster do Batch AI para preparar um modelo, avance para o início rápido para preparar um modelo de aprendizagem aprofundada.
 

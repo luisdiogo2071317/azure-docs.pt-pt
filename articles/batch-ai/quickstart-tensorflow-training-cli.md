@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157927"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408073"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Início Rápido: Preparar um modelo de aprendizagem aprofundada com o Batch AI
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Início rápido: Preparar um modelo de aprendizagem profunda com o Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como preparar um modelo de aprendizagem aprofundada de exemplo numa máquina virtual ativada para GPU gerida pelo Batch AI. O Batch AI é um serviço gerido que permite aos cientistas de dados e investigadores de IA preparar modelos de machine learning e IA em escala em clusters de máquinas virtuais do Azure. 
 
@@ -313,7 +316,7 @@ Quando já não for necessário, pode utilizar o comando `az group delete` para 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, aprendeu a utilizar o Batch AI para preparar um modelo de aprendizagem aprofundada do TensorFlow de exemplo numa VM de GPU com a CLI do Azure. Para saber mais sobre como distribuir a preparação de modelos num cluster de GPU maior, avance para o tutorial do Batch AI.
 
 > [!div class="nextstepaction"]

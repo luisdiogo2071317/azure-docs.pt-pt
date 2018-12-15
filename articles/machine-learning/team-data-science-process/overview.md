@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4dbcc3cb655220db66a5f49712f1fd5f87109e61
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141327"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435995"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -79,7 +79,7 @@ Fornecemos modelos para a estrutura de pastas e os documentos necessários em lo
 
 [ ![Diretórios de TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-A estrutura de diretório pode ser clonada partir [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+A estrutura de diretório pode ser clonada partir [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infraestrutura e os recursos para projetos de ciência de dados  
 
@@ -99,7 +99,7 @@ Eis um exemplo de uma equipe de trabalhar em vários projetos e partilha vários
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
 
-Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários para o repositório de código compartilhado de sua equipe. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários do TDSP podem clonar a partir [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários para o repositório de código compartilhado de sua equipe. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários do TDSP podem clonar a partir [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011236"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436896"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
@@ -24,8 +24,8 @@ Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP),
 
 O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
-> [!NOTE]
-> Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Segurança empresarial contém quatro pilares principais: segurança de perímetro, autenticação, autorização e encriptação.
 
@@ -39,7 +39,7 @@ Outra camada de segurança de perímetro é obtida através do serviço de Gatew
 ## <a name="authentication"></a>Autenticação
 Um administrador empresarial pode criar um cluster do HDInsight com ESP num [rede virtual](https://azure.microsoft.com/services/virtual-network/). Todos os nós do cluster do HDInsight são associados ao domínio gerido pela empresa. Isto é conseguido através da utilização de [do Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Com esta configuração, empregados da empresa podem iniciar sessão nós do cluster através das respetivas credenciais de domínio. Também podem utilizar as credenciais de domínio para autenticar noutros pontos finais aprovados, como as vistas do Ambari, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster. O administrador tem controlo total sobre a limitar o número de utilizadores que interagem com o cluster através destes pontos finais.
+Com esta configuração, empregados da empresa podem iniciar sessão nós do cluster através das respetivas credenciais de domínio. Também podem utilizar as credenciais de domínio para autenticar noutros pontos finais aprovados, como o Apache Ambari Views, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster. O administrador tem controlo total sobre a limitar o número de utilizadores que interagem com o cluster através destes pontos finais.
 
 ## <a name="authorization"></a>Autorização
 Uma prática recomendada que se seguem a maioria das empresas é garantir que nem todos os empregados têm acesso a todos os recursos da empresa. Da mesma forma, o administrador pode definir políticas de controlo de acesso baseado em funções para os recursos do cluster. 
@@ -63,6 +63,6 @@ Ambos os arquivos de dados para os clusters do HDInsight – armazenamento de Bl
 * [Planear clusters do HDInsight com o ESP](apache-domain-joined-architecture.md)
 * [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md)
 * [Gerir clusters do HDInsight com o ESP](apache-domain-joined-manage.md)
-* [Configurar políticas do Hive para clusters do HDInsight com ESP](apache-domain-joined-run-hive.md)
+* [Configurar políticas do Apache Hive para clusters do HDInsight com o ESP](apache-domain-joined-run-hive.md)
 * [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

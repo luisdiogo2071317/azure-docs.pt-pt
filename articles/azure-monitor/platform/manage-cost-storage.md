@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d7b05757f031227ed1d5c3870a426567a1a31e6d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183511"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435655"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
 
 > [!NOTE]
 > Este artigo descreve como controlar os custos do Log Analytics ao definir o período de retenção de dados.  Veja os artigos seguintes para obter informações relacionadas.
 > - [Analisar a utilização de dados do Log Analytics](manage-cost-storage.md) descreve como analisar e alerta sobre a utilização de dados.
-> - [Monitorizar a utilização e custos estimados](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
+> - [Monitorizar a utilização e custos estimados](../../azure-monitor/platform/usage-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
 
 O log Analytics é criado para dimensionamento e suporte a recolher, indexação e armazenamento de grandes quantidades de dados por dia a partir de qualquer origem na sua empresa ou implementado no Azure.  Embora isso possa ser um controlador primário para a sua organização, relação custo-benefício é, por fim, o driver subjacente. Para esse fim, é importante compreender que o custo de uma área de trabalho do Log Analytics não está apenas com base no volume de dados recolhidos, também é dependente do plano selecionado e o tempo que optar por armazenar os dados gerados a partir de origens ligadas.  
 

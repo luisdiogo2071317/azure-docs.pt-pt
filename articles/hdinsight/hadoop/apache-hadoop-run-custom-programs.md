@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: a4a94ac4deee90bf0aea5fafbddff0105680cb4b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013156"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433870"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas MapReduce personalizados
 
@@ -74,8 +74,8 @@ Os programas MapReduce mais comuns são escritos em Java e compilados para um fi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Utilizar c# com o MapReduce de transmissão em fluxo do Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Desenvolver programas Java MapReduce para o Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Utilize C# com o MapReduce de transmissão em fluxo no Apache Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Desenvolver programas Java MapReduce para o Apache Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Desenvolver programas MapReduce de transmissão para HDInsight de Python](apache-hadoop-streaming-python.md)
-* [Utilizar o Azure Toolkit para Eclipse para criar Spark aplicações para um cluster do HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
-* [Utilizar Python funções definidas pelo utilizador (UDF) com o Hive e Pig no HDInsight](python-udf-hdinsight.md)
+* [Utilizar o Azure Toolkit para Eclipse para criar aplicativos de Apache Spark para um cluster do HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Utilizar Python funções definidas pelo utilizador (UDF) com o Apache Hive e Apache Pig no HDInsight](python-udf-hdinsight.md)

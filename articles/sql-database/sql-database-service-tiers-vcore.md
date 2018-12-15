@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441864"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437073"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
@@ -41,8 +41,8 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalõe
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
 |Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo | Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo |Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo|
-|Armazenamento|Utiliza [o armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB-8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 1 TB<br/>Instância gerida: 32 GB-4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo|
+|Armazenamento|Utiliza [o armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 1 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
 |Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápidos e não um tamanho de operação de dados (a demorar minutos em vez de horas ou dias).|
@@ -75,7 +75,7 @@ Migrar uma base de dados do modelo de compra baseado em DTU para o modelo de com
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>Migração de bases de dados com ligações de georreplicação
 
-Migrar para o modelo baseado em DTU modelo baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados Standard e Premium. Não requer a terminar a georreplicação, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal. Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário.
+Migrando do modelo baseado em DTU para o modelo baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados Standard e Premium. Não requer a terminar a georreplicação, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal. Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário.
 
 Ao utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se que designar um conjunto como principal e o outro – como o secundário. Nesse caso, migração de dados elásticas devem utilizar a mesma diretriz.  No entanto, é tecnicamente é possível que um conjunto elástico contém as bases de dados primárias e secundárias. Neste caso migrar corretamente deve tratar o conjunto com a utilização mais alta como "principal" e seguir as regras de sequenciamento em conformidade.  
 
