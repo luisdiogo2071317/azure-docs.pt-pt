@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285746"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444313"
 ---
+#### <a name="process-automation"></a>Automatização de processos
+
 | Recurso | Limite Máximo |Notas|
 | --- | --- |---|
 | Número máximo de novas tarefas que podem ser enviadas a cada 30 segundos por Conta de Automatização (tarefas que não sejam agendadas) |100 |Quando esse limite é alcançado, os pedidos subsequentes para criar uma tarefa falham. O cliente recebe uma resposta de erro.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285746"
 | Máximo de parâmetros do Runbook   | 50|Pode passar uma cadeia de carateres em JSON ou XML para um parâmetro e analisá-lo com o runbook se alcançar o limite de 50 parâmetros|
 | Tamanho máximo de payload de webhook |  512 kb|
 | Máximo de dias que os dados da tarefa são retidos|30 dias|
+| Tamanho do Estado de fluxo de trabalho de PowerShell de máx. |5 MB| Aplica-se a runbooks do fluxo de trabalho do PowerShell ao fluxo de trabalho do ponto de verificação.|
 
 **<sup>1</sup>** Uma sandbox é um ambiente partilhado que pode ser utilizado por várias tarefas, as tarefas que utilizem a mesma sandbox são vinculadas pelas limitações de recurso da sandbox.
+
+#### <a name="change-tracking-and-inventory"></a>Controlo de Alterações e Inventário
+
+A tabela seguinte mostra os limites de item controladas por máquina para controlo de alterações.
+
+| **Recurso** | **Limite**| **Notas** |
+|---|---|---|
+|Ficheiro|500||
+|Registo|250||
+|Software do Windows|250|Não inclui as atualizações de software|
+|Pacotes de Linux|1250||
+|Serviços|250||
+|Daemon|250||
