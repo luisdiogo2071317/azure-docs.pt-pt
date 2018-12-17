@@ -44,6 +44,19 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Conceitos
   items:
+  - name: Estrutura do modelo
+    href: resource-group-authoring-templates.md
+    items:
+    - name: Parâmetros
+      href: resource-manager-templates-parameters.md
+    - name: Variáveis
+      href: resource-manager-templates-variables.md
+    - name: Funções
+      href: resource-group-authoring-templates.md#functions
+    - name: Recursos
+      href: resource-manager-templates-resources.md
+    - name: Saídas
+      href: resource-manager-templates-outputs.md
   - name: Fornecedores e tipos de recursos
     href: resource-manager-supported-services.md
   - name: Grupos de gestão
@@ -65,65 +78,50 @@ items:
   items:
   - name: Criar modelos
     items:
-    - name: Secções de modelos
-      href: resource-group-authoring-templates.md
-      items:
-      - name: Parâmetros
-        href: resource-manager-templates-parameters.md
-      - name: Variáveis
-        href: resource-manager-templates-variables.md
-      - name: Funções
-        href: resource-group-authoring-templates.md#functions
-      - name: Recursos
-        href: resource-manager-templates-resources.md
-      - name: Saídas
-        href: resource-manager-templates-outputs.md
-    - name: Modelos ligados e aninhados
-      href: resource-group-linked-templates.md
-    - name: Dependências de recursos
+    - name: Criar grupos de recursos e recursos na subscrição
+      href: deploy-to-subscription.md
+    - name: Definir as dependências de recurso
       href: resource-group-define-dependencies.md
+    - name: Modularizar modelos
+      href: resource-group-linked-templates.md
+    - name: Gerir segredos
+      href: resource-manager-keyvault-parameter.md
     - name: Criar múltiplas instâncias
       href: resource-group-create-multiple.md
-    - name: Criar grupo de recursos no modelo
-      href: create-resource-group-in-template.md
-    - name: Criar recursos na subscrição
-      href: deploy-to-subscription.md
-    - name: Atualizar recurso
+    - name: Utilizar extensões de modelo
+      href: resource-manager-use-extensions.md
+    - name: Atualizar recursos
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-  - name: Implementação
+  - name: Implementar modelos
     items:
-    - name: Azure PowerShell
-      items:
-      - name: Implementar o modelo
-        href: resource-group-template-deploy.md
-      - name: Implementar um modelo privado com o token SAS
-        href: resource-manager-powershell-sas-token.md
-      - name: Exportar modelo e reimplementar
-        href: resource-manager-export-template-powershell.md
-    - name: CLI do Azure
-      items:
-      - name: Implementar o modelo
-        href: resource-group-template-deploy-cli.md
-      - name: Implementar um modelo privado com o token SAS
-        href: resource-manager-cli-sas-token.md
-      - name: Exportar modelo e reimplementar
-        href: resource-manager-export-template-cli.md
-    - name: Portal do Azure
-      items:
-      - name: Implementar recursos
-        href: resource-group-template-deploy-portal.md
-      - name: Exportar modelo
-        href: resource-manager-export-template.md
-    - name: API REST
+    - name: Implementar com o portal
+      href: resource-group-template-deploy-portal.md
+    - name: Implementar com a CLI do Azure
+      href: resource-group-template-deploy-cli.md
+    - name: Implementar com o Azure PowerShell
+      href: resource-group-template-deploy.md
+    - name: Implementar com a API REST
       href: resource-group-template-deploy-rest.md
-    - name: Vários grupos de recursos ou subscrições
+    - name: Exportar modelos
+      items:
+      - name: Utilizar o portal
+        href: resource-manager-export-template.md
+      - name: Utilizar a CLI do Azure
+        href: resource-manager-export-template-cli.md
+      - name: Utilizar o Azure PowerShell
+        href: resource-manager-export-template-powershell.md
+    - name: Proteger os modelos com o token de SAS
+      items:
+      - name: Utilizar a CLI do Azure
+        href: resource-manager-cli-sas-token.md
+      - name: Com o PowerShell
+        href: resource-manager-powershell-sas-token.md
+    - name: Implementar para vários grupos de recursos ou subscrições
       href: resource-manager-cross-resource-group-deployment.md
     - name: Integração contínua com os Serviços de DevOps do Azure
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: Transmitir valores seguros durante a implementação
-      href: resource-manager-keyvault-parameter.md
-  - name: Gerir
+  - name: Gerir modelos
     items:
     - name: Azure PowerShell
       href: powershell-azure-resource-manager.md
@@ -146,13 +144,13 @@ items:
       href: resource-manager-api-authentication.md
     - name: Bloquear recursos
       href: resource-group-lock-resources.md
-  - name: Auditoria
+  - name: Auditar implementações
     items:
     - name: Ver registos de atividades
       href: resource-group-audit.md
     - name: Ver as operações de implementação
       href: resource-manager-deployment-operations.md
-  - name: Resolução de problemas
+  - name: Resolução de problemas de implementações
     items:
     - name: Resolver erros de implementação
       href: resource-manager-common-deployment-errors.md
@@ -237,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47af6826974759a1b0dfea7949429c5acaca004d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252342"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436794"

@@ -91,7 +91,7 @@
 #### [Separador Versão de Teste](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Separador Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Separador Suporte](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Criar recursos técnicos](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Publicar oferta de aplicação do Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Atualizar oferta existente](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
