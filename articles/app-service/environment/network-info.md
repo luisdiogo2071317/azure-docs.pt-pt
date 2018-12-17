@@ -169,7 +169,7 @@ Os dois primeiros requisitos de entrada para o ASE para a função são apresent
 
 ![Regras de segurança de entrada][4]
 
-Uma regra predefinida permite que os IPs na VNet para comunicar com a sub-rede do ASE. Outra regra padrão permite que o Balanceador de carga, também conhecido como o VIP público, para comunicar com o ASE. Para ver as regras predefinidas, selecione **regras predefinidas** junto a **Add** ícone. Se colocar uma negação de todo o resto da regra depois do NSG de regras apresentadas, impedir que o tráfego entre o VIP e o ASE. Para impedir que o tráfego que vem de dentro da VNet, adicione a sua própria regra para permitir a entrada. Use uma fonte igual a AzureLoadBalancer com um destino **qualquer** e um intervalo de portas de **\***. Uma vez que a regra NSG é aplicada à sub-rede do ASE, não precisa de ser específico no destino.
+Uma regra predefinida permite que os IPs na VNet para comunicar com a sub-rede do ASE. Outra regra padrão permite que o Balanceador de carga, também conhecido como o VIP público, para comunicar com o ASE. Para ver as regras predefinidas, selecione **regras predefinidas** junto a **Add** ícone. Se colocar uma negação de todo o resto da regra depois do NSG de regras apresentadas, impedir que o tráfego entre o VIP e o ASE. Para impedir que o tráfego que vem de dentro da VNet, adicione a sua própria regra para permitir a entrada. Use uma fonte igual a AzureLoadBalancer com um destino **qualquer** e um intervalo de portas de **\****. Uma vez que a regra NSG é aplicada à sub-rede do ASE, não precisa de ser específico no destino.
 
 Se um endereço IP atribuído à sua aplicação, certifique-se de que manter as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicações** > **endereços IP**.  
 

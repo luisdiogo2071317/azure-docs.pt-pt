@@ -51,7 +51,7 @@ O formulário de definições da oferta é um formulário básico para especific
 
 Este é um identificador exclusivo para a oferta de um perfil do publicador. Este ID será visível em URLs de produto. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. Este campo está bloqueado assim que uma oferta entra no ar.
 
-Por exemplo, se um publicador de contoso publicador cria uma oferta com o ID da oferta *dynamics365 de exemplo para operações*, que será apresentado no AppSource como \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*exemplo-dynamics 365 para operações*? separador descrição geral de =\"
+Por exemplo, se um publicador de contoso publicador cria uma oferta com o ID da oferta *dynamics365 de exemplo para operações*, que será apresentado no AppSource como \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*exemplo-dynamics 365 para operações\*? separador descrição geral de =\"
 
 ### <a name="publisher-id"></a>ID de publicador
 
