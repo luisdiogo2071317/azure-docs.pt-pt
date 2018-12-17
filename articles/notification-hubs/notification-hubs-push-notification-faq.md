@@ -1,5 +1,5 @@
 ---
-title: 'Os Hubs de notificação do Azure: Perguntas mais frequentes (FAQ) | Documentos da Microsoft'
+title: 'Hubs de notificação do Azure: Perguntas mais frequentes sobre (FAQ) | Documentos da Microsoft'
 description: Perguntas frequentes sobre a criação/implementação de soluções em Hubs de notificação
 services: notification-hubs
 documentationcenter: mobile
@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251027"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437848"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 ## <a name="general"></a>Geral
@@ -33,14 +33,14 @@ Mapeamento recomendado corresponde a um espaço de nomes com uma aplicação. De
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>O que é o modelo de preço para os Hubs de notificação?
 Os detalhes de preços mais recentes podem ser encontrados no [Preços dos Hubs de notificação] página. Os Hubs de notificação é faturado ao nível do espaço de nomes. (Para a definição de um espaço de nomes, consulte a "Qual é a estrutura de recursos dos Hubs de notificação?") Os Hubs de notificação oferece três escalões:
 
-* **Gratuito**: esta camada é um bom ponto de partida para explorar os recursos de push. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushes incluído por espaço de nomes por mês, com nenhuma garantia de contrato de nível (SLA) do serviço.
-* **Básico**: esta camada (ou o escalão Standard) é recomendado para aplicações de produção mais pequenas. Obtém 200 000 dispositivos e 10 milhões de pushes incluídos por espaço de nomes por mês como uma linha de base. Opções de aumento de quota são incluídas.
-* **Padrão**: esta camada é recomendada para médio para aplicações de produção de grandes dimensões. Obtém 10 milhões de dispositivos e 10 milhões de pushes incluídos por espaço de nomes por mês como uma linha de base. Quota aumento avançados e opções de telemetria capacidades estão incluídas.
+* **Gratuito**: Esta camada é um bom ponto de partida para explorar os recursos de push. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushes incluído por espaço de nomes por mês, com nenhuma garantia de contrato de nível (SLA) do serviço.
+* **Básico**: Este escalão (ou o escalão Standard) é recomendado para aplicações de produção mais pequenas. Obtém 200 000 dispositivos e 10 milhões de pushes incluídos por espaço de nomes por mês como uma linha de base. Opções de aumento de quota são incluídas.
+* **Padrão**: Esta camada é recomendada para médio para aplicações de produção de grandes dimensões. Obtém 10 milhões de dispositivos e 10 milhões de pushes incluídos por espaço de nomes por mês como uma linha de base. Quota aumento avançados e opções de telemetria capacidades estão incluídas.
 
 Funcionalidades do escalão Standard:
-* **Telemetria avançada**: pode utilizar Notification Hubs da telemetria por mensagem para acompanhar todos os pedidos de push e comentários do sistema de notificação de plataforma para depuração.
-* **Arquitetura "multitenancy"**: pode trabalhar com as credenciais do sistema de notificação de plataforma num nível de espaço de nomes. Esta opção permite-lhe facilmente divididas inquilinos em hubs dentro do mesmo espaço de nomes.
-* **Agendado push**: pode agendar notificações para serem enviados a qualquer momento.
+* **Telemetria avançada**: Pode utilizar Notification Hubs da telemetria por mensagem para acompanhar todos os pedidos de push e comentários do sistema de notificação de plataforma para depuração.
+* **Arquitetura "multitenancy"**: Pode trabalhar com as credenciais do sistema de notificação de plataforma num nível de espaço de nomes. Esta opção permite-lhe facilmente divididas inquilinos em hubs dentro do mesmo espaço de nomes.
+* **Agendado push**: Pode agendar notificações para serem enviados a qualquer momento.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o SLA de Hubs de notificação?
 Para os escalões básico e Standard dos Hubs de notificação, as aplicações devidamente configuradas podem enviar notificações push ou efetuar operações de gestão de registo a, pelo menos, 99,9% do tempo. Para saber mais sobre o SLA, vá para o [SLA de Hubs de notificação](https://azure.microsoft.com/support/legal/sla/notification-hubs/) página.
@@ -51,12 +51,12 @@ Para os escalões básico e Standard dos Hubs de notificação, as aplicações 
 ### <a name="which-customers-are-using-notification-hubs"></a>Quais os clientes estão a utilizar os Hubs de notificação?
 Muitos clientes utilizam os Hubs de notificação. Alguns dos importantes estão listados aqui:
 
-* Sochi de 2014: Centenas de grupos de interesses, 3 + milhões de dispositivos e distribuídos nas duas semanas de 150 + milhões de notificações. [Caso prático: Sochi]
-* Skanska: [Caso prático: Skanska]
-* Seattle Times: [Estudo de caso: Tempos de Seattle]
-* Mural.LY: [Caso prático: Mural.ly]
-* 7Digital: [Caso prático: 7Digital]
-* Aplicações do Bing: Dezenas de milhões de dispositivos, enviar notificações de 3 milhões por dia.
+* Sochi 2014: Centenas de grupos de interesses, 3 + milhões de dispositivos e distribuídos nas duas semanas de 150 + milhões de notificações. [Estudo de caso: Sochi]
+* Skanska: [Estudo de caso: Skanska]
+* Tempos de Seattle: [Estudo de caso: Tempos de Seattle]
+* Mural.LY: [Estudo de caso: Mural.LY]
+* 7Digital: [Estudo de caso: 7Digital]
+* Aplicações do Bing: Dezenas de milhões de dispositivos enviam notificações de 3 milhões por dia.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Como posso atualizar ou mudar o meu hub ou espaço de nomes para um escalão diferente?
 Vá para o  **[portal do Azure]** > **espaços de nomes de Hubs de notificação** ou **os Hubs de notificação**. Selecione o recurso que pretende atualizar e aceda a **escalão de preço**. Tenha em atenção os seguintes requisitos:
@@ -199,11 +199,11 @@ Também fornecemos a capacidade de exportar os dados de telemetria por meio de p
 [Portal do Azure]: https://portal.azure.com
 [Preços dos Hubs de notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
-[Caso prático: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Caso prático: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
+[Estudo de caso: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
+[Estudo de caso: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Estudo de caso: Tempos de Seattle]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Caso prático: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Caso prático: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
+[Estudo de caso: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[Estudo de caso: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [REST APIs dos Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Tutoriais de introdução aos Hubs de notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Tutorial de aplicações do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
@@ -213,7 +213,7 @@ Também fornecemos a capacidade de exportar os dados de telemetria por meio de p
 [Modelo de segurança de Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Tutorial de proteger o Push dos Hubs de notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Hubs de notificação de resolução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de Hubs de notificação]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Hubs de notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Exemplo de métricas de Hubs de notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportação/importação de registos]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com

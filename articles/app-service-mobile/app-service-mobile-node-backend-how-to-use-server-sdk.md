@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964003"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409263"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
 
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Cada parâmetro é um dos verbos padrão RESTful: obter, publicar, aplicar um PATCH ou eliminar. O método é uma norma [ExpressJS middleware] função que envia a saída necessária.
+Cada parâmetro é um dos verbos padrão RESTful: OBTER, publicar, aplicar um PATCH ou eliminar. O método é uma norma [ExpressJS middleware] função que envia a saída necessária.
 
 ### <a name="howto-customapi-auth"></a>Exigir a autenticação para acesso a uma API personalizada
 
@@ -918,13 +918,13 @@ Ainda pode editar as operações de tabela com o Editor do serviço de aplicaç�
 
 Os comandos seguintes estão disponíveis na barra de comandos para uma tabela:
 
-* **Alterar permissões**: modificar as permissões de leitura, inserir, atualizar e eliminar operações na tabela.
+* **Alterar permissões**: Modificar as permissões de leitura, inserir, atualizar e eliminar operações na tabela.
  As opções são para permitir o acesso anônimo, para exigir a autenticação, ou para desativar todos os acessos para a operação.
 * **Editar script**: O ficheiro de script para a tabela é aberto no Editor de serviço de aplicações.
 * **Gerir esquema**: Adicionar ou eliminar colunas ou alterar o índice de tabela.
-* **Limpar tabela**: truncar uma tabela existente, eliminando todas as linhas de dados, mas deixar o esquema inalterado.
-* **Eliminar linhas**: eliminar as linhas individuais de dados.
-* **Ver registos de transmissão em fluxo**: ligar ao serviço de registo de transmissão em fluxo para o seu site.
+* **Limpar tabela**: Truncar uma tabela existente, eliminando todas as linhas de dados, mas deixar o esquema inalterado.
+* **Eliminar linhas**: Elimine linhas individuais de dados.
+* **Ver registos de transmissão em fluxo**: Liga ao serviço de log de transmissão em fluxo para o seu site.
 
 ### <a name="work-easy-apis"></a>Trabalhar com APIs simples no portal do Azure
 
@@ -963,11 +963,11 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 [Início rápido de cliente do xamarin. Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido de cliente do Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
-[Configurar a autenticação do Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configurar a autenticação da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Configurar a autenticação do Azure Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Configurar a autenticação do Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Configurar a autenticação do Google]: ../app-service/configure-authentication-provider-google.md
+[Configurar a autenticação da Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
+[Configurar a autenticação do Twitter]: ../app-service/configure-authentication-provider-twitter.md
 [Guia de implementação do serviço de aplicações do Azure]: ../app-service/app-service-deploy-local-git.md
 [Monitorização do serviço de aplicações do Azure]: ../app-service/web-sites-monitor.md
 [Ativar o registo de diagnóstico no serviço de aplicações do Azure]: ../app-service/web-sites-enable-diagnostic-log.md

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997087"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409450"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -444,7 +444,7 @@ Opções de publicar o projeto seguinte só são suportadas na versão 2.x:
 | **`--publish-settings-only -o`** |  Apenas as definições de publicação e a ignorar o conteúdo. A predefinição é a linha de comandos. |
 |**`--list-ignored-files`** | Apresenta uma lista de ficheiros que são ignorados durante a publicação, o que se baseia no arquivo .funcignore. |
 | **`--list-included-files`** | Apresenta uma lista de ficheiros que são publicados, que se baseia no arquivo .funcignore. |
-| **`--zip`** | Publicar no pacote de Run-From-Zip. Requer que a aplicação tenha a definição de AzureWebJobsStorage definida. |
+| **`--nozip`** | Ativa a predefinição `Run-From-Zip` modo desativado. |
 | **`--build-native-deps`** | Aplicações de funções de ignora a geração .wheels pasta durante a publicação de python. |
 | **`--additional-packages`** | Lista de pacotes a serem instalados durante a criação de dependências nativas. Por exemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore a verificação de pré-publicação em determinados cenários. |

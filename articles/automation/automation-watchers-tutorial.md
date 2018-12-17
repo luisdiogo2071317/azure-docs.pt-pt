@@ -90,7 +90,7 @@ A tarefa de observador contém duas partes. O observador e ação. O observador 
 1. Introduza os seguintes valores para parâmetros:
 
    ***EVENTDATA** -deixe em branco. Dados são passados do runbook de observador.  
-   ***Definições de execução** -deixe como o Azure como este runbook é executado no serviço de automatização.
+   ***Definições de execução** ** -deixe como o Azure como este runbook é executado no serviço de automatização.
 
 1. Clique em **OK**e, em seguida, selecione para voltar à página de observador.
 1. Clique em **OK** para criar a tarefa de observador.

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017958"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410538"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -80,7 +80,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Obtém a definição da preferência de utilizador para a floresta.<br>Exemplo - MetricCounterName como ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Definições para o etc de gráficos de interface do Usuário. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Obtém floresta resumo de determinada floresta, como o nome da floresta, número de domínios nesta floresta, o número de sites e detalhes de sites etc. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Obtém a lista de métricas suportadas para um determinado serviço.<br>Para bloqueios de conta de Extranet de exemplo, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço do AD FS.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para ADDomainService.<br>Execute a latência de perfil, estabelecer ligações de TCP, Bytes privados do agente de informações, estatísticas de exportar para o Azure AD para o serviço ADSync. |
-> | Ação | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: bloqueios de conta de Extranet, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
+> | Ação | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: Extranet bloqueios de conta, Total de pedidos falhados, Token pedidos pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Esta API obtém a lista de todos os carregadas ADDomainServices para um inquilino de premium. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/read | Obtém os detalhes do serviço para o nome de serviço especificado. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Obtém os detalhes de replicação para todos os servidores para o nome de serviço especificado. |
@@ -115,9 +115,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ADHybridHealthService/services/exportstatus/read | Obtém o estado de exportação para um determinado serviço. |
 > | Ação | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Obtém comentários de alertas para um determinado serviço e o servidor. |
 > | Ação | Microsoft.ADHybridHealthService/services/metricmetadata/read | Obtém a lista de métricas suportadas para um determinado serviço.<br>Para bloqueios de conta de Extranet de exemplo, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço do AD FS.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para ADDomainService.<br>Execute a latência de perfil, estabelecer ligações de TCP, Bytes privados do agente de informações, estatísticas de exportar para o Azure AD para o serviço ADSync. |
-> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Devido um serviço, esta API obtém a média de métricas para um determinado serviço.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: bloqueios de conta de Extranet, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
-> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: bloqueios de conta de Extranet, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
-> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Devido um serviço, esta API obtém a vista de agregados de métricas para um determinado serviço.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: bloqueios de conta de Extranet, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
+> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Devido um serviço, esta API obtém a média de métricas para um determinado serviço.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: Extranet bloqueios de conta, Total de pedidos falhados, Token pedidos pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
+> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: Extranet bloqueios de conta, Total de pedidos falhados, Token pedidos pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
+> | Ação | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Devido um serviço, esta API obtém a vista de agregados de métricas para um determinado serviço.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: Extranet bloqueios de conta, Total de pedidos falhados, Token pedidos pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
 > | Ação | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Adicionar ou atualiza a configuração de monitorização para um serviço. |
 > | Ação | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Obtém as configurações de monitorização para um determinado serviço. |
 > | Ação | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Adicionar ou configurações de monitorização para um serviço de atualizações. |
@@ -130,7 +130,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | Para um determinado servidor, esta API obtém uma lista de tipos de dados que estão a ser carregados, os servidores e a última hora para cada carregamento. |
 > | Ação | Microsoft.ADHybridHealthService/services/servicemembers/delete | Elimina uma instância de servidor no serviço. |
 > | Ação | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Obtém os detalhes do erro de exportação de sincronização para um determinado serviço de sincronização. |
-> | Ação | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: bloqueios de conta de Extranet, Total de pedidos falhados, pedidos de Token pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
+> | Ação | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Devido um serviço, esta API obtém as informações de métricas.<br>Por exemplo, esta API pode ser utilizada para obter informações relacionadas com a: Extranet bloqueios de conta, Total de pedidos falhados, Token pedidos pendentes (Proxy), Token pedidos por segundo etc para o serviço de ADFederation.<br>NTLM autenticações/seg, LDAP bem-sucedida "binds" / seg, tempo de enlace de LDAP, Threads ativos do LDAP, Kerberos autenticações/seg, ATQ etc Total de Threads para o serviço de ADDomain.<br>Latência de perfil de execução, o TCP ligações estabelecidas, Insights agente Private Bytes, exportar estatísticas para o Azure AD para o serviço de sincronização. |
 > | Ação | Microsoft.ADHybridHealthService/services/servicemembers/read | Lê a instância de servidor no serviço. |
 > | Ação | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Obtém a configuração de serviço para um determinado inquilino. |
 > | Ação | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Obtém o estado de listas de permissões de funcionalidade para um determinado inquilino. |
@@ -600,38 +600,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Batch/register/action | Regista a subscrição para o fornecedor de recursos do Batch e permite a criação de contas do Batch |
 > | Ação | Microsoft.Batch/unregister/action | Anula o registo da subscrição para o fornecedor de recursos do Batch que impede a criação de contas do Batch |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Tipo de Acção | Operação | Descrição |
-> | --- | --- | --- |
-> | Ação | Microsoft.BatchAI/clusters/read | Apresenta uma lista de clusters de IA do Batch ou obtém as propriedades de um cluster do Batch AI |
-> | Ação | Microsoft.BatchAI/fileservers/read | Apresenta uma lista de Batch AI fileservers ou obtém as propriedades de um servidor de ficheiros do Batch AI |
-> | Ação | Microsoft.BatchAI/locations/operationresults/read | Obtém o resultado da operação do Batch AI async na região do Azure especificada |
-> | Ação | Microsoft.BatchAI/locations/operationstatuses/read | Obtém o estado da operação do Batch AI async na região do Azure especificada |
-> | Ação | Microsoft.BatchAI/locations/usages/read | Obtém as utilizações de Batch AI da subscrição especificada na região do Azure especificada |
-> | Ação | Microsoft.BatchAI/register/action | Regista a subscrição para o fornecedor de recursos de IA do Batch e permite a criação de recursos do Batch AI |
-> | Ação | Microsoft.BatchAI/unregister/action | Anula o registo da subscrição para o fornecedor de recursos do Batch AI que impede a criação de recursos do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/clusters/delete | Elimina o cluster do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/clusters/read | Apresenta uma lista de clusters de IA do Batch ou obtém as propriedades de um cluster do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Lista as informações de início de sessão remoto para um cluster do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/clusters/write | Cria um novo cluster de IA do Batch ou atualiza um cluster existente do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/delete | Elimina uma área de trabalho do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/delete | Elimina uma experimentação de Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Elimina uma tarefa do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Listas de saída ficheiros para uma tarefa do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/read | Apresenta uma lista de tarefas de IA do Batch ou obtém as propriedades de uma tarefa do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Lista as informações de início de sessão remoto para uma tarefa do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Termina um trabalho do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/write | Cria uma nova tarefa do Batch AI ou atualiza uma tarefa do Batch AI existente |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/read | Listas de Batch AI experimentações ou obtém as propriedades de uma experimentação de Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/experiments/write | Cria uma nova experimentação de IA do Batch ou atualiza uma experiência existente do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/fileservers/delete | Elimina um servidor de ficheiros do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/fileservers/read | Apresenta uma lista de Batch AI fileservers ou obtém as propriedades de um servidor de ficheiros do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/fileservers/write | Cria um novo servidor de ficheiros do Batch AI ou atualiza um servidor de ficheiros existente do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/read | Apresenta uma lista de áreas de trabalho do Batch AI ou obtém as propriedades de uma área de trabalho do Batch AI |
-> | Ação | Microsoft.BatchAI/workspaces/write | Cria uma nova área de trabalho do Batch AI ou atualiza uma área de trabalho existente do Batch AI |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -659,19 +627,19 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
-> | Ação | Microsoft.Blueprint/blueprintAssignments/read | Ler quaisquer artefactos de esquema |
-> | Ação | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer artefactos de esquema |
+> | Ação | Microsoft.Blueprint/blueprintAssignments/read | Ler quaisquer artefactos de esquemas |
+> | Ação | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefactos de esquema |
 > | Ação | Microsoft.Blueprint/blueprints/artifacts/delete | Eliminar quaisquer artefactos de esquema |
-> | Ação | Microsoft.Blueprint/blueprints/artifacts/read | Ler quaisquer artefactos de esquema |
-> | Ação | Microsoft.Blueprint/blueprints/artifacts/write | Criar ou atualizar quaisquer artefactos de esquema |
+> | Ação | Microsoft.Blueprint/blueprints/artifacts/read | Ler quaisquer artefactos de esquemas |
+> | Ação | Microsoft.Blueprint/blueprints/artifacts/write | Criar ou atualizar artefactos de esquema |
 > | Ação | Microsoft.Blueprint/blueprints/delete | Eliminar quaisquer esquemas |
 > | Ação | Microsoft.Blueprint/blueprints/read | Ler quaisquer esquemas |
-> | Ação | Microsoft.Blueprint/blueprints/versions/artifacts/read | Ler quaisquer artefactos de esquema |
+> | Ação | Microsoft.Blueprint/blueprints/versions/artifacts/read | Ler quaisquer artefactos de esquemas |
 > | Ação | Microsoft.Blueprint/blueprints/versions/delete | Eliminar quaisquer esquemas |
 > | Ação | Microsoft.Blueprint/blueprints/versions/read | Ler quaisquer esquemas |
-> | Ação | Microsoft.Blueprint/blueprints/versions/write | Criar ou atualizar qualquer esquema |
-> | Ação | Microsoft.Blueprint/blueprints/write | Criar ou atualizar qualquer esquema |
-> | Ação | Microsoft.Blueprint/register/action | Regista o fornecedor de recursos de esquemas do Azure |
+> | Ação | Microsoft.Blueprint/blueprints/versions/write | Criar ou atualizar quaisquer esquemas |
+> | Ação | Microsoft.Blueprint/blueprints/write | Criar ou atualizar quaisquer esquemas |
+> | Ação | Microsoft.Blueprint/register/action | Regista o Fornecedor de Recursos de Esquemas do Azure |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1324,14 +1292,14 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ContainerService/containerServices/delete | Elimina um serviço de contentor |
 > | Ação | Microsoft.ContainerService/containerServices/read | Obter um serviço de contentor |
 > | Ação | Microsoft.ContainerService/containerServices/write | Cria um novo serviço de contentor ou atualiza um existente |
-> | Ação | Microsoft.ContainerService/locations/operationresults/read | Obtém o estado de um resultado da operação assíncrona |
+> | Ação | Microsoft.ContainerService/locations/operationresults/read | Obtém o estado de um resultado de operação assíncrona |
 > | Ação | Microsoft.ContainerService/locations/operations/read | Obtém o estado de uma operação assíncrona |
-> | Ação | Microsoft.ContainerService/locations/orchestrators/read | Apresenta uma lista de orquestradores suportados |
+> | Ação | Microsoft.ContainerService/locations/orchestrators/read | Lista os orquestradores suportados |
 > | Ação | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Obter um perfil de acesso de cluster gerido por nome de função com a credencial da lista |
 > | Ação | Microsoft.ContainerService/managedClusters/accessProfiles/read | Obter um perfil de acesso de cluster gerido por nome de função |
 > | Ação | Microsoft.ContainerService/managedClusters/delete | Elimina um cluster gerido |
-> | Ação | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial de clusterAdmin de um cluster gerido |
-> | Ação | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial de clusterUser de um cluster gerido |
+> | Ação | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerido |
+> | Ação | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerido |
 > | Ação | Microsoft.ContainerService/managedClusters/read | Obter um cluster gerido |
 > | Ação | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtém o perfil de atualização do cluster |
 > | Ação | Microsoft.ContainerService/managedClusters/write | Cria um novo cluster gerido ou atualiza um existente |
@@ -1341,9 +1309,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ContainerService/openShiftManagedClusters/delete | Eliminar um Cluster gerido Open Shift |
 > | Ação | Microsoft.ContainerService/openShiftManagedClusters/read | Obter um Cluster gerido Open Shift |
 > | Ação | Microsoft.ContainerService/openShiftManagedClusters/write | Cria um novo Open Shift geridos Cluster ou atualiza um já existente |
-> | Ação | Microsoft.ContainerService/operations/read | Lista as operações disponíveis no fornecedor de recursos de containerservice |
-> | Ação | Microsoft.ContainerService/register/action | Regista a subscrição no fornecedor de recursos de containerservice |
-> | Ação | Microsoft.ContainerService/unregister/action | Anula o registo da subscrição no fornecedor de recursos de containerservice |
+> | Ação | Microsoft.ContainerService/operations/read | Lista as operações disponíveis no fornecedor de recursos Microsoft.ContainerService |
+> | Ação | Microsoft.ContainerService/register/action | Regista a Subscrição no fornecedor de recursos Microsoft.ContainerService |
+> | Ação | Microsoft.ContainerService/unregister/action | Anula a Subscrição com o fornecedor de recursos Microsoft.ContainerService |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1542,7 +1510,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | --- | --- | --- |
 > | Ação | Microsoft.Databricks/register/action | Registar-se na Databricks. |
 > | Ação | Microsoft.Databricks/workspaces/delete | Remove uma área de trabalho da Databricks. |
-> | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Define as definições de diagnóstico disponíveis para a área de trabalho do Databricks |
+> | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Define as definições de diagnósticos disponíveis para a área de trabalho do Databricks |
 > | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Adiciona ou modifica as definições de diagnóstico. |
 > | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Obtém as definições de registo disponíveis para a área de trabalho do Databricks |
 > | Ação | Microsoft.Databricks/workspaces/read | Obtém uma lista de áreas de trabalho da Databricks. |
@@ -2169,7 +2137,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Obter a lista de descrições de recursos do Cluster métricas |
 > | Ação | Microsoft.EventHub/clusters/read | Obtém a Descrição de Recurso de Cluster |
 > | Ação | Microsoft.EventHub/clusters/write | Obtém a Descrição de Recurso de Cluster |
-> | Ação | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet de fornecedor de recursos do EventHub na vnet especificada |
+> | Ação | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet no Fornecedor de Recursos de EventHub para a VNet especificada |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API está preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/delete | Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido.  |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Obter Cadeia de Ligação para o Espaço de nomes |
@@ -2278,9 +2246,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.Insights/ActionGroups/Delete | Eliminar um grupo de ação |
-> | Ação | Microsoft.Insights/ActionGroups/Read | Ler um grupo de ação |
-> | Ação | Microsoft.Insights/ActionGroups/Write | Criar ou atualizar um grupo de ação |
+> | Ação | Microsoft.Insights/ActionGroups/Delete | Eliminar um grupo de ações |
+> | Ação | Microsoft.Insights/ActionGroups/Read | Ler um grupo de ações |
+> | Ação | Microsoft.Insights/ActionGroups/Write | Criar ou atualizar um grupo de ações |
 > | Ação | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Alerta do Registo de Atividade ativado |
 > | Ação | Microsoft.Insights/ActivityLogAlerts/Delete | Eliminar um alerta de registo de atividade |
 > | Ação | Microsoft.Insights/ActivityLogAlerts/Read | Ler um alerta do registo de atividade |
@@ -2680,24 +2648,24 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.LocationBasedServices/accounts/delete | (Preterido: Utilize /providers/Microsoft.Maps) Eliminar uma localização com base dos serviços de conta. |
-> | Ação | Microsoft.LocationBasedServices/accounts/listKeys/action | (Preterido: Utilize /providers/Microsoft.Maps) Listar chaves de conta do Location Based Services |
-> | Ação | Microsoft.LocationBasedServices/accounts/read | (Preterido: Utilize /providers/Microsoft.Maps) Obtenha uma localização com base dos serviços de conta. |
-> | Ação | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Preterido: Utilize /providers/Microsoft.Maps) Gerar nova chave de principal ou secundário de conta do Location Based Services |
-> | Ação | Microsoft.LocationBasedServices/accounts/write | (Preterido: Utilize /providers/Microsoft.Maps) Criar ou atualizar uma conta do Location Based Services. |
-> | Ação | Microsoft.LocationBasedServices/register/action | (Preterido: Utilize /providers/Microsoft.Maps) Registar o fornecedor |
+> | Ação | Microsoft.LocationBasedServices/accounts/delete | (Preterido: Utilize /providers/Microsoft.Maps) eliminar uma conta do Location Based Services. |
+> | Ação | Microsoft.LocationBasedServices/accounts/listKeys/action | (Preterido: Utilize as chaves de conta do Location Based Services /providers/Microsoft.Maps)List |
+> | Ação | Microsoft.LocationBasedServices/accounts/read | (Preterido: Utilize /providers/Microsoft.Maps) obter uma conta do Location Based Services. |
+> | Ação | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Preterido: Utilize /providers/Microsoft.Maps) gerar nova conta do Location Based Services chave primária ou secundária |
+> | Ação | Microsoft.LocationBasedServices/accounts/write | (Preterido: Utilize /providers/Microsoft.Maps) criar ou atualizar uma conta do Location Based Services. |
+> | Ação | Microsoft.LocationBasedServices/register/action | (Preterido: Utilize /providers/Microsoft.Maps) para registar o fornecedor |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.LocationServices/accounts/delete | (Preterido: Utilize /providers/Microsoft.Maps) Elimine uma conta de serviços de localização. |
-> | Ação | Microsoft.LocationServices/accounts/listKeys/action | (Preterido: Utilize /providers/Microsoft.Maps) Listar chaves de conta do Location Based Services |
-> | Ação | Microsoft.LocationServices/accounts/read | (Preterido: Utilize /providers/Microsoft.Maps) Obter uma conta de serviços de localização. |
-> | Ação | Microsoft.LocationServices/accounts/regenerateKey/action | (Preterido: Utilize /providers/Microsoft.Maps) Gerar nova chave de principal ou secundário de conta do Location Based Services |
-> | Ação | Microsoft.LocationServices/accounts/write | (Preterido: Utilize /providers/Microsoft.Maps) Criar ou atualizar uma conta de serviços de localização. |
-> | Ação | Microsoft.LocationServices/register/action | (Preterido: Utilize /providers/Microsoft.Maps) Registar o fornecedor |
+> | Ação | Microsoft.LocationServices/accounts/delete | (Preterido: Utilize /providers/Microsoft.Maps) eliminar uma conta de serviços de localização. |
+> | Ação | Microsoft.LocationServices/accounts/listKeys/action | (Preterido: Utilize as chaves de conta do Location Based Services /providers/Microsoft.Maps)List |
+> | Ação | Microsoft.LocationServices/accounts/read | (Preterido: Utilize /providers/Microsoft.Maps) obter uma conta de serviços de localização. |
+> | Ação | Microsoft.LocationServices/accounts/regenerateKey/action | (Preterido: Utilize /providers/Microsoft.Maps) gerar nova conta do Location Based Services chave primária ou secundária |
+> | Ação | Microsoft.LocationServices/accounts/write | (Preterido: Utilize /providers/Microsoft.Maps) criar ou atualizar uma conta de serviços de localização. |
+> | Ação | Microsoft.LocationServices/register/action | (Preterido: Utilize /providers/Microsoft.Maps) para registar o fornecedor |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -3171,7 +3139,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Media/mediaservices/streamingPolicies/write | Criar ou atualizar qualquer política de transmissão em fluxo |
 > | Ação | Microsoft.Media/mediaservices/syncStorageKeys/action | Sincronizar as chaves de armazenamento para uma conta de armazenamento do Azure anexada |
 > | Ação | Microsoft.Media/mediaservices/transforms/delete | Eliminar qualquer transformação |
-> | Ação | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | Cancelar tarefa |
+> | Ação | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | Cancelar Tarefa |
 > | Ação | Microsoft.Media/mediaservices/transforms/jobs/delete | Eliminar todas as tarefas |
 > | Ação | Microsoft.Media/mediaservices/transforms/jobs/read | Ler qualquer tarefa |
 > | Ação | Microsoft.Media/mediaservices/transforms/jobs/write | Criar ou atualizar todas as tarefas |
@@ -4073,7 +4041,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar o ponto de recuperação |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | Eliminar todos os itens protegidos |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Consolidação de ativação pós-falha |
-> | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Ativação pós-falha planeada |
+> | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Ativação Pós-falha Planeada |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler todos os itens protegidos |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action | Remover Item protegido |
@@ -4105,7 +4073,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler qualquer vCenters |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/write | Criar ou atualizar qualquer vCenters |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationFabrics/write | Criar ou atualizar quaisquer recursos de infraestrutura |
-> | Ação | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | Cancelar tarefa |
+> | Ação | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | Cancelar Tarefa |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationJobs/read | Ler todas as tarefas |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationJobs/restart/action | Reiniciar tarefa |
 > | Ação | Microsoft.RecoveryServices/vaults/replicationJobs/resume/action | Retomar tarefa |
@@ -4357,7 +4325,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | --- | --- | --- |
 > | Ação | Microsoft.ServiceBus/checkNameAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. |
 > | Ação | Microsoft.ServiceBus/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida, utilize CheckNameAvailabiltiy. |
-> | Ação | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet de fornecedor de recursos do ServiceBus na vnet especificada |
+> | Ação | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet no Fornecedor de Recursos de ServiceBus para a VNet especificada |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API está preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido.  |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Obter Cadeia de Ligação para o Espaço de nomes |
