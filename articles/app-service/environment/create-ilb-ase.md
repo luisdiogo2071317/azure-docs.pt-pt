@@ -1,5 +1,5 @@
 ---
-title: Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações do Azure
+title: Criar Balanceador de carga interno com o ambiente de serviço de aplicações - Azure
 description: Detalhes sobre como criar e utilizar um Ambiente de Serviço de Aplicações do Azure isolado da Internet
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e86367d5df8294a7e0f798e47bf87ff3fb8ccf72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967577"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344283"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -58,17 +58,17 @@ Para criar um ASE de ILB:
 
 1. No portal do Azure, selecione **criar um recurso** > **Web** > **App Service Environment**.
 
-1. Selecione a sua subscrição.
+2. Selecione a sua subscrição.
 
-1. Selecione ou crie um grupo de recursos.
+3. Selecione ou crie um grupo de recursos.
 
-1. Selecione ou crie uma VNet.
+4. Selecione ou crie uma VNet.
 
-1. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
+5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
 
-1. Selecione **rede Virtual/localização** > **configuração de rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
+6. Selecione **rede Virtual/localização** > **configuração de rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
 
-1. Introduza um nome de domínio. Este domínio é o domínio utilizada para as aplicações criadas neste ASE. Existem algumas restrições. Não pode ser:
+7. Introduza um nome de domínio. Este domínio é o domínio utilizada para as aplicações criadas neste ASE. Existem algumas restrições. Não pode ser:
 
     * net   
 
@@ -133,8 +133,8 @@ Depois de criar o ASE, o nome de domínio mostra o domínio que especificou. Um 
 
 O ASE de ILB precisa de um certificado SSL válido. Utilize autoridades de certificação internas, compre um certificado junto de um emissor externo ou utilize um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado têm de ser configurados corretamente:
 
-* **Requerente**: este atributo tem de ser definido como *.your-root-domain-here.
-* **Nome Alternativo do Requerente**: este atributo tem de incluir **.your-root-domain-here* e **.scm.your-root-domain-here*. As ligações SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here*.
+* **Assunto**: Este atributo tem de ser definido como *.your-raiz-domain-here.
+* **Nome alternativo do requerente**: Este atributo tem de incluir **.your-raiz-domain-here* e **Here-raiz-domínio-aqui*. As ligações SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here*.
 
 Converta/guarde o certificado SSL como um ficheiro .pfx. O ficheiro .pfx tem de incluir todos certificados intermédios e de raiz. Proteja-o com uma palavra-passe.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4593c19a05484f7075b7a4a15a6be2e6a1bc0d28
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 38153a605bc3c2fb32662e2733d2521fa1bf519a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271509"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341223"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 ## <a name="overview"></a>Descrição geral
@@ -27,7 +27,7 @@ O termo **alertas de registo** descreve os alertas que fire com base numa consul
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de registo não são acionados
 
-Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) Estado não mostra [como *disparado* quando esperado](monitoring-alerts-managing-alert-states.md). 
+Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) Estado não mostra [como *disparado* quando esperado](../azure-monitor/platform/alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
 Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -71,7 +71,7 @@ Como agregação após é timestamp que os dados são ordenados na coluna timest
 - (Ou) reconfigurar a regra de alerta para utilizar a lógica de alerta com base na *total de violação* em vez disso adequadamente
  
 ## <a name="log-alert-fired-unnecessarily"></a>Alerta de registo acionado desnecessariamente
-Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) podem ser acionadas quando visualizado no [alertas do Azure](monitoring-alerts-managing-alert-states.md), quando não espera que sejam acionados.
+Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) podem ser acionadas quando visualizado no [alertas do Azure](../azure-monitor/platform/alerts-managing-alert-states.md), quando não espera que sejam acionados.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
 Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
