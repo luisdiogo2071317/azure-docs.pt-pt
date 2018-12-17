@@ -79,7 +79,7 @@ Nesta secção, vai criar uma rede virtual, duas máquinas virtuais para o conju
     1. Certifique-se de que *myVNet* está selecionado para a rede virtual e que *myBackendSubnet* está selecionado como sub-rede.
     2. Para **Endereço IP público**, no painel **Criar endereço IP público**, selecione **Standard** e, em seguida, selecione **OK**.
     3. Para o **Grupo de Segurança de Rede**, selecione **Avançado** e, em seguida, faça o seguinte:
-        1. Selecione *Grupo de segurança de rede (firewall) e, na página **Escolher grupo de segurança de rede**, selecione **Criar novo**. 
+        1. Selecione *Grupo de segurança de rede (firewall) ** e, na página **Escolher grupo de segurança de rede**, selecione **Criar novo**. 
         2. Na página **Criar grupo de segurança de rede**, para **Nome**, introduza *myNetworkSecurityGroup* e, em seguida, selecione **OK**.
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.

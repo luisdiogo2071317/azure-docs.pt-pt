@@ -45,7 +45,7 @@ A aplicação tem de executar o **padrão**, **Premium**, ou **Isolated* escalã
     ![Adicionar um novo bloco de implementação][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se a aplicação já não está no **padrão**, **Premium**, ou **Isolated* camada, receberá uma mensagem a indicar as camadas de suporte para ativar a publicação faseada. Neste ponto, tem a opção de selecionar **atualizar** e navegue para o **dimensionamento** separador da sua aplicação antes de continuar.
+   > Se a aplicação já não está no **padrão**, **Premium**, ou **Isolated* camada, receberá uma mensagem a indicar as camadas de suporte para ativar a publicação faseada. Neste ponto, tem a opção de selecionar ** **atualizar** e navegue para o **dimensionamento** separador da sua aplicação antes de continuar.
    > 
    > 
 3. Na **adicionar uma ranhura** painel, dê um nome de ranhura de e selecione se pretende clonar a configuração de aplicações do outro bloco de implementação existente. Clique na marca de verificação para continuar.
