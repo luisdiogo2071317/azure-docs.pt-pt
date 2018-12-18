@@ -239,11 +239,11 @@ A seguir explica mais o que cada da notificação significa que os itens e forne
 
 -   **Nome a apresentar** – **(pode estar vazio)** um nome a apresentar mais detalhado do erro
 
-    -   Exemplo *– **as definições de proxy de aplicação**
+    -   Exemplo ** – **as definições de proxy de aplicação**\*
 
 -   **Estado** – o estado específico da notificação
 
-    -   Exemplo *– **falhou**
+    -   Exemplo ** – **falhou**\*
 
 -   **ID de objeto** – **(pode estar vazio)** o ID de objeto em relação aos quais a operação foi executada
 

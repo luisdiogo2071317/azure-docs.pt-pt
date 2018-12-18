@@ -215,7 +215,7 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Serviços globais do Azure * | 12076:5050 |
 | Outros serviços do Office 365 Online | 12076:5100 |
 
-***Serviços globais do Azure inclui o Azure DevOps**
+***Serviços globais do Azure inclui o Azure DevOps**\**
 
 
 > [!NOTE]
