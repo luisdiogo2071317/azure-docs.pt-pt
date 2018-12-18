@@ -1,24 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para PostgreSQL a partir do Python
 description: Este guia de início rápido fornece um código de exemplo Python que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987686"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541137"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados
+# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar Python para ligar e consultar dados
 Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -66,7 +63,7 @@ Este artigo contém um total de quatro exemplos de código, cada um dos quais re
 -  Para executar o código, escreva o comando do Python seguido do nome de ficheiro, por exemplo `Python postgres.py`.
 
 > [!NOTE]
-> A partir do Python versão 3, poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os seguintes blocos de código: se isto acontecer, substitua cada chamada para o comando `print "string"` por uma chamada de função com parênteses, como `print("string")`.
+> A partir do Python versão 3, poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os seguintes blocos de código: Se isso acontecer, substitua cada chamada para o comando `print "string"` por uma chamada de função utilizando parênteses, como `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 Utilize o código seguinte para se ligar e carregar os dados com a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e a instrução SQL **INSERT**. A função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) é utilizada para executar a consulta SQL na base de dados PostgreSQL. Substitua os parâmetros do sistema anfitrião, nome da base de dados, utilizador e palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.
@@ -206,6 +203,6 @@ cursor.close()
 conn.close()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)
