@@ -59,7 +59,7 @@ Este ID está visível no produto URLs. Apenas pode ser constituído por carater
 
 **Exemplo:**
 
-Se o publicador **contoso** cria uma oferta com o ID de oferta *exemplo-Cortana Intelligence*, que será apresentado no AppSource como "https://appsource.microsoft.com/marketplace/apps/\**contoso\**.\*exemplo-Cortana Intelligence\*? separador descrição geral de = ".
+Se o publicador **contoso** cria uma oferta com o ID de oferta *exemplo-Cortana Intelligence*, que será apresentado no AppSource como "https://appsource.microsoft.com/marketplace/apps/**contoso**.\*exemplo-Cortana Intelligence\*? separador descrição geral de = ".
 
 ### <a name="publisher-id"></a>ID de publicador
 
