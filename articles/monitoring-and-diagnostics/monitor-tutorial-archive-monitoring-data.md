@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 512f9346654c68e568f5ba60b9491df8dffe1ad2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 5723193c0c8232f660a28d53f219a61fdf9e832b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434608"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547308"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -46,7 +46,7 @@ Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monit
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Encaminhar registos da subscrição para a conta de armazenamento
 
-Agora, está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitorização para uma conta de armazenamento. Primeiro, vamos configurar os dados ao nível da subscrição (contidos no Registo de Atividades do Azure) para serem encaminhados para a conta de armazenamento. O [**Registo de Atividades do Azure**](monitoring-overview-activity-logs.md) disponibiliza um histórico de eventos ao nível da subscrição no Azure. Pode navegar no mesmo no portal do Azure para determinar *quem* criou, atualizou ou eliminou *que* recursos e *quando*.
+Agora, está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitorização para uma conta de armazenamento. Primeiro, vamos configurar os dados ao nível da subscrição (contidos no Registo de Atividades do Azure) para serem encaminhados para a conta de armazenamento. O [**Registo de Atividades do Azure**](../azure-monitor/platform/activity-logs-overview.md) disponibiliza um histórico de eventos ao nível da subscrição no Azure. Pode navegar no mesmo no portal do Azure para determinar *quem* criou, atualizou ou eliminou *que* recursos e *quando*.
 
 1. Clique no botão **Monitorizar**, na lista de navegação esquerda, e em **Registo de Atividades**.
 

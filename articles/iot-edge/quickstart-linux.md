@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6479bfbb81468649108ed648035122e4623041e3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339506"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555511"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64
 
@@ -65,7 +65,7 @@ Dispositivo IoT Edge
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Comece o início rápido ao criar o seu Hub IoT com a CLI do Azure.
+Inicie o guia de introdução ao criar um hub IoT com a CLI do Azure.
 
 ![Diagrama - criar um hub IoT na cloud](./media/quickstart-linux/create-iot-hub.png)
 
@@ -102,7 +102,9 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie a cadeia de ligação e guarde-a. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte. 
+3. Copie a cadeia de ligação de saída JSON e guarde-o. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte.
+
+   ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o runtime do IoT Edge
 
@@ -115,7 +117,7 @@ Durante a configuração do runtime, apresenta a cadeia de ligação do disposit
 
 ### <a name="connect-to-your-iot-edge-device"></a>Ligar ao seu dispositivo IoT Edge
 
-Os passos nesta secção todos os ocorrem no seu dispositivo IoT Edge. Se estiver a utilizar o seu computador como o dispositivo do IoT Edge, pode ignorar esta parte. Se estiver a utilizar uma máquina virtual ou do hardware secundário, que pretende ligar a essa máquina agora. 
+Os passos nesta secção todos os ocorrem no seu dispositivo IoT Edge. Se estiver a utilizar o seu computador como o dispositivo do IoT Edge, pode continuar para a secção seguinte. Se estiver a utilizar uma máquina virtual ou do hardware secundário, que pretende ligar a essa máquina agora. 
 
 Se tiver criado uma máquina virtual do Azure para este início rápido, obter o endereço IP público que era de saída, o comando de criação. Também pode encontrar o endereço IP público na página de descrição geral da sua máquina virtual no portal do Azure. Utilize o seguinte comando para ligar à máquina virtual. Substitua **{publicIpAddress}** com o endereço da sua máquina. 
 

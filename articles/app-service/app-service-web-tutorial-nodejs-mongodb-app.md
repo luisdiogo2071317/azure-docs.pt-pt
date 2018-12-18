@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 41b73e662316a6f61ec4145c06fb5e9c06e83f06
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251509"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537864"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Compilar uma aplicação Web Node.js e MongoDB no Azure
 
@@ -119,7 +119,7 @@ Selecione **Administrador > Gerir Artigos** para adicionar alguns artigos.
 Para parar o Node.js em qualquer altura, prima `Ctrl+C` no terminal. 
 
 > [!NOTE]
-> O [Início Rápido do Node.js](app-service-web-get-started-nodejs.md) menciona a necessidade de um web.config no diretório da aplicação de raiz. No entanto, neste tutorial, este ficheiro web.config será automaticamente gerado pelo Serviço de Aplicações ao implementar os ficheiros com a [implementação de Git local](app-service-deploy-local-git.md) em vez da implementação de ficheiros ZIP. 
+> O [Início Rápido do Node.js](app-service-web-get-started-nodejs.md) menciona a necessidade de um web.config no diretório da aplicação de raiz. No entanto, neste tutorial, este ficheiro web.config será automaticamente gerado pelo Serviço de Aplicações ao implementar os ficheiros com a [implementação de Git local](deploy-local-git.md) em vez da implementação de ficheiros ZIP. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

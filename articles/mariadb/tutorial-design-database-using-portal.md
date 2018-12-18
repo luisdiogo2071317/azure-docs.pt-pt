@@ -1,22 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma base de dados do Azure Database for MariaDB com o portal do Azure'
+title: 'Tutorial: Conceber uma base de dados do Azure para MariaDB com o portal do Azure'
 description: Este tutorial explica como criar e gerir um servidor e uma base de dados do Azure Database for MariaDB com o portal do Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322061"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538111"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure Database for MariaDB com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MariaDB base de dados com o portal do Azure
 
 O Azure Database for MariaDB é um serviço gerido que pode utilizar para executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. Ao utilizar o portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
@@ -56,7 +54,7 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
     Grupo de recursos | **myresourcegroup** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente.
     Selecionar origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Se estiver a criar um servidor a partir de uma cópia de segurança de área geográfica de um servidor do Azure Database for MariaDB Server existente, selecione **Cópia de segurança**).
     Início de sessão de administrador do servidor | **myadmin** | Uma conta de início de sessão a utilizar quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
+    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *a região mais próxima dos seus utilizadores*| Selecione a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
@@ -171,14 +169,14 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    
    ![Formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauro**: selecione um ponto anterior no tempo para o qual quer restaurar, no período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
-   - **Restaurar para novo servidor**: introduza um novo nome de servidor para o qual quer restaurar.
-   - **Localização**: a região é a mesma do servidor de origem e não pode ser alterada.
-   - **Escalão de preço**: o escalão de preço é o mesmo do servidor de origem e não pode ser alterado.
+   - **Ponto de restauro**: Selecione um ponto no tempo que pretende restaurar para, no período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
+   - **Restaurar para novo servidor**: Introduza um novo nome de servidor para restaurar para.
+   - **Localização**: A região é igual ao servidor de origem e não pode ser alterada.
+   - **Escalão de preço**: O escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
    
 3. Selecione **OK** para [restaurar o servidor para um ponto anterior no tempo](./howto-restore-server-portal.md) antes da tabela ter sido eliminada. Restaurar um servidor cria uma nova cópia do servidor no ponto anterior no tempo que selecionou. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, utilizou o portal do Azure para aprender a:
 
 > [!div class="checklist"]

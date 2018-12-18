@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: chamar o ponto final com C# - Pesquisa Personalizada do Bing'
+title: 'Início rápido: Chamar a sua através de ponto final de pesquisa personalizada do Bing C# | Documentos da Microsoft'
 titlesuffix: Azure Cognitive Services
-description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com C# para chamar o ponto final de Pesquisa Personalizada do Bing.
+description: Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing no C#.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,129 +10,118 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: 3a7ba0f464dc82751df5daabd4226fc521fe6916
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 764a6a060a3ce2c7af9e4051b02ad45d14d27900
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316196"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557823"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (C#)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Início rápido: Chamar a sua através de ponto final de pesquisa personalizada do BingC# 
 
-Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada através de C# para chamar o ponto final de Pesquisa Personalizada do Bing. 
+Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing. Embora esse aplicativo é escrito em C#, a API de pesquisa personalizada do Bing é um serviço RESTful web compatível com a maioria das linguagens de programação. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+- Uma instância de pesquisa personalizada do Bing. Consulte [início rápido: Criar a primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
+- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+- O pacote de [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)instalado. 
+    - No Explorador de Soluções do Visual Studio, clique com o botão direito do rato no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Quando instala o pacote de Pesquisa Personalizada do NuGet também instala as assemblagens seguintes:
+        - Microsoft.Rest.ClientRuntime
+        - Microsoft.Rest.ClientRuntime.Azure
+        - Newtonsoft.Json
 
-- Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
-- [.Net Core](https://www.microsoft.com/net/download/core) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-## <a name="run-the-code"></a>Executar o código
-
-Para executar este exemplo, siga estes passos:
-
-1. Crie uma pasta para o código.  
-  
-2. Numa linha de comandos ou terminal, navegue para a pasta que acabou de criar.  
-  
-3. Execute os seguintes comandos:
-    ```
-    dotnet new console -o BingCustomSearch
-    cd BingCustomSearch
-    dotnet add package Newtonsoft.Json
-    dotnet restore
-    ```
-  
-4. Copie o seguinte código para Program.cs. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de subscrição e ID de configuração.
+1. Crie um novo aplicativo de console do c# no Visual Studio. Em seguida, adicione os seguintes pacotes ao seu projeto.
 
     ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
     using Newtonsoft.Json;
-    
-    namespace bing_custom_search_example_dotnet
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
-    
-                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
-                    "q=" + searchTerm +
-                    "&customconfig=" + customConfigId;
-    
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                var httpResponseMessage = client.GetAsync(url).Result;
-                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
-                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
-                
-                for(int i = 0; i < response.webPages.value.Length; i++)
-                {                
-                    var webPage = response.webPages.value[i];
-                    
-                    Console.WriteLine("name: " + webPage.name);
-                    Console.WriteLine("url: " + webPage.url);                
-                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
-                    Console.WriteLine("snippet: " + webPage.snippet);
-                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
-                    Console.WriteLine();
-                }            
-            }
-        }
-    
-        public class BingCustomSearchResponse
-        {        
-            public string _type{ get; set; }            
-            public WebPages webPages { get; set; }
-        }
-    
-        public class WebPages
-        {
-            public string webSearchUrl { get; set; }
-            public int totalEstimatedMatches { get; set; }
-            public WebPage[] value { get; set; }        
-        }
-    
-        public class WebPage
-        {
-            public string name { get; set; }
-            public string url { get; set; }
-            public string displayUrl { get; set; }
-            public string snippet { get; set; }
-            public DateTime dateLastCrawled { get; set; }
-            public string cachedPageUrl { get; set; }
-            public OpenGraphImage openGraphImage { get; set; }        
-        }
-        
-        public class OpenGraphImage
-        {
-            public string contentUrl { get; set; }
-            public int width { get; set; }
-            public int height { get; set; }
-        }
+    ```
+
+2. Crie as seguintes classes para armazenar os resultados da pesquisa devolvidos pela API de pesquisa personalizada do Bing.
+
+    ```csharp
+    public class BingCustomSearchResponse {        
+        public string _type{ get; set; }            
+        public WebPages webPages { get; set; }
+    }
+
+    public class WebPages {
+        public string webSearchUrl { get; set; }
+        public int totalEstimatedMatches { get; set; }
+        public WebPage[] value { get; set; }        
+    }
+
+    public class WebPage {
+        public string name { get; set; }
+        public string url { get; set; }
+        public string displayUrl { get; set; }
+        public string snippet { get; set; }
+        public DateTime dateLastCrawled { get; set; }
+        public string cachedPageUrl { get; set; }
     }
     ```
-6. Compile a aplicação com o comando seguinte. Anote o caminho da DLL referenciado pela saída do comando.
 
-    <pre>
-    dotnet build 
-    </pre>
-    
-7. Execute a aplicação com o comando seguinte, substituindo **PATH TO OUTPUT** pelo caminho da DLL referenciado no passo 6.
+3. O método principal de seu projeto, crie variáveis para a chave de subscrição de API de pesquisa personalizada do Bing, ID de configuração personalizada da sua instância de pesquisa e um termo de pesquisa.
 
-    <pre>    
-    dotnet **PATH TO OUTPUT**
-    </pre>
+    ```csharp
+    var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+    var searchTerm = args.Length > 0 ? args[0]:"microsoft";
+    ```
+
+4. Construir o URL do pedido ao acrescentar o termo de pesquisa para o `q=` parâmetro de consulta e o ID de configuração da sua instância de pesquisa personalizada para `customconfig=`. Separe-os com um `&` caráter. 
+
+    ```csharp
+    var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+                "q=" + searchTerm + "&" +
+                "customconfig=" + customConfigId;
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa 
+
+1. Criar um cliente de solicitação e adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+    ```csharp
+    var client = new HttpClient();
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ```
+
+2. Efetuar o pedido de pesquisa e obtenha a resposta como um objeto JSON.
+
+    ```csharp
+    var httpResponseMessage = client.GetAsync(url).Result;
+    var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
+    BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
+    ```
+## <a name="process-and-view-the-results"></a>Processar e ver os resultados
+
+1. Itere sobre o objeto de resposta para apresentar informações sobre cada resultado da pesquisa, incluindo o respetivo nome, url e a data, a página Web foi rastreada pela última vez.
+
+    ```csharp
+    for(int i = 0; i < response.webPages.value.Length; i++) {                
+        var webPage = response.webPages.value[i];
+        
+        Console.WriteLine("name: " + webPage.name);
+        Console.WriteLine("url: " + webPage.url);                
+        Console.WriteLine("displayUrl: " + webPage.displayUrl);
+        Console.WriteLine("snippet: " + webPage.snippet);
+        Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
+        Console.WriteLine();
+    }
+    Console.WriteLine("Press any key to exit...");
+    Console.ReadKey();
+    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
-- [Paginação de páginas Web](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Criar uma aplicação web de pesquisa personalizada](./tutorials/custom-search-web-page.md)

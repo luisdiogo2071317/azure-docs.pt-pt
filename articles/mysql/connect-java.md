@@ -1,24 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para MySQL através de Java
 description: Este guia de início rápido proporciona um código de exemplo de Java que pode utilizar para se ligar e consultar dados de uma Base de Dados do Azure para a base de dados MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: e660daa0a0676f7f4267be7e6852568d80791774
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985398"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539114"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o Java para se ligar e consultar dados
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilizar o Java para ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação Java e o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 Há muitos outros exemplos, além de código exemplo, na [página de exemplos do Conector MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
@@ -394,7 +391,7 @@ public class DeleteTable {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Há muitos outros exemplos, além de código de exemplo, na [página de exemplos do MySQL Connector/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 > [!div class="nextstepaction"]

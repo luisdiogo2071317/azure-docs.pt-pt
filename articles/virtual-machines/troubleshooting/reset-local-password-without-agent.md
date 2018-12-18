@@ -133,7 +133,7 @@ Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure Po
      ![Copie o URI do disco](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Crie uma VM a partir do disco de SO da VM de origem:
    
-   * Usar [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
+   Usar [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
    * Se pretende manter todas as definições anteriores para a VM, selecione *Editar modelo* para fornecer a sua VNet existente, a sub-rede, a placa de rede ou o IP público.
    * Na `OSDISKVHDURI` caixa de texto de parâmetro, colar o URI do VHD de origem de se obter no passo anterior:
      

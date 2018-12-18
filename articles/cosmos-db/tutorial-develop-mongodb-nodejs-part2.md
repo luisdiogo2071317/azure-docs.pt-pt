@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 842a321f63bce11207e6144705e9c4f68df21760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 30d9db58a6b9e8cbebe427d450ef73265f9bf478
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133980"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536819"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Crie uma aplicação MongoDB com Angular e o Azure Cosmos DB - parte 2: Criar uma aplicação node. js Express
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação [API de MongoDB](mongodb-introduction.md) escrita em Node.js com Express, Angular e a sua base de dados do Azure Cosmos DB.
+Este tutorial com várias parte demonstra como criar uma nova [conta de API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md) aplicação escrita em node. js com Express, Angular e a base de dados do Azure Cosmos DB.
 
 A Parte 2 do tutorial é a continuação da [introdução](tutorial-develop-mongodb-nodejs.md) e abrange as seguintes tarefas:
 

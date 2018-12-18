@@ -1,6 +1,6 @@
 ---
-title: 'o Azure Cosmos DB: Criar uma aplicação de consola com Java e a API do MongoDB'
-description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar a Azure Cosmos DB MongoDB API
+title: Criar uma aplicação de consola com Java e a API do Azure Cosmos DB para o MongoDB
+description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar a API do Azure Cosmos DB para o MongoDB
 services: cosmos-db
 author: slyons
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ddecb179b2ea0001ec358ad17ec76754054b0309
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162024"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535559"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>o Azure Cosmos DB: Criar uma aplicação de consola da MongoDB API com Java e o portal do Azure
+# <a name="build-a-console-app-with-java-and-the-azure-cosmos-db-api-for-mongodb"></a>Criar uma aplicação de consola com Java e a API do Azure Cosmos DB para o MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53162024"
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta da [API do MongoDB](mongodb-introduction.md) do Azure Cosmos DB, bases de dados de documentos e coleções com o portal do Azure. Depois, vai criar e implementar uma aplicação de consola criada no [controlador Java do MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
+Este início rápido demonstra como criar uma [API MongoDB do Azure Cosmos DB](mongodb-introduction.md) conta, base de dados de documentos e coleções com o portal do Azure. Depois, vai criar e implementar uma aplicação de consola criada no [controlador Java do MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Dê um nome à base de dados nova, **db**, e à coleção nova, **coll**.
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma MongoDB aplicação API do GitHub, definir a cadeia de ligação e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente. 
+Agora vamos clonar uma API do Azure Cosmos DB para aplicações de MongoDB a partir do GitHub, definir a cadeia de ligação e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente. 
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 

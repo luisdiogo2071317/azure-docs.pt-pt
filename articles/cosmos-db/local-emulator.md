@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 334396b99609ea52085e36ee2740583e0957c3a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413698"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549578"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
 
@@ -125,7 +125,7 @@ Pode executar o emulador numa rede local. Para ativar o acesso de rede, especifi
 Para ativar o acesso à rede pela primeira vez, o utilizador deve encerrar o emulador e eliminar o diretório de dados do emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Desenvolver com o emulador
-Assim que tiver o emulador do Azure Cosmos DB em execução no seu ambiente de trabalho, pode utilizar qualquer SDK do [Azure Cosmos DB](sql-api-sdk-dotnet.md) ou [API REST do Azure Cosmos DB](/rest/api/cosmos-db/) suportados para interagir com o emulador. O Emulador do Azure Cosmos DB também inclui um Data Explorer incorporado, que permite criar coleções de APIs de SQL e MongoDB, e ver e editar documentos sem escrever qualquer código.
+Assim que tiver o emulador do Azure Cosmos DB em execução no seu ambiente de trabalho, pode utilizar qualquer SDK do [Azure Cosmos DB](sql-api-sdk-dotnet.md) ou [API REST do Azure Cosmos DB](/rest/api/cosmos-db/) suportados para interagir com o emulador. O emulador do Azure Cosmos DB também inclui um Explorador de dados incorporados que lhe permite criar coleções para a API do Azure Cosmos DB para SQL e o MongoDB e ver e editar documentos sem escrever nenhum código.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

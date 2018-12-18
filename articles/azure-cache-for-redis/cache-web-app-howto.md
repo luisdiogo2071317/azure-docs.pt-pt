@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 11e674771e9f4a8afbe820aa91dfee1c8b8ab6db
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019218"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556192"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar uma aplicação Web ASP.NET 
+# <a name="quickstart-create-an-aspnet-web-app"></a>Início rápido: Criar uma aplicação Web ASP.NET 
 
 ## <a name="introduction"></a>Introdução
 
@@ -118,7 +118,7 @@ Uma vez que o ficheiro *CacheSecrets.config* não está implementado no Azure co
 * Antes: `<appSettings>`
 * Depois: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando implementa a aplicação Web no Azure, o ficheiro *CacheSecrests.config* não é implementado.
+O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando implementar a aplicação web para o Azure, o *CacheSecrets.config* ficheiro não está implementado.
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Para configurar a aplicação para utilizar o StackExchange.Redis
 
@@ -173,7 +173,7 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
             ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
             ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             ViewBag.command4 = "GET Message";
             ViewBag.command4Result = cache.StringGet("Message").ToString();
 

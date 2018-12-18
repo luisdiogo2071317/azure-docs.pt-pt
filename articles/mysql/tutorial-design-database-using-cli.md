@@ -1,24 +1,21 @@
 ---
-title: 'Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure'
+title: 'Tutorial: Conceber uma base de dados do Azure para MySQL com a CLI do Azure'
 description: Este tutorial explica como criar e gerir o servidor da Base de Dados do Azure para MySQL e a base de dados através da CLI do Azure a partir da linha de comandos.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966984"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545795"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para MySQL com a CLI do Azure
 
 A Base de Dados do Azure para MySQL é um serviço de base de dados relacional na cloud da Microsoft baseado no motor de base de dados da Edição de Comunidade do MySQL. Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 
@@ -175,19 +172,19 @@ Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil r
 
 Para o restauro, precisa das seguintes informações:
 
-- Ponto de restauro: selecione uma hora antes do servidor ter sido alterado. Tem de ser maior ou igual ao valor da Cópia de segurança mais antiga da base de dados de origem.
-- Servidor de destino: indique um novo nome de servidor para o qual pretende restaurar
-- Servidor de origem: indique o nome do servidor do qual pretende restaurar
-- Localização: não pode selecionar a região, por predefinição é igual ao servidor de origem
+- Ponto de restauro: Selecione um ponto anterior no tempo que ocorre antes do servidor foi alterado. Tem de ser maior ou igual ao valor da Cópia de segurança mais antiga da base de dados de origem.
+- Servidor de destino: Forneça um novo nome de servidor que pretende restaurar para
+- Servidor de origem: Forneça o nome do servidor que pretende restaurar a partir de
+- Localização: Não é possível selecionar a região, por predefinição é igual ao servidor de origem
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
 O comando `az mysql server restore` precisa dos seguintes parâmetros:
-| Definição | Valor sugerido | Descrição  |
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos no qual se encontra o servidor de origem.  |
+| resource-group |  myResourceGroup |  O grupo de recursos no qual se encontra o servidor de origem.  |
 | nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um ponto anterior no tempo para o qual restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2017-04-13T05:59:00-08:00`, ou utilizar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
@@ -196,7 +193,7 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor MySQL

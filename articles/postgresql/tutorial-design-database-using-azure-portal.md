@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma Base de Dados do Azure para PostgreSQL com o portal do Azure'
+title: 'Tutorial: Conceber uma base de dados do Azure para PostgreSQL com o portal do Azure'
 description: Este tutorial mostra como Conceber a sua primeira Base de Dados do Azure para PostgreSQL com o portal do Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406387"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536530"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para PostgreSQL com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL com o portal do Azure
 
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
@@ -51,7 +48,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
     ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
     - Nome do servidor: **mydemoserver** (o nome de um servidor é mapeado para o nome DNS e, por conseguinte, é necessário que seja globalmente exclusivo) 
-    - Subscrição: se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado.
+    - Subscrição: Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado.
     - Grupo de recursos: **myresourcegroup**
     - Início de sessão e palavra-passe de administrador do servidor à sua escolha
     - Localização
@@ -195,13 +192,13 @@ Imagine que eliminou acidentalmente esta tabela. Esta situação é algo de que 
 
    ![Portal do Azure – Opções do formulário de restauro](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
-   - **Ponto de restauro**: selecione uma hora antes do servidor ter sido alterado
-   - **Servidor de destino**: indique um novo nome de servidor para o qual pretende restaurar
-   - **Localização**: não pode selecionar a região, por predefinição é igual ao servidor de origem
-   - **Escalão de preço**: não pode alterar este valor quando restaurar um servidor. É igual ao servidor de origem. 
+   - **Ponto de restauro**: Selecione um ponto anterior no tempo que ocorre antes do servidor foi alterado
+   - **Servidor de destino**: Forneça um novo nome de servidor que pretende restaurar para
+   - **Localização**: Não é possível selecionar a região, por predefinição é igual ao servidor de origem
+   - **Escalão de preço**: Não é possível alterar este valor quando restaurar um servidor. É igual ao servidor de origem. 
 3.  Clique em **OK** para [restaurar o servidor para um ponto anterior no tempo](./howto-restore-server-portal.md) antes da eliminação da tabela. Restaurar um servidor para outro ponto anterior no tempo cria um novo servidor duplicado como servidor original a partir do ponto anterior no tempo que especificar, desde que esteja dentro do período de retenção do seu [escalão de preço](./concepts-pricing-tiers.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a utilizar o portal do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL
@@ -212,4 +209,4 @@ Neste tutorial, aprendeu a utilizar o portal do Azure e outros utilitários para
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, para aprender a utilizar a CLI do Azure para realizar tarefas semelhantes, reveja este tutorial: [Conceber a sua primeira Base de Dados do Azure para PostgreSQL com a CLI do Azure](tutorial-design-database-using-azure-cli.md)
+Em seguida, para saber como utilizar a CLI do Azure para realizar tarefas semelhantes, reveja este tutorial: [Conceber a sua primeira base de dados do Azure para PostgreSQL com a CLI do Azure](tutorial-design-database-using-azure-cli.md)

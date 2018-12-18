@@ -156,7 +156,7 @@ Tem de começar com indexação Solr com alguns arquivos de dados. Em seguida, p
           </response>
       ```
       
-   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante a **instantâneo.* Timestamp ***.
+   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante a **instantâneo.\*Timestamp**\*.
    
    3. Zip na pasta de instantâneos e carregue-o para o armazenamento de Blobs do Azure. A linha de comandos do Hadoop, navegue para a localização da pasta de instantâneo, utilizando o seguinte comando:
 

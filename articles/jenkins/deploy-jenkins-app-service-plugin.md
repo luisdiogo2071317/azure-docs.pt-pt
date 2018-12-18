@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319358"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537584"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
@@ -55,7 +55,7 @@ Para implementar na Aplicação Web para Contentores, instale o Docker na instâ
 Para implementar no Azure, precisa de um principal de serviço do Azure. 
 
 
-1. Para criar um principal de serviço do Azure, utilize a [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Para criar um Azure principal de serviço, utilize o [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou a [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. No dashboard do Jenkins, selecione **Credentials** > **System** (Credenciais > Sistema). Em seguida, selecione **Global credentials(unrestricted)** (Credenciais globais (sem restrições).
 3. Para adicionar um principal de serviço do Microsoft Azure, selecione **Add Credentials** (Adicionar Credenciais). Indique valores para os campos **Subscription ID** (ID da Subscrição), **Client ID** (ID do Cliente), **Client Secret** (Segredo do Cliente) e **OAuth 2.0 Token Endpoint** (Ponto Final de Tokens de OAuth 2.0). Defina o campo **ID** como **mySp**. Vamos utilizar este ID em passos subsequentes deste artigo.
 
@@ -64,9 +64,9 @@ Para implementar no Azure, precisa de um principal de serviço do Azure.
 
 Para implementar o seu projeto nas Aplicações Web, pode carregar os artefactos de compilação através do carregamento de ficheiros. O Serviço de Aplicações do Azure suporta várias opções de implementação. O plug-in Jenkins do Serviço de Aplicações do Azure facilita e deriva a opção de implementação com base no tipo de ficheiro. 
 
-* Para aplicações Java EE, é utilizada a [implementação WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file).
-* Para aplicações Java SE, é utilizada a [implementação ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
-* Para outras linguagens, é utilizada a [implementação Git](/azure/app-service/app-service-deploy-local-git).
+* Para aplicações Java EE, é utilizada a [implementação WAR](/azure/app-service/deploy-zip#deploy-war-file).
+* Para aplicações Java SE, é utilizada a [implementação ZIP](/azure/app-service/deploy-zip#deploy-zip-file).
+* Para outras linguagens, é utilizada a [implementação Git](/azure/app-service/deploy-local-git).
 
 Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Aplicações e de uma aplicação Web para executar a aplicação Web.
 
@@ -100,7 +100,7 @@ Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Ap
 4. Selecione **Publish an Azure Web App** (Publicar uma Aplicação Web do Azure) para adicionar uma ação de pós-compilação.
 5. Forneça **mySp** como o principal de serviço do Azure. Esse principal foi armazenado como [Azure Credentials](#service-principal) (Credenciais do Azure) num passo anterior.
 6. Na secção **App Configuration** (Configuração da aplicação), escolha o grupo de recursos e a aplicação Web na sua subscrição. O plug-in Jenkins deteta automaticamente se a aplicação Web é baseada em Windows ou Linux. Para aplicações Web do Windows, é apresentada a opção **Publish Files** (Publicar Ficheiros).
-7. Preencha os ficheiros que pretende implementar. Por exemplo, se estiver a utilizar Java, especifique o pacote WAR. Utilize os parâmetros **Source Directory** (Diretório de Origem) e **Target Directory** (Diretório de Destino) para especificar as pastas de origem e destino que vão ser utilizadas para o carregamento do ficheiro. A aplicação Web Java no Azure é executada num servidor Tomcat. Assim, para Java, o pacote WAR é carregado para pasta webapps. Neste exemplo, defina o valor de **Source Directory** (Diretório de Origem) como **target** (destino) e de **Target Directory** (Diretório de Destino) como **webapps**.
+7. Preencha os ficheiros que pretende implementar. Por exemplo, se estiver a utilizar Java, especifique o pacote WAR. Utilize os parâmetros **Source Directory** (Diretório de Origem) e **Target Directory** (Diretório de Destino) para especificar as pastas de origem e destino que vão ser utilizadas para o carregamento do ficheiro. A aplicação Web Java no Azure é executada num servidor Tomcat. Portanto, para Java, carregue seu pacote WAR para a pasta webapps. Neste exemplo, defina o valor de **Source Directory** (Diretório de Origem) como **target** (destino) e de **Target Directory** (Diretório de Destino) como **webapps**.
 8. Se quiser implementar noutro bloco que não de produção, também pode definir o nome **Slot**.
 9. Guarde o projeto e compile-o. Após a conclusão da compilação, a aplicação Web é implementada no Azure.
 
@@ -131,7 +131,7 @@ O plug-in Jenkins do Serviço de Aplicações do Azure está pronto para pipelin
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configurar o Jenkins para implementar Aplicações Web para Contentores
 
-As Aplicações Web no Linux suportam a implementação com a utilização do Docker. Para utilizar o Docker para implementar a sua aplicação Web, tem de fornecer um Dockerfile que a empacote com um runtime de serviço numa imagem do Docker. Depois, o plug-in Jenkins compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
+As Aplicações Web no Linux suportam a implementação com a utilização do Docker. Para implementar a aplicação web com o Docker, terá de fornecer um Dockerfile que empacota a sua aplicação web com um tempo de execução do serviço numa imagem do Docker. Depois, o plug-in Jenkins compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
 
 As Aplicações Web no Linux também suportam métodos de implementação tradicionais, como Git e carregamento de ficheiros, mas apenas para linguagens incorporadas (.NET Core, Node.js, PHP e Ruby). Relativamente a outras linguagens, tem de empacotar o código da aplicação e o runtime de serviço em conjunto numa imagem do Docker e utilizar este último para a implementação.
 
@@ -206,7 +206,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A calculadora mostra a soma: ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A Calculadora mostra a soma: ![Calculadora: adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>No Serviço de Aplicações do Azure no Linux
 
@@ -231,7 +231,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, utilizou o plug-in Jenkins do Serviço de Aplicações do Azure para implementar no Azure.
 

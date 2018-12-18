@@ -1,6 +1,6 @@
 ---
 title: Introdução à API de tabelas do Azure Cosmos DB
-description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chaves-valores com baixa latência através da utilização das populares APIs OSS MongoDB.
+description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chave-valor com baixa latência, utilizando a conta de sistemas operacionais do Azure Cosmos DB APIs popular para o MongoDB.
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8e386d5d56654610f92ac07648ccc271fd3e9467
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074312"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535051"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: Table API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
 
 O [Azure Cosmos DB](introduction.md) disponibiliza a API de Tabelas às aplicações que foram escritas para o armazenamento de Tabelas do Azure e que precisam de capacidades premium, como:
 

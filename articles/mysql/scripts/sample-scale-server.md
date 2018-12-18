@@ -1,22 +1,19 @@
 ---
 title: Script da CLI do Azure - Dimensionar um servidor da Base de Dados do Azure para MySQL
 description: Este script de exemplo da CLI dimensiona o servidor da Base de Dados do Azure para MySQL para um nível de desempenho diferente depois de consultar as métricas.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 04/05/2018
-ms.openlocfilehash: 8c06237090a8ab6c09336833e7771e64bfe6ae90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8de0d123af7aedd456ffb6dad9d9dfec499fc8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583513"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538793"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorizar e dimensionar um servidor da Base de Dados do Azure para MySQL com a CLI do Azure
 Este script de exemplo da CLI dimensiona um único servidor da Base de Dados do Azure para MySQL para um nível de desempenho diferente depois de consultar as métricas.
@@ -43,6 +40,6 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [Exemplos da CLI do Azure para a Base de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)
+- Ler mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
+- Experimente scripts adicionais: [Exemplos da CLI do Azure para a base de dados do Azure para MySQL](../sample-scripts-azure-cli.md)
 - Para obter mais informações sobre como dimensionar, veja os [Escalões de Serviço](../concepts-service-tiers.md) e as [Unidades de Computação e Unidades de Armazenamento](../concepts-compute-unit-and-storage.md).

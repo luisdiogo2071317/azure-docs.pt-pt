@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 23a737c97cad0ce8c525d52db97bfb32ef4eb300
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254960"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537193"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux
 
@@ -28,14 +28,14 @@ ms.locfileid: "53254960"
 > Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar no Serviço de Aplicações no _Windows_, veja [Build a Node.js and MongoDB web app in Azure (Criar uma aplicação Web Node.js e MongoDB no Azure)](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Web Node.js, ligá-la localmente a uma base de dados MongoDB e, em seguida, implementar no Azure ligado a uma base de dados CosmosDB com a API do MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no Serviço de Aplicações no Linux. Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação web do node. js, ligá-la localmente a uma base de dados do MongoDB, em seguida, implementar a API do Azure Cosmos DB para o MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no Serviço de Aplicações no Linux. Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 O que aprende com o saiba como:
 
 > [!div class="checklist"]
-> * Criar uma base de dados do CosmosDB com a API do MongoDB no Azure
+> * Criar uma base de dados na API do Azure Cosmos DB para o MongoDB
 > * Ligar uma aplicação Node.js ao MongoDB
 > * Implementar a aplicação no Azure
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
@@ -319,7 +319,7 @@ http://<app_name>.azurewebsites.net
 
 Clique em **Inscrever** no menu superior e crie um utilizador de teste.
 
-Se concluir com êxito e a aplicação iniciar sessão automaticamente no utilizador criado, então a aplicação do MEAN.js no Azure tem conectividade à API do MongoDB da base de dados do Cosmos DB.
+Se concluir com êxito e a aplicação iniciar sessão automaticamente no utilizador criado, a sua aplicação do Mean. js no Azure tem conectividade com a API do Azure Cosmos DB para o MongoDB.
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -474,7 +474,7 @@ Por predefinição, o portal mostra a página **Descrição Geral** da aplicaç�
 O que aprendeu:
 
 > [!div class="checklist"]
-> * Criar uma base de dados do CosmosDB com a API do MongoDB no Azure
+> * Criar uma base de dados na API do Azure Cosmos DB para o MongoDB
 > * Ligar uma aplicação Node.js ao MongoDB
 > * Implementar a aplicação no Azure
 > * Atualizar o modelo de dados e voltar a implementar a aplicação

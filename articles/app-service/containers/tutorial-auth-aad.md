@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7359374e520469e13d98b88b46ddf467d64d3ba7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409420"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545693"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure no Linux
 
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
-Na janela de terminal local, execute os seguintes comandos do Git para implementar na aplicação de back-end. Substitua _&lt;deploymentLocalGitUrl-of-back-end-app>_ pelo URL da instância remota do Git que guardou em [Criar recursos do Azure](#create-azure-resources). Quando lhe forem pedidas credenciais pelo Gestor de Credenciais do Git, confirme que introduz as [credenciais de implementação](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e não as que utilizou para iniciar sessão no portal do Azure.
+Na janela de terminal local, execute os seguintes comandos do Git para implementar na aplicação de back-end. Substitua _&lt;deploymentLocalGitUrl-of-back-end-app>_ pelo URL da instância remota do Git que guardou em [Criar recursos do Azure](#create-azure-resources). Quando lhe forem pedidas credenciais pelo Gestor de Credenciais do Git, confirme que introduz as [credenciais de implementação](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e não as que utilizou para iniciar sessão no portal do Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>

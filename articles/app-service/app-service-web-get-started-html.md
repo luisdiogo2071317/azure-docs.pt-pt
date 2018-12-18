@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 237b0e104ca6e9ecd0b807dc61ec848ab436ce7f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253585"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543211"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -84,7 +84,7 @@ O comando `az webapp up` executa as seguintes ações:
 
 - Cria uma aplicação com o nome especificado.
 
-- [Implementa](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) os ficheiros zip do diretório atual de trabalho para a aplicação Web.
+- [Implementa](https://docs.microsoft.com/azure/app-service/deploy-zip) os ficheiros zip do diretório atual de trabalho para a aplicação Web.
 
 Este comando pode demorar alguns minutos a ser executado. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
 

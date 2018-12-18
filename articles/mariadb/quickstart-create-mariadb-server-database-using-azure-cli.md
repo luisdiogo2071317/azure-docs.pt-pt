@@ -1,21 +1,19 @@
 ---
-title: 'Início Rápido: criar uma Azure Database for MariaDB Server – CLI do Azure'
+title: 'Início rápido: Criar uma base de dados do Azure para MariaDB server - CLI do Azure'
 description: Este início rápido descreve como pode utilizar a CLI do Azure para criar uma Azure Database for MariaDB Server num grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566453"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538753"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
 
@@ -52,14 +50,14 @@ Definição | Valor da amostra | Descrição
 nome | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **myresourcegroup** | Introduza o nome do grupo de recursos do Azure.
 sku-name | **GP_Gen5_2** | O nome do SKU. Segue a convenção *escalão de preço*\_*geração de computação*\_*vCores* em estenografia. Para obter mais informações sobre o parâmetro **sku-name**, veja a secção abaixo desta tabela.
-backup-retention | **7** | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. Intervalo: 7 a 35. 
-geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativado**, **Desativado**.
+backup-retention | **7** | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. Intervalo de: 7 para 35. 
+geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativada**, **desativado**.
 localização | **westus** | A localização do Azure para o servidor.
-ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativado**, **Desativado**.
+ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativada**, **desativado**.
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5120 MB (mínimo) com aumentos em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, veja [Escalões de preço](./concepts-pricing-tiers.md). 
 versão | **10.2** | A versão do motor principal de MariaDB.
 admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-admin-password | *a sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
+admin-password | *a sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
 
 O valor do parâmetro **sku-name** segue a convenção *escalão de preço*\_*geração de computação*\_*vCores*, conforme os exemplos abaixo:
 + `--sku-name B_Gen5_4` é mapeado para o escalão de preço Básico, a geração de computação Ger 5 e 4 vCores.

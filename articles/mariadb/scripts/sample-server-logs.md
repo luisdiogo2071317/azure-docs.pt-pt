@@ -1,21 +1,19 @@
 ---
 title: Script CLI do Azure - transferir registos do servidor na base de dados do Azure para MariaDB
 description: Este script da CLI do Azure de exemplo mostra como ativar e transferir os registos de uma base de dados do Azure para MariaDB server.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: cda2f1f02bf48c261da2fdda53c1c145154fe3ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585344"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548097"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Ativar e transferir registos de consulta lenta de um banco de dados do Azure para o servidor de MariaDB com a CLI do Azure
 Este script da CLI de exemplo permite e transfere os registos de consulta lenta de uma única base de dados do Azure para MariaDB server.
@@ -46,5 +44,5 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [exemplos da CLI do Azure para a base de dados do Azure para MariaDB](../sample-scripts-azure-cli.md)
+- Ler mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
+- Experimente scripts adicionais: [Exemplos da CLI do Azure para a base de dados do Azure para MariaDB](../sample-scripts-azure-cli.md)

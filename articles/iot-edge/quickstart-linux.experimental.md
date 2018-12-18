@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc9ad544bb974dded098a27855ff5f6b9885d879
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338062"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556582"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64
 
@@ -69,7 +69,7 @@ Dispositivo IoT Edge
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Comece o início rápido ao criar o seu Hub IoT com a CLI do Azure.
+Inicie o guia de introdução ao criar um hub IoT com a CLI do Azure.
 
 ![Diagrama - criar um hub IoT na cloud](./media/quickstart-linux/create-iot-hub.png)
 
@@ -106,7 +106,9 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie a cadeia de ligação e guarde-a. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte. 
+3. Copie a cadeia de ligação de saída JSON e guarde-o. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte.
+
+   ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Ligar o dispositivo do IoT Edge ao IoT Hub
 

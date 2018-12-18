@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60f16405f76654ce2646ec651a47396d79268cc2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141385"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537125"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>o Azure Cosmos DB: Migrar uma aplicação de web MongoDB node. js existente 
 
@@ -29,7 +29,7 @@ ms.locfileid: "53141385"
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este início rápido demonstra como utilizar uma aplicação MongoDB existente escrita em Node.js e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente do MongoDB com a [API MongoDB](mongodb-introduction.md). Por outras palavras, a aplicação Node.js sabe apenas que está a ligar a uma base de dados através das APIs MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
+Este início rápido demonstra como utilizar uma aplicação MongoDB existente escrita em node. js e ligá-la à sua base de dados do Azure Cosmos DB, que suporta ligações de cliente MongoDB com o [API MongoDB do Azure Cosmos DB](mongodb-introduction.md). Em outras palavras, a aplicação node. js sabe apenas que está a ligar a uma base de dados com APIs do Azure Cosmos DB do MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
 
 Quando terminar, terá uma aplicação MEAN (MongoDB, Express, Angular e Node.js) em execução no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

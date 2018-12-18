@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50e2e36058e025e87302352eaa492f5cf78eb31b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091583"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536428"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -35,11 +35,11 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
 * **Vários modelos de dados e APIs populares para aceder e consultar os dados**
     * O modelo de dados baseado em sequência de registo atom (ARS) com base no qual o Azure Cosmos DB é criado suporta nativamente vários modelos de dados, incluindo, entre outros, modelos de documentos, gráficos, chaves-valores, tabela e dados de família de colunas.
     * As APIs para os modelos de dados seguintes são suportadas com os SDKs disponíveis em várias linguagens:
-        * [API SQL](sql-api-introduction.md): um motor de base de dados JSON sem esquemas com capacidades de consultas SQL avançadas.
-        * [API MongoDB](mongodb-introduction.md): um *MongoDB como um Serviço* desenvolvido com base na plataforma do Azure Cosmos DB. É compatível com bibliotecas, controladores, ferramentas e aplicações existentes do MongoDB.
-        * [API Cassandra](cassandra-introduction.md): um Cassandra como um Serviço de distribuição global desenvolvido com base na plataforma do Azure Cosmos DB. É compatível com as bibliotecas, controladores, ferramentas e aplicações existentes do [Apache Cassandra](https://cassandra.apache.org/).
-        * [API do Gremlin](graph-introduction.md): um serviço de base de dados de gráficos horizontalmente dimensionável e totalmente gerido, que facilita a compilação e execução de aplicações que funcionam com conjuntos de dados altamente ligados que suportam APIs do Gremlin Abertas (com base na [especificação do Apache TinkerPop](https://tinkerpop.apache.org/), Apache Gremlin).
-        * [API de Tabela](table-introduction.md): um serviço de base de dados de chave/valor criado para oferecer capacidades premium (por exemplo, indexação automática, baixa latência garantida, distribuição global) para aplicações de armazenamento de Tabelas do Azure existentes, sem fazer quaisquer alterações à aplicação.
+        * [API do Azure Cosmos DB para SQL](sql-api-introduction.md): Motor de base de dados JSON sem esquemas com capacidades de consultas SQL avançadas.
+        * [API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md): Um e escaláveis em massa *MongoDB como-serviço* multifuncionais na plataforma do Azure Cosmos DB. É compatível com bibliotecas, controladores, ferramentas e aplicações existentes do MongoDB.
+        * [API do Azure Cosmos DB para o Cassandra](cassandra-introduction.md): Uma distribuição global Cassandra-como-serviço multifuncionais na plataforma do Azure Cosmos DB. É compatível com as bibliotecas, controladores, ferramentas e aplicações existentes do [Apache Cassandra](https://cassandra.apache.org/).
+        * [API do Azure Cosmos DB para Gremlin](graph-introduction.md): A totalmente gerenciada, o serviço de base de dados de gráficos horizontalmente dimensionável que torna mais fácil criar e executar aplicações que funcionam com elevada ligado conjuntos de dados que suportam APIs do Gremlin abertas (com base na [especificação do Apache TinkerPop](https://tinkerpop.apache.org/), Apache Gremlin).
+        * [API do Azure Cosmos DB para a tabela](table-introduction.md): Um serviço de base de dados de chave-valor criado para oferecer capacidades premium (por exemplo, a indexação automática, baixa latência garantida, distribuição global) para aplicações de armazenamento de tabelas do Azure existentes sem precisar fazer quaisquer alterações à aplicação.
         * Modelos de dados adicionais e APIs disponíveis em breve!
 
 * **Dimensionar de forma elástica e independente o débito e o armazenamento a pedido e em todo o mundo**
@@ -90,7 +90,7 @@ Qualquer [aplicação Web, móvel, de jogos e de IoT](use-cases.md) que tenha de
 Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 
 * [Introdução à API SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Introdução à API MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
+* [Introdução à API do Azure Cosmos DB para MongoDB](create-mongodb-nodejs.md)
 * [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)

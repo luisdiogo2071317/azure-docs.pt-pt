@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251866"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540101"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmissão de mensagens em tempo real da aplicação de consola
 
@@ -129,13 +129,13 @@ A lista de APIs disponíveis para cada versão específica está disponível na 
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Difundir para todos](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[Difundir para um grupo](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Difundir para alguns grupos | :heavy_check_mark: (Preterido) | `N / A`
-[Enviar para utilizadores específicos](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Enviar para alguns utilizadores | :heavy_check_mark: (Preterido) | `N / A`
-[A adicionar um utilizador a um grupo](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[A remover um utilizador de um grupo](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[Difundir para todos](#broadcast) | **&#x2713;** | **&#x2713;**
+[Difundir para um grupo](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Difundir para alguns grupos | **&#x2713;**(Preterido) | `N / A`
+[Enviar para utilizadores específicos](#send-user) | **&#x2713;** | **&#x2713;**
+Enviar para alguns utilizadores | **&#x2713;**(Preterido) | `N / A`
+[A adicionar um utilizador a um grupo](#add-user-to-group) | `N / A` | **&#x2713;**
+[A remover um utilizador de um grupo](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Difundir para todos

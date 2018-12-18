@@ -1,20 +1,21 @@
 ---
-title: Monitorizar um espaço com o Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Monitorizar um espaço com o Azure Digital Twins | Microsoft Docs'
 description: Saiba como aprovisionar os recursos espaciais e monitorizar as condições de trabalho duplos Digital do Azure, utilizando os passos neste tutorial.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584201"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556106"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar o edifício e monitorizar as condições de funcionamento com o Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar a sua criação e o monitor trabalhar condições duplos Digital do Azure
 
 Este tutorial demonstra como utilizar o Azure Digital Twins para monitorizar os seus espaços relativamente às condições de temperatura e ao nível de conforto pretendidos. Depois de [configurar a criação de exemplo](tutorial-facilities-setup.md), pode aprovisionar a criar e executar funções personalizadas nos seus dados de sensor, utilizando os passos neste tutorial.
 
@@ -203,9 +204,9 @@ Nesta secção, vai utilizar o projeto com o nome *conectividade do dispositivo*
 
 1. Abra o **appSettings** no seu editor de ficheiros e edite os valores seguintes:
 
-   a. **DeviceConnectionString**: atribua o valor de `ConnectionString` na janela de saída da secção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possam ligar-se corretamente com o hub IoT.
+   a. **DeviceConnectionString**: Atribuir o valor de `ConnectionString` na janela de saída da secção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possam ligar-se corretamente com o hub IoT.
 
-   b. **HardwareId** dentro do **sensores** matriz: uma vez que está sendo simulada eventos a partir de sensores aprovisionados para a sua instância de duplos Digital do Azure, o ID de hardware e os nomes dos sensores neste ficheiro devem corresponder a `sensors` nó do arquivo provisionSample.yaml.
+   b. **HardwareId** dentro do **sensores** matriz: Uma vez que está sendo simulada eventos a partir de sensores aprovisionados para a sua instância de duplos Digital do Azure, o ID de hardware e os nomes dos sensores neste ficheiro devem corresponder a `sensors` nó do arquivo provisionSample.yaml.
 
       Adicione uma nova entrada para o sensor de temperatura. O **sensores** nó no appSettings deve ter um aspeto semelhante ao seguinte:
 
@@ -264,7 +265,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 Agora que aprovisionou seus espaços e Criei uma estrutura para acionar notificações personalizadas, pode aceder a qualquer um dos seguintes tutoriais:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md) (Tutorial: Utilizar o Logic Apps para receber notificações dos seus espaços do Azure Digital Twins)
+> [Tutorial: Receber notificações do seus espaços duplos Digital do Azure com o Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md) (Tutorial: Visualizar e analisar eventos dos seus espaços do Azure Digital Twins com o Time Series Insights)
+> [Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights](tutorial-facilities-analyze.md)

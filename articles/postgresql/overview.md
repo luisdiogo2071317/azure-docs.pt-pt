@@ -1,21 +1,18 @@
 ---
 title: Descrição geral do serviço de base de dados relacional da Base de Dados do Azure para PostgreSQL
 description: Fornece uma descrição geral da Base de Dados do Azure para o serviço de base de dados relacional PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 86ed701f9dd572d23fec74d194e3cc469469e638
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685859"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545965"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
@@ -40,7 +37,7 @@ Para obter um conjunto de amostras da CLI do Azure, veja:
 - [Amostras de CLI do Azure para a Base de Dados do Azure para PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
-O serviço da Base de Dados do Azure para PostgreSQL oferece três escalões de preço: Básico, Fins Gerais e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
+Base de dados do Azure para o serviço PostgreSQL oferece três escalões de preço: Básico, fins gerais e com otimização de memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 Como decidir quando aumentar ou reduzir verticalmente? Utilize as funcionalidades de monitorização e alertas incorporadas do Azure. Com estas ferramentas, pode avaliar rapidamente o impacto do aumento ou redução verticais consoante as necessidades de desempenho ou armazenamento atuais ou estimadas. Consulte [Alertas](howto-alert-on-metric.md) para obter mais detalhes.
@@ -66,4 +63,4 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 ## <a name="next-steps"></a>Passos Seguintes
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver as comparações de preços e as calculadoras.
 - Comece por [criar a sua primeira Base de Dados do Azure para PostgreSQL](./quickstart-create-server-database-portal.md).
-- Criar a sua primeira aplicação em Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de ligação](./concepts-connection-libraries.md)
+- Crie seu primeiro aplicativo em Python, PHP, Ruby, C\#, Java, node. js: [Bibliotecas de ligação](./concepts-connection-libraries.md)

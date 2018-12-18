@@ -1,23 +1,20 @@
 ---
 title: Ligar à Base de Dados do Azure para MySQL a partir do MySQL Workbench
 description: Este Guia de introdução disponibiliza os passos para utilizar o MySQL Workbench para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: def984a6a31cdfe9b9dfbba93ccfb5016b5e315d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.openlocfilehash: f93c581b916a7f9c4f454833cb37f603cc177856
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265184"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540474"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o MySQL Workbench para se ligar e consultar dados
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilizar o MySQL Workbench para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação do MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -109,6 +106,6 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 Agora, ligou-se à Base de Dados do Azure para MySQL com o MySQL Workbench e consultou dados com linguagem do SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

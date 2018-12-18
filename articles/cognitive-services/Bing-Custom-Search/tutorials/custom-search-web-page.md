@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma página Web de pesquisa personalizada - Pesquisa Personalizada do Bing'
+title: 'Tutorial: Criar uma página da web de pesquisa personalizada - pesquisa personalizada do Bing'
 titlesuffix: Azure Cognitive Services
 description: Descreve como configurar uma instância de pesquisa personalizada e integrá-la numa página Web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427366"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558027"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -79,7 +79,7 @@ Para excluir os resultados de sites ou URLs específicos, adicione-os ao separad
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas afixadas
 
-Para afixar uma página Web específica à parte superior dos resultados da pesquisa, adicione o termo de página Web e consulta ao separador **Afixado**. O separador **Afixado** contém uma lista de pares de termos de página Web e consulta que especificam a página Web apresentada como o melhor resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-to-top) para obter mais informações.
+Para afixar uma página Web específica à parte superior dos resultados da pesquisa, adicione o termo de página Web e consulta ao separador **Afixado**. O separador **Afixado** contém uma lista de pares de termos de página Web e consulta que especificam a página Web apresentada como o melhor resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
 
 1. Na página **Configuração**, clique no separador **Afixado** e introduza o termo de página Web e consulta da página Web a devolver como o melhor resultado.  
   
@@ -127,10 +127,10 @@ A Pesquisa Personalizada fornece uma IU alojada para compor a resposta JSON da s
 
 Existem duas formas de consumir a IU alojada.  
 
-- Opção 1: Integrar o fragmento de JavaScript fornecido na sua aplicação.
-- Opção 2: Utilizar o Ponto Final de HTML fornecido.
+- Opção 1: Integre o fragmento do JavaScript fornecido na sua aplicação.
+- Opção 2: Utilize o ponto de final do HTML fornecida.
 
-O resto deste tutorial ilustra a **Opção 1: fragmento de Javascript**.  
+O resto deste tutorial ilustra **opção 1: Fragmento do JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurar a sua solução do Visual Studio
 

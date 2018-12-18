@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a17b2121feb5656df4298bddc2b1e90bb9ac6457
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871018"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545624"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: migrar os dados para a conta da API do MongoDB do Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-api-account-for-mongodb"></a>Tutorial: Migre os seus dados para a conta de API do Azure Cosmos DB para o MongoDB
 
-Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB para a conta da API do MongoDB do Azure Cosmos DB. Se estiver a importar dados do MongoDB e pretender utilizá-los com a API do Azure Cosmos DB, deve utilizar a [ferramenta Migração de Dados](import-data.md) para a importação.
+Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB à API do Azure Cosmos DB para o MongoDB. Se estiver a importar dados do MongoDB e pretender utilizá-los com a API do Azure Cosmos DB, deve utilizar a [ferramenta Migração de Dados](import-data.md) para a importação.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -29,7 +29,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Migrar dados com o mongoimport
 > * Migrar dados com o mongorestore
 
-Antes de migrar dados para a conta da API do MongoDB, certifique-se de que tem alguns dados do MongoDB de exemplo. Se não tiver uma base de dados do MongoDB de exemplo, pode transferir e instalar o [servidor de Comunidade do MongoDB](https://www.mongodb.com/download-center), criar uma base de dados de exemplo e utilizar o mongoimport.exe ou mongorestore.exe para carregar dados de exemplo. 
+Antes de migrar dados para a API do Azure Cosmos DB para o MongoDB, certifique-se de que tem alguns dados do MongoDB de exemplo. Se não tiver uma base de dados do MongoDB de exemplo, pode transferir e instalar o [servidor de Comunidade do MongoDB](https://www.mongodb.com/download-center), criar uma base de dados de exemplo e utilizar o mongoimport.exe ou mongorestore.exe para carregar dados de exemplo. 
 
 ## <a name="plan-for-migration"></a>Planear a migração
 
@@ -59,7 +59,7 @@ Antes de migrar dados para a conta da API do MongoDB, certifique-se de que tem a
 
 1. Calcule os custos de RU aproximados para uma escrita em documento única:
 
-   a. Ligue à conta API de MongoDB do Azure Cosmos DB a partir da shell do MongoDB. Pode encontrar instruções em [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ligar uma aplicação MongoDB ao Azure Cosmos DB).
+   a. Ligar ao seu Azure Cosmos DB API para MongoDB a partir da Shell de MongoDB. Pode encontrar instruções em [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ligar uma aplicação MongoDB ao Azure Cosmos DB).
     
    b. Utilize um dos seus documentos de exemplo para executar um comando de inserção de exemplo a partir da shell do MongoDB:
    
@@ -127,11 +127,11 @@ Antes de migrar dados para a conta da API do MongoDB, certifique-se de que tem a
 
 ## <a name="prerequisites-for-migration"></a>Pré-requisitos de migração
 
-* **Aumentar débito:** a duração da migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no [portal do Azure](https://portal.azure.com), veja [Performance levels and pricing tiers in Azure Cosmos DB](performance-levels.md) (Níveis de desempenho e escalões de preço do Azure Cosmos DB).
+* **Aumente o débito:** A duração da sua migração de dados depende da quantidade de débito que configura para uma coleção individual ou um conjunto de coleções. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no [portal do Azure](https://portal.azure.com), veja [Performance levels and pricing tiers in Azure Cosmos DB](performance-levels.md) (Níveis de desempenho e escalões de preço do Azure Cosmos DB).
 
-* **Ativar o SSL:** o Azure Cosmos DB tem requisitos e normas de segurança estritos. Lembre-se de ativar o SSL quando interagir com a sua conta. Os procedimentos no resto do artigo incluem como ativar o SSL para mongoimport e mongorestore.
+* **Ative o SSL:** Azure Cosmos DB tem requisitos de segurança rigorosas e padrões. Lembre-se de ativar o SSL quando interagir com a sua conta. Os procedimentos no resto do artigo incluem como ativar o SSL para mongoimport e mongorestore.
 
-* **Criar recursos do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as suas coleções no portal do Azure. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar as coleções do Azure Cosmos DB.
+* **Crie recursos do Azure Cosmos DB:** Antes de começar a migração de dados, crie previamente todas as suas coleções a partir do portal do Azure. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar as coleções do Azure Cosmos DB.
 
 ## <a name="get-your-connection-string"></a>Obtenha a cadeia de ligação 
 

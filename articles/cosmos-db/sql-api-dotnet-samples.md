@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d8aff2048d80b2c1542241c8370a9eb2b79366ac
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166630"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541902"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ O ficheiro de programação do lado do servidor, [azure-documentdb-dotnet/sample
 | [Criar um pós-acionador](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Criar uma Função Definida Pelo Utilizador (UDF)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Para obter mais informações sobre a programação do lado do servidor, consulte [programação no lado do servidor do Azure Cosmos DB: Os procedimentos armazenados, acionadores de base de dados e UDFs](programming.md).
+Para obter mais informações sobre a programação do lado do servidor, consulte [programação no lado do servidor do Azure Cosmos DB: Os procedimentos armazenados, acionadores de base de dados e UDFs](stored-procedures-triggers-udfs.md).
 
 ## <a name="user-management-examples"></a>Exemplos de gestão de utilizadores
 O ficheiro de gestão do utilizador, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), mostra como fazer as seguintes tarefas.

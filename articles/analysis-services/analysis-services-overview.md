@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970200"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544690"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -23,13 +23,13 @@ O Azure Analysis Services é uma plataforma como serviço (PaaS) totalmente geri
 
 ![Origens de dados](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vídeo:** veja [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) (Descrição geral do Azure Analysis Services) para saber como o Azure Analysis Services se enquadra nas capacidades globais de BI da Microsoft.
+**Vídeo:** Confira [visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services se integra com a Microsoft do geral recursos de BI.
 
 ## <a name="get-up-and-running-quickly"></a>Comece a trabalhar rapidamente
 
 No portal do Azure, pode [criar um servidor](analysis-services-create-server.md) numa questão de minutos. Além disso, com os [modelos](../azure-resource-manager/resource-manager-create-first-template.md) do Azure Resource Manager e o PowerShell, pode criar modelos declarativos para aprovisionar servidores. Com um só modelo, pode implementar recursos de servidor juntamente com outros componentes do Azure, como contas de armazenamento e Funções do Azure. 
 
-**Vídeo:** veja [Automatização da implementação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como pode utilizar a Automatização do Azure para acelerar a criação de servidores.
+**Vídeo:** Confira [automatizando a implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como pode utilizar a automatização do Azure para criar o servidor de velocidade.
 
 O Azure Analysis Services integra-se em muitos serviços do Azure, o que lhe permite criar soluções de análise sofisticadas. A integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) fornece acesso seguro e baseado em funções aos seus dados críticos. Faça a integração com pipelines do [Azure Data Factory](../data-factory/introduction.md) ao incluir uma atividade que carrega dados para o modelo. A [Automatização do Azure](../automation/automation-intro.md) e as [Funções do Azure](../azure-functions/functions-overview.md) podem ser utilizadas para orquestrações leves de modelos através de código personalizado. 
 
@@ -146,7 +146,7 @@ Os modelos em tabela no Azure Analysis Services suportam uma grande variedade de
 
 ## <a name="your-data-is-secure"></a>Os dados estão seguros
 
-O Azure Analysis Services proporciona segurança para os seus dados confidenciais a diversos níveis. Ao nível do servidor: firewall, autenticação do Azure, funções de administrador de servidor e Encriptação do Lado do Servidor. Ao nível do modelo de dados: funções de utilizadores e segurança ao nível da linha e ao nível do objeto, garantem que os seus dados estão seguros e são visualizados apenas pelos utilizadores que tenham acesso para os ver.
+O Azure Analysis Services proporciona segurança para os seus dados confidenciais a diversos níveis. Ao nível do servidor: Firewall, autenticação do Azure, funções de administrador do servidor e encriptação do lado do servidor. Ao nível do modelo de dados: funções de utilizadores e segurança ao nível da linha e ao nível do objeto, garantem que os seus dados estão seguros e são visualizados apenas pelos utilizadores que tenham acesso para os ver.
 
 ### <a name="firewall"></a>Firewall
 
@@ -215,7 +215,7 @@ As ferramentas modernas de exploração e visualização de dados, como o Power 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registe métricas com os [registos de diagnóstico de recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Monitorize e envie registos para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmita-os em fluxo para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exporte-os para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
+O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registe métricas com os [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md). Monitorize e envie registos para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmita-os em fluxo para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exporte-os para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
 
 O Azure Analysis Services também suporta a utilização de [Vistas de Gestão Dinâmica (DMVs)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Com base na sintaxe do SQL, os conjuntos de linhas de esquema de interface dos DMVs devolvem metadados e informações de monitorização sobre a instância do servidor.
 
@@ -251,7 +251,7 @@ O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à con
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md)   
+> [Início rápido: Criar um servidor - Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)  
+> [Início rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)  

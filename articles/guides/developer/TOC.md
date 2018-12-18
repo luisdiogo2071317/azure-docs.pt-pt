@@ -55,7 +55,7 @@
 ### [Aplicações sem servidor](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Cluster dos microsserviços](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Implementação
-### [Aplicações móveis e da Web a partir do controlo de origem](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Aplicações móveis e da Web a partir do controlo de origem](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microsserviços localmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -97,7 +97,7 @@
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
-### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+### [python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Interfaces da linha de comandos
 ### [CLI do Azure](https://docs.microsoft.com/cli/azure/)

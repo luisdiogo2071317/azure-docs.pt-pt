@@ -4,17 +4,17 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/17/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 96c261619a0e6930ea299b5e2a50050dca5471f8
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340101"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554780"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo de Windows - pré-visualização
 
@@ -59,18 +59,15 @@ Recursos da cloud:
 Dispositivo IoT Edge
 
 * Um computador ou uma máquina virtual do Windows que funcione como o seu dispositivo IoT Edge. Utilizar uma versão do Windows suportada:
-  * Windows 10 ou mais recente
-  * Windows Server 2016 ou mais recente
-* Se for um computador Windows, verifique se cumprem os [requisitos de sistema](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) para Hyper-V.
-* Se for uma máquina virtual, ative [virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) e alocar um mínimo de 2 GB de memória.
-* Instale o [Docker para Windows](https://docs.docker.com/docker-for-windows/install/) e certifique-se de que está a ser executado.
-
-> [!TIP]
-> Há uma opção durante a configuração do Docker para utilizar contentores do Windows ou do Linux. Este início rápido descreve como configurar o runtime do IoT Edge para utilizar com contentores do Linux.
+  * Windows 10 ou IoT Core, com Outubro de 2018 update (compilação 17763)
+  * Windows Server 2019
+* Ativar a virtualização para que o seu dispositivo pode alojar contentores
+   * Se for um computador Windows, ative a funcionalidade de contentores. Na barra de início, navegue até **ou desativar funcionalidades do Windows ative** e selecione a caixa junto a **contentores**.
+   * Se for uma máquina virtual, ative [virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) e alocar um mínimo de 2 GB de memória.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Comece o início rápido ao criar o seu Hub IoT com a CLI do Azure.
+Inicie o guia de introdução ao criar um hub IoT com a CLI do Azure.
 
 ![Diagrama - criar um hub IoT na cloud](./media/quickstart/create-iot-hub.png)
 
@@ -107,7 +104,9 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie a cadeia de ligação e guarde-a. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte.
+3. Copie a cadeia de ligação de saída JSON e guarde-o. Irá utilizar este valor para configurar o runtime do IoT Edge na secção seguinte.
+
+   ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o runtime do IoT Edge
 
@@ -116,13 +115,15 @@ Instale o runtime do Azure IoT Edge no dispositivo IoT Edge e configure-o com um
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge arranca e arranca o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
 
+O script de instalação também inclui um mecanismo de contentor chamado Moby que gere as imagens de contentor no seu dispositivo IoT Edge. 
+
 Durante a instalação do runtime, é-lhe pedida a cadeia de ligação do dispositivo. Utilize a cadeia que obteve na CLI do Azure. Essa cadeia associa o dispositivo físico à identidade do dispositivo IoT Edge no Azure.
 
-As instruções nesta secção configuram o runtime do IoT Edge com contentores do Linux. Se quiser utilizar contentores do Windows, veja [Instalar o runtime do Azure IoT Edge no Windows para utilizar com contentores do Windows](how-to-install-iot-edge-windows-with-windows.md).
+As instruções nesta secção Configurar o runtime do IoT Edge com contentores do Windows. Se pretender utilizar contentores do Linux, veja [runtime de instalar o Azure IoT Edge no Windows](how-to-install-iot-edge-windows-with-linux.md) desses pré-requisitos e passos de instalação.
 
 ### <a name="connect-to-your-iot-edge-device"></a>Ligar ao seu dispositivo IoT Edge
 
-Os passos nesta secção todos os ocorrem no seu dispositivo IoT Edge. Se estiver a utilizar o seu computador como o dispositivo do IoT Edge, pode ignorar esta parte. Se estiver a utilizar uma máquina virtual ou do hardware secundário, que pretende ligar a essa máquina agora. 
+Os passos nesta secção todos os ocorrem no seu dispositivo IoT Edge. Se estiver a utilizar uma máquina virtual ou do hardware secundário, que pretende ligar-se a essa máquina agora através de SSH ou de ambiente de trabalho remoto. Se estiver a utilizar o seu computador como o dispositivo do IoT Edge, pode continuar para a secção seguinte. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>Transferir e instalar o serviço IoT Edge
 
@@ -134,7 +135,7 @@ Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a ca
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
@@ -217,25 +218,13 @@ Remova o grupo de **IoTEdgeResources**.
 
 ### <a name="remove-the-iot-edge-runtime"></a>Remover o runtime do IoT Edge
 
-Se planeia utilizar o dispositivo do IoT Edge para testes futuros, mas pretende impedir o módulo tempSensor de enviar dados para o seu hub IoT enquanto não está a ser utilizado, utilize o comando seguinte para parar o serviço IoT Edge.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-Pode reiniciar o serviço quando estiver preparado para começar novamente os testes
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 Se quiser remover as instalações do seu dispositivo, utilize os comandos seguintes.  
 
-Remova o runtime do IoT Edge.
+Remova o runtime do IoT Edge. Se pretender reinstalar o IoT Edge, omitir os `-DeleteConfig` e `-DeleteMobyDataRoot` parâmetros, para que pode reinstalar com a mesma configuração que acabou de configurar.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 Quando o runtime do IoT Edge é removido, os contentores que ele criou são parados, mas continuam no seu dispositivo. Veja todos os contentores.

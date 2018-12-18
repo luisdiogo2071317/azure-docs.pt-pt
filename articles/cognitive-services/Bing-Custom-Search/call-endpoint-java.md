@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: chamar o ponto final com Java - Pesquisa Personalizada do Bing'
+title: 'Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com Java | Documentos da Microsoft'
 titlesuffix: Azure Cognitive Services
-description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com Java para chamar o ponto final de Pesquisa Personalizada do Bing.
+description: Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing em Java.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,33 +10,31 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 5b4494f7840dd9b32cad88ecda800e4dac9c4d8a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 803c2de976255b252bea8e16b920f8f3aee37101
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315924"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557619"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (Java)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing através de Java
 
-Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada através de Java para chamar o ponto final de Pesquisa Personalizada do Bing. 
+Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing. Embora esse aplicativo é escrito em Java, a API de pesquisa personalizada do Bing é um serviço RESTful web compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+- Uma instância de pesquisa personalizada do Bing. Consulte [início rápido: Criar a primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
 
-- Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
-- [Java](https://www.java.com) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+- A versão mais recente [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 
-## <a name="run-the-code"></a>Executar o código
+- A [Biblioteca de Gson](https://github.com/google/gson)
 
-Para executar este exemplo, siga estes passos:
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. Com um IDE Java à sua escolha, crie um pacote.  
-  
-2. Crie um ficheiro com o nome CustomSrchJava.java no pacote e copie o código seguinte para o mesmo. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de subscrição e ID de configuração.  
-  
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
+
+1. Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes bibliotecas.
+
     ```java
     import java.io.InputStream;
     import java.net.URL;
@@ -45,48 +43,40 @@ Para executar este exemplo, siga estes passos:
     import java.util.List;
     import java.util.Map;
     import java.util.Scanner;
-    
     import javax.net.ssl.HttpsURLConnection;
-    
     import com.google.gson.Gson;
     import com.google.gson.GsonBuilder;
     import com.google.gson.JsonObject;
     import com.google.gson.JsonParser;
-    
-    public class CustomSrchJava {       
+    ```
+
+2. criar uma classe chamada `CustomSrchJava`e criar variáveis para a chave de subscrição, ponto final de pesquisa personalizada e personalizada configuração ID. da sua instância de pesquisa 
+    ```java
+    public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
         static String path = "/bingcustomsearch/v7.0/search";
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
-        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
-    
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
-    
-        public static SearchResults SearchWeb (String searchQuery) throws Exception {
-            // construct URL of search request (endpoint + query string)
-            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    
-            // receive JSON body
-            InputStream stream = connection.getInputStream();
-            String response = new Scanner(stream).useDelimiter("\\A").next();
-    
-            // construct result object for return
-            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-    
-            // extract Bing-related HTTP headers
-            Map<String, List<String>> headers = connection.getHeaderFields();
-            for (String header : headers.keySet()) {
-                if (header == null) continue;      // may have null key
-                if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                    results.relevantHeaders.put(header, headers.get(header).get(0));
-                }
-            }
-    
-            stream.close();
-            return results;
+        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+        static String searchTerm = "Microsoft";  
+    ...
+    ```
+
+3. Criar outra classe com o nome `SearchResults` para conter a resposta da sua instância de pesquisa personalizada do Bing.
+
+    ```csharp
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
         }
-    
+    }
+    ```
+
+4. Criar uma função chamada `prettify()` para formatar a resposta JSON da API de pesquisa personalizada do Bing.
+
+    ```java
         // pretty-printer for JSON; uses GSON parser to parse and re-serialize
         public static String prettify(String json_text) {
             JsonParser parser = new JsonParser();
@@ -94,48 +84,52 @@ Para executar este exemplo, siga estes passos:
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             return gson.toJson(json);
         }
-    
-        public static void main (String[] args) {
-            if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Custom Search subscription key!");
-                System.out.println("Please paste yours into the source code.");
-                System.exit(1);
-            }
-    
-            try {
-                System.out.println("Searching your slice of the Web for: " + searchTerm);
-    
-                SearchResults result = SearchWeb(searchTerm);
-    
-                System.out.println("\nRelevant HTTP Headers:\n");
-                for (String header : result.relevantHeaders.keySet())
-                    System.out.println(header + ": " + result.relevantHeaders.get(header));
-    
-                System.out.println("\nJSON Response:\n");
-                System.out.println(prettify(result.jsonResponse));
-            }
-            catch (Exception e) {
-                e.printStackTrace(System.out);
-                System.exit(1);
-            }
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa 
+
+1. Criar uma função chamada `SearchWeb()` que envia um pedido e retorna um `SearchResults` objeto. Criar o pedido de url ao combinar as suas informações de ID de configuração personalizada, a consulta e o ponto final. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            // construct the URL for your search request (endpoint + query string)
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ...
+    ```
+
+2. Criar um fluxo e armazenar a resposta JSON num `SearchResults` objeto.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            ...
+            // receive the JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
+        
+            // construct result object for return
+            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+            
+            stream.close();
+            return results;
         }
-    }
-    
-    // Container class for search results encapsulates relevant headers and JSON data
-    static class SearchResults{
-        HashMap<String, String> relevantHeaders;
-        String jsonResponse;
-        SearchResults(HashMap<String, String> headers, String json) {
-            relevantHeaders = headers;
-            jsonResponse = json;
-        }
-    
-    }
-    ```  
-  
+    ```
+
+3. O método principal de seu aplicativo, chame `SearchWeb()` com o termo de pesquisa, 
+
+    ```java
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(result.jsonResponse));
+    ```
+
 4. Execute o programa.
     
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
-- [Paginação de páginas Web](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Criar uma aplicação web de pesquisa personalizada](./tutorials/custom-search-web-page.md)

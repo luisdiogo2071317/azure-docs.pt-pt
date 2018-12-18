@@ -1,21 +1,21 @@
 ---
-title: Copiar dados para o Microsoft Azure Data Box | Microsoft Docs
-description: Aprenda a copiar dados para o Azure Data Box
+title: Copiar dados para o Microsoft Azure Data Box através do SMB | Documentos da Microsoft
+description: Saiba como copiar dados para o Azure Data Box através de SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: b59830677ac8c07c6b7adbab24c82ca25d71f5a0
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: e5219a0ade610a41d316970aecda06d4020b37f2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093464"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546186"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copiar dados para o Azure Data Box 
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
 Este tutorial descreve como ligar e copiar dados do computador anfitrião através da IU Web local e preparar para enviar o Data Box.
 
@@ -47,13 +47,9 @@ Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro 
 Considere o seguinte exemplo. 
 
 - Conta de armazenamento: *Mystoracct*
-- Partilha para blob de bloco: *Mystoracct_BlockBlob/my-container/blob*
-- Partilha para blob de página: *Mystoracct_PageBlob/my-container/blob*
-- Partilha para ficheiro: *Mystoracct_AzFile/my-partilhar*
-
-Consoante o facto de o Data Box estar ligado a um computador anfitrião do Windows Server ou a um anfitrião Linux, os passos para ligar e copiar podem ser diferentes.
-
-### <a name="connect-via-smb"></a>Ligar através de SMB 
+- Partilha para o blob de bloco: *Mystoracct_BlockBlob/my-container/blob*
+- Partilha para o blob de página: *Mystoracct_PageBlob/my-container/blob*
+- Partilha de ficheiros: *Mystoracct_AzFile/my-partilhar*
 
 Se estiver a utilizar um computador anfitrião do Windows Server, execute os seguintes passos para ligar ao Data Box.
 
@@ -90,29 +86,6 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute os seg
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
-### <a name="connect-via-nfs"></a>Ligar através de NFS 
-
-Se estiver a utilizar um computador anfitrião do Linux, execute os passos seguintes para configurar o Data Box para permitir o acesso aos clientes NFS.
-
-1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na IU Web local, aceda à página **Ligar e copiar**. Em **Definições de NFS**, clique em **Acesso de cliente NFS**. 
-
-    ![Configurar o acesso de cliente NFS 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. Forneça o endereço IP do cliente NFS e clique em **Adicionar**. Pode configurar o acesso para vários clientes NFS ao repetir este passo. Clique em **OK**.
-
-    ![Configurar o acesso de cliente NFS 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Certifique-se de que o computador anfitrião do Linux tem uma [versão suportada](data-box-system-requirements.md) do cliente NFS instalada. Utilize a versão específica para a distribuição Linux. 
-
-3. Depois de o cliente NFS estar instalado, utilize o comando seguinte para montar a partilha NFS no seu dispositivo Data Box:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    O exemplo seguinte mostra como ligar através de NFS a uma partilha do Data Box. O IP do dispositivo Data Box é `10.161.23.130`, a partilha `Mystoracct_Blob` está montada no ubuntuVM, sendo que o ponto de montagem é `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
-
 ## <a name="copy-data-to-data-box"></a>Copiar dados para o Data Box
 
 Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes da cópia de dados, certifique-se de que revê as seguintes considerações:
@@ -122,13 +95,11 @@ Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar o
 - Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 - Recomendamos que não utilize as opções SMB e NFS em simultâneo nem copie os mesmos dados para o mesmo destino final no Azure. Nesses casos, não é possível determinar o resultado final.
 
-### <a name="copy-data-via-smb"></a>Copiar dados através de SMB
-
 Depois de ligar à partilha SMB, inicie uma cópia de dados. 
 
 Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
     
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
+    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
  Os atributos são descritos na tabela seguinte.
     
@@ -223,82 +194,13 @@ Para garantir a integridade dos dados, a soma de verificação é calculada inli
     
    ![Verificar o espaço livre e utilizado no dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### <a name="copy-data-via-nfs"></a>Copiar dados através de NFS
-
-Se estiver a utilizar um computador anfitrião do Linux, utilize um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
-
-O comando `cp` é uma das melhores opções para copiar um diretório. Para obter mais informações sobre a utilização, aceda a [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
-
-Se estiver a utilizar a opção rsync para uma cópia de múltiplos threads, siga estas diretrizes:
-
- - Instale o pacote **CIFS Utils** ou **NFS Utils** consoante o sistema de ficheiros utilizado pelo cliente Linux.
-
-    `sudo apt-get install cifs-utils`
-
-    `sudo apt-get install nfs-utils`
-
- -  Instale **Rsync** e **Parallel** (varia consoante a versão distribuída do Linux).
-
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
-
- - Crie um ponto de montagem.
-
-    `sudo mkdir /mnt/databox`
-
- - Monte o volume.
-
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
-
- - Espelhe a estrutura do diretório de pastas.  
-
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
-
- - Copie os ficheiros. 
-
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
-
-     em que j especifica o número de paralelização, X = número de cópias paralelas
-
-     Recomendamos que comece com 16 cópias paralelas e aumente o número de threads consoante os recursos disponíveis.
 
 ## <a name="prepare-to-ship"></a>Preparar para enviar
 
-O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não é possível aceder às partilhas depois de começar a preparar o dispositivo para envio.
-1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. 
-   
-    ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
-2. Por predefinição, as somas de verificação são calculadas inline durante a preparação para envio. O cálculo de soma de verificação pode demorar algum tempo, consoante o tamanho dos seus dados. Clique em **Iniciar preparação**.
-    1. As partilhas do dispositivo ficam offline e o dispositivo é bloqueado enquanto é feita a preparação para envio.
-        
-        ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. O estado do dispositivo é atualizado para *Pronto para enviar* depois de concluída a preparação do dispositivo. 
-        
-        ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
-    3. Transfira a lista de ficheiros (manifesto) que foram copiados neste processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure.
-        
-        ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Encerre o dispositivo. Aceda à página **Encerrar ou reiniciar** e clique em **Encerrar**. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
-4. Remova os cabos. O passo seguinte é enviar o dispositivo para a Microsoft.
-
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
@@ -307,7 +209,7 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 > * Copiar dados para o Data Box
 > * Preparar para enviar o Data Box
 
-Avance para o próximo tutorial para saber como configurar e copiar dados no Data Box.
+Avance para o próximo tutorial para saber como enviar o Data Box para a Microsoft.
 
 > [!div class="nextstepaction"]
 > [Enviar o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)

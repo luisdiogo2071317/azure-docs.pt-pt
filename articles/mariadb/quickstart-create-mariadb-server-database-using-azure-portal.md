@@ -1,20 +1,18 @@
 ---
-title: 'Início Rápido: Criar um Azure Database for MariaDB Server – Portal do Azure do Azure'
+title: 'Início rápido: Criar uma base de dados do Azure para MariaDB server - portal do Azure'
 description: Este artigo mostra-lhe como utilizar o portal do Azure para criar rapidamente um Azure Database for MariaDB Server de exemplo, em cerca de cinco minutos.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321942"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541392"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um Azure Database for MariaDB Server com o portal do Azure
 
@@ -49,7 +47,7 @@ Para criar um Azure Database for MariaDB Server:
     Grupo de recursos | **myresourcegroup** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente. 
     Selecionar origem | **Em branco** | Selecione **Em branco** para criar um novo servidor de raiz. (Selecione **Cópia de Segurança** se estiver a criar um servidor a partir de uma cópia de segurança de área geográfica de um Azure Database for MariaDB Server existente.)
     Início de sessão de administrador do servidor | **myadmin** | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
+    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *a região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
@@ -154,7 +152,7 @@ Primeiro, vamos utilizar a ferramenta de linha de comandos [mysql](https://dev.m
     > [!TIP]
     > Se a firewall não estiver configurada para permitir o endereço IP do Azure Cloud Shell, ocorre o seguinte erro:
     >
-    >   ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server. (ERRO 2003 (28000): o cliente com o endereço IP 123.456.789.0 não tem permissão para aceder ao servidor.)
+    >   ERRO 2003 (28000): Cliente com o endereço IP 123.456.789.0 não tem permissão para aceder ao servidor.
     >
     > Para resolver o erro, certifique-se de que a configuração do servidor corresponde aos passos descritos em [Configurar uma regra de firewall ao nível do servidor](#configure-firewall-rule).
 
@@ -237,6 +235,6 @@ Para eliminar o servidor criado recentemente:
 
 3.  Confirme o nome do servidor que pretende eliminar. Mostre as bases de dados no servidor que vão ser afetadas pela eliminação. Introduza o nome do servidor (**mydemoserver**, no nosso exemplo) para confirmar a eliminação. Selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Conceber a sua primeira base de dados da Azure Database for MariaDB](./tutorial-design-database-using-portal.md)

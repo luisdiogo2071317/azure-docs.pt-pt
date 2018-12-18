@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Chamar o ponto final com o Node.js – Pesquisa Personalizada do Bing'
+title: 'Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com node. js | Documentos da Microsoft'
 titlesuffix: Azure Cognitive Services
-description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada ao utilizar o Node.js para chamar o ponto final da Pesquisa Personalizada do Bing.
+description: Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing com node. js
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,77 +10,71 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: c0c97dd52f8fc3ff590c86f32f794beeb00f4b05
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3af35a9aea9115971d1fbd251da3fbaddb011c5f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310257"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555800"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Início Rápido: Chamar o ponto final da Pesquisa Personalizada do Bing (Node.js)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com node. js
 
-Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com o Node.js para chamar o ponto final da Pesquisa Personalizada do Bing. 
+Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing. Embora esse aplicativo é escrito em JavaScript, a API de pesquisa personalizada do Bing é um serviço RESTful web compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+- Uma instância de pesquisa personalizada do Bing. Consulte [início rápido: Criar a primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
 
-- Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
-- Ter o [Node.js](https://www.nodejs.org/) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+- [Node.js](https://www.nodejs.org/)
 
-## <a name="run-the-code"></a>Executar o código
+- O [biblioteca de pedido de JavaScript](https://github.com/request/request)
 
-Para executar este exemplo, siga estes passos:
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. Crie uma pasta para o código.  
-  
-2. Numa linha de comandos ou terminal, navegue para a pasta que acabou de criar.  
-  
-3. Instale o módulo Node de **pedidos**:
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Crie um ficheiro denominado BingCustomSearch.js na pasta que criou e copie o seguinte código para o mesmo. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de subscrição e ID de configuração.  
-  
-    ``` javascript
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
+
+1. Crie um novo ficheiro JavaScript em seu IDE ou editor favorito e adicione um `require()` instrução para a biblioteca de pedidos. Crie variáveis para a chave de subscrição, ID de configuração personalizada e um termo de pesquisa. 
+
+    ```javascript
     var request = require("request");
     
     var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
     var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
     var searchTerm = 'microsoft';
-    
-    var options = {
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa 
+
+1. Crie uma variável para armazenar as informações sendo enviadas no seu pedido. Construir o URL do pedido ao acrescentar o termo de pesquisa para o `q=` parâmetro de consulta e o ID de configuração da sua instância de pesquisa personalizada para `customconfig=`. Separe-os com um `&` caráter. 
+
+    ```javascript
+    var info = {
         url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
+            'q=' + searchTerm + "&" +
+            'customconfig=' + customConfigId,
         headers: {
             'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
-    
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Execute o código com o seguinte comando:  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+    ```
+
+1. Utilize a biblioteca de pedido de JavaScript para enviar um pedido de pesquisa à sua instância de pesquisa personalizada do Bing e imprimir informações sobre os resultados, incluindo o respetivo nome, url e a data, a página Web foi rastreada pela última vez.
+
+    ```javascript
+    request(info, function(error, response, body){
+            var searchResponse = JSON.parse(body);
+            for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+                var webPage = searchResponse.webPages.value[i];
+                console.log('name: ' + webPage.name);
+                console.log('url: ' + webPage.url);
+                console.log('displayUrl: ' + webPage.displayUrl);
+                console.log('snippet: ' + webPage.snippet);
+                console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+                console.log();
+            }
+    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
-- [Paginação de páginas Web](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Criar uma aplicação web de pesquisa personalizada](./tutorials/custom-search-web-page.md)

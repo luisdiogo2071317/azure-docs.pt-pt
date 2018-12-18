@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 3493b94e93a03faaf60aaa64bf8b80cefb754657
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a2c00d5373bd4e19a6e6057c6eddc758857860da
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309064"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556769"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar o ambiente de desenvolvimento Windows para compilar aplicações do Service Fabric Mesh
 
@@ -86,7 +86,7 @@ Instale o runtime, o SDK e as ferramentas do Service Fabric Mesh pela ordem segu
 > Teste se o Docker está em execução ao abrir uma janela de terminal e ao executar `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está a ser executado e está pronto para compilar um cluster.
 
 > [!Note]
-> Se estiver a desenvolver o Windows Fall Creators update máquina (versão 1709), só pode utilizar imagens de docker do docker de versão 1709 do Windows.
+> Se estiver a desenvolver o Windows Fall Creators update máquina (versão 1709), só pode utilizar imagens de docker de versão 1709 do Windows.
 > Se estiver a desenvolver no Windows 10 de Abril de 2018 atualização máquina (versão 1803), pode usar qualquer uma das imagens do Windows versão 1709 ou versão 1803 docker.
 
 Se estiver a utilizar o Visual Studio, pode ignorar esta secção porque o Visual Studio vai criar um cluster local, caso não tenha um.

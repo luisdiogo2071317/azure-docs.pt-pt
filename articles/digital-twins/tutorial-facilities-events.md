@@ -1,20 +1,21 @@
 ---
-title: Capturar eventos a partir de um espaço de duplos Digital do Azure | Documentos da Microsoft
+title: 'Tutorial: Capturar eventos a partir de um espaço de duplos Digital do Azure | Documentos da Microsoft'
 description: Saiba como receber notificações dos seus espaços mediante a integração do Azure Digital Twins no Logic Apps através dos passos descritos neste tutorial.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583266"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556021"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações do seus espaços duplos Digital do Azure com o Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações do seus espaços duplos Digital do Azure ao utilizar o Logic Apps
 
 Depois de implementar a sua instância de duplos Digital do Azure, aprovisionar os seus espaços e implementar funções personalizadas para monitorizar a condições específicas, pode notificar o administrador do office por e-mail quando ocorrem as condições monitorizadas. 
 
@@ -174,7 +175,7 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
 
    c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Na **assunto**, introduza o texto **notificação duplos Digital para a qualidade de ar fraco no espaço**. Em seguida, selecione **TopologyObjectId** partir do **conteúdo dinâmico** listar para **Parse JSON**.
 
-   d. Sob **corpo** na janela da mesma, introduza texto semelhante ao seguinte: **qualidade de ar fraco detetado numa sala e temperatura tem de ser ajustado**. Fique à vontade poder elaborar, utilizando elementos do **conteúdo dinâmico** lista.
+   d. Sob **corpo** na mesma janela, introduza texto semelhante ao seguinte: **Qualidade de ar fraco detetado numa sala e temperatura tem de ser ajustado**. Fique à vontade poder elaborar, utilizando elementos do **conteúdo dinâmico** lista.
 
    ![Seleções de "Enviar e-mail" do Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
 
@@ -205,7 +206,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 
 Para saber como visualizar os seus dados de sensor, analisar tendências e detetar anomalias, vá para o tutorial seguinte: 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md) (Tutorial: Visualizar e analisar eventos dos seus espaços do Azure Digital Twins com o Time Series Insights)
+> [Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights](tutorial-facilities-analyze.md)
 
 Também pode saber mais sobre os gráficos de inteligência geográficos e os modelos de objeto no duplos Digital do Azure: 
 > [!div class="nextstepaction"]

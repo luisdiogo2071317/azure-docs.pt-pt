@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma Base de Dados do Azure para MySQL com o portal do Azure'
+title: 'Tutorial: Conceber uma base de dados do Azure para MySQL com o portal do Azure'
 description: Este tutorial explica como criar e gerir a Base de Dados do Azure para o servidor MySQL e a base de dados através do Portal do Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266538"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537747"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MySQL com o portal do Azure
 A Base de Dados do Azure para MySQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
 Neste tutorial, irá utilizar o Portal do Azure para aprender a:
@@ -52,7 +49,7 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Grupo de recursos | *myresourcegroup* | Forneça um novo nome do grupo de recursos ou um existente.    Grupo de recursos|*myresourcegroup*| Um nome de grupo de recursos novo ou um já existente na sua subscrição.
     Selecionar origem | *Em branco* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
     Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
+    Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
@@ -151,14 +148,14 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    
    ![10-2 formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauro**: selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
-   - **Restaurar para novo servidor**: indique um novo nome de servidor para o qual pretende restaurar.
-   - **Localização**: a região é a mesma que o servidor de origem e não pode ser alterada.
-   - **Escalão de preço**: o escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
+   - **Ponto de restauro**: Selecione um ponto anterior no tempo que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
+   - **Restaurar para novo servidor**: Forneça um novo nome de servidor que pretende restaurar para.
+   - **Localização**: A região é igual ao servidor de origem e não pode ser alterada.
+   - **Escalão de preço**: O escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para restaurar o servidor para [ e restaurar para um momento específico](./howto-restore-server-portal.md) antes da tabela ter sido eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, utilizou o portal do Azure para aprender a:
 
 > [!div class="checklist"]

@@ -1,24 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para MySQL através de Go
 description: Este início rápido proporciona vários exemplos de código Go que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f11453cd7ccdd878e20d80469f12263e72166b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264862"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536649"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilize a linguagem Go para ligar e consultar dados
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilize a linguagem Go para ligar e consultar dados
 Este guia de introdução demonstra como se pode ligar a uma Base de Dados do Azure para MySQL a partir de plataformas Windows, Ubuntu, Linux e Apple macOS com código escrito na linguagem [Go](https://golang.org/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Go e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -351,6 +348,6 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

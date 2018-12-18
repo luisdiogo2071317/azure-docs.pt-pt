@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>aderir
 
-[**junção**](https://docs.microsoft.com/azure/kusto/query/joinoperator): unindo as linhas das duas tabelas para formar uma nova tabela ao corresponder valores das colunas especificadas de cada tabela. Kusto suporta uma gama completa de tipos de associações: **fullouter**, **interna**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
+[**junção**](https://docs.microsoft.com/azure/kusto/query/joinoperator): unindo as linhas das duas tabelas para formar uma nova tabela ao corresponder valores das colunas especificadas de cada tabela. Kusto suporta uma gama completa de tipos de associações: **fullouter**, **interna**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 O exemplo seguinte associa duas tabelas com uma associação interna.
 

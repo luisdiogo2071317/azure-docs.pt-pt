@@ -1,24 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para PostgreSQL com PHP
 description: Este guia de início rápido fornece um código de exemplo de PHP que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f45191d7844700906aac0a206aaaf8dc8cf6202
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: f44e38cc68f23f77381deaaf2ca920bab820e196
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985562"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540345"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilize o PHP para ligar e consultar dados
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar o PHP para se ligar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -218,6 +215,6 @@ Substitua os parâmetros `$host`, `$database`, `$user` e `$password` pelos seus 
 ?>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

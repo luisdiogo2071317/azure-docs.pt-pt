@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680604"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555970"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testar os módulos do Terraform no Azure utilizando Terratest
 
@@ -35,10 +35,10 @@ Este artigo prático é independente de plataforma. Pode executar os exemplos de
 
 Antes de começar, instale o seguinte software:
 
-- **Aceda a linguagem de programação**: casos de teste do Terraform são escritos no [vá](https://golang.org/dl/).
+- **Aceda a linguagem de programação**: Casos de teste do Terraform são escritos em [ir](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) é uma ferramenta de gestão de dependências para Go.
-- **CLI do Azure**: A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) é uma ferramenta da linha de comandos, pode utilizar para gerir recursos do Azure. (Terraform suporta a autenticação no Azure através de um principal de serviço ou [através da CLI do Azure](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **mage**: podemos utilizar o [mage executável](https://github.com/magefile/mage/releases) para mostrar a como simplificar casos de Terratest em execução. 
+- **CLI do Azure**: O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) é uma ferramenta da linha de comandos, pode utilizar para gerir recursos do Azure. (Terraform suporta a autenticação no Azure através de um principal de serviço ou [através da CLI do Azure](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **mage**: Vamos utilizar o [mage executável](https://github.com/magefile/mage/releases) para mostrar a como simplificar casos de Terratest em execução. 
 
 ## <a name="create-a-static-webpage-module"></a>Criar um módulo de página Web estática
 
@@ -93,10 +93,10 @@ output "homepage_url" {
 ```
 
 A lógica principal do módulo Aprovisiona quatro recursos:
-- **grupo de recursos**: O nome do grupo de recursos é o `website_name` entrada anexada por `-staging-rg`.
-- **conta de armazenamento**: O nome da conta de armazenamento é o `website_name` entrada anexada por `data001`. A cumprir as limitações de nome da conta de armazenamento, o módulo remove todos os carateres especiais e utiliza as letras minúsculas no nome da conta de armazenamento completo.
+- **Grupo de recursos**: O nome do grupo de recursos é o `website_name` entrada anexada por `-staging-rg`.
+- **Conta de armazenamento**: O nome da conta de armazenamento é o `website_name` entrada anexada por `data001`. A cumprir as limitações de nome da conta de armazenamento, o módulo remove todos os carateres especiais e utiliza as letras minúsculas no nome da conta de armazenamento completo.
 - **foi corrigido o contentor de nome**: O contentor com o nome `wwwroot` e é criado na conta de armazenamento.
-- **único arquivo HTML**: arquivo o HTML é lidos a partir de `html_path` de entrada e carregou para `wwwroot/index.html`.
+- **arquivo único do HTML**: O arquivo HTML é lidos a partir da `html_path` de entrada e carregou para `wwwroot/index.html`.
 
 A lógica do módulo da página Web estática é implementado em `./main.tf`:
 
@@ -267,7 +267,7 @@ Devolve o resultado do teste Go tradicional em cerca de um minuto.
 
 Em contraste com testes de unidade, testes de integração tem de aprovisionar recursos para um ambiente real de uma perspectiva de ponto-a-ponto. Terratest faz um bom trabalho com esse tipo de tarefa. 
 
-Melhores práticas para a instalação de incude de módulos do Terraform o `examples` pasta. O `examples` pasta contém alguns exemplos de ponto-a-ponto. Para evitar a trabalhar com dados reais, por que não testar esses exemplos de como testes de integração? Nesta secção, vamos nos concentrar em três arquivos que estão marcados com um asterisco `(*)` na estrutura da pasta seguinte:
+Melhores práticas para os módulos do Terraform incluem a instalação a `examples` pasta. O `examples` pasta contém alguns exemplos de ponto-a-ponto. Para evitar a trabalhar com dados reais, por que não testar esses exemplos de como testes de integração? Nesta secção, vamos nos concentrar em três arquivos que estão marcados com um asterisco `(*)` na estrutura da pasta seguinte:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -298,7 +298,7 @@ Vamos começar com os exemplos. Uma nova pasta de exemplo com o nome `hello-worl
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -420,7 +420,7 @@ Eis um exemplo de `./magefile.go`. Neste script de compilação, escrito em Go, 
 - `Clean`: O passo remove todos os ficheiros gerados e temporários, que são gerados durante execuções de teste.
 - `Format`: O passo for executado `terraform fmt` e `go fmt` para formatar a sua base de código.
 - `Unit`: O passo é executado todos os testes de unidade (usando a Convenção de nome de função `TestUT_*`) sob o `./test/` pasta.
-- `Integration`: O passo é semelhante ao `Unit`, mas em vez de testes de unidade, ele executa testes de integração (`TestIT_*`).
+- `Integration`: O passo é semelhante à `Unit`, mas em vez de testes de unidade, ele executa testes de integração (`TestIT_*`).
 - `Full`: O passo for executado `Clean`, `Format`, `Unit`, e `Integration` na sequência.
 
 ```go
@@ -504,7 +504,7 @@ Pode utilizar os seguintes comandos para executar um pacote de testes completa. 
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```
@@ -513,7 +513,7 @@ Pode substituir a última linha de comando com os passos adicionais mage. Por ex
 
 Com mage, também, pode partilhar os passos, utilizando o sistema de pacote do Go. Nesse caso, pode simplificar a magefiles em todos os seus módulos por referenciar apenas uma implementação comum e declarar dependências (`mg.Deps()`).
 
-**Opcional: Variáveis de ambiente de principal do serviço de conjunto para executar testes de aceitação**
+**Opcional: Definir variáveis de ambiente de principal de serviço para executar testes de aceitação**
  
 Em vez de executar `az login` antes de testes, pode concluir a autenticação do Azure ao definir as variáveis de ambiente de principal de serviço. Terraform publica um [lista de nomes de variáveis de ambiente](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Só são necessárias as quatro primeiras variáveis de ambiente.) Terraform também publica as instruções detalhadas que explicam como [obter o valor destas variáveis de ambiente](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 

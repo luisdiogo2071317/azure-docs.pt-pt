@@ -1,9 +1,9 @@
 ---
-title: Descrição geral do Azure Batch para programadores | Microsoft Docs
+title: Descrição geral para programadores - Azure Batch | Documentos da Microsoft
 description: Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/22/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 3043764ed89f2e53ddc3fd3f009a8bee586031e9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735584"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540382"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -85,7 +85,7 @@ O Batch suporta os seguintes tipos de contas de Armazenamento do Azure:
 * Contas para Fins gerais v1 (GPv1)
 * Contas de armazenamento de blobs (atualmente suportadas para conjuntos na configuração da Máquina Virtual)
 
-Para obter mais informações sobre as contas de armazenamento, veja [Azure Storage account overview](../storage/common/storage-account-overview.md) (Descrição geral da conta de armazenamento do Azure).
+Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
 Pode associar uma conta de armazenamento à sua conta do Batch ao criar a conta do Batch, ou posteriormente. Considere os requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento GPv2 e BLOBs suportam [limites de escalabilidade e capacidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) mais elevados em comparação com a GPv1. (Contacte o Suporte do Azure para pedir um aumento de um limite de armazenamento.) Estas opções de conta podem melhorar o desempenho das soluções do Batch que contêm um grande número de tarefas paralelas que leem ou escrevem para a conta de armazenamento.
 
@@ -314,8 +314,8 @@ A tarefa de gestor de trabalhos é iniciada antes de todas as outras tarefas. Pr
 ### <a name="job-preparation-and-release-tasks"></a>Tarefas de preparação e de lançamento da tarefa
 O Batch fornece tarefas de preparação de trabalhos para a configuração de execução de trabalho prévia. As tarefas de libertação de trabalhos destinam-se a manutenção ou limpeza pós-trabalho.
 
-* **Tarefa de preparação de trabalho**: as tarefas de preparação de trabalhos são executadas em todos os nós de computação agendados para executar tarefas antes de qualquer uma das outras tarefas de trabalho serem executadas. Pode utilizar uma tarefa de preparação de trabalhos para copiar dados partilhados por todas as tarefas, mas que são exclusivos do trabalho, por exemplo.
-* **Tarefa de libertação de trabalhos**: quando um trabalho tiver sido concluído, é executada uma tarefa de libertação de trabalhos em cada nó no conjunto que executou, pelo menos, uma tarefa. Pode utilizar uma tarefa de libertação de trabalhos para eliminar dados copiados pela tarefa de preparação de trabalhos ou para comprimir e carregar dados de registos de diagnósticos, por exemplo.
+* **Tarefa de preparação**: Uma tarefa de preparação é executado em todos os nós de computação que estão agendados para executar tarefas antes de qualquer uma das outras tarefas de trabalho são executadas. Pode utilizar uma tarefa de preparação de trabalhos para copiar dados partilhados por todas as tarefas, mas que são exclusivos do trabalho, por exemplo.
+* **Tarefa de libertação**: Quando uma tarefa for concluída, uma tarefa de lançamento da tarefa é executada em cada nó no conjunto que executou, pelo menos, uma tarefa. Pode utilizar uma tarefa de libertação de trabalhos para eliminar dados copiados pela tarefa de preparação de trabalhos ou para comprimir e carregar dados de registos de diagnósticos, por exemplo.
 
 Quer a tarefa de preparação de trabalhos, quer a de libertação de trabalhos, permitem-lhe especificar uma linha de comandos a ser executada quando a tarefa é invocada. Oferecem funcionalidades como, por exemplo, transferência de ficheiros, execução elevada, variáveis de ambiente personalizadas, duração de execução máxima e tempo de retenção de ficheiros.
 
@@ -355,13 +355,13 @@ O diretório de raiz contém a seguinte estrutura de diretórios:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **partilhado**: este diretório proporciona acesso de leitura/escrita a *todas* as tarefas executadas num nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
-* **arranque**: este diretório é utilizado pelas tarefas de início como o diretório de trabalho. Todos os ficheiros que tenham sido transferidos para o nó pela tarefa de início são armazenados aqui. A tarefa de início pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` para aceder a este diretório.
-* **Tarefas**: é criado um diretório para cada tarefa executada no nó. O diretório é acedido ao consultar a variável de ambiente `AZ_BATCH_TASK_DIR`.
+* **partilhado**: Este diretório proporciona acesso de leitura/gravação para *todos os* tarefas executadas num nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
+* **arranque**: Este diretório é utilizado por uma tarefa de início como o diretório de trabalho. Todos os ficheiros que tenham sido transferidos para o nó pela tarefa de início são armazenados aqui. A tarefa de início pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` para aceder a este diretório.
+* **Tarefas**: É criado um diretório para cada tarefa executada no nó. O diretório é acedido ao consultar a variável de ambiente `AZ_BATCH_TASK_DIR`.
 
     Dentro do diretório de cada tarefa, o serviço Batch cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Este diretório proporciona acesso de leitura/escrita à tarefa. A tarefa pode criar, ler, atualizar e eliminar ficheiros neste diretório. Este diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
-    `stdout.txt` e `stderr.txt`: estes ficheiros são escritos na pasta da tarefa durante a execução da mesma.
+    `stdout.txt` e `stderr.txt`: Estes ficheiros são escritos para a pasta de tarefas durante a execução da tarefa.
 
 > [!IMPORTANT]
 > Quando um nó é removido do conjunto, *todos* os ficheiros que estão armazenados no mesmo são removidos.
@@ -508,7 +508,7 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.
 * Transfira e instale o [Batch Explorer][batch_labs] para utilizar enquanto desenvolve as soluções do Batch. Utilize o Batch Explorer para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. 
-* Consulte os recursos da comunidade, incluindo [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade em Lote](https://github.com/Azure/Batch) e o [fórum do Azure Batch][batch_forum] no MSDN. 
+* Consulte os recursos da comunidade, incluindo [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade em Lote](https://github.com/Azure/Batch) e o [fórum do Azure Batch][batch_forum] no MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

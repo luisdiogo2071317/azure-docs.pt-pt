@@ -1,24 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para MySQL a partir de C#
 description: Este guia de introdução disponibiliza um código de exemplo de C# (.NET) que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-services: MySQL
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: c92d28bd7515372c17af34d90a4ac73317a13630
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.openlocfilehash: e0536440ea38f127a34639ffb40e5015154ec550
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265025"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547461"
 ---
-# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar .NET (C#) para se ligar e consultar dados
+# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilizar .NET (C#) para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação C#. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com C# e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -28,7 +25,7 @@ Este guia de início rápido utiliza os recursos criados em qualquer um desTes g
 
 Também tem de:
 - Instalar o [.NET](https://www.microsoft.com/net/download). Siga os passos no artigo ligado para instalar o .NET especificamente para a sua plataforma (Windows, Ubuntu Linux ou macOS). 
-- Instalar o [Visual Studio](https://www.visualstudio.com/downloads/).
+- Instale o [Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-c-project"></a>Criar um projeto em C#
 Numa linha de comandos, execute:
@@ -272,6 +269,6 @@ namespace AzureMySqlExample
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro](concepts-migrate-dump-restore.md)

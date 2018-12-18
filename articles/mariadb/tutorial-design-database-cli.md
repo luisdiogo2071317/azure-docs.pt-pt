@@ -1,22 +1,19 @@
 ---
 title: 'Tutorial: Conceber uma base de dados do Azure para MariaDB com a CLI do Azure'
 description: Este tutorial explica como criar e gerir a base de dados do Azure para MariaDB servidor e base de dados com o CLI do Azure a partir da linha de comando.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516342"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541196"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para MariaDB com a CLI do Azure
 
@@ -175,10 +172,10 @@ Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil r
 
 Para o restauro, precisa das seguintes informações:
 
-- Ponto de restauro: selecione uma hora antes do servidor ter sido alterado. Tem de ser maior ou igual ao valor da Cópia de segurança mais antiga da base de dados de origem.
-- Servidor de destino: indique um novo nome de servidor para o qual pretende restaurar
-- Servidor de origem: indique o nome do servidor do qual pretende restaurar
-- Localização: não pode selecionar a região, por predefinição é igual ao servidor de origem
+- Ponto de restauro: Selecione um ponto anterior no tempo que ocorre antes do servidor foi alterado. Tem de ser maior ou igual ao valor da Cópia de segurança mais antiga da base de dados de origem.
+- Servidor de destino: Forneça um novo nome de servidor que pretende restaurar para
+- Servidor de origem: Forneça o nome do servidor que pretende restaurar a partir de
+- Localização: Não é possível selecionar a região, por predefinição é igual ao servidor de origem
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
