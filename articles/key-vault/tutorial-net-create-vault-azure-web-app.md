@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c2e278b606ebfb445fc76294b2fac78d729aa970
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322146"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606168"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma aplicação web do Azure no .NET
 
 O Azure Key Vault ajuda a proteger segredos, como chaves de API e as cadeias de ligação de base de dados. Ele fornece acesso às suas aplicações, serviços e recursos de TI.
 
-Neste tutorial, saiba como criar uma aplicação web do Azure que pode ler as informações de um cofre de chave do Azure. O processo utiliza identidades geridas para recursos do Azure. Para obter mais informações sobre aplicações web do Azure, consulte [aplicações Web do Azure](../app-service/app-service-web-overview.md).
+Neste tutorial, saiba como criar uma aplicação web do Azure que pode ler as informações de um cofre de chave do Azure. O processo utiliza identidades geridas para recursos do Azure. Para obter mais informações sobre aplicações web do Azure, consulte [App Service do Azure](../app-service/overview.md).
 
 O artigo mostra-lhe como para:
 

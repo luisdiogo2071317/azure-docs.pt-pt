@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 23b1ec176572b3a7e6deb0cba60ac7a1e73eeffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257884"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605522"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
-A [Aplicação Web](../app-service-web-overview.md) é uma plataforma de computação completamente gerida, está otimizada para o alojamento de sites e de Aplicações Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. As secções seguintes listam as pilhas de aplicação atualmente suportadas.
+A [Aplicação Web](../overview.md) é uma plataforma de computação completamente gerida, está otimizada para o alojamento de sites e de Aplicações Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. As secções seguintes listam as pilhas de aplicação atualmente suportadas.
 
 ## <a name="languages"></a>Linguagens
 

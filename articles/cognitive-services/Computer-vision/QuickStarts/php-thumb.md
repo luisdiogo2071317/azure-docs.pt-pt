@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Gerar uma miniatura – REST, PHP – Imagem Digitalizada'
+title: 'Início rápido: Gere uma miniatura - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964514"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579350"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Guia de Início Rápido: Gerar uma miniatura com a API REST e o PHP na Imagem Digitalizada
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Início rápido: Gere uma miniatura usando a REST API e PHP na visão do computador
 
 Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API REST de Imagem Digitalizada. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Obter Miniatura), pode gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 
@@ -33,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) do PHP5.
+1. Instale o pacote [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) do PHP5.
    1. Abra a janela da linha de comandos como administrador.
    1. Execute o seguinte comando:
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164437"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608652"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento, em seguida, responder a perguntas através do portal do QnA Maker
 
@@ -83,9 +83,9 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
 
 1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra perguntas e respostas da personalidade Chit-chat. 
 
-1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone de engrenagem. Esta ação mostra os filtros para cada pergunta e resposta. As perguntas da personalidade Chit-chat já têm o filtro **editorial: chit-chat** definido. Este filtro é devolvido à aplicação cliente, juntamente com a resposta selecionada. A aplicação cliente, como um chatbot, pode utilizar este filtro para determinar processamento ou interações adicionais com o utilizador.
+1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone de metadados. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de Chit chat têm o **editorial: chit-bate-papo** metadados já definido. Estes metadados é retornado para a aplicação de cliente, juntamente com a resposta selecionada. O aplicativo de cliente, como um chatbot, pode utilizar estes metadados filtrados para determinar o processamento adicional ou as interações com o utilizador.
 
-    ![Ver filtros](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Marcas de metadados de vista](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Selecione **Save and train** (Guardar e preparar) na barra de menus superior.
 
@@ -171,7 +171,7 @@ Após a publicação da BDC, o ponto final é apresentado
    
     ```
 
-    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. O Criador de FAQ também devolveu todas as perguntas relacionadas, bem como a propriedade metadata que contém a informação do filtro Chit-chat.  
+    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. A ferramenta QnA Maker também devolvido todas as dúvidas relacionadas, bem como a propriedade de metadados que contém as informações de marca de metadados de Chit-bate-papo.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Utilizar o Curl para consultar a resposta predefinida
 

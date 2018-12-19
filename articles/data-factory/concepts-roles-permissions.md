@@ -79,7 +79,7 @@ Aqui estão alguns exemplos que demonstram o que pode conseguir com funções pe
   Este cenário requer duas atribuições de funções.
 
   1. Atribuir o incorporado **contribuinte** função ao nível da fábrica de dados.
-  2. Criar uma função personalizada com a permissão * Microsoft.Resources/deployments/**. Atribua esta função personalizada para o utilizador ao nível do grupo de recursos.
+  2. Criar uma função personalizada com a permissão *Microsoft.Resources/deployments/*\*. Atribua esta função personalizada para o utilizador ao nível do grupo de recursos.
 
 - Permitir que um utilizador Atualize uma fábrica de dados do PowerShell ou o SDK, mas não no portal do Azure.
 

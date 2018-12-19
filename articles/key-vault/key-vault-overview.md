@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: 7945ff5d67f8229802666ac4a12209c2d26607f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586296"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608414"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -73,9 +73,9 @@ Além disso, o Azure Key Vault permite-lhe segregar segredos das aplicações. A
 
 ### <a name="integrate-with-other-azure-services"></a>Integrar com outros serviços do Azure
 
-Enquanto arquivo seguro no Azure, o Key Vault tem sido utilizado para simplificar cenários como o [Azure Disk Encryption](../security/azure-security-disk-encryption.md), a funcionalidade [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) no SQL Server e na Base de Dados SQL do Azure e as [Aplicações Web do Azure]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). O próprio Key Vault pode ser integrado em contas de armazenamento, em hubs de eventos e no Log Analytics.
+Enquanto arquivo seguro no Azure, Cofre de chaves foi utilizado para simplificar cenários como [do Azure Disk Encryption](../security/azure-security-disk-encryption.md), o [são sempre encriptados]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) funcionalidade no SQL server e base de dados SQL do Azure, [aplicação do Azure Serviço]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). O próprio Key Vault pode ser integrado em contas de armazenamento, em hubs de eventos e no Log Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Quickstart: Create an Azure Key Vault using the CLI](quick-create-cli.md) (Início Rápido: Criar um Cofre de Chaves do Azure com a CLI do Azure)
+- [Início rápido: Criar um Azure Key Vault com a CLI](quick-create-cli.md)
 - [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar uma aplicação Web do Azure para ler segredos em cofres de segurança)

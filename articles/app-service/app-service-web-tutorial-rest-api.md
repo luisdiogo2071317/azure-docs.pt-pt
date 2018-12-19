@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2351acea7fe5361e22e8221572b81085a0e3a476
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261573"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606933"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
-O [Serviço de Aplicações do Azure](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [Partilha de Recursos de Várias Origens (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implementar uma aplicação API ASP.NET Core no Serviço de Aplicações com suporte para CORS. A aplicação é configurada com ferramentas de linha de comandos e implementada na aplicação através do Git. 
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [Partilha de Recursos de Várias Origens (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implementar uma aplicação API ASP.NET Core no Serviço de Aplicações com suporte para CORS. A aplicação é configurada com ferramentas de linha de comandos e implementada na aplicação através do Git. 
 
 Neste tutorial, ficará a saber como:
 

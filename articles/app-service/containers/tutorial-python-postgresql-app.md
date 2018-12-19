@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 86b80e8d2e4dbec96807edaba2dff813d0eda029
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337994"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607426"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Criar uma aplicação web Python e PostgreSQL no serviço de aplicações do Azure
 
@@ -431,7 +431,7 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](../app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Configurar incorporadas Python de imagem e resolver problemas de erros](how-to-configure-python.md)

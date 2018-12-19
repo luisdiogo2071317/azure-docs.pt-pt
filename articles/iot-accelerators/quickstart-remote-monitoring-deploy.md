@@ -1,5 +1,5 @@
 ---
-title: Experimentar uma solução de monitorização remota de IoT baseada na cloud no Azure | Microsoft Docs
+title: Tente uma solução - Azure de monitorização remota de IoT baseado na nuvem | Documentos da Microsoft
 description: Neste início rápido, vai implementar o acelerador de soluções de IoT de Monitorização Remota do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824783"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608362"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitorização remota baseada na cloud
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início rápido: Tente uma solução de monitorização remota com base na cloud
 
 Este início rápido mostra como implementar o acelerador de soluções de Monitorização Remota de IoT do Azure. Nesta solução baseada na cloud, utilize a página **Dashboard** da solução para visualizar os dispositivos simulados num mapa e a página **Manutenção** para responder a um alerta de pressão de um dispositivo chiller simulado. Pode utilizar este acelerador de soluções como o ponto de partida para a sua própria implementação ou como uma ferramenta de aprendizagem.
 
@@ -142,4 +142,4 @@ Neste início rápido, implementou o acelerador de soluções de Monitorização
 Para saber mais sobre o acelerador de soluções que está a utilizar dispositivos simulados, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorizar os seus dispositivos IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Tutorial: Monitorize os seus dispositivos IoT](iot-accelerators-remote-monitoring-monitor.md)

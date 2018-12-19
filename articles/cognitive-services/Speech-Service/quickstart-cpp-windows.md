@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1a26cbea3aaca700f5e501d3b6be0f7d1c942f36
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075192"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607545"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em C++ no Windows com o SDK de Voz
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Windows com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -37,7 +37,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
     Caso contrário, assinale a caixa junto a **Desenvolvimento de ambiente de trabalho com C++**.
 
-1. Certifique-se de que o componente **Gestor de pacotes NuGet** está disponível. Mude para o separador **Componentes individuais** da caixa de diálogo do instalador do Visual Studio e selecione **Gestor de pacotes NuGet**, se não estiver já ativado.
+1. Certifique-se de que o componente **Gestor de pacotes NuGet** está disponível. Mude para o **componentes individuais** separador de caixa de diálogo do instalador do Visual Studio. Selecione **Gestor de pacotes NuGet** se não estiver já ativada.
 
       ![Captura de ecrã do separador Componentes individuais do Visual Studio](media/sdk/vs-enable-nuget-package-manager.png)
 
@@ -47,7 +47,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
     ![Captura de ecrã da caixa de diálogo Novo Projeto](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-1. Se estiver a executar o Windows de 64 bits, poderá alternar a sua plataforma de compilação para `x64`, com o menu de lista pendente da barra de ferramentas do Visual Studio. (As versões de 64 bits do Windows podem executar aplicações de 32 bits, pelo que não é um requisito.)
+1. Se estiver a executar o Windows de 64 bits, poderá alternar a sua plataforma de compilação para `x64`, com o menu de lista pendente da barra de ferramentas do Visual Studio. (versões de 64 bits do Windows podem executar aplicativos de 32 bits diretamente.)
 
     ![Captura de ecrã da barra de ferramentas do Visual Studio, com a opção x64 realçada](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
@@ -60,7 +60,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
     ![Captura de ecrã da caixa de diálogo Gerir Pacotes para Solução](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > A versão atual do SDK de Voz dos Serviços Cognitivos é `1.1.0`.
+    > A versão atual do SDK de Voz dos Serviços Cognitivos é `1.2.0`.
 
 1. Aceite a licença apresentada para iniciar a instalação do pacote NuGet.
 

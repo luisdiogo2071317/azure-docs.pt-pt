@@ -4,7 +4,7 @@ items:
 - name: Descrição geral
   items:
   - name: Acerca das Aplicações Web
-    href: app-service-web-overview.md
+    href: overview.md
   - name: Acerca do Serviço de Aplicações no Linux
     href: containers/app-service-linux-intro.md
   - name: Acerca dos Ambientes do Serviço de Aplicações
@@ -57,11 +57,11 @@ items:
 - name: Amostras
   items:
   - name: CLI do Azure
-    href: app-service-cli-samples.md
+    href: samples-cli.md
   - name: Azure PowerShell
-    href: app-service-powershell-samples.md
+    href: samples-powershell.md
   - name: Modelos do Resource Manager
-    href: app-service-rm-template-samples.md
+    href: samples-resource-manager-templates.md
 - name: Conceitos
   items:
   - name: Como funciona o Serviço de Aplicações
@@ -257,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Endereço SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 2c1d686bc6dfb46bcacccb68063553739a5d9947
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2256595005b39000cbad8e4967276beb65f22de3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542412"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599693"

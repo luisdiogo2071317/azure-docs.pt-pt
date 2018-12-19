@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: JavaScript de API de Imagem Digitalizada'
+title: 'Tutorial: Efetuar operações de imagem - JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação JavaScript básica que utiliza a API de Imagem Digitalizada nos Serviços Cognitivos do Azure. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341315"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581380"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript de API de Imagem Digitalizada
+# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript de API de visão do computador
 
 Este tutorial mostra as funcionalidades da API REST de Imagem Digitalizada dos Serviços Cognitivos do Azure.
 
 Explore uma aplicação JavaScript que utilize a API REST de Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas com recorte inteligente, além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Este exemplo permite enviar um URL de imagem para análise ou processamento. Pode utilizar este exemplo de open source aberto como um modelo para criar a sua própria aplicação JavaScript para utilizar a API REST de Imagem Digitalizada.
 
-A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste tutorial, vai adicionar o código específico para a API REST de Imagem Digitalizada para concluir a funcionalidade da aplicação.
+A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste tutorial, vai adicionar o código específico à API REST de Imagem Digitalizada para concluir a funcionalidade da aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,15 +46,15 @@ Se preferir utilizar o tutorial concluído com todos os códigos do tutorial adi
 
 ## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
-A aplicação JavaScript está configurada com seis ficheiros .html, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, etc.). As seis secções do tutorial não têm interdependências, pelo que pode adicionar o código do tutorial a um ficheiro, a todos os ficheiros ou apenas a alguns dos ficheiros. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
+A aplicação do JavaScript é configurada com seis .HTML os ficheiros, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, etc.). As seis secções do tutorial não têm interdependências, pelo que pode adicionar o código do tutorial a um ficheiro, a todos os ficheiros ou apenas a alguns dos ficheiros. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
 
 Vamos começar.
 
 ### <a name="analyze-an-image"></a>Analisar uma imagem
 
-A funcionalidade Analisar da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a função Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e muito mais.
+A funcionalidade Analisar da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a funcionalidade Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e mais.
 
-Para concluir a funcionalidade Analyze (Analisar) da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade Analyze (Analisar) da aplicação de tutorial, realize os seguintes passos:
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
@@ -159,9 +160,9 @@ Guarde o ficheiro **analyze.html** e abra-o num browser. Coloque a sua chave de 
 
 ### <a name="recognize-a-landmark"></a>Reconhecer um marco
 
-A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, o Marco devolve um objeto JSON que identifica os marcos encontrados na imagem.
+A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, a funcionalidade Landmark (Marco) devolve um objeto JSON que identifica os marcos encontrados na imagem.
 
-Para concluir a funcionalidade Landmark (Marco) da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade Landmark (Marco) da aplicação de tutorial, realize os seguintes passos:
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
@@ -266,9 +267,9 @@ Guarde o ficheiro **landmark.html** e abra-o num browser. Coloque a sua chave de
 
 ### <a name="recognize-celebrities"></a>Reconhecer celebridades
 
-A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem para pessoas famosas. Quando a análise estiver concluída, a função Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
+A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem relativamente a pessoas famosas. Quando a análise estiver concluída, a funcionalidade Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
 
-Para concluir a funcionalidade Celebrities (Celebridades) da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade Celebrities (Celebridades) da aplicação de tutorial, realize os seguintes passos:
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
@@ -371,7 +372,7 @@ Guarde o ficheiro **celebrities.html** e abra-o num browser. Coloque a sua chave
 
 A funcionalidade Thumbnail (Miniatura) da Imagem Digitalizada gera uma miniatura a partir de uma imagem. Ao utilizar a funcionalidade **Smart Crop** (Recorte Inteligente), a funcionalidade Thumbnail (Miniatura) identificará a área de interesse numa imagem e centrará a miniatura nessa área, para gerar imagens em miniatura mais agradáveis esteticamente.
 
-Para concluir a funcionalidade Thumbnail (Miniatura) da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade Thumbnail (Miniatura) da aplicação de tutorial, realize os seguintes passos:
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
@@ -492,9 +493,9 @@ Guarde o ficheiro **thumbnail.html** e abra-o num browser. Coloque a sua chave d
 
 A funcionalidade Optical Character Recognition (Reconhecimento Ótico de Carateres – OCR) da Imagem Digitalizada analisa uma imagem de texto impresso. Quando a análise estiver concluída, a funcionalidade OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade OCR da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade OCR da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR – passo 1: adicionar o código do processador de eventos para o botão de formulário
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Passo de OCR 1: Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **ocr.html** num editor de texto e localize a função **ocrButtonClick** junto à parte inferior do ficheiro.
 
@@ -587,7 +588,7 @@ Guarde o ficheiro **ocr.html** e abra-o num browser. Coloque a sua chave de subs
 
 A funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da Imagem Digitalizada analisa uma imagem de texto manuscrito. Quando a análise estiver concluída, a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da aplicação de tutorial, execute os seguintes passos:
+Para concluir a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da aplicação de tutorial, realize os seguintes passos:
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
@@ -742,7 +743,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 Guarde o ficheiro **handwriting.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [API de Imagem Digitalizada com C&#35; Tutorial](CSharpTutorial.md)
 - [Tutorial do Python de API de Imagem Digitalizada](PythonTutorial.md)

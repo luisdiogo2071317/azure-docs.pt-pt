@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: e44eb52323a93bddd629f3591cdbfbf021768629
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 645c57c9bfeaefcfd2fc50b2dd431713fffaa42b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344100"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578789"
 ---
 # <a name="quickstart-summary"></a>Início rápido: Resumo
 
@@ -51,7 +52,7 @@ O código em cada exemplo é semelhante. No entanto, eles realçam diferentes fu
 | Extrair texto impresso     | language=unk&detectOrientation=true         | Cadeia de carateres JSON       |
 | Extrair texto manuscrito | handwriting=true                            | URL, cadeia de carateres JSON  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 

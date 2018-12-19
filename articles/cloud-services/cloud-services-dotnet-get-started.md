@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d4ee723b8b8303f2eaf9bea4db8dfc1aaa1c4931
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242131"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608822"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -35,8 +35,8 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 
 A aplicação utiliza o [padrão de trabalho centrado em filas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitetura alternativa: Aplicações Web e WebJobs
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end nas [Aplicações Web do Azure](/azure/app-service/) e utilizar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) do back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [Comparação de máquinas virtuais, Cloud Services e Web Sites do Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de aplicações e WebJobs
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [App Service do Azure](/azure/app-service/) e utilizar os [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) funcionalidade para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -391,8 +391,8 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 8. Ainda na janela de propriedades **ContosoAdsWorker [Função]**, adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
-   * Tipo: Cadeia
-   * Valor: cole a mesma cadeia de ligação utilizada para o projeto da função da Web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
+   * Escreva: Cadeia
+   * Valor: Cole a mesma cadeia de ligação utilizada para o projeto de função da web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -407,9 +407,9 @@ Para adicionar ficheiros a um projeto ou a uma pasta, clique com o botão direit
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
 
    * *Global.asax.cs*.  
-   * Na pasta *Vistas\Partilhadas*: *\_Layout.cshtml*.
-   * Na pasta *Vistas\Início*: *Index.cshtml*.
-   * Na pasta *Controladores*: *AdController.cs*.
+   * Na *Views\Shared* pasta: *\_Layout. cshtml*.
+   * Na *vistas \ início* pasta: *Index. cshtml*.
+   * Na *controladores* pasta: *AdController.cs*.
    * Na pasta *Vistas\Anúncio* (crie a pasta primeiro): cinco ficheiros *.cshtml*.
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto transferido.
 
@@ -775,7 +775,7 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Parte 1 dos Cloud Services do Azure: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Parte de serviços Cloud do Azure 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

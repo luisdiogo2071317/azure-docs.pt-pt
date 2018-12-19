@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9bd57ae6926f57dc8b6c0fc12199649f63cba261
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251679"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608567"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53251679"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, veja [Compilar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux](./containers/tutorial-php-mysql-app.md).
 >
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web PHP no Azure e ligá-la a uma base de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução nas Aplicações Web do Serviço de Aplicações do Azure.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web PHP no Azure e ligá-la a uma base de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução nas Aplicações Web do Serviço de Aplicações do Azure.
 
 ![Aplicação PHP em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -637,4 +637,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para uma aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](app-service-web-tutorial-custom-domain.md)

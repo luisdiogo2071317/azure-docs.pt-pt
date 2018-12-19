@@ -9,24 +9,24 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 52036dd0bdcdbc9d4ae71f388a7bb750fd781a5f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c4c33094f070e603057042eaea8187e29270fb77
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547988"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606848"
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB API para MongoDB
 
 O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. O Azure Cosmos DB proporciona [distribuição global chave na mão](distribute-data-globally.md), [dimensionamento elástico de débito e de armazenamento](partition-data.md) em todo o mundo, latências de milissegundos de um só dígito no percentil 99 e elevada disponibilidade garantida, tudo com o suporte de [SLA líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente os dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem que tenha de lidar com a gestão de esquemas e índices. É multimodal e suporte modelos de dados em documentos, chaves-valores, gráficos e em colunas. 
 
-![API do Azure Cosmos DB para o MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![API do Azure Cosmos DB para MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 As bases de dados do Azure Cosmos DB podem ser utilizadas como arquivo de dados para aplicações escritas para [MongoDB](https://docs.mongodb.com/manual/introduction/). Esta funcionalidade significa que ao utilizar os [controladores](https://docs.mongodb.org/ecosystem/drivers/) existentes, a aplicação escrita para MongoDB pode agora comunicar com o Azure Cosmos DB e utilizar as bases de dados do Azure Cosmos DB, em vez das bases de dados de MongoDB. Em muitos casos, pode mudar de MongoDB para Azure Cosmos DB, alterando simplesmente uma cadeia de ligação. Através desta funcionalidade, pode criar e executar facilmente aplicações de base de dados de MongoDB distribuídas globalmente no Azure Cloud com Azure Cosmos DB e respetivos [SLA abrangentes líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db), enquanto continua a utilizar competências e ferramentas familiares para MongoDB.
 
 **Compatibilidade do MongoDB**: Pode utilizar o existente MongoDB conhecimentos, código do aplicativo e as ferramentas como o Azure Cosmos DB implementa o protocolo de transmissão do MongoDB. Pode desenvolver aplicações com o MongoDB e implementá-las na produção através do serviço totalmente gerido e distribuído a nível global do Azure Cosmos DB. Para obter mais informações sobre as versões suportadas, veja [Suporte do Protocolo do MongoDB](mongodb-feature-support.md#mongodb-protocol-support).
 
-A API do Azure Cosmos DB para o MongoDB não é possível utilizar como um ponto de final direto para serviços como o Azure Stream Analytics, uma vez que a TI utiliza o mesmo [controladores cliente](https://docs.mongodb.org/ecosystem/drivers/) como o MongoDB nativo. Para integrar com o Azure Stream Analytics, considere usar [App Service do Azure](../app-service/app-service-web-overview.md) ou [serviço de funções do Azure](../azure-functions/functions-overview.md) como um serviço de middleware que possa escrever dados para a API do Azure Cosmos DB para o MongoDB.
+A API do Azure Cosmos DB para o MongoDB não é possível utilizar como um ponto de final direto para serviços como o Azure Stream Analytics, uma vez que a TI utiliza o mesmo [controladores cliente](https://docs.mongodb.org/ecosystem/drivers/) como o MongoDB nativo. Para integrar com o Azure Stream Analytics, considere usar [App Service do Azure](../app-service/overview.md) ou [serviço de funções do Azure](../azure-functions/functions-overview.md) como um serviço de middleware que possa escrever dados para a API do Azure Cosmos DB para o MongoDB.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Qual é a vantagem de utilizar o Azure Cosmos DB para aplicações MongoDB?
 
