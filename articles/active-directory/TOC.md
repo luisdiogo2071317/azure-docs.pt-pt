@@ -275,6 +275,7 @@
 ##### [Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores - aplicação da galeria](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Os utilizadores não estão aprovisionados - aplicação da galeria](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Foram aprovisionados os utilizadores errados - aplicação da galeria](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Problemas de compatibilidade SCIM - aplicação que não está na galeria](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Início de sessão único
 ##### [Escolher um método](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Resolução de problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Implementar a Prova de Conceito (PoC) do Azure AD
-### [Manual PoC: Introdução](active-directory-playbook-intro.md)
-### [Manual PoC: Ingredientes](active-directory-playbook-ingredients.md)
-### [Manual PoC: Implementação](active-directory-playbook-implementation.md)
-### [Manual PoC: Blocos Modulares](active-directory-playbook-building-blocks.md)
+### [Manual de procedimentos PoC: Introdução](active-directory-playbook-intro.md)
+### [Manual de procedimentos PoC: Ingredientes](active-directory-playbook-ingredients.md)
+### [Manual de procedimentos PoC: Implementação](active-directory-playbook-implementation.md)
+### [Manual de procedimentos PoC: Blocos Modulares](active-directory-playbook-building-blocks.md)
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
