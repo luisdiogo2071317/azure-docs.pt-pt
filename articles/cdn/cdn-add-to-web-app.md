@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093328"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602822"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure a uma aplicação Web do Serviço de Aplicações do Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure para uma aplicação web do serviço de aplicações do Azure
 
-Este tutorial mostra como adicionar a [Rede de Entrega de Conteúdo (CDN) do Azure](cdn-overview.md) a uma [aplicação Web no Serviço de Aplicações do Azure](../app-service/app-service-web-overview.md). As Aplicações Web são um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. 
+Este tutorial mostra como adicionar a [Rede de Entrega de Conteúdo (CDN) do Azure](cdn-overview.md) a uma [aplicação Web no Serviço de Aplicações do Azure](../app-service/overview.md). As Aplicações Web são um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. 
 
 Segue a home page do site HTML estático de exemplo com que irá trabalhar:
 
@@ -42,7 +42,7 @@ O que irá aprender:
 
 Para concluir este tutorial:
 
-- [Instale o Git](https://git-scm.com/)
+- [Instalar o Git](https://git-scm.com/)
 - [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -256,7 +256,7 @@ Para obter mais informações, consulte [Control Azure CDN caching behavior with
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 O que aprendeu:
 

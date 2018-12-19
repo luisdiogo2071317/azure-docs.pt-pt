@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, o Javascript (navegador) - serviços de voz'
+title: 'Início rápido: Reconhecer a conversão de voz, o JavaScript (navegador) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 01e66e1e592d98433a015dfb294a6182438be238
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087920"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601887"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK do serviço de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, vai aprender a criar um site com o enlace de JavaScript do SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto.
-A aplicação baseia-se no SDK de Voz dos Serviços Cognitivos da Microsoft ([Transferir a versão 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+A aplicação baseia-se o SDK de voz de serviços cognitivos da Microsoft ([Download versão 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,8 +40,8 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto deve resultar em dois ficheiros a serem descompactados, ou seja, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-O último ficheiro é opcional e utilizado para ajudar a depurar no código do SDK, se necessário.
+Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isso resulta em dois arquivos, a ser descompactados `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+O último arquivo é opcional e é útil para depurar o código do SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
 
@@ -74,7 +74,7 @@ Crie um novo ficheiro na pasta, com o nome `index.html`, e abra este ficheiro co
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Ligue processadores para o botão de reconhecimento, o resultado de reconhecimento e os campos relacionados com a subscrição definidos pelo código da IU:
+1. Conectar manipuladores para o botão de reconhecimento, o resultado do reconhecimento e a campos relacionados com a subscrição definidos pelo código da interface do Usuário:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249486"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602397"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 
@@ -24,16 +24,17 @@ Todos os serviços do Azure incluem determinados limites e quotas predefinidos p
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Azure Container Instances está disponível nas seguintes regiões com a CPU especificada e os limites de memória.
+O Azure Container Instances está disponível nas seguintes regiões com a CPU especificada e os limites de memória. Os valores são atualizados no momento da publicação. Para obter informações atualizadas, utilize o [capacidades de lista](/rest/api/container-instances/listcapabilities/listcapabilities) API.
 
 | Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
+| Canadá Central | Linux | 4 | 16 |
 | EUA Leste, Europa do Norte, Europa Ocidental, EUA Oeste, EUA Oeste 2 | Linux | 4 | 14 |
 | Leste do Japão | Linux | 2 | 8 |
 | Leste da Austrália, EUA Leste 2, Sudeste Asiático | Linux | 2 | 7 |
-| Canadá Central, Índia Central, Leste asiático, Norte dos E.U.A., Centro-Sul dos E.U.A. | Linux | 2 | 3.5 |
+| Índia central, Ásia Oriental, Norte dos E.U.A., Centro-Sul E.U.A. Central, Sul da Índia | Linux | 2 | 3.5 |
 | EUA Leste, Europa Ocidental, EUA Oeste | Windows | 4 | 14 |
-| Leste da Austrália, Canadá Central, Índia Central, Ásia Oriental, E.U.A. Leste 2, leste do Japão, Norte dos E.U.A., Europa do Norte, E.U.A. Central Centro-Sul, Sudeste asiático, oeste dos E.U.A. 2 | Windows | 2 | 3.5 |
+| Leste da Austrália, Canadá Central, Índia Central, Ásia Oriental, E.U.A. Leste 2, leste do Japão, Centro-Norte, Europa do Norte, EUA Centro-Sul, Sul da Índia, Sudeste asiático, E.U.A. oeste 2 | Windows | 2 | 3.5 |
 
 As instâncias de contentor criadas dentro destes limites de recursos estão sujeitas à disponibilidade numa região de implementação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar essa falha de implementação, experimente implementar instâncias com definições de memória e CPU inferior ou tente implementar mais tarde.
 

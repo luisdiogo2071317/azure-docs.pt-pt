@@ -1,5 +1,5 @@
 ---
-title: Experimentar uma solução no Azure para gerir os meus dispositivos IoT industriais | Microsoft Docs
+title: Tente uma solução para gerir os meus dispositivos de IoT industriais - Azure | Documentos da Microsoft
 description: Neste início rápido, vai implementar o acelerador de soluções de Fábrica Ligada de IoT do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139019"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602652"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução com base na cloud para gerir os meus dispositivos IoT industriais
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: Tente uma solução baseada na nuvem para gerir os meus dispositivos de IoT industriais
 
 Este início rápido mostra como implementar o acelerador de soluções de Fábrica Ligada de IoT do Azure para executar uma simulação de monitorização e gestão com base na cloud para dispositivos IoT industriais. Quando implementa o acelerador de soluções Fábrica Ligada, este é pré-povoado com recursos simulados que lhe permitem aceder a um cenário de IoT industrial comum. Várias fábricas simuladas são ligadas à solução e reportam os valores de dados necessários para calcular a eficiência geral de equipamentos (OEE) e os indicadores chave de desempenho (KPI). Este início rápido mostra-lhe como utilizar o dashboard de soluções para:
 
@@ -76,7 +76,7 @@ O painel **Eficiência Geral de Equipamentos** mostra os valores de OEE de toda 
 
 [![Eficiência geral de equipamentos](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-O OEE classifica a eficiência do processo de fabrico através de parâmetros operacionais relacionados com a produção. O OEE é uma medida padrão na indústria, que é calculada ao multiplicar a taxa de disponibilidade, a taxa de desempenho e a taxa de qualidade: OEE = disponibilidade x desempenho x qualidade.
+O OEE classifica a eficiência do processo de fabrico através de parâmetros operacionais relacionados com a produção. OEE é uma medida padrão calculada ao multiplicar a tarifa de disponibilidade, a taxa de desempenho e a taxa de qualidade da indústria: OEE = disponibilidade x desempenho x qualidade.
 
 Pode analisar mais detalhadamente o OEE relativamente a qualquer nível nos dados da hierarquia. Clique no OEE, na disponibilidade, no desempenho ou na percentagem de qualidade. É apresentado um painel de contexto com visualizações que mostram os dados em diferentes períodos de tempo:
 
@@ -147,7 +147,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-connected-factory-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou o acelerador de soluções de Fábrica Ligada e aprendeu a navegar pelas suas fábricas, linhas de produção e estações. Também aprendeu a ver os valores de OEE e KPI em qualquer nível na hierarquia e a responder a alarmes.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: API de Imagem Digitalizada com o Python'
+title: 'Tutorial: Efetuar operações de imagem - Python'
 titlesuffix: Azure Cognitive Services
 description: Saiba como utilizar a API de Imagem Digitalizada com Python através dos blocos de notas do Jupyter. Utilize bibliotecas populares para visualizar os seus resultados.
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276972"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582019"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Tutorial: API de Imagem Digitalizada com o Python
+# <a name="tutorial-computer-vision-api-python"></a>Tutorial: Python de API de visão do computador
 
-Este tutorial mostra-lhe como utilizar a API de Imagem Digitalizada no Python e como utilizar bibliotecas populares para visualizar os resultados. Vai utilizar o Jupyter para executar o tutorial. Para saber como começar a utilizar os blocos de notas interativos do Jupyter, veja: [Documentação do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
+Este tutorial mostra-lhe como utilizar a API de Imagem Digitalizada no Python e como utilizar bibliotecas populares para visualizar os resultados. Vai utilizar o Jupyter para executar o tutorial. Para saber como começar a utilizar os blocos de notas interativos do Jupyter, veja: [Documentação do Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
 - ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
-- [Jupyter Notebook](http://jupyter.org/install) instalado
+- [Jupyter Notebook](https://jupyter.org/install) instalado
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>Abrir o Bloco de Notas de Tutorial no Jupyter 
 

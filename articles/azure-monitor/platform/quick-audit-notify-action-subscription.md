@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388061"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582682"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure
 
@@ -98,4 +98,4 @@ Quando deixar de ser necessário, elimine o grupo de recursos e o grupo de segur
 Neste início rápido, efetuou uma operação para gerar um evento de Registo de Atividades e, em seguida, criou um alerta de Registo de Atividades para ser notificado quando esta operação ocorrer novamente no futuro. Em seguida, testou o alerta efetuando novamente essa operação. O Azure disponibiliza os eventos do Registo de Atividades dos últimos 90 dias. Se precisar de reter os eventos mais de 90 dias, tente arquivar os dados do Registo de Atividades juntamente com outros dados de monitorização.
 
 > [!div class="nextstepaction"]
-> [Arquivamento dos dados de monitorização](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [Arquivamento dos dados de monitorização](./../../azure-monitor/learn/tutorial-archive-data.md)

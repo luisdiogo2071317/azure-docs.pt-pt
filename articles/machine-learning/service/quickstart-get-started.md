@@ -11,23 +11,23 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 96c4597c1031257eca329d0247c36f5d60456fe9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273566"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582648"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
-Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para configurar o seu próprio servidor de bloco de notas do Jupyter em vez disso, consulte [início rápido: Utilizar Python para começar a utilizar com o Azure Machine Learning](quickstart-create-workspace-with-python.md).
-
+Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para configurar o seu próprio servidor de blocos de notas do Jupyter em vez disso, consulte [início rápido: Utilizar Python para começar a utilizar com o Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+ 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-Neste início rápido, irá:
+Neste início rápido, efetuar as seguintes ações:
 
 * Criar uma área de trabalho na sua subscrição do Azure.
-* Faça um teste com o Python num bloco de notas do Azure e registe os valores em várias iterações.
+* Faça um teste com o Python num valores de registo e o bloco de notas do Azure em várias iterações.
 * Ver os valores registados na área de trabalho.
 
 Os seguintes recursos do Azure são adicionados automaticamente à sua área de trabalho quando estiverem disponíveis regionalmente:
@@ -37,7 +37,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/)
 
-Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Como com outros serviços do Azure, existem limites em certos recursos associados com o Machine Learning, como tamanho de cluster de computação. Saiba mais sobre [os limites predefinidos e como aumentar a quota](how-to-manage-quotas.md).
+Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Tal como noutros serviços do Azure, existem limites em certos recursos associados com Machine Learning. Um exemplo é o tamanho do cluster de computação. Saiba mais sobre o [limites e como aumentar a quota padrão](how-to-manage-quotas.md).
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
@@ -46,14 +46,14 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Na página da área de trabalho, selecione `Explore your Azure Machine Learning service workspace`.
+Na página da área de trabalho, selecione `Explore your Azure Machine Learning service Workspace`.
 
- ![Explorar a área de trabalho](./media/quickstart-get-started/explore_aml.png)
+ ![Explore a área de trabalho](./media/quickstart-get-started/explore_aml.png)
 
 
 ## <a name="use-the-workspace"></a>Utilizar a área de trabalho
 
-Veja agora como uma área de trabalho ajuda-o a gerir os seus scripts de aprendizagem automática. Nesta secção, pode:
+Veja agora como uma área de trabalho ajuda-o a gerir os seus scripts de aprendizagem automática. Nesta secção, siga os passos seguintes:
 
 * Abrir um bloco de notas no Azure Notebooks.
 * Executar código que cria alguns valores registados.
@@ -63,7 +63,7 @@ Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo 
 
 ### <a name="open-a-notebook"></a>Abrir um bloco de notas 
 
-O Azure Notebooks oferece uma plataforma na cloud gratuita para blocos de notas do Jupyter que são pré-configurados com tudo o que precisa para executar o Machine Learning.  
+Blocos de notas do Azure fornece uma plataforma de cloud gratuitos para blocos de notas do Jupyter que é pré-configurado com tudo o que precisa para executar o Machine Learning.  
 
 Selecione `Open Azure Notebooks` para realizar a sua primeira experimentação.
 
@@ -80,9 +80,9 @@ Juntamente com dois blocos de notas, verá um ficheiro `config.json`. Este fiche
 
 Selecione `01.run-experiment.ipynb` para abrir o bloco de notas.
 
-Para executar as células uma de cada vez, utilize `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o bloco de notas completo. Quando vir um asterisco [*] junto de uma célula, significa que está em execução. Após o código para essa célula terminar, é apresentado um número. 
+Execute as células um por vez (Shift + Enter). Ou selecione `Cells` > `Run All` para executar o bloco de notas completo. Quando vir um asterisco __*__, junto a uma célula, está a ser executado. Após o código para essa célula terminar, é apresentado um número. 
 
-Depois de concluir a execução de todas as células no bloco de notas, pode ver os valores registados na sua área de trabalho.
+Depois de terminar a executar todas as células no bloco de notas, pode ver os valores com sessão iniciada na sua área de trabalho.
 
 ## <a name="view-logged-values"></a>Ver valores registados
 
@@ -96,7 +96,7 @@ Feche o pop-up `Reports`.
 
 Selecione `my-first-experiment`.
 
-Veja as informações sobre a execução que acabou de efetuar. Desloque a página para baixo para encontrar a tabela de execuções. Selecione a ligação do número de execução.
+Ver informações sobre a execução que acabamos de fazer. Desloque a página para baixo para encontrar a tabela de execuções. Selecione a ligação do número de execução.
 
  ![Ligação do histórico de execuções](./media/quickstart-get-started/report.png)
 
@@ -104,19 +104,19 @@ Verá os gráficos que foram criados automaticamente dos valores registados. Sem
 
    ![Ver histórico](./media/quickstart-get-started/plots.png)
 
-Uma vez que o código para obter uma estimativa do pi utiliza valores aleatórios, os seus gráficos irão mostrar valores diferentes.  
+Uma vez que o código para pi aproximado utiliza valores aleatórios, seus gráficos irão mostrar valores diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-Também pode manter o grupo de recursos mas eliminar uma área de trabalho única. Apresente as propriedades de área de trabalho e selecione **Eliminar**.
+Também pode manter o grupo de recursos mas eliminar uma área de trabalho única. Apresentar as propriedades de área de trabalho e selecione **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Criou os recursos necessários para experimentar e implementar modelos. Também executou algum código num bloco de notas. E explorou o histórico de execuções desse código na sua área de trabalho na cloud.
 
-Para obter uma experiência aprofundada de fluxo de trabalho, siga o tutorial de Machine Learning para preparar e implementar um modelo.  
+Para obter uma experiência de fluxo de trabalho detalhados, siga os tutoriais de Machine Learning para preparar e implementar um modelo:  
 
 > [!div class="nextstepaction"]
 > [Tutorial: Preparar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)

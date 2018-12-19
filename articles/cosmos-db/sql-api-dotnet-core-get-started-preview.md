@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 84dead2b3e7d16360264f467c6b7ab1fb358a496
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f96082aaa174886c085ba67ee0f3e870e53136e1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557286"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600765"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET Core para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -765,6 +765,6 @@ Para restaurar as referências para a API de SQL para o SDK do Azure Cosmos DB .
 Neste tutorial, aprendeu como criar uma aplicação .NET Core para gerir os dados da API de SQL do Azure Cosmos DB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados para o azure cosmos db](import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).
 
 [cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account

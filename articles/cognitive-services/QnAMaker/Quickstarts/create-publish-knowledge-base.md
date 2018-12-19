@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644790"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598315"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 
@@ -57,9 +57,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 11. No canto superior direito, selecione **Guardar e preparar** para guardar as edições e preparar o modelo do Criador de FAQ. As edições só são mantidas se tiverem sido guardadas.
 
-   ![Guardar e preparar](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. No canto superior direito, selecione **Testar** para testar se as alterações que introduziu foram efetuadas. Escreva **Olá** na caixa e carregue na tecla Enter. Deverá ver a resposta que criou como resposta.
+12. No canto superior direito, selecione **Testar** para testar se as alterações que introduziu foram efetuadas. ENTER `hi there` na caixa e selecione Enter. Deverá ver a resposta que criou como resposta.
 
 13. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as alterações à BDC antes de estas serem publicadas.
 
@@ -73,7 +71,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
    ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md)

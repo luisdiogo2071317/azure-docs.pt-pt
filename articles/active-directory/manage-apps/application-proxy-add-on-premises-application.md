@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 444fb5576ed6886e5919202cf7f22ef14e1255b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 91e28ed1f498ce717b72bb592adff324a84f2e09
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321414"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601547"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -119,7 +119,7 @@ Se a sua organização utilizar servidores proxy para estabelecer ligação à i
 
 Para obter informações sobre conectores, planejamento de capacidade e como eles se manter atualizados, consulte [conectores de Proxy de aplicações do AD Azure compreender](application-proxy-connectors.md). 
 
-Se a sua aplicação utilizar WebSockets para se ligar, certifique-se de que tem instalado o connector mais recente.  WebSockets são suportados em versões de conector 1.5.612.0 ou posterior.
+Se estiver a utilizar a aplicação de Qlik Sense, instale sempre o connector mais recente. Qlik Sense utiliza WebSockets, que é apenas suportado em versões de conector 1.5.612.0 ou posterior.
 
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Verifique se o conector instalado e registado corretamente

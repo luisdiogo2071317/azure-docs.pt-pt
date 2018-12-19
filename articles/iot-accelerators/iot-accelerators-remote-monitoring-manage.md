@@ -1,5 +1,5 @@
 ---
-title: Configurar dispositivos de um tutorial para baseada no Azure solução monitorização remota | Documentos da Microsoft
+title: Configurar dispositivos um remoto tutorial de solução de monitorização - Azure | Documentos da Microsoft
 description: Este tutorial mostra-lhe como configurar dispositivos ligados ao acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679159"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599506"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar os dispositivos ligados à sua solução de monitorização
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos ligados à sua solução de monitorização
 
 Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Adicionar um novo dispositivo para o solution accelerator e configurar o dispositivo.
 

@@ -1,5 +1,5 @@
 ---
-title: Experimentar uma solução de manutenção preditiva de IoT baseada na cloud no Azure | Microsoft Docs
+title: Tente uma solução baseada na cloud IoT de manutenção preditiva - Azure | Documentos da Microsoft
 description: Neste início rápido, vai implementar o acelerador de soluções de IoT do Azure de Manutenção Preditiva, iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139844"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604342"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada na cloud para executar uma análise de manutenção preditiva nos meus dispositivos ligados
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início rápido: Tente uma solução baseada na cloud para executar uma análise de manutenção preditiva no meu dispositivos ligados
 
 Este início rápido mostra como implementar o acelerador de soluções de Manutenção Preditiva de IoT do Azure para executar uma simulação de manutenção preditiva. Depois de implementar o acelerador de soluções, utilize a página **Dashboard** da solução para executar uma análise de manutenção preditiva em dados de um motor de aeronave simulado. Pode utilizar este acelerador de soluções como o ponto de partida para a sua própria implementação ou como uma ferramenta de aprendizagem.
 
@@ -80,7 +80,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou o acelerador de soluções de Manutenção Preditiva e executou uma simulação.
 

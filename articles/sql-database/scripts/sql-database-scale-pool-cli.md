@@ -3,7 +3,7 @@ title: O exemplo da CLI dimensiona uma Base de Dados SQL do Azure do conjunto el
 description: Script de exemplo da CLI do Azure para dimensionar um conjunto elástico SQL na Base de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 2da2686d2d851856bae0841648dc27550c810112
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: af7af24497054f7868e373150eefae9141239ec6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054457"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605037"
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utilize a CLI para dimensionar um conjunto elástico SQL na Base de Dados SQL do Azure
 
@@ -54,7 +54,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, servi
 | [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Atualiza um conjunto de bases de dados elásticas, neste exemplo altera a eDTU atribuída. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

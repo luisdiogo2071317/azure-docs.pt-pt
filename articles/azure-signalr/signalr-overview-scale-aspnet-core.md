@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255470"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602618"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicações do SignalR do ASP.NET Core com o Azure SignalR Service
 
@@ -21,7 +21,7 @@ Atualmente, existem [duas versões](https://docs.microsoft.com/aspnet/core/signa
 
 O ASP.NET Core SignalR é uma reescrita da versão anterior. Como resultado, o ASP.NET Core SignalR não é retrocompatível com a versão anterior do SignalR. As APIs e os comportamentos são diferentes. O ASP.NET Core SignalR SDK tem como alvo o .NET Standard, pelo que pode continuar a utilizá-lo com o .NET Framework. No entanto, tem de utilizar as APIs novas em vez das antigos. Se estiver a utilizar o SignalR e quiser passar para o ASP.NET Core SignalR ou para o Azure SignalR, tem de alterar o código para que este possa lidar com as diferenças nas APIs.
 
-Com o Azure SignalR Service, o componente do lado do servidor do ASP.NET Core SignalR é alojado no Azure. Contudo, uma vez que a tecnologia é criada sobre o ASP.NET Core, tem a possibilidade de executar a aplicação Web real em várias plataformas (Windows, Linux e MacOS) enquanto aloja com o [Serviço de Aplicações do Azure](../app-service/app-service-web-overview.md), o [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), o [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), o [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) e o [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Também pode utilizar o alojamento automático no seu próprio processo.
+Com o Azure SignalR Service, o componente do lado do servidor do ASP.NET Core SignalR é alojado no Azure. Contudo, uma vez que a tecnologia é criada sobre o ASP.NET Core, tem a possibilidade de executar a aplicação Web real em várias plataformas (Windows, Linux e MacOS) enquanto aloja com o [Serviço de Aplicações do Azure](../app-service/overview.md), o [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), o [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), o [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) e o [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Também pode utilizar o alojamento automático no seu próprio processo.
 
 Se os objetivos da sua aplicação incluírem suportar a mais recente funcionalidade para atualizar clientes Web com atualizações de conteúdos em tempo real, executar em várias plataformas (Azure, Windows, Linux e macOS) e alojar em diferentes ambientes, a melhor opção é tirar partido do Azure SignalR Service.
 

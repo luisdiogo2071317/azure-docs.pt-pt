@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 51d28eb9507952708a964d0a76a12e601de1dbbb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257000"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599932"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Associar um certificado SSL personalizado existente às Aplicações Web do Azure
 
-As Aplicações Web do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este tutorial mostra-lhe como vincular um certificado SSL personalizado comprado numa autoridade de certificação fidedigna às [Aplicações Web do Azure](app-service-web-overview.md). Quando tiver terminado, poderá aceder à sua aplicação Web no ponto final HTTPS do seu domínio DNS personalizado.
+As Aplicações Web do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este tutorial mostra como vincular um certificado SSL personalizado que tiver adquirido de uma autoridade de certificação fidedigna [App Service do Azure](overview.md). Quando tiver terminado, poderá aceder à sua aplicação Web no ponto final HTTPS do seu domínio DNS personalizado.
 
 ![Aplicação Web com certificado SSL personalizado](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 

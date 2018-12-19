@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
-ms.translationtype: HT
+ms.openlocfilehash: 272238e41327e09af8e4d3967868c21c37683236
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079468"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602055"
 ---
-# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Utilizar o Azure Key Vault a partir de uma aplicação Web
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Utilizar o Azure Key Vault de um aplicativo web
 
 Utilize este tutorial para aprender a utilizar o Azure Key Vault a partir de uma aplicação Web no Azure. Este tutorial mostra o processo de aceder a um segredo a partir de um Azure Key Vault para utilizar numa aplicação Web. Em seguida, o tutorial desenvolve o processo e utiliza um certificado em vez de um segredo do cliente. Este tutorial destina-se a programadores Web que compreendem as noções básicas da criação de aplicações Web no Azure.
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, tem de ter os seguintes itens:
 * Um ID de Cliente e um Segredo do Cliente para uma aplicação Web registada no Azure Active Directory que tem acesso ao seu Key Vault
 * Uma aplicação Web. Este tutorial mostra os passos para uma aplicação MVC ASP.NET implementada no Azure como uma Aplicação Web.
 
-Execute os passos do artigo [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de Cliente, Segredo do Cliente, e registar a aplicação. A aplicação Web vai aceder ao cofre e tem de ser registada no Azure Active Directory. Também precisa de ter direitos de acesso ao Key Vault. Se não tiver, volte à secção Registar uma Aplicação no tutorial de Introdução e repita os passos apresentados. Para obter mais informações sobre a criação de Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/app-service-web-overview.md).
+Execute os passos do artigo [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de Cliente, Segredo do Cliente, e registar a aplicação. A aplicação Web vai aceder ao cofre e tem de ser registada no Azure Active Directory. Também precisa de ter direitos de acesso ao Key Vault. Se não tiver, volte à secção Registar uma Aplicação no tutorial de Introdução e repita os passos apresentados. Para obter mais informações sobre a criação de Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/overview.md).
 
 Este exemplo depende do aprovisionamento manual de identidades do Azure Active Directory. No entanto, deve utilizar [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em alternativa, que aprovisiona automaticamente identidades do Microsoft Azure AD. Para obter mais informações, veja o [exemplo no GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicações e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Também pode ver o [Tutorial para configurar uma aplicação Web do Azure para ler segredos do Key Vault](tutorial-web-application-keyvault.md).
 
@@ -159,7 +159,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Tome nota da data de fim e da palavra-passe para o .pfx (neste exemplo: 15 de maio de 2019 e MyPassword). Precisará destes dados para o script abaixo. 
+Anote a data de fim e a palavra-passe para o. pfx (neste exemplo: 15 de Maio de 2019 e MyPassword). Precisará destes dados para o script abaixo. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associar o certificado a uma aplicação do Azure AD
 
 Agora que já tem um certificado, terá de associá-lo a uma aplicação do Azure AD. A associação pode ser concluída através do PowerShell. Execute os comandos seguintes para associar o certificado à aplicação do Azure AD:
@@ -192,7 +192,7 @@ Em primeiro lugar, há código para aceder ao certificado. Note que StoreLocatio
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

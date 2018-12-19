@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413256"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584008"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para o Azure NetApp Files
 
@@ -62,7 +62,7 @@ Uma sub-rede tem de ser delegada a ficheiros do Azure NetApp.
         Especifique a sub-rede que pretende utilizar para o volume.  
         A sub-rede que especificar tem de ser delegada a ficheiros do Azure NetApp. 
         
-        Se não tiver delegado uma sub-rede, pode clicar **criar novo** no criar um Volume página. Em seguida, na página Criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para ficheiros de NetApp do Azure.    
+        Se não tiver delegado uma sub-rede, pode clicar **criar novo** no criar um Volume página. Em seguida, na página Criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para ficheiros de NetApp do Azure. Tenha em atenção que, em cada Vnet, pode ser delegada apenas uma sub-rede de ficheiros de NetApp do Azure.   
  
         ![Novo volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

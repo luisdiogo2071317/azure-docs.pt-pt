@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Java da API de Imagem Digitalizada'
+title: 'Tutorial: Efetuar operações de imagem - Java'
 titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação Java Swing básica que utiliza a API de Imagem Digitalizada nos Serviços Cognitivos do Azure. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340261"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584552"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Tutorial: Java da API de Imagem Digitalizada
+# <a name="tutorial-computer-vision-api-java"></a>Tutorial: Java de API de visão do computador
 
 Este tutorial mostra as funcionalidades da API REST de Imagem Digitalizada dos Serviços Cognitivos do Azure.
 
@@ -845,7 +846,7 @@ Copie e cole o seguinte método **HandwritingImage** imediatamente abaixo do mé
 
 Para executar a aplicação, prima **F6**. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **Read Handwritten Text** (Ler Texto Manuscrito), introduza um URL para uma imagem de texto manuscrito e, em seguida clique no botão **Read Image** (Ler Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [API de Imagem Digitalizada com C&#35; Tutorial](CSharpTutorial.md)
 - [Tutorial do Python de API de Imagem Digitalizada](PythonTutorial.md)

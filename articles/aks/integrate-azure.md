@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068248"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579979"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 
@@ -77,7 +77,7 @@ v1beta1.storage.k8s.io               10
 
 O passo seguinte é instalar o [Open Service Broker for Azure][open-service-broker-azure], que inclui o catálogo dos serviços geridos pelo Azure. Exemplos de serviços do Azure disponíveis: Base de Dados do Azure para PostgreSQL, Base de Dados do Azure para MySQL e Base de Dados SQL do Azure.
 
-Comece por adicionar o repositório Helm do Open Service Broker for Azure:
+Comece por adicionar o Open Service Broker para o repositório Helm do Azure:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
@@ -171,7 +171,7 @@ Por último, liste todos os planos de serviço disponíveis. Os planos de servi�
 Neste passo, vai utilizar o Helm para instalar um gráfico Helm atualizado para o WordPress. O gráfico aprovisiona uma instância externa da Base de Dados do Azure para MySQL que o WordPress pode utilizar. Este processo pode demorar alguns minutos.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Para verificar se a instalação aprovisionou os recursos certos, liste as instâncias e enlaces dos serviços instalados:

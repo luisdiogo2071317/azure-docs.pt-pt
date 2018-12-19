@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3eff646a1b3681c58c820695d296d5e09297e03b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270268"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600208"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Mapear um nome DNS personalizado já existente para as Aplicações Web do Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como mapear um nome DNS personalizado já existente para as Aplicações Web do Azure.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como mapear um nome DNS existente personalizado para o serviço de aplicações do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -156,7 +156,7 @@ Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Para adicionar um enlace de dados SSL, veja [Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure](app-service-web-tutorial-custom-ssl.md).
+> Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -231,7 +231,7 @@ Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na
 ![Registo A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Para adicionar um enlace de dados SSL, veja [Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure](app-service-web-tutorial-custom-ssl.md).
+> Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -286,7 +286,7 @@ Selecione novamente o ícone **+** para adicionar outro nome de anfitrião que c
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Para adicionar um enlace de dados SSL, veja [Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure](app-service-web-tutorial-custom-ssl.md).
+> Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Testar no browser
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Para obter mais informações, veja [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md) (Mapear um domínio personalizado a uma aplicação Web). 
+Para obter mais informações, veja [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md) (Mapear um domínio personalizado a uma aplicação Web). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Para obter mais informações, veja [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
+Para obter mais informações, veja [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -363,4 +363,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para aprender a vincular um certificado SSL personalizado a uma aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md) (Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure)
+> [Vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md)

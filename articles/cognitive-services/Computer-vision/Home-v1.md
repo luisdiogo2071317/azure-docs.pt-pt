@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957032"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582359"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 
@@ -38,10 +39,10 @@ A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a
 * [Recortar fotografias para serem utilizadas como miniaturas.](#Thumbnails)
 
 ## <a name="requirements"></a>Requisitos
-* Métodos de entrada suportados: imagem binária não processada com o formato application/octet-stream ou URL da imagem.
-* Formatos de imagem suportados: JPEG, PNG, GIF, BMP.
-* Tamanho do ficheiro de imagem: inferior a 4 MB.
-* Dimensão da imagem: superior a 50x50 pixéis.
+* Suporte para métodos de entrada: Imagens RAW binárias na forma de um application/octet-stream ou URL da imagem.
+* Suporte para formatos de imagem: JPEG, PNG, GIF, BMP.
+* Tamanho do ficheiro de imagem: Menos de 4 MB.
+* Dimensão da imagem: Maior que 50 x 50 pixéis.
 
 ## <a name="tagging-images"></a>Identificar Imagens
 API de imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
@@ -137,9 +138,9 @@ Deteta rostos humanos numa imagem e gera as coordenadas faciais, o retângulo do
 
 Imagem|Resposta
 ----|----
-![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![Análise de Imagem de Rostos de Mãe e Filha](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
-![Análise de Imagem de Rostos em Fotografia de Família](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
+![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png) | [{"idade": 23, "sexo": "Feminino", "faceRectangle": {"left": 1379, "superior": 320, "largura": 310, "altura": 310}}]
+![Análise de Imagem de Rostos de Mãe e Filha](./Images/mom_daughter_face.png) | [{"idade": 28, "sexo": "Feminino", "faceRectangle": {"left": 447, "superior": 195, "largura": 162, "altura": 162}}, {"idade": 10, "sexo": "Masculino", "faceRectangle": {"left": 355, "superior": 87, "largura": 143, "altura": 143}}]
+![Análise de Imagem de Rostos em Fotografia de Família](./Images/family_photo_face.png) | [{"idade": 11, "sexo": "Masculino", "faceRectangle": {"left": 113, "superior": 314, "largura": 222, "altura": 222}}, {"idade": 11, "sexo": "Feminino", "faceRectangle": {"left": 1200, "superior": 632, "largura": 215, "altura": 215}}, {"idade": 41, "sexo": "Masculino", "faceRectangle": {"left": 514, "superior": 223, "largura": 205, "altura": 205}}, {"idade": 37, "sexo": "Feminino", "faceRectangle": {"left": 1008, "superior": 277, "largura": 201, "altura": 201}}]
 
 
 ## <a name="domain-specific-content"></a>Conteúdos Específicos de Um Domínio
@@ -231,7 +232,7 @@ Entre as várias categorias visuais encontra-se o grupo para adultos e de profan
 ## <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 A tecnologia OCR deteta os conteúdos de texto numa imagem e extrai o texto identificado para um fluxo de carateres legível por computador. Pode utilizar o resultado para pesquisa e inúmeras outras finalidades, como registos médicos, segurança e atividades bancárias. O OCR deteta automaticamente o idioma. O OCR poupa tempo e é mais cómodo para os utilizadores ao permitir tirar fotografias do texto em vez de o transcrever.
 
-O OCR suporta 25 idiomas. Estes idiomas são os seguintes: alemão, árabe, checo, chinês simplificado, chinês tradicional, coreano, dinamarquês, eslovaco, espanhol, finlandês, francês, grego, húngaro, inglês, italiano, japonês, neerlandês, norueguês, polaco, português, romeno, russo, sérvio (alfabetos cirílico e latino), sueco e turco.
+O OCR suporta 25 idiomas. Essas linguagens são: Árabe, chinês simplificado, chinês tradicional, checo, dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, Sérvio (Cirílico e Latim), eslovaco, espanhol, Sueco e turco.
 
 Se for necessário, o OCR corrige a rotação do texto reconhecido, em graus, à volta do eixo de imagem horizontal. O OCR fornece as coordenadas de fotograma de cada palavra, conforme apresentado na ilustração abaixo.
 
@@ -250,7 +251,7 @@ A precisão de reconhecimento do texto depende da qualidade da imagem. As seguin
 - Letras maiúsculas demasiado grandes ou em falta no início das palavras.
 - Texto inferior à linha, superior à linha ou rasurado.
 
-Limitações: em fotografias em que o texto é dominante, os falsos positivos podem ter origem em palavras parcialmente reconhecidas. Em algumas fotografias, especialmente sem texto, a precisão pode variar bastante em função do tipo de imagem.
+Limitações: Em que o texto é dominante de fotografias, os falsos positivos podem ser provenientes de palavras parcialmente reconhecidas. Em algumas fotografias, especialmente sem texto, a precisão pode variar bastante em função do tipo de imagem.
 
 ## <a name="recognize-handwritten-text"></a>Reconhecer Texto Manuscrito
 Esta tecnologia permite detetar e extrair texto manuscrito de notas, cartas, ensaios, quadros, formulários, etc. Funciona com diferentes superfícies e fundos, como documentos técnicos, notas de post-it e quadros.
@@ -258,7 +259,7 @@ Esta tecnologia permite detetar e extrair texto manuscrito de notas, cartas, ens
 O reconhecimento de texto manuscrito poupa tempo e esforço, e pode torná-lo mais produtivo ao permitir obter imagens de texto, em vez de ter de transcrever o texto. Possibilita a digitalização de notas. Esta digitalização permite-lhe implementar uma pesquisa rápida e fácil. Também reduz a aglomeração de papel.
 
 Requisitos de entrada:
-- Formatos de imagem suportados: JPEG, PNG, GIF e BMP.
+- Suporte para formatos de imagem: JPEG, PNG e BMP.
 - O tamanho do ficheiro de imagem tem de ser inferior a 4 MB.
 - As imagens têm de ter um mínimo de 40x40 pixéis e um máximo de 3200x3200 pixéis de dimensão.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: chamar a API de Imagem Digitalizada'
+title: 'Exemplo: Chamar a API de imagem de analisar - imagem digitalizada'
 titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API de Imagem Digitalizada ao utilizar o REST nos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981750"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581713"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: como chamar a API de Imagem Digitalizada
+# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API de imagem digitalizada
 
 Este guia mostra como chamar a API de Imagem Digitalizada com o REST. Os exemplos são escritos em C# ao utilizar a biblioteca de cliente da API de Imagem Digitalizada e como chamadas HTTP POST/GET. Iremos centrar-nos no seguinte:
 
@@ -26,10 +27,10 @@ Este guia mostra como chamar a API de Imagem Digitalizada com o REST. Os exemplo
 
 ### <a name="Prerequisites">Pré-requisitos</a> 
 URL ou caminho da imagem armazenada localmente.
-  * Métodos de entrada suportados: imagem binária não processada com o formato application/octet-stream ou URL da imagem
-  * Formatos de imagem suportados: JPEG, PNG, GIF, BMP
-  * Tamanho do ficheiro de imagem: inferior a 4 MB
-  * Dimensão da imagem: superior a 50x50 pixéis
+  * Suporte para métodos de entrada: Imagens RAW binárias na forma de um application/octet-stream ou URL da imagem
+  * Suporte para formatos de imagem: JPEG, PNG, GIF, BMP
+  * Tamanho do ficheiro de imagem: Menos de 4MB
+  * Dimensão da imagem: Superior a 50 x 50 pixéis
   
 Nos exemplos abaixo, são apresentadas as seguintes funcionalidades:
 
@@ -38,10 +39,10 @@ Nos exemplos abaixo, são apresentadas as seguintes funcionalidades:
 
 As funcionalidades são divididas da seguinte forma:
 
-  * **Opção Um:** Análise com Âmbito – analisar apenas um determinado modelo
-  * **Opção Dois:** Análise Avançada – analisar para fornecer detalhes adicionais com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
+  * **Opção um:** No âmbito análise - analisar apenas um modelo específico
+  * **Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com [taxonomia de categorias de 86](../Category-Taxonomy.md)
   
-### <a name="Step1">Passo 1: autorizar a chamada da API</a> 
+### <a name="Step1">Passo 1: Autorizar a chamada de API</a> 
 Todas as chamadas para a API de Imagem Digitalizada necessitam de uma chave de subscrição. Esta chave tem de ser transmitida através de um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido. 
 
 Para obter uma chave de subscrição, veja [Como Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -59,12 +60,12 @@ Para obter uma chave de subscrição, veja [Como Obter Chaves de Subscrição](.
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-### <a name="Step2">Passo 2: carregar uma imagem para o serviço da API de Imagem Digitalizada e obter a devolução de etiquetas, descrições e celebridades</a>
+### <a name="Step2">Passo 2: Carregar uma imagem para o serviço de API de imagem digitalizada e obter etiquetas, descrições e celebridades</a>
 A forma básica de efetuar a chamada da API de Imagem Digitalizada é carregar uma imagem diretamente. Isto é feito ao enviar um pedido "POST" com o tipo de conteúdo application/octet-stream, juntamente com os dados lidos na imagem. Para as "Etiquetas" e a "Descrição", este método de carregamento será idêntico ao de todas as chamadas da API de Imagem Digitalizada. A única diferença serão os parâmetros de consulta especificados pelo utilizador. 
 
 Eis como obter as "Etiquetas" e a "Descrição" de uma determinada imagem:
 
-**Opção Um:** obter a lista de "Etiquetas" e uma "Descrição"
+**Opção um:** Obter a lista de "Etiquetas" e um "Descrição"
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>Eis como obter a análise específica de um domínio (neste caso, para celebridades).
 
-**Opção Um:** Análise com Âmbito – analisar apenas um determinado modelo
+**Opção um:** No âmbito análise - analisar apenas um modelo específico
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -109,7 +110,7 @@ Para esta opção, são inválidos todos os outros parâmetros de consulta {visu
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Opção Dois:** Análise Avançada – analisar para fornecer detalhes adicionais com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
+**Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com [taxonomia de categorias de 86](../Category-Taxonomy.md)
 
 Para aplicações em que se pretende obter uma análise de imagem genérica, além dos detalhes de um ou mais modelos específicos de domínio, podemos alargar a API de v1 com o parâmetro de consulta de modelos.
 ```
@@ -119,7 +120,7 @@ Ao invocar este método, iremos chamar primeiro o classificador da taxonomia de 
 
 Todos os parâmetros da consulta de v1 irão comportar-se da mesma forma neste caso.  Se visualFeatures=categories não for especificado, será implicitamente ativado.
 
-### <a name="Step3">Passo 3: obter e compreender o resultado JSON para analyze&visualFeatures=Tags, Descrição</a>
+### <a name="Step3">Passo 3: A obter e compreender a saída JSON para analisar e visualFeatures = etiquetas, descrição</a>
 
 Segue-se um exemplo:
 ```
@@ -152,16 +153,16 @@ Segue-se um exemplo:
 Campo   | Tipo  | Conteúdo
 ------|------|------|
 Etiquetas    | objeto    | Objeto de nível superior para a matriz de etiquetas.
-tags[].Name | string    | Palavra-chave do classificador de etiquetas.
+tags[].Name | cadeia    | Palavra-chave do classificador de etiquetas.
 tags[].Score    | número    | Pontuação de confiança, entre 0 e 1.
 descrição  | objeto   | Objeto de nível superior para uma descrição.
-description.tags[] |    string  | Lista de etiquetas.  Se não existir confiança suficiente na capacidade de produzir uma legenda, as etiquetas poderão ser as únicas informações disponíveis para o chamador.
-description.captions[].text | string    | Uma frase que descreve a imagem.
+description.tags[] |    cadeia  | Lista de etiquetas.  Se não existir confiança suficiente na capacidade de produzir uma legenda, as etiquetas poderão ser as únicas informações disponíveis para o chamador.
+description.captions[].text | cadeia    | Uma frase que descreve a imagem.
 description.captions[].confidence   | número    | O nível de confiança da frase.
 
-### <a name="Step4">Passo 4: obter e compreender o resultado JSON de modelos específicos de domínio</a>
+### <a name="Step4">Passo 4: A obter e compreender a saída JSON de modelos de domínios específicos</a>
 
-**Opção Um:** Análise com Âmbito – analisar apenas um determinado modelo
+**Opção um:** No âmbito análise - analisar apenas um modelo específico
 
 O resultado será uma matriz de etiquetas como a do seguinte exemplo:
 ```
@@ -179,7 +180,7 @@ O resultado será uma matriz de etiquetas como a do seguinte exemplo:
   }
 ```
 
-**Opção Dois:** Análise Avançada – analisar para fornecer detalhes adicionais com a taxonomia de 86 categorias
+**Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com taxonomia de categorias de 86
 
 Para modelos específicos de domínio ao utilizar a Opção Dois (Análise Avançada), o tipo de devolução de categorias é expandido. Eis um exemplo:
 ```
@@ -212,7 +213,7 @@ O campo de categorias é uma lista de uma ou mais das [86 categorias](../Categor
 Campo   | Tipo  | Conteúdo
 ------|------|------|
 categories | objeto | Objeto de nível superior.
-categories[].name    | string   | Nome da taxonomia de 86 categorias.
+categories[].name    | cadeia   | Nome da taxonomia de 86 categorias.
 categories[].score  | número    | Pontuação de confiança, entre 0 e 1.
 categories[].detail  | objeto?      | Objeto de detalhe opcional.
 

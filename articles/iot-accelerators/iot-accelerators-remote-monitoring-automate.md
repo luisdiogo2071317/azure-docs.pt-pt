@@ -1,5 +1,5 @@
 ---
-title: Detetar problemas do dispositivo numa solução de monitorização remota baseada no Azure | Microsoft Docs
+title: Detetar problemas de dispositivos num remoto tutorial de solução de monitorização - Azure | Documentos da Microsoft
 description: Este tutorial mostra-lhe como utilizar as regras e ações para detetar automaticamente problemas com dispositivos baseados no limiar na solução de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819105"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598689"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas com dispositivos ligados à sua solução de monitorização
 
 Neste tutorial, vai configurar o acelerador de soluções de Monitorização Remota para detetar problemas com os seus dispositivos IoT ligados. Para detetar os problemas dos seus dispositivos, adicione regras que geram alertas no dashboard de soluções.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 63e35a32cb4a031ea9848486c4ecda7058707914
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989911"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599898"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
 
@@ -39,14 +39,14 @@ Por predefinição, a sua função acionada por HTTP está configurada para acei
 
     ![Personalizar uma função HTTP](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Utilize as definições de acionador HTTP, conforme especificado na tabela.
+1. Utilize as definições de Acionador HTTP conforme especificado na tabela.
 
     | Campo | Valor da amostra | Descrição |
     |---|---|---|
     | Métodos HTTP permitidos | Métodos selecionados | Determina que métodos HTTP podem ser utilizados para invocar esta função |
     | Métodos HTTP selecionados | GET | Permite apenas a utilização dos métodos HTTP selecionados para invocar esta função |
     | Modelo de rota | /hello | Determina qual a rota utilizada para invocar esta função |
-    | Nível de Autorização | Anónimo | Opcional: torna a sua função acessível sem uma chave de API |
+    | Nível de Autorização | Anónimo | Opcional: Disponibilizar a sua função sem uma chave de API |
 
     > [!NOTE] 
     > Note que não incluiu o prefixo do caminho de base `/api` no modelo de rota, uma vez que é processado por uma definição global.
@@ -71,7 +71,7 @@ Na secção seguinte, vai revelar a sua API através de um proxy. Os Proxies de 
 
 Um proxy pode apontar para qualquer recurso HTTP, como, por exemplo:
 - Funções do Azure 
-- Aplicações API no [Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- Aplicações API no [Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/overview)
 - Contentores do docker no [Serviço de Aplicações no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualquer outra API alojada
 
@@ -180,7 +180,7 @@ Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUr
 
 Teste a sua API fictícia, chamando o ponto final `<YourProxyApp>.azurewebsites.net/api/users/{username}` com um browser ou com o seu cliente REST favorito. Não se esqueça de substituir _{username}_ por um valor de cadeia que represente um nome de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a criar e personalizar uma API nas Funções do Azure. Também aprendeu a reunir várias APIs, incluindo as fictícias, como uma superfície de API unificada. Pode utilizar estas técnicas para criar APIs com qualquer nível de complexidade, tudo isto enquanto as executa no modelo de computação sem servidor fornecido pelas Funções do Azure.
 

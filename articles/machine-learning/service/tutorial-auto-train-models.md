@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial do modelo de regressão: ML automatizada'
 titleSuffix: Azure Machine Learning service
-description: Saiba como gerar um modelo de ML com aprendizagem automática.  O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetros de forma automatizada. O modelo final pode depois ser implementado com o serviço Azure Machine Learning.
+description: Saiba como gerar um modelo de machine learning com aprendizagem automática. O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmo e seleção de hiper-parâmetros de maneira automatizada para. Em seguida, o modelo final é implementado com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,49 +11,49 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 65b634d66da935b5276cb4c6bdca5742cb0a1c1f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555222"
+ms.locfileid: "53580523"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [preparado os dados de táxis NYC para modelação de regressão](tutorial-data-prep.md).
 
-Agora, está pronto para começar a criar o seu modelo com o serviço Azure Machine Learning. Nesta parte do tutorial, irá utilizar os dados preparados e gerar automaticamente um modelo de regressão para prever preços de Europeia táxis. Utilizar as capacidades do ML automatizadas do serviço, defina o objetivos e as restrições da aprendizagem automática, iniciar a processo de aprendizagem automatizada e, em seguida, permitir a seleção de algoritmo e a otimização de hiper-parâmetros para ocorrer para. A técnica de ML automatizado itera muitas combinações de algoritmos e hiperparâmetros até encontrar o melhor modelo com base no seu critério.
+Agora está pronto para começar a criar o seu modelo com o serviço Azure Machine Learning. Nesta parte do tutorial, utilize os dados preparados e gerar automaticamente um modelo de regressão para prever preços de Europeia táxis. Através da utilização de funcionalidades do serviço de aprendizagem automatizada, é possível definir o objetivos e as restrições da aprendizagem automática. Inicie a processo de aprendizagem automatizada. Em seguida, permitir a seleção de algoritmo e hiper-parâmetros ajuste para ocorrer para. A técnica de aprendizagem automática itera muitas combinações de algoritmos e hiperparâmetros até encontrar o melhor modelo com base no seu critério.
 
-![diagrama do fluxo](./media/tutorial-auto-train-models/flow2.png)
+![Diagrama de fluxo](./media/tutorial-auto-train-models/flow2.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Configurar um ambiente de Python e importar os pacotes SDK
-> * Configurar uma área de trabalho do serviço do Azure Machine Learning
-> * Auto-preparar um modelo de regressão
-> * Executar o modelo localmente com parâmetros personalizados
-> * Explorar os resultados
-> * Registar o melhor modelo
+> * Configurar um ambiente de Python e importe os pacotes do SDK.
+> * Configure uma área de trabalho do serviço do Azure Machine Learning.
+> * Autotrain um modelo de regressão.
+> * Execute o modelo localmente com parâmetros personalizados.
+> * Explore os resultados.
+> * Registe o melhor modelo.
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
-> Código neste artigo foi testado com a versão 1.0.0 do SDK do Azure Machine Learning
+> Código neste artigo foi testado com versão 1.0.0 do SDK do Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > * [Executar o tutorial de preparação de dados](tutorial-data-prep.md).
-> * Automatizada de ambiente de aprendizagem automática configurada por exemplo, Azure blocos de notas, de ambiente de Local Python ou de máquina de Virtual de ciência de dados. [Configuração](samples-notebooks.md) automatizada de aprendizagem automática.
+> * Uma aprendizagem automatizada configurado o ambiente. Os exemplos são blocos de notas do Azure, um ambiente de Python local ou uma máquina de Virtual de ciência de dados. [Configurar a aprendizagem automática](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Execute o bloco de notas `regression-part2-automated-ml.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Execute o `regression-part2-automated-ml.ipynb` bloco de notas em blocos de notas do Azure ou no seu próprio servidor de bloco de notas do Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## <a name="import-packages"></a>Importar pacotes
-Importe os pacotes Python que precisa neste tutorial.
+Importe os pacotes de Python que tem neste tutorial:
 
 
 ```python
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. A `Workspace` é uma classe que aceita a sua subscrição do Azure e as informações de recursos e cria um recurso da nuvem para monitorizar e controlar seu modelo é executado. `Workspace.from_config()` lê o ficheiro **aml_config/config.json** e carrega os detalhes para um objeto com o nome `ws`.  `ws` é utilizado em todo o restante código neste tutorial.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. A `Workspace` é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo. 
 
-Depois de ter um objeto de área de trabalho, especifique um nome para a experimentação e crie e registe um diretório local na área de trabalho. O histórico de todas as execuções é registrado na experimentação especificada e, em [portal do Azure](https://portal.azure.com).
+`Workspace.from_config()` lê o ficheiro **aml_config/config.json** e carrega os detalhes para um objeto com o nome `ws`.  `ws` é utilizado em todo o restante código neste tutorial.
+
+Depois de ter um objeto de área de trabalho, especifique um nome para a experimentação. Crie e registe um diretório local com a área de trabalho. O histórico de todas as execuções é registrado na experimentação especificada e na [portal do Azure](https://portal.azure.com).
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Explorar dados
 
-Utilize o objeto de fluxo de dados criado no tutorial anterior. Abrir e executar o fluxo de dados e rever os resultados.
+Utilize o objeto de fluxo de dados criado no tutorial anterior. Abrir e executar o fluxo de dados e rever os resultados:
 
 
 ```python
@@ -119,16 +121,16 @@ dflow_prepared.get_profile()
       <th>Percentagem em falta</th>
       <th>Contagem de erros</th>
       <th>Contagem de vazia</th>
-      <th>0,1% Quantile</th>
-      <th>1% Quantile</th>
-      <th>5% Quantile</th>
-      <th>25% Quantile</th>
-      <th>50% Quantile</th>
-      <th>75% Quantile</th>
-      <th>95% Quantile</th>
-      <th>99% Quantile</th>
-      <th>99,9% Quantile</th>
-      <th>média</th>
+      <th>0,1% quantile</th>
+      <th>quantile de 1%</th>
+      <th>quantile de 5%</th>
+      <th>25% quantile</th>
+      <th>quantile de 50%</th>
+      <th>75% quantile</th>
+      <th>95% quantile</th>
+      <th>99% quantile</th>
+      <th>99,9 quantile de %</th>
+      <th>Média</th>
       <th>Desvio padrão</th>
       <th>Variância</th>
       <th>Assimetrias</th>
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-Preparar os dados para a experimentação, adicionando colunas a `dflow_x` ser funcionalidades para a criação de nosso modelo. Define `dflow_y` ser nossa previsão valor; de custos.
+Preparar os dados para a experimentação, adicionando colunas a `dflow_x` ser funcionalidades para a criação de nosso modelo. Define `dflow_y` nosso valor de predição, **custo**:
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>Dividir os dados em train e conjuntos de teste
+### <a name="split-the-data-into-train-and-test-sets"></a>Dividir os dados em train e conjuntos de teste
 
-Agora dividir os dados em conjuntos de formação e teste com o `train_test_split` funcionar o `sklearn` biblioteca. Esta função segrega os dados no x (recursos) conjunto de dados para preparação de modelos e o y (valores para prever) conjunto de dados para fins de teste. O `test_size` parâmetro determina a percentagem de dados para alocar ao teste. O `random_state` parâmetro define um seed aleatório no gerador, para que as divisões de treinar-testar sempre são determinísticos.
+Agora, dividir os dados em treinamento e teste conjuntos com o `train_test_split` funcionar o `sklearn` biblioteca. Esta função segrega os dados em x, **funcionalidades**, conjunto de dados para preparação de modelos e o y **valores para prever**, conjunto de dados para fins de teste. O `test_size` parâmetro determina a percentagem de dados para alocar ao teste. O `random_state` parâmetro define um seed aleatório no gerador, para que as divisões de treinar-testar sempre são determinísticos:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -603,27 +605,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-Tem agora os pacotes necessários e os dados prontos para preparação automática para o seu modelo.
+Tem agora os pacotes necessários e dados prontos para autotraining seu modelo.
 
 ## <a name="automatically-train-a-model"></a>Preparar automaticamente um modelo
 
-Para preparar automaticamente um modelo:
-1. As definições para a experimentação, executar
-1. Submeter a experimentação para o ajuste do modelo
+Para preparar automaticamente um modelo, siga os passos seguintes:
+1. Configurar as definições para a experimentação executar.
+1. Submeta a experimentação para o ajuste do modelo.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>As definições para a geração automática e Otimização
 
-Defina as definições de parâmetros e modelos de experimentação para a geração automática e a otimização. Ver a lista completa dos [definições](how-to-configure-auto-train.md).
+Defina o parâmetro de experimentação e as definições para a geração automática e a otimização de modelo. Ver a lista completa dos [definições](how-to-configure-auto-train.md).
 
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração|
-|**iterations**|30|Número de iterações. Em cada iteração, o modelo prepara os dados com um pipeline específico|
+|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração.|
+|**iterations**|30|Número de iterações. Em cada iteração, o modelo prepara-se com os dados com um pipeline específico.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar.|
-|**preprocess**| Verdadeiro | Experimente verdadeiro ativa para realizar o processamento prévio de entrada.|
+|**preprocess**| Verdadeiro | Usando **True**, a experimentação pode pré-processar a entrada.|
 |**Verbosidade**| logging.INFO | Controla o nível de registo.|
-|**n_cross_validationss**|5|Número de divisões de validação cruzada
+|**n_cross_validationss**|5|Número de divisões de validação cruzada.|
 
 
 
@@ -653,7 +655,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
 
-Inicie a experimentação para ser executada localmente. Passar o definido `automated_ml_config` objeto para a experimentação e defina a saída `True` para ver o progresso durante a experimentação.
+Inicie a experimentação para ser executada localmente. Passar o definido `automated_ml_config` objeto para a experimentação. Definir a saída `True` para ver o progresso durante a experimentação:
 
 
 ```python
@@ -709,7 +711,7 @@ Explore os resultados de treinamento automática com um widget de Jupyter ou, ex
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opção 1: Adicionar um widget do Jupyter para ver os resultados
 
-Se estiver a utilizar um bloco de notas Juypter, utilize este widget de bloco de notas do Jupyter para ver um gráfico e uma tabela de todos os resultados.
+Se usar um bloco de notas do Jupyter, utilize este widget de bloco de notas do Jupyter para ver um gráfico e uma tabela de todos os resultados:
 
 
 ```python
@@ -717,12 +719,12 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Detalhes da execução de Widget de Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
-![plotagem de Widget do Jupyter](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Detalhes da execução de widget de Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
+![plotagem de widget do Jupyter](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opção 2: Obter e examinar todas as iterações de execução em Python
 
-Em alternativa, pode obter o histórico de cada experimentação e explore as métricas individuais para cada iteração executar.
+Também pode obter o histórico de cada experimentação e explore as métricas individuais para cada execução de iteração:
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>Obter o melhor modelo
 
-Selecione o pipeline melhor nossas iterações. O `get_output` método no `automl_classifier` retorna a melhor execução e o modelo de ajustada para a invocação de acordo com a última. Existem sobrecargas no `get_output` que permitem-lhe obter o melhor modelo de execução e ajustado para qualquer um com sessão iniciada métrica ou uma iteração específica.
+Selecione o pipeline melhor nossas iterações. O `get_output` método no `automl_classifier` retorna a melhor execução e o modelo de ajustada para a invocação de acordo com a última. Com as sobrecargas no `get_output`, pode obter a melhor execução e modelo ajustado para qualquer sessão iniciada, métrica ou uma iteração específica:
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>Registe o modelo
 
-Registe o modelo na sua área de trabalho do serviço do Azure Machine Learning.
+Registe o modelo na sua área de trabalho do serviço do Azure Machine Learning:
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>A maior precisão do modelo de teste
 
-Utilize o melhor modelo para executar previsões no conjunto de dados de teste. A função `predict` utiliza o melhor modelo e prevê os valores de y (custos de viagem) a partir do `x_test` conjunto de dados. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`.
+Utilize o melhor modelo para executar previsões no conjunto de dados de teste. A função `predict` utiliza o melhor modelo e prevê os valores de y, **enganar custo**, da `x_test` conjunto de dados. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` de recursos como o eixo x e atrair `cost` como o eixo y. As primeiras 100 previstos e valores de custo real são criadas como uma série separada, para comparar a variância de custo previsto em cada valor de distância de viagem. Examinar o desenho mostra que a relação de custo/distância é quase linear e os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
+Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` funcionalidade como o eixo x e viagem `cost` como o eixo y. Para comparar a variância de custo previsto em cada valor de distância de viagem, as primeiras 100 previstos e valores de custo real são criados como série separada. Examinar o desenho mostra que a relação de custo/distância é quase linear. E os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![Gráfico de dispersão de predição](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calcular o `root mean squared error` dos resultados. Utilize o `y_test` dataframe e convertê-lo a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado indica um erro na mesma unidade como a variável y (custo) e indica aproximadamente são suas previsões a distância do valor real.
+Calcular o `root mean squared error` dos resultados. Utilize o `y_test` dataframe. Convertê-la a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado dá um erro na mesma unidade como a variável y, **custo**. Ele indica que são as predições mais ou menos a distância do valor real:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-Execute o seguinte código para calcular MAPE (erro de percentagem absoluto mean) usando o completo `y_actual` e `y_predict` conjuntos de dados. Esta métrica calcula uma diferença absoluta entre cada valor previsto e real, soma de todas as diferenças e, em seguida, expressa que a soma como percentagem do total dos valores reais.
+Execute o seguinte código para calcular erro percentagem absoluto mean (MAPE) utilizando o completo `y_actual` e `y_predict` conjuntos de dados. Esta métrica calcula uma diferença absoluta entre cada valor previsto e real e somas todas as diferenças. Em seguida, expressa que a soma como percentagem do total dos valores reais:
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Essa automáticos do Machine learning tutorial,:
+Nessa automático tutorial do machine learning, fez as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Configurar uma área de trabalho e dados preparados para uma experimentação
-> * Preparado com um modelo de regressão automatizada localmente com parâmetros personalizados
-> * Resultados de treinamento explorada e revistos
-> * Registado o melhor modelo
+> * Configurar uma área de trabalho e dados preparados para uma experimentação.
+> * Formação utilizando um modelo de regressão automatizada localmente com parâmetros personalizados.
+> * Resultados de treinamento explorada e revistos.
+> * Registado o melhor modelo.
 
 [Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.

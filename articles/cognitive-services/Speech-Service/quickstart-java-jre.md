@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9b8327a529baf230bc64dd9abcc808924b31293b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103126"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603451"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Início Rápido: reconhecer voz em Java no Windows ou Linux com o SDK do Serviço de Voz
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Início rápido: Reconhecer a conversão de voz em Java em Windows ou Linux com o SDK do serviço de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar uma aplicação de consola Java com o [SDK do Serviço de Voz](speech-sdk.md). Converta voz em texto em tempo real a partir do microfone do seu PC. A aplicação baseia-se no pacote Maven do SDK de Voz e no IDE Java do Eclipse (v4.8) no Windows de 64 bits ou Ubuntu Linux 16.04. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+Neste artigo, vai criar uma aplicação de consola Java com o [SDK do Serviço de Voz](speech-sdk.md). Converta voz em texto em tempo real a partir do microfone do seu PC. A aplicação baseia-se com o pacote Maven do SDK de voz e o IDE de Java de Eclipse (v4.8) no Windows de 64 bits ou Ubuntu Linux 16.04 / 18.04. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](speech-devices-sdk.md).
@@ -33,7 +33,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
-Se estiver a utilizar o Ubuntu 16.04, antes de iniciar o Eclipse, execute os seguintes comandos para certificar-se de que os pacotes necessários estão instalados.
+Se estiver a utilizar o Ubuntu 16.04 ou 18.04, antes de iniciar o Eclipse, execute os seguintes comandos para se certificar de que os pacotes necessários estão instalados.
 
   ```sh
   sudo apt-get update
@@ -74,7 +74,7 @@ Se estiver a utilizar o Ubuntu 16.04, antes de iniciar o Eclipse, execute os seg
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Adicione também um elemento `dependencies`, com a versão 1.1.0 do SDK de Voz como uma dependência:
+  * Também adicionar um `dependencies` elemento, com o SDK de voz versão 1.2.0 como uma dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

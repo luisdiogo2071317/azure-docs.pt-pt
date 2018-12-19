@@ -1,10 +1,10 @@
 ---
-title: 'VS Code: ligar e consultar dados na Base de Dados SQL do Azure | Microsoft Docs'
+title: 'Código de VS: Ligar e consultar dados na base de dados SQL do Azure | Documentos da Microsoft'
 description: Saiba como ligar à Base de Dados SQL no Azure com o Visual Studio Code. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados SQL
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,14 +13,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5e0b2fff7ca5bc7f5856a6de05e18b99bbf8b938
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098989"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600833"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar Visual Studio Code para ligar e consultar uma base de dados do SQL do Azure
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o Visual Studio Code para ligar e consultar uma base de dados do SQL do Azure
 
 [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Ele suporta extensões, incluindo o [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, base de dados do Azure SQL e SQL Data Warehouse. Neste início rápido demonstra como utilizar o Visual Studio Code para ligar a uma base de dados SQL do Azure e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados.
 
@@ -174,6 +174,6 @@ Utilize o seguinte procedimento [eliminar](https://docs.microsoft.com/sql/t-sql/
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para ligar e consultar com o SQL Server Management Studio, veja [início rápido: Utilize o SQL Server Management Studio para ligar a um banco de dados do Azure SQL e consulta dados](sql-database-connect-query-ssms.md).
-- Para ligar e consultar com o portal do Azure, veja [início rápido: utilizar o editor de consultas SQL no portal do Azure para ligar e consultar dados](sql-database-connect-query-portal.md).
+- Para ligar e consultar com o SQL Server Management Studio, consulte [início rápido: Utilizar o SQL Server Management Studio para ligar a um banco de dados do Azure SQL e consulta dados](sql-database-connect-query-ssms.md).
+- Para ligar e consultar com o portal do Azure, veja [início rápido: Utilize o editor de consultas SQL no portal do Azure para ligar e consultar dados](sql-database-connect-query-portal.md).
 - Para ler um artigo de revista MSDN sobre a utilização do Visual Studio Code, veja [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115) (Criar uma base de dados IDE com a mensagem de blogue de extensão do MSSQL).

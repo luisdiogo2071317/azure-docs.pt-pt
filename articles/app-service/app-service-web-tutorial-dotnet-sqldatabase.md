@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 781c560429a01397fe36204360e896233bdd23f5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257782"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600374"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como implementar uma aplicação Web ASP.NET condicionada por dados no Azure e ligá-la à [Base de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando tiver terminado, terá uma aplicação ASP.NET em execução no Azure e ligada à Base de Dados SQL.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como implementar uma aplicação Web ASP.NET condicionada por dados no Azure e ligá-la à [Base de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando tiver terminado, terá uma aplicação ASP.NET em execução no Azure e ligada à Base de Dados SQL.
 
 ![Aplicação ASP.NET publicada na aplicação Web do Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 

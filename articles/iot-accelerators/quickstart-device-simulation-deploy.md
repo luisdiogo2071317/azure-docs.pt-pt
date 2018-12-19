@@ -1,5 +1,5 @@
 ---
-title: Experimentar e executar uma solução de simulação de dispositivo no Azure | Microsoft Docs
+title: Experimente e executar uma solução de simulação de dispositivo - Azure | Documentos da Microsoft
 description: Neste início rápido, vai implementar a Simulação de Dispositivo de IoT do Azure e executar uma simulação
 author: troyhopwood
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: a109f3536ea8709313de3d1d6d17ce69c5652289
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753938"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601598"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Início Rápido: implementar e executar uma solução de dispositivo de IoT no Azure
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Início rápido: Implementar e executar uma simulação de dispositivo do IoT no Azure
 
 Este início rápido mostra como implementar a Simulação de Dispositivo de IoT do Azure para testar a sua solução de IoT. Depois de implementar o acelerador de soluções, execute uma simulação de exemplo para começar.
 
@@ -90,7 +90,7 @@ Se já não precisar da Simulação de Dispositivo, elimine-a na página [Soluç
 
 ![Eliminar solução](media/quickstart-device-simulation-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, vai implementar a Simulação de Dispositivo e executar uma simulação de dispositivo IoT.
 

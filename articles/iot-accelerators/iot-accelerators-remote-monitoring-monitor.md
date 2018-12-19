@@ -1,5 +1,5 @@
 ---
-title: Monitorizar os seus dispositivos IoT a partir de uma solução do Azure | Microsoft Docs
+title: Monitorize os seus dispositivos IoT a partir de um tutorial de solução do Azure – Azure | Documentos da Microsoft
 description: Neste tutorial irá aprender a monitorizar os seus dispositivos IoT com o acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824749"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602533"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorizar os seus dispositivos IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorize os seus dispositivos IoT
 
 Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para monitorizar os seus dispositivos IoT ligados. Utilize o dashboard de soluções para ver telemetria, informações do dispositivo, alertas e KPIs.
 

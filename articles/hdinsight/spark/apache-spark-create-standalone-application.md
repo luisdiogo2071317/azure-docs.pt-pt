@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação Scala Maven para Spark no Azure HDInsight com IntelliJ'
+title: 'Tutorial: Criar uma aplicação Scala Maven para o Spark no HDInsight do Azure com o IntelliJ'
 description: Crie uma aplicação do Spark escrita em Scala tendo como sistema de compilação o Apache Maven e um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499314"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604070"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para Apache Spark no HDInsight com o IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para o Apache Spark no HDInsight com o IntelliJ
 
 Neste tutorial, irá aprender a criar uma [Apache Spark](https://spark.apache.org/) aplicação escrita [Scala](https://www.scala-lang.org/) usando [Apache Maven](https://maven.apache.org/) com o IntelliJ IDEA. O artigo utiliza o Apache Maven como o sistema de compilação e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.  Criar uma aplicação Scala no IntelliJ IDEA envolve os seguintes passos:
 
@@ -26,7 +26,7 @@ Neste tutorial, irá aprender a criar uma [Apache Spark](https://spark.apache.or
 * Gerar um ficheiro jar que pode ser submetido para clusters do Spark no HDInsight.
 * Utilizar o Livy para executar a aplicação no cluster do Spark.
 
-> [!NOTE]
+> [!NOTE]  
 > O HDInsight também disponibiliza uma ferramenta de plug-in para o IntelliJ IDEA para facilitar o processo de criação e submissão de aplicações para um cluster do Spark no HDInsight no Linux. Para obter mais informações, consulte [Plug-in ferramentas de HDInsight de utilização para o IntelliJ IDEA criar e submeter aplicações do Apache Spark](apache-spark-intellij-tool-plugin.md).
 > 
 
