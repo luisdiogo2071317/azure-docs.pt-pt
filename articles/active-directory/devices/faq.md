@@ -24,7 +24,7 @@ ms.locfileid: "53309183"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
-**P: Recentemente eu registado o dispositivo. Por que motivo não vejo o dispositivo em minhas informações de utilizador no portal do Azure? Ou, por que é proprietário do dispositivo marcado como n/d para dispositivos associados ao Azure AD de híbrida? ** 
+**P: Recentemente eu registado o dispositivo. Por que motivo não vejo o dispositivo em minhas informações de utilizador no portal do Azure? Ou, por que é proprietário do dispositivo marcado como n/d para dispositivos associados ao Azure AD de híbrida?**
  **R:** Dispositivos Windows 10 que estão associados ao Azure AD híbrido não aparecem em dispositivos de utilizador.
 Tem de utilizar a vista de todos os dispositivos no portal do Azure. Também pode utilizar o PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -107,14 +107,14 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 
 ---
 
-**P: Podem os meus utilizadores iniciar sessão em dispositivos associados ao Azure AD que foi eliminados ou desativados no Azure AD? ** 
+**P: Podem os meus utilizadores iniciar sessão em dispositivos associados ao Azure AD que foi eliminados ou desativados no Azure AD?**
  **R:** Sim. Windows tem em cache capacidade de início de sessão para permitir que anteriormente registadas em que os utilizadores acedam a área de trabalho rapidamente, mesmo sem conectividade de rede. Quando um dispositivo é eliminado ou desativado no Azure AD, não é conhecido no dispositivo do Windows. Então, anteriormente registado nos utilizadores podem continuar a aceder a área de trabalho com o início de sessão em cache. No entanto, à medida que o dispositivo é eliminado ou desativado, os utilizadores não podem aceder a quaisquer recursos protegidos pelo acesso condicional com base no dispositivo. 
 
 Os utilizadores que ainda não tiver sessão iniciada não é possível aceder ao dispositivo, porque não existe nenhum início de sessão em cache ativado para os mesmos. 
 
 ---
 
-**P: Podem desativados ou eliminados utilizadores iniciar sessão em dispositivos associados ao Azure AD? ** 
+**P: Podem desativados ou eliminados utilizadores iniciar sessão em dispositivos associados ao Azure AD?**
  **R:** Sim, mas apenas por um período limitado. Quando um utilizador é eliminado ou desativado no Azure AD, ele não é imediatamente conhecido para o dispositivo do Windows. Então, anteriormente registado nos usuários podem acessar a área de trabalho com o início de sessão em cache. Depois do dispositivo estiver ciente de que o estado do utilizador (normalmente em menos de 4 horas), o Windows bloqueia os utilizadores acedam ao ambiente de trabalho. À medida que o utilizador é eliminado ou desativado no Azure AD, todos os seus tokens vão ser revogados, pelo que não é possível aceder a quaisquer recursos. 
 
 Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anteriormente não é possível aceder um dispositivo porque não existe nenhum início de sessão em cache ativado para os mesmos. 
@@ -127,7 +127,7 @@ Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anter
 
 ---
 
-**P: Como posso ligar a um remoto do Azure AD associado ao dispositivo? ** 
+**P: Como posso ligar a um remoto do Azure AD associado ao dispositivo?**
  **R:** Veja o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter detalhes.
 
 ---

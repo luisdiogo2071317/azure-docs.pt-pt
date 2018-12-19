@@ -259,7 +259,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     Selecione **inserir** para começar a editar o ficheiro. Criar uma nova linha e, em seguida, insira o seguinte texto. Edite o ID de Multipath i do disco com base no ID de multipath realçado do comando anterior.
 
-     **/Dev/mapeador/ <Retention disks multipath id> /mnt/rw do ext4 do retenção 0 0**
+    **/Dev/mapeador/<Retention disks multipath id> /mnt/rw do ext4 do retenção 0 0**
 
     Selecione **Esc**e, em seguida, escreva **: wq** (escrever e sair) para fechar a janela do editor.
 

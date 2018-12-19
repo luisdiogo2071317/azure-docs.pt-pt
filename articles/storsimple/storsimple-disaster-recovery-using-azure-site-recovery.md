@@ -168,16 +168,16 @@ Pode criar um plano de recuperação no ASR para automatizar o processo de ativa
 1. Na conta de automatização, clique em **variáveis** &gt; **adicionar uma variável** e adicione as seguintes variáveis. Pode optar por encriptar estes recursos. Estas variáveis são o plano de recuperação específico. Se planear a recuperação, que irá criar no próximo passo, nome é TestPlan, em seguida, as variáveis devem ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
    - **BaseUrl**: url do Azure Resource Manager para a cloud do Azure. Obter usando **Get-AzureRmEnvironment | Nome de Select-Object, ResourceManagerUrl** cmdlet.
-   - * RecoveryPlanName ***- ResourceGroupName**: grupo do Azure Resource Manager com o recurso do StorSimple.
-   - * RecoveryPlanName ***- nome do gerente podem**: recurso The StorSimple com o dispositivo StorSimple.
-   - * RecoveryPlanName ***- DeviceName**: O dispositivo StorSimple que tem de efetuar a ativação pós-falha.
-   - * RecoveryPlanName ***- DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na **dispositivos** separador, na secção de StorSimple Device Manager &gt; **definições** &gt; **Rede** &gt; **definições de DNS** grupo).
-   - * RecoveryPlanName ***- VolumeContainers**: uma cadeia de caracteres separados por vírgulas dos contentores de volumes presentes no dispositivo que tem de ser falhou mais; por exemplo: volcon1 volcon2, volcon3.
-   - * RecoveryPlanName ***- TargetDeviceName**: O StorSimple Cloud Appliance em que os contentores estão a efetuar a ativação pós-falha.
-   - * RecoveryPlanName ***- TargetDeviceIpAddress**: O endereço IP do dispositivo de destino (isso pode ser encontrado na **Máquina Virtual** secção &gt; **definições** grupo &gt; **funcionamento em rede** separador).
-   - * RecoveryPlanName ***- StorageAccountName**: O nome da conta de armazenamento na qual o script (que tem para executar na ativação pós-falha VM) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha algum espaço para armazenar o script temporariamente.
-   - * RecoveryPlanName ***- StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
-   - * RecoveryPlanName ***- VMGUIDS**: após a proteger uma VM, do Azure Site Recovery atribui cada VM uma ID exclusiva que dá os detalhes da sobre a VM. Para obter o VMGUID, selecione o **serviços de recuperação** separador e clique em **Item protegido** &gt; **grupos de proteção** &gt;  **Máquinas** &gt; **propriedades**. Se tiver várias VMs, em seguida, adicione os GUIDs como uma cadeia separada por vírgulas.
+   - *RecoveryPlanName* **- ResourceGroupName**: grupo do Azure Resource Manager com o recurso do StorSimple.
+   - *RecoveryPlanName* **- nome do gerente podem**: recurso The StorSimple com o dispositivo StorSimple.
+   - *RecoveryPlanName* **- DeviceName**: O dispositivo StorSimple que tem de efetuar a ativação pós-falha.
+   - *RecoveryPlanName* **- DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na **dispositivos** separador, na secção de StorSimple Device Manager &gt; **definições** &gt; **Rede** &gt; **definições de DNS** grupo).
+   - *RecoveryPlanName* **- VolumeContainers**: uma cadeia de caracteres separados por vírgulas dos contentores de volumes presentes no dispositivo que tem de ser falhou mais; por exemplo: volcon1 volcon2, volcon3.
+   - *RecoveryPlanName* **- TargetDeviceName**: O StorSimple Cloud Appliance em que os contentores estão a efetuar a ativação pós-falha.
+   - *RecoveryPlanName* **- TargetDeviceIpAddress**: O endereço IP do dispositivo de destino (isso pode ser encontrado na **Máquina Virtual** secção &gt; **definições** grupo &gt; **funcionamento em rede** separador).
+   - *RecoveryPlanName* **- StorageAccountName**: O nome da conta de armazenamento na qual o script (que tem para executar na ativação pós-falha VM) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha algum espaço para armazenar o script temporariamente.
+   - *RecoveryPlanName* **- StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
+   - *RecoveryPlanName* **- VMGUIDS**: após a proteger uma VM, do Azure Site Recovery atribui cada VM uma ID exclusiva que dá os detalhes da sobre a VM. Para obter o VMGUID, selecione o **serviços de recuperação** separador e clique em **Item protegido** &gt; **grupos de proteção** &gt;  **Máquinas** &gt; **propriedades**. Se tiver várias VMs, em seguida, adicione os GUIDs como uma cadeia separada por vírgulas.
 
     Por exemplo, se o nome do plano de recuperação é fileServerpredayRP, em seguida, sua **variáveis**, **ligações** e **certificados** separador deverá aparecer da seguinte forma depois de adicionar todos os recursos.
 
