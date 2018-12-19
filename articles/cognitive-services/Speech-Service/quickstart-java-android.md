@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d245b457eca78dc029bde923616b4d84e04b997
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090113"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599024"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em Java no Android com o SDK de Voz
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em Java no Android com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai aprender a criar uma aplicação Java para Android com o SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto.
-A aplicação baseia-se no Pacote Maven, versão 1.1.0, do SDK de Voz dos Serviços Cognitivos da Microsoft e no Android Studio 3.1.
+Neste artigo, aprenderá a desenvolver uma aplicação de Java para Android utilizando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
+A aplicação baseia-se no Microsoft Cognitive Services voz SDK pacote Maven, versão 1.2.0 e Android Studio 3.1.
 Atualmente, o SDK de Voz é compatível com dispositivos Android com processadores ARM de 32/64 bits ou Intel x86/x64.
 
 > [!NOTE]
@@ -42,7 +42,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
    ![Captura de ecrã do assistente Criar Novo Projeto](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. No ecrã **Target Android Devices** (Dispositivos Android de Destino), selecione apenas **Phone and Tablet** (Telemóvel e Tablet). Na lista pendente abaixo, escolha **API 23: Android 6.0 (Marshmallow)** e selecione **Next** (Seguinte).
+1. No ecrã **Target Android Devices** (Dispositivos Android de Destino), selecione apenas **Phone and Tablet** (Telemóvel e Tablet). Na lista pendente abaixo da mesma, escolha **API 23: Android 6.0 (Marshmallow)** e selecione **próxima**.
 
    ![Captura de ecrã do assistente Criar Novo Projeto](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -58,9 +58,9 @@ O Android Studio demora algum tempo a preparar o seu novo projeto Android. Em se
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.1.0`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.2.0`.
 
-O SDK de Voz para Android é empacotado como uma [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como as permissões Android necessárias para utilizá-lo.
+O SDK de voz para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as permissões necessárias de Android e as bibliotecas necessárias.
 Está alojado num repositório Maven em https://csspeechstorage.blob.core.windows.net/maven/.
 
 Configure o projeto para utilizar o SDK de Voz. Abra a janela Project Structure (Estrutura do Projeto), escolhendo **File** (Ficheiro)  > **Project Structure** (Estrutura do Projeto) na barra de menus do Android Studio. Na janela de estrutura do projeto, faça as seguintes alterações:
@@ -73,7 +73,7 @@ Configure o projeto para utilizar o SDK de Voz. Abra a janela Project Structure 
 
    ![Captura de ecrã da janela Estrutura do Projeto](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela apresentada, introduza o nome e a versão do nosso SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`. Em seguida, selecione **OK**.
+1. Na janela apresentada, introduza o nome e a versão do nosso SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`. Em seguida, selecione **OK**.
    Agora, o SDK de Voz deve ser adicionado à lista de dependências, conforme apresentado abaixo:
 
    ![Captura de ecrã da janela Estrutura do Projeto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -86,7 +86,7 @@ Configure o projeto para utilizar o SDK de Voz. Abra a janela Project Structure 
 
 ## <a name="create-user-interface"></a>Criar a interface de utilizador
 
-Vamos criar uma interface de utilizador básica para a aplicação. Edite o esquema da atividade principal, `activity_main.xml`. Inicialmente, o esquema inclui uma barra de título com o nome da aplicação e uma TextView que contém o texto "Hello World!"
+Vamos criar uma interface de utilizador básica para a aplicação. Edite o esquema da atividade principal, `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome da sua aplicação e um TextView que contém o texto "Hello World!".
 
 * Clique no elemento TextView. Altere o atributo ID no canto superior direito para `hello`.
 
@@ -98,7 +98,7 @@ Vamos criar uma interface de utilizador básica para a aplicação. Edite o esqu
 
   ![Captura de ecrã do ícone de varinha mágica](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-O texto e a representação gráfica da sua IU devem agora ser semelhantes à figura seguinte.
+O texto e uma representação gráfica da sua interface do Usuário deverá estar parecido com isto:
 
 <table>
 <tr>

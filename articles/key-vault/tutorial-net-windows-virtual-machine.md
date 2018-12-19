@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8ebc07f68e2d26126d0bd387f32204255404d6e1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711332"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605318"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutorial: Como utilizar o Azure Key Vault com o Windows Máquina Virtual do Azure no .NET
 
 O Azure Key Vault ajuda-o a proteger segredos, como chaves de APIs, cadeias de ligação de bases de dados necessárias para aceder às suas aplicações, serviços e recursos de TI.
 
-Neste tutorial, siga os passos necessários para obter uma aplicação de consola para ler informações do Azure Key Vault através de identidades geridas para recursos do Azure. Este tutorial baseia-se nas [Aplicações Web do Azure](../app-service/app-service-web-overview.md). Vai aprender a:
+Neste tutorial, siga os passos necessários para obter uma aplicação de consola para ler informações do Azure Key Vault através de identidades geridas para recursos do Azure. Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um cofre de chaves.
@@ -80,9 +80,9 @@ O grupo de recursos que acabou de criar é utilizado ao longo deste artigo.
 
 A seguir, vai criar um cofre de chaves no grupo de recursos criado no passo anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: O nome tem de ser uma cadeia de carateres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
+* Nome do Cofre de chaves: O nome tem de ser uma cadeia de caracteres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
 * Nome do grupo de recursos.
-* Localização: **EUA Oeste**.
+* Localização: **Oeste dos E.U.A.**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
