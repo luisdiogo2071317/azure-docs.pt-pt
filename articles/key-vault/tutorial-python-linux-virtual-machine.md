@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 480957dd0700c898c85b15702905919483d0de68
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890539"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607494"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Azure Máquina Virtual do Linux em Python
 
 O Azure Key Vault ajuda-o a proteger segredos, como chaves de APIs, cadeias de ligação de bases de dados necessárias para aceder às suas aplicações, serviços e recursos de TI.
 
-Neste tutorial, vai seguir os passos necessários para que uma aplicação Web do Azure leia as informações do Azure Key Vault mediante a utilização de identidades geridas para os recursos do Azure. Este tutorial baseia-se nas [Aplicações Web do Azure](../app-service/app-service-web-overview.md). Vai aprender a:
+Neste tutorial, vai seguir os passos necessários para que uma aplicação Web do Azure leia as informações do Azure Key Vault mediante a utilização de identidades geridas para os recursos do Azure. Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um cofre de chaves.
@@ -80,9 +80,9 @@ O grupo de recursos que acabou de criar é utilizado ao longo deste artigo.
 
 A seguir, vai criar um cofre de chaves no grupo de recursos criado no passo anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: O nome tem de ser uma cadeia de carateres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
+* Nome do Cofre de chaves: O nome tem de ser uma cadeia de caracteres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
 * Nome do grupo de recursos.
-* Localização: **EUA Oeste**.
+* Localização: **Oeste dos E.U.A.**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
