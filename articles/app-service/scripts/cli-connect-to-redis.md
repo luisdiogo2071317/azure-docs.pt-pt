@@ -1,6 +1,6 @@
 ---
-title: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache do Azure para Redis | Documentos da Microsoft
-description: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache do Azure para Redis
+title: CLI do Azure exemplo do Script - ligar uma aplicação a uma Cache do Azure para Redis | Documentos da Microsoft
+description: CLI do Azure exemplo do Script - ligar uma aplicação a uma Cache do Azure para Redis
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: a9ba4c60fd15f9a92f86d74d5ef40296781fb7c0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 87e4e56e429039d943d85fe74003edb8cb148cac
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585173"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631113"
 ---
-# <a name="connect-a-web-app-to-an-azure-cache-for-redis-using-cli"></a>Ligar uma aplicação web para uma Cache do Azure para utilizar a CLI de Redis
+# <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Ligar uma aplicação de serviço de aplicações para uma Cache do Azure para utilizar a CLI de Redis
 
-Este script de exemplo cria uma Cache do Azure para Redis e uma aplicação web do Azure. Em seguida, liga a Cache do Azure para Redis à aplicação web com as definições da aplicação.
+Este script de exemplo cria uma Cache do Azure para o Redis e uma aplicação de serviço de aplicações. Em seguida, liga a Cache do Azure para Redis à aplicação com as definições da aplicação.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -41,16 +41,16 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação web, Azure Cache de Redis, e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação de serviço de aplicações, a Cache de Redis, do Azure e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
 | [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Crie nova Cache do Azure para a instância de Redis. |
 | [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Lista as chaves de acesso para a Cache do Azure para a instância de Redis. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação de serviço de aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
