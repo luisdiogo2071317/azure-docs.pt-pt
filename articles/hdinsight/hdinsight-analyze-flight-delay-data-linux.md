@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Realizar operações de extração, transformação e carregamento (ETL) com Hive no HDInsight - Azure '
+title: 'Tutorial: Realizar a extração, transformação, operações de carregamento (ETL) utilizando o Hive no HDInsight - Azure '
 description: Saiba como extrair dados de um conjunto de dados não processados em CSV, transformá-los com o Hive no HDInsight e, em seguida, carregar os dados transformados na base de dados SQL do Azure com o Apache Sqoop.
 services: hdinsight
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e5ee2f40526837fbe0251e1fdda6847db1c51288
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015060"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634359"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight
 
-Neste tutorial, pega um arquivo de dados não processado do CSV, importe-o para um armazenamento de cluster do HDInsight e, em seguida, transforme os dados com [Apache Hive](https://hive.apache.org/) no Azure HDInsight. Depois dos dados são transformados, carregar dados para uma base de dados SQL do Azure com [Apache Sqoop](http://sqoop.apache.org/). Neste artigo, vai utilizar dados de voos disponíveis publicamente.
+Neste tutorial, pega um arquivo de dados não processado do CSV, importe-o para um armazenamento de cluster do HDInsight e, em seguida, transforme os dados com [Apache Hive](https://hive.apache.org/) no Azure HDInsight. Depois dos dados são transformados, carregar dados para uma base de dados SQL do Azure com [Apache Sqoop](https://sqoop.apache.org/). Neste artigo, vai utilizar dados de voos disponíveis publicamente.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do Azure HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 Este tutorial abrange as seguintes tarefas: 
@@ -76,7 +76,7 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
 
     Substitua *FILENAME* pelo nome do ficheiro .zip. Substitua *USERNAME* pelo início de sessão SSH do cluster do HDInsight. Substitua *CLUSTERNAME* pelo nome do cluster do HDInsight.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Se utilizar uma palavra-passe para autenticar o início de sessão SSH, é-lhe pedida a palavra-passe. Se utilizar uma chave pública, poderá ter de utilizar o parâmetro `-i` e especificar o caminho para a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Na linha de comandos, introduza o seguinte comando:
@@ -212,7 +212,7 @@ Se já tiver uma base de dados SQL, tem de obter o nome do servidor. Para locali
 
 ![Obter os detalhes do servidor SQL do Azure](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Obter os detalhes do servidor SQL do Azure")
 
-> [!NOTE]
+> [!NOTE]  
 > Existem muitas formas de ligar à Base de Dados SQL e criar uma tabela. Os passos seguintes utilizam [FreeTDS](http://www.freetds.org/) do cluster do HDInsight.
 
 
@@ -315,7 +315,7 @@ Neste tutorial, aprendeu a realizar operações de extração, transformação e
 
 Para obter mais formas para trabalhar com dados no HDInsight, veja os seguintes artigos:
 
-* [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
+* [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Utilizar o Apache Hive com o HDInsight][hdinsight-use-hive]
 * [Utilizar o Apache Pig com o HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para o Apache Hadoop no HDInsight][hdinsight-develop-mapreduce]
@@ -330,7 +330,7 @@ Para obter mais formas para trabalhar com dados no HDInsight, veja os seguintes 
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
@@ -346,4 +346,4 @@ Para obter mais formas para trabalhar com dados no HDInsight, veja os seguintes 
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

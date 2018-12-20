@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621433"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653293"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Transferir um relatório de início de sessão no portal do Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início rápido: Transferir um relatório de início de sessão no portal do Azure
 
 Neste início rápido, vai aprender a transferir os dados de início de sessão do seu inquilino das últimas 24 horas.
 
@@ -31,10 +31,10 @@ Neste início rápido, vai aprender a transferir os dados de início de sessão 
 
 É necessário:
 
-* Um inquilino do Azure Active Directory, com uma licença Premium para ver o relatório de atividade de início de sessão. 
+* Um inquilino do Azure Active Directory, com uma licença Premium para ver o relatório de atividade de início de sessão. Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
 * Um utilizador, o que está a **administrador de segurança**, **leitor de segurança**, **leitor de relatório** ou **Administrador Global** função para o inquilino. Além disso, qualquer utilizador no inquilino pode aceder aos seus inícios de sessão.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: Transferir um relatório de início de sessão
+## <a name="quickstart-download-a-sign-in-report"></a>Início rápido: Transferir um relatório de início de sessão
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** no painel de navegação esquerdo e utilize o botão **Trocar diretório** para selecionar o Active Directory.

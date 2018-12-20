@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação de web PHP com MySQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar aplicação PHP com MySQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pôr aplicações PHP a funcionar no serviço de aplicações do Azure no Linux, com ligação a uma base de dados MySQL no Azure.
 services: app-service\web
 author: cephalin
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3944b9356fd61d87df10879a2f4eb9a0d5df4f61
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 48f2a6cfe365a113d6538faa77061ec6d585a0bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607375"
+ms.locfileid: "53628226"
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar uma aplicação de MySQL no serviço de aplicações do Azure e o PHP no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar no Serviço de Aplicações no _Windows_, veja [Build a PHP and MySQL web app in Azure](../app-service-web-tutorial-php-mysql.md) (Criar uma aplicação Web PHP e MySQL no Azure).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um serviço de aplicações no _Windows_, consulte [criar uma aplicação PHP e MySQL no Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Web PHP e ligá-la a uma base de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução no Serviço de Aplicações no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação PHP e ligá-la à base de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação PHP em execução no Serviço de Aplicações do Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -373,13 +373,13 @@ Utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em 
 php artisan key:generate --show
 ```
 
-Defina a chave da aplicação na aplicação Web do Serviço de Aplicações com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Definir a chave da aplicação na aplicação do serviço de aplicações ao utilizar o [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando. Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-O `APP_DEBUG="true"` diz ao Laravel para devolver as informações de depuração quando a aplicação Web implementada se deparar com erros. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
+`APP_DEBUG="true"` diz ao Laravel para devolver informações de depuração quando a aplicação implementada encontra erros. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
@@ -422,7 +422,7 @@ remote: Running deployment command...
 > Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para obter mais informações, veja [Script de Implementação Personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
 
 Navegue para `http://<app_name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -566,21 +566,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Quando `git push` estiver concluído, navegue para a aplicação Web do Azure e teste a funcionalidade nova.
+Uma vez o `git push` estiver concluído, navegue para a aplicação do Azure e a nova funcionalidade de teste.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="manage-the-azure-web-app"></a>Gerir a aplicação Web do Azure
+## <a name="manage-the-azure-app"></a>Gerir a aplicação do Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para gerir a aplicação Web que criou.
+Vá para o [portal do Azure](https://portal.azure.com) para gerir a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/tutorial-php-mysql-app/access-portal.png)
+![Navegação do portal para a aplicação do Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
+Ver página de descrição geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
 
 O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
@@ -602,7 +602,7 @@ Neste tutorial, ficou a saber como:
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
 > * Gerir a aplicação no portal do Azure
 
-Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para uma aplicação Web.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md)

@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 0608bd9c923ed9ba04f257d87faad48765d3201a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912344"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650297"
 ---
-# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Criar uma base de dados SQL do Azure e ligar com C&#x23; e ADO.NET
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Criar uma base de dados SQL do Azure e estabelecer ligação com C&#x23; e ADO.NET
 
 A Base de Dados SQL do Azure é uma base de dados relacional como serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
 
@@ -49,7 +49,7 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu tarefas de base de dados básicas, como criar uma base de dados e tabelas, carregar e consultar dados e restaurar a base de dados para um ponto anterior no tempo. Aprendeu a:
 > [!div class="checklist"]
@@ -63,4 +63,4 @@ Neste tutorial, aprendeu tarefas de base de dados básicas, como criar uma base 
 Avance para o próximo tutorial para saber como migrar os seus dados.
 
 > [!div class="nextstepaction"]
-> [Migre a sua base de dados do SQL Server para a Base de Dados SQL do Azure](sql-database-migrate-your-sql-server-database.md)
+> [Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS](../dms/tutorial-sql-server-to-azure-sql.md)

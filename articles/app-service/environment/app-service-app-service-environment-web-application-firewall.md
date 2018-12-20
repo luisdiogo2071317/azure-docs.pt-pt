@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314878"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631503"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
@@ -74,12 +74,12 @@ Depois de iniciar sessão, deverá ver um dashboard, como o da imagem seguinte, 
 
 ![Dashboard de Gestão][ManagementDashboard]
 
-Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo seguinte, foi configurada uma Aplicação Web do Azure que serve tráfego HTTP e HTTPS.
+Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo seguinte, foi configurada uma aplicação de serviço de aplicações que serve tráfego HTTP e HTTPS.
 
 ![Gestão Adicionar Serviços][ManagementAddServices]
 
 > [!NOTE]
-> Dependendo da configuração das suas aplicações e das funcionalidades que estão a ser utilizadas no seu Ambiente de Serviço de Aplicações, tem de reencaminhar o tráfego para as portas TCP que não a 80 e a 443, como, por exemplo, se tiver o SSL de IP configurado para uma Aplicação Web. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
+> Dependendo de como as suas aplicações são configuradas e que funcionalidades estão a ser utilizadas no seu ambiente de serviço de aplicações, tem de reencaminhar tráfego para TCP portas que não seja a 80 e 443, por exemplo, se tiver configurado o SSL de IP para uma aplicação de serviço de aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
 > 
 > 
 

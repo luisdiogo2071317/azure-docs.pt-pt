@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c920782810cc8b7b302799a5bab53a737b11c0a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 787a817b32838d11cb8974737037543f73285b0d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853095"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653430"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -37,23 +37,20 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
-
-> [!div renderon="portal" class="sxs-lookup"]
+>
 > Tem duas opções para iniciar a aplicação de início rápido:
-> * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Opção 2: registar e configurar manualmente a aplicação e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Express] [Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo
 >
-
-> [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
@@ -67,7 +64,9 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
 > 1. Sob **usuário** nó, selecione **User.Read.All**, em seguida, selecione **adicionar permissões**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
+> ### <a name="download-and-configure-your-quickstart-app"></a>Transferir e configurar a sua aplicação de início rápido
+> 
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
 > Para o código de exemplo para este início rápido funcionar, terá de criar um segredo do cliente e adicionar a Graph API **User.Read.All** permissão da aplicação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Efetuar estas alterações para mim]()
@@ -79,7 +78,7 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
 
 [Transfira o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 1. Abra a solução no Visual Studio – **daemon console.sln** (opcional).
@@ -99,10 +98,11 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
     >> * `Enter_the_Tenant_Id_Here` -substituir este valor com o **Id do inquilino** ou **nome do inquilino** (por exemplo, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` -substituir este valor com o segredo de cliente criado no passo 1.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > Para localizar os valores da **ID da aplicação (cliente)**, **ID de diretório (inquilino)**, aceda à aplicação **descrição geral** página no portal do Azure. Para gerar uma nova chave, aceda a **certificados e segredos** página.
     
-#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de administrador
+#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de admin
 
 Qualquer *permissão só de aplicação* necessita de consentimento de administrador - o que significa que ele precisa de um administrador global do seu diretório para dar consentimento à sua aplicação. Selecione uma das opções abaixo dependendo de sua função:
 
@@ -130,7 +130,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
 > [!NOTE]
-> Poderá ver o erro *' AADSTS50011: nenhum endereço de resposta está registado para a aplicação '* depois de conceder permissão à aplicação com o URL anterior. Isso acontecer porque esta aplicação e o URL não têm um redirecionamento URI - ignore o erro.
+> Poderá ver o erro *' AADSTS50011: Nenhum endereço de resposta está registado para a aplicação '* depois de conceder permissão à aplicação com o URL anterior. Isso acontecer porque esta aplicação e o URL não têm um redirecionamento URI - ignore o erro.
 
 #### <a name="step-5-run-the-application"></a>Passo 5: Executar a aplicação
 

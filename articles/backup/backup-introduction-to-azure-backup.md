@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878337"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631167"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -78,17 +78,17 @@ A tabela seguinte fornece uma matriz dos dados e cargas de trabalho que podem se
 | VMs do IaaS do Azure (Linux) |em execução no Azure |[Azure Backup (extensão da VM)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Apoio Técnico para Linux
-A tabela seguinte mostra os componentes do Azure Backup com suporte para Linux.  
+A tabela seguinte mostra os componentes de cópia de segurança do Azure suportados para o Linux.  
 
-| Componente | Apoio Técnico para Linux (aprovado pelo Azure) |
-| --- | --- |
-| Agente do Backup do Azure (MARS) |Nenhum (Apenas agente baseado no Windows) |
-| System Center DPM |<li> Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/> <li> Restauro de VMs de Convidado do Linux do Hyper-V e do VMWare </br> </br>  *A cópia de segurança consistente com ficheiro não está disponível para a VM do Azure* <br/> |
-| Servidor do Backup do Azure |<li>Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/> <li> Restauro de VMs de Convidado do Linux do Hyper-V e do VMWare </br></br> *A cópia de segurança consistente com ficheiro não está disponível para a VM do Azure*  |
-| Cópia de segurança da VM do IaaS do Azure |Cópia de segurança consistente com a aplicação utilizando [arquitetura de script anterior script posterior](backup-azure-linux-app-consistent.md)<br/> [Recuperação de ficheiros granular](backup-azure-restore-files-from-vm.md)<br/> [Restaurar todos os discos da VM](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauro da VM](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Componente** | **Linux (aprovado pelo Azure)**
+--- | --- 
+Agente do Backup do Azure (MARS) | Nenhum (baseado em Windows agente apenas) 
+System Center DPM | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restauro de VMs de Convidado do Linux do Hyper-V e do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure
+Servidor do Backup do Azure | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restaurar a VM de Hyper-V e VMs de convidado de Linux do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure 
+Cópia de segurança da VM do IaaS do Azure | Cópia de segurança consistente com a aplicação a utilizar o [framework do script prévio e o script posterior](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação ao nível do ficheiro](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM a partir de um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM a partir de um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilizar VMs de Armazenamento Premium com o Azure Backup
-O Azure Backup protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é o armazenamento baseado numa unidade de estado sólido (SSD), concebido para suportar cargas de trabalho de E/S intensivas. O Armazenamento Premium é apelativo para cargas de trabalho de máquina virtual (VM). Para mais informações sobre o Armazenamento Premium, veja o artigo [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../virtual-machines/windows/premium-storage.md).
+O Azure Backup protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é o armazenamento baseado numa unidade de estado sólido (SSD), concebido para suportar cargas de trabalho de E/S intensivas. O Armazenamento Premium é apelativo para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o armazenamento Premium, consulte o artigo, [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Criar cópia de segurança das VMs do Premium Storage
 Durante a cópia de segurança das VMs do Armazenamento Premium, o serviço de Cópia de Segurança cria uma localização de transição temporária, com o nome "AzureBackup-", na conta do Armazenamento Premium. O tamanho da localização de transição é igual ao tamanho do instantâneo do ponto de recuperação. Certifique-se de que a conta de Armazenamento Premium tem espaço livre para acomodar a localização de transição temporária. Para obter mais informações, veja o artigo [Premium Storage Limitations (Limitações do Armazenamento Premium)](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Depois de a tarefa de cópia de segurança estar concluída, a localização de transição é eliminada. O preço do armazenamento utilizado para a localização de transição é consistente com todos os [Preços do Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
@@ -209,7 +209,7 @@ Uma instância protegida é uma referência genérica para um computador com o W
 Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servidores de aplicações, bases de dados e computadores pessoais com o sistema operativo Windows. Por exemplo:
 
 * Uma máquina virtual a executar recursos de infraestrutura hipervisores do Hyper-V ou do IaaS do Azure. Os sistemas operativos convidados para a máquina virtual podem ser Windows Server ou Linux.
-* Um servidor de aplicações: o servidor de aplicações pode ser uma máquina física ou virtual a executar o Windows Server e cargas de trabalho com dados em relação aos quais deve ser efetuada uma cópia de segurança. Cargas de trabalho comuns são o Microsoft SQL Server, o Microsoft Exchange Server, o Microsoft SharePoint Server e a função do Servidor de Ficheiros no Windows Server. Para efetuar a cópia de segurança destas cargas de trabalho necessita do System Center Data Protection Manager (DPM) ou do Azure Backup Server.
+* Um servidor de aplicações: O servidor de aplicações pode ser uma máquina física ou virtual a executar o Windows Server e cargas de trabalho com dados que precisam ser efetuada a cópia de segurança. Cargas de trabalho comuns são o Microsoft SQL Server, o Microsoft Exchange Server, o Microsoft SharePoint Server e a função do Servidor de Ficheiros no Windows Server. Para efetuar a cópia de segurança destas cargas de trabalho necessita do System Center Data Protection Manager (DPM) ou do Azure Backup Server.
 * Um computador pessoal, portátil ou uma estação de trabalho com o sistema operativo Windows.
 
 

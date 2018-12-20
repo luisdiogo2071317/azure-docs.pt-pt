@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 282942d82a688b4fc47b8473b0f8708ba23b5674
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 49f98958c540faa06aa15fbfc429f87f92463c3e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602482"
+ms.locfileid: "53635447"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Ligação de base de dados do Azure SQL segura do serviço de aplicações com uma identidade gerida
 
@@ -147,7 +147,7 @@ No **Explorador de Soluções**, clique com o botão direito do rato no projeto 
 
 Na página de publicação, clique em **Publicar**. Quando a página Web nova mostrar a lista de tarefas, significa que a aplicação se está a ligar à base de dados com a identidade gerida.
 
-![Aplicação Web do Azure após a Primeira Migração de Código](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Aplicação do Azure após a primeira migração de código](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Agora, deverá conseguir editar a lista de tarefas como antes.
 

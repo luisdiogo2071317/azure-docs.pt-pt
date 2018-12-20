@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação web PHP no Linux - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar aplicação PHP no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente em minutos a sua primeira aplicação PHP Hello World no Serviço de Aplicações no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: af413528c279c5fcab472347d247b17dd5061167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257408"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628413"
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web PHP no Serviço de Aplicações no Linux
+# <a name="create-a-php-app-in-app-service-on-linux"></a>Criar uma aplicação PHP no serviço de aplicações no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um Serviço de Aplicações no _Windows_, consulte [Criar uma aplicação Web PHP no Azure](../app-service-web-get-started-php.md).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um serviço de aplicações no _Windows_, consulte [criar uma aplicação PHP no Azure](../app-service-web-get-started-php.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como implementar uma aplicação PHP no Serviço de Aplicações do Azure no Linux. Crie a aplicação Web com a imagem incorporada com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) na Cloud Shell, e utilize o Git para implementar o código PHP na aplicação Web.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como implementar uma aplicação PHP no Serviço de Aplicações do Azure no Linux. Criar a aplicação com imagem incorporada com o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e utilize o Git para implementar o código PHP na aplicação de serviço de aplicações.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -80,15 +80,15 @@ Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Navegue para o site para ver a sua aplicação Web criada recentemente com imagem incorporada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
+Navegue para o site para ver a sua aplicação criada recentemente com imagem incorporada. Substitua  _&lt;nome da aplicação >_ com o nome da sua aplicação.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-A aplicação Web deve ter o seguinte aspeto:
+Eis o que a sua nova aplicação deverá ser semelhante:
 
-![Página da aplicação Web vazia](media/quickstart-php/app-service-web-service-created.png)
+![Página de aplicações vazia](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -125,7 +125,7 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código PHP de exemplo está em execução numa aplicação Web com imagem incorporada.
+O código PHP de exemplo está a executar no serviço de aplicações no Linux com imagem incorporada.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -150,15 +150,15 @@ Depois de concluída a implementação, volte para a janela do browser aberta qu
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/quickstart-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerir a sua nova aplicação Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerir a sua nova aplicação do Azure
 
-Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
+Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
+![Navegação do portal para a aplicação do Azure](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
+Ver página de descrição geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
 
 ![Página Serviço de Aplicações no portal do Azure](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

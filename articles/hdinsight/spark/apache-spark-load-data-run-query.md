@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495786"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652337"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
@@ -58,7 +58,7 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
 
 
@@ -87,7 +87,7 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Com o HDInsight, os seus dados e os blocos de notas Jupyter são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, pelo que pode eliminar um cluster em segurança quando este não estiver a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
+Com o HDInsight, seus dados e os blocos de notas do Jupyter são armazenados no armazenamento do Azure ou o armazenamento do Azure Data Lake, pelo que pode eliminar em segurança um cluster quando não está em utilização. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 

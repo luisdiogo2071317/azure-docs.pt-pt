@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: df87983e6a56ac4e37c65f66e3408cb3296f24d8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597533"
+ms.locfileid: "53635277"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este início rápido mostra como implementar a sua primeira aplicação web ASP.NET no App Service do Azure. Quando terminar, terá um grupo de recursos que consiste num plano de serviços de aplicações e uma aplicação Web do Azure com uma aplicação Web implementada.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este início rápido mostra como implementar a sua primeira aplicação web ASP.NET no App Service do Azure. Quando tiver terminado, terá um grupo de recursos que consiste num plano do serviço de aplicações e uma aplicação de serviço de aplicações com uma aplicação web implementada.
 
 ![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
@@ -144,13 +144,13 @@ Quando a publicação estiver concluída, o Visual Studio inicia um browser para
 
 ![Aplicação Web ASP.NET atualizada no Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
-## <a name="manage-the-azure-web-app"></a>Gerir a aplicação Web do Azure
+## <a name="manage-the-azure-app"></a>Gerir a aplicação do Azure
 
 Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web.
 
-No menu à esquerda, selecione **Serviços Aplicacionais** e selecione o nome da sua aplicação Web do Azure.
+No menu à esquerda, selecione **dos serviços de aplicações**e, em seguida, selecione o nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
 
 É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - monitorizar uma aplicação web com os registos de servidor web | Documentos da Microsoft
-description: Exemplo do Script da CLI do Azure - monitorizar uma aplicação web com os registos de servidor web
+title: Exemplo do Script da CLI do Azure - monitorizar uma aplicação com os registos de servidor web | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - monitorizar uma aplicação no serviço de aplicações com os registos de servidor web
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 364843708bea2b10770abad9c3e91006193c6aa0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c0bdf64e7fd9bf7de3ea46f6c08741b61ef0013f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584986"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649677"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs-using-azure-cli"></a>Monitorizar uma aplicação web com os registos de servidor web com a CLI do Azure
+# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorizar uma aplicação de serviço de aplicações com os registos de servidor web com a CLI do Azure
 
-Este script de exemplo cria um grupo de recursos, o plano do serviço de aplicações e a aplicação Web, e configura a aplicação Web para ativar os registos do servidor Web. Em seguida, transfere os ficheiros de registo para revisão.
+Este script de exemplo cria um grupo de recursos, o plano do serviço de aplicações e a aplicação e configura a aplicação para ativar os registos de servidor web. Em seguida, transfere os ficheiros de registo para revisão.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,15 +41,15 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação de serviço de aplicações e a todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configura os registos que persistem numa aplicação Web do Azure. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Transfere os registos de uma aplicação Web do Azure no seu computador local. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configura-se de que inicia um serviço de aplicações persistir de aplicação. |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Transfere os registos de uma aplicação de serviço de aplicações no seu computador local. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

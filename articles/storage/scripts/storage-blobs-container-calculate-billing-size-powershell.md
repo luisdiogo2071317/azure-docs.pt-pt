@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5e1505794097ac6d67997841cade46013686377f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867380"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627764"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de BLOBs
 
@@ -126,6 +126,6 @@ Segue-se a análise detalhada:
 
 - Para obter mais informações sobre a faturação do armazenamento do Azure, consulte [Noções básicas sobre Windows Azure a cobrança de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
+- Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 - Pode encontrar exemplos de scripts do PowerShell de armazenamento adicionais no [exemplos do PowerShell do armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).

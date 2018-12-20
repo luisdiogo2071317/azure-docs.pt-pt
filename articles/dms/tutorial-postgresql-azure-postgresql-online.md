@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/19/2018
+ms.openlocfilehash: 7eb5fd5d53499180b85fe268ef95d787e6e5b0cf
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000915"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629718"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do PostgreSQL no local para a [Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Aluguer de DVDs** de uma instância no local do PostgreSQL 9.6 para a Base de Dados do Azure para PostgreSQL através de uma atividade de migração online no Azure Database Migration Service.
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Monitorizar a migração.
 
 > [!NOTE]
-> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no escalão de preço Premium.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -188,10 +188,10 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     ```
 
     Por exemplo, o seguinte comando vai criar um serviço em:
-    - Localização: EUA Leste 2
+    - Localização: E.U.A. Leste 2
     - Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Nome de Grupo de Recursos: PostgresDemo
-    - Nome do Serviço DMS: PostgresCLI
+    - Nome do Grupo de Recursos: PostgresDemo
+    - Nome do serviço DMS: PostgresCLI
 
     ```
     az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -234,7 +234,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
       - Localização: EUA Centro-Oeste
-      - Nome de Grupo de Recursos: PostgresDemo
+      - Nome do Grupo de Recursos: PostgresDemo
       - Nome do Serviço: PostgresCLI
       - Nome do projeto: PGMigration
       - Plataforma de origem: PostgreSQL

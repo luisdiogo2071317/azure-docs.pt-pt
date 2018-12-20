@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 0d4ae2ce567da0df9a15f229d3fc12e06c4993af
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 133f8e82d7a46bae11eb049b2d1c9393990c9042
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608380"
+ms.locfileid: "53634580"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
 Aplicações atuais são necessários para estar sempre online e elevada capacidade de resposta. Para alcançar a baixa latência e elevada disponibilidade, instâncias desses aplicativos precisam ser implantados nos centros de dados que estão próximas dos seus usuários. Aplicativos precisam responder em tempo real para grandes alterações na utilização nas horas de pico, armazenar aumento constante dos volumes de dados e disponibilizar estes dados aos utilizadores em milissegundos.
 
-O Azure Cosmos DB é um serviço da base de dados de vários modelos distribuída globalmente da Microsoft. Com o clique de um botão, o Azure Cosmos DB permite-lhe dimensionar de forma elástica e independente o débito e o armazenamento em qualquer número de regiões geográficas do Azure. Elástica pode dimensionar o débito e armazenamento e tirar partido de acesso de dados de milissegundos de dígito único de forma rápida usando a API de favorita entre o SQL, MongoDB, Apache Cassandra, tabelas ou Gremlin. O cosmos DB fornece abrangente [contratos de nível de serviço](https://aka.ms/acdbsla) (SLAs) de débito, latência, disponibilidade e garantias de consistência, algo nenhum outro serviço de base de dados pode oferecer.
+O Azure Cosmos DB é um serviço da base de dados de vários modelos distribuída globalmente da Microsoft. Com o clique de um botão, o Azure Cosmos DB permite-lhe dimensionar de forma elástica e independente o débito e o armazenamento em qualquer número de regiões geográficas do Azure. Elástica pode dimensionar o débito e armazenamento e tirar partido de acesso de dados de milissegundos de dígito único de forma rápida usando a API de favorita entre o SQL, MongoDB, Cassandra, tabelas ou Gremlin. O cosmos DB fornece abrangente [contratos de nível de serviço](https://aka.ms/acdbsla) (SLAs) de débito, latência, disponibilidade e garantias de consistência, algo nenhum outro serviço de base de dados pode oferecer.
 
 Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos nem compromissos.
 
@@ -82,17 +82,16 @@ O cosmos DB é o primeiro e único serviço a oferecer [SLAs abrangentes lídere
 
 Pode executar [Spark](spark-connector.md) em dados armazenados no Cosmos DB. Esta capacidade permite-lhe efetuar análises operacionais de baixa latência, à escala global sem afetar as cargas de trabalho transacionais operacional diretamente no Cosmos DB.
 
-### <a name="native-wire-compatible-mongodb-cassandra-gremlin-and-azure-table-storage-apis"></a>Nativo compatível com o wire MongoDB, Cassandra, Gremlin e APIs de armazenamento de tabela do Azure
+### <a name="develop-applications-for-cosmos-db-using-popular-nosql-apis"></a>Desenvolver aplicativos para o Cosmos DB com APIs populares de NoSQL
 
 O cosmos DB oferece uma opção de APIs para atualizar e consultar os dados armazenados no seu banco de dados do Cosmos. Por predefinição, [é possível usar SQL](how-to-sql-query.md) para atualizar e consultar os dados no seu banco de dados do Cosmos.
 
-O cosmos DB também implementa [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), e [Gremlin](graph-introduction.md) conectar protocolos diretamente no serviço. Isto permite-lhe ponto Cassandra, MongoDB, ou controladores de cliente do Gremlin (e ferramentas) diretamente ao seu Cosmos de base de dados e utilizam o Cosmos DB como um totalmente gerido, globalmente distribuído, Cassandra/MongoDB/Gremlin-como-serviço sem ter de adquirir licenças, suporte, ou custo ao fornecedor de base de dados de operações. Suporte nativo para APIs de armazenamento do Cassandra/MongoDB/Gremlin/tabela fornece inúmeros benefícios. Pode:
+O cosmos DB também implementa [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) e [Azure Table Storage](table-introduction.md) conectar protocolos diretamente no serviço. Isto permite-lhe do ponto de controladores do cliente (e ferramentas) para as APIs de NoSQL usadas diretamente à sua base de dados do Cosmos. Ao suportar os protocolos de transmissão de frequentemente utilizadas APIs de NoSQL, o Cosmos DB permite-lhe:
 
-* Migre facilmente as suas bases de dados do Cassandra, MongoDB, Gremlin e armazenamento de tabelas ao Cosmos DB. 
-* Preserva grande parte da lógica do aplicativo, sem alterações à interface com interfaces de armazenamento de Cassandra, MongoDB, Gremlin e tabela do Cosmos DB.
+* Migre facilmente a sua aplicação para o Cosmos DB, preservando a partes significativas da lógica do aplicativo.
 * Mantenha seu aplicativo portátil e continuará desconhecidas do fornecedor na cloud.
-* Obtenha setor SLAs líderes do setor, com apoio financeiro para a base de dados do MongoDB/Cassandra/Gremlin com tecnologia do Cosmos DB. 
-* Dimensionar de forma elástica o débito aprovisionado e armazenamento para o Cassandra e bases de dados do MongoDB com base nas suas necessidades e pagam apenas o débito e armazenamento de que precisa. Isso leva à redução significativa de custos.
+* Obtenha setor SLAs líderes do setor, com apoio financeiro para as APIs do NoSQL comuns. 
+* Elástica dimensionar o débito aprovisionado e armazenamento para as bases de dados com base nas suas necessidades e pague apenas o débito e armazenamento de que precisa. Isso leva à redução significativa de custos.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que tiram partido do Azure Cosmos DB
 

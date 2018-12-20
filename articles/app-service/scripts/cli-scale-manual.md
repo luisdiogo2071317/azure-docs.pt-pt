@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script da CLI do Azure – Dimensionar uma aplicação Web manualmente com a CLI do Azure | Microsoft Docs
-description: Exemplo de Script da CLI do Azure – Dimensionar uma aplicação Web manualmente com a CLI do Azure
+title: Exemplo do Script da CLI do Azure - dimensionar uma aplicação manualmente com o CLI do Azure | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - dimensionar um serviço de aplicações manualmente com a CLI do Azure
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2e7c268f17bf6107766e449d78f559b3d2ced3b2
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5a15a16b05adedf9f7c8738ae26174120a86efd8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584963"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650028"
 ---
-# <a name="scale-a-web-app-manually-using-azure-cli"></a>Dimensionar uma aplicação web manualmente com a CLI do Azure
+# <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Dimensionar uma aplicação de serviço de aplicações manualmente com a CLI do Azure
 
-Este script de exemplo cria um grupo de recursos, um plano do Serviço de Aplicações e uma aplicação Web. Dimensiona, em seguida, o plano do Serviço de Aplicações de uma única instância única para várias instâncias.
+Este script de exemplo cria um grupo de recursos, um plano do serviço de aplicações e uma aplicação. Dimensiona, em seguida, o plano do Serviço de Aplicações de uma única instância única para várias instâncias.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +41,13 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação de serviço de aplicações e a todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
 | [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-update) | Atualiza as propriedades do plano do Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos Seguintes

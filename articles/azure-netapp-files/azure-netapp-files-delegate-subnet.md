@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: fc8ec5c3bbe0157f5737e2eb757478357aa6e867
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8ec41c6db8c8e5c62d15dc0638762f2649c637b8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414061"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631656"
 ---
-# <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para ficheiros do Azure NetApp 
+# <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
 
 Deve delegar uma sub-rede para ficheiros de NetApp do Azure.   Quando cria um volume, tem de especificar a sub-rede do delegado.
 
 ## <a name="about-this-task"></a>Informações sobre esta tarefa
 * O Assistente para criar uma nova sub-rede é predefinido como um /24 máscara de rede, que fornece para 251 endereços IP disponíveis. Usando/28 máscara de rede, que fornece para 16 endereços IP utilizáveis, é suficiente para o serviço.
 * Não é possível designar um grupo de segurança de rede ou a sub-rede do delegado de ponto de extremidade de serviço. Isso faz com que a delegação de sub-rede efetuar a ativação.
-* Cada rede Virtual do Azure (VNet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
+* Cada rede Virtual do Azure (Vnet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
 * Acesso a um volume a partir de uma rede virtual em modo de peering não é atualmente suportado.
 
 ## <a name="steps"></a>Passos 

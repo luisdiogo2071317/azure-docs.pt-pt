@@ -10,19 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: 3f52dde1e091ee089b83fe8f7f2d860941c11318
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956708"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631452"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados Azure SQL](../sql-database/sql-database-managed-instance.md), com um período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
-
->[!IMPORTANT]
->Os projetos de migração online do SQL Server para a Instância Gerida da Base de Dados Azure SQL estão em pré-visualização e estão sujeitos aos [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Neste tutorial, vai utilizar o Azure Database Migration Service para migrar a base de dados **Adventureworks2012** de uma instância no local do SQL Server para uma Instância Gerida da Base de Dados Azure SQL, com um período de indisponibilidade mínimo.
 
@@ -34,7 +31,7 @@ Neste tutorial, ficará a saber como:
 > * Transfira a migração quando estiver pronto.
 
 > [!NOTE]
-> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no escalão de preço Premium.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -95,10 +92,10 @@ Para concluir este tutorial, precisa de:
 
     Para obter detalhes adicionais, veja o artigo [Network topologies for Azure SQL DB Managed Instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi) (Topologias de rede para migrações da Instância Gerida da DB SQL do Azure com o Azure Database Migration Service).
 
-6. Selecione um SKU do escalão de preço “Crítico para a Empresa (Pré-visualização)”.
+6. Selecione um SKU de escalão de preços Premium.
 
     > [!NOTE]
-    > As migrações online só são suportadas ao utilizar o escalão “Crítico para a Empresa (Pré-visualização)”. 
+    > Migrações online são suportadas apenas quando utiliza o escalão Premium. 
    
     Para obter mais informações sobre os custos e os escalões de preços, veja a [página de preços](https://aka.ms/dms-pricing).
    
@@ -118,7 +115,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
  
 3. Selecione + **Novo Projeto de Migração**.
 
-4. No ecrã **Novo projeto de migração**, indique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**, na caixa de texto **Tipo de servidor de destino**, selecione **Instância Gerida da Base de Dados Azure SQL** e, em **Escolher tipo de atividade**, selecione **Migração de dados online (pré-visualização)**.
+4. Na **novo projeto de migração** ecrã, especifique um nome para o projeto, no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**, no **servidor de destino tipo** caixa de texto, selecione **instância gerida da base de dados SQL do Azure**e, em seguida, para **Escolher tipo de atividade**, selecione **migração de dados Online** .
 
    ![Criar o projeto do DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

@@ -1,6 +1,6 @@
 ---
 title: CLI do Azure exemplo do Script - Criar aplicação ASP.NET Core a partir do Docker Hub | Documentos da Microsoft
-description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web do ASP.NET Core num contentor do Docker
+description: CLI do Azure exemplo do Script - criar uma aplicação ASP.NET Core no serviço de aplicações do Docker Hub
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: cf2256ba354eaa0ef5a8753c98c22f00e6141d57
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 136d0d6976b046244ee9e6a24e68d5304a5c352b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585172"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650863"
 ---
-# <a name="create-an-aspnet-core-web-app-in-a-docker-container-using-azure-cli"></a>Criar uma aplicação web ASP.NET Core num contentor do Docker com a CLI do Azure
+# <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Criar uma aplicação ASP.NET Core num contentor do Docker do Docker Hub com a CLI do Azure
 
-Este script de exemplo cria um grupo de recursos, um plano do Serviço de Aplicações do Linux e uma aplicação Web. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker.
+Este script de exemplo cria um grupo de recursos, um plano de serviço de aplicações do Linux e uma aplicação. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,14 +41,14 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação de serviço de aplicações e a todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o contentor do Docker da aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o contentor do Docker para a aplicação de serviço de aplicações. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

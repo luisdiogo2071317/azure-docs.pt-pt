@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986122"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630704"
 ---
-# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir os servidores de ficheiros do Windows com o Azure File Sync
+# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir servidores de ficheiros do Windows com o Azure File Sync
 Neste tutorial, vamos mostrar os passos básicos para expandir a capacidade de armazenamento de um Windows Server com o Azure File Sync. Embora estejamos a utilizar uma VM do Azure do Windows Server neste tutorial, este processo é, geralmente, feito para os servidores no local. Se estiver pronto para implementar o Azure File Sync no seu ambiente, utilize o artigo [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementar o Azure File Sync).
 
 > [!div class="checklist"]
@@ -163,14 +163,14 @@ Na VM do **Windows Server 2016 Datacenter**, o **Gestor de Servidor** abre-se au
 
 1. Feche o **Explorer** e o **Gestor de Servidor**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Transferir o módulo do AzureRM do PowerShell
-Em seguida, na VM do **Windows Server 2016 Datacenter**, instale o **módulo do AzureRM do PowerShell** no servidor.
+### <a name="download-the-azure-powershell-module"></a>Transferir o módulo Azure PowerShell
+Em seguida, no **Windows Server 2016 Datacenter** VM, instale o **módulo Azure PowerShell** no servidor.
 
 1. Na VM, abra uma janela do PowerShell elevada
 1. Execute o seguinte comando:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Em seguida, na VM do **Windows Server 2016 Datacenter**, instale o **módulo do 
 
 1. Responda `Yes` ou `Yes to All` para continuar com a instalação.
 
-O módulo `AzureRM` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação do mesmo transfere todos os módulos disponíveis do Azure Resource Manager e disponibiliza os respetivos cmdlets para utilização.
+O módulo `Az` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação do mesmo transfere todos os módulos disponíveis do Azure Resource Manager e disponibiliza os respetivos cmdlets para utilização.
 
 Nesta fase, já concluiu a configuração do ambiente para o tutorial e está pronto para começar a implementar o **Serviço de Sincronização de Armazenamento**.
 
@@ -237,7 +237,7 @@ Implementou o Serviço de Sincronização do Azure e instalou o agente na VM do 
 ## <a name="register-windows-server"></a>Registar o Windows Server
 Registar o Windows Server num Serviço de Sincronização de Armazenamento estabelece uma relação de confiança entre o servidor (ou cluster) e aquele serviço. Os servidores só podem ser registados num Serviço de Sincronização de Armazenamento e podem ser sincronizados com outros servidores e com partilhas de ficheiros do Azure associados ao mesmo Serviço de Sincronização de Armazenamento.
 
-Após a instalação do **agente do Azure File Sync**, a IU do Registo do Servidor deverá abrir-se automaticamente. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+Após a instalação do **agente do Azure File Sync**, a IU do Registo do Servidor deverá abrir-se automaticamente. Se isso não acontecer, pode abri-lo manualmente da localização do ficheiro: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Quando a IU do Registo do Servidor se aberta na VM, clique em **OK**.
 1. Clique em **Iniciar sessão**, para começar.
@@ -304,7 +304,7 @@ Os ficheiros estão agora sincronizados na partilha de ficheiros do Azure e no W
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu os passos básicos para expandir a capacidade de armazenamento de um Windows Server com o Azure File Sync. Siga esta ligação para ver um planeamento mais minucioso para uma implementação do Azure File Sync.
 
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure – Ligar uma aplicação Web ao MongoDB (Cosmos DB) | Microsoft Docs
-description: Exemplo do Script da CLI do Azure – Ligar uma aplicação Web ao MongoDB (Cosmos DB)
+title: CLI do Azure exemplo do Script - ligar uma aplicação ao MongoDB (Cosmos DB) | Documentos da Microsoft
+description: CLI do Azure exemplo do Script - ligar uma aplicação ao MongoDB (Cosmos DB)
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f5f31fae901a4589828e054e979315563b87d19d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 505f1dac3f9b63b516f0b9e352f363e287e2f604
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585204"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629548"
 ---
-# <a name="connect-a-web-app-to-cosmos-db-using-cli"></a>Ligar uma aplicação web ao Cosmos DB com a CLI
+# <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Ligar uma aplicação de serviço de aplicações para o Cosmos DB com a CLI
 
-Este script de exemplo cria uma conta de API do Azure Cosmos DB para MongoDB e uma aplicação web do Azure. Em seguida, liga a cadeia de ligação do MongoDB à aplicação Web através das definições da aplicação.
+Este script de exemplo cria uma conta de API do Azure Cosmos DB para MongoDB e uma aplicação de serviço de aplicações. Em seguida, liga a cadeia de ligação do MongoDB à aplicação com as definições da aplicação.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,16 +41,16 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web, o Cosmos DB e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, aplicação de serviço de aplicações, Cosmos DB e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | Cria uma conta do Cosmos DB. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings) | Lista cadeias de ligação para a conta do Cosmos DB especificada. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação de serviço de aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

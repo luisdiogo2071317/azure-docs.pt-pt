@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158980"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632048"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -87,7 +87,7 @@ Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com bas
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Utilizar uma partilha de ficheiros do Azure com o protocolo REST de Ficheiros 
-É possível trabalhar diretamente com o protocolo REST de Ficheiros (ou seja, criar manualmente chamadas HTTP REST), mas a forma mais comum de utilizar o protocolo REST de Ficheiros é através da CLI do Azure, do [módulo AzureRM PowerShell](storage-how-to-use-files-powershell.md), ou de um SDK do Armazenamento do Azure, sendo que todos oferecem um bom wrapper para o protocolo REST de Ficheiros na linguagem de scripts/programação da sua preferência.  
+É possível trabalho diretamente com o protocolo de REST de ficheiros diretamente (ou seja, handcrafting REST HTTP chama-se), mas a forma mais comum para utilizar o protocolo de REST de ficheiros é usar a CLI do Azure, o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md), ou do Azure SDK de armazenamento, os quais fornecem um bom invólucro o protocolo de REST de ficheiros na linguagem de programação/criação de scripts da sua preferência.  
 
 Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer trabalhar com a partilha de ficheiros do Azure através do protocolo SMB, pois permite-lhes utilizar as aplicações e ferramentas existentes, mas existem vários motivos pelos quais é vantajoso utilizar a API REST de Ficheiros em vez do SMB, tais como:
 
@@ -95,7 +95,7 @@ Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer tra
 - Se precisar de executar um script ou aplicação a partir de um cliente que não pode montar partilhas SMB, como clientes no local que não têm a porta 445 desbloqueada.
 - Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
 
-Os exemplos seguintes mostram como utilizar o módulo AzureRM PowerShell para manipular a partilha de ficheiros do Azure com o protocolo REST de Ficheiros. 
+Os exemplos seguintes mostram como utilizar a CLI do Azure para manipular a partilha de ficheiros do Azure com o protocolo de REST de ficheiros. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):
@@ -293,7 +293,7 @@ Em alternativa, pode remover recursos individualmente.
         --yes
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [O que são os Ficheiros do Azure?](storage-files-introduction.md)

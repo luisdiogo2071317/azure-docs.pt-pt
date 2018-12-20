@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Dimensionar aplicação todo o mundo com o Gestor de tráfego | Documentos da Microsoft
-description: Exemplo do Script da CLI do Azure - dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade
+description: Exemplo do Script da CLI do Azure - dimensionar uma aplicação de serviço de aplicações em todo o mundo com uma arquitetura de elevada disponibilidade
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3c2aa753c5521ca5bc57da2c833187f16e4146a4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3165904eb7757b43d35a4fa3051d29d10bce70a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585164"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632913"
 ---
-# <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade com a CLI do Azure
+# <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Dimensionar uma aplicação de serviço de aplicações em todo o mundo com uma arquitetura de elevada disponibilidade com a CLI do Azure
 
-Este script de exemplo cria um grupo de recursos, dois planos do serviço de aplicações, duas aplicações Web, um perfil do gestor de tráfego e dois pontos finais do gestor de tráfego. Assim que o exercício estiver concluído, terá uma arquitetura de elevada disponibilidade, que fornece a disponibilidade global da sua aplicação Web com base na latência de rede mais baixa.
+Este script de exemplo cria um grupo de recursos, dois planos de serviço de aplicações, duas aplicações, um perfil do Gestor de tráfego e dois pontos de extremidade de Gestor de tráfego. Depois do exercício estiver concluído, tem uma arquitetura de elevada disponibilidade, que fornece a disponibilidade global da sua aplicação com base na latência de rede mais baixa.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +41,13 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web, um perfil do gestor de tráfego e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, aplicação de serviço de aplicações, perfil do Gestor de tráfego e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
 | [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 

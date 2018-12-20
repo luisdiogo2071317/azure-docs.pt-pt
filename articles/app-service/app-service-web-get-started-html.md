@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 99afa5a1167d5f1a06504aacdca215564a672833
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608601"
+ms.locfileid: "53634240"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -106,7 +106,7 @@ Anote o valor `resourceGroup`. Vai precisar dele na secção [limpar recursos](#
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
-Num browser, aceda ao URL da aplicação Web do Azure: `http://<app_name>.azurewebsites.net`.
+Num browser, vá para o URL da aplicação: `http://<app_name>.azurewebsites.net`.
 
 A página está a ser executada como uma aplicação Web do Serviço de Aplicações do Azure.
 
@@ -132,13 +132,13 @@ Depois de concluída a implementação, volte para a janela do browser aberta qu
 
 ![Página inicial atualizada da aplicação de exemplo](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerir a sua nova aplicação Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerir a sua nova aplicação do Azure
 
 Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/app-service-web-get-started-html/portal1.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-html/portal1.png)
 
 É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
 

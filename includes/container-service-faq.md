@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002196"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615229"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas mais frequentes de serviço de contentor
 
@@ -32,7 +32,7 @@ Atualmente são suportados contentores de Linux com todos os orquestradores. O s
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Recomenda um orquestrador específico no Azure Container Service? 
 Geralmente não recomendamos um orquestrador específico. Se tiver experiência com um dos orquestradores suportados, pode aplicar essa experiência no Azure Container Service. As tendências de dados sugerem, no entanto, que o DC/SO seja comprovado pela produção de Macrodados e as cargas de trabalho de IoT, o Kubernetes é adequado para cargas de trabalho de cloud nativa e o Docker Swarm é conhecido pela integração com ferramentas de Docker e uma fácil uma curva de aprendizagem.
 
-Dependendo do seu cenário, também pode criar e gerir soluções de contentor personalizadas com outros serviços do Azure. Estes serviços incluem [Máquinas Virtuais](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Aplicações Web](../articles/app-service/app-service-web-overview.md) e [Batch](../articles/batch/batch-technical-overview.md).  
+Dependendo do seu cenário, também pode criar e gerir soluções de contentor personalizadas com outros serviços do Azure. Estes serviços incluem [Máquinas Virtuais](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Aplicações Web](../articles/app-service/overview.md) e [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Qual é a diferença entre o Azure Container Service e o Motor de ACS? 
 O Azure Container Service é um serviço do Azure apoiado pelo SLA com funcionalidades no portal do Azure, ferramentas da linha de comandos do Azure e APIs do Azure. O serviço permite-lhe implementar e gerir rapidamente clusters que executam ferramentas de orquestração do contentor padrão com um número relativamente pequeno de opções de configuração. 
@@ -79,9 +79,9 @@ Pode encontrar URLs frequentemente utilizados para o seu cluster no portal do Az
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Como posso saber qual a versão do orquestrador em execução no meu cluster?
 
-* DC/OS: veja a [documentação do Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
-* Docker Swarm: executar `docker version`
-* Kubernetes: executar `kubectl version`
+* DC/OS: Consulte o [documentação do Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
+* O docker Swarm: Execute `docker version`
+* Kubernetes: Execute `kubectl version`
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Como posso atualizar o orquestrador após a implementação?
 

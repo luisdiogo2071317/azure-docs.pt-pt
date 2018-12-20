@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Mapear um domínio personalizado para uma aplicação Web | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Mapear um domínio personalizado para uma aplicação Web
+title: Exemplo do Script da CLI do Azure - mapear um domínio personalizado para uma aplicação | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - mapear um domínio personalizado para uma aplicação
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d4bc6cd0a9b0740302d3ac2fc4661e11bd754d6d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 58d13498e1b86421ae04f5a3aa60cf0c44242a39
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584965"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629140"
 ---
-# <a name="map-a-custom-domain-to-a-web-app-using-cli"></a>Mapear um domínio personalizado para uma aplicação web com a CLI
+# <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapear um domínio personalizado para uma aplicação de serviço de aplicações com a CLI
 
-Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, mapeia `www.<yourdomain>` para o mesmo.
+Este script de exemplo cria uma aplicação no serviço de aplicações com os respetivos recursos relacionados e, em seguida, mapeia `www.<yourdomain>` a ele.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -47,8 +47,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapeia um domínio personalizado para uma aplicação Web. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapeia um domínio personalizado para uma aplicação de serviço de aplicações. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

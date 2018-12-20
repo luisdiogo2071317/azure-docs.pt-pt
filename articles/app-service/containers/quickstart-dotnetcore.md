@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação web .NET Core no Linux - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar o .NET Core de aplicações no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente a sua primeira aplicação Hello World .NET Core no Serviço de Aplicações no Linux em minutos.
 keywords: serviço de aplicações do azure, aplicação web, dotnet, núcleos, linux, oss
 services: app-service
@@ -16,20 +16,20 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251798"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633936"
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux
+# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Criar um .NET Core de aplicação no serviço de aplicações no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um Serviço de Aplicações no _Windows_, consulte [Criar uma aplicação Web ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um serviço de aplicações no _Windows_, consulte [criar uma aplicação ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o Git para implementar o código .NET Core para a aplicação Web.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Crie a aplicação com o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), e utilize o Git para implementar o código .NET Core para a aplicação.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -53,7 +53,7 @@ md hellodotnetcore
 cd hellodotnetcore
 ```
 
-Crie uma nova aplicação Web .NET Core.
+Crie uma nova aplicação de .NET Core.
 
 ```bash
 dotnet new web
@@ -95,15 +95,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Navegue para a sua aplicação Web recentemente criada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
+Navegue para a sua aplicação criada recentemente. Substitua  _&lt;nome da aplicação >_ com o nome da sua aplicação.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-A aplicação Web deve ter o seguinte aspeto:
+Eis o que a sua nova aplicação deverá ser semelhante:
 
-![Página da aplicação Web vazia](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![Página de aplicações vazia](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +144,7 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código .NET Core de exemplo está em execução numa aplicação Web com uma imagem incorporada.
+O código de exemplo .NET Core está a executar no serviço de aplicações no Linux com uma imagem incorporada.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,15 +169,15 @@ Depois de concluída a implementação, volte para a janela do browser aberta no
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerir a sua nova aplicação Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerir a sua nova aplicação do Azure
 
-Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
+Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![Navegação do portal para a aplicação do Azure](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
+Ver página de descrição geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
 
 ![Página Serviço de Aplicações no portal do Azure](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -188,4 +188,4 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web da Base de Dados SQL e .NET Core no Serviço de Aplicações do Azure no Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Criar uma aplicação de base de dados SQL e .NET Core no serviço de aplicações do Azure no Linux](tutorial-dotnetcore-sqldb-app.md)

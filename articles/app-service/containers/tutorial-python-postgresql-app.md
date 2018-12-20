@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação de web de Python com PostgreSQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar uma aplicação de Python com PostgreSQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como executar uma aplicação Python condicionada por dados no Azure, com ligação a uma base de dados PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 86b80e8d2e4dbec96807edaba2dff813d0eda029
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 69e1bc5e537ed251801816f48d55cd50b54884c4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607426"
+ms.locfileid: "53635379"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Criar uma aplicação web Python e PostgreSQL no serviço de aplicações do Azure
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Criar uma aplicação Python e PostgreSQL no serviço de aplicações do Azure
 
-[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web em Python condicionada por dados, com o PostgreSQL como o back-end da base de dados. Quando tiver terminado, terá uma aplicação Django em execução no serviço de aplicações no Linux.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação de Python condicionada por dados, com o PostgreSQL como o back-end de base de dados. Quando tiver terminado, terá uma aplicação Django em execução no serviço de aplicações no Linux.
 
 ![Aplicação do Django Python no serviço de aplicações no Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 O servidor de implantação do serviço de aplicações vê _Requirements. txt_ na raiz do repositório e executa automaticamente após a gestão de pacotes de Python `git push`.
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
 
-Navegue para a aplicação Web implementada. Demora algum tempo a iniciar porque o contentor precisa de ser transferido e executado quando a aplicação é solicitada pela primeira vez. Se a página exceder o limite de tempo ou apresentar uma mensagem de erro, aguarde alguns minutos e atualize a página.
+Navegue para a aplicação implementada. Demora algum tempo a iniciar porque o contentor precisa de ser transferido e executado quando a aplicação é solicitada pela primeira vez. Se a página exceder o limite de tempo ou apresentar uma mensagem de erro, aguarde alguns minutos e atualize a página.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ Assim que o registo de contentor está ativado, execute o seguinte comando para 
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Gerir a aplicação Web no Portal do Azure
+## <a name="manage-your-app-in-the-azure-portal"></a>Gerir a sua aplicação no Portal do Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para ver a aplicação Web que criou.
+Vá para o [portal do Azure](https://portal.azure.com) para ver a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços Aplicacionais** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/tutorial-python-postgresql-app/app-resource.png)
+![Navegação do portal para a aplicação do Azure](./media/tutorial-python-postgresql-app/app-resource.png)
 
-Por predefinição, o portal mostra a página **Descrição Geral** da aplicação Web. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
+Por predefinição, o portal mostra a sua aplicação **descrição geral** página. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
 ![Página Serviço de Aplicações no portal do Azure](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,7 +428,7 @@ Neste tutorial, ficou a saber como:
 > * Ver registos de diagnóstico
 > * Gerir a aplicação no portal do Azure
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md)

@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Ruby web com Postgres no Linux - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar uma aplicação Ruby com Postgres no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pôr aplicações Ruby a funcionar no Azure, com ligação a uma base de dados Postgres no Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 93cdf83797cde40d75d6f6d6220cf4e02cb56cef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 67dfc99490787eef9164759d34ef9f5ee542b76a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604225"
+ms.locfileid: "53635345"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Ruby e Postgres no Serviço de Aplicações do Azure no Linux
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Criar uma aplicação de Postgres no serviço de aplicações do Azure e o Ruby no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Web Ruby e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Ruby e ligá-la para uma base de dados PostgreSQL. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação Ruby on Rails em execução no Serviço de Aplicações do Azure](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
 
 Navegue para `http://<app_name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Quando `git push` estiver concluído, navegue para a aplicação Web do Azure e teste a funcionalidade nova.
+Uma vez o `git push` estiver concluído, navegue para a aplicação do Azure e a nova funcionalidade de teste.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="manage-the-azure-web-app"></a>Gerir a aplicação Web do Azure
+## <a name="manage-the-azure-app"></a>Gerir a aplicação do Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para gerir a aplicação Web que criou.
+Vá para o [portal do Azure](https://portal.azure.com) para gerir a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/tutorial-php-mysql-app/access-portal.png)
+![Navegação do portal para a aplicação do Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
+Ver página de descrição geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
 
 O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
@@ -506,7 +506,7 @@ Neste tutorial, ficou a saber como:
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
 > * Gerir a aplicação no portal do Azure
 
-Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para uma aplicação Web.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md)

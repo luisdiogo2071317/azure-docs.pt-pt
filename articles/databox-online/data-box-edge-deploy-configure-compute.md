@@ -9,210 +9,239 @@ ms.topic: tutorial
 ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 77a2b8d2b5d3ac42dcbbe2db2b05d38657290073
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c0901f22e4941fdfaa21138153a06e97c2d6095f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443794"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630381"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: Transformar dados com o Azure Data Box Edge (Pré-visualização)
+# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: Transformar dados com o Edge de caixa de dados do Azure (pré-visualização)
 
-Este tutorial descreve como configurar a função de computação no Data Box Edge. Quando a função de computação estiver configurada, o Data Box Edge pode transformar dados antes de os enviar para o Azure.
+Este tutorial descreve como configurar uma função de computação no seu dispositivo do Edge de caixa de dados do Azure. Depois de configurar a função de computação, dados de caixa de borda pode transformar os dados antes de os enviar para o Azure.
 
 Este procedimento pode demorar cerca de 30 a 45 minutos a concluir.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um recurso do Hub IoT
+> * Criar um recurso do IoT Hub do Azure
 > * Configurar a função de computação
 > * Adicionar um módulo de computação
 > * Verificar a transformação e a transferência dos dados
 
 > [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
+> O Data Box Edge está em pré-visualização. Antes de pedir e implementar esta solução, reveja os [do Azure termos de serviço para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar a computação no Data Box Edge, certifique-se de que:
+Antes de configurar uma função de computação no seu dispositivo do Edge de caixa de dados, certifique-se de que:
 
-* O seu dispositivo do Data Box Edge está ativado, conforme detalhado em [Connect and activate your Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md) (Ligar e ativar o Azure Data Box Edge).
+* Ativou o seu dispositivo Edge de caixa de dados conforme descrito em [ligue-se de que configurar e ative o Edge de caixa de dados do Azure](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="create-an-iot-hub-resource"></a>Criar um recurso do Hub IoT
 
-Antes de configurar a função de computação no Data Box Edge, tem de criar um recurso do Hub IoT.
+Antes de configurar uma função de computação no limite da caixa de dados, tem de criar um recurso do IoT Hub.
 
-Para obter instruções detalhadas, aceda a [Create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub) (Criar um Hub IoT). Utilize a mesma subscrição e o mesmo grupo de recursos que utilizou para o recurso do Data Box Edge.
+Para obter instruções detalhadas, aceda a [Create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub) (Criar um Hub IoT). Utilize o mesmo grupo de recursos e subscrição que utilizou para o seu recurso de borda de caixa de dados.
 
-![Criar o recurso do Hub IoT](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
+![Criar um recurso do Hub IoT](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-Se a função de computação Edge não estiver configurada, tenha em conta que:
+Se ainda não foi configurada uma função de computação de borda, aplicam-se os seguintes avisos:
 
-- O recurso do Hub IoT não terá nenhum dispositivo IoT nem dispositivos IoT Edge.
+- O recurso do IoT Hub não tem quaisquer dispositivos IoT do Azure ou os dispositivos do Azure IoT Edge.
 - Não poderá criar partilhas edge locais. Quando adiciona uma partilha, a opção para criar uma partilha local para a computação edge não estará ativada.
 
 
 ## <a name="set-up-compute-role"></a>Configurar a função de computação
 
-Quando a função de computação edge estiver configurada no dispositivo Edge, cria dois dispositivos – um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso do Hub IoT.
+Quando a função de computação de borda é configurada o dispositivo de limite, ele cria dois dispositivos: um dispositivo de IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser visualizados no recurso da IoT Hub.
 
-Para configurar a função de computação no dispositivo, siga os passos abaixo.
+Para configurar a função de computação no dispositivo, faça o seguinte:
 
-1. Aceda ao recurso do Data Box Edge e, em **Overview** (Descrição Geral), clique em **Set up compute role** (Configurar função de computação). 
+1. Vá para o recurso de borda de caixa de dados, selecione **descrição geral**e, em seguida, selecione **configurar a função de computação**. 
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
+    ![A ligação de descrição geral do painel esquerdo](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
    
-    Também pode aceder a **Modules** (Módulos) e clicar em **Configure compute** (Configurar computação).
+    Opcionalmente, pode aceder à **módulos** e selecione **configurar computação**.
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
+    ![O "Módulos" e "Configurar computação" ligações](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
  
-2. Na lista pendente, selecione o **recurso do Hub IoT** que criou no passo anterior. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge. Clique em **Criar**.
+1. Na lista pendente, selecione o **recursos do IoT Hub** que criou no passo anterior.  
+    Neste momento, apenas a plataforma de Linux está disponível para seu dispositivo IoT Edge. 
+    
+1. Clique em **Criar**.
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
+    ![O botão Criar](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
  
-3. A criação da função de computação demora alguns minutos. Devido a um erro nesta versão, mesmo após a criação da função, o ecrã não é atualizado. Aceda a **Modules** (Módulos) e poderá ver que a computação edge está configurada.  
+    A criação da função de computação demora alguns minutos. Devido a um erro nesta versão, mesmo após a criação da função, o ecrã não é atualizado. Para confirmar que a função de computação de borda foi configurada, aceda a **módulos**.  
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
+    ![A lista de dispositivos de "Computação configurar Edge"](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
 
-4. Aceda novamente a **Overview** (Descrição Geral) e o ecrã estará atualizado e indicará que a função de computação está configurada.
+1. Aceda a **descrição geral** novamente.  
+    A tela é atualizada para indicar que a função de computação é configurada.
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
+    ![Configurar uma função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
  
-5. Aceda ao Hub IoT que utilizou na criação da função de computação edge. Aceda a **IoT devices** (Dispositivos IoT). Pode ver que está agora ativado um dispositivo IoT. 
+1. No IoT Hub que utilizou quando criou a função de computação de borda, aceda a **dispositivos IoT**.  
+    Um dispositivo IoT está agora ativado. 
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
+    ![A página de "Dispositivos da IoT"](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
 
-6. Aceda a **IoT Edge** e verá que também está ativado um dispositivo IoT Edge.
+1. No painel esquerdo, selecione **IoT Edge**.  
+    Um dispositivo IoT Edge também está ativado.
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
+    ![Configurar uma função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
  
-7. Selecione e clique no dispositivo IoT Edge. Está a ser executado um agente Edge neste dispositivo IoT Edge. 
+1. Selecione e clique no dispositivo IoT Edge.  
+    Está a ser executado um agente Edge neste dispositivo IoT Edge. 
 
-    ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
+    ![A página de detalhes do dispositivo](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-Contudo, não existem módulos personalizados neste dispositivo edge. Pode agora adicionar um módulo personalizado a este dispositivo. Para saber como criar um módulo personalizado, aceda a [Desenvolver um módulo do C# para o Data Box Edge](data-box-edge-create-iot-edge-module.md).
+    Não há nenhum módulos personalizados neste dispositivo do Edge, mas agora, pode adicionar um módulo personalizado. Para saber como criar um módulo personalizado, aceda à [desenvolver um C# módulo para o seu dispositivo Edge de caixa de dados](data-box-edge-create-iot-edge-module.md).
 
 
 ## <a name="add-a-custom-module"></a>Adicionar um módulo personalizado
 
-Nesta secção, irá adicionar um módulo personalizado para o dispositivo do IoT Edge que criou em [Desenvolver um módulo do C# para o Data Box Edge](data-box-edge-create-iot-edge-module.md). 
+Nesta secção, adicionar um módulo personalizado para o dispositivo do IoT Edge que criou no [desenvolver um C# módulo para a extremidade da caixa de dados](data-box-edge-create-iot-edge-module.md). 
 
-Este procedimento recorre a um exemplo no qual o módulo personalizado utilizado recebe ficheiros de uma partilha local no dispositivo edge e os move para uma partilha na cloud no dispositivo. Em seguida, a partilha na cloud envia os ficheiros para a conta de armazenamento associada à mesma. 
+O procedimento seguinte utiliza um exemplo em que o módulo personalizado utiliza ficheiros de uma partilha local no dispositivo de limite e movê-los para uma partilha de cloud no dispositivo. A partilha de cloud, em seguida, envia os ficheiros para a conta de armazenamento do Azure que está associada a partilha de cloud. 
 
-1. O primeiro passo é adicionar uma partilha local no dispositivo edge. No seu recurso do Data Box Edge, aceda a **Shares** (Partilhas). Clique em **+ Add share** (+ Adicionar partilha). Indique o nome da partilha e selecione o tipo. Para criar uma partilha local, assinale a opção **Configure as Edge local share** (Configurar como partilha edge local). Selecione **Use existing** (Utilizador existente) ou **Create new** (Criar novo). Clique em **Criar**.
+1. Adicione uma partilha de local no dispositivo Edge efetuando o seguinte procedimento:
+
+    a. No seu recurso do Data Box Edge, aceda a **Shares** (Partilhas). 
+    
+    b. Selecione **Adicionar partilha**e, em seguida, forneça o nome de partilha e selecione o tipo de partilha. 
+    
+    c. Para criar uma partilha local, selecione o **configurar como partilha local do Edge** caixa de verificação. 
+    
+    d. Selecione **criar novo** ou **utilizar existente**e, em seguida, selecione **criar**.
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-1.png) 
 
-    Se tiver criado uma partilha NFS local, utilize a opção de comando rsync seguinte para copiar ficheiros para a partilha:
+    Se tiver criado uma partilha NFS local, utilize a seguinte opção de comando de sincronização remoto (rsync) para copiar ficheiros para a partilha:
 
     `rsync --inplace <source file path> < destination file path>`
 
-     Para obter mais informações sobre o comando rsync, aceda à [documentação sobre o Rsync](https://www.computerhope.com/unix/rsync.htm). 
+    Para obter mais informações sobre o comando rsync, aceda a [Rsync documentação](https://www.computerhope.com/unix/rsync.htm). 
 
- 
-2. Quando a partilha local estiver criada e depois de receber uma notificação de criação bem-sucedida (a lista de partilhas poderá ser atualizada antes, mas tem de aguardar pela conclusão da criação da partilha), aceda à lista de partilhas. 
+    Criar a partilha local, e receberá uma notificação de criação com êxito. A lista de partilha pode ser atualizada, mas tem de aguardar a criação de partilha para serem concluídas.
+    
+1. Vá para a lista de partilhas. 
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-2.png) 
  
-3. Selecione e clique na partilha local acabada de criar e veja as propriedades da mesma. Copie e cole o **ponto de montagem local para os módulos edge** que correspondem a esta partilha.
+1. Para ver as propriedades da partilha local criada recentemente, selecioná-lo. 
 
-    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
+1. Na **módulos de computação de ponto de montagem Local para o Edge** caixa, copie o valor correspondente a esta partilha.  
+    Irá utilizar este ponto de montagem local quando implantar o módulo.
+
+    ![A caixa "módulos de computação de ponto de montagem Local para o Edge"](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
  
-    Aceda a uma partilha na cloud existente que tenha sido criada no seu dispositivo Data Box Edge. Novamente, copie e guarde o ponto de montagem local dos módulos de computação edge desta partilha na cloud. Estes pontos de montagem locais serão utilizados na implementação do módulo.
+1. Num compartilhamento de nuvem existente que foi criado no seu dispositivo do Edge de caixa de dados, no **módulos de computação de ponto de montagem Local para o Edge** caixa, copie o ponto de montagem local para os módulos de computação do Edge para esta partilha de cloud.  
+    Irá utilizar este ponto de montagem local quando implantar o módulo.
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-4.png)  
 
-4. Para adicionar um módulo personalizado ao dispositivo IoT Edge, aceda ao recurso do Hub IoT e a **IoT Edge device** (Dispositivo IoT Edge). Selecione e clique no dispositivo. Em **Device details** (Detalhes do dispositivo), na barra de comandos na parte superior, clique em **Set Modules** (Definir Módulos). 
+1. Para adicionar um módulo personalizado para o dispositivo do IoT Edge, aceda ao seu recurso do IoT Hub e, em seguida, aceda a **dispositivo IoT Edge**. 
 
-    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
+1. Selecione o dispositivo e, em **detalhes do dispositivo**, selecione **definir módulos**. 
 
-5. Em **Add Modules** (Adicionar Módulos), siga os passos abaixo:
+    ![A ligação do conjunto de módulos](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
 
-    1. Indique o **nome**, a **morada**, o **nome de utilizador** e a **palavra-passe** nas **Definições do registo de contentores** relativas ao módulo personalizado. O nome, a morada e as credenciais indicados são utilizados para obter os módulos que tenham um URL correspondente. Para implementar este módulo, em **Deployment modules** (Módulos de implementação), selecione **IoT Edge module** (Módulo do IoT Edge). Este módulo do IoT Edge é um contentor do Docker que pode implementar no dispositivo IoT Edge associado ao seu dispositivo Data Box Edge.
+1. Sob **adicionar módulos**, efetue o seguinte procedimento:
 
-        ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
+    a. Introduza o nome, endereço, nome de utilizador e palavra-passe para as definições de registo de contentor para o módulo personalizado.  
+    O nome, endereço e as credenciais indicadas são utilizadas para obter os módulos com um URL correspondente. Para implementar este módulo, em **Deployment modules** (Módulos de implementação), selecione **IoT Edge module** (Módulo do IoT Edge). Este módulo do IoT Edge é um contentor do docker que pode implementar para o dispositivo do IoT Edge associada ao seu dispositivo Edge de caixa de dados.
+
+    ![A página Definir módulos](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Especifique as definições do módulo personalizado do IoT Edge. Indique o **nome** do seu módulo e o **URI da imagem** para a imagem de contentor correspondente. 
+    b. Especifique as definições para o módulo personalizado do IoT Edge ao introduzir o nome do seu módulo e o URI da imagem para a imagem de contentor correspondente. 
     
-        ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
+    ![A página de módulos do IoT Edge personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. Em **Container create options** (Opções de criação de contentor), forneça os pontos de montagem locais dos módulos do Edge copiados nos passos anteriores relativos às partilhas na cloud e local (é importante utilizar estes caminhos em vez de criar outros novos). Os pontos de montagem locais estão mapeados nos **InputFolderPath** e **OutputFolderPath** correspondentes que especificou no módulo quando [atualizou o módulo com código personalizado](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
+    c. Na **opções de criar contentor** , introduza os pontos de montagem local para os módulos de extremidade que copiou nos passos anteriores para a cloud e a partilha local.
+    > [!IMPORTANT]
+    > Utilize os caminhos copiados; Não crie novos caminhos. Os pontos de montagem local são mapeados para os correspondentes **InputFolderPath** e o **OutputFolderPath** que especificou no módulo quando [atualizado o módulo com código personalizado](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
     
-        Pode copiar e colar o exemplo mostrado abaixo nas suas **Opções de criação do contentor**: 
-        
-        ```
-        {
-         "HostConfig": {
-          "Binds": [
-           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
-           "/home/hcsshares/mysmbshare1:/home/CloudShare"
-           ]
-         }
+    Na **opções de criar contentor** caixa, pode colar o exemplo a seguir: 
+    
+    ```
+    {
+        "HostConfig": {
+        "Binds": [
+        "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+        "/home/hcsshares/mysmbshare1:/home/CloudShare"
+        ]
         }
-        ```
+    }
+    ```
 
-        Indique também eventuais variáveis ambientais do seu módulo aqui.
+    Também fornecem quaisquer variáveis de ambiente aqui para seu módulo.
 
-        ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
+    ![A caixa de opções de criar contentor](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
-    4. Se necessário, **configure as definições avançadas do runtime do edge** e clique em **Next** (Seguinte).
+    d. Se necessário, configure as definições avançadas de runtime Edge e, em seguida, clique em **seguinte**.
 
-        ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
+    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
-6.  Em **Specify routes** (Especificar rotas), defina as rotas entre os módulos. Neste caso, indique o nome da partilha local que vai enviar os dados para a partilha na cloud. Clique em **Seguinte**.
+1.  Sob **especificar rotas**, definir rotas entre módulos.  
+    Neste exemplo, introduza o nome da partilha local que emite dados para a partilha de cloud.
 
-    Pode substituir a rota com a seguinte cadeia de rota:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
+    Pode substituir *rota* com a seguinte cadeia de rota:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
-    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+    ![A secção de especificar rotas](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+
+1. Selecione **Seguinte**. 
+
+1.  Sob **rever implantação**, reveja todas as definições e, em seguida, selecione **submeter** para submeter o módulo para a implementação.
+
+    ![A página Definir módulos](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
  
-7.  Em **Review deployment** (Rever implementação), reveja todas as definições e, se estiver satisfeito, **submeta** o módulo para implementação.
+    Esta ação inicia a implementação do módulo, conforme mostrado na imagem seguinte:
 
-    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
- 
-Desta forma, a implementação do módulo começa, conforme é mostrado em **IoT Edge Custom module** (Módulo personalizado do IoT Edge), em **Modules** (Módulos).
-
-![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
+    ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
 
 ### <a name="verify-data-transform-and-transfer"></a>Verificar a transformação e a transferência dos dados
 
-O último passo é confirmar que o módulo está ligado e a funcionar conforme esperado. Siga os passos abaixo para verificar se o módulo está a funcionar.
+A etapa final é garantir que o módulo está ligado e em execução conforme esperado. O estado de tempo de execução do módulo deve estar em execução para o seu dispositivo IoT Edge no recurso da IoT Hub.
 
-1. O estado do runtime do módulo deverá estar em execução no seu dispositivo IoT Edge no recurso do Hub IoT.
-
-    ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
+![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
  
-2. Selecione e clique no módulo e veja **Module Identity Twin** (Identidade do Módulo Gémeo). O estado do cliente do dispositivo e do módulo edge deverá aparecer como **Connected** (Ligado).
+Para verificar que o módulo está em execução, faça o seguinte:
+
+1. Selecione o módulo e, em seguida, visualize o duplo do módulo de identidade.  
+    Estado do cliente para o dispositivo de limite e o módulo deve ser exibido como *ligado*.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-2.png) 
  
-3.  Quando o módulo estiver em execução, também é apresentado na lista de módulos do Edge no seu recurso do Data Box Edge. O **estado do runtime** do módulo que adicionou é **em execução**.
+    Depois do módulo está em execução, também será apresentado na lista de módulos de extremidade no seu recurso de borda de caixa de dados. O estado de tempo de execução do módulo adicionado é *em execução*.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-3.png) 
  
-4.  Ligue às partilhas local e na cloud que criou através do Explorador de Ficheiros.
+1.  No Explorador de ficheiros, ligar a ambos os locais e partilhas de cloud criou anteriormente.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-4.png) 
  
-5.  Adicione os dados à partilha local.
+1.  Adicione os dados à partilha local.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-5.png) 
  
-6.  Os dados são movidos para a partilha na cloud.
+    Os dados são movidos para a partilha na cloud.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-6.png)  
 
-7.  Os dados são, depois, enviados da partilha na cloud para a conta de armazenamento. Aceda ao Explorador de Armazenamento para ver os dados.
+    Os dados, em seguida, são emitidos da partilha na cloud para a conta de armazenamento. Para ver os dados, vá para o Explorador de armazenamento para ver os dados.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-7.png) 
  
-Isto conclui o processo de validação.
+Concluiu o processo de validação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a conhecer tópicos do Data Box Edge, como:
+Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Criar um recurso do Hub IoT
@@ -220,7 +249,7 @@ Neste tutorial, ficou a conhecer tópicos do Data Box Edge, como:
 > * Adicionar um módulo de computação
 > * Verificar a transformação e a transferência dos dados
 
-Avance para o próximo tutorial para saber como administrar o Data Box Edge.
+Para saber como administrar o seu dispositivo Edge de caixa de dados, veja:
 
 > [!div class="nextstepaction"]
 > [Use local web UI to administer a Data Box Edge](https://aka.ms/dbg-docs) (Utilizar a IU da Web local para administrar o Data Box Edge)

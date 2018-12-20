@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar uma conta de armazenamento - Armazenamento do Microsoft Azure'
+title: 'Início rápido: Criar uma conta de armazenamento - armazenamento do Azure'
 description: Neste início rápido, aprenderá a criar rapidamente uma nova conta de armazenamento com o portal do Azure, o Azure PowerShell ou a CLI do Azure. Uma conta de armazenamento do Azure oferece um espaço de nomes exclusivo no Microsoft Azure para armazenar e aceder aos objetos de dados que criar no Armazenamento do Azure.
 services: storage
 author: tamram
@@ -9,16 +9,18 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d34be70e3283869a28f036f0016a0d3f8f241a8a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990132"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634852"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Neste início rápido, aprenderá a criar rapidamente uma nova conta de armazenamento com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +32,7 @@ Nenhum.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Este início rápido requer a versão 3.6 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
+Este início rápido requer o módulo Azure PowerShell Az versão 0,7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -63,10 +65,10 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã para autenticar.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã para autenticar.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -95,38 +97,38 @@ Uma conta de armazenamento **v2 para fins gerais** concede acesso a todos os ser
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Em primeiro lugar, crie um novo grupo de recursos com o PowerShell, através do comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
+Primeiro, crie um novo grupo de recursos com o PowerShell através da [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando: 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-Se não tiver a certeza de qual a região a especificar para o parâmetro `-Location`, pode obter uma lista de regiões suportadas para a sua subscrição com o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation):
+Se não tiver a certeza de qual a região a especificar para o `-Location` parâmetro, pode obter uma lista de regiões suportadas para a sua subscrição com o [Get-AzLocation](/powershell/module/az.resources/get-azlocation) comando:
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "westus"
 ```
 
-Em seguida, crie uma conta de armazenamento v2 para fins gerais com armazenamento localmente redundante (LRS). Utilize o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Em seguida, crie uma conta de armazenamento v2 para fins gerais com armazenamento localmente redundante (LRS). Utilize o [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando: 
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
 ```
 
-Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância de zona (ZRS) (pré-visualização), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **SkuName**. 
+Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância entre zonas (ZRS) (pré-visualização), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **SkuName**. 
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
 |Armazenamento localmente redundante (LRS)     |Standard_LRS         |
-|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|Armazenamento com redundância entre zonas (ZRS)     |Standard_ZRS         |
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 
@@ -159,12 +161,12 @@ az storage account create \
     --kind StorageV2
 ```
 
-Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância de zona (Pré-visualização ZRS), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **sku**. 
+Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância entre zonas (Pré-visualização ZRS), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **sku**. 
 
 |Opção de replicação  |parâmetro de sku  |
 |---------|---------|
 |Armazenamento localmente redundante (LRS)     |Standard_LRS         |
-|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|Armazenamento com redundância entre zonas (ZRS)     |Standard_ZRS         |
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 
@@ -186,10 +188,10 @@ Para remover um grupo de recursos através do portal do Azure:
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Para remover o grupo de recursos e os respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup): 
+Para remover o grupo de recursos e respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando: 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -202,7 +204,7 @@ az group delete --name myResourceGroup
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma conta de armazenamento padrão para fins gerais. Para saber como carregar e transferir blobs para e partir da sua conta de armazenamento, avance para o início rápido de armazenamento de Blobs.
 

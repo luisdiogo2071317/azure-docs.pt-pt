@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9bd57ae6926f57dc8b6c0fc12199649f63cba261
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 575315836b13f09e452b660c4347df01f64348b4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608567"
+ms.locfileid: "53629618"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar uma aplicação de MySQL no Azure e o PHP
 
 > [!NOTE]
-> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, veja [Compilar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux](./containers/tutorial-php-mysql-app.md).
+> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um serviço de aplicações no _Linux_, consulte [criar uma aplicação PHP e MySQL no serviço de aplicações do Azure no Linux](./containers/tutorial-php-mysql-app.md).
 >
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web PHP no Azure e ligá-la a uma base de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução nas Aplicações Web do Serviço de Aplicações do Azure.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação PHP no Azure e ligá-la à base de dados MySQL. Quando tiver terminado, terá uma [Laravel](https://laravel.com/) aplicação em execução no App Service do Azure.
 
 ![Aplicação PHP em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -384,17 +384,17 @@ Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplic
 php artisan key:generate --show
 ```
 
-No Cloud Shell, defina a chave da aplicação na aplicação Web do Serviço de Aplicações com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+No Cloud Shell, defina a chave da aplicação na aplicação do serviço de aplicações ao utilizar o [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando. Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-O `APP_DEBUG="true"` diz ao Laravel para devolver as informações de depuração quando a aplicação Web implementada se deparar com erros. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
+`APP_DEBUG="true"` diz ao Laravel para devolver informações de depuração quando a aplicação implementada encontra erros. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
 
 ### <a name="set-the-virtual-application-path"></a>Definir o caminho de aplicação virtual
 
-Defina o caminho de aplicação virtual para a aplicação Web. Este passo é necessário porque o [ciclo de vida da aplicação Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_ em vez do diretório de raiz da aplicação. Outras arquiteturas PHP cujo ciclo de vida tem início no diretório de raiz podem funcionar sem configuração manual do caminho de aplicação virtual.
+Defina o caminho de aplicação virtual para a aplicação. Este passo é necessário porque o [ciclo de vida da aplicação Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_ em vez do diretório de raiz da aplicação. Outras arquiteturas PHP cujo ciclo de vida tem início no diretório de raiz podem funcionar sem configuração manual do caminho de aplicação virtual.
 
 No Cloud Shell, defina o caminho de aplicação virtual com o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o marcador de posição _&lt;appname>_.
 
@@ -433,7 +433,7 @@ remote: Running deployment command...
 > Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para obter mais informações, veja [Script de Implementação Personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
 
 Navegue para `http://<app_name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -577,7 +577,7 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Quando `git push` estiver concluído, navegue para a aplicação Web do Azure e teste a funcionalidade nova.
+Uma vez o `git push` estiver concluído, navegue para a aplicação do Azure e a nova funcionalidade de teste.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -593,7 +593,7 @@ Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp l
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Assim que a transmissão em fluxo do registo tiver iniciado, atualize a aplicação Web do Azure no browser para obter algum tráfego da Web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
+Assim que tiver iniciado a transmissão de registos, atualize a aplicação do Azure no browser para obter algum tráfego da web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
 Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl`+`C`.
 
@@ -604,15 +604,15 @@ Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl
 >
 >
 
-## <a name="manage-the-azure-web-app"></a>Gerir a aplicação Web do Azure
+## <a name="manage-the-azure-app"></a>Gerir a aplicação do Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para gerir a aplicação Web que criou.
+Vá para o [portal do Azure](https://portal.azure.com) para gerir a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
+Ver página de descrição geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
 
 O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
@@ -634,7 +634,7 @@ Neste tutorial, ficou a saber como:
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
 > * Gerir a aplicação no portal do Azure
 
-Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para uma aplicação Web.
+Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para a aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](app-service-web-tutorial-custom-domain.md)

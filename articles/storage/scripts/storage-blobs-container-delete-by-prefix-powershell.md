@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - eliminar contentores pelo prefixo | Microsoft Docs
-description: Elimine contentores de BLOBs de armazenamento do Azure com base no prefixo de nome de contentor.
+title: Exemplo de Script do PowerShell do Azure - eliminar contentores pelo prefixo | Documentos da Microsoft
+description: Elimine contentores de blobs do Armazenamento do Azure com base num prefixo do nome do contentor.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983903"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628173"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo de nome de contentor
+# <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo do nome do contentor
 
-Este script Elimina contentores no armazenamento de Blobs do Azure com base no prefixo no nome do contentor.
+Este script Elimina contentores no armazenamento de Blobs do Azure com base num prefixo no nome do contentor.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,24 +36,24 @@ Este script Elimina contentores no armazenamento de Blobs do Azure com base no p
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Execute o seguinte comando para remover o grupo de recursos, restantes contentores, e todos os recursos relacionados.
+Execute o seguinte comando para remover o grupo de recursos, os restantes contentores e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para eliminar contentores com base no prefixo de nome de contentor. Cada item nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para eliminar contentores com base no prefixo do nome do contentor. Cada item na tabela liga para documentação de comandos específicos.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Obtém uma conta de armazenamento especificada, ou todas as contas de armazenamento de um grupo de recursos ou subscrição. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Lista os contentores de armazenamento associados uma conta de armazenamento. |
-| [Remover AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Remove o contentor de armazenamento especificada. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento num grupo de recursos ou subscrição. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Lista os contentores de armazenamento associados com uma conta de armazenamento. |
+| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Remove o contentor de armazenamento especificada. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos de script do PowerShell de armazenamento adicional que podem ser encontrados na [exemplos do PowerShell para o Blob storage do Azure](../blobs/storage-samples-blobs-powershell.md).
+Pode ver exemplos adicionais de scripts de armazenamento do PowerShell em [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md) (Exemplos do PowerShell para o armazenamento de Blobs do Azure).

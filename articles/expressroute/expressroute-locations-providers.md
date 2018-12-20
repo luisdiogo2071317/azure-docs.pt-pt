@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: 66fdf1a4e683d87bc6c6c0376fda9a36c939b354
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 27584e7c7d7588fcf463a96c97c118a5e76e5ac0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410232"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653939"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -171,11 +171,13 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 ## <a name="c1partners"></a>Conectividade Através de Fornecedores de Serviços Adicionais
 | **Localização** | **Exchange** | **Fornecedores de Conetividade** |
 | --- | --- | --- |
-| **Amesterdão** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **Amesterdão** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p., internacional de ponte de longa distância, MainOne, Nianet, Post, Proximus, telecomunicações Itália Sparkle, Telia |
+| **Cidade do Cabo** | Teraco | MTN |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | BICS, Nianet, QSC AG |
 | **RAE de Hong Kong** | Equinix | Macroview Telecom |
+| **Joanesburgo** | Teraco | MTN |
 | **Londres** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |

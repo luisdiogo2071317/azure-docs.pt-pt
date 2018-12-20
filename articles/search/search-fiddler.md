@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312991"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631401"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorar as APIs REST do Azure Search com o Fiddler ou o Postman
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 As ferramentas que se seguem são amplamente utilizadas na programação Web, mas se estiver familiarizado com outra ferramenta, as instruções neste artigo devem também aplicar-se à mesma.
 
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
-+ [Telerik Fiddler](http://www.telerik.com/fiddler)
++ [Telerik Fiddler](https://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>Obter a chave de api e o ponto final
 

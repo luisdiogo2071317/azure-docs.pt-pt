@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma conta de armazenamento | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma conta de armazenamento
+title: Script da CLI do Azure de exemplo - ligar uma aplicação a uma conta de armazenamento | Documentos da Microsoft
+description: Script da CLI do Azure de exemplo - ligar uma aplicação a uma conta de armazenamento
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3e32f6d27172d801ed18ae2e37e58457842bc320
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 57a1e9ad6bf377fa5148a4d5c716be00db786c84
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585001"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632285"
 ---
-# <a name="connect-a-web-app-to-a-storage-account-using-cli"></a>Ligar uma aplicação web a uma conta de armazenamento com a CLI
+# <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Ligar uma aplicação de serviço de aplicações para uma conta de armazenamento com a CLI
 
-Este script de exemplo cria uma conta de armazenamento do Azure e uma aplicação Web do Azure. Em seguida, liga a conta de armazenamento à aplicação Web com as definições da aplicação.
+Este script de exemplo cria uma conta de armazenamento do Azure e uma aplicação de serviço de aplicações. Em seguida, liga a conta de armazenamento à aplicação com as definições da aplicação.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,16 +42,16 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web, uma conta de armazenamento e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, aplicação de serviço de aplicações, conta de armazenamento e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
 | [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Cria uma conta de armazenamento. |
 | [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | Obtenha a cadeia de ligação para uma conta de armazenamento. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação de serviço de aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

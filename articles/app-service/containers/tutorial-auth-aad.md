@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 77dd9424f20017b009b3de2cd8f7f78314feb316
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d04fa3f01c468b71f0150812e543043c193c848f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600255"
+ms.locfileid: "53634699"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure no Linux
 
@@ -86,7 +86,7 @@ Neste passo, vai implementar o projeto em duas aplicações do Serviço de Aplic
 
 ### <a name="create-azure-resources"></a>Criar recursos do Azure
 
-No Cloud Shell, execute os seguintes comandos para criar duas aplicações Web. Substitua _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ por dois nomes de aplicações globalmente exclusivos (os carateres válidos são `a-z`, `0-9` e `-`). Para obter mais informações sobre cada comando, veja [Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux](quickstart-dotnetcore.md).
+No Cloud Shell, execute os seguintes comandos para criar duas aplicações de serviço de aplicações. Substitua _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ por dois nomes de aplicações globalmente exclusivos (os carateres válidos são `a-z`, `0-9` e `-`). Para obter mais informações sobre cada comando, consulte [criar uma aplicação .NET Core no serviço de aplicações no Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Navegar para as aplicações Web do Azure
+### <a name="browse-to-the-azure-apps"></a>Navegue para as aplicações do Azure
 
 Navegue para os seguintes URLs num browser e veja as duas aplicações a funcionar.
 
@@ -453,7 +453,7 @@ O que aprendeu:
 > * Utilizar tokens de acesso a partir do código de servidor
 > * Utilizar tokens de acesso a partir do código de cliente (browser)
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

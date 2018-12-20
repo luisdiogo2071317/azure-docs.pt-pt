@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ebbb12ff5f4e824b9ae27a75dfa3ccdd9b399b12
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 981680da7ff15aa3c4a4f011d62f51b741203f82
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604893"
+ms.locfileid: "53632116"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação Web .NET Core e Base de Dados SQL no Serviço de Aplicações do Azure
+# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação .NET Core e base de dados SQL no serviço de aplicações do Azure
 
 > [!NOTE]
-> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar para o Serviço de Aplicações no _Linux_, veja [Criar uma aplicação Web da Base de Dados SQL e .NET Core no Serviço de Aplicações do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
+> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um serviço de aplicações no _Linux_, consulte [criar uma aplicação .NET Core e base de dados SQL no serviço de aplicações do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Este tutorial mostra como criar uma aplicação Web .NET Core e ligá-la a uma Base de Dados SQL. Quando terminar, terá uma aplicação de MVC .NET Core em execução no Serviço de Aplicações.
+O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Este tutorial mostra como criar uma aplicação .NET Core e ligá-la a uma base de dados SQL. Quando terminar, terá uma aplicação de MVC .NET Core em execução no Serviço de Aplicações.
 
 ![aplicação em execução no Serviço de Aplicações](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Em seguida, configure a definição da aplicação `ASPNETCORE_ENVIRONMENT` como _Produção_. Esta definição permite-lhe saber se está em execução no Azure, uma vez que utiliza o SQLite para o seu ambiente de desenvolvimento local e a Base de Dados SQL para o seu ambiente do Azure.
 
-O exemplo seguinte configura uma definição de aplicação `ASPNETCORE_ENVIRONMENT` na sua aplicação Web do Azure. Substitua o marcador de posição *\<app_name>*.
+O exemplo seguinte configura um `ASPNETCORE_ENVIRONMENT` definição de aplicação na sua aplicação do Azure. Substitua o marcador de posição *\<app_name>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -257,9 +257,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure
 
-Utilize o browser para navegar para a aplicação Web implementada.
+Navegue para a aplicação implementada com o browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -361,21 +361,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Quando o `git push` estiver concluído, navegue para a aplicação Web do Azure e experimente a nova funcionalidade.
+Uma vez o `git push` estiver concluído, navegue para a aplicação de serviço de aplicações e experimente a nova funcionalidade.
 
-![Aplicação Web do Azure após a Primeira Migração de Código](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Aplicação do Azure após a primeira migração de código](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a publicar a aplicação .NET Core, os dados existentes na Base de Dados SQL não são perdidos. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e mantêm os dados existentes intactos.
 
-## <a name="manage-your-azure-web-app"></a>Gerir a aplicação Web do Azure
+## <a name="manage-your-azure-app"></a>Gerir a sua aplicação do Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para ver a aplicação Web que criou.
+Vá para o [portal do Azure](https://portal.azure.com) para ver a aplicação que criou.
 
-No menu à esquerda, clique em **Serviços Aplicacionais** e clique no nome da sua aplicação Web do Azure.
+No menu à esquerda, clique em **dos serviços de aplicações**, em seguida, clique no nome da sua aplicação do Azure.
 
-![Navegação no portal para a aplicação Web do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Por predefinição, o portal mostra a página **Descrição Geral** da aplicação Web. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
+Por predefinição, o portal mostra a sua aplicação **descrição geral** página. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
 ![Página Serviço de Aplicações no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -394,7 +394,7 @@ O que aprendeu:
 > * Transmitir os registos do Azure para o seu terminal
 > * Gerir a aplicação no portal do Azure
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](app-service-web-tutorial-custom-domain.md)

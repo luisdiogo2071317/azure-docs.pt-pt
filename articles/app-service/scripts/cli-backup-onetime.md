@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Fazer cópia de segurança de uma aplicação Web | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Fazer cópia de segurança de uma aplicação Web
+title: Exemplo de Script da CLI do Azure - fazer cópia de segurança uma aplicação | Documentos da Microsoft
+description: Exemplo de Script da CLI do Azure - fazer cópia de segurança uma aplicação
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a8ded9d8c95312d2ec042b371ce5e9f90c71fc4c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b394eb4674175f96d7fc0ceb8eafee0003312327
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584969"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629157"
 ---
-# <a name="back-up-a-web-app-using-cli"></a>Fazer uma cópia de segurança de uma aplicação web com a CLI
+# <a name="back-up-an-app-using-cli"></a>Fazer cópias de segurança de uma aplicação com a CLI
 
-Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
+Este script de exemplo cria uma aplicação no serviço de aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -48,9 +48,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Cria um contentor de armazenamento do Azure. |
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Gera um token SAS para um contentor de armazenamento do Azure.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria uma cópia de segurança de uma aplicação Web. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria uma cópia de segurança para uma aplicação de serviço de aplicações. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de cópias de segurança para uma aplicação de serviço de aplicações. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

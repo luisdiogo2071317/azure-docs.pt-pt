@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Ligar uma aplicação Web a uma conta de armazenamento | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell - Ligar uma aplicação Web a uma conta de armazenamento
+title: Script do Azure PowerShell de exemplo - ligar uma aplicação a uma conta de armazenamento | Documentos da Microsoft
+description: Script do Azure PowerShell de exemplo - ligar uma aplicação de serviço de aplicações para uma conta de armazenamento
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,26 +16,26 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 23448a10a19441edc0810146bff01d91fe868377
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 851d8e0c8d7e7a746af2f364ab986f8e5f679a84
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585189"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650529"
 ---
-# <a name="connect-a-web-app-to-a-storage-account"></a>Ligar uma aplicação Web a uma conta de armazenamento
+# <a name="connect-an-app-service-app-to-a-storage-account"></a>Ligar uma aplicação de serviço de aplicações para uma conta de armazenamento
 
-Neste cenário, irá aprender a criar uma conta de armazenamento do Azure e uma aplicação Web do Azure. Em seguida, irá ligar a conta de armazenamento à aplicação Web com as definições da aplicação.
+Neste cenário, aprenderá como criar uma conta de armazenamento do Azure e uma aplicação de serviço de aplicações. Em seguida, vai ligar a conta de armazenamento à aplicação com as definições da aplicação.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-storage/connect-to-storage.ps1 "Connect a web app to a storage account")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-storage/connect-to-storage.ps1 "Connect an app to a storage account")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, a aplicação Web e todos os recursos relacionados.
+Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, a aplicação de serviço de aplicações e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -49,13 +49,13 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação de serviço de aplicações. |
 | [New-AzureRMStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Cria uma Conta de armazenamento. |
 | [Get-AzureRMStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Obtém as chaves de acesso para uma conta de Armazenamento do Azure. |
-| [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modifica a configuração de uma aplicação web. |
+| [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modificar a configuração de uma aplicação de serviço de aplicações. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Pode ver os exemplos do Azure Powershell adicionais para as Aplicações Web do Serviço de Aplicações do Azure em [Exemplos do Azure PowerShell](../samples-powershell.md).
+Exemplos adicionais do Azure Powershell para o serviço de aplicações do Azure podem ser encontrados no [exemplos do Azure PowerShell](../samples-powershell.md).

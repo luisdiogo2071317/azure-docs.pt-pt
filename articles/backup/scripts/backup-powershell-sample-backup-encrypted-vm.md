@@ -1,31 +1,30 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - cópia de segurança uma máquina virtual do Azure | Microsoft Docs
-description: Exemplo de Script do PowerShell do Azure - cópia de segurança uma máquina virtual do Azure
+title: Exemplo de Script do PowerShell do Azure - fazer cópia de segurança uma máquina virtual do Azure | Documentos da Microsoft
+description: Exemplo de Script do PowerShell do Azure - fazer cópia de segurança uma máquina virtual do Azure
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842651"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651389"
 ---
-# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual do Azure encriptada com o PowerShell
+# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Criar cópias de segurança encriptada máquinas virtuais do Azure com o PowerShell
 
-Este script cria um cofre dos serviços de recuperação com armazenamento georredundante (GRS) para uma máquina virtual do Azure encriptado. A política de proteção predefinida é aplicada ao cofre. A política gera uma cópia de segurança diária para a máquina virtual e retém cada cópia de segurança durante 30 dias. O script também aciona o ponto de recuperação inicial da máquina virtual e mantém esse ponto de recuperação para a 365 dias. 
+Este script cria um cofre dos serviços de recuperação com armazenamento georredundante (GRS) para uma máquina virtual do Azure encriptada. A política de proteção predefinida é aplicada ao cofre. A política gera um backup diário para a máquina virtual e retém cada cópia de segurança durante 30 dias. O script também aciona o ponto de recuperação inicial da máquina virtual e mantém esse ponto de recuperação durante 365 dias. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -43,25 +42,25 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar a implementação. Cada item nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar a implementação. Cada item na tabela liga a documentação específica do comando.
 
 
 | Comando | Notas | 
 |---|---| 
-| [Novo-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos na qual todos os recursos são armazenados. | 
-| [Novo AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Cria um cofre dos serviços de recuperação para armazenar as cópias de segurança. | 
-| [Conjunto AzureRmRecoveryServicesBackupProperties](/powershell/module/azurerm.recoveryservices/Set-AzureRmRecoveryServicesBackupProperties) | Conjuntos de cópia de segurança propriedades de armazenamento no Cofre de serviços de recuperação. | 
-| [Novo AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)| Cria uma política de proteção utilizando a política de agendamento e a política de retenção no Cofre de serviços de recuperação. | 
-| [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Define as permissões no Cofre de chaves para conceder o acesso de principal de serviço para as chaves de encriptação. | 
-| [Ativar AzureRmRecoveryServicesBackupProtection](/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection) | Permite a cópia de segurança para um item com uma política de proteção de cópia de segurança especificado. | 
-| [Conjunto AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy)| Modifica uma política de proteção de cópia de segurança existente. | 
-| [Cópia de segurança AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem) | Inicia uma cópia de segurança para um item de cópia de segurança do Azure protegido que não está associado ao agendamento de cópia de segurança. |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. | 
+| [Novo-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Cria um cofre dos serviços de recuperação para armazenar cópias de segurança. | 
+| [Set-AzureRmRecoveryServicesBackupProperties](/powershell/module/azurerm.recoveryservices/Set-AzureRmRecoveryServicesBackupProperties) | Conjuntos de cópia de segurança propriedades de armazenamento do cofre dos serviços de recuperação. | 
+| [Novo-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)| Cria uma política de proteção através da política de agendamento e a política de retenção no cofre dos serviços de recuperação. | 
+| [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Define as permissões no Key Vault para conceder ao principal do serviço acesso às chaves de encriptação. | 
+| [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection) | Permite a cópia de segurança para um item com uma política de proteção de cópia de segurança especificado. | 
+| [Set-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy)| Modifica uma política de proteção de cópia de segurança existente. | 
+| [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem) | Inicia uma cópia de segurança para um item de cópia de segurança do Azure protegido não está associado ao agendamento de cópia de segurança. |
 | [Espera-AzureRmRecoveryServicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob) | Aguarda uma tarefa de cópia de segurança do Azure concluir. | 
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos. | 
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Consultar a Base de Dados SQL do Azure com o Editor de Consultas | Microsoft Docs'
+title: 'Portal do Azure: Consultar a base de dados do SQL Azure usando o Editor de consultas | Documentos da Microsoft'
 description: Saiba como ligar à Base de Dados SQL no portal do Azure através do Editor de Consultas SQL. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados sql, portal do azure, portal, editor de consultas
 services: sql-database
@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091395"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651952"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Utilizar o editor de consultas SQL do portal do Azure para ligar e consultar dados
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Utilize o editor de consultas SQL do portal do Azure para ligar e consultar dados
 
-O editor de consultas SQL é uma ferramenta de navegador de portal do Azure, fornecendo uma forma fácil de executar consultas SQL na sua base de dados do Azure SQL ou o Azure SQL Data Warehouse. Este início rápido demonstra como utilizar o editor de consultas para ligar a uma base de dados SQL e executar as instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados.
+O editor de consultas SQL é uma ferramenta de navegador de portal do Azure, fornecendo uma forma fácil de executar consultas SQL na sua base de dados do Azure SQL ou o Azure SQL Data Warehouse. Neste início rápido, irá utilizar o editor de consultas para ligar a uma base de dados SQL e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,7 +70,7 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 4. A partir do AD admin página barra de ferramentas, selecione **guardar**.
 
-5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)**. O **início de sessão** é apresentada a página. Se for um administrador do AD, em seguida, no lado direito, em **do Active Directory início de sessão único**, é apresentada uma mensagem dizendo que foram registados. 
+5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)**. O **início de sessão** é apresentada a página. Se for um administrador do AD, em seguida, no lado direito, em **do Active Directory início de sessão único**, é apresentada uma mensagem dizendo que tiver sido iniciado sessão. 
    
 6. Selecione **OK**.
 
@@ -92,7 +92,7 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 ## <a name="insert-data"></a>Inserir dados
 
-Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução de Transact-SQL para adicionar um novo produto no `SalesLT.Product` tabela.
+Execute o seguinte [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução de Transact-SQL para adicionar um novo produto no `SalesLT.Product` tabela.
 
 1. Substitua a consulta anterior este.
 
@@ -117,12 +117,12 @@ Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms1
    ```
 
 
-2. Selecione **executar** para inserir uma nova linha na tabela Produto. O **mensagens** painel apresenta **consulta foi concluída com êxito: linhas afetadas: 1**.
+2. Selecione **execute** para inserir uma nova linha no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
 
 
 ## <a name="update-data"></a>Atualizar dados
 
-Utilize o seguinte procedimento [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) instrução de Transact-SQL para modificar o seu novo produto.
+Execute o seguinte [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) instrução de Transact-SQL para modificar o seu novo produto.
 
 1. Substitua a consulta anterior este.
 
@@ -132,11 +132,11 @@ Utilize o seguinte procedimento [ATUALIZAÇÃO](https://msdn.microsoft.com/libra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **executar** para atualizar a linha especificada na tabela Produto. O **mensagens** painel apresenta **consulta foi concluída com êxito: linhas afetadas: 1**.
+2. Selecione **execute** para atualizar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Utilize o seguinte procedimento [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) instrução de Transact-SQL para remover o seu novo produto.
+Execute o seguinte [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) instrução de Transact-SQL para remover o seu novo produto.
 
 1. Substitua a consulta anterior este:
 
@@ -145,7 +145,7 @@ Utilize o seguinte procedimento [eliminar](https://msdn.microsoft.com/library/ms
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **executar** para eliminar a linha especificada na tabela Produto. O **mensagens** painel apresenta **consulta foi concluída com êxito: linhas afetadas: 1**.
+2. Selecione **execute** para eliminar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considerações de editor de consulta
@@ -156,7 +156,7 @@ Existem alguns aspetos a saber ao trabalhar com o editor de consultas.
 
 * Prima F5 atualiza a página do editor de consultas e qualquer consulta a ser executada é perdida.
 
-* Editor de consultas não suporta a ligação à base de dados mestra.
+* Editor de consultas não suporta a ligação para o `master` base de dados.
 
 * Há um tempo limite de 5 minutos para execução da consulta.
 

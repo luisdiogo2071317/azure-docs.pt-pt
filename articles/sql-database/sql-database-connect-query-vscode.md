@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 5e0b2fff7ca5bc7f5856a6de05e18b99bbf8b938
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600833"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652120"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o Visual Studio Code para ligar e consultar uma base de dados do SQL do Azure
 
-[Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Ele suporta extensões, incluindo o [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, base de dados do Azure SQL e SQL Data Warehouse. Neste início rápido demonstra como utilizar o Visual Studio Code para ligar a uma base de dados SQL do Azure e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados.
+[Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Ele suporta extensões, incluindo o [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, base de dados do Azure SQL e SQL Data Warehouse. Neste início rápido, irá utilizar o Visual Studio Code para ligar a uma base de dados SQL do Azure e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ No Visual Studio Code, defina o modo de idioma para **SQL** para ativar comandos
 
 1. Abra uma nova janela do Visual Studio Code. 
 
-2. Prima **CTRL**+**N**. É aberto um novo ficheiro de texto sem formatação. 
+2. Prima **Ctrl**+**N**. É aberto um novo ficheiro de texto sem formatação. 
 
 3. Selecione **texto sem formatação** no canto inferior direito da barra de estado.
 
@@ -77,16 +77,16 @@ No Visual Studio Code, defina o modo de idioma para **SQL** para ativar comandos
 Utilize o Visual Studio Code para estabelecer uma ligação ao servidor da Base de Dados SQL do Azure.
 
 > [!IMPORTANT]
-> Antes de continuar, certifique-se de que tem as informações de início de sessão de servidor e prontas. Assim que começar a introduzir as informações de perfil de ligação, se alterar o foco do Visual Studio Code, terá de reiniciar a criação do perfil.
+> Antes de continuar, certifique-se de que tem o seu servidor e informações prontas início de sessão. Assim que começar a introduzir as informações de perfil de ligação, se alterar o foco do Visual Studio Code, terá de reiniciar a criação do perfil.
 >
 
 1. No Visual Studio Code, prima **Ctrl + Shift + P** (ou **F1**) para abrir a paleta de comandos.
 
-2. Selecione **MS SQL: ligar** e prima **Enter**.
+2. Selecione **MS SQL: ligar** e escolha **Enter**.
 
 3. Selecione **criar perfil de ligação**.
 
-4. Siga as instruções para especificar propriedades de ligação do novo perfil. Depois de especificar cada valor, prima **Enter** para continuar. 
+4. Siga as instruções para especificar propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar. 
 
    | Propriedade       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Utilize o Visual Studio Code para estabelecer uma ligação ao servidor da Base 
 
 ## <a name="query-data"></a>Consultar dados
 
-Utilize o seguinte procedimento [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) instrução de Transact-SQL para consultar os 20 melhores produtos por categoria.
+Execute o seguinte [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) instrução de Transact-SQL para consultar os 20 melhores produtos por categoria.
 
 1. Na janela do editor, cole a seguinte consulta SQL.
 
@@ -119,7 +119,7 @@ Utilize o seguinte procedimento [SELECIONE](https://msdn.microsoft.com/library/m
 
 ## <a name="insert-data"></a>Inserir dados
 
-Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução de Transact-SQL para adicionar um novo produto para o `SalesLT.Product` tabela.
+Execute o seguinte [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução de Transact-SQL para adicionar um novo produto para o `SalesLT.Product` tabela.
 
 1. Substitua a consulta anterior este.
 
@@ -147,7 +147,7 @@ Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms1
 
 ## <a name="update-data"></a>Atualizar dados
 
-Utilize o seguinte procedimento [ATUALIZAR](https://msdn.microsoft.com/library/ms177523.aspx) instrução de Transact-SQL para atualizar o produto foi adicionado.
+Execute o seguinte [ATUALIZAR](https://msdn.microsoft.com/library/ms177523.aspx) instrução de Transact-SQL para atualizar o produto foi adicionado.
 
 1. Substitua a consulta anterior este:
 
@@ -161,7 +161,7 @@ Utilize o seguinte procedimento [ATUALIZAR](https://msdn.microsoft.com/library/m
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Utilize o seguinte procedimento [eliminar](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) instrução de Transact-SQL para remover o produto novo.
+Execute o seguinte [eliminar](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) instrução de Transact-SQL para remover o produto novo.
 
 1. Substitua a consulta anterior este:
 

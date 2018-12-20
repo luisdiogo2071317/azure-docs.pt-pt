@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 318ecf03853e151040622ef0863f4c6986a96bd2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309196"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628515"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar uma partilha de ficheiros nos Ficheiros do Azure
 Pode criar partilhas de ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do armazenamento do Azure, as bibliotecas de cliente de armazenamento do Azure ou a API de REST de armazenamento do Azure. Neste tutorial, irá aprender:
@@ -34,14 +34,17 @@ Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armaze
 3. **Indique o Nome e a Quota. O valor máximo atual a Quota é de 5 TiB**:    
     ![Indique um nome e uma quota pretendida para a partilha de ficheiros nova](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Veja a partilha de ficheiros nova**: ![Veja a partilha de ficheiros nova](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Ver a nova partilha de ficheiros**:  ![Ver a nova partilha de ficheiros](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Carregue um ficheiro**: ![Carregue um ficheiro](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Carregar um ficheiro**:  ![Carregar um ficheiro](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Navegue para a partilha de ficheiros e faça a gestão dos seus diretórios e ficheiros**: ![Navegar para a partilha de ficheiros](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Navegue para a partilha de ficheiros e gerir os seus diretórios e arquivos**:  ![Procurar a partilha de ficheiros](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Criar a partilha de Ficheiros através do PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azure PowerShell. Ver [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) para as instruções de instalação e do ponto de instalação.
 
 > [!Note]  
@@ -50,13 +53,13 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
 1. **Crie um contexto para a conta de armazenamento e a chave** O contexto contém o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre a cópia da chave de conta a partir da [portal do Azure](https://portal.azure.com/), consulte [chaves de acesso da conta de armazenamento](../common/storage-account-manage.md#access-keys).
 
     ```powershell
-    $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
+    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
     ```
     
 2. **Criar uma partilha de ficheiros nova**:    
     
     ```powershell
-    $share = New-AzureStorageShare logs -Context $storageContext
+    $share = New-AzStorageShare logs -Context $storageContext
     ```
 
 > [!Note]  
