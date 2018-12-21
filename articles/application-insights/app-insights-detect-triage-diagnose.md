@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ab3d4d2df8f12c28fa6dbdbdd7d6913d53f12884
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728060"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715074"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -108,7 +108,7 @@ Assim, o problema está a ser resolvido, mesmo antes de se investigarem os regis
 ![pedido com falha](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Detetar exceções
-Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são reportadas automaticamente ao Application Insights. Também podem ser capturadas explicitamente ao inserir chamadas para [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) no código:  
+Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são reportadas automaticamente ao Application Insights. Também podem ser capturadas explicitamente ao inserir chamadas para [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) no código:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -131,7 +131,7 @@ Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.
 
 A equipa do Fabrikam Bank desenvolveu a prática de enviar sempre telemetria sobre as exceções, a não ser que a recuperação seja óbvia.  
 
-De facto, a estratégia da equipa é ainda mais ampla do que isto. Envia telemetria em todos os casos nos quais o cliente se sente frustrado com o resultado do que queria fazer, quer corresponda ou não a uma exceção no código. Por exemplo, se o sistema de transferências interbancárias externo devolver a mensagem “não é possível concluir esta transação” devido a um motivo operacional (sem culpa do cliente), a equipa monitoriza esse evento.
+Na verdade, a sua estratégia é ainda mais ampla do que isso: Envia telemetria em todos os casos em que o cliente é frustrado do que queria fazer, quer corresponda a uma exceção no código ou não. Por exemplo, se o sistema de transferências interbancárias externo devolver a mensagem “não é possível concluir esta transação” devido a um motivo operacional (sem culpa do cliente), a equipa monitoriza esse evento.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)

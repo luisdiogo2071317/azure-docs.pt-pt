@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: c1f78421fd431ca6a1aeab9f6147a3cca936cf9b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bf91377b544328ed63d3767ce9b0064a6c4eeaff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539760"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711895"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Criar um contentor no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 ## <a name="create-a-container-using-azure-portal"></a>Criar um contentor com o portal do Azure
 
-### <a id="portal-sql"></a>API do Azure Cosmos DB para SQL (núcleos)
+### <a id="portal-sql"></a>API DE SQL
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 ![A API de SQL cria uma coleção](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>API do Azure Cosmos DB para o MongoDB
+### <a id="portal-mongodb"></a>Azure Cosmos DB para API do MongoDB
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -51,9 +51,9 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
    * Introduza um débito, por exemplo, 1000 RUs.
    * Selecione **OK**.
 
-![API do Azure Cosmos DB para o MongoDB cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![O Azure Cosmos DB para a MongoDB API cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>API do Azure Cosmos DB para o Cassandra
+### <a id="portal-cassandra"></a>API para Cassandra
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -72,7 +72,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 > [!NOTE]
 > Para a API para Cassandra, a chave primária é utilizada como a chave de partição.
 
-### <a id="portal-gremlin"></a>API do Azure Cosmos DB para Gremlin
+### <a id="portal-gremlin"></a>API do Gremlin
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -89,7 +89,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 ![A API de Gremlin cria uma coleção](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
-### <a id="portal-table"></a>API do Azure Cosmos DB para a tabela
+### <a id="portal-table"></a>API de Tabela
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -109,7 +109,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 ## <a name="create-a-container-using-azure-cli"></a>Criar um contentor com a CLI do Azure
 
-### <a id="cli-sql"></a>API do Azure Cosmos DB para SQL (núcleos)
+### <a id="cli-sql"></a>API DE SQL
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -123,7 +123,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>API do Azure Cosmos DB para o MongoDB
+### <a id="cli-mongodb"></a>Azure Cosmos DB para API do MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -136,7 +136,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-cassandra"></a>API do Azure Cosmos DB para o Cassandra
+### <a id="cli-cassandra"></a>API para Cassandra
 
 ```azurecli-interactive
 # Create a table with a partition/primary key and provision 1000 RU/s throughput.
@@ -149,7 +149,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-gremlin"></a>API do Azure Cosmos DB para Gremlin
+### <a id="cli-gremlin"></a>API do Gremlin
 
 ```azurecli-interactive
 # Create a graph with a partition key and provision 1000 RU/s throughput.
@@ -162,7 +162,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-table"></a>API do Azure Cosmos DB para a tabela
+### <a id="cli-table"></a>API de Tabela
 
 ```azurecli-interactive
 # Create a table with 1000 RU/s
@@ -177,7 +177,7 @@ az cosmosdb collection create \
 
 ## <a name="create-a-container-using-net-sdk"></a>Criar um contentor com o SDK .NET
 
-### <a id="dotnet-sql-graph"></a>API do Azure Cosmos DB para SQL e Gremlin
+### <a id="dotnet-sql-graph"></a>API de SQL e API do Gremlin
 
 ```csharp
 // Create a container with a partition key and provision 1000 RU/s throughput.
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>API do Azure Cosmos DB para o MongoDB
+### <a id="dotnet-mongodb"></a>Azure Cosmos DB para API do MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -199,9 +199,9 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> O MongoDB não tem um conceito de unidades de pedido. Para criar uma nova coleção com débito, utilize o Portal do Azure ou a API de SQL, conforme mostrado nos exemplos anteriores.
+Protocolo de MongoDB não tem um conceito de unidades de pedido. Para criar uma nova coleção com débito, utilize o Portal do Azure ou a API de SQL, conforme ilustrado nos exemplos de theprevious.
 
-### <a id="dotnet-cassandra"></a>API do Azure Cosmos DB para o Cassandra
+### <a id="dotnet-cassandra"></a>API para Cassandra
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

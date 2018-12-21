@@ -3,20 +3,19 @@ title: Tutorial do Kubernetes no Azure - Preparar uma aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), irá aprender a preparar e criar uma aplicação de vários contentores com o Docker Compose que, em seguida, pode implementar no AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297065"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724169"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar uma aplicação para o Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o Azure Kubernetes Service (AKS)
 
 Neste tutorial, a parte um de sete, uma aplicação de contentores múltiplos é preparada para utilização com o Kubernetes. As ferramentas de desenvolvimento existentes, como o Docker Compose são utilizadas para criar e testar uma aplicação localmente. Saiba como:
 
@@ -29,7 +28,7 @@ Depois de concluída, a aplicação seguinte é executada no seu ambiente de des
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Nos tutoriais subsequentes, a imagem de contentor é carregada para o Azure Container Registry e, em seguida, é implementada num cluster do AKS.
+Nos tutoriais adicionais, a imagem de contentor é carregada para o Azure Container Registry e, em seguida, implementada num cluster do AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -49,7 +48,7 @@ Utilize o [git][] para clonar o exemplo de aplicação para o seu ambiente de de
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Altere os diretórios para trabalhar a partir do diretório clonado.
+Mude para o diretório clonado.
 
 ```console
 cd azure-voting-app-redis
@@ -106,7 +105,7 @@ docker-compose down
 
 Quando a aplicação local tiver sido removida, tem uma imagem do Docker que contém a aplicação do Azure Vote, o *azure-front-front*, para utilizar no próximo tutorial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas para a aplicação. Aprendeu a:
 

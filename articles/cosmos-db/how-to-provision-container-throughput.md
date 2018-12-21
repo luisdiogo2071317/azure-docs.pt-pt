@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: a36caf8786b836faad93a31bde952b66b7f690fc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5d56a9c5bee007568fc893a020edf487403c9fde
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537159"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720293"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Aprovisionar débito para um contentor do Azure Cosmos DB
 
@@ -47,7 +47,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Se estiver a aprovisionar o débito para a conta de API do Azure Cosmos DB para o MongoDB, utilize "/ myShardKey' para o caminho da chave de partição e quando aprovisionar o débito para a conta da API de Cassandra, utilize" / myPrimaryKey' para o caminho da chave de partição.
+Se estiver a aprovisionar o débito de uma conta do Cosmos configurado para a MongoDB API, utilize "/ myShardKey' para o caminho da chave de partição e quando aprovisionar o débito de uma conta do Cosmos configurado para a API de Cassandra, utilize" / myPrimaryKey' para o caminho da chave de partição.
 
 ## <a name="provision-throughput-using-net-sdk"></a>Aprovisionar débito com o SDK do .NET
 

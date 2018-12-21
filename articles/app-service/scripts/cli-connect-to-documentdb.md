@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 505f1dac3f9b63b516f0b9e352f363e287e2f604
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 12f7a4cb5db084d6e2c179bf8acd641c814dcbd0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629548"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719800"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Ligar uma aplicação de serviço de aplicações para o Cosmos DB com a CLI
 
-Este script de exemplo cria uma conta de API do Azure Cosmos DB para MongoDB e uma aplicação de serviço de aplicações. Em seguida, liga a cadeia de ligação do MongoDB à aplicação com as definições da aplicação.
+Este script de exemplo cria uma conta do Azure Cosmos DB com o Cosmos DB para API do MongoDB e uma aplicação de serviço de aplicações. Em seguida, liga uma cadeia de ligação do MongoDB à aplicação web com as definições da aplicação.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20f5fb918c836bda9bee19feec3259cfd4858875
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074084"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722419"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: identificar intenções e entidades comuns
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar intenções e entidades comuns
 Neste tutorial, vai modificar a aplicação de Recursos Humanos. Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas porque a entidade é detetada automaticamente.
 
 Os modelos pré-concebidos de domínios de assunto e tipos de dados comuns ajudam-no a criar rapidamente o modelo, bem como a fornecer um exemplo do aspeto do modelo. 
@@ -40,7 +40,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

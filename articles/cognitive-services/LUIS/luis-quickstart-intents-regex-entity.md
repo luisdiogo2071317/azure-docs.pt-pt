@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 654d3c4e7dd7ec8916b785f52a78388ec04b3cc9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135581"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712785"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extrair dados bem formatados
 Neste tutorial, irá modificar a aplicação Recursos Humanos para extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
@@ -55,7 +55,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1. Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
+1. Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

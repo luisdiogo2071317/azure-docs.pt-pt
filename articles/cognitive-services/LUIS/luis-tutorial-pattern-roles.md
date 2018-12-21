@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d789954c0ebc71f88fb434430de5b5076ca6c246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094411"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713730"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: extrair padrões relacionados contextualmente
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extrair padrões relacionados contextualmente
 
 Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
 
@@ -29,7 +29,7 @@ O nome do novo colaborador, Billy Patterson, ainda não faz parte da entidade de
 
 O novo colaborador e a família têm de ser movidos da cidade atual para a cidade onde está localizada a empresa fictícia. Tendo em conta que um novo colaborador pode vir de qualquer cidade, as localizações têm de ser detetadas. Uma lista de conjunto, como uma entidade de lista, não funcionaria porque apenas as cidades na lista seriam extraídas.
 
-Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
+Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. O **NewEmployeeRelocation** entidade é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
 
 Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacramento and San Francisco` tem apenas entidades de aprendizagem automática, é importante fornecer expressões de exemplo suficientes à intenção, para que as entidades sejam detetadas.  
 
@@ -57,7 +57,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importe o JSON para uma nova aplicação.
 

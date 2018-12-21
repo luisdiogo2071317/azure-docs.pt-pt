@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf2cd8a3dade408bf98a6fcc64af0d4ee4419fa0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096694"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718253"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: extrair correspondências de texto exatas
+# <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: Extrair correspondências de texto exatas
 Neste tutorial, vai aprender a obter dados que correspondam a uma lista de itens predefinida. Cada item na lista pode incluir uma lista de sinónimos. Para a aplicação de recursos humanos, um colaborador pode ser identificado através de várias informações cruciais, como o nome, e-mail, número de telefone e número de contribuinte. 
 
 A aplicação Recursos Humanos precisa de determinar que colaborador está a mudar de um edifício para outro. Para uma expressão sobre uma mudança de colaborador, o LUIS determina a intenção e extrai o colaborador para que a aplicação cliente crie uma ordem padrão para o mover.
@@ -49,7 +49,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

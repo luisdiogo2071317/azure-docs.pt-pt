@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: 23b1ec176572b3a7e6deb0cba60ac7a1e73eeffb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ea63049e7d3315ff3166ea5414d96b071675046c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605522"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725546"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -63,7 +63,7 @@ Consulte [Criar uma aplicação Web Java no Serviço de Aplicações no Linux](h
 
 ## <a name="scaling"></a>Dimensionamento
 
-* Os clientes podem aumentar ou reduzir aplicações Web ao alterar o escalão do respetivo [plano do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Os clientes podem aumentar ou reduzir aplicações Web ao alterar o escalão do respetivo [plano do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## <a name="locations"></a>Localizações
 
@@ -105,7 +105,7 @@ Veja também os artigos seguintes para obter mais detalhes sobre o Serviço de A
 
 * [FAQ do Serviço de Aplicações para Linux](app-service-linux-faq.md)
 * [Suporte SSH para o Serviço de Aplicações no Linux](app-service-linux-ssh-support.md)
-* [Configurar ambientes de teste no Serviço de Aplicações](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurar ambientes de teste no Serviço de Aplicações](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementação contínua do Hub do Docker](app-service-linux-ci-cd.md)
 
 Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db0b0472fe4878bc7b6bc6cb0a65fbcdbd232301
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103477"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720753"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: extrair dados de forma livre
+# <a name="tutorial-5-extract-free-form-data"></a>Tutorial de 5: Extrair dados sem formulário
 
 Neste tutorial, utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão. 
 
@@ -67,7 +67,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

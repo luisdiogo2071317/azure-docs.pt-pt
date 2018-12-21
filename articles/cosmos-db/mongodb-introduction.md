@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure Cosmos DB API para MongoDB
+title: Introdução ao Azure Cosmos DB para API do MongoDB
 description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de documentos JSON com baixa latência através da API de MongoDB OSS populares.
 keywords: API do Azure Cosmos DB para MongoDB
 services: cosmos-db
@@ -9,12 +9,12 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/19/2018
 ms.author: sclyon
-ms.openlocfilehash: d8b423bcbfc8f999ce04c7713a57cfa096fa2c55
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fc6c9567073bbdfa77d753b9b274f7ed5e901405
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654041"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720581"
 ---
 # <a name="azure-cosmos-db-for-mongodb-api-clients"></a>O Azure Cosmos DB para clientes de API do MongoDB
 
@@ -55,3 +55,5 @@ Eis alguns sítios por onde começar:
 * Siga os [migrar dados para o Azure Cosmos DB com o protocolo de suporte para a MongoDB API](mongodb-migrate.md) tutorial para importar os dados para uma base de dados do Cosmos.
 * Ligar a uma conta do Cosmos com [Robomongo](mongodb-robomongo.md).
 * Saiba como [configurar as preferências de leitura para as aplicações distribuídas globalmente](../cosmos-db/tutorial-global-distribution-mongodb.md).
+
+<sup>Nota: Este artigo descreve um recurso do Azure Cosmos DB, que fornece a compatibilidade de protocolo de transmissão com bancos de dados do MongoDB. Microsoft não é executado para fornecer este serviço de bases de dados MongoDB. O Azure Cosmos DB não está afiliado a MongoDB, Inc.</sup>

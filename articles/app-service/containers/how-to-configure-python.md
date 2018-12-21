@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249639"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717403"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar a aplicação Python para o Serviço de Aplicações do Azure no Linux
 
@@ -132,4 +132,4 @@ Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplic
 - **Vê a mensagem "Serviço Indisponível" no browser.** O browser esgotou o tempo limite ao aguardar uma resposta do Serviço de Aplicações, o que indica que o Serviço de Aplicações iniciou o servidor do Gunicorn, mas os argumentos que especificam o código da aplicação estão incorretos.
   - Atualize o browser, especialmente se estiver a utilizar os escalões de preços mais baixos no seu Plano do Serviço de Aplicações. A aplicação poderá demorar mais tempo a iniciar quando utilizar, por exemplo, escalões gratuitos e responde depois de atualizar o browser.
   - Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#custom-startup-command).
-  - Utilize o SSH ou a consola Kudu para ligar ao Serviço de Aplicações e, em seguida, consulte os registos de diagnósticos armazenados na pasta *LogFiles*. Para obter mais informações sobre registos, veja [Ativar o registo de diagnósticos em aplicações Web no Serviço de Aplicações do Azure](../web-sites-enable-diagnostic-log.md).
+  - Utilize o SSH ou a consola Kudu para ligar ao Serviço de Aplicações e, em seguida, consulte os registos de diagnósticos armazenados na pasta *LogFiles*. Para obter mais informações sobre registos, veja [Ativar o registo de diagnósticos em aplicações Web no Serviço de Aplicações do Azure](../troubleshoot-diagnostic-logs.md).

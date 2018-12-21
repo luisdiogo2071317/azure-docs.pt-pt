@@ -3,35 +3,34 @@ title: Tutorial do Kubernetes no Azure - Dimensionar aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), irá aprender a dimensionar nós e pods no Kubernetes e a implementar o dimensionamento automático horizontal de pods.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 8d07c87a1849a25738c433b7a4c2753b51661947
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414187"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722724"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Aplicações no Azure Kubernetes Service (AKS)
 
-Se tiver seguido os tutoriais, terá um cluster do Kubernetes a trabalhar no AKS e implementado a aplicação do Azure Voting. Neste tutorial, parte cinco de sete, aumenta horizontalmente pods na aplicação e tenta dimensionar automaticamente. Também irá aprender a dimensionar o número de nós da VM do Azure, para alterar a capacidade do cluster para alojar cargas de trabalho. Saiba como:
+Se seguiu os tutoriais, terá um cluster do Kubernetes a trabalhar no AKS e implementado a aplicação de votação do Azure de exemplo. Neste tutorial, parte cinco de sete, aumenta horizontalmente pods na aplicação e tenta dimensionar automaticamente. Também irá aprender a dimensionar o número de nós da VM do Azure, para alterar a capacidade do cluster para alojar cargas de trabalho. Saiba como:
 
 > [!div class="checklist"]
 > * Dimensionar os nós do Kubernetes
 > * Dimensionar manualmente pods do Kubernetes que executam a sua aplicação
 > * Configurar pods de dimensionamento automático que executam a aplicação de front-end
 
-Nos tutoriais seguintes, a aplicação Azure Vote é atualizada para uma versão nova.
+Tutoriais adicionais, a aplicação Azure Vote é atualizada para uma nova versão.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, carregada esta imagem para o Azure Container Registry e criado um cluster de Kubernetes. A aplicação foi, em seguida, executada no cluster de Kubernetes. Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
+Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor. A imagem foi carregada para o Azure Container Registry e criado um cluster do AKS. A aplicação foi implementada, em seguida, para o cluster do AKS. Se ainda não concluiu estes passos e pretende acompanhar, inicie com [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
-Este tutorial requer a execução da versão 2.0.38 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que está a executar a CLI do Azure versão 2.0.53 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Dimensionar pods manualmente
 
@@ -55,7 +54,7 @@ Para alterar manualmente o número de pods na implementação do *azure-vote-fro
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Execute o [kubectl get pods][kubectl-get] novamente para verificar que o Kubernetes cria os pods adicionais. Um ou dois minutos depois, os pods adicionais estão disponíveis no seu cluster:
+Execute [kubectl obter pods] [ kubectl-get] novamente para verificar que o AKS cria os pods adicionais. Um ou dois minutos depois, os pods adicionais estão disponíveis no seu cluster:
 
 ```console
 $ kubectl get pods
@@ -77,14 +76,14 @@ O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se a versão do cluster AKS for inferior a *1.10*, instale o Servidor de Métricas; caso contrário, ignore este passo. Clone o repositório GitHub do `metrics-server` e instale as definições do recurso de exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
+Se a versão do cluster AKS for inferior a *1.10*, instale o Servidor de Métricas; caso contrário, ignore este passo. Para instalar, clone o `metrics-server` repositório do GitHub e instalem as definições de recursos de exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Para utilizar o dimensionamento automático, os seus pods têm de ter os pedidos de CPU e os limites definidos. Na implementação `azure-vote-front`, o contentor de front-end pede 0,25 de CPU, com um limite de 0,5 de CPU. As definições têm o seguinte aspeto:
+Para utilizar o dimensionamento automático, os seus pods têm de ter os pedidos de CPU e os limites definidos. Na `azure-vote-front` implementação, o contentor de front-end já pede 0,25 de CPU, com um limite de 0,5 de CPU. Estes pedidos de recursos e os limites são definidos como mostrado no seguinte fragmento de exemplo:
 
 ```yaml
 resources:
@@ -94,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo seguinte utiliza o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implementação *azure-vote-front*. Se a utilização da CPU exceder 50%, o dimensionamento automático aumenta os pods para até um máximo de 10 instâncias:
+O exemplo seguinte utiliza o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implementação *azure-vote-front*. Se a utilização da CPU exceder 50%, o dimensionamento automático aumenta os pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias, em seguida, é definida para a implementação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -121,7 +120,7 @@ O exemplo seguinte aumenta o número de nós para três no cluster do Kubernetes
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-O resultado é semelhante a:
+Quando o cluster foi dimensionada com êxito, o resultado é semelhante ao exemplo seguinte:
 
 ```
 "agentPoolProfiles": [
@@ -139,14 +138,14 @@ O resultado é semelhante a:
   }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, utilizou diferentes funcionalidades de dimensionamento no seu cluster Kubernetes. Aprendeu a:
 
 > [!div class="checklist"]
-> * Dimensionar os nós do Kubernetes
 > * Dimensionar manualmente pods do Kubernetes que executam a sua aplicação
 > * Configurar pods de dimensionamento automático que executam a aplicação de front-end
+> * Dimensionar manualmente os nós do Kubernetes
 
 Avance para o próximo tutorial para saber como atualizar a aplicação no Kubernetes.
 

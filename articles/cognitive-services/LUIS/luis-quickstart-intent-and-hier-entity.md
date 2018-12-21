@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8e46cd7b588355b157eb9da71bdfa44a09a379c4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104412"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726379"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: extrair dados relacionados contextualmente
+# <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial de 5: Extrair dados relacionados contextualmente
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas. Para gerar uma ordem de trabalho, ambos os fragmentos de dados podem ser necessários e estão relacionados entre si.  
 
 Esta aplicação determina para onde um funcionário deve ser deslocado da localização de origem (edifício e escritório) para a localização de destino (edifício e escritório). Utiliza a entidade hierárquica para determinar as localizações na expressão. O objetivo da entidade **hierárquica** é encontrar dados relacionados na expressão com base no contexto. 
@@ -48,7 +48,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

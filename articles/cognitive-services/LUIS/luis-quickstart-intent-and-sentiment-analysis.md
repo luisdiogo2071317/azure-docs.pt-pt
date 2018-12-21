@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e556b63fbe6bf1fe89672ee3aad4b7c9191233c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098944"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727637"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9: extrair o sentimento da expressão geral
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9:  Extrair sentimentos de expressão geral
 Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões. O sentimento é determinado a partir da expressão inteira.
 
 A análise de sentimentos é a capacidade de determinar se a expressão de um utilizador é positiva, negativa ou neutra. 
@@ -52,7 +52,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

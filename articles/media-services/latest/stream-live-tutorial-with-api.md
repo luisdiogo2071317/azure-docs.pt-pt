@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 266227b87381fde74efd0fa05c6ea10a0eace985
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613397"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724968"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream conviver com serviços de multimédia v3 com APIs
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream em direto com serviços de multimédia v3 com APIs
 
 Nos serviços de multimédia do Azure, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um LiveEvent fornece um ponto final de entrada (URL de ingestão) que, em seguida, o utilizador indica a um codificador em direto. O LiveEvent recebe fluxos de entrada em direto do codificador em direto e disponibiliza o mesmo para transmissão em fluxo através de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto final de pré-visualização (URL de pré-visualização) que pode utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
 
@@ -89,7 +89,7 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-a-live-event"></a>Criar um evento em direto
 
-Esta secção mostra como criar um LiveEvent do tipo **pass-through** (LiveEventEncodingType definido como None). Se pretende criar um LiveEvent que esteja ativado para Live Encoding defina LiveEventEncodingType como Básico. 
+Esta secção mostra como criar um LiveEvent do tipo **pass-through** (LiveEventEncodingType definido como None). Se pretender criar um LiveEvent que esteja ativado para codificação em tempo real definida LiveEventEncodingType como Standard. 
 
 Algumas outras coisas que pode querer especificar ao criar o evento em direto são:
 

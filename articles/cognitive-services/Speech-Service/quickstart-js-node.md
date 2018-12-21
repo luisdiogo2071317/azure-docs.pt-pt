@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 6dc482f8629bf8ca75af5f1643999ae896fa2435
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609434"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724439"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Início rápido: Reconhecer a conversão de voz em JavaScript no node. js utilizando o SDK do serviço de voz
 
@@ -26,7 +26,7 @@ A aplicação baseia-se no Microsoft [SDK de voz dos serviços cognitivos](https
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição para o serviço de Voz. Veja [Experimente o Serviço de Voz gratuitamente](get-started.md).
+* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
 * Uma versão atual do [node. js](https://nodejs.org).
 
 ## <a name="create-a-new-project-folder"></a>Crie uma nova pasta de projeto
@@ -120,10 +120,7 @@ Também pode executar o exemplo do Visual Studio Code. Siga estes passos para in
 
    ![Captura de ecrã da consola de depuração](media/sdk/qs-js-node-07-debug_output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo na pasta `quickstart/js-node`.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obter os nossos exemplos](speech-sdk.md#get-the-samples)
+> [Explore exemplos de node. js no GitHub](https://aka.ms/csspeech/samples)

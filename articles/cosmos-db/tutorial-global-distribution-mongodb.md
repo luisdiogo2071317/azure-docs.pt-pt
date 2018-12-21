@@ -1,6 +1,6 @@
 ---
-title: Tutorial de distribuição global na conta de API do Azure Cosmos DB para o MongoDB
-description: Saiba como configurar a distribuição global do Azure Cosmos DB com a conta de API do Azure Cosmos DB do MongoDB.
+title: Tutorial de distribuição global no Azure Cosmos DB para a MongoDB API
+description: Saiba como configurar a distribuição global do Azure Cosmos DB com o Azure Cosmos DB para API do MongoDB.
 services: cosmos-db
 keywords: distribuição global, MongoDB
 author: SnehaGunda
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 4703b8b5c866b4bcd70cad38e4fd3d0a65ee250f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2473d6f16c4464352c2b9def3e451f8dcf1cdf63
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717003"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-azure-cosmos-db-api-for-mongodb"></a>Configurar a distribuição global do Azure Cosmos DB com a API do Azure Cosmos DB do MongoDB
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-azure-cosmos-db-for-mongodb-api"></a>Configurar a distribuição global do Azure Cosmos DB com o Azure Cosmos DB para API do MongoDB
 
-Neste artigo, vamos mostrar como utilizar o portal do Azure para configurar a distribuição global do Azure Cosmos DB e, em seguida, ligue-se com a API do Azure Cosmos DB do MongoDB.
+Neste artigo, vamos mostrar como utilizar o portal do Azure para configurar a distribuição global do Azure Cosmos DB e, em seguida, ligar com o Azure Cosmos DB para a MongoDB API.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global com o [API MongoDB do Azure Cosmos DB](mongodb-introduction.md)
+> * Configurar a distribuição global com o [para a MongoDB API do Azure Cosmos DB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -66,7 +66,7 @@ Resultados de exemplo:
 
 ## <a name="connecting-to-a-preferred-region"></a>Ligar a uma região preferencial 
 
-A API do Azure Cosmos DB do MongoDB permite-lhe especificar a preferência de leitura de sua coleção para uma base de dados distribuído globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima*. Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
+O Azure Cosmos DB para API do MongoDB permite-lhe especificar a preferência de leitura de sua coleção para uma base de dados distribuído globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima*. Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

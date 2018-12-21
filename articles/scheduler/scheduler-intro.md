@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: hero-article
 ms.date: 09/17/2018
-ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: fb3fba7fa86027d753be21e028109a5d7ef03efb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989187"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722486"
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
 
@@ -26,17 +26,17 @@ O [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) ajuda-o a c
 
 Apesar de poder utilizar o Scheduler para criar, manter e executar cargas de trabalho agendadas, o Scheduler não aloja as cargas de trabalho nem executa código. O serviço apenas *invoca* os serviços ou o código alojados noutro local, por exemplo, no Azure, no local ou noutro fornecedor. O Scheduler pode invocar através de HTTP, HTTPS, uma fila do Armazenamento, uma fila do Service Bus ou um tópico do Service Bus. Para criar, gerir e agendar tarefas, pode utilizar o [portal do Azure](../scheduler/scheduler-get-started-portal.md), código, [API REST do Scheduler](https://docs.microsoft.com/rest/api/scheduler/) ou a [Referência de cmdlets do PowerShell do Microsoft Azure Scheduler](scheduler-powershell-reference.md). Por exemplo, pode criar, ver, atualizar, gerir ou eliminar tarefas e [coleções de tarefas](../scheduler/scheduler-concepts-terms.md) de forma programática através de scripts e no portal do Azure.
 
-Outras funcionalidades de agendamento do Azure também utilizam o Scheduler em segundo plano, por exemplo, o [WebJobs do Azure](../app-service/web-sites-create-web-jobs.md), que é uma das [Aplicações Web](https://azure.microsoft.com/services/app-service/web/) do Serviço de Aplicações do Azure. Pode gerir a comunicação para estas ações com a [API REST do Scheduler](https://docs.microsoft.com/rest/api/scheduler/). Ajuda-o a gerir a comunicação destas ações.
+Outras funcionalidades de agendamento do Azure também utilizam o Scheduler em segundo plano, por exemplo, o [WebJobs do Azure](../app-service/webjobs-create.md), que é uma das [Aplicações Web](https://azure.microsoft.com/services/app-service/web/) do Serviço de Aplicações do Azure. Pode gerir a comunicação para estas ações com a [API REST do Scheduler](https://docs.microsoft.com/rest/api/scheduler/). Ajuda-o a gerir a comunicação destas ações.
 
 O Scheduler poderá ser útil nos seguintes cenários:
 
-* **Executar ações de aplicação recorrentes**: por exemplo, recolher periodicamente dados do Twitter num feed.
+* **Executar ações de aplicação recorrente**: Por exemplo, periodicamente recolha dados do Twitter num feed.
 
-* **Efetuar a manutenção diária**: tais como, eliminação diária de registos, realizar cópias de segurança e outras tarefas de manutenção. 
+* **Efetuar a manutenção diária**: Por exemplo, a remoção de registos diariamente, efetuar cópias de segurança e outras tarefas de manutenção. 
 
   Por exemplo, como administrador, pode querer fazer cópias de segurança da base de dados à 1:00 todos os dias durante os próximos nove meses.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Começar a utilizar o Scheduler no portal do Azure](scheduler-get-started-portal.md)
 * Saiba mais sobre [planos e faturação do Azure Scheduler](scheduler-plans-billing.md)

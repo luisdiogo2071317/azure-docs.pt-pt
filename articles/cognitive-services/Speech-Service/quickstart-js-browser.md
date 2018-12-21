@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 01e66e1e592d98433a015dfb294a6182438be238
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601887"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715142"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK do serviço de voz
 
@@ -103,10 +103,7 @@ Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o 
 
 Inicie a aplicação, abra o seu browser favorito, aponte-o para o URL público onde está alojada a pasta, introduza a [região](regions.md) e acione um reconhecimento com o microfone. Se estiver configurado, vai adquirir um token a partir da origem de token.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo na pasta `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obter os nossos exemplos](speech-sdk.md#get-the-samples)
+> [Explore exemplos de JavaScript no GitHub](https://aka.ms/csspeech/samples)

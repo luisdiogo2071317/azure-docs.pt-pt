@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 036c5230104e9915f9bcbaa5dd535a359fecf55a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2d51bd910b86c81304fb228d35079fca166b1eb7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599455"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719886"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP com o SDK de voz
 
@@ -29,55 +29,14 @@ Neste artigo, vai desenvolver uma C# plataforma Universal do Windows (UWP; Vers�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
+Este início rápido requer:
+
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-1. Inicie o Visual Studio 2017.
-
-1. Certifique-se de que a carga de trabalho de **desenvolvimento da Plataforma Universal do Windows** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Funcionalidades** na barra de menus do Visual Studio para abrir o instalador do Visual Studio. Se esta carga de trabalho já estiver ativada, feche a caixa de diálogo.
-
-    ![Captura de ecrã do instalador do Visual Studio, com o separador Cargas de Trabalho realçado](media/sdk/vs-enable-uwp-workload.png)
-
-    Caso contrário, selecione a caixa junto a **desenvolvimento para várias plataformas .NET,** e selecione **Modificar** no canto inferior direito da caixa de diálogo. A instalação das novas funcionalidades demora alguns minutos.
-
-1. Crie uma aplicação Universal do Windows do Visual C#. Em primeiro lugar, escolha **Ficheiro** > **Novo** > **Projeto** no menu. Na caixa de diálogo **Novo Projeto**, expanda **Instalado** > **Visual C#** > **Windows Universal** no painel esquerdo. Em seguida, selecione **Aplicação em branco (Universal Windows)**. No nome do projeto, introduza *helloworld*.
-
-    ![Captura de ecrã da caixa de diálogo Novo Projeto](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
-
-1. O SDK de voz requer que criar seu aplicativo para o Windows 10 Fall Creators Update ou posterior. Na janela **Novo Projeto da Plataforma Universal do Windows** que é apresentada, escolha **Atualização do Windows 10 Fall Creators (10.0; Compilação 16299)** como **Versão mínima**. Na caixa **Versão de destino**, selecione esta ou qualquer versão posterior e, em seguida, clique em **OK**.
-
-    ![Captura de ecrã da janela Novo Projeto de Plataforma Universal do Windows](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
-
-1. Se estiver a executar o Windows de 64 bits, pode alternar a sua plataforma de compilação para `x64`, com o menu de lista pendente da barra de ferramentas do Visual Studio. (O Windows de 64 bits pode executar aplicações de 32 bits, por isso pode deixá-lo definir para `x86`, se preferir.)
-
-   ![Captura de ecrã da barra de ferramentas do Visual Studio, com x64 realçado](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
-
-   > [!NOTE]
-   > O SDK de Voz suporta apenas processadores compatíveis com Intel. O ARM não é atualmente suportado.
-
-1. Instale e faça referência ao [pacote NuGet do SDK de Voz](https://aka.ms/csspeech/nuget). No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Gerir Pacotes NuGet para Solução**.
-
-    ![Captura de ecrã do Explorador de Soluções, com a opção Gerir Pacotes NuGet para Solução realçada](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
-
-1. No canto superior direito, no campo **Origem do Pacote**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
-
-    ![Captura de ecrã da caixa de diálogo Gerir Pacotes para Solução](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Instalar pacote NuGet")
-
-1. Aceite a licença apresentada para iniciar a instalação do pacote NuGet.
-
-    ![Captura de ecrã da caixa de diálogo Aceitação da Licença](media/sdk/qs-csharp-uwp-06-nuget-license.png "Aceitar a Licença")
-
-1. A seguinte linha de saída aparece na consola do Gestor de Pacotes.
-
-   ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
-   ```
-
-1. Uma vez que a aplicação utiliza o microfone para entrada de voz, adicione a capacidade **Microfone** ao projeto. No Explorador de Soluções, faça duplo clique em **Package.appxmanifest** para editar o manifesto de aplicação. Em seguida, mude para o separador **Capacidades**, selecione a caixa para a capacidade **Microfone** e guarde as alterações.
-
-   ![Captura de ecrã do manifesto de aplicação de Visual Studio com Capacidades e Microfone realçado](media/sdk/qs-csharp-uwp-07-capabilities.png)
-
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -113,13 +72,10 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
     ![Captura de ecrã da interface de utilizador do reconhecimento de voz](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo na pasta `quickstart/csharp-uwp`.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Reconhecer intenções de voz com o SDK de Voz para C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

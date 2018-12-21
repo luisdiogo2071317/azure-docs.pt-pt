@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444789"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720736"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 
@@ -181,7 +181,7 @@ Vá para recurso do Application Insights no Portal do Azure.
 Clique em **Descrição Geral** para voltar à página de destino do seu recurso. Em seguida, clique em **Pesquisar** na parte superior para ver os rastreios a chegar. Demora alguns minutos para que os rastreios apareçam no Application Insights. Se não vir nenhum, aguarde um pouco e toque no botão **Atualizar** na parte superior.
 ![IA a ver rastreios](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Desloque-se para baixo na janela *Pesquisar* para mostrar toda a telemetria de entrada que obtém inicialmente com o Application Insights. Para cada ação realizada na aplicação de Votação, deverá haver um pedido PUT de saída de *VotingWeb* (Votos PUT/Put [nome]), um pedido PUT recebido de *VotingData* (PUT VoteData/Put [nome]), seguido de um par de pedidos GET para atualizar os dados que estão a ser apresentados. Também haverá um rastreio de dependência de HTTP no localhost, uma vez que estes são pedidos HTTP. Eis um exemplo do que irá verá sobre como um voto é adicionado: ![Rastreio de pedido de exemplo de IA](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+Desloque-se para baixo na janela *Pesquisar* para mostrar toda a telemetria de entrada que obtém inicialmente com o Application Insights. Para cada ação realizada na aplicação de Votação, deverá haver um pedido PUT de saída de *VotingWeb* (Votos PUT/Put [nome]), um pedido PUT recebido de *VotingData* (PUT VoteData/Put [nome]), seguido de um par de pedidos GET para atualizar os dados que estão a ser apresentados. Também haverá um rastreio de dependência de HTTP no localhost, uma vez que estes são pedidos HTTP. Eis um exemplo de que irá verá sobre como um voto é adicionado: ![Rastreio de pedido de exemplo de IA](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 Pode clicar num dos rastreios para ver mais detalhes acerca do mesmo. Não há informações úteis sobre o pedido realizado pelo Application Insights, incluindo o *Tempo de resposta* e o *URL do Pedido*. Além disso, uma vez que adicionou o NuGet específico do Service Fabric, irá também obter dados sobre a sua aplicação no contexto de um cluster do Service Fabric na secção *Dados Personalizados* abaixo. Esta secção inclui o contexto de serviço, para que possa ver o *PartitionID* e *ReplicaId* da origem do pedido e localizar melhor os problemas quando diagnosticar erros na sua aplicação.
 
@@ -191,11 +191,11 @@ Além disso, pode clicar em *mapeamento da Aplicação* no menu à esquerda na p
 
 ![Detalhes de rastreio de IA](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-O Mapa da aplicação pode ajudar a compreender melhor a topologia da aplicação, especialmente quando começar a adicionar vários serviços que funcionam em conjunto. Também lhe dá dados básicos sobre taxas de êxito de pedidos e pode ajudar a diagnosticar pedidos falhados para compreender onde as coisas poderão ter corrido mal. Para saber mais sobre como utilizar o Mapa da aplicação, veja [Mapa da Aplicação no Application Insights](../application-insights/app-insights-app-map.md).
+O Mapa da aplicação pode ajudar a compreender melhor a topologia da aplicação, especialmente quando começar a adicionar vários serviços que funcionam em conjunto. Também lhe dá dados básicos sobre taxas de êxito de pedidos e pode ajudar a diagnosticar pedidos falhados para compreender onde as coisas poderão ter corrido mal. Para saber mais sobre como utilizar o Mapa da aplicação, veja [Mapa da Aplicação no Application Insights](../azure-monitor/app/app-map.md).
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Adicionar instrumentação personalizada à sua aplicação
 
-Apesar de o Application Insights proporcionar muita telemetria desde o início, poderá querer adicionar mais instrumentação personalizada. Tal pode ser baseado nas suas necessidades de negócio ou para melhorar o diagnóstico quando as coisas correrem mal na sua aplicação. O Application Insights tem um API para ingerir eventos e métricas personalizadas, sobre o qual pode ler mais [aqui](../application-insights/app-insights-api-custom-events-metrics.md).
+Apesar de o Application Insights proporcionar muita telemetria desde o início, poderá querer adicionar mais instrumentação personalizada. Tal pode ser baseado nas suas necessidades de negócio ou para melhorar o diagnóstico quando as coisas correrem mal na sua aplicação. O Application Insights tem um API para ingerir eventos e métricas personalizadas, sobre o qual pode ler mais [aqui](../azure-monitor/app/api-custom-events-metrics.md).
 
 Vamos adicionar alguns eventos personalizados a *VoteDataController.cs* (em *Controladores* > *VotingData*) para controlar quando os votos estão a ser adicionados e eliminados do *votesDictionary* subjacente.
 

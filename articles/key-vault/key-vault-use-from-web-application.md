@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: 272238e41327e09af8e4d3967868c21c37683236
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 85eb7762437bff8d9f6f6a360fc9cc1ea2e6e145
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602055"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718219"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Utilizar o Azure Key Vault de um aplicativo web
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, tem de ter os seguintes itens:
 
 Execute os passos do artigo [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de Cliente, Segredo do Cliente, e registar a aplicação. A aplicação Web vai aceder ao cofre e tem de ser registada no Azure Active Directory. Também precisa de ter direitos de acesso ao Key Vault. Se não tiver, volte à secção Registar uma Aplicação no tutorial de Introdução e repita os passos apresentados. Para obter mais informações sobre a criação de Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/overview.md).
 
-Este exemplo depende do aprovisionamento manual de identidades do Azure Active Directory. No entanto, deve utilizar [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em alternativa, que aprovisiona automaticamente identidades do Microsoft Azure AD. Para obter mais informações, veja o [exemplo no GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicações e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Também pode ver o [Tutorial para configurar uma aplicação Web do Azure para ler segredos do Key Vault](tutorial-web-application-keyvault.md).
+Este exemplo depende do aprovisionamento manual de identidades do Azure Active Directory. No entanto, deve utilizar [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em alternativa, que aprovisiona automaticamente identidades do Microsoft Azure AD. Para obter mais informações, veja o [exemplo no GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicações e Funções](https://docs.microsoft.com/azure/app-service/overview-managed-identity). Também pode ver o [Tutorial para configurar uma aplicação Web do Azure para ler segredos do Key Vault](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Adicionar pacotes NuGet
 

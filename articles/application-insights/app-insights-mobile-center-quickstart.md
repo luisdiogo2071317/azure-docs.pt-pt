@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950527"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719851"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
 
@@ -126,7 +126,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    1. Clique em qualquer parte da consulta no editor de texto para selecioná-la.
    2. Em seguida, clique em **Ir** para executar a consulta. 
 
-   Saiba mais sobre o [Analytics do Application Insights](app-insights-analytics.md) e a [linguagem de consultas do Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Saiba mais sobre o [Analytics do Application Insights](../azure-monitor/app/analytics.md) e a [linguagem de consultas do Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmentar e filtrar a telemetria dos eventos personalizados.** Na página **Descrição Geral** do Application Insights, escolha **Utilizadores**, no índice.
@@ -166,7 +166,7 @@ Para eliminar o recurso do Application Insights:
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e escolha o grupo de recursos no qual o recurso do Application Insights foi criado.
 2. Abra o recurso que pretende eliminar. Em seguida, clique em **Eliminar**, no menu superior do recurso, e confirme. Esta ação elimina definitivamente a cópia dos dados que foram exportados para o Application Insights.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Understand how customers are using your app](app-insights-usage-overview.md) (Saber como é que os clientes estão a utilizar a sua aplicação)

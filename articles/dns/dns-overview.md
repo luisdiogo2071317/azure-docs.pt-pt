@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0b8cb815e89b0df2fd7a326fe92dd75a85e1c855
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601683"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716281"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
 O DNS do Azure é um serviço de alojamento dos domínios DNS que oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
-Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, pode comprar um nome de domínio, utilizando [domínios do serviço de aplicações](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) ou uma entidade de registo de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, veja [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
+Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, pode comprar um nome de domínio, utilizando [domínios do serviço de aplicações](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) ou uma entidade de registo de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, veja [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
 
 As seguintes funcionalidades estão incluídas com o DNS do Azure.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 981680da7ff15aa3c4a4f011d62f51b741203f82
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632116"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721857"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação .NET Core e base de dados SQL no serviço de aplicações do Azure
 
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](app-service-ip-addresses.md#find-outbound-ips).
+> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 ### <a name="create-a-database"></a>Criar uma base de dados

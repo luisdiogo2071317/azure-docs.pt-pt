@@ -9,24 +9,24 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667241"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723965"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
 
-Pode utilizar os [blocos de implementação do Azure](/azure/app-service/web-sites-staged-publishing) para alternar entre diferentes versões da sua aplicação. Esta capacidade ajuda-o a minimizar o impacto de implementações interrompidas. 
+Pode utilizar os [blocos de implementação do Azure](/azure/app-service/deploy-staging-slots) para alternar entre diferentes versões da sua aplicação. Esta capacidade ajuda-o a minimizar o impacto de implementações interrompidas. 
 
 Este artigo apresenta um exemplo de utilização de blocos de implementação ao orientá-lo pela implementação de duas aplicações através do GitHub e do Azure. Uma das aplicações encontra-se alojada num bloco de produção. A segunda aplicação encontra-se alojada num bloco de teste. (Os nomes "produção" e "teste" são arbitrários e podem referir-se ao que o utilizador pretende para o seu cenário.) Após configurar os seus blocos de implementação, pode utilizar o Terraform para alternar entre os dois blocos, conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta do GitHub**: tem de ter uma conta no [GitHub](http://www.github.com) para criar um fork e utilizar o repositório de teste do GitHub.
+- **Conta do GitHub**: É necessário um [GitHub](http://www.github.com) conta para bifurcar e utilizar o repositório do GitHub de teste.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
@@ -36,7 +36,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
     ![Comando do Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive

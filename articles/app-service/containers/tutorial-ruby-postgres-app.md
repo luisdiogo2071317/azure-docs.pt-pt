@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67dfc99490787eef9164759d34ef9f5ee542b76a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635345"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713884"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Criar uma aplicação de Postgres no serviço de aplicações do Azure e o Ruby no Linux
 
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Ligar ao servidor Postgres de produção localmente

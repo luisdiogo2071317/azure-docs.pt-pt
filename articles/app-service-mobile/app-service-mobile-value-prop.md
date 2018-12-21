@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 46d6dfd27fb96dff49ea782f32655e1667011134
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5df59e886a2a4950e2ca6e1ef96487d3d59e7524
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542797"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718134"
 ---
 # <a name="getting-started"> </a>Sobre Aplicações Móveis no Serviço de Aplicações do Azure
 O Serviço de Aplicações do Azure é uma oferta de [plataforma como um serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente gerida para programadores profissionais. O serviço oferece um conjunto avançado de capacidades para cenários Web, móveis e de integração. 
@@ -100,7 +100,7 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicações do 
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [escala automática]: ../app-service/web-sites-scale.md
-[ambientes de teste]: ../app-service/web-sites-staged-publishing.md
+[ambientes de teste]: ../app-service/deploy-staging-slots.md
 [ligações híbridas]: ../biztalk-services/integration-hybrid-connection-overview.md
 [redes virtuais]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md

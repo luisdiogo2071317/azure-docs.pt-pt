@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 34cbb4d2c8a1e84499961802ca7bd07408375345
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409398"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720973"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -298,7 +298,7 @@ Tem estado a executar a aplicação de funções e a aplicação de chat localme
 
 ### <a name="configure-function-app-for-authentication"></a>Configurar a aplicação de funções para autenticação
 
-Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a [Autenticação do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) para autenticar o utilizador. O ID ou nome de utilizador autenticado pode ser transmitido ao enlace *SignalRConnectionInfo* para gerar informações de ligação que são autenticadas como o utilizador.
+Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a [Autenticação do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) para autenticar o utilizador. O ID ou nome de utilizador autenticado pode ser transmitido ao enlace *SignalRConnectionInfo* para gerar informações de ligação que são autenticadas como o utilizador.
 
 Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clientes ligados ou apenas para os clientes que tenham sido autenticados para um determinado utilizador.
 
