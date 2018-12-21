@@ -10,7 +10,7 @@ items:
   - name: Acerca dos Ambientes do Serviço de Aplicações
     href: environment/intro.md
   - name: Comparar opções de alojamento
-    href: choose-web-site-cloud-service-vm.md
+    href: overview-compare.md
 - name: Inícios rápidos
   items:
   - name: Criar aplicação .NET Core
@@ -67,26 +67,26 @@ items:
   - name: Como funciona o Serviço de Aplicações
     href: app-service-how-works-readme.md
   - name: Planos do Serviço de Aplicações
-    href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    href: overview-hosting-plans.md
   - name: Funcionalidade do SO
     href: operating-system-functionality.md
   - name: Segurança
-    href: app-service-security.md
+    href: overview-security.md
     items:
     - name: Autenticação e autorização
-      href: app-service-authentication-overview.md
+      href: overview-authentication-authorization.md
     - name: SO e aplicação de patches do tempo de execução
-      href: app-service-patch-os-runtime.md
+      href: overview-patch-os-runtime.md
   - name: IPs de entrada e de saída
-    href: app-service-ip-addresses.md
+    href: overview-inbound-outbound-ips.md
   - name: Ligações híbridas
     href: app-service-hybrid-connections.md
   - name: Integração do Gestor de Tráfego
     href: web-sites-traffic-manager.md
   - name: Cache local
-    href: app-service-local-cache-overview.md
+    href: overview-local-cache.md
   - name: Diagnóstico
-    href: app-service-diagnostics.md
+    href: overview-diagnostics.md
 - name: Guias de Procedimentos
   items:
   - name: Configurar aplicação
@@ -116,17 +116,17 @@ items:
     - name: Definir credenciais de implementação
       href: deploy-configure-credentials.md
     - name: Criar ambientes de teste
-      href: web-sites-staged-publishing.md
+      href: deploy-staging-slots.md
     - name: Modelo do Resource Manager
-      href: web-sites-rm-template-guidance.md
+      href: deploy-resource-manager-template.md
   - name: Mapear domínio personalizado
     items:
     - name: Comprar domínio
-      href: custom-dns-web-site-buydomains-web-app.md
+      href: manage-custom-dns-buy-domain.md
     - name: Mapear domínios com o Gestor de Tráfego
       href: web-sites-traffic-manager-custom-domain-name.md
     - name: Migrar um domínio ativo
-      href: app-service-custom-domain-name-migrate.md
+      href: manage-custom-dns-migrate-domain.md
   - name: Proteger aplicação
     items:
     - name: Comprar certificado SSL
@@ -148,7 +148,7 @@ items:
     - name: Restringir IPs
       href: app-service-ip-restrictions.md
     - name: Utilizar uma identidade gerida
-      href: app-service-managed-service-identity.md
+      href: overview-managed-identity.md
     - name: Referenciar segredos do Key Vault
       href: app-service-key-vault-references.md
     - name: Utilizar o certificado SSL no código da aplicação
@@ -164,19 +164,19 @@ items:
     - name: Aumentar horizontalmente para várias instâncias
       href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: Alojamento de alta densidade
-      href: app-service-high-density-hosting.md
+      href: manage-scale-per-app.md
   - name: Monitorizar aplicação
     items:
     - name: Quotas e alertas
       href: web-sites-monitor.md
     - name: Ativar registos
-      href: web-sites-enable-diagnostic-log.md
+      href: troubleshoot-diagnostic-logs.md
   - name: Gerir aplicação
     items:
     - name: Gerir o plano de alojamento
       href: app-service-plan-manage.md
     - name: Efetuar cópia de segurança de uma aplicação
-      href: web-sites-backup.md
+      href: manage-backup.md
     - name: Restaurar uma cópia de segurança
       href: web-sites-restore.md
     - name: Restaurar um instantâneo
@@ -188,9 +188,9 @@ items:
   - name: Execução de tarefas em segundo plano
     items:
     - name: Criar Trabalhos Web
-      href: web-sites-create-web-jobs.md
+      href: webjobs-create.md
     - name: Desenvolver Trabalhos Web com o VS
-      href: websites-dotnet-deploy-webjobs.md
+      href: webjobs-dotnet-deploy-vs.md
     - name: Introdução ao SDK do WebJobs
       href: webjobs-sdk-get-started.md
     - name: Utilizar o SDK do WebJobs
@@ -230,7 +230,7 @@ items:
   - name: Resolução de problemas
     items:
     - name: Resolver problemas com o Visual Studio
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
+      href: troubleshoot-dotnet-visual-studio.md
     - name: Resolver problemas da aplicação Node.js
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Resolver erros de HTTP 502 e 503
@@ -257,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Endereço SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 2256595005b39000cbad8e4967276beb65f22de3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e18c991d1ca722b16af2d5df9f2eb3a3d08127d3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599693"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716213"
