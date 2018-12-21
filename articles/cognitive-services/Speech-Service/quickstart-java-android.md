@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 6d245b457eca78dc029bde923616b4d84e04b997
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e77ee61e3d318b355b978ce21031f3f55a26feca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599024"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724628"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em Java no Android com o SDK de voz
 
@@ -141,16 +141,12 @@ Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz
 
 ![Captura de ecrã da aplicação Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo na pasta `quickstart/java-android`.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Reconhecer intenções de voz com o SDK de Voz para Java](how-to-recognize-intents-from-speech-java.md)
+> [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir voz](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)
