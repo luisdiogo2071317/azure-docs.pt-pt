@@ -304,7 +304,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
 ## <a name="create-pipeline"></a>Criar pipeline
 Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliza **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
 
-1. No Editor do Data Factory, clique em **... Mais** e clique em **Novo pipeline.
+1. No Editor do Data Factory, clique em **... Mais** e clique em **Novo pipeline**.
 2. Substitua o JSON no painel da direita com o seguinte texto:    
 
     ```JSON   

@@ -102,11 +102,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
  
    Sim. Todos os clientes conseguem registar com o novo fornecedor de recursos de VM do SQL Server. No entanto, apenas os clientes com o benefício do Software Assurance podem ativar a [Azure híbrido benefício (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (ou de BYOL) numa VM do SQL Server. 
 
-1. **O que acontece com o _* Microsoft.SqlVirtualMachine_* recurso se o recurso da VM é movido ou removido?** 
+1. **O que acontece com o _\*Microsoft.SqlVirtualMachine_\* recurso se o recurso da VM é movido ou removido?** 
 
    Quando o recurso de Microsoft.Compute/VirtualMachine é removido ou movido, em seguida, o recurso de Microsoft.SqlVirtualMachine associado é notificado para replicar a operação de forma assíncrona.
 
-1. **O que acontece com a VM se a _* Microsoft.SqlVirtualMachine_* recurso é ignorado?**
+1. **O que acontece com a VM se a _\*Microsoft.SqlVirtualMachine_\* recurso é ignorado?**
 
    O recurso de Microsoft.Compute/VirtualMachine não é afetado quando é arrastado para o recurso de Microsoft.SqlVirtualMachine. No entanto, as alterações de licenciamento serão predefinido para a origem da imagem original. 
 
