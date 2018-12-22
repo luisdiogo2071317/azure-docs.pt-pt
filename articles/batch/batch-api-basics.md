@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3043764ed89f2e53ddc3fd3f009a8bee586031e9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540382"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754072"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -264,7 +264,7 @@ Quando cria uma tarefa, pode especificar:
 * Referência da **imagem de contentor** no Docker Hub ou num registo privado e as definições adicionais para criar um contentor do Docker no qual a tarefa seja executada no nó. Apenas pode especificar estas informações se o agrupamento tiver uma configuração de contentor.
 
 > [!NOTE]
-> A duração máxima de uma tarefa, a partir da quando é adicionada à tarefa até quando está concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
+> A duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 180 dias. As tarefas concluídas mantêm durante sete dias; dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
 Além das tarefas que define para realizar a computação num nó, também são fornecidas pelo serviço Batch as seguintes tarefas especiais:
 

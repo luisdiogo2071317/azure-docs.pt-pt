@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3bce57f919490e1689ce40f59a3799ce451ee6e7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434958"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752797"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios federados
 
@@ -57,8 +57,6 @@ Este tutorial parte do princípio de que está familiarizado com:
 Para configurar o cenário neste tutorial, precisa do:
 
 - Windows Server 2012 R2 com o AD FS
-
-- No local do Active Directory (AD) com um nível de esquema do 85 ou posterior. Para obter mais informações, consulte [atualizar o esquema do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versão 1.1.819.0 ou superior. 
  

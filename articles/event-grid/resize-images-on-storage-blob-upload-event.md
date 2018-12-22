@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104667"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753953"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-Tem de ter concluído o tutorial de armazenamento de Blobs anterior: [Carregar dados de imagem na cloud com o Armazenamento do Azure][previous-tutorial].
+Tem de ter concluído o tutorial de armazenamento de BLOBs anterior: [Carregar dados de imagem na cloud com o armazenamento do Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -110,7 +110,7 @@ Agora, pode implementar um projeto de código de função nesta aplicação de f
 
 ## <a name="deploy-the-function-code"></a>Implementar o código de função 
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 O redimensionamento do script (.csx) do C# de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
 

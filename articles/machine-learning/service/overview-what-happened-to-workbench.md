@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7b8cf102160a281b47419680a209c58a7ae60c9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 614c4b9f8cb6b748385d86d20cbec15928642d30
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582842"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753307"
 ---
 # <a name="whats-happening-to-machine-learning-workbench-in-azure-machine-learning-service"></a>O que acontece ao Machine Learning Workbench no serviço Azure Machine Learning?
 
@@ -68,9 +68,9 @@ Dashboard de área de trabalho do portal é suportado nos browsers Microsoft Edg
 
 Os ficheiros de preparação de dados já existentes não são portáteis na versão mais recente porque não temos Machine Learning Workbench mais. No entanto, pode continuar a preparar os seus dados de modelação.  
 
-Com conjuntos de dados mais pequenos, pode utilizar o <a href="https://aka.ms/aml-sdk" target="_blank">SDK de preparação de dados do Azure Machine Learning</a> para preparar rapidamente os seus dados antes de modelagem. 
+Com conjuntos de dados de qualquer tamanho, pode utilizar o [SDK do Azure Machine Learning Data Prep](http://aka.ms/data-prep-sdk) para preparar rapidamente os seus dados antes da modelagem, escrevendo o código de Python. 
 
-Pode utilizar esta mesma <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> para conjuntos de dados maiores. Ou utilizar o Azure Databricks para preparar a grandes conjuntos de dados. 
+Pode seguir [deste tutorial](tutorial-data-prep.md) para saber mais sobre como utilizar o SDK do Azure Machine Learning Data Prep.
 
 ## <a name="will-projects-persist"></a>Os projetos serão mantidos?
 

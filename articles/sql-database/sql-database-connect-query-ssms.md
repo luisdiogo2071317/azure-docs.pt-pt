@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7049691e6635940e70795f0b5b4cc4c94cfd3631
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607324"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745079"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
-Pode usar [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) para gerir qualquer infraestrutura SQL, do SQL Server à base de dados SQL para Microsoft Windows. Este guia de introdução mostra-lhe como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados. 
+Neste início rápido, vai utilizar [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) para ligar a uma base de dados SQL do Azure. Em seguida, execute instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados. Pode utilizar o SSMS para gerir qualquer infraestrutura SQL, do SQL Server à base de dados SQL para Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,11 +75,11 @@ No SMSS, ligue ao seu servidor de base de dados do Azure SQL.
 
 ## <a name="query-data"></a>Consultar dados
 
-Utilize o seguinte procedimento [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) código Transact-SQL para consultar os 20 melhores produtos por categoria.
+Executar isso [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) código Transact-SQL para consultar os 20 melhores produtos por categoria.
 
-1. No Object Explorer, clique com botão direito **mySampleDatabase** e selecione **nova consulta**. É aberta uma janela de consulta em branco que está ligada à sua base de dados.
+1. No Object Explorer, clique com botão direito **mySampleDatabase** e selecione **nova consulta**. É aberta a janela de consulta nova ligada à base de dados.
 
-1. Na janela da consulta, cole esta consulta SQL.
+2. Na janela da consulta, cole esta consulta SQL.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ Utilize o seguinte procedimento [SELECIONE](https://msdn.microsoft.com/library/m
 
 3. Na barra de ferramentas, selecione **Execute** para obter dados a partir do `Product` e `ProductCategory` tabelas.
 
-    ![consulta para recuperar dados de 2 tabelas](./media/sql-database-connect-query-ssms/query2.png)
+    ![consulta para recuperar dados de duas tabelas](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
-Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms174335.aspx) código Transact-SQL para criar um novo produto no `SalesLT.Product` tabela.
+Executar isso [inserir](https://msdn.microsoft.com/library/ms174335.aspx) código Transact-SQL para criar um novo produto no `SalesLT.Product` tabela.
 
 1. Substitua a consulta anterior este.
 
@@ -117,7 +117,7 @@ Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms1
            ,GETDATE() );
    ```
 
-2. Selecione **Execute** para inserir uma nova linha na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para inserir uma nova linha no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
 ## <a name="view-the-result"></a>Ver o resultado
 
@@ -134,7 +134,7 @@ Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms1
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Execute** para atualizar a linha especificada na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para atualizar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Utilize o seguinte procedimento [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) código Transact-SQL para remover o produto novo que foi adicionado anteriormente.
+Executar isso [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) código Transact-SQL para remover o seu novo produto.
 
 1. Substitua a consulta anterior este.
 
@@ -157,7 +157,7 @@ Utilize o seguinte procedimento [eliminar](https://msdn.microsoft.com/library/ms
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Execute** para eliminar a linha especificada na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para eliminar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

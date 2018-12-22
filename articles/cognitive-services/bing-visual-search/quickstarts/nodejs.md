@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Criar uma consulta de pesquisa visual, Node.js - Pesquisa Visual do Bing'
+title: 'Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e o node. js'
 titleSuffix: Azure Cognitive Services
-description: Como carregar uma imagem para a API de Pesquisa Visual do Bing e obter informações sobre a imagem.
+description: Aprenda a carregar uma imagem para a API de pesquisa Visual do Bing e obter conhecimentos sobre ele.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5fca4e960b449988a0e77b2ecc2d0a9c8ca1988f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442538"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741476"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Início Rápido: a sua primeira consulta de Pesquisa Visual do Bing em JavaScript
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e o node. js
 
-A API de Pesquisa Visual do Bing devolve informações sobre a imagem fornecida. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, veja [What is Bing Visual Search API?](../overview.md) (O que é a API de Pesquisa Visual do Bing?). Este artigo demonstra como carregar uma imagem. Carregar uma imagem pode ser útil em cenários móveis onde tira uma fotografia de um ponto de referência bem conhecido e obtém informações sobre o mesmo. Por exemplo, as informações podem incluir curiosidades sobre esse ponto de referência. 
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Visual do Bing e ver os resultados da pesquisa. Esta aplicação JavaScript simple carrega uma imagem para a API e apresenta as informações devolvidas sobre ele. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
-Se carregar uma imagem local, o seguinte mostra os dados de formato que tem de incluir no corpo de POST. Os dados de formulário têm de incluir o cabeçalho Content-Disposition. O respetivo parâmetro `name` tem de ser definido como “image” e o parâmetro `filename` pode ser definido como qualquer cadeia. Os conteúdos do formulário são o binário da imagem. O tamanho máximo de imagem que pode carregar é 1 MB. 
+Ao carregar uma imagem do local, os dados do formulário tem de incluir o cabeçalho Content-Disposition. O respetivo parâmetro `name` tem de ser definido como “image” e o parâmetro `filename` pode ser definido como qualquer cadeia. Os conteúdos do formulário são o binário da imagem. O tamanho máximo de imagem que pode carregar é 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -32,79 +32,67 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Este artigo inclui uma aplicação de consola simples que envia um pedido da API de Pesquisa Visual do Bing e apresenta os resultados da pesquisa JSON. Embora esta aplicação seja escrita em JavaScript, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
-
 ## <a name="prerequisites"></a>Pré-requisitos
-Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
-Para iniciar uma subscrição no portal do Azure:
-1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
-2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
-3. Introduza `Name` do novo recurso.
-4. Selecione `Pay-As-You-Go` subscrição.
-5. Selecione `S9` escalão de preço.
-6. Clique em `Enable` para iniciar a subscrição.
+* [Node.js](https://nodejs.org/en/download/)
+* O módulo de pedido para JavaScript
+    * Pode instalar este módulo com `npm install request`
+* O módulo de dados do formulário
+    * Pode instalar este módulo com `npm install form-data`
 
-Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-## <a name="running-the-application"></a>Executar a aplicação
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-A seguir, é-lhe mostrado como enviar a mensagem com FormData no Node.js.
 
-Para executar esta aplicação, siga estes passos:
+## <a name="initialize-the-application"></a>Inicializar o aplicativo
 
-1. Crie uma pasta para o seu projeto (ou utilize o seu IDE ou editor favorito).
-2. Numa linha de comandos ou terminal, navegue para a pasta que acabou de criar.
-3. Instale os módulos do pedido:  
-  ```  
-  npm install request  
-  ```  
-3. Instale os módulos de dados de formulário:  
-  ```  
-  npm install form-data  
-  ```  
-4. Crie um ficheiro com o nome GetVisualInsights.js e adicione-lhe o seguinte código.
-5. Substitua o valor `subscriptionKey` pela sua chave de subscrição.
-6. Substitua o valor `imagePath` pelo caminho da imagem a carregar.
-7. Execute o programa.  
-  ```
-  node GetVisualInsights.js
-  ```
+1. Criar um novo ficheiro JavaScript no seu IDE ou editor favorito e defina os seguintes requisitos:
 
-```javascript
-var request = require('request');
-var FormData = require('form-data');
-var fs = require('fs');
+    ```javascript
+    var request = require('request');
+    var FormData = require('form-data');
+    var fs = require('fs');
+    ```
 
-var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
-var subscriptionKey = '<yoursubscriptionkeygoeshere>';
-var imagePath = "<pathtoyourimagegoeshere>";
+2. Crie variáveis para o ponto final de API, a chave de subscrição e o caminho para a sua imagem.
 
-var form = new FormData();
-form.append("image", fs.createReadStream(imagePath));
+    ```javascript
+    var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
+    var subscriptionKey = 'your-api-key';
+    var imagePath = "path-to-your-image";
+    ```
 
-form.getLength(function(err, length){
-  if (err) {
-    return requestCallback(err);
-  }
+3. Criar uma função chamada `requestCallback()` para imprimir a resposta da API.
 
-  var r = request.post(baseUri, requestCallback);
-  r._form = form; 
-  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
-});
+    ```javascript
+    function requestCallback(err, res, body) {
+        console.log(JSON.stringify(JSON.parse(body), null, '  '))
+    }
+    ```
 
-function requestCallback(err, res, body) {
-    console.log(JSON.stringify(JSON.parse(body), null, '  '))
-}
-```
+## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
 
+1. Crie um novo com dados de formulário `FormData()`e de acréscimo seu caminho de imagem, usando `fs.createReadStream()`.
+    
+    ```javascript
+    var form = new FormData();
+    form.append("image", fs.createReadStream(imagePath));
+    ```
+
+2. Utilize a biblioteca de pedido para carregar a imagem, chamar `requestCallback()` para imprimir a resposta. Certifique-se de que adicionar a chave de subscrição para o cabeçalho do pedido. 
+
+    ```javascript
+    form.getLength(function(err, length){
+      if (err) {
+        return requestCallback(err);
+      }
+      var r = request.post(baseUri, requestCallback);
+      r._form = form; 
+      r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
+    });
+    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Get insights about an image using an insights token](../use-insights-token.md) (Utilizar um token de informações para obter informações de uma imagem)  
-[Tutorial de carregamento de imagens da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
-[Tutorial de aplicação de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
-[Descrição geral da Pesquisa Visual do Bing](../overview.md)  
-[Experimente](https://aka.ms/bingvisualsearchtryforfree)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc) (Referência da API de Pesquisa Visual do Bing)
+> [!div class="nextstepaction"]
+> [Criar uma aplicação web de pesquisa personalizada](../tutorial-bing-visual-search-single-page-app.md)

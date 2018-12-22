@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: HT
+ms.openlocfilehash: a67f8c0f6be1c388c4138ee0269d7ad8b76d8c4c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29178201"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744341"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -34,7 +34,7 @@ Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaic
 
 Para concluir este tutorial:
 
-- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](app-insights-asp-net.md). 
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../azure-monitor/app/asp-net.md). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -163,7 +163,7 @@ Como o Azure Applications Insights Analytics é um serviço separado, tem de par
 5. Clique em **Publicar alterações** para confirmar as alterações ao dashboard que inclui agora uma variedade de gráficos e visualizações do Application Insights.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]

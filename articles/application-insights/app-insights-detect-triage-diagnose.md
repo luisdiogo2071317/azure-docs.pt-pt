@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab3d4d2df8f12c28fa6dbdbdd7d6913d53f12884
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: eea1ca2d1a4c9f062f374f4fcaddcc7206aee65d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715074"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753715"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -108,7 +108,7 @@ Assim, o problema está a ser resolvido, mesmo antes de se investigarem os regis
 ![pedido com falha](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Detetar exceções
-Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são reportadas automaticamente ao Application Insights. Também podem ser capturadas explicitamente ao inserir chamadas para [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) no código:  
+Com um pouco de configuração, as [exceções](../azure-monitor/app/asp-net-exceptions.md) são reportadas automaticamente ao Application Insights. Também podem ser capturadas explicitamente ao inserir chamadas para [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) no código:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -227,7 +227,7 @@ A equipa começa a habituar-se a ter informações sobre a atividade dos utiliza
 ## <a name="next-steps"></a>Passos Seguintes
 Pode começar de várias formas, consoante as características da sua aplicação. Escolha o mais adequado para si:
 
-* [Aplicação Web ASP.NET](app-insights-asp-net.md)
+* [Aplicação Web ASP.NET](../azure-monitor/app/asp-net.md)
 * [Aplicação Web Java](app-insights-java-get-started.md)
 * [Aplicação Web Node.js](app-insights-nodejs.md)
 * Aplicações já implementadas, alojadas no [IIS](app-insights-monitor-web-app-availability.md), no [J2EE](app-insights-java-live.md) ou no [Azure](app-insights-overview.md).

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0071d651f322da7bbdeb914393ef3d3be650b36
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d5279391c4f85411e592ce1d071fb1743cd135d5
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715499"
+ms.locfileid: "53744127"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -109,7 +109,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [**Aplicação Web ou VM do Azure**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
 * **No momento de programação: adicione o Application Insights ao seu código.** Permite-lhe escrever telemetria personalizada e instrumentar aplicações de back-end e de ambiente de trabalho.
-  * [Visual Studio](app-insights-asp-net.md) 2013 update 2 ou posterior.
+  * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 ou posterior.
   * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Outras plataformas](app-insights-platforms.md)
@@ -126,7 +126,7 @@ Introdução ao tempo de execução com:
 
 Introdução no momento de programação com:
 
-* [ASP.NET](app-insights-asp-net.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
@@ -153,7 +153,7 @@ Introdução no momento de programação com:
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md

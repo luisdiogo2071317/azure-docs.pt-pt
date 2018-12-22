@@ -1,7 +1,7 @@
 ---
 title: Pré-criados intenções e entidades
 titleSuffix: Azure Cognitive Services
-description: Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
+description: Neste tutorial, adicione pré-criados intenções e entidades a uma aplicação para obter rapidamente intenção extração de dados e de predição. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,24 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 20f5fb918c836bda9bee19feec3259cfd4858875
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722419"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754990"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar intenções e entidades comuns
-Neste tutorial, vai modificar a aplicação de Recursos Humanos. Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas porque a entidade é detetada automaticamente.
+# <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar intenções e entidades comuns
 
-Os modelos pré-concebidos de domínios de assunto e tipos de dados comuns ajudam-no a criar rapidamente o modelo, bem como a fornecer um exemplo do aspeto do modelo. 
+Neste tutorial, adicione pré-criados intenções e entidades a uma aplicação de tutorial de recursos humanos para obter rapidamente intenção extração de dados e de predição. Não é necessário marcar qualquer expressões com entidades previamente concebidas porque a entidade é detetada automaticamente.
+
+Modelos pré-construídos (domínios, objetivos e entidades) ajudam a criar rapidamente o seu modelo.
 
 **Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
+> * Criar nova aplicação
 > * Adicionar intenções pré-concebidas 
 > * Adicionar entidades pré-concebidas 
 > * Preparar 
@@ -35,29 +36,24 @@ Os modelos pré-concebidos de domínios de assunto e tipos de dados comuns ajuda
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
-Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
-2. Importe o JSON para uma nova aplicação.
+## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Adicionar intenções criados previamente para ajudar com intenções comuns do utilizador
 
-3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `prebuilts`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
-
-## <a name="add-prebuilt-intents"></a>Adicionar intenções pré-concebidas
 O LUIS oferece várias intenções pré-concebidas para ajudar com intenções comuns do utilizador.  
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecione **Adicionar intenção pré-concebida**. 
+1. Selecione **Adicionar intenção de domínio pré-concebido**. 
 
-3. Procurar `Utilities`. 
+1. Procurar `Utilities`. 
 
     [ ![Captura de ecrã da caixa de diálogo de intenções pré-concebidas com Utilitários na caixa de pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selecione as intenções seguintes e selecione **Concluído**: 
+1. Selecione as intenções seguintes e selecione **Concluído**: 
 
     * Utilities.Cancel
     * Utilities.Confirm
@@ -65,118 +61,118 @@ O LUIS oferece várias intenções pré-concebidas para ajudar com intenções c
     * Utilities.StartOver
     * Utilities.Stop
 
+    Esses objetivos são úteis para determinar em que lugar, a conversa, o utilizador é e o que eles estão fazendo para o fazer. 
 
-## <a name="add-prebuilt-entities"></a>Adicionar entidades pré-concebidas
+
+## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar entidades previamente concebidas para ajudar a extração do tipo de dados comuns
+
 O LUIS oferece várias entidades pré-concebidas para extração de dados comuns. 
 
 1. Selecione **Entidades** no menu de navegação esquerdo.
 
-2. Selecione o botão **Gerir entidade pré-concebida**.
+1. Selecione o botão **Adicionar entidade pré-compilada**.
 
-3. Selecione **número** e **datetimeV2** na lista de entidades pré-concebidas e, em seguida, selecione **Concluído**.
+1. Selecione as entidades a seguir na lista de entidades previamente concebidas, em seguida, selecione **feito**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
     ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train"></a>Preparar
+    Estas entidades lhe ajudarão a adicionar o reconhecimento de nome e local para a aplicação cliente.
+
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL na barra de endereço do browser e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
+1. Vá para o final do URL na barra de endereço do browser e introduza `I want to cancel my trip to Seattle to see Bob Smith`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
 
     ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-    O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
+    O resultado prever a intenção de Utilities.Cancel com confiança de 80% e os dados de nome de cidade e de pessoa extraídos. 
 
-    Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação cliente fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Informações relacionadas
+
+Saiba mais sobre modelos pré-construídos:
+
+* [Domínios pré-concebidos](luis-reference-prebuilt-domains.md): estes são domínios comuns que reduzem a criação da aplicação de LUIS geral
+* Objetivos pré-criados: estes são os objetivos individuais dos domínios comuns. Pode adicionar intenções individualmente em vez de adicionar todo o domínio.
+* [Entidades pré-concebidas](luis-prebuilt-entities.md): estes são tipos de dados comuns, útil para a maioria das aplicações de LUIS.
+
+Saiba mais sobre como trabalhar com a sua aplicação LUIS:
+
+* [Como dar formação](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ao adicionar intenções e entidades pré-concebidas, a aplicação cliente pode determinar as intenções de utilizador comuns e extrair tipos de dados comuns. 
+Ao adicionar intenções e entidades pré-concebidas, a aplicação cliente pode determinar as intenções de utilizador comuns e extrair tipos de dados comuns.  
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade de expressão regular à aplicação](luis-quickstart-intents-regex-entity.md)

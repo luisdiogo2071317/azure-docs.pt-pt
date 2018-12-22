@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991691"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744540"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -33,7 +33,7 @@ Para concluir este guia de início rápido:
 - [Instale o SDK .NET Core 2.0](https://www.microsoft.com/net/core)
 - Irá precisar de uma subscrição do Azure e de uma aplicação Web .NET Core existente.
 
-Se não tiver uma aplicação Web ASP.NET Core, pode utilizar o nosso guia passo a passo para [criar uma aplicação ASP.NET Core e adicionar o Application Insights.](app-insights-asp-net-core.md)
+Se não tiver uma aplicação Web ASP.NET Core, pode utilizar o nosso guia passo a passo para [criar uma aplicação ASP.NET Core e adicionar o Application Insights.](../azure-monitor/app/asp-net-core.md)
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -124,7 +124,7 @@ Se quiser continuar a trabalhar com inícios rápidos subsequentes ou com os tut
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar exceções de runtime](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

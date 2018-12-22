@@ -9,18 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e48231e154c04e75ab27f2a92783486b83d00d3b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719511"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753053"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes de lista simples de entidade e a frase
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
 
 Neste tutorial, irá extrair dados de aprendizagem automática do nome do cargo a partir de uma expressão com a entidade **Simple** (Simples). Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
+
+A entidade simples deteta um único conceito de dados contido em palavras ou expressões.
+
+**Neste tutorial, ficará a saber como:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Aplicação de exemplo de importação
+> * Adicionar entidade simple 
+> * Adicionar a lista de frase para impulsionar o sinal de palavras
+> * Preparar 
+> * Publicar 
+> * Obter as intenções e as entidades do ponto final
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+
+## <a name="simple-entity"></a>Entidade simples
 
 Este tutorial adiciona uma nova entidade simples para extrair o nome do cargo. O objetivo da entidade simples nesta aplicação LUIS é ensinar ao LUIS o que é um nome de trabalho e onde pode ser encontrado numa expressão. A parte da expressão que corresponde ao nome do cargo pode variar de expressão para expressão com base na escolha de palavras e no comprimento da expressão. O LUIS precisa de exemplos de nomes de cargos em todas as intenções que utilizam nomes de cargos.  
 
@@ -31,34 +49,6 @@ A entidade simples é uma boa opção para este tipo de dados quando:
 * Os dados não são comuns, como uma entidade pré-concebida do número de telefone ou de dados.
 * Os dados não correspondem exatamente a uma lista de palavras conhecidas, como uma entidade de lista.
 * Os dados não contêm outros itens de dados, como uma entidade composta ou hierárquica.
-
-**Neste tutorial, ficará a saber como:**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
-> * Adicionar uma entidade simples para extrair tarefas da aplicação
-> * Adicionar a lista de expressões para melhorar o sinal das palavras da tarefa
-> * Preparar 
-> * Publicar 
-> * Obter as intenções e as entidades do ponto final
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
-
-Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
-
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
-
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
-
-2. Importe o JSON para uma nova aplicação.
-
-3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `simple`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
-
-## <a name="simple-entity"></a>Entidade simples
-A entidade simples deteta um único conceito de dados contido em palavras ou expressões.
 
 Considere as seguintes expressões de um chatbot:
 
@@ -87,25 +77,38 @@ Esta aplicação LUIS tem nomes de trabalhos em várias intenções. Ao identifi
 
 Depois de as entidades serem marcadas nas expressões de exemplo, é importante adicionar uma lista de expressões para aumentar o sinal da entidade simples. Uma lista de expressões **não** é utilizada como uma correspondência exata e não precisa de ser todos os valores possíveis esperados. 
 
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) partir do tutorial de objetivos.
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `simple`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Entidades de Mark em expressões de exemplo de um objetivo
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Na página **Intents** (Intenções), selecione a intenção **ApplyForJob**. 
+1. Na página **Intents** (Intenções), selecione a intenção **ApplyForJob**. 
 
-3. Na expressão, `I want to apply for the new accounting job`, selecione `accounting`, introduza `Job` no campo superior do menu de pop-up e, em seguida, selecione **Create new entity** (Criar nova entidade) no menu de pop-up. 
+1. Na expressão, `I want to apply for the new accounting job`, selecione `accounting`, introduza `Job` no campo superior do menu de pop-up e, em seguida, selecione **Create new entity** (Criar nova entidade) no menu de pop-up. 
 
     [![Captura de ecrã do LUIS, com a intenção de 'ApplyForJob' com criar passos de entidade realçados](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "captura de ecrã do LUIS, com a intenção de 'ApplyForJob' com criar passos de entidade realçados")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-4. Na janela de pop-up, verifique o nome e o tipo da entidade e selecione **Done** (Concluído).
+1. Na janela de pop-up, verifique o nome e o tipo da entidade e selecione **Done** (Concluído).
 
     ![Criar um diálogo modal de pop-up de entidade simples com o nome do Trabalho e o tipo simples](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. Na expressão, `Submit resume for engineering position`, identifique a palavra `engineering` como a entidade de Trabalho. Selecione a palavra `engineering` e, em seguida, selecione **Trabalho** no menu de pop-up. 
+1. Em expressões de com restantes, marcar as palavras relacionadas à tarefa com **tarefa** entidade ao selecionar a palavra ou frase, em seguida, selecionar **tarefa** no menu de pop-up. 
 
     [![Captura de ecrã do LUIS etiquetagem entidade de tarefa realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "captura de ecrã do LUIS etiquetagem entidade de tarefa realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    Todas as expressões estão identificadas, mas cinco expressões não são suficientes para ensinar ao LUIS sobre palavras e expressões relacionadas com trabalho. Os trabalhos que utilizam o valor numérico não precisam de mais exemplos porque utilizam uma entidade de expressão regular. Os trabalhos que são palavras ou expressões precisam de, pelo menos, mais 15 exemplos. 
 
-6. Adicione mais expressões e marque as palavras ou expressões de trabalho como entidade **Job** (Trabalho). Os tipos de trabalho são gerais em todos os empregos para um serviço de emprego. Se quisesse trabalhos relacionados com um setor específico, as palavras do trabalho devem refletir esse setor. 
+## <a name="add-more-example-utterances-and-mark-entity"></a>Adicionar mais expressões de exemplo e marcar a entidade
+
+Entidades simples precisam muitos exemplos para ter uma confiança elevada de predição. 
+ 
+1. Adicione mais expressões e marque as palavras ou expressões de trabalho como entidade **Job** (Trabalho). 
 
     |Expressão|Entidade de trabalho|
     |:--|:--|
@@ -126,100 +129,64 @@ Depois de as entidades serem marcadas nas expressões de exemplo, é importante 
     |Envio em anexo o meu curriculum vitae para professor de biologia.|professor de biologia|
     |Gostaria de candidatar-me ao cargo na área de fotografia.|fotografia|git 
 
-## <a name="label-entity-in-example-utterances"></a>Etiquetar a entidade nas expressões de exemplo
-
-Etiquetar ou _marcar_ a entidade mostra ao LUIS onde está a entidade nas expressões de exemplo.
+## <a name="mark-job-entity-in-other-intents"></a>Entidade de tarefa de Mark em outros objetivos
 
 1. Selecione **Intents** (Intenções) no menu esquerdo.
 
-2. Selecione **GetJobInformation** na lista de intenções. 
+1. Selecione **GetJobInformation** na lista de intenções. 
 
-3. Identifique os trabalhos nas expressões de exemplo:
+1. As tarefas nas expressões de exemplo da etiqueta
 
-    |Expressão|Entidade de trabalho|
-    |:--|:--|
-    |Existe algum trabalho em bases de dados?|bases de dados|
-    |Procuro um novo emprego com responsabilidades em contabilidade|contabilidade|
-    |Que vagas estão disponíveis para engenheiros sénior?|engenheiros sénior|
+    Se existirem mais expressões de exemplo numa intenção, a intenção de outro, essa intenção tem uma maior probabilidade de que está a ser o mais alto intext prevista. 
 
-    Existem outras expressões de exemplo, mas não contêm palavras relacionadas com trabalhos.
-
-## <a name="train"></a>Preparar
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL no endereço e introduza `Here is my c.v. for the programmer job`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver as expressões `ApplyForJob`.
+2. Vá para o final do URL no endereço e introduza `Here is my c.v. for the engineering job`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver as expressões `ApplyForJob`.
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    O LUIS encontrou a intenção correta, **ApplyForJob**, e extraiu a entidade correta, **Job**, com um valor de `programmer`.
+    O LUIS encontrou a intenção correta, **ApplyForJob**, e extraiu a entidade correta, **Job**, com um valor de `engineering`.
 
 
 ## <a name="names-are-tricky"></a>Os nomes são complicados
@@ -229,51 +196,23 @@ No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas n
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -282,94 +221,76 @@ No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas n
 
 Uma vez que um nome pode ser qualquer coisa, o LUIS prevê as entidades com maior exatidão se tiver uma lista de expressões e palavras para melhorar o sinal.
 
-## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de expressões
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>Para aumentar o sinal das palavras relacionados com tarefas, adicione uma lista de frase de palavras relacionados com tarefas
 
-Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do Azure. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
+Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do Azure. A lista é mais de 1000 palavras de tarefa e expressões. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
 
 1. Na secção **Build** (Criar) da aplicação LUIS, selecione **Phrase lists** (Listas de expressões), que se encontra no menu **Improve app performance** (Melhorar o desempenho da aplicação).
 
-2. Selecione **Create new phrase list** (Criar nova lista de expressões). 
+1. Selecione **Create new phrase list** (Criar nova lista de expressões). 
 
-3. Atribua à nova lista de expressões o nome `Job` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Values** (Valores). Selecione Enter. 
+1. Atribua à nova lista de expressões o nome `JobNames` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Values** (Valores). Selecione Enter. 
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Se pretender adicionar mais palavras à lista de expressões, reveja os **Valores Relacionados** e adicione os que são relevantes. 
 
-4. Selecione **Save** (Guardar) para ativar a lista de expressões.
+1. Selecione **Save** (Guardar) para ativar a lista de expressões.
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Prepare](#train) e [publique](#publish) a aplicação novamente para utilizar a lista de expressões.
+1. [Prepare](#train) e [publique](#publish) a aplicação novamente para utilizar a lista de expressões.
 
-6. Repita a consulta no ponto final com a mesma expressão: `This is the lead welder paperwork.`
+1. Repita a consulta no ponto final com a mesma expressão: `This is the lead welder paperwork.`
 
     A resposta JSON inclui a entidade extraída:
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Informações relacionadas
+
+* [Objetivos sem tutorial de entidades](luis-quickstart-intents-only.md)
+* [Entidade Simple](luis-concept-entity-types.md) informações concetuais
+* [Lista de frase](luis-concept-feature.md) informações concetuais
+* [Como dar formação](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

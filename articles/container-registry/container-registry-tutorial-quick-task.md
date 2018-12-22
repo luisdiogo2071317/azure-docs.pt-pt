@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256694"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754378"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure
 
@@ -201,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-O argumento `--role` no comando anterior configura o principal de serviço com a função de *leitor*, a qual concede acesso ao registo apenas por pedido. Para conceder acesso por pedido e por envio, altere o argumento `--role` para *contribuinte*.
+O `--role` argumento no comando anterior configura o principal de serviço com o *acrpull* função, que concede-pull-only acesso ao registo. Para conceder ambos enviar e extrair o acesso, altere a `--role` argumento *acrpush*.
 
 Em seguida, armazene o *appId* do principal de serviço no cofre, que é o **nome de utilizador** que passa para o Azure Container Registry para autenticação:
 
