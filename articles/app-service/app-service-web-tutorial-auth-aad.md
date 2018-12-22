@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: acbd9b3309f55d97b7877907d5ab317464d0191e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631061"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716417"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [autenticação e autorização de utilizadores](app-service-authentication-overview.md). Este tutorial mostra como proteger as suas aplicações com a autenticação e autorização do Serviço de Aplicações. Utiliza uma aplicação ASP.NET Core com um front-end Angular.js, mas é apenas para exemplo. A autenticação e autorização do Serviço de Aplicações suportam todos os runtimes de linguagens e pode seguir o tutorial para aprender a aplicá-las na sua linguagem preferida.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [autenticação e autorização de utilizadores](overview-authentication-authorization.md). Este tutorial mostra como proteger as suas aplicações com a autenticação e autorização do Serviço de Aplicações. Utiliza uma aplicação ASP.NET Core com um front-end Angular.js, mas é apenas para exemplo. A autenticação e autorização do Serviço de Aplicações suportam todos os runtimes de linguagens e pode seguir o tutorial para aprender a aplicá-las na sua linguagem preferida.
 
 O tutorial utiliza a aplicação de exemplo para lhe mostrar como proteger uma aplicação autónoma (em [Ativar a autenticação e autorização em aplicações de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 

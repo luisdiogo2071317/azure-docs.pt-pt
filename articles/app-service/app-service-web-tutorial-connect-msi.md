@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 49f98958c540faa06aa15fbfc429f87f92463c3e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635447"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718530"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Ligação de base de dados do Azure SQL segura do serviço de aplicações com uma identidade gerida
 
-O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](app-service-managed-service-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, irá adicionar a identidade gerida para a aplicação web do ASP.NET de exemplo que criou na [Tutorial: Criar uma aplicação ASP.NET no Azure com a base de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
+O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](overview-managed-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, irá adicionar a identidade gerida para a aplicação web do ASP.NET de exemplo que criou na [Tutorial: Criar uma aplicação ASP.NET no Azure com a base de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
 
 > [!NOTE]
 > Este cenário é atualmente suportado pelo .NET Framework 4.6 e acima, mas não pelo [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). O [.NET core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) suporta o cenário, mas ainda não está incluído nas imagens predefinidas no Serviço de Aplicações. 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Este construtor configura um objeto SqlConnection personalizado para utilizar um token de acesso para a Base de Dados SQL do Azure a partir do Serviço de Aplicações. Com o token de acesso, a aplicação do Serviço de Aplicações autentica-se com a Base de Dados SQL do Azure com a respetiva identidade gerida. Para obter mais informações, veja [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources) (Obter tokens para recursos do Azure). A instrução `if` permite-lhe continuar a testar a aplicação localmente com LocalDB.
+Este construtor configura um objeto SqlConnection personalizado para utilizar um token de acesso para a Base de Dados SQL do Azure a partir do Serviço de Aplicações. Com o token de acesso, a aplicação do Serviço de Aplicações autentica-se com a Base de Dados SQL do Azure com a respetiva identidade gerida. Para obter mais informações, veja [Obtaining tokens for Azure resources](overview-managed-identity.md#obtaining-tokens-for-azure-resources) (Obter tokens para recursos do Azure). A instrução `if` permite-lhe continuar a testar a aplicação localmente com LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` só é suportado atualmente em .NET Framework 4.6 e superior, bem como no [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), e não no [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).

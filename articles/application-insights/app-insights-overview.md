@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5614832863fa801f931fc5cf08ca7ebf7c317488
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: a0071d651f322da7bbdeb914393ef3d3be650b36
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997673"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715499"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -61,15 +61,15 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 |  |  |
 | --- | --- |
-| [**Deteção inteligente e alertas manuais**](app-insights-proactive-diagnostics.md)<br/>Os alertas automáticos adaptam-se aos padrões normais da sua aplicação relativamente a telemetria e são acionados se ocorrer algo fora do padrão habitual. Também pode [definir alertas](app-insights-alerts.md) em níveis específicos de métricas personalizadas ou standard. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
-| [**Application map**](app-insights-app-map.md) (Mapeamento de aplicações)<br/>Os componentes da sua aplicação, com as principais métricas e alertas. |![Mapeamento de aplicações](./media/app-insights-overview/appmap-tn.png)  |
+| [**Deteção inteligente e alertas manuais**](app-insights-proactive-diagnostics.md)<br/>Os alertas automáticos adaptam-se aos padrões normais da sua aplicação relativamente a telemetria e são acionados se ocorrer algo fora do padrão habitual. Também pode [definir alertas](../azure-monitor/app/alerts.md) em níveis específicos de métricas personalizadas ou standard. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
+| [**Application map**](../azure-monitor/app/app-map.md) (Mapeamento de aplicações)<br/>Os componentes da sua aplicação, com as principais métricas e alertas. |![Mapeamento de aplicações](./media/app-insights-overview/appmap-tn.png)  |
 | [**Gerador de perfis**](app-insights-profiler.md)<br/>Verifique os perfis de execução de amostras de pedidos. |![Gerador de perfis](./media/app-insights-overview/profiler.png) |
 | [**Análise de utilização**](app-insights-usage-overview.md)<br/>Analise a retenção e a segmentação do utilizador.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](app-insights-diagnostic-search.md) (Pesquisa de diagnósticos para dados de instâncias)<br/>Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.  |![Pesquisar telemetria](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md) (Explorador de Métricas para dados agregados)<br/>Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
-| [**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
+| [**Dashboards**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md) (Fluxo de Métricas em Direto)<br/>Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado. |![Exemplo de métricas em direto](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](app-insights-analytics.md) (Análise)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
+| [**Analytics**](../azure-monitor/app/analytics.md) (Análise)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Depurador de instantâneos**](app-insights-snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -81,7 +81,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 ### <a name="monitor"></a>Monitorizar
 Instale o Application Insights na sua aplicação, configure [testes Web de disponibilidade](app-insights-monitor-web-app-availability.md) e:
 
-* Configure um [dashboard](app-insights-dashboards.md) para a sala de equipa para estar a par da carga, da capacidade de resposta e do desempenho das suas dependências, dos carregamentos de páginas e das chamadas AJAX.
+* Configure um [dashboard](../azure-monitor/app/app-insights-dashboards.md) para a sala de equipa para estar a par da carga, da capacidade de resposta e do desempenho das suas dependências, dos carregamentos de páginas e das chamadas AJAX.
 * Saiba quais são os pedidos mais lentos e que mais falham.
 * Veja o [Live Stream](app-insights-live-stream.md) quando implementar uma versão nova, para tomar conhecimento imediatamente de eventuais degradações.
 

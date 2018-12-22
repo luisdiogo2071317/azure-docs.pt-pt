@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Consultar dados através da biblioteca Python do Azure Data Explorer'
+title: 'Início rápido: Consultar dados com a biblioteca de Python de Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a consultar dados a partir do Azure Data Explorer com Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 14049df1116205ec5e95b052049f53738dcf50b4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863419"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715123"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Início Rápido: Consultar dados através da biblioteca Python do Azure Data Explorer
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Início rápido: Consultar dados com a biblioteca de Python de Explorador de dados do Azure
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece uma [biblioteca de cliente de dados ao Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite-lhe consultar dados a partir do código. Neste início rápido, vai estabelecer ligação a uma tabela no *cluster de ajuda* que configurámos para ajudar na aprendizagem. Em seguida, pode consultar uma tabela nesse cluster e devolver os resultados.
 
@@ -66,7 +66,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar o certificado de aplicação do AAD, a chave de aplicação do AAD e o utilizador e a palavra-passe do AAD.
+Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar [certificado de aplicação do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [chave de aplicação do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), e [AAD utilizador e palavra-passe](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
@@ -75,7 +75,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Ligar ao Azure Data Explorer e executar uma consulta
 
-Executar uma consulta contra o cluster e armazenar o resultado num pacote de dados. Quando este código é executado, devolve uma mensagem semelhante à seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e volte para executar o bloco de código seguinte.
+Executar uma consulta contra o cluster e armazenar o resultado num pacote de dados. Quando esse código é executado, ele retorna uma mensagem semelhante ao seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e volte para executar o bloco de código seguinte.
 
 ```python
 KUSTO_CLIENT  = KustoClient(KCSB)
@@ -98,4 +98,4 @@ Deve ver os dez principais resultados da tabela StormEvents.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início Rápido: ingerir dados através da biblioteca Python do Azure Data Explorer](python-ingest-data.md)
+> [Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)

@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3ac7517327e1447fbcd20cf3ffb506b7207a78b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616152"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717574"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: criar várias instâncias de recursos com modelos do Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
+
+Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Abrir um modelo de Início rápido
@@ -149,7 +151,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a criar várias instâncias de contas de armazenamento. Até agora, criou uma conta de armazenamento ou várias instâncias de contas de armazenamento. No próximo tutorial, vai desenvolver um modelo com vários recursos e vários tipos de recurso. Alguns dos recursos têm recursos dependentes.
+Neste tutorial, aprendeu a criar várias instâncias de contas de armazenamento. O próximo tutorial, irá aprender a mover um recurso de um grupo de recursos para outro grupo de recursos.
 
 > [!div class="nextstepaction"]
-> [Criar recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Mover recursos](./resource-manager-tutorial-move-resources.md)

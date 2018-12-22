@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 48f2a6cfe365a113d6538faa77061ec6d585a0bd
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
+ms.openlocfilehash: 49302f3033d76f2662712179ceec33496f031023
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628226"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718516"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar uma aplicação de MySQL no serviço de aplicações do Azure e o PHP no Linux
 
@@ -191,7 +191,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).

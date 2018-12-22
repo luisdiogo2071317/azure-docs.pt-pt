@@ -1,5 +1,5 @@
 ---
-title: Utilize o mongoimport e mongorestore com a API do Azure Cosmos DB para o MongoDB
+title: Utilize o mongoimport e mongorestore com o Azure Cosmos DB para a MongoDB API
 description: Saiba como utilizar mongoimport e mongorestore para importar dados para uma API para a conta do MongoDB
 keywords: mongoimport, mongorestore
 services: cosmos-db
@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: a17b2121feb5656df4298bddc2b1e90bb9ac6457
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c0fed311a43677465559ca9ea86b384a39b9fbfd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545624"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723421"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-api-account-for-mongodb"></a>Tutorial: Migre os seus dados para a conta de API do Azure Cosmos DB para o MongoDB
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-configured-for-mongodb-api"></a>Tutorial: Migre os seus dados ao configurado para a MongoDB API do Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB à API do Azure Cosmos DB para o MongoDB. Se estiver a importar dados do MongoDB e pretender utilizá-los com a API do Azure Cosmos DB, deve utilizar a [ferramenta Migração de Dados](import-data.md) para a importação.
+Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB ao configurado para a MongoDB API do Azure Cosmos DB. Se estiver a importar dados do MongoDB e pretende utilizá-lo com o Azure Cosmos DB configurado para a API de SQL, deve utilizar o [ferramenta de migração de dados](import-data.md) para importar dados.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -29,7 +29,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Migrar dados com o mongoimport
 > * Migrar dados com o mongorestore
 
-Antes de migrar dados para a API do Azure Cosmos DB para o MongoDB, certifique-se de que tem alguns dados do MongoDB de exemplo. Se não tiver uma base de dados do MongoDB de exemplo, pode transferir e instalar o [servidor de Comunidade do MongoDB](https://www.mongodb.com/download-center), criar uma base de dados de exemplo e utilizar o mongoimport.exe ou mongorestore.exe para carregar dados de exemplo. 
+Antes de migrar dados para o Azure Cosmos DB para a API de MongoDB, certifique-se de que tem alguns dados do MongoDB de exemplo. Se não tiver uma base de dados do MongoDB de exemplo, pode transferir e instalar o [servidor de Comunidade do MongoDB](https://www.mongodb.com/download-center), criar uma base de dados de exemplo e utilizar o mongoimport.exe ou mongorestore.exe para carregar dados de exemplo. 
 
 ## <a name="plan-for-migration"></a>Planear a migração
 
@@ -59,7 +59,7 @@ Antes de migrar dados para a API do Azure Cosmos DB para o MongoDB, certifique-s
 
 1. Calcule os custos de RU aproximados para uma escrita em documento única:
 
-   a. Ligar ao seu Azure Cosmos DB API para MongoDB a partir da Shell de MongoDB. Pode encontrar instruções em [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ligar uma aplicação MongoDB ao Azure Cosmos DB).
+   a. Ligar à sua conta de Cosmos configurada para a API de MongoDB a partir da Shell de MongoDB. Pode encontrar instruções em [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ligar uma aplicação MongoDB ao Azure Cosmos DB).
     
    b. Utilize um dos seus documentos de exemplo para executar um comando de inserção de exemplo a partir da shell do MongoDB:
    
@@ -161,7 +161,7 @@ mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cos
 
 ## <a name="migrate-data-by-using-mongorestore"></a>Migrar dados utilizando o mongorestore
 
-Para restaurar dados para a sua API para a conta do MongoDB, utilize o modelo seguinte para executar a importação. Preencha *host* (anfitrião), *username* (nome de utilizador) e *password* (palavra-passe) com os valores específicos da sua conta.
+Para restaurar dados para a sua conta do Cosmos configurada para a MongoDB API, usam o modelo seguinte para executar a importação. Preencha *host* (anfitrião), *username* (nome de utilizador) e *password* (palavra-passe) com os valores específicos da sua conta.
 
 Modelo:
 
@@ -177,7 +177,7 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode avançar para o próximo tutorial para ficar a saber como utilizar o Azure Cosmos DB para consultar dados do MongoDB. 
+Pode avançar para o próximo tutorial e saiba como consultar dados na base de dados do Cosmos com os clientes e ferramentas do MongoDB. 
 
 > [!div class="nextstepaction"]
 >[Como consultar dados do MongoDB?](../cosmos-db/tutorial-query-mongodb.md)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8c4dc3e62322cac1fe90874b55a155014e78278d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633696"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720056"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
@@ -118,7 +118,7 @@ Na caixa de diálogo **Configurar o Plano do Serviço de Aplicações**, configu
 
 | Definição  | Valor sugerido | Para obter mais informações: |
 | ----------------- | ------------ | ----|
-|**App Service Plan** (Plano do Serviço de Aplicações)| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**App Service Plan** (Plano do Serviço de Aplicações)| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/overview-hosting-plans.md) |
 |**Localização**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Tamanho**| Gratuito | [Escalões de preços](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Adicione um nome de utilizador e uma palavra-passe de administrador. Para saber 
 Memorize o nome de utilizador e a palavra-passe. Precisa dos mesmos para gerir a instância do servidor lógico mais tarde.
 
 > [!IMPORTANT]
-> Embora a palavra-passe nas cadeias de ligação esteja ocultada (no Visual Studio e também no Serviço de Aplicações), o facto de ser mantida algures aumenta a superfície de ataque da sua aplicação. O Serviço de Aplicações pode utilizar [identidades de serviço geridas](app-service-managed-service-identity.md) para eliminar este risco ao remover a necessidade de manter segredos na configuração do código ou da aplicação. Para obter mais informações, veja [Passos seguintes](#next-steps).
+> Embora a palavra-passe nas cadeias de ligação esteja ocultada (no Visual Studio e também no Serviço de Aplicações), o facto de ser mantida algures aumenta a superfície de ataque da sua aplicação. O Serviço de Aplicações pode utilizar [identidades de serviço geridas](overview-managed-identity.md) para eliminar este risco ao remover a necessidade de manter segredos na configuração do código ou da aplicação. Para obter mais informações, veja [Passos seguintes](#next-steps).
 
 ![Criar uma instância do SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 

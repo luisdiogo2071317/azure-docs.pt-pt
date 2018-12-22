@@ -1,6 +1,6 @@
 ---
 title: Suporte de funcionalidades do Azure Cosmos DB para o MongoDB
-description: Saiba mais sobre o suporte de funcionalidades que a API do Azure Cosmos DB para o MongoDB fornece para transferência MongoDB 3.4.
+description: Saiba mais sobre o suporte de funcionalidades para a MongoDB API do Azure Cosmos DB fornece para transferência MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 ms.service: cosmos-db
@@ -8,32 +8,32 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 3a62df3cca50a3d9d95ffbcfaa661bbeb0982c16
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1d7b8454743e4a18e6e80c07f718e378136320ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544605"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722180"
 ---
-# <a name="azure-cosmos-db-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Suporte de API do Azure Cosmos DB para o MongoDB para funcionalidades e sintaxe
+# <a name="azure-cosmos-db-for-mongodb-api-support-for-mongodb-features-and-syntax"></a>O Azure Cosmos DB para a MongoDB API suporte para funcionalidades e sintaxe
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API do Azure Cosmos DB para o MongoDB por meio do cliente do MongoDB de código-fonte aberto [drivers](https://docs.mongodb.org/ecosystem/drivers). A API do Azure Cosmos DB do MongoDB permite a utilização de controladores existentes do cliente através do respetivo do MongoDB [conectar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com o Azure Cosmos DB para a API de MongoDB por meio do cliente do MongoDB de código-fonte aberto [drivers](https://docs.mongodb.org/ecosystem/drivers). O Azure Cosmos DB para API do MongoDB permite a utilização de controladores existentes do cliente através do respetivo do MongoDB [conectar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Ao utilizar a API do Azure Cosmos DB para o MongoDB, pode desfrutar dos benefícios do MongoDB está habituado a, com todas as capacidades de empresa, o Azure Cosmos DB oferece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e a latência das garantias, automáticas de indexação de cada campo, a encriptação em repouso, as cópias de segurança e muito mais.
+Ao utilizar o Azure Cosmos DB para API do MongoDB, pode desfrutar dos benefícios do MongoDB está habituado a, com todas as capacidades de empresa, o Azure Cosmos DB oferece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e a latência das garantias, automáticas de indexação de cada campo, a encriptação em repouso, as cópias de segurança e muito mais.
 
 ## <a name="mongodb-protocol-support"></a>Suporte de Protocolo do MongoDB
 
-A API do Azure Cosmos DB para o MongoDB I é compatível com a versão do servidor do MongoDB **3.2** por predefinição. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. As funcionalidades ou operadores de consulta adicionados na versão **3.4** do MongoDB estão atualmente disponíveis como uma funcionalidade de pré-visualização. Qualquer controlador de cliente que entende esses protocolos deve ser capaz de ligar à API do Azure Cosmos DB para MongoDB.
+O Azure Cosmos DB para a MongoDB API é compatível com a versão do servidor do MongoDB **3.2** por predefinição. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. As funcionalidades ou operadores de consulta adicionados na versão **3.4** do MongoDB estão atualmente disponíveis como uma funcionalidade de pré-visualização. Qualquer controlador de cliente que entende esses protocolos deve ser capaz de ligar ao Azure Cosmos DB para API do MongoDB.
 
 O [pipeline de agregação do MongoDB](#aggregation-pipeline) também está atualmente disponível como uma funcionalidade de pré-visualização separada.
 
 ## <a name="mongodb-query-language-support"></a>Suporte de linguagem de consulta do MongoDB
 
-API do Azure Cosmos DB para o MongoDB fornece suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo encontra a lista detalhada de operações, operadores, fases, comandos e opções atualmente suportados.
+O Azure Cosmos DB para a MongoDB API fornece suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo encontra a lista detalhada de operações, operadores, fases, comandos e opções atualmente suportados.
 
 ## <a name="database-commands"></a>Comandos da base de dados
 
-O Azure Cosmos DB suporta os seguintes comandos de base de dados em todas as API do Azure Cosmos DB para o MongoDB.
+O Azure Cosmos DB para a MongoDB API suporta os seguintes comandos de base de dados:
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e de escrita
 - delete
@@ -310,11 +310,11 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Os documentos sem chave
 
 O Azure Cosmos DB indexa cada campo nos documentos que são escritos na base de dados por predefinição. Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Agora, pode criar índices personalizados no Azure Cosmos DB com o comando createIndex, incluindo a restrição "unique".
 
-Índices exclusivos estão disponíveis para todas as API Azure Cosmos DB para contas do MongoDB.
+Índices exclusivos estão disponíveis para todos os do Azure Cosmos DB para contas de API do MongoDB.
 
 ## <a name="time-to-live-ttl"></a>TTL
 
-O Azure Cosmos DB suporta um TTL relativo com base no carimbo de data/hora do documento. Valor de TTL pode ser ativada para API do Azure Cosmos DB para coleções de MongoDB através do [portal do Azure](https://portal.azure.com).
+O Azure Cosmos DB suporta um TTL relativo com base no carimbo de data/hora do documento. Valor de TTL pode ser ativada para o Azure Cosmos DB para coleções de API do MongoDB através do [portal do Azure](https://portal.azure.com).
 
 ## <a name="user-and-role-management"></a>Gestão de funções e utilizadores
 
@@ -326,7 +326,7 @@ O Azure Cosmos DB suporta a replicação nativa e automática nas camadas inferi
 
 ## <a name="write-concern"></a>Preocupação Escrita
 
-Determinada API do Azure Cosmos DB para a especificação de suporte do MongoDB uma [escrever preocupação](https://docs.mongodb.com/manual/reference/write-concern/) que especifica o número de respostas necessário durante uma operação de escrita. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as escritas são automaticamente Quórum por predefinição. Qualquer preocupação escrita especificada pelo código do cliente é ignorada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
+Especificação de suporte de determinadas MongoDB APIs uma [escrever preocupação](https://docs.mongodb.com/manual/reference/write-concern/) que especifica o número de respostas necessário durante uma operação de escrita. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as escritas são automaticamente Quórum por predefinição. Qualquer preocupação escrita especificada pelo código do cliente é ignorada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
 
 ## <a name="sharding"></a>Fragmentação
 
@@ -337,3 +337,5 @@ O Azure Cosmos DB suporta a fragmentação automática do lado do servidor. O Az
 - Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com uma API para base de dados do MongoDB.
 - Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com uma API para base de dados do MongoDB.
 - Explore o Azure Cosmos DB com suporte de protocolo para [exemplos](mongodb-samples.md) do MongoDB.
+
+<sup>Nota: Este artigo descreve um recurso do Azure Cosmos DB, que fornece a compatibilidade de protocolo de transmissão com bancos de dados do MongoDB. Microsoft não é executado para fornecer este serviço de bases de dados MongoDB. O Azure Cosmos DB não está afiliado a MongoDB, Inc.</sup>

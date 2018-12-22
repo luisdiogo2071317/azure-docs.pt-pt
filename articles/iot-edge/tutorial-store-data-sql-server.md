@@ -9,12 +9,12 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a78c4d64761b5eecc5b7ebf8aa0223b862935575
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163417"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728198"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Store dados na periferia com bancos de dados do SQL Server
 
@@ -350,7 +350,7 @@ Atualize o estado do seu dispositivo na secção de dispositivos de Hub IoT do A
 
 Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módulos em execução. O módulo tempSensor gera dados de ambiente simulados. O módulo sqlFunction utiliza os dados e formata-os para uma base de dados. Esta secção orienta-o na configuração da base de dados do SQL Server para armazenar os dados de temperatura. 
 
-Execute os seguintes comandos no seu dispositivo IoT Edge. Estes comandos ligar para o **sql** módulo em execução no seu dispositivo e cria uma base de dados e a tabela para conter os dados de temperatura que está a ser enviados para o mesmo. 
+Execute os seguintes comandos no seu dispositivo IoT Edge. Estes comandos ligar para o **sql** módulo em execução no seu dispositivo e criar uma base de dados e uma tabela para conter os dados de temperatura que está a ser enviados para o mesmo. 
 
 1. Uma ferramenta da linha de comandos no seu dispositivo IoT Edge, ligar à base de dados. 
    * Contentor do Windows:

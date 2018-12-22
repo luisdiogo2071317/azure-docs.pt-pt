@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 97518f1121628d045cb4b252a10b06d8c1c5f830
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ae6aa044ffa5de773f0036204aff3ce2a96d488
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582230"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715805"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
 
@@ -20,17 +20,17 @@ A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para
 | |  |
 |---|---|
 |**Criar a conta, a base de dados e os contentores do Azure Cosmos DB**||
-| [Crie uma conta do Azure Cosmos DB: API de SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria a conta, a base de dados e o contentor de uma API de SQL do Azure Cosmos DB única. |
-| [Crie uma conta do Azure Cosmos DB: API para MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta de API do Azure Cosmos DB para o MongoDB, uma base de dados e uma coleção. |
-| [Crie uma conta do Azure Cosmos DB: API para Gremlin](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria a conta, a base de dados e o grafo de uma API Gremlin do Azure Cosmos DB única. |
-| [Crie uma conta do Azure Cosmos DB: API para Cassandra](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta e base de dados da API para Cassandra do Azure Cosmos DB. |
-| [Crie uma conta do Azure Cosmos DB: API de tabela](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma conta, base de dados e tabela de API de Tabela do Azure Cosmos DB única. |
+| [Criar uma conta do Azure Cosmos DB com a API de SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um único do Azure Cosmos DB conta, base de dados e de contentor. |
+| [Criar uma conta do Azure Cosmos DB com o Cosmos DB para a MongoDB API](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta do Azure Cosmos DB, uma base de dados e uma coleção. |
+| [Criar uma conta do Azure Cosmos DB com a API do Gremlin](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um único do Azure Cosmos DB conta, base de dados e gráficos. |
+| [Criar uma conta do Azure Cosmos DB com a Cassandra API](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única conta do Azure Cosmos DB e a base de dados. |
+| [Criar uma conta do Azure Cosmos DB com API de tabela](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um único do Azure Cosmos DB conta, base de dados e de tabela. |
 |**Dimensionar o Azure Cosmos DB**||
 | [Dimensionar o débito do contentor](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Altera o débito aprovisionado num contentor.|
 | [Replicar a conta de base de dados do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de ativação pós-falha especificada.|
 |**Proteger o Azure Cosmos DB**||
 | [Obter chaves de contas](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém as chaves de escrita mestra primária e secundária, e as chaves só de leitura primária e secundária da conta.|
-| [Obter cadeia de ligação da API do Azure Cosmos DB para o MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém a cadeia de ligação para ligar a aplicação MongoDB à sua conta do Azure Cosmos DB.|
+| [Obter a cadeia de ligação para o Azure Cosmos DB para a base de dados da API do MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém a cadeia de ligação para ligar a aplicação MongoDB à sua conta do Azure Cosmos DB.|
 | [Voltar a gerar chaves da conta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Regenere as chaves da conta.|
 | [Criar uma firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma política de controlo de acesso IP de entrada para limitar o acesso à conta a partir de um conjunto aprovado de computadores e/ou serviços cloud.|
 |**Elevada disponibilidade, recuperação após desastre, cópia de segurança e restauro**||

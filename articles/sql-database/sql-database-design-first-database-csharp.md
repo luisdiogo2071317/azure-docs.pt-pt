@@ -4,24 +4,22 @@ description: Saiba como criar a sua primeira base de dados SQL do Azure e ligar 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 0608bd9c923ed9ba04f257d87faad48765d3201a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650297"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727170"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Criar uma base de dados SQL do Azure e estabelecer ligação com C&#x23; e ADO.NET
 
-A Base de Dados SQL do Azure é uma base de dados relacional como serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
+Base de dados SQL do Azure é um relacional da base de dados-como-serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
 
 > [!div class="checklist"]
 > * Criar uma base de dados no portal do Azure
@@ -35,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
+Uma instalação do [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu tarefas de base de dados básicas, como criar uma base de dados e tabelas, carregar e consultar dados e restaurar a base de dados para um ponto anterior no tempo. Aprendeu a:
+Neste tutorial, aprendeu tarefas de base de dados básica, tais como criam uma base de dados e tabelas, ligar à base de dados, carregar dados e executar consultas. Aprendeu a:
+
 > [!div class="checklist"]
 > * Criar uma base de dados
 > * Configurar uma regra de firewall
 > * Ligar à base de dados com o [Visual Studio e o C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Criar tabelas
-> * Inserir, atualizar e eliminar dados
-> * Consultar dados
+> * INSERT, update, delete e consultar dados
 
-Avance para o próximo tutorial para saber como migrar os seus dados.
+Avance para o próximo tutorial para saber mais sobre a migração de dados.
 
 > [!div class="nextstepaction"]
 > [Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS](../dms/tutorial-sql-server-to-azure-sql.md)

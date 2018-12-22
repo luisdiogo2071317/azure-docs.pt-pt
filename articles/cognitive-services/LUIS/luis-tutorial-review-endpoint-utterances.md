@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 7084766273ec392856d829f245d3588ce57c8dae
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 622aa49a8dffa933499c243bd723ce2d67a4c251
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605777"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714905"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir predições inseguras
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
@@ -48,13 +48,13 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
 3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
-    Se utilizar este tutorial como uma aplicação nova e importada, também terá de preparar, publicar e, então, adicionar as expressões ao ponto final com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto final num browser. As expressões a adicionar são:
+    Se utilizar este tutorial como uma aplicação nova e importada, também terá de preparar, publicar e, então, adicionar as expressões ao ponto final com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto final num browser. As expressões a adicionar são:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

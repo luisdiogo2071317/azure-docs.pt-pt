@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7de18cc0ed2e8284e020a1ae6fb9c876ed3d2197
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096932"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718397"
 ---
-# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: extrair expressões-chave da expressão
+# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: Extrair expressões-chave de expressão
 Neste tutorial, vai utilizar a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 
 As expressões seguintes mostram exemplos de expressões-chave:
@@ -47,7 +47,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 

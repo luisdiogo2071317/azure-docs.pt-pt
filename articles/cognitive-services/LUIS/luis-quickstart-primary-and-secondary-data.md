@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: e48231e154c04e75ab27f2a92783486b83d00d3b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166273"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719511"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes de lista simples de entidade e a frase
 
@@ -51,7 +51,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
@@ -284,7 +284,7 @@ Uma vez que um nome pode ser qualquer coisa, o LUIS prevê as entidades com maio
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de expressões
 
-Abra o [tarefas-frase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do LUIS. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
+Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do Azure. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
 
 1. Na secção **Build** (Criar) da aplicação LUIS, selecione **Phrase lists** (Listas de expressões), que se encontra no menu **Improve app performance** (Melhorar o desempenho da aplicação).
 

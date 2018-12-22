@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679176"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714757"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -106,10 +106,18 @@ O Gateway de Aplicação fornece suporte nativo para os protocolos WebSocket e H
 
 Os protocolos WebSocket e HTTP/2 ativam a comunicação duplex completa entre um servidor e um cliente através de uma ligação TCP de execução longa. Isto permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional sem necessidade de consulta, que é necessária em implementações com base em HTTP. Estes protocolos têm uma sobrecarga reduzida, ao contrário do HTTP, e podem reutilizar a mesma ligação TCP para vários pedidos/respostas, o que resulta numa utilização mais eficiente dos recursos. Estes protocolos foram concebidos para funcionar através das portas HTTP tradicionais 80 e 443.
 
+## <a name="rewrite-http-headers-public-preview"></a>Reescreva os cabeçalhos HTTP (pré-visualização pública)
+
+Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever essas ajuda de cabeçalhos HTTP é realizar vários cenários importantes, como adicionar cabeçalho relacionadas à segurança campos como HSTS / X-XSS-proteção ou remover o cabeçalho de resposta de campos que pode revelar informações confidenciais, como o nome do servidor de back-end. 
+
+Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de pedidos HTTP recebidos, bem como as respostas HTTP de saída. Será capaz de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta mover entre os conjuntos de cliente e o back-end. Pode reescrever as duas standard (definidos na [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como campos de cabeçalho não padrão.  
+
+Para obter mais informações sobre esta funcionalidade de pré-visualização pública, consulte [cabeçalhos HTTP reescrever](rewrite-http-headers.md).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Consoante os seus requisitos e o ambiente, pode criar um Gateway de Aplicação de teste com o portal do Azure, o Azure PowerShell ou a CLI do Azure:
 
-- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md).
-- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - Azure PowerShell](quick-create-powershell.md)
-- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure](quick-create-cli.md)
+- [Início rápido: Direcionar o tráfego da web com o Gateway de aplicação do Azure - portal do Azure](quick-create-portal.md).
+- [Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell](quick-create-powershell.md)
+- [Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - CLI do Azure](quick-create-cli.md)

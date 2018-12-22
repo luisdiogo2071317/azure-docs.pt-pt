@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085404"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713612"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
@@ -66,12 +66,12 @@ Para cada bloco de notas, selecione o kernel (ou seja, o ambiente de tempo de ex
 - Python 2.7 + Anaconda2 5.3.0
 - Python 3.6 + Anaconda3 5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (vão ser preteridos)
-- R 3.3 + Microsoft R abrir 3.3.0
+- R 3.4.1 + Microsoft R abrir 3.4.1
 - F#4.1.9
 
 Blocos de notas do Azure também inclui pacotes adicionais para além das distribuições de bases. Os kernels do Python, por exemplo, incluem a numpy, pandas, scikit-saiba, matplotlib e bokeh bibliotecas.
 
-Também pode personalizar um projeto para criar um ambiente para todos os blocos de notas desse projeto. Para obter mais informações, consulte [início rápido: criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+Também pode personalizar um projeto para criar um ambiente para todos os blocos de notas desse projeto. Para obter mais informações, consulte [início rápido: Criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
 
 Além das distribuições de bases, os blocos de notas do Azure vem pré-instalada com muitos pacotes adicionais que são úteis para os cientistas de dados. Também pode instalar seus próprios pacotes usando o processo normal para cada idioma.
 
@@ -79,11 +79,11 @@ Além das distribuições de bases, os blocos de notas do Azure vem pré-instala
 
 Blocos de notas do Azure é pré-configurado com as seguintes extensões de Jupyter:
 
-- [AUMENTAR](https://github.com/damianavila/RISE): A Jupyter Slideshow extensão (também conhecido como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completa para trabalhar com blocos de notas do Jupyter.
-- [Altair](https://github.com/ellisonbg/altair): uma biblioteca de visualização de estatísticas declarativa para Python.
-- [BQPlot](https://github.com/bloomberg/bqplot): uma estrutura de desenho interativa para blocos de notas do Jupyter.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): widgets de HTML interativos para blocos de notas do Jupyter.
+- [AUMENTAR](https://github.com/damianavila/RISE): Uma extensão de apresentação de slides do Jupyter (também conhecido como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): Um ambiente computacional completa para trabalhar com blocos de notas do Jupyter.
+- [Altair](https://github.com/ellisonbg/altair): Uma biblioteca de visualização de estatísticas declarativa para Python.
+- [BQPlot](https://github.com/bloomberg/bqplot): Uma estrutura de desenho interativa para blocos de notas do Jupyter.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): Widgets HTML interativos para blocos de notas do Jupyter.
 
 ## <a name="issues-and-getting-help"></a>Problemas e obter ajuda
 

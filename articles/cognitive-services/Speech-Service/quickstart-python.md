@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: chlandsi
-ms.openlocfilehash: 46f19876215c4c1ffac7d99e377381451a0ea7df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629293"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723914"
 ---
 # <a name="quickstart-using-the-speech-service-from-python"></a>Início rápido: Com o serviço de voz do Python
 
@@ -27,8 +27,8 @@ Este artigo mostra como utilizar o serviço de voz através do SDK de voz para P
 
 Antes de começar, eis uma lista de pré-requisitos:
 
-* R [chave de subscrição](get-started.md) para o serviço de voz.
-* Python 3.5 (64 bits) ou posterior é necessária. Downloads do estão disponíveis [aqui](https://www.python.org/downloads/).
+* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* [Python 3.5 (64-bit)](https://www.python.org/downloads/) ou posterior.
 * O pacote do Python SDK de voz está disponível para Windows (x64), Mac (versão X do macOS 10.12 ou posterior) e o Linux (Ubuntu 16.04 ou 18.04 em x64).
 * No Ubuntu, execute os seguintes comandos para a instalação de pacotes necessários:
 
@@ -75,9 +75,6 @@ ou pode baixar este tutorial de início rápido, como um [Jupyter](https://jupyt
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo na pasta `quickstart/python`.
-
 ### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Instalar o pacote do Python SDK de voz e executar o exemplo no Visual Studio Code
 
 1. [Transferir](https://www.python.org/downloads/) e instalar uma versão de 64 bits (3.5 ou posterior) do Python no seu computador.
@@ -105,5 +102,4 @@ Se existirem problemas a seguir estas instruções, consulte a mais extensa [tut
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obter os nossos exemplos](speech-sdk.md#get-the-samples)
-
+> [Explorar amostras de Python no GitHub](https://aka.ms/csspeech/samples)

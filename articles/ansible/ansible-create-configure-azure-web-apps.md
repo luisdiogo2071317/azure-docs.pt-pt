@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a594d6704b9fa76c212719f0ac423942e9f57d7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604036"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726736"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Criar aplicações web do serviço de aplicações do Azure com o Ansible
 [Aplicações de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas aplicativos da Web) anfitriões e aplicações web, REST APIs, back-ends móveis. Pode desenvolver no seu idioma favorito&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Criar um serviço de aplicações com o Gestor de Tráfego
 Pode utilizar o [Gestor de Tráfego do Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar como os pedidos de clientes Web são distribuídos para as aplicações no Serviço de Aplicações do Azure. Quando os pontos finais do Serviço de Aplicações são adicionados a um perfil do Gestor de Tráfego do Azure, o Gestor de Tráfego controla o estado das suas aplicações do Serviço de Aplicações. Os estados incluem em execução, paradas e eliminadas. O Gestor de Tráfego pode, em seguida, decidir quais destes pontos finais devem receber tráfego.
 
-No Serviço de Aplicações, as aplicações são executadas num [plano do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+No Serviço de Aplicações, as aplicações são executadas num [plano do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Pode gerir o seu plano do Serviço de Aplicações e a aplicação Web em grupos diferentes.
 
 Esta secção apresenta um manual de procedimentos do Ansible de exemplo que define os seguintes recursos:

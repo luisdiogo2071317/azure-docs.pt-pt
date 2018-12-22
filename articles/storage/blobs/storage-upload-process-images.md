@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 2692d174a0f959384a9dd3d587107e5f726e28cb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: accefc89d7fe252c9e86de7977a2ce36f5c3e3aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606117"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725172"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -99,7 +99,7 @@ Anote o nome de conta de armazenamento de BLOBs e a chave. A aplicação de exem
 
 ## <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-Um [plano do serviço de aplicações](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) especifica o local, tamanho e funcionalidades da farm de servidores Web que aloja a aplicação.
+Um [plano do serviço de aplicações](../../app-service/overview-hosting-plans.md) especifica o local, tamanho e funcionalidades da farm de servidores Web que aloja a aplicação.
 
 Crie um plano do Serviço de Aplicações com o comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 

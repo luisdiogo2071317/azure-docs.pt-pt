@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: cc781aeb9bb5cd38571bcc21391ca71fbcda419f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 0b0ebbbf4f511d033f0724b9b97a32f408cb5c74
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536479"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726189"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-connect-to-azure-cosmos-db"></a>Crie uma aplicação MongoDB com Angular e o Azure Cosmos DB - parte 5: Ligar ao Azure Cosmos DB 
 
-Este tutorial com várias parte demonstra como criar uma aplicação node. js com Express, Angular e ligá-la à [API MongoDB do Azure Cosmos DB](mongodb-introduction.md) conta.
+Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada para a MongoDB API](mongodb-introduction.md).
 
 A Parte 5 do tutorial é a continuação da [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) e abrange as seguintes tarefas:
 

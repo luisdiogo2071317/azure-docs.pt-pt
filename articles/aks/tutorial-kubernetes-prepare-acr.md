@@ -3,22 +3,21 @@ title: Tutorial do Kubernetes no Azure - Criar um registo de contentor
 description: Neste tutorial do Azure Kubernetes Service (AKS), vai criar uma instância do Azure Container Registry e carregar uma imagem de contentor da aplicação de exemplo.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: 51cfc62adaf9d9c780888477aa6eab2a812fe98c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919811"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718038"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementar e utilizar o Azure Container Registry
 
-O Azure Container Registry (ACR) é um registo privado baseado no Azure para imagens de contentor do Docker. Um registo de contentor privado permite-lhe criar e implementar as suas aplicações e código personalizado de forma segura. Neste tutorial, a segunda parte de sete, vai implementar uma instância do ACR e enviar uma imagem de contentor para a mesma. Saiba como:
+O Azure Container Registry (ACR) é um registo privado para imagens de contentor. Um registo de contentor privado permite-lhe criar e implementar as suas aplicações e código personalizado de forma segura. Neste tutorial, a segunda parte de sete, vai implementar uma instância do ACR e enviar uma imagem de contentor para a mesma. Saiba como:
 
 > [!div class="checklist"]
 > * Criar uma instância do Azure Container Registry (ACR)
@@ -26,13 +25,13 @@ O Azure Container Registry (ACR) é um registo privado baseado no Azure para ima
 > * Carregar os ficheiros de imagem para o ACR
 > * Ver imagens no registo
 
-Nos tutoriais posteriores, esta instância do ACR é integrada num cluster do Kubernetes no AKS e é implementada uma aplicação a partir da imagem.
+Nos tutoriais adicionais, esta instância do ACR é integrada com um cluster de Kubernetes no AKS e, uma aplicação é implementada a partir da imagem.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 No [tutorial anterior][aks-tutorial-prepare-app], foi criada uma imagem de contentor para uma aplicação de Votação simples do Azure. Se não tiver criado a imagem de aplicação de Votação do Azure, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 
-Este tutorial requer a execução da versão 2.0.44 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que está a executar a CLI do Azure versão 2.0.53 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 
@@ -44,7 +43,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create]. No e
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma instância do Azure Container Registry com o comando [az acr create][az-acr-create] e indique o seu próprio nome de registo. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No resto deste tutorial, `<acrName>` é utilizado como um marcador de posição para o nome do registo de contentor. O SKU *Básico* é um ponto de entrada com otimização de custos para fins de desenvolvimento que fornece um equilíbrio de armazenamento e débito.
+Crie uma instância do Azure Container Registry com o comando [az acr create][az-acr-create] e indique o seu próprio nome de registo. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No resto deste tutorial, `<acrName>` é utilizado como um marcador de posição para o nome do registo de contentor. Fornece seu próprio nome exclusivo do registo. O SKU *Básico* é um ponto de entrada com otimização de custos para fins de desenvolvimento que fornece um equilíbrio de armazenamento e débito.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -101,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Enviar imagens para o registo
 
-Agora, pode enviar a imagem *azure-vote-front* para a instância do ACR. Utilize [docker push][docker-push] e indique o seu próprio endereço *acrLoginServer* para o nome da imagem da seguinte forma:
+Com a sua imagem criou e etiquetou, enviar por push o *azure-vote-front* imagem à sua instância do ACR. Utilize [docker push][docker-push] e indique o seu próprio endereço *acrLoginServer* para o nome da imagem da seguinte forma:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -141,7 +140,7 @@ v1
 
 Tem agora uma imagem de contentor armazenada numa instância privada do Azure Container Registry. Esta imagem é implementada a partir do ACR num cluster do Kubernetes nos tutoriais seguintes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um Azure Container Registry e enviou uma imagem para utilização num cluster do AKS. Aprendeu a:
 

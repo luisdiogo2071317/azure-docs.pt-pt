@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8132e2ad986bbdc5056d16714eab6dd8394f0f08
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075527"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718576"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos de expressões comuns
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos de expressão comuns
 
 Neste tutorial, vai utilizar padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação de correspondência de expressões e aprendizagem automática.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dá ao LUIS uma melhor compreensão de quais as expressões que se ajustam à intenção. 
 
@@ -43,7 +43,7 @@ Continue com a aplicação criada no último tutorial, com o nome **RecursosHuma
 
 Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
@@ -389,13 +389,13 @@ Expressões de modelo de exemplo:
 
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
-**Pergunta: Porque é que as duas últimas expressões de exemplo não podiam ser combinadas numa única expressão de modelo?** O modelo do padrão não suporta a sintaxe OR. Para capturar a versão `in` e a versão `on`, cada uma delas tem de ser uma expressão de modelo separada.
+**Pergunta: Por que não foi possível combinar as expressões de duas últimas exemplo a numa expressão de modelo único?** O modelo do padrão não suporta a sintaxe OR. Para capturar a versão `in` e a versão `on`, cada uma delas tem de ser uma expressão de modelo separada.
 
-**Pergunta: Porque é que todas as letras `w`, a primeira letra em cada expressão de modelo, são maiúsculas? Não devia ser opcional utilizar maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta: Por que motivo são todos o `w` letras, a primeira letra de cada expressão de modelo, em minúsculas? Não devia ser opcional utilizar maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
-**Pergunta: Porque é que o número pré-criado não faz parte da expressão do modelo se 3 de março é previsto como número `3` e como data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
+**Pergunta: Por que não é o número pré-criados parte do modelo de expressão se 3 de Março for previsto ambos como número `3` e a data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
 
-**Pergunta: E as expressões mal formuladas, como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS.
+**Pergunta: E quanto insatisfatoriamente dizer como expressões com `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS.
 
 **Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
 

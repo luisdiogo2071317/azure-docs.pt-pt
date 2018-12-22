@@ -16,16 +16,16 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816842"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720259"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure
 
-As Máquinas Virtuais (VMs) do Azure são um dos vários tipos de [recursos informáticos a pedido](../../app-service/choose-web-site-cloud-service-vm.md), dimensionáveis que o Azure oferece. Normalmente, escolher uma VM, se precisar de mais controlo sobre o ambiente informático que as outras opções oferecem. Este artigo dá-lhe informações sobre o que deve considerar antes de criar uma VM, como criá-la e geri-la.
+As Máquinas Virtuais (VMs) do Azure são um dos vários tipos de [recursos informáticos a pedido](../../app-service/overview-compare.md), dimensionáveis que o Azure oferece. Normalmente, escolher uma VM, se precisar de mais controlo sobre o ambiente informático que as outras opções oferecem. Este artigo dá-lhe informações sobre o que deve considerar antes de criar uma VM, como criá-la e geri-la.
 
 Uma VM do Azure fornece-lhe a flexibilidade de virtualização sem ter de comprar e manter o hardware físico que executa a VM. No entanto, ainda tem de manter a VM a realizar tarefas, como configurar, aplicar patches e instalar o software que é executado na mesma.
 
@@ -151,6 +151,6 @@ Para a sua implementação se qualificar para o nosso Contrato de Nível de Serv
 ### <a name="back-up-the-vm"></a>Realizar uma cópia de segurança da VM
 Para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery é utilizado um [Cofre dos Serviços de Recuperação](../../backup/backup-introduction-to-azure-backup.md). Pode utilizar um cofre dos Serviços de Recuperação para [implementar e gerir cópias de segurança para VMs implementadas pelo Gestor de Recursos com o PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Se a sua intenção for trabalhar com VMs do Linux, consulte [Azure e Linux](../linux/overview.md).
 * Saiba mais sobre as diretrizes em torno da configuração da sua infraestrutura em [Example Azure infrastructure walkthrough (Instruções sobre a infraestrutura do Azure de exemplo)](infrastructure-example.md).

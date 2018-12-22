@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 787a817b32838d11cb8974737037543f73285b0d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653430"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727613"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -37,6 +37,8 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
+
+> [!div renderon="docs" class="sxs-lookup"]
 >
 > Tem duas opções para iniciar a aplicação de início rápido:
 > * [Express] [Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -49,7 +51,8 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo
->
+
+> [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >

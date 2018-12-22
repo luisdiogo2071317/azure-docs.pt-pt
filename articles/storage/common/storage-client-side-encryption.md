@@ -60,7 +60,7 @@ Durante a encriptação, a biblioteca de cliente irá gerar um Vetor de iniciali
 > 
 > 
 
-Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo**\* /** métodos de conveniência BlobReadStream**. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
+Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo** /** métodos de conveniência BlobReadStream**\*. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
 
 Transferir um intervalo de arbitrário (**DownloadRange*** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.
 

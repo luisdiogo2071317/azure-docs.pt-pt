@@ -1,6 +1,6 @@
 ---
-title: Como consultar dados da API MongoDB do Azure Cosmos DB
-description: Saiba como fazer consultas com a API do Azure Cosmos DB para o MongoDB.
+title: Como consultar dados do Azure Cosmos DB para a MongoDB API
+description: Saiba como fazer consultas com o Azure Cosmos DB para API do MongoDB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -9,21 +9,21 @@ ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/29/2018
-ms.openlocfilehash: 36fdb2727d31ab640cb6116ecf5eae9ed06c07d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bcfbb0115274c8b0d330426a454530dcd7c170ab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536938"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724662"
 ---
-# <a name="tutorial-query-data-from-azure-cosmos-db-api-for-mongodb"></a>Tutorial: Consultar dados da API do Azure Cosmos DB para MongoDB
+# <a name="tutorial-query-data-using-azure-cosmos-db-for-mongodb-api"></a>Tutorial: Consultar dados com o Azure Cosmos DB para a MongoDB API
 
 A API da [Cosmos Azure DB do MongoDB](mongodb-introduction.md) suporta [consultas de shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultar dados com o MongoDB
+> * Dados de QQuerying armazenados na sua base de dados do Cosmos através da shell de MongoDB
 
 Para começar, pode utilizar os exemplos neste documento e ver o vídeo [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Consultar o Azure Cosmos DB com a shell do MongoDB).
 
@@ -303,7 +303,7 @@ Não serão devolvidos resultados, porque não há famílias com mais de dois su
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a fazer consultas utilizando o MongoDB 
+> * Aprendeu a fazer consultas com suporte nativo do Cosmos DB para API do MongoDB
 
 Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 

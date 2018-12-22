@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 88e26e6f69fa5d283695fc4c3b1d2fda9d6b7fad
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 585202203e0828848ea51cc5d0d548c6f1ac6cba
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545982"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724337"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Criar uma aplicação MongoDB com o Angular e o Azure Cosmos DB 
+# <a name="create-an-azure-cosmos-db-for-mongodb-api-app-with-angular-and-cosmos-db"></a>Criar um Azure Cosmos DB para a aplicação de API do MongoDB com Angular e o Cosmos DB
 
-Este tutorial com várias parte demonstra como criar uma nova [conta de API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md) aplicação com Express, Angular e node. js (a pilha MEAN) e ligá-la à sua base de dados do Azure Cosmos DB. O Azure Cosmos DB suporta ligações de cliente MongoDB para que possa utilizar o Azure Cosmos DB em vez do MongoDB, mas utilizar o mesmo código das aplicações MongoDB, com benefícios adicionais. Estes benefícios do Azure Cosmos DB incluem a implementação na cloud fácil, o dimensionamento, a segurança, os dados replicados globais, o suporte multimodelos e leituras e escritas super-rápidas. 
+Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada para a MongoDB API](mongodb-introduction.md).
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Permite-lhe criar e consultar rapidamente documentos, chaves/valores e bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global, que constituem o âmago do Azure Cosmos DB. 
 

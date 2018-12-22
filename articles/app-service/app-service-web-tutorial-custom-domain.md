@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3eff646a1b3681c58c820695d296d5e09297e03b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600208"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714343"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -48,7 +48,7 @@ Para concluir este tutorial:
   Por exemplo, para adicionar entradas DNS para `contoso.com` e `www.contoso.com`, tem de ter poder configurar as definições de DNS para o domínio de raiz `contoso.com`.
 
   > [!NOTE]
-  > Se não tiver um nome de domínio já existente, considere [comprar um domínio através do portal do Azure](custom-dns-web-site-buydomains-web-app.md). 
+  > Se não tiver um nome de domínio já existente, considere [comprar um domínio através do portal do Azure](manage-custom-dns-buy-domain.md). 
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
 
@@ -305,7 +305,7 @@ Se receber o erro de HTTP 404 (Não Encontrado) ao navegar para o URL do seu dom
 
 ## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
 
-Para migrar um site em direto e o respetivo nome de domínio DNS para o Serviço de Aplicações, consulte [Migrar um nome DNS ativo para o Serviço de Aplicações do Azure](app-service-custom-domain-name-migrate.md).
+Para migrar um site em direto e o respetivo nome de domínio DNS para o Serviço de Aplicações, consulte [Migrar um nome DNS ativo para o Serviço de Aplicações do Azure](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Redirecionar para um diretório personalizado
 
