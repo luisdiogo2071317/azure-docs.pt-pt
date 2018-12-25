@@ -95,7 +95,7 @@ Quando tiver todos os módulos para uma implementação configurado, selecione *
 
 ### <a name="step-3-specify-routes-optional"></a>Passo 3: Especificar rotas (opcionais)
 
-Rotas definem como módulos se comunicam entre si dentro de uma implantação. Por predefinição, o assistente apresenta uma rota chamada **rota** e definido como **FROM /* em $ a montante**, que significa que todas as mensagens de saída por quaisquer módulos são enviadas ao seu hub IoT.  
+Rotas definem como módulos se comunicam entre si dentro de uma implantação. Por predefinição, o assistente apresenta uma rota chamada **rota** e definido como **FROM /\* em $ a montante**, que significa que todas as mensagens de saída por quaisquer módulos são enviadas ao seu hub IoT.  
 
 Adicionar ou atualizar as rotas com as informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próxima** para continuar para a secção de revisão.
 
