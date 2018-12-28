@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 951b47c7193b2b405def9831e94c5e29faff3119
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412440"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791121"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -45,13 +45,13 @@ Para o AD FS no contoso.com conseguir autenticar utilizadores no fabrikam.com, �
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Passo 2: Modificar as definições de Federação do contoso.com 
  
-O emissor predefinido definido para um único domínio federado para o AD FS é "http://ADFSServiceFQDN/adfs/services/trust", por exemplo, `http://fs.contoso.com/adfs/services/trust`. O Azure Active Directory requer um emissor exclusivo para cada domínio federado. Uma vez que o mesmo AD FS vai federar dois domínios, o valor do emissor tem de ser modificado para que seja exclusivo para cada domínio que o AD FS federa com o Azure Active Directory. 
+O emissor predefinido definido para um único domínio federado para o AD FS é "http\://ADFSServiceFQDN/adfs/services/trust", por exemplo, `http://fs.contoso.com/adfs/services/trust`. O Azure Active Directory requer um emissor exclusivo para cada domínio federado. Uma vez que o mesmo AD FS vai federar dois domínios, o valor do emissor tem de ser modificado para que seja exclusivo para cada domínio que o AD FS federa com o Azure Active Directory. 
  
 No servidor do AD FS, abra o PowerShell do Azure AD (Certifique-se de que o módulo MSOnline está instalado) e execute os seguintes passos:
  
 Ligue ao Azure Active Directory que contém o domínio contoso.com Connect-MsolService. Atualize as definições de federação para contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-O emissor na definição de federação do domínio será alterado para "http://contoso.com/adfs/services/trust" e uma regra de afirmação de emissão será adicionada à Entidade Confiadora do Azure AD, para emitir o valor correto do issuerId baseado no sufixo de UPN.
+Emissor na definição de Federação do domínio será alterado para "http\:/ / contoso.com/adfs/services/trust" e uma emissão de afirmação regra será adicionada para o Azure AD entidade Confiadora emitir o valor correto do issuerId baseado no sufixo de UPN.
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Passo 3: Federar o fabrikam.com com o AD FS
  

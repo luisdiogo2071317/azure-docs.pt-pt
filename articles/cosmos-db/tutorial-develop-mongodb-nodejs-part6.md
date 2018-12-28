@@ -1,5 +1,5 @@
 ---
-title: NODE. js, aplicação Angular com a API de MongoB (Part6)
+title: Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - CRUD adicionar as funções para a aplicação
 titleSuffix: Azure Cosmos DB
 description: Parte 6 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
@@ -7,21 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: db4624fb15c7ce5e96dc960de76b56fa19bd9d0e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: affa3fcc580ab69d7cba9db93890ed5f3c499bf4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714717"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793364"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Crie uma aplicação MongoDB com Angular e o Azure Cosmos DB - parte 6: Adicionar funções CRUD à aplicação
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - CRUD adicionar as funções para a aplicação
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada para a MongoDB API](mongodb-introduction.md).
-
-A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
+Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada com a API do Cosmos DB para o MongoDB](mongodb-introduction.md). A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar as funções Post, Put e Delete para o serviço hero

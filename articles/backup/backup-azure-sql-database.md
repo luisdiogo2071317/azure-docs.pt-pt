@@ -2,25 +2,18 @@
 title: Cópia de segurança de bases de dados do SQL Server para o Azure | Documentos da Microsoft
 description: Este tutorial explica como criar cópias de segurança do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410368"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790179"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -44,9 +37,9 @@ Os seguintes itens são conhecidos limitações da pré-visualização pública:
 - A máquina virtual (VM) do SQL requer ligação à internet para acessar os endereços IP públicos do Azure. Para obter detalhes, consulte [estabelecer conectividade de rede](backup-azure-sql-database.md#establish-network-connectivity).
 - Protege até 2000 bases de dados SQL num cofre dos serviços de recuperação. Bases de dados SQL adicionais devem ser armazenados num cofre dos serviços de recuperação separado.
 - [As cópias de segurança dos grupos de disponibilidade distribuída](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) têm limitações.
-- Sempre na ativação pós-falha Cluster instâncias do SQL Server (FCIs) não são suportadas.
+- Sempre na ativação pós-falha Cluster instâncias do SQL Server (FCIs) não são suportadas para cópia de segurança.
 - Utilize o portal do Azure para configurar o Azure Backup para proteger bases de dados do SQL Server. O Azure PowerShell, a CLI do Azure e as APIs REST não são atualmente suportadas.
-- Operações de cópia de segurança/restauro de bases de dados espelho, instantâneos de base de dados e bases de dados FCI não são suportadas.
+- Operações de cópia de segurança/restauro de bases de dados de espelho FCI, instantâneos de base de dados e bases de dados não são suportadas.
 - Não é possível proteger a base de dados com grande número de ficheiros. O número máximo de ficheiros suportados não é um número muito determinista, uma vez que ele não só depende do número de ficheiros, mas também depende do comprimento do caminho dos ficheiros. Nesses casos são menos predominantes entanto. Estamos a criar uma solução para lidar com isso.
 
 Consulte a [secção de FAQ](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para obter mais detalhes sobre o suporte/não suportadas cenários.
@@ -136,7 +129,7 @@ As compensações entre as opções são a capacidade de gerenciamento, um contr
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para o Marketplace SQL VMs não
 
-Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão seja instalado. Se utilizar as máquinas virtuais do Azure Marketplace, continuar a [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não é criada no Azure Marketplace, conclua o procedimento seguinte para instalar a extensão e definir as permissões adequadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Para aumentar detetar as bases de dados na máquina virtual, cópia de segurança do Azure cria a conta **NT Service\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e tem de ter permissão de sysadmin do SQL. Além disso, a cópia de segurança do Azure irá tirar partido **NT AUTHORITY\SYSTEM** de conta para deteção de DB/consulta, para que esta conta tem de ser um início de sessão público no SQL.
+Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão seja instalado. Se utilizar as máquinas virtuais do Azure Marketplace, continuar a [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não é criada no Azure Marketplace, conclua o procedimento seguinte para instalar a extensão e definir as permissões adequadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Para aumentar detetar as bases de dados na máquina virtual, cópia de segurança do Azure cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e tem de ter permissão de sysadmin do SQL. Além disso, a cópia de segurança do Azure irá tirar partido **NT AUTHORITY\SYSTEM** de conta para deteção de DB/consulta, para que esta conta tem de ser um início de sessão público no SQL.
 
 Para configurar permissões:
 
@@ -182,7 +175,7 @@ Durante o processo de instalação, se receber o erro `UserErrorSQLNoSysadminMem
 
     ![No início de sessão - nova caixa de diálogo, selecione Search](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Conta de serviço do Windows virtual **NT Service\AzureWLBackupPluginSvc** foi criado durante o registo de máquina virtual e a fase de deteção SQL. Introduza o nome da conta, como mostra a **introduza o nome de objeto a selecionar** caixa. Selecione **verificar nomes** para resolver o nome.
+3. Conta de serviço do Windows virtual **NT SERVICE\AzureWLBackupPluginSvc** foi criado durante o registo de máquina virtual e a fase de deteção SQL. Introduza o nome da conta, como mostra a **introduza o nome de objeto a selecionar** caixa. Selecione **verificar nomes** para resolver o nome.
 
     ![Selecione verificar nomes para resolver o nome do serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 

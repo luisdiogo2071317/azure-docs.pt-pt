@@ -4,15 +4,15 @@ description: Este artigo descreve como migrar as máquinas no local para o Azure
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836989"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789251"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -63,9 +63,9 @@ Selecione o que pretende replicar e para onde.
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
 2. No Menu de Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Objetivo de proteção**.
 3. Em **Objetivo de proteção**, selecione o que pretende migrar.
-    - **VMware**: selecione **Para o Azure** > **Sim, com o VMware vSphere Hypervisor**.
-    - **Computador físico**: selecione **Para o Azure** > **Não virtualizado/Outro**.
-    - **Hyper-V**: selecione **Para o Azure** > **Sim, com o Hyper-V**. Se as VMs de Hyper-V forem geridas pelo VMM, selecione **Sim**.
+    - **VMware**: Selecione **para o Azure** > **Sim, com o VMWare vSphere Hypervisor**.
+    - **Máquina física**: Selecione **para o Azure** > **não virtualizado/outro**.
+    - **Hyper-V**: Selecione **para o Azure** > **Sim, com o Hyper-V**. Se as VMs de Hyper-V forem geridas pelo VMM, selecione **Sim**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
@@ -119,7 +119,7 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 
 
 > [!WARNING]
-> **Não cancele uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
+> **Não cancelar uma ativação pós-falha em curso**: Antes de o início da ativação pós-falha, a replicação de VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores Para servidores físicos, máquinas do Linux do VMware, VMs do VMware que não têm o serviço DHCP ativado e VMs do VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
 

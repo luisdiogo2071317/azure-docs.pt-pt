@@ -1,29 +1,29 @@
 ---
-title: Como consultar dados do Azure Cosmos DB para a MongoDB API
-description: Saiba como fazer consultas com o Azure Cosmos DB para API do MongoDB.
+title: Consultar dados com a API do Azure Cosmos DB para MongoDB
+description: Saiba como consultar dados com a API do Azure Cosmos DB para MongoDB.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: bcfbb0115274c8b0d330426a454530dcd7c170ab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724662"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793211"
 ---
-# <a name="tutorial-query-data-using-azure-cosmos-db-for-mongodb-api"></a>Tutorial: Consultar dados com o Azure Cosmos DB para a MongoDB API
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consultar dados com a API do Azure Cosmos DB para o MongoDB
 
-A API da [Cosmos Azure DB do MongoDB](mongodb-introduction.md) suporta [consultas de shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+O [API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md) suporta [consultas de MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Dados de QQuerying armazenados na sua base de dados do Cosmos através da shell de MongoDB
+> * Consultar os dados armazenados na sua base de dados do Cosmos através da shell de MongoDB
 
 Para começar, pode utilizar os exemplos neste documento e ver o vídeo [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Consultar o Azure Cosmos DB com a shell do MongoDB).
 
@@ -303,7 +303,7 @@ Não serão devolvidos resultados, porque não há famílias com mais de dois su
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a fazer consultas com suporte nativo do Cosmos DB para API do MongoDB
+> * Aprendeu a fazer consultas com a API do Cosmos DB do MongoDB
 
 Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 

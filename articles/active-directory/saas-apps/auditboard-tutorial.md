@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com caixa | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a caixa.
+title: 'Tutorial: Integração do Active Directory do Azure com AuditBoard | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e AuditBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
+ms.assetid: 072724b9-d1c8-4c22-9571-d1d0d7eb5ea2
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 0dd91fb26777815844bdff5aba033a4bbeac4496
+ms.openlocfilehash: cb8eb2b13f82deb5f0146d413a917362301fc8a1
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794401"
+ms.locfileid: "53797235"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Active Directory do Azure com caixa
+# <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutorial: Integração do Active Directory do Azure com AuditBoard
 
-Neste tutorial, saiba como integrar a caixa de com o Azure Active Directory (Azure AD).
-Integração de caixa de com o Azure AD fornece as seguintes vantagens:
+Neste tutorial, saiba como integrar AuditBoard com o Azure Active Directory (Azure AD).
+Integrar AuditBoard no Azure AD fornece as seguintes vantagens:
 
-* Pode controlar no Azure AD que tenha acesso à caixa.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada a caixa (Single Sign-On) com as suas contas do Azure AD.
+* Pode controlar no Azure AD que tenha acesso ao AuditBoard.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para AuditBoard (Single Sign-On) com as suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
 Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +35,22 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com caixa, terá dos seguintes itens:
+Para configurar a integração do Azure AD com AuditBoard, terá dos seguintes itens:
 
 * Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Caixa de logon único habilitado subscrição
+* AuditBoard logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Caixa suporta **SP** iniciada SSO
-* Caixa suporta **Just In Time** aprovisionamento de utilizadores
-* Caixa suporta [automatizada de aprovisionamento de utilizador](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) 
+* Suporta AuditBoard **SP e IDP** iniciada SSO
 
-## <a name="adding-box-from-the-gallery"></a>Adicionando a caixa da Galeria
+## <a name="adding-auditboard-from-the-gallery"></a>Adicionando AuditBoard da Galeria
 
-Para configurar a integração da caixa de com o Azure AD, terá de adicionar caixa partir da galeria, à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do AuditBoard com o Azure AD, terá de adicionar AuditBoard a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar a caixa da galeria, execute os seguintes passos:**
+**Para adicionar AuditBoard a partir da galeria, execute os seguintes passos:**
 
 1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
@@ -66,21 +64,21 @@ Para configurar a integração da caixa de com o Azure AD, terá de adicionar ca
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **caixa**, selecione **caixa** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **AuditBoard**, selecione **AuditBoard** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Caixa na lista de resultados](common/search-new-app.png)
+     ![AuditBoard na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com caixa de com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação entre um utilizador do Azure AD e o utilizador relacionado na caixa de ligação deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com AuditBoard com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AuditBoard deve ser estabelecido.
 
-Para configurar e testar o Azure AD início de sessão único com caixa, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com AuditBoard, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar a caixa de início de sessão único](#configure-box-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar AuditBoard Single Sign-On](#configure-auditboard-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste de caixa](#create-box-test-user)**  - para ter um equivalente da Eduarda Almeida na caixa que está ligada à representação de utilizador do Azure AD.
+4. **[Criar utilizador de teste AuditBoard](#create-auditboard-test-user)**  - para ter um equivalente da Eduarda Almeida na AuditBoard que está ligado à representação de utilizador do Azure AD.
 5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
@@ -88,9 +86,9 @@ Para configurar e testar o Azure AD início de sessão único com caixa, tem de 
 
 Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com caixa, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com AuditBoard, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **caixa** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **AuditBoard** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
@@ -102,27 +100,30 @@ Para configurar o Azure AD início de sessão único com caixa, execute os segui
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP iniciada** modo execute os seguintes passos:
 
-    ![Caixa de domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![AuditBoard domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.account.box.com`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL: `box.net`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+
+    c. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP iniciada** modo:
+
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/`
+
+    ![AuditBoard domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
-    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente AuditBoard](mailto:support@auditboard.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+4. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-box-single-sign-on"></a>Configurar caixa início de sessão único
+### <a name="configure-auditboard-single-sign-on"></a>Configurar AuditBoard Single Sign-On
 
-Para configurar o SSO para a sua aplicação, siga o procedimento [configurar o SSO no seu próprio](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE]
-> Se não for possível configurar as definições de SSO para a sua conta de caixa, terá de enviar o transferido **XML de metadados de Federação** ao [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **AuditBoard** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de AuditBoard](mailto:support@auditboard.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -151,15 +152,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso à caixa.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para AuditBoard.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **caixa**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **AuditBoard**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **caixa**.
+2. Na lista de aplicações, selecione **AuditBoard**.
 
-    ![A ligação de caixa na lista de aplicações](common/all-applications.png)
+    ![A ligação de AuditBoard na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
@@ -175,18 +176,15 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-### <a name="create-box-test-user"></a>Criar utilizador de teste de caixa
+### <a name="create-auditboard-test-user"></a>Criar utilizador de teste AuditBoard
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na caixa. Caixa suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na caixa, é criado um novo após a autenticação.
-
-> [!NOTE]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no AuditBoard. Trabalhar com [equipa de suporte de AuditBoard](mailto:support@auditboard.com) para adicionar os utilizadores na plataforma AuditBoard. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de caixa no painel de acesso, deve ser automaticamente conectado para a caixa para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clica no mosaico AuditBoard no painel de acesso, deve ser automaticamente sessão iniciada no AuditBoard para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

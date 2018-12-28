@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 2c9d31fc11ae014a40de3224f4a294968aa0be53
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 66c6b6908a225301f0bce9f70b43e96047bcd6d1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584416"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791150"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -258,7 +258,7 @@ Também podem criar programaticamente produtores e consumidores. Para obter um e
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

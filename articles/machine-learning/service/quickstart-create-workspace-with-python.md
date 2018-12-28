@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido:  Comece a utilizar em Python'
+title: 'Início rápido: Comece a utilizar em Python'
 titleSuffix: Azure Machine Learning service
 description: Introdução ao serviço Azure Machine Learning em Python. Utilize o Python SDK para criar uma área de trabalho, o que é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
@@ -11,27 +11,27 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fd86e3a65b542bad0f3114a32362041c34fb74d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268520"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791239"
 ---
-# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
+# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 
-Neste início rápido, irá utilizar o SDK para Python do Azure Machine Learning para criar e, em seguida, utilizar uma [área de trabalho](concept-azure-machine-learning-architecture.md) de serviço do Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Neste início rápido, comece por configurar o seu próprio ambiente de Python e o servidor de blocos de notas do Jupyter. Para executar sem instalação, consulte [início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning](quickstart-get-started.md).
+Neste início rápido, vai utilizar o Azure Machine Learning SDK para Python para criar e, em seguida, utilizar o serviço Azure Machine Learning [área de trabalho](concept-azure-machine-learning-architecture.md). Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Comece por configurar o seu próprio ambiente de Python e o servidor de bloco de notas do Jupyter. Para executar sem instalação, consulte [início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
-Neste tutorial, irá instalar o SDK Python e:
+Neste tutorial, instale o SDK de Python e concluir estas tarefas:
 
 * Criar uma área de trabalho na sua subscrição do Azure.
 * Criar um ficheiro de configuração para essa área de trabalho, para utilização posterior noutros blocos de notas e scripts.
 * Escrever código que regista os valores dentro da área de trabalho.
 * Ver os valores registados na área de trabalho.
 
-Neste início rápido, vai criar uma área de trabalho e um ficheiro de configuração. Pode utilizá-los como pré-requisitos para outros tutoriais de Machine Learning e artigos de instruções. Tal como acontece com outros serviços do Azure, existem limites e quotas associadas ao Machine Learning. [Saiba mais sobre quotas e como pedir mais.](how-to-manage-quotas.md)
+Neste início rápido, vai criar uma área de trabalho e um ficheiro de configuração. Pode usar esses recursos como pré-requisitos para outros tutoriais de Machine Learning e artigos de instruções. Tal como acontece com outros serviços do Azure, existem limites e quotas que estão associadas com o Machine Learning. [Saiba mais sobre quotas e como pedir mais](how-to-manage-quotas.md).
 
 Os seguintes recursos do Azure são adicionados automaticamente à sua área de trabalho quando estiverem disponíveis regionalmente:
  
@@ -44,10 +44,11 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
->[!NOTE]
-> Código neste artigo requer o Azure Machine Learning SDK versão 1.0.2 ou posterior. 
+> [!IMPORTANT]
+> Ignore esta secção se utilizar uma máquina de virtual de ciência de dados criada após a 27 de Setembro de 2018.
+> Máquinas de virtuais do ciência de dados criadas após esta data vêm com o SDK de Python pré-instalado.
 
-*Ignore esta secção se utilizar uma máquina virtual de ciência de dados criada depois de 27 de setembro de 2018.* Essas máquinas virtuais de ciência de dados são disponibilizadas com o SDK Python pré-instalado.
+O código neste artigo requer o Azure Machine Learning SDK versão 1.0.2 ou posterior.
 
 Antes de instalar o SDK, recomendamos que crie um ambiente Python isolado. Embora este início rápido utilize [Miniconda](https://conda.io/docs/user-guide/install/index.html), também pode utilizar o [Anaconda](https://www.anaconda.com/) completo instalado ou [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -58,61 +59,61 @@ Antes de instalar o SDK, recomendamos que crie um ambiente Python isolado. Embor
 
 ### <a name="create-an-isolated-python-environment"></a>Criar um ambiente Python isolado 
 
-Abra uma janela da linha de comandos. Em seguida, crie um novo ambiente conda com o nome `myenv`, com o Python 3.6.
+Abra uma janela da linha de comandos. Em seguida, crie um novo com o nome de ambiente de conda **myenv** com o Python 3.6.
 
 ```shell
 conda create -n myenv -y Python=3.6
 ```
 
-Ative o ambiente.
+Ative o ambiente:
 
-  ```shell
-  conda activate myenv
-  ```
+```shell
+conda activate myenv
+```
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
-No ambiente conda ativado, instale o SDK. Este código instala os componentes principais do SDK de Machine Learning. Também instala um servidor de bloco de notas do Jupyter no ambiente de conda. A instalação demorasse alguns minutos a concluir, dependendo da configuração do seu computador.
+No ambiente conda ativado, instale o SDK. Este código instala os componentes principais do SDK de Machine Learning. Também instala um servidor de bloco de notas do Jupyter no ambiente de conda. A instalação demora alguns minutos para concluir com base na configuração do seu computador.
 
 ```sh
-# install Jupyter
+# Install Jupyter
 conda install nb_conda
 
-# install the base SDK and Jupyter Notebook
+# Install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
-
 ```
 
-Também pode utilizar as palavras-chave "extras" diferentes para instalar componentes adicionais do SDK.
+Também pode utilizar palavras-chave adicional para instalar outros componentes do SDK.
 
 ```sh
-# install the base SDK and auto ml components
+# Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
-# install the base SDK and model explainability component
+# Install the base SDK and the model explainability component
 pip install azureml-sdk[explain]
 
-# install the base SDK and experimental components
+# Install the base SDK and experimental components
 pip install azureml-sdk[contrib]
 ```
 
-Use esta instalação num ambiente do Databricks.
+No ambiente do Azure Databricks, utilize o seguinte comando de instalação em vez disso:
 
 ```
-# install the base SDK and automl components in Azure Databricks environment
-# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+# Install the base SDK and automl components in the Azure Databricks environment.
+# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
 pip install azureml-sdk[databricks]
 ```
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Para iniciar o Jupyter Notebook, introduza este comando.
+Para iniciar o bloco de notas do Jupyter, introduza este comando:
+
 ```shell
 jupyter notebook
 ```
 
-Na janela do browser, crie um novo bloco de notas com o kernel `Python 3` predefinido. 
+Na janela do browser, criar um novo notebook com a predefinição **Python 3** kernel. 
 
 Para apresentar a versão do SDK, introduza o seguinte código do Python numa célula do bloco de notas e execute-o.
 
@@ -120,7 +121,7 @@ Para apresentar a versão do SDK, introduza o seguinte código do Python numa c�
 
 Crie um novo grupo de recursos do Azure e uma nova área de trabalho.
 
-Encontre um valor para `<azure-subscription-id>` na [lista de subscrições no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilize qualquer subscrição em que a sua função seja proprietário ou contribuidor.
+Encontrar um valor para o `<azure-subscription-id>` parâmetro na [lista de subscrições no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilize qualquer subscrição em que a sua função seja proprietário ou contribuidor.
 
 ```python
 from azureml.core import Workspace
@@ -128,27 +129,27 @@ ws = Workspace.create(name='myworkspace',
                       subscription_id='<azure-subscription-id>',    
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region  
+                      location='eastus2' # Or other supported Azure region  
                      )
 ```
 
-A execução do código anterior pode acionar uma nova janela do browser para iniciar sessão na sua conta do Azure. Depois de iniciar sessão, o token de autenticação ficará em cache localmente.
+Quando executar o código, poderá ser-lhe pedido para iniciar sessão na sua conta do Azure. Depois de iniciar sessão, o token de autenticação ficará em cache localmente.
 
-Para ver os detalhes da área de trabalho, como o armazenamento associado, o registo de contentor e o cofre de chaves, introduza o código seguinte.
+Para ver a área de trabalho a obter detalhes, como o armazenamento associado, o registo de contentor e o Cofre de chaves, introduza o código a seguir:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
 
 ## <a name="write-a-configuration-file"></a>Escrever um ficheiro de configuração
 
-Guarde os detalhes da sua área de trabalho num ficheiro de configuração no diretório atual. Este ficheiro tem o nome “aml_config\config.json”.  
+Guarde os detalhes da sua área de trabalho num arquivo de configuração no diretório atual. O ficheiro é denominado **aml_config\config.json**.  
 
-Este ficheiro de configuração da área de trabalho torna mais fácil de carregar a mesma área de trabalho mais tarde. Pode carregá-la com outros blocos de notas e scripts no mesmo diretório ou num subdiretório. 
+O ficheiro de configuração da área de trabalho torna mais fácil de carregar esta mesma área de trabalho mais tarde. É possível carregar a área de trabalho com outros blocos de notas e scripts no mesmo diretório ou subdiretório. 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
 
-A chamada à API `write_config()` cria o ficheiro de configuração no diretório atual. O ficheiro `config.json` contém o seguinte script.
+A chamada à API `write_config()` cria o ficheiro de configuração no diretório atual. O ficheiro Config JSON contém o seguinte script:
 
 ```json
 {
@@ -166,7 +167,7 @@ Escreva algum código que utiliza as APIs básicas do SDK para monitorizar as ex
 
 
 ## <a name="view-logged-results"></a>Ver resultados registados
-Quando a execução for concluída, pode ver a execução da experimentação no portal do Azure. Utilize o seguinte código para imprimir um URL para os resultados da última execução.
+Quando a execução for concluída, pode ver a execução da experimentação no portal do Azure. Utilize o seguinte código para imprimir um URL que navega para os resultados para a última execução:
 
 ```python
 print(run.get_portal_url())
@@ -174,26 +175,27 @@ print(run.get_portal_url())
 
 Utilize a ligação para ver os valores registados no portal do Azure no seu browser.
 
-![Valores registados no portal](./media/quickstart-create-workspace-with-python/logged-values.png)
+![Valores com sessão iniciada no portal do Azure](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
->[!IMPORTANT]
->Os recursos que criou podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do Machine Learning.
 
-Se não pretende utilizar os recursos que foram criados, elimine-os para não incorrer em custos.
+> [!IMPORTANT]
+> Podem ser utilizados os recursos que criou como pré-requisitos para outros tutoriais de Machine Learning e artigos de instruções.
+
+Se não planeja usar os recursos que criou neste início rápido, eliminá-los para que não existem custos.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criou os recursos que precisa para experimentar e implementar modelos. Também executou código num bloco de notas. E explorou o histórico de execuções desse código na sua área de trabalho na cloud.
+Neste início rápido, criou os recursos para experimentar e implementar modelos. Executou o código num bloco de notas e explorou o histórico de execução para o código na sua área de trabalho na cloud.
 
-Precisa de mais alguns pacotes no seu ambiente para utilizá-lo com os tutoriais do Machine Learning.
+Para utilizar o código com os tutoriais de Machine Learning, terá de alguns pacotes mais no seu ambiente.
 
 1. No browser, feche o bloco de notas.
-1. Na janela da linha de comandos, utilize `Ctrl`+`C` para parar o servidor de blocos de notas.
-1. Instale pacotes adicionais.
+1. Na janela de linha de comandos, introduza Ctrl + C para parar o servidor de bloco de notas do Jupyter.
+1. Instale os pacotes adicionais:
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
@@ -201,7 +203,7 @@ Precisa de mais alguns pacotes no seu ambiente para utilizá-lo com os tutoriais
     ```
 
 
-Depois de instalar estes pacotes, siga os tutoriais para preparar e implementar um modelo. 
+Depois de instalar os pacotes, continue com os tutoriais para preparar e implementar um modelo. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Preparar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)

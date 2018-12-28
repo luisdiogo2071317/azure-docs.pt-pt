@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972138"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793589"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -34,7 +34,7 @@ Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, g
 A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualização. Partilhas de ficheiros do Azure em contas de armazenamento para fins gerais v2 e para fins gerais v1 são suportadas. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
 - Não pode proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação* do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
-- Não existe PowerShell ou CLI disponível para proteger Ficheiros do Azure com o Azure Backup.
+- Não existe nenhum CLI disponível para proteger ficheiros do Azure utilizando o Azure Backup.
 - O número máximo de cópias de segurança agendadas por dia é de um.
 - O número máximo de cópias de segurança a pedido por dia é de quatro.
 - Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.

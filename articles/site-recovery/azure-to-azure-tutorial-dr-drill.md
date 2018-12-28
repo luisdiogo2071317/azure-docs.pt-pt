@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7a93ae00a33ceba920630eed14fb0a3e308739e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55e61158b2c0f21809be7d172f208fa5fea44713
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836054"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792565"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -41,9 +41,9 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 
 2. Em **Ativação Pós-falha**, selecione um ponto de recuperação para utilizar na ativação pós-falha:
 
-   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
-   - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
-   - **Personalizado**: selecione qualquer ponto de recuperação.
+   - **Processado mais recentemente**: Falha da VM através do ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
+   - **Mais recente consistente com a aplicação**: Esta opção faz a ativação pós-falha de todas as VMs para o ponto de recuperação consistente com a aplicação mais recente. O carimbo de data/hora é apresentado.
+   - **Custom**: Selecione qualquer ponto de recuperação.
 
 3. Selecione a rede virtual de destino à qual as VMs do Azure na região secundária serão ligadas, após a ativação pós-falha ocorrer.
 

@@ -5,17 +5,17 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656f58bb9864757635ab5752da6bf31320504415
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dc27e49cc67a902bb45b1d889bb61b1f4b3aab83
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843262"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788774"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Mover as VMs do Azure para outra região
+# <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
 Além de utilizar o [do Azure Site Recovery](site-recovery-overview.md) serviço para gerir e orquestrar a recuperação após desastre de máquinas no local e VMs do Azure para fins de continuidade do negócio e recuperação após desastre (BCDR), também pode utilizar o Site Recuperação para gerir mover VMs do Azure para uma região secundária. Para mover as VMs do Azure, ativar a replicação para as mesmas e realize a ativação pós-falha da região primária para a região secundária da sua preferência.
 

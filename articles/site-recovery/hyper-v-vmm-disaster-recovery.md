@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846611"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794520"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs Hyper-V para um site no local secundário
 
@@ -65,7 +65,7 @@ Prepare o VMM da seguinte forma:
 
 Selecione o que pretende replicar e para onde pretende que seja replicado.
 
-1. Clique em **Site Recovery** > **Passo 1: Preparar a Infraestrutura** > **Objetivo de proteção**.
+1. Clique em **recuperação de sites** > **passo 1: Preparar infraestrutura** > **objetivo de proteção**.
 2. Selecione **Para site de recuperação** e selecione **Sim, com o Hyper-V**.
 3. Selecione **Sim** para indicar que está a utilizar o VMM para gerir os anfitriões de Hyper-V.
 4. Se tiver um servidor do VMM secundário, selecione **Sim**. Se estiver a implementar a replicação entre clouds num único servidor do VMM, clique em **Não**. Em seguida, clique em **OK**.
@@ -133,8 +133,8 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 1. Em **Frequência de cópia**, especifique a frequência com que pretende replicar dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 2. Em **Retenção do ponto de recuperação**, especifique (em horas) qual será a duração da janela de retenção para cada ponto de recuperação. As máquinas replicadas podem ser recuperadas para qualquer ponto nessa janela.
 3. Em **Frequência de instantâneos consistentes com a aplicação**, especifique a frequência (1 a 12 horas) com que os pontos de recuperação que contêm os instantâneos consistentes com aplicações são criados. O Hyper-V utiliza dois tipos de instantâneos:
-    - **Instantâneo padrão**: disponibiliza um instantâneo incremental de toda a máquina virtual.
-    - **Instantâneo consistente com a aplicação**: cria um instantâneo de ponto no tempo dos dados da aplicação dentro da VM. O Serviço de Cópia Sombra de Volumes (VSS) garante que as aplicações estão num estado consistente quando se obtém o instantâneo. A ativação dos instantâneos consistentes com a aplicação afeta o desempenho das aplicações nas VMs de origem. Defina um número menor do que o número de pontos de recuperação adicionais que está a configurar.
+    - **Instantâneo padrão**: Fornece um instantâneo incremental de toda a máquina virtual.
+    - **Instantâneos consistentes com a aplicação**: Tira um instantâneo de ponto no tempo dos dados de aplicação no interior da VM. O Serviço de Cópia Sombra de Volumes (VSS) garante que as aplicações estão num estado consistente quando se obtém o instantâneo. A ativação dos instantâneos consistentes com a aplicação afeta o desempenho das aplicações nas VMs de origem. Defina um número menor do que o número de pontos de recuperação adicionais que está a configurar.
 4. Em **Compressão da transferência de dados**, especifique se os dados de replicação transferidos devem ser comprimidos.
 5. Selecione **Eliminar VM de réplica** para especificar que a máquina virtual de réplica deve ser eliminada caso desative a proteção na VM de origem. Se ativar esta definição, quando desativar a proteção na VM de origem, esta é removida da consola do Site Recovery, as definições do Site Recovery para o VMM são removidas da consola do VMM e a réplica é eliminada.
 6. Em **Método de replicação inicial**, se estiver a replicar através da rede, especifique se a replicação inicial deve ser iniciada ou agendada. Para poupar largura de banda, pode considerar agendá-la para fora do seu horário mais preenchido. Em seguida, clique em **OK**.
