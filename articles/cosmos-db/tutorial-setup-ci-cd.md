@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 27940cc9f612c62625c0c0b2809e7afc8cd990d6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711929"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810649"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -81,7 +81,7 @@ Abaixo encontra-se o exemplo de um ficheiro **.runsettings** que define parâmet
 </RunSettings>
 ```
 
-Se estiver a configurar um pipeline de CI/CD para uma aplicação que utiliza o Azure Cosmos DB para a MongoDB API, a cadeia de ligação do MongoDB por padrão inclui o número de porta 10255. No entanto, esta porta não é atualmente aberta, como alternativa, deve utilizar a porta 10250 para estabelecer a ligação. O Azure Cosmos DB para a cadeia de ligação de API do MongoDB permanece a mesma, exceto o número de porta suportadas é 10250 em vez de 10255.
+Se estiver a configurar um pipeline CI/CD para uma aplicação que utiliza a API do Azure Cosmos DB para o MongoDB, a cadeia de ligação por predefinição inclui o número de porta 10255. No entanto, esta porta não é atualmente aberta, como alternativa, deve utilizar a porta 10250 para estabelecer a ligação. API do Azure Cosmos DB para a cadeia de ligação do MongoDB permanece a mesma, exceto o número de porta suportadas é 10250 em vez de 10255.
 
 Estes parâmetros `TestRunParameters` são mencionados através de uma propriedade `TestContext` no projeto de teste da aplicação. Eis um exemplo de um teste que é executado no Cosmos DB.
 

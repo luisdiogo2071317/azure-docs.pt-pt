@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 96c4597c1031257eca329d0247c36f5d60456fe9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582648"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807725"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
@@ -71,7 +71,7 @@ Selecione `Open Azure Notebooks` para realizar a sua primeira experimentação.
 
 A sua organização poderá precisar de [consentimento de administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder iniciar sessão.
 
-Depois de iniciar sessão, é aberto um novo separador e um aviso `Clone Library` é apresentado. Selecione `Clone`.
+Inicie sessão em blocos de notas do Azure com a mesma conta utilizada para iniciar sessão no portal do Azure.  Depois de iniciar sessão, é aberto um novo separador e um aviso `Clone Library` é apresentado. Selecione `Clone`.
 
 
 ### <a name="run-the-notebook"></a>Executar o bloco de notas

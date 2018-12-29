@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 0fe01f6654be715c83cc119e1b7940d78e385e97
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4a4bcf80eeff8700da37f5ea46353b1be6f2327b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728283"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809017"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Saiba mais sobre o Cosmos DB [distribuição global](distribute-data-globally.md
 Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 
 * [Introdução à API SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Introdução ao Azure Cosmos DB para API do MongoDB](create-mongodb-nodejs.md)
+* [Introdução à API do Azure Cosmos DB para MongoDB](create-mongodb-nodejs.md)
 * [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)

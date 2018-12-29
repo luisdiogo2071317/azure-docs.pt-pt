@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: dfbb35e5d7507157ff74859e8563740b7d99ae8c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8000208dfe15744c891bbf27ad8f9e69f44ef4dc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788876"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com o Adobe Creati
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o Adobe Creative Cloud início de sessão único](#configure-adobe-creative-cloud-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste do Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)**  - para ter um equivalente da Eduarda Almeida na Adobe Creative Cloud que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)**  - para ter um equivalente da Eduarda Almeida na Adobe Creative Cloud que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único

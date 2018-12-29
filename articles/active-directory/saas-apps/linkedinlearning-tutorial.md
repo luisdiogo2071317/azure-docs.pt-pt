@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: d9165004a4828ab84cd6f86e4d818883112cf7ef
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e8d829c4990aa798ce77ecc9caae51ace4c53023
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790559"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn Learning
 
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com o LinkedIn Lea
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o LinkedIn Learning início de sessão único](#configure-linkedin-learning-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste do LinkedIn Learning](#create-linkedin-learning-test-user)**  - para ter um equivalente da Eduarda Almeida no LinkedIn Learning que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do LinkedIn Learning](#create-linkedin-learning-test-user)**  - para ter um equivalente da Eduarda Almeida no LinkedIn Learning que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -126,17 +126,16 @@ Para configurar o Azure AD início de sessão único com o LinkedIn Learning, ex
     
     | Nome | Atributo de origem |
     | ---------------| --------------- |
-    | e-mail  | User.Mail  | N/A |
+    | e-mail  | User.Mail  |
     | Departamento  | User.Department  |
     | FirstName  | User.givenName  |
     | Apelido  | User.Surname  |
-    | Identificador de Utilizador Exclusivo | User.Mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 

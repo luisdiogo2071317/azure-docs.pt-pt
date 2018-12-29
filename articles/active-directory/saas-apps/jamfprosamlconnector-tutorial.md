@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c11afc6381db8d3eecf46c74a9e2bf41e10136e5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788320"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Active Directory do Azure com o Jamf Pro
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com o Jamf Pro, te
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o Jamf Pro início de sessão único](#configure-jamf-pro-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste do Jamf Pro](#create-jamf-pro-test-user)**  - para ter um equivalente da Eduarda Almeida no Jamf Pro que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do Jamf Pro](#create-jamf-pro-test-user)**  - para ter um equivalente da Eduarda Almeida no Jamf Pro que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com o Jamf Pro, execute os 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Obterá o valor do identificador real da **Single Sign-On** secção no portal do Jamf Pro, que é explicado mais tarde no tutorial. É possível extrair o real **subdomínio** valor do valor de identificador e usá-lo **subdomínio** informações no URL de início de sessão e o URL de resposta. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-4. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
     ![O link de download de certificado](common/copy-metadataurl.png)
 

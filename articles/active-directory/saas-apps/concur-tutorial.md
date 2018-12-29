@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e9956ad119865396a5e3842e3d5975c532aa8ee
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 928205627ee971958fd2d98ad2c3cb91d9b491cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791205"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808507"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutorial: Integração do Active Directory do Azure com o Concur
 
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com Concur, tem de
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar consegue início de sessão único](#configure-concur-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Concur](#create-concur-test-user)**  - para ter um equivalente da Eduarda Almeida na Concur que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Concur](#create-concur-test-user)**  - para ter um equivalente da Eduarda Almeida na Concur que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único

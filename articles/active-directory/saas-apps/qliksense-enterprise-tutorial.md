@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: eb414a84a56d60135873b7a81a26d4d8e00f4ac0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5ecb26a7ca0f164c2ba8d9a9de26bf19777653a0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794452"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Qlik sentido Enterprise
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com Qlik sentido e
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Qlik sentido Enterprise Single Sign-On](#configure-qlik-sense-enterprise-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Qlik sentido Enterprise](#create-qlik-sense-enterprise-test-user)**  - para ter um equivalente da Eduarda Almeida Qlik sentido empresa que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Qlik sentido Enterprise](#create-qlik-sense-enterprise-test-user)**  - para ter um equivalente da Eduarda Almeida Qlik sentido empresa que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -107,7 +107,6 @@ Para configurar o Azure AD início de sessão único com Qlik sentido empresaria
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
-    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|

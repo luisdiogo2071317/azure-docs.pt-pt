@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 614c4b9f8cb6b748385d86d20cbec15928642d30
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: ff6b61874363bbc869bd509174e58640a2487f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753307"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811312"
 ---
 # <a name="whats-happening-to-machine-learning-workbench-in-azure-machine-learning-service"></a>O que acontece ao Machine Learning Workbench no serviço Azure Machine Learning?
 
@@ -78,7 +78,7 @@ Não irá perder qualquer código ou trabalho. Na versão mais antiga, os projet
 
 Grande parte do conteúdo do projeto já foi no seu computador local. Então, só precisa criar um ficheiro de configuração nesse diretório e referenciá-lo em seu código para ligar à sua área de trabalho. Saiba como [migrar os projetos existentes](how-to-migrate.md#projects).
 
-Saiba como [começar a utilizar Python com o SDK principal](quickstart-get-started.md).
+Saiba como começar a utilizar [Python com o SDK principal](quickstart-create-workspace-with-python.md) ou a utilizar [portal do Azure](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>E o meu modelos registados e imagens?
  
