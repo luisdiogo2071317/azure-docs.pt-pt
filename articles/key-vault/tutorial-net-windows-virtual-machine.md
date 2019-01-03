@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 8ebc07f68e2d26126d0bd387f32204255404d6e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.openlocfilehash: eb27bed02b44cad791a0c1fa2c8e0ed0b54537cd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605318"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972554"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutorial: Como utilizar o Azure Key Vault com o Windows Máquina Virtual do Azure no .NET
 
@@ -162,7 +162,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 Em seguida, altere o arquivo de classe para conter o abaixo do código. É um processo 2 passo. 
-1. Obter um token a partir do ponto de final MSI local na VM que inturn obtém um token do Azure Active Directory
+1. Obter um token a partir do ponto de final MSI local na VM da qual por sua vez, obtém um token do Azure Active Directory
 2. Transmitir o token para o Key Vault e obter o seu segredo 
 
 ```
@@ -211,7 +211,7 @@ Em seguida, altere o arquivo de classe para conter o abaixo do código. É um pr
 ```
 
 
-O código acima mostra-lhe como fazer operações com o Azure Key Vault numa máquina de Virtual do Linux do Azure. 
+O código acima mostra-lhe como fazer operações com o Azure Key Vault numa máquina de Virtual do Windows do Azure. 
 
 
 
