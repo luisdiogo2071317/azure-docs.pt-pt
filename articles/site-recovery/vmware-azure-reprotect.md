@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834970"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791885"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Voltar a proteger e efetuar a ativação de back-computadores para um site no local após a ativação pós-falha para o Azure
 
@@ -61,8 +61,8 @@ Para implementar um servidor de processos no Azure:
 
 O servidor de destino mestre recebe dados da reativação pós-falha. Por predefinição, o servidor de destino mestre é executado no servidor de configuração no local. No entanto, dependendo do volume de tráfego de repetição de falha, poderá ter de criar um servidor de destino principal separado para reativação pós-falha. Eis como criar um:
 
-* [Criar um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para reativação pós-falha de VMs do Linux. Isto é necessário.
-* Opcionalmente, crie um servidor de destino principal separado para reativação pós-falha da VM do Windows. Para tal, execute novamente a configuração unificada e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Criar um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para reativação pós-falha de VMs do Linux. Isto é necessário. Tenha em atenção que, principal do servidor de destino no LVM não é suportado.
+* Opcionalmente, crie um servidor de destino principal separado para reativação pós-falha da VM do Windows. Para tal, execute novamente a configuração unificada e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 Depois de criar um servidor de destino mestre, efetue as seguintes tarefas:
 

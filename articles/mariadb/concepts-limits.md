@@ -3,17 +3,15 @@ title: Limitações na base de dados do Azure para MariaDB
 description: Este artigo descreve as limitações na base de dados do Azure para MariaDB, como o número de ligação e opções de motor de armazenamento.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835714"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970292"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
@@ -36,7 +34,7 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Memória Otimizada| 16| 5000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
-> Erro 1040 (08004): Demasiadas ligações
+> ERRO 1040 (08004): Demasiadas ligações
 
 ## <a name="storage-engine-support"></a>Suporte ao mecanismo de armazenamento
 
@@ -46,14 +44,14 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 ### <a name="unsupported"></a>Não suportado
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARQUIVO](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Não suportado
-- Função DBA: várias definições de parâmetros do servidor e inadvertidamente podem degradar o desempenho do servidor ou negar as propriedades ACID do DBMS. Como tal, para manter a integridade de serviço e o SLA num nível de produto, este serviço não expõe a função DBA. A conta de usuário padrão, é criada quando é criada uma nova instância de base de dados, permite que o utilizador efetuar a maioria das instruções DDL e DML na instância gerida da base de dados.
-- Privilégio SUPER: da mesma forma [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- Função DBA: Várias definições de parâmetros do servidor e inadvertidamente podem degradar o desempenho do servidor ou negar as propriedades ACID do DBMS. Como tal, para manter a integridade de serviço e o SLA num nível de produto, este serviço não expõe a função DBA. A conta de usuário padrão, é criada quando é criada uma nova instância de base de dados, permite que o utilizador efetuar a maioria das instruções DDL e DML na instância gerida da base de dados.
+- Privilégio SUPER: Da mesma forma [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c9161f6d31a3fcff8f8926c8bf188f1bdc14799
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430611"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725867"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 As empresas hoje em dia são gradualmente movendo em direção à criação de aplicativos móveis para qualquer um que os utilizadores finais (externo) ou para os funcionários (internos). Eles têm existentes sistemas back-end no local seja mainframes ou alguns aplicativos de LoB, que devem ser integrados a arquitetura de aplicações móveis. Este guia discute a melhor maneira de fazer esta integração recomendando solução possível para cenários comuns.
@@ -264,6 +264,6 @@ O código de exemplo completo está disponível em [Exemplos do Hub de notifica�
 [Serviço móvel do Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Programação do Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[WebJob do Azure]: ../app-service/web-sites-create-web-jobs.md
+[WebJob do Azure]: ../app-service/webjobs-create.md
 [Hubs de notificação - tutorial Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Portal do Azure]: https://portal.azure.com/

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408889"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971312"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -39,7 +39,7 @@ Para respostas a perguntas comuns sobre como utilizar um nome de domínio person
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Como posso comprar um domínio personalizado novo para a minha aplicação web?
 
-Para saber como comprar e configurar um domínio personalizado para a sua aplicação web do serviço de aplicações, veja [comprar e configurar um nome de domínio personalizado no serviço de aplicações](custom-dns-web-site-buydomains-web-app.md).
+Para saber como comprar e configurar um domínio personalizado para a sua aplicação web do serviço de aplicações, veja [comprar e configurar um nome de domínio personalizado no serviço de aplicações](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como carregar e configurar um certificado SSL existente para a minha aplicação web?
@@ -72,9 +72,11 @@ Para definir o fuso horário do servidor para a sua aplicação web:
     * Valor = *o fuso horário que pretende*
 3. Selecione **Guardar**.
 
+Consulte a **fuso horário** coluna na [predefinido fusos horários](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) artigo para valores aceites.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que minha WebJobs contínuos, às vezes, falhar?
 
-Por predefinição, aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isso permite que o sistema poupar recursos. Nos planos básico e Standard, pode ativar a **Always On** definição para que o aplicativo web carregado o tempo todo. Se a sua aplicação web executa trabalhos Web contínuos, deve ativar **Always On**, ou os trabalhos Web poderão não ser fiável. Para obter mais informações, consulte [criar um WebJob em execução contínua](web-sites-create-web-jobs.md#CreateContinuous).
+Por predefinição, aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isso permite que o sistema poupar recursos. Nos planos básico e Standard, pode ativar a **Always On** definição para que o aplicativo web carregado o tempo todo. Se a sua aplicação web executa trabalhos Web contínuos, deve ativar **Always On**, ou os trabalhos Web poderão não ser fiável. Para obter mais informações, consulte [criar um WebJob em execução contínua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como posso obter o endereço IP de saída para a minha aplicação web?
 
@@ -124,7 +126,7 @@ Para obter mais informações, consulte [compatibilidade das aplicações de web
 
 Nos planos Standard e Premium do serviço de aplicações, quando implementar a aplicação web no serviço de aplicações, pode implementar para um bloco de implementação separados em vez de para o bloco de produção predefinido. Blocos de implementação são aplicações web em direto com seus próprios nomes de anfitrião. Elementos de conteúdo e a configuração da aplicação Web podem ser trocados entre duas ranhuras de implementação, incluindo o bloco de produção.
 
-Para obter mais informações sobre como utilizar blocos de implementação, consulte [configurar um ambiente de teste no serviço de aplicações](web-sites-staged-publishing.md).
+Para obter mais informações sobre como utilizar blocos de implementação, consulte [configurar um ambiente de teste no serviço de aplicações](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Como aceder e reveja a registos WebJob?
 
@@ -248,7 +250,7 @@ Pode criar um WebJob agendado com expressões Cron:
     {month} {day of the week}" }
     ```
 
-Para obter mais informações sobre trabalhos Web agendados, consulte [criar um WebJob agendado com uma expressão Cron](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Para obter mais informações sobre trabalhos Web agendados, consulte [criar um WebJob agendado com uma expressão Cron](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como posso executar testes para a minha aplicação de serviço de aplicações de penetração?
 

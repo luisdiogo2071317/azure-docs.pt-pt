@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408022"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715793"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticação e autorização no serviço de aplicações do Azure para aplicações móveis
 
@@ -26,7 +26,7 @@ Este artigo descreve como a autenticação e autorização funciona durante o de
 
 Este artigo se concentra no desenvolvimento de aplicações móveis. Para começar rapidamente com a autenticação de serviço de aplicações e autorização para a sua aplicação móvel, consulte um dos seguintes tutoriais [adicionar autenticação à sua aplicação iOS] [ iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], ou [Cordova]). 
 
-Para obter informações sobre como funcionam os autenticação e autorização no serviço de aplicações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md).
+Para obter informações sobre como funcionam os autenticação e autorização no serviço de aplicações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md).
 
 ## <a name="authentication-with-provider-sdk"></a>Autenticação com o fornecedor de SDK
 
@@ -44,7 +44,7 @@ Quando utiliza um fornecedor de SDK, os utilizadores podem iniciar sessão para 
 
 Depois de um token de fornecedor é obtido, ele precisa ser enviada ao serviço de aplicações para a validação. Depois do serviço de aplicações valida o token, o serviço de aplicações cria um novo token de serviço de aplicações, que é devolvido ao cliente. O SDK do cliente de Mobile Apps tem métodos auxiliares para gerir este exchange e anexar automaticamente o token para todos os pedidos para o back-end do aplicativo. Os desenvolvedores também podem manter uma referência para o token de fornecedor.
 
-Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/overview-authentication-authorization.md#authentication-flow). 
 
 ## <a name="authentication-without-provider-sdk"></a>Autenticação sem o fornecedor de SDK
 
@@ -52,10 +52,10 @@ Se não pretender configurar um fornecedor de SDK, pode permitir a funcionalidad
 
 Código para iniciar este fluxo está incluído no tutorial de autenticação para cada plataforma. No final do fluxo, o SDK do cliente tem um token do serviço de aplicações e o token é conectado automaticamente a todos os pedidos para o back-end de aplicação.
 
-Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/overview-authentication-authorization.md#authentication-flow). 
 ## <a name="more-resources"></a>Mais recursos
 
-Os tutoriais seguintes mostram como adicionar autenticação para os seus clientes móveis ao utilizar o [direcionado de servidor de fluxo](../app-service/app-service-authentication-overview.md#authentication-flow):
+Os tutoriais seguintes mostram como adicionar autenticação para os seus clientes móveis ao utilizar o [direcionado de servidor de fluxo](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [Adicionar autenticação à sua aplicação iOS][iOS]
 * [Adicionar autenticação à sua aplicação Android][Android]
@@ -65,21 +65,21 @@ Os tutoriais seguintes mostram como adicionar autenticação para os seus client
 * [Adicionar autenticação à sua aplicação xamarin. Forms][xamarin.forms]
 * [Adicionar autenticação à sua aplicação Cordova][Cordova]
 
-Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/app-service-authentication-overview.md#authentication-flow) para o Azure Active Directory:
+Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/overview-authentication-authorization.md#authentication-flow) para o Azure Active Directory:
 
 * [Utilizar o Active Directory Authentication Library para iOS][ADAL-iOS]
 * [Utilizar a biblioteca de autenticação do Active Directory para Android][ADAL-Android]
 * [Utilizar a biblioteca de autenticação do Active Directory do Windows e Xamarin][ADAL-dotnet]
 
-Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/app-service-authentication-overview.md#authentication-flow) para o Facebook:
+Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/overview-authentication-authorization.md#authentication-flow) para o Facebook:
 
 * [Utilizar o SDK do Facebook para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/app-service-authentication-overview.md#authentication-flow) do Twitter:
+Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/overview-authentication-authorization.md#authentication-flow) do Twitter:
 
 * [Utilizar recursos de infraestrutura do Twitter para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/app-service-authentication-overview.md#authentication-flow) para o Google:
+Utilize os seguintes recursos se pretender utilizar o [fluxo de cliente direcionado](../app-service/overview-authentication-authorization.md#authentication-flow) para o Google:
 
 * [Utilizar o SDK do início de sessão no Google para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

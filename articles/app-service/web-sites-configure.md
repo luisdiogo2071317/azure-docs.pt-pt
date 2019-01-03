@@ -1,6 +1,6 @@
 ---
-title: Configurar aplicações web - App Service do Azure
-description: Como configurar uma aplicação web no serviço de aplicações do Azure
+title: Configurar aplicações - serviço de aplicações do Azure
+description: Como configurar uma aplicação no App Service do Azure
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269435"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716468"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
+# <a name="configure-apps-in-azure-app-service"></a>Configurar aplicações no serviço de aplicações do Azure
 
-Este tópico explica como configurar uma aplicação web com o [Portal do Azure].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Este tópico explica como configurar uma aplicação web, back-end móvel ou aplicação de API com o [Portal do Azure].
 
 ## <a name="application-settings"></a>Definições da aplicação
-1. Na [Portal do Azure], abra o painel da aplicação web.
-3. Clique em **Definições da aplicação**.
+1. Na [Portal do Azure], abra o painel da aplicação.
+2. Clique em **Definições da aplicação**.
 
 ![Definições da Aplicação][configure01]
 
@@ -47,14 +45,14 @@ O **as definições da aplicação** painel tem as definições de agrupadas em 
 Por motivos técnicos, a ativar o Java para a sua aplicação desativa as opções de .NET, PHP e Python.
 
 <a name="platform"></a>
-**Plataforma**. Seleciona se a sua aplicação web é executado num ambiente de 32 bits ou 64 bits. O ambiente de 64 bits requer o escalão básico ou Standard. Gratuito e escalão partilhado é sempre executado num ambiente de 32 bits.
+**Plataforma**. Seleciona se o aplicativo é executado num ambiente de 32 bits ou 64 bits. O ambiente de 64 bits requer o escalão básico ou Standard. Gratuito e escalão partilhado é sempre executado num ambiente de 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Definir **ON** para ativar o protocolo WebSocket; por exemplo, se a sua aplicação web utiliza [SignalR de ASP.NET] ou [socket.io](https://socket.io/).
+**Web Sockets**. Definir **ON** para ativar o protocolo WebSocket; por exemplo, se a sua aplicação utiliza [SignalR de ASP.NET] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Por predefinição, aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isso permite que o sistema poupar recursos. No modo básico ou Standard, pode habilitar **Always On** para que o aplicativo carregado o tempo todo. Se a aplicação for executada trabalhos Web contínuos ou execuções WebJobs acionados usando uma expressão CRON, deve habilitar **Always On**, ou os trabalhos web não podem executar de forma fiável.
+**Always On**. Por predefinição, as aplicações são descarregadas que estejam Inativos durante um determinado período de tempo. Isso permite que o sistema poupar recursos. No modo básico ou Standard, pode habilitar **Always On** para que o aplicativo carregado o tempo todo. Se a aplicação for executada trabalhos Web contínuos ou execuções WebJobs acionados usando uma expressão CRON, deve habilitar **Always On**, ou os trabalhos web não podem executar de forma fiável.
 
 **Geridos a versão de Pipeline**. Define o IIS [modo de pipeline]. Deixe esta definida para integrada (predefinição), a menos que tenha uma aplicação legada que requer uma versão mais antiga do IIS.
 
@@ -65,13 +63,13 @@ Por motivos técnicos, a ativar o Java para a sua aplicação desativa as opçõ
 
 **Afinidade ARR**. Numa aplicação que é aumentada horizontalmente para várias instâncias VM, afinidade ARR cookies garantem que o cliente é encaminhado para a mesma instância para o ciclo de vida da sessão. Para melhorar o desempenho de aplicações sem estado, defina esta opção como **desativar**.   
 
-**Auto troca**. Se habilitar a troca automática para um bloco de implementação, o serviço de aplicações será automaticamente a mudar a aplicação web para produção, quando emitir uma atualização para que a ranhura. Para obter mais informações, consulte [implementar em blocos para aplicações web no App Service do Azure de teste](web-sites-staged-publishing.md).
+**Auto troca**. Se habilitar a troca automática para um bloco de implementação, o serviço de aplicações será automaticamente a mudar a aplicação para produção, quando emitir uma atualização para que a ranhura. Para obter mais informações, consulte [implementar em blocos de aplicações no serviço de aplicações do Azure de teste](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Depurar
-**Depuração remota**. Permite a depuração remota. Quando ativada, pode utilizar o depurador remoto no Visual Studio para ligar diretamente à sua aplicação web. Depuração remota permanecerá ativada para 48 horas. 
+**Depuração remota**. Permite a depuração remota. Quando ativada, pode utilizar o depurador remoto no Visual Studio para ligar diretamente à sua aplicação. Depuração remota permanecerá ativada para 48 horas. 
 
 ### <a name="app-settings"></a>Definições de aplicação
-Esta secção contém pares nome/valor que a aplicação web será carregado em Iniciar cópia de segurança. 
+Esta secção contém pares nome/valor que a aplicação irá carregar no início. 
 
 * Para aplicações de .NET, estas definições são injetadas na sua configuração de .NET `AppSettings` em tempo de execução, substituindo as definições existentes. 
 * Para o serviço de aplicações no Linux ou aplicação Web para contentores, se aninha a estrutura de chave do json no seu nome, como `ApplicationInsights:InstrumentationKey` terá de ter `ApplicationInsights__InstrumentationKey` como nome da chave. Por isso, tenha em atenção que qualquer `:` deve ser substituído por `__` (ou seja, sublinhado duplo).
@@ -102,7 +100,7 @@ Cadeias de ligação podem ser resolvidas da utilização do Key Vault [referenc
 ### <a name="default-documents"></a>Documentos predefinidos
 O documento predefinido é a página da web que é apresentado no URL raiz para um Web site.  É utilizado o primeiro arquivo correspondente na lista. 
 
-Aplicações Web poderão utilizar os módulos que rota com base na URL, em vez de servir conteúdo estático, caso em que existem não é nenhum documento predefinido como tal.    
+As aplicações podem utilizar módulos que rota com base na URL, em vez de servir conteúdo estático, caso em que existem não é nenhum documento predefinido como tal.    
 
 ### <a name="handler-mappings"></a>Mapeamentos de processador
 Use essa área para adicionar processadores de script personalizado para processar pedidos para extensões de ficheiro específicas. 
@@ -117,7 +115,7 @@ Para configurar aplicações virtuais e diretórios, especifica cada diretório 
 ## <a name="enabling-diagnostic-logs"></a>Ativar registos de diagnóstico
 Para ativar os registos de diagnóstico:
 
-1. No painel da sua aplicação web, clique em **todas as definições**.
+1. No painel da sua aplicação, clique em **todas as definições**.
 2. Clique em **Registos de diagnóstico**. 
 
 Opções para criar registos de diagnóstico a partir de uma aplicação web que suporta o início: 
@@ -134,31 +132,31 @@ Opções para criar registos de diagnóstico a partir de uma aplicação web que
 
 Para ver os ficheiros de registo, tem de criar as credenciais de FTP, da seguinte forma:
 
-1. No painel da sua aplicação web, clique em **todas as definições**.
+1. No painel da sua aplicação, clique em **todas as definições**.
 2. Clique em **credenciais de implementação**.
 3. Introduza um nome de utilizador e palavra-passe.
 4. Clique em **Guardar**.
 
 ![Definir credenciais de implementação][configure03]
 
-O nome de utilizador FTP completo é "app\username" onde *aplicação* é o nome da sua aplicação web. O nome de utilizador está listado no painel da aplicação web, em **Essentials**.
+O nome de utilizador FTP completo é "app\username" onde *aplicação* é o nome da sua aplicação. O nome de utilizador está listado no painel da aplicação, em **Essentials**.
 
 ![Credenciais de implementação de FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Outras tarefas de configuração
 ### <a name="ssl"></a>SSL
-No modo básico ou Standard, pode carregar certificados SSL para um domínio personalizado. Para obter mais informações, consulte [permitir HTTPS para uma aplicação web](app-service-web-tutorial-custom-ssl.md). 
+No modo básico ou Standard, pode carregar certificados SSL para um domínio personalizado. Para obter mais informações, consulte [permitir HTTPS para uma aplicação](app-service-web-tutorial-custom-ssl.md). 
 
 Para ver os certificados carregados, clique em **todas as definições** > **domínios personalizados e SSL**.
 
 ### <a name="domain-names"></a>Nomes de domínio
-Adicione nomes de domínio personalizado para a sua aplicação web. Para obter mais informações, consulte [configurar um nome de domínio personalizado para uma aplicação web no App Service do Azure](app-service-web-tutorial-custom-domain.md).
+Adicione nomes de domínio personalizado para a sua aplicação. Para obter mais informações, consulte [configurar um nome de domínio personalizado para uma aplicação no App Service do Azure](app-service-web-tutorial-custom-domain.md).
 
 Para ver os nomes de domínio, clique em **todas as definições** > **domínios personalizados e SSL**.
 
 ### <a name="deployments"></a>Implementações
-* Configure a implementação contínua. Ver [utilizando o Git para implementar aplicações Web no App Service do Azure](app-service-deploy-local-git.md).
-* Blocos de implementação. Ver [Implementar em ambientes de teste para aplicações Web no serviço de aplicações do Azure].
+* Configure a implementação contínua. Ver [utilizando o Git para implementar aplicações no serviço de aplicações do Azure](deploy-local-git.md).
+* Blocos de implementação. Ver [Implementar em ambientes de teste para o serviço de aplicações do Azure].
 
 Para ver os seus blocos de implementação, clique em **todas as definições** > **blocos de implementação**.
 
@@ -167,29 +165,23 @@ No modo básico ou Standard, pode testar a disponibilidade de pontos de extremid
 
 Para obter mais informações, consulte [como: Monitorizar o estado do ponto final web].
 
-> [!NOTE]
-> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service], onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
-> 
-> 
-
 ## <a name="next-steps"></a>Passos Seguintes
 * [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 * [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]
-* [Dimensionar uma aplicação web no serviço de aplicações do Azure]
-* [Noções básicas sobre monitorização para aplicações Web no App Service do Azure]
+* [Dimensionar uma aplicação no serviço de aplicações do Azure]
+* [Noções básicas de monitorização no App Service do Azure]
 
 <!-- URL List -->
 
 [SignalR de ASP.NET]: https://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
-[Implementar em ambientes de teste para aplicações Web no serviço de aplicações do Azure]: ./web-sites-staged-publishing.md
+[Implementar em ambientes de teste para o serviço de aplicações do Azure]: ./deploy-staging-slots.md
 [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]: ./app-service-web-tutorial-custom-ssl.md
 [Como: Monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Noções básicas sobre monitorização para aplicações Web no App Service do Azure]: ./web-sites-monitor.md
+[Noções básicas de monitorização no App Service do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Dimensionar uma aplicação web no serviço de aplicações do Azure]: ./web-sites-scale.md
-[Experimentar o App Service]: https://azure.microsoft.com/try/app-service/
+[Dimensionar uma aplicação no serviço de aplicações do Azure]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409263"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725036"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
 
@@ -153,14 +153,14 @@ Ao criar um back-end de aplicações móveis do node. js com o portal **guia de 
 O procedimento seguinte utiliza um repositório de Git para transferir o código de projeto de início rápido:
 
 1. Instale o Git, se ainda não o tiver feito. Os passos necessários para instalar o Git variam entre sistemas operativos. Para as distribuições de sistema operativo específico e orientações de instalação, consulte [instalar o Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. Ver [preparar o seu repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Tome nota do nome de utilizador de implementação e a palavra-passe.
-1. No painel para as suas aplicações de Mobile back-end, anote o **URL de clone de Git** definição.
-1. Executar o `git clone` comando utilizando o URL de clone de Git. Introduza a palavra-passe quando for necessário, como no exemplo seguinte:
+2. Ver [preparar o seu repositório](../app-service/deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Tome nota do nome de utilizador de implementação e a palavra-passe.
+3. No painel para as suas aplicações de Mobile back-end, anote o **URL de clone de Git** definição.
+4. Executar o `git clone` comando utilizando o URL de clone de Git. Introduza a palavra-passe quando for necessário, como no exemplo seguinte:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Navegue para o diretório de local (`/todolist` no exemplo anterior) e tenha em atenção que os arquivos do projeto tiverem sido transferidos. Localize o ficheiro de todoitem.json no `/tables` diretório. Esse arquivo define as permissões na tabela. Também encontre o ficheiro de todoitem.js no mesmo diretório. Define os scripts de operação CRUD para a tabela.
-1. Depois de efetuar alterações aos ficheiros de projeto, executados os seguintes comandos para adicionar, consolidar e, em seguida, carregue as alterações para o site:
+5. Navegue para o diretório de local (`/todolist` no exemplo anterior) e tenha em atenção que os arquivos do projeto tiverem sido transferidos. Localize o ficheiro de todoitem.json no `/tables` diretório. Esse arquivo define as permissões na tabela. Também encontre o ficheiro de todoitem.js no mesmo diretório. Define os scripts de operação CRUD para a tabela.
+6. Depois de efetuar alterações aos ficheiros de projeto, executados os seguintes comandos para adicionar, consolidar e, em seguida, carregue as alterações para o site:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -942,7 +942,7 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 
 1. No painel para as suas aplicações de Mobile back-end, selecione **todas as definições** > qualquer um dos **tabelas simples** ou **APIs simples**. Selecione uma tabela ou a API e, em seguida, selecione **Editar script**. O ficheiro de script é aberto no Editor de serviço de aplicações.
 
-   ![Editor do Serviço de Aplicação](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+   ![Editor do Serviço de Aplicações](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 1. Faça as alterações para o arquivo de código no online editor. As alterações são guardadas automaticamente à medida que escreve.
 
 <!-- Images -->
@@ -968,10 +968,10 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 [Configurar a autenticação do Google]: ../app-service/configure-authentication-provider-google.md
 [Configurar a autenticação da Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
 [Configurar a autenticação do Twitter]: ../app-service/configure-authentication-provider-twitter.md
-[Guia de implementação do serviço de aplicações do Azure]: ../app-service/app-service-deploy-local-git.md
+[Guia de implementação do serviço de aplicações do Azure]: ../app-service/deploy-local-git.md
 [Monitorização do serviço de aplicações do Azure]: ../app-service/web-sites-monitor.md
-[Ativar o registo de diagnóstico no serviço de aplicações do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
-[Resolver problemas relacionados com o serviço de aplicações do Azure no Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Ativar o registo de diagnóstico no serviço de aplicações do Azure]: ../app-service/troubleshoot-diagnostic-logs.md
+[Resolver problemas relacionados com o serviço de aplicações do Azure no Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [Especifique a versão de nó]: ../nodejs-specify-node-version-azure-apps.md
 [utilizar módulos do nó]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
