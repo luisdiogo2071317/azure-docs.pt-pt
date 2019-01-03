@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db7591c98147a5728486843efb0c807b6094557a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277986"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601479"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -26,7 +26,7 @@ A extensão de servidor de políticas de rede (NPS) para o Azure permite aos cli
 Este artigo fornece instruções passo a passo para integrar a infraestrutura NPS com o MFA do Azure utilizando a extensão NPS para Azure. Isto permite que a verificação segura para os utilizadores que tentarem iniciar sessão para um Gateway de ambiente de trabalho remoto.
 
 > [!NOTE]
-> Este artigo não deve ser utilizado com implementações de servidor MFA apenas do MFA do Azure (com base na Cloud).
+> Este artigo não deve ser utilizado com implementações de servidor MFA e só deve ser utilizado com implementações do MFA do Azure (com base na Cloud).
 
 A política de rede e serviços de acesso (NPS) dá às organizações a capacidade de fazer o seguinte:
 
@@ -162,7 +162,7 @@ Para utilizar o script, forneça a extensão com as credenciais de administrador
 
 1. Abra uma linha administrativa do Windows PowerShell.
 1. Na linha de comandos do PowerShell, escreva `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`e prima **ENTER**.
-1. Tipo `.\AzureMfsNpsExtnConfigSetup.ps1`e prima **ENTER**. O script verifica se o módulo Azure Active Directory PowerShell está instalado. Se não instalado, o script instala o módulo para.
+1. Tipo `.\AzureMfaNpsExtnConfigSetup.ps1`e prima **ENTER**. O script verifica se o módulo Azure Active Directory PowerShell está instalado. Se não instalado, o script instala o módulo para.
 
   ![O Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

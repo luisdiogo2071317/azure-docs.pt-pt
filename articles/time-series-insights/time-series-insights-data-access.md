@@ -1,5 +1,5 @@
 ---
-title: Segurança de pré-visualização do Time Series Insights do Azure - configurar a segurança para aceder e gerir a pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+title: Configurar a segurança para aceder e gerir a pré-visualização do Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve como configurar permissões e segurança que o acesso de gestão políticas e acesso a dados políticas para proteger a pré-visualização do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275470"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558527"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 

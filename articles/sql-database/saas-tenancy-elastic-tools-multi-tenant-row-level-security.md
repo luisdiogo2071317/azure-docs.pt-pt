@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242913"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601530"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilino com ferramentas de base de dados elástica e segurança ao nível da linha
 
@@ -41,7 +41,7 @@ O objetivo é utilizar a biblioteca de cliente da base de dados elástica [encam
 
 - Utilizar o Visual Studio (2012 ou superior)
 - Criar três bases de dados SQL do Azure
-- Transfira o projeto de exemplo: [ferramentas elásticas de DB para SQL do Azure - partições horizontais de multi-inquilino](https://go.microsoft.com/?linkid=9888163)
+- Transfira o projeto de exemplo: [Ferramentas de DB elástico de SQL do Azure - partições horizontais de multi-inquilinos](https://go.microsoft.com/?linkid=9888163)
   - Preencha as informações nas bases de dados no início do **Program.cs** 
 
 Este projeto estende aquele descrito em [ferramentas elásticas de DB para SQL do Azure - integração de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , adicionando suporte para bases de dados de partição horizontal do multi-inquilino. O projeto baseia-se uma aplicação de consola simples para criar blogues e publicações. O projeto inclui quatro inquilinos e duas bases de dados de partição horizontal do multi-inquilino. Esta configuração é ilustrada no diagrama anterior. 
@@ -54,10 +54,10 @@ Crie e execute a aplicação. Esta execução arrancar o Gestor de mapas de part
 
 Tenha em atenção que, uma vez que RLS ainda não tiver sido ativada nas bases de dados de partição horizontal, cada um desses testes revela um problema: os inquilinos são capazes de ver blogs que não pertencem aos mesmos e a aplicação não está impedida de inserir um blog para o inquilino errado. O restante deste artigo descreve como resolver estes problemas ao impor o isolamento de inquilino com a RLS. Há duas etapas: 
 
-1. **Camada de aplicativos**: modifique o código do aplicativo sempre definir o TenantId atual na sessão\_contexto depois de abrir uma ligação. O projeto de exemplo define já o TenantId, desta forma. 
-2. **Camada de dados**: criar uma política de segurança RLS em cada base de dados de partição horizontal para filtrar linhas com base no TenantId armazenado numa sessão\_contexto. Criar uma política para cada uma das suas bases de dados de partição horizontal, caso contrário, que não são filtradas linhas em partições horizontais de multi-inquilinos. 
+1. **Camada de aplicativos**: Modificar o código do aplicativo sempre definir o TenantId atual na sessão\_contexto depois de abrir uma ligação. O projeto de exemplo define já o TenantId, desta forma. 
+2. **Camada de dados**: Criar uma política de segurança RLS em cada base de dados de partição horizontal para filtrar linhas com base no TenantId armazenado numa sessão\_contexto. Criar uma política para cada uma das suas bases de dados de partição horizontal, caso contrário, que não são filtradas linhas em partições horizontais de multi-inquilinos. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Camada de aplicativos: conjunto TenantId na sessão\_contexto
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Camada de aplicativos: Definir o TenantId na sessão\_contexto
 
 Ligue primeiro para uma base de dados de partição horizontal com as APIs de encaminhamento dependente de dados da biblioteca de clientes de bases de dados elásticas. O aplicativo ainda tem de pedir ao banco de dados que TenantId está a utilizar a ligação. O TenantId informa sobre a política de segurança RLS que linhas devem ser filtradas como pertencentes de outros inquilinos. Store o TenantId atual no [sessão\_contexto](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da ligação.
 
@@ -213,7 +213,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Camada de dados: criar a política de segurança ao nível da linha
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Camada de dados: Criar política de segurança ao nível da linha
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que pode aceder a cada inquilino
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenção
 
-- **Adicionar novas partições horizontais**: executar o script de T-SQL para ativar a RLS em quaisquer novas partições horizontais, caso contrário, consultas nestas partições horizontais não são filtrados.
-- **Adicionar novas tabelas**: adicionar um predicado de filtro e do bloco para a política de segurança em todas as partições horizontais, sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada com um acionador de DDL, conforme descrito em [aplicam-se a segurança ao nível da linha automaticamente para tabelas recém-criado (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionar novas partições horizontais**: Execute o script T-SQL para ativar a RLS em quaisquer novas partições horizontais, caso contrário, consultas nestas partições horizontais não são filtrados.
+- **Adicionar novas tabelas**: Adicione um predicado de filtro e do bloco para a política de segurança em todas as partições horizontais, sempre que é criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada com um acionador de DDL, conforme descrito em [aplicam-se a segurança ao nível da linha automaticamente para tabelas recém-criado (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 

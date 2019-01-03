@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600311"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de cloud na plataforma do Azure
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: Um dicionário de terminologia de cloud na plataforma do Azure
 
 O glossário do Microsoft Azure é um breve dicionário de terminologia de cloud para a plataforma Azure. Veja também:
 
@@ -37,7 +37,7 @@ Ver [Inscreva-se uma subscrição do Azure com a sua conta do Office 365](billin
 Outro nome para o [aplicação de serviço de aplicações](#app-service-app).
 
 ## <a name="app-service-app"></a>Aplicação do Serviço de Aplicações
-Os recursos de computação que [App Service do Azure](app-service/app-service-web-overview.md) fornece para alojar uma site ou aplicação web, web API, ou [back-end de aplicação móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicações de serviço de aplicações são também denominadas *dos serviços de aplicações*, *aplicações web*, *aplicações API*, e *aplicações móveis*.
+Os recursos de computação que [App Service do Azure](app-service/overview.md) fornece para alojar uma site ou aplicação web, web API, ou [back-end de aplicação móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicações de serviço de aplicações são também denominadas *dos serviços de aplicações*, *aplicações web*, *aplicações API*, e *aplicações móveis*.
 
 ## <a name="availability-set"></a>Conjunto de disponibilidade
 Uma coleção de máquinas virtuais que são geridos em conjunto para fornecer redundância de aplicativos e a confiabilidade. A utilização de um conjunto de disponibilidade garante que, durante um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível.  
@@ -70,7 +70,7 @@ Consulte [Georreplicação ativa para a base de dados SQL do Azure](sql-database
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
-Um ficheiro que contém o sistema operativo e a configuração da aplicação que pode ser utilizada para criar qualquer número de máquinas virtuais. No Azure, existem dois tipos de imagens: VM imagem e a imagem do SO. Uma imagem de VM inclui um sistema operativo e todos os discos ligados a uma máquina virtual quando a imagem é criada. Uma imagem de SO contém apenas um sistema de operativo generalizado com nenhuma configuração de disco de dados.  
+Um ficheiro que contém o sistema operativo e a configuração da aplicação que pode ser utilizada para criar qualquer número de máquinas virtuais. No Azure, existem dois tipos de imagens: Imagem de VM e imagem do SO. Uma imagem de VM inclui um sistema operativo e todos os discos ligados a uma máquina virtual quando a imagem é criada. Uma imagem de SO contém apenas um sistema de operativo generalizado com nenhuma configuração de disco de dados.  
 Consulte [navegar e selecionadas imagens de máquinas virtuais do Windows no Azure com o PowerShell ou a CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>Limites
@@ -106,13 +106,13 @@ Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/re
 Um ficheiro JSON que define declarativamente um ou mais recursos do Azure e que define dependências entre os recursos implementados. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida.  
 Consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>fornecedor de recursos
+## <a name="resource-provider"></a>Fornecedor de recursos
 Um serviço que fornece os recursos que pode implementar e gerir através do Resource Manager. Cada fornecedor de recursos oferece operações para trabalhar com os recursos implementados. Fornecedores de recursos podem ser acedidos através do portal do Azure, Azure PowerShell e vários SDKs de programação.  
 Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a utilizadores, grupos e serviços. As funções são capazes de realizar ações, como criar, gerir e ler em recursos do Azure.  
-Consulte [RBAC: funções incorporadas](role-based-access-control/built-in-roles.md)
+Consulte [RBAC: Funções incorporadas](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>contrato de nível de serviço (SLA)
 O contrato que descreve o compromisso quanto da Microsoft do tempo de atividade e conectividade. Cada serviço do Azure tem um SLA específico.  

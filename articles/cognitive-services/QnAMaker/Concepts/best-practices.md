@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074813"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603128"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -67,8 +67,11 @@ A pontuação de confiança de predefinição que é utilizada como um limiar é
 |É de estacionamento disponíveis?|Tem carro park?|estrutura de sentença|
  |Olá!|Yo<br>Olha aí!|Estilo do Word ou gíria|
 
-### <a name="use-metadata-filters"></a>Utilizar filtros de metadados
-[Metadados](../How-To/edit-knowledge-base.md) acrescenta a capacidade para restringir os resultados de uma consulta de utilizador com base nos filtros. A resposta da base de dados de conhecimento pode ser diferente consoante a marca de metadados, mesmo que a consulta é o mesmo. Por exemplo, *"onde está localizado de estacionamento"* pode ter uma resposta diferente se a localização do ramo restaurante for diferente, ou seja, os metadados são *localização: Seattle* versus *localização: Redmond*.
+<a name="#use-metadata-filters"></a>
+
+### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Utilizar etiquetas de metadados para o filtro de perguntas e respostas
+
+[Metadados](../How-To/edit-knowledge-base.md) acrescenta a capacidade para restringir os resultados de uma consulta de utilizador com base em etiquetas de metadados. A resposta da base de dados de conhecimento pode ser diferente consoante a marca de metadados, mesmo que a consulta é o mesmo. Por exemplo, *"onde está localizado de estacionamento"* pode ter uma resposta diferente se a localização do ramo restaurante for diferente, ou seja, os metadados são *localização: Seattle* versus *localização: Redmond*.
 
 ### <a name="use-synonyms"></a>Utilizar sinónimos
 Embora haja algum suporte para sinónimos em inglês, utilize [alterações de palavras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para adicionar sinónimos para palavras-chave que assumir a forma diferente. Sinónimos devem ser adicionados ao nível de serviço QnA Maker e partilhados por todas as bases de dados de conhecimento no serviço.

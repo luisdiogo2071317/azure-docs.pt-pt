@@ -1,20 +1,17 @@
 ---
 title: Monitorização na base de dados do Azure para MySQL
 description: Este artigo descreve as métricas de monitorização e alertas para base de dados do Azure para MySQL, incluindo as estatísticas de CPU, armazenamento e conexão.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035738"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544758"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
@@ -37,7 +34,7 @@ Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
 |active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações Falhadas|Contagem|O número de ligações falhadas para o servidor.|
+|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
 |seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
 |network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|

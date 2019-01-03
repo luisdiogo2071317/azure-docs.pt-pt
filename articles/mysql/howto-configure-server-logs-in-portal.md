@@ -1,20 +1,17 @@
 ---
 title: Configurar e aceder aos registos de servidor da base de dados do Azure para MySQL no Portal do Azure
 description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para MySQL a partir do Portal do Azure.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984711"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544962"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e registos do servidor de acesso no portal do Azure
 

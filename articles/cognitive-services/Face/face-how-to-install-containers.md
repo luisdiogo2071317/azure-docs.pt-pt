@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086441"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536547"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -30,11 +30,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar o contentor de Face:
 
-**Motor do docker**: tem de ter o motor de Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [o azure Stack](/azure/azure-stack/). Para obter mais informações sobre a implementação de Kubernetes no Azure Stack, veja [implementar o Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Motor do docker**: Tem de ter o motor do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [o azure Stack](../../azure-stack/index.yml). Para obter mais informações sobre a implementação de Kubernetes no Azure Stack, veja [implementar o Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure.
 
-**Familiaridade com o registo de contentor da Microsoft e a Docker**: deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento de básico `docker` comandos.  
+**Familiaridade com o registo de contentor da Microsoft e a Docker**: Deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.  
 
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -58,7 +58,7 @@ Tem de criar um recurso de Face no Azure, se quiser usar o contêiner de rostos.
 Execute os seguintes passos para criar e recuperar informações de um recurso de Face:
 
 1. Crie um recurso de Face no portal do Azure.  
-   Se quiser usar o contêiner de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
+   Se quiser usar o contêiner de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
 
 1. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure.  
    Depois de criar o recurso do Azure, tem de utilizar a chave de subscrição e o URL de ponto final desse recurso para instanciar o contentor de rostos correspondente. Pode copiar a chave de subscrição e o URL de ponto final da, respectivamente, os início rápido e as chaves de páginas do recurso de Face no portal do Azure.

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678213"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553401"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Design de alto desempenho
+# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Conceber o Elevado Desempenho
 
 Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o armazenamento Premium do Azure. Pode utilizar as instruções fornecidas neste documento, combinado com melhores práticas de desempenho aplicáveis para as tecnologias utilizadas pela sua aplicação. Para ilustrar as diretrizes, usamos SQL Server em execução no armazenamento Premium como um exemplo em todo este documento.
 
@@ -35,7 +35,7 @@ Nós fornecemos estas diretrizes especificamente para o armazenamento Premium co
 > Por vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Se a VM suportar redes aceleradas, certifique-se de que está ativada. Se não estiver ativada, pode ativá-la em VMs já implementadas em ambos [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [o armazenamento Premium: armazenamento de elevado desempenho para cargas de trabalho do Azure Virtual Machine](../articles/virtual-machines/windows/premium-storage.md) e [escalabilidade do armazenamento do Azure e metas de desempenho](../articles/storage/common/storage-scalability-targets.md)artigos.
+Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho do Azure Virtual Machine](../articles/virtual-machines/windows/premium-storage.md) e [metas de desempenho e escalabilidade do armazenamento do Azure](../articles/storage/common/storage-scalability-targets.md) artigos.
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -66,6 +66,14 @@ Portanto, é importante determinar os valores IOPS e débito ideal que seu aplic
 A latência é o tempo que demora um aplicativo para receber um único pedido e enviá-lo para os discos de armazenamento e enviar a resposta ao cliente. Esta é uma medida crítica de desempenho de um aplicativo, além de IOPS e débito. A latência de um disco de armazenamento premium é o tempo que demora a recuperar as informações de um pedido e comunicá-la para a sua aplicação. O armazenamento Premium fornece baixas latências consistentes. Se ativar a colocação em cache em discos de armazenamento premium de anfitrião de só de leitura, pode obter muito menor latência de leitura. Abordaremos colocação em cache do disco mais detalhadamente na seção posterior sobre *Otimizando o desempenho da aplicação*.
 
 Quando pretender otimizar seu aplicativo para obter uma maior IOPS e débito, afetará a latência da sua aplicação. Depois de ajuste do desempenho do aplicativo, avalie sempre a latência do aplicativo para evitar o comportamento inesperado de alta latência.
+
+Operações do painel de controle em Managed Disks a seguir pode envolver o movimento do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que podem demorar várias horas a concluir, normalmente, menos de 24 horas, consoante a quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.  
+
+1.  [Atualizar o tipo de armazenamento](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [Desanexar e anexar um disco a partir de uma VM para outra](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [Criar um disco gerido a partir de um VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [Criar um disco gerido a partir de um instantâneo](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [Converter os discos não geridos para Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>Recolher requisitos de desempenho da aplicação
 
@@ -296,7 +304,7 @@ Quando uma escala elevada de que VM está ligada com vários discos persistentes
 
 No Windows, pode utilizar espaços de armazenamento para discos do stripe em conjunto. Tem de configurar uma coluna para cada disco num agrupamento. Caso contrário, o desempenho geral do volume repartido pode ser menor que o esperado devido a distribuição desigual de tráfego em todos os discos.
 
-Importante:-Através da IU do Gestor de servidor, pode definir o número total de colunas até 8 para um volume repartido. Ao anexar mais de 8 discos, utilize o PowerShell para criar o volume. Com o PowerShell, pode definir o número de colunas igual ao número de discos. Por exemplo, se existirem 16 discos num conjunto único stripe; especificar 16 colunas na *NumberOfColumns* parâmetro do *New-VirtualDisk* cmdlet do PowerShell.
+Importante: Através da IU do Gestor de servidor, pode definir o número total de colunas até 8 para um volume repartido. Ao anexar mais de 8 discos, utilize o PowerShell para criar o volume. Com o PowerShell, pode definir o número de colunas igual ao número de discos. Por exemplo, se existirem 16 discos num conjunto único stripe; especificar 16 colunas na *NumberOfColumns* parâmetro do *New-VirtualDisk* cmdlet do PowerShell.
 
 No Linux, utilize o utilitário MDADM para discos do stripe em conjunto. Para obter passos detalhados sobre os discos de repartição no Linux, consulte [configurar o RAID de Software no Linux](../articles/virtual-machines/linux/configure-raid.md).
 
@@ -597,7 +605,7 @@ Para obter o máximo combinado de leitura e escrita a taxa de transferência, ut
 
 Saiba mais sobre o armazenamento Premium do Azure:
 
-* [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../articles/virtual-machines/windows/premium-storage.md)  
 
 Para usuários do SQL Server, leia os artigos sobre melhores práticas de desempenho para o SQL Server:
 

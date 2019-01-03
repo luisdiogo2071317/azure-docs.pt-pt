@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164652"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537635"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -64,9 +64,16 @@ Existem outros problemas com conjuntos de dimensionamento de máquinas virtuais 
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>O que é o tamanho mínimo de um cluster do Service Fabric? Por que não pode ser menor?
 
-O tamanho mínimo suportado para um cluster do Service Fabric executar cargas de trabalho de produção é cinco nós. Para cenários de dev/test, damos suporte a três clusters de nós.
+O tamanho mínimo suportado para um cluster do Service Fabric executar cargas de trabalho de produção é cinco nós. Para cenários de desenvolvimento, damos suporte a um nó (otimizado para a experiência de programação no Visual Studio) e clusters de cinco nós.
 
-Estes valores mínimos existem porque o cluster do Service Fabric é executado um conjunto de serviços de monitorização de estado do sistema, incluindo o serviço de nomenclatura e o Gestor de ativação pós-falha. Estes serviços, que controlam os serviços que foram implementados para o cluster e em que atualmente estão hospedados, dependem da consistência forte. Essa consistência forte, por sua vez, depende da capacidade de adquirir um *quórum* para qualquer determinada atualização para o estado desses serviços, onde um quórum representa uma maioria rigorosa das réplicas (N/2 + 1) para um determinado serviço.
+É necessário um cluster de produção para, pelo menos, 5 nós pelos seguintes motivos três:
+1. Mesmo quando não existem serviços de utilizador estão em execução, o cluster do Service Fabric é executado com um conjunto de serviços de monitorização de estado do sistema, incluindo o serviço de nomenclatura e o serviço de Gestor de ativação pós-falha. Estes serviços do sistema são essenciais para o cluster permanecer operacional.
+2. Estamos sempre colocar uma réplica de um serviço por nó, para que o tamanho do cluster é o limite superior para o número de réplicas que pode ter um serviço (e, na verdade, uma partição).
+3. Uma vez que uma atualização do cluster será apresentada para baixo, pelo menos, um nó, queremos ter uma memória intermédia de, pelo menos, um nó, portanto, queremos um cluster de produção para ter, pelo menos, dois nós *além disso* para o mínimo absoluto. O mínimo é o tamanho de quórum de um serviço de sistema, conforme explicado abaixo.  
+
+Queremos que o cluster estar disponíveis em caso de falha simultânea de dois nós. Para um cluster do Service Fabric estar disponível, os serviços do sistema tem de estar disponíveis. Serviços do sistema com monitoração de estado, como o serviço de nomenclatura e o serviço de Gestor de ativação pós-falha, que controlam os serviços que foram implementados para o cluster e em que atualmente estão hospedados, dependem da consistência forte. Essa consistência forte, por sua vez, depende da capacidade de adquirir um *quórum* para qualquer determinada atualização para o estado desses serviços, onde um quórum representa uma maioria rigorosa das réplicas (N/2 + 1) para um determinado serviço. Portanto, se quisermos ser resiliente face à perda de simultânea de dois nós (assim simultânea perda de duas réplicas de um serviço do sistema), deve haver ClusterSize - QuorumSize > = 2, o que força o tamanho mínimo ser cinco. Para ver que, considere o cluster tem N nós e há N as réplicas de um serviço de sistema--um em cada nó. O tamanho de quórum para um serviço de sistema é (N/2 + 1). A desigualdade acima é semelhante a N - (N/2 + 1) > = 2. Existem dois casos a serem considerados: quando N é até mesmo e quando N é ímpar. Se N for par, digamos que N = 2\*m em que m > = 1, a aparência de desigualdade 2\*m - (2\*m/2 + 1) > = 2 ou m > = 3. O mínimo de N é 6 e que é obtida quando m = 3. Por outro lado, se N for ímpar, digamos que N = 2\*m + 1 onde m > = 1, a aparência de desigualdade 2\*m + 1 – ((2\*m + 1) / 2 + 1) > = 2 ou 2\*m + 1 – (m + 1) > = 2 ou m > = 2. O mínimo de N é 5 e que é obtida quando m = 2. Por conseguinte, entre todos os valores de N que satisfazem a desigualdade ClusterSize - QuorumSize > = 2, o mínimo é 5.
+
+Observe, no argumento acima, pressupomos que cada nó tenha uma réplica de um serviço de sistema, assim, o tamanho de quórum é calculado com base no número de nós do cluster. No entanto, ao alterar *TargetReplicaSetSize* poderemos fazer com o tamanho de quórum inferior (N / 2 + 1) que pode dar a impressão que poderíamos ter um cluster mais pequeno do que 5 nós e ainda ter 2 nós Extras acima o tamanho de quórum. Por exemplo, num cluster de 4 nós, se definirmos o TargetReplicaSetSize 3, o tamanho de quórum com base em TargetReplicaSetSize é (3/2 + 1) ou 2, portanto, temos CluserSize - QuorumSize = 2 de 4 > = 2. No entanto, não podemos garantir que o serviço de sistema estarão no ou acima quórum se podemos perder qualquer par de nós em simultâneo, é possível que os dois nós perdemos estavam hospedando duas réplicas, para que o serviço de sistema irá entrar em perda de quórum (ter apenas uma única réplica à esquerda) um ND deixará de estar disponível.
 
 Com esse segundo plano, vamos examinar algumas configurações de cluster possíveis:
 
@@ -74,9 +81,13 @@ Com esse segundo plano, vamos examinar algumas configurações de cluster possí
 
 **Dois nós**: um quórum de um serviço implementado em dois nós (N = 2) é 2 (2/2 + 1 = 2). Quando uma única réplica é perdida, é impossível criar um quórum. Uma vez que executar uma atualização de serviço requer temporariamente interromper uma réplica, isso não é uma configuração de útil.
 
-**Três nós**: com três nós (N = 3), o requisito para criar um quórum ainda é dois nós (3/2 + 1 = 2). Isso significa que pode perder um nó individual e ainda manter o quórum.
+**Três nós**: com três nós (N = 3), o requisito para criar um quórum ainda é dois nós (3/2 + 1 = 2). Isso significa que pode perder um nó individual e ainda manter o quórum, mas falha simultânea de dois nós irá orientar os serviços do sistema em perda de quórum e fará com que o cluster fiquem indisponíveis.
 
-A configuração de cluster de três nós é suportada para dev/test porque pode efetuar atualizações e resistir a falhas de nó individual, com segurança, desde que não aconteçam em simultâneo. Para cargas de trabalho de produção, tem de ser resilientes a uma falha deste tipo simultânea, pelo que são necessários nós de cinco.
+**Quatro nós**: com quatro nós (N = 4), o requisito para criar um quórum é três nós (4/2 + 1 = 3). Isso significa que pode perder um nó individual e ainda manter o quórum, mas falha simultânea de dois nós irá orientar os serviços do sistema em perda de quórum e fará com que o cluster fiquem indisponíveis.
+
+**Cinco nós**: com cinco nós (N = 5), o requisito para criar um quórum ainda é três nós (5/2 + 1 = 3). Isso significa que pode perder dois nós em simultâneo e ainda manter o quórum para os serviços do sistema.
+
+Para cargas de trabalho de produção, tem de ser resiliente a falhas simultâneas de, pelo menos, dois nós (por exemplo, um devido à atualização do cluster, um por outros motivos), portanto, são necessários nós de cinco.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Pode desativar meu cluster na noite/fins de semana para reduzir os custos?
 

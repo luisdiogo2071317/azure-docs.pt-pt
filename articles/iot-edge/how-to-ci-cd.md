@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386830"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582920"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
 
@@ -40,7 +40,7 @@ Nesta secção, irá criar um exemplo do IoT Edge solução que contém testes d
 
 3. Agora seu exemplo de solução de IoT Edge está pronto. O módulo c# padrão funciona como um módulo de mensagem de pipe. Na `deployment.template.json`, verá essa solução contém dois módulos. A mensagem será gerada a partir da `tempSensor` módulo e será ser encaminhado diretamente através de `FilterModule`, em seguida, enviadas ao seu hub IoT.
 
-4. Guardar esses projetos, em seguida, confirmar em seus repositórios do Azure.
+4. Guardar esses projetos, em seguida, consolidar no seu repositório de repositórios do Azure.
     
 > [!NOTE]
 > Para obter mais informações sobre como utilizar o Azure repositórios, consulte [compartilhar seu código com o Visual Studio e Azure repositórios](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -69,11 +69,11 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
     
     * Se gostaria de criar os seus módulos na plataforma amd64 para contentores do Linux, escolha **alojado 1604 da Ubuntu**
     * Se gostaria de criar os seus módulos na plataforma amd64 para contentores do Windows, escolha **Hosted VS2017** 
-    * Se gostaria de criar os seus módulos na plataforma arm32v7 para contentores do Linux, tem de conjunto se o seu próprio agente de compilação clicando a **gerir** botão.
+    * Se gostaria de criar os seus módulos na plataforma arm32v7 para contentores do Linux, tem de conjunto se o seu próprio agente de compilação, visitando a **gerir** botão.
     
     ![Configurar o conjunto de agentes de compilação](./media/how-to-ci-cd/configure-env.png)
 
-1. Tarefa de agente, clique em "+" para adicionar três tarefas no pipeline de compilação. As duas primeiras são partir **do Azure IoT Edge**. E o terceiro é de **publicar artefactos de compilação**
+1. Tarefa de agente, abra "+" para adicionar três tarefas no pipeline de compilação. As duas primeiras são partir **do Azure IoT Edge**. E o terceiro é de **publicar artefactos de compilação**
     
     ![Adicionar tarefas para o pipeline de compilação](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
 
     ![Ativar o acionador de integração contínua](./media/how-to-ci-cd/configure-trigger.png)
 
-    Guarde o novo pipeline de compilação. Clique no botão **Guardar**.
+    Guardar o novo pipeline de compilação com **guardar** botão.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurar Pipelines do Azure para a implementação contínua
 Nesta secção, irá criar um pipeline de versão que está configurado para ser executada automaticamente quando o pipeline de compilação cai artefactos e ele mostrará os registos de implementação nos Pipelines do Azure.
 
-1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se já tiver pipelines de versão, escolha o **+ novo** botão e clique em **+ novo pipeline de versões**.  
+1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se já tiver pipelines de versão, escolha o **+ novo** e selecione **+ novo pipeline de versões**.  
 
     ![Adicionar o pipeline de lançamento](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
     ![Adicione os artefactos](./media/how-to-ci-cd/add-artifacts.png)  
     
-    Na **adicionar uma página de artefacto**, escolha o tipo de origem **criar**. Em seguida, selecione o projeto e o pipeline de compilação que criou. Em seguida, clique em **adicionar**.
+    Na **adicionar uma página de artefacto**, escolha o tipo de origem **criar**. Em seguida, selecione o projeto e o pipeline de compilação que criou. Em seguida, selecione **Adicionar**.
 
     ![Adicione um artefacto de compilação](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
     ![Configurar tarefas de controle de qualidade](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Tarefas de implementação são a plataforma de minúsculas, o que significa que pode escolher entre **Hosted VS2017** ou **alojados 1604 de Ubuntu** no **conjunto de agentes** (ou qualquer outro agente gerido pelo por conta própria). Clique em "+" e adicione uma tarefa.
+   Tarefas de implementação são a plataforma de minúsculas, o que significa que pode escolher entre **Hosted VS2017** ou **alojados 1604 de Ubuntu** no **conjunto de agentes** (ou qualquer outro agente gerido pelo por conta própria). Selecione "+" e adicione uma tarefa.
 
     ![Adicionar tarefas para controle de qualidade](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
     ![Implementar no controle de qualidade](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Guarde o novo pipeline de lançamento. Clique no botão **Guardar**. E, em seguida, clique em **Pipeline** voltar para o pipeline.
+    Guardar o novo pipeline de lançamento com o **guardar** botão. E, em seguida, selecione **Pipeline** voltar para o pipeline.
 
 6. A segunda fase é para o seu ambiente de produção. Para adicionar uma nova fase "PROD", pode clonar o estágio "QA" e mudar o nome do estágio clonado para **PROD**,
 
     ![Fase de clone](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure as tarefas para o seu ambiente de produção. Suponha que tem vários do IoT Edge que dispositivos foram marcados como "prod", em configurações de tarefas, a condição de destino para "prod" e defina o ID de implementação como "implementar-prod" nas definições avançadas de atualização. Clique no botão **Guardar**. E, em seguida, clique em **Pipeline** voltar para o pipeline.
+7. Configure as tarefas para o seu ambiente de produção. Suponha que tem vários do IoT Edge que dispositivos foram marcados como "prod", em configurações de tarefas, a condição de destino para "prod" e defina o ID de implementação como "implementar-prod" nas definições avançadas de atualização. Salve-o com o **guardar** botão. E, em seguida, selecione **Pipeline** voltar para o pipeline.
     
     ![Implementar em produção](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
         ![Condições de pré-implantação abertas](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Definir **Enabled** na **aprovações de pré-implantação**. E preencha a **aprovadores** entrada. Em seguida, clique em **Guardar**.
+    2. Definir **Enabled** na **aprovações de pré-implantação**. E preencha a **aprovadores** entrada. Em seguida, guarde-o com **guardar** botão.
     
         ![Conjunto de condições](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
 Nesta secção, irá acionar uma compilação para tornar o pipeline de CI/CD trabalhar. Em seguida, verifique se que a implementação com êxito.
 
-1. Para acionar uma tarefa de compilação, pode emitir uma confirmação para o repositório de código fonte ou acionar manualmente. Pode acionar uma tarefa de compilação no seu pipeline de compilação clicando a **fila** botão como na seguinte captura de ecrã.
+1. Para acionar uma tarefa de compilação, pode emitir uma confirmação para o repositório de código fonte ou acionar manualmente. Pode acionar uma tarefa de compilação no seu pipeline de compilação, selecionando o **fila** botão como na seguinte captura de ecrã.
 
     ![Acionador manual](./media/how-to-ci-cd/manual-trigger.png)
 

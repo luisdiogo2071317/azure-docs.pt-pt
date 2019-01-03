@@ -3,17 +3,15 @@ title: Cópia de segurança e restauro na base de dados do Azure para MariaDB
 description: Saiba mais sobre cópias de segurança automáticas e restaurar a base de dados do Azure para MariaDB server.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c8e671071226b891668e0874d56e2d4685e1d64d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e36e718d35f652c139958388491642e98469ecaf
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958596"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548855"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Cópia de segurança e restauro na base de dados do Azure para MariaDB
 
@@ -32,7 +30,7 @@ Em geral, cópias de segurança completas ocorrem semanalmente, cópias de segur
 Base de dados do Azure para MariaDB fornece a flexibilidade de escolher entre o armazenamento de cópias de segurança localmente redundante ou georredundantes nas camadas de fins gerais e com otimização de memória. Quando as cópias de segurança são armazenadas no armazenamento de cópia de segurança georredundante, eles não são apenas armazenados dentro da região na qual o servidor está alojada, mas também são replicadas para um [Centro de dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece a melhor proteção e a capacidade de restaurar o servidor numa região diferente em caso de desastre. O escalão básico oferece apenas armazenamento localmente redundante de cópia de segurança.
 
 > [!IMPORTANT]
-> Configurar localmente redundante ou georredundantes para cópia de segurança só é permitida durante o servidor de criação de armazenamento. Assim que o servidor é aprovisionado, é possível alterar a opção de redundância de armazenamento de cópia de segurança.
+> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de cópia de segurança
 

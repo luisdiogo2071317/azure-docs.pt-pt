@@ -1,8 +1,8 @@
 ---
-title: Manter a saída de trabalhos e tarefas para o armazenamento do Azure com a API de serviço do Azure Batch | Documentos da Microsoft
+title: Manter a saída de trabalhos e tarefas para o armazenamento do Azure com o serviço de Batch API - Azure Batch | Documentos da Microsoft
 description: Saiba como utilizar a API de serviço do Batch para manter a saída de tarefa e a tarefa de lote para o armazenamento do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.service: batch
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
-ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 685f034dfa3b312c461f7313c0f85a256838a8d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706131"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539556"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefas para o armazenamento do Azure com a API de serviço do Batch
 

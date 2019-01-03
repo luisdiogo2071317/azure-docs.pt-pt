@@ -1,20 +1,18 @@
 ---
 title: Descrição geral da base de dados do Azure para o serviço de base de dados relacional MySQL
 description: Descrição geral da base de dados do Azure para o serviço de base de dados relacional MySQL.
-services: mysql
 ms.service: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.custom: mvc
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684805"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536887"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a base de dados do Azure para MySQL?
 Base de dados do Azure para MySQL é um serviço de base de dados relacional na cloud da Microsoft com base na [MySQL Community Edition](https://www.mysql.com/products/community/) motor de base de dados, as versões 5.6 e 5.7. Fornece a base de dados do Azure para MySQL:
@@ -38,7 +36,7 @@ Para obter um conjunto de amostras da CLI do Azure, veja:
 - [Exemplos da CLI do Azure para a base de dados do Azure para MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
-A base de dados do Azure para o serviço MySQL oferece vários escalões de serviço: básico, fins gerais e com otimização de memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-service-tiers.md) para obter detalhes.
+A base de dados do Azure para o serviço MySQL oferece vários escalões de serviço: Básico, fins gerais e com otimização de memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-service-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 Como decidir quando aumentar e reduzir verticalmente? Utilize a monitorização de desempenho incorporada e as funcionalidades de alerta juntamente com as classificações de desempenho baseadas em vCores. Com estas ferramentas, pode avaliar rapidamente o impacto do dimensionamento vertical ou horizontal dos vCores com base nas suas necessidades de desempenho atuais ou estimadas. Consulte [Alertas](howto-alert-on-metric.md) para obter mais detalhes.
@@ -65,4 +63,4 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 Agora que leia uma introdução à base de dados do Azure para MySQL e respondeu à pergunta "O que é Azure da base de dados para o MySQL?", está pronto para:
 - Consulte a página de preços para ver as comparações de preços e as calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mysql/)
 - Comece por criar o seu primeiro servidor. [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Crie seu primeiro aplicativo com a sua linguagem preferencial: [Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md)  |  [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [ir](./connect-go.md)
+- Crie seu primeiro aplicativo usando o seu idioma preferencial: [Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [ir](./connect-go.md)

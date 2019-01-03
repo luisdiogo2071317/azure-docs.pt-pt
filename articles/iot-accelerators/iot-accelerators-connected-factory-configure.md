@@ -1,5 +1,5 @@
 ---
-title: Configurar a topologia de fábrica ligada | Documentos da Microsoft
+title: Configurar a topologia de fábrica ligada - Azure | Documentos da Microsoft
 description: Como configurar a topologia de um acelerador de solução de fábrica ligada.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746984"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602278"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador de solução de fábrica ligada
 
@@ -85,7 +85,7 @@ O fragmento seguinte mostra uma descrição do `ContosoTopologyDescription.json`
 }
 ```
 
-As propriedades comuns dos `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, e `<station_configuration>` são:
+As propriedades comuns dos `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, e `<station_configuration>` são:
 
 * **Nome** (escreva a cadeia de caracteres)
 
@@ -282,7 +282,7 @@ Os valores OEE/KPI para a simulação de fábrica ligada são parametrizados por
 * Os valores de nó OPC UA a serem incluídos no cálculo.
 * Como a figura é calculada entre os valores de telemetria.
 
-Fábrica ligada utiliza as fórmulas OEE, tal como publicado pelo http://www.oeefoundation.org.
+Fábrica ligada utiliza as fórmulas OEE, tal como publicado pelo https://www.oeefoundation.org.
 
 Objetos do nó OPC UA em estações de ativar a marcação para utilização no cálculo de valores OEE/KPI. O **relevância** propriedade indica para qual figura valores OEE/KPI deve ser utilizado o valor do nó OPC UA. O **OpCode** propriedade define como o valor está incluído na computação.
 
@@ -309,7 +309,7 @@ Para determinadas operações, como visualizar o último valor ou a criação de
 
 Verifique [isso](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos para utilizar o publicador de OPC de fábrica ligada.
 
-## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como KPI1 é calculado
+## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como é calculado KPI1
 
 A configuração no `ContosoTopologyDescription.json` arquivo controla como os valores OEE/KPI são calculadas. O exemplo seguinte mostra como propriedades neste ficheiro controlam a computação de KPI1.
 

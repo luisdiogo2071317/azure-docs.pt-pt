@@ -1,5 +1,5 @@
 ---
-title: Obter chaves de subscrição para a API de imagem digitalizada
+title: Obter chaves de subscrição - de imagem digitalizada
 titlesuffix: Azure Cognitive Services
 description: Saiba como obter chaves de subscrição para chamadas para a API de imagem digitalizada nos serviços cognitivos do Azure.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985427"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580812"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Como obter chaves de subscrição
 
-Serviços de visão do computador exigem chaves de subscrição especial. Todas as chamadas para a API de imagem digitalizada requerem uma chave de subscrição. Esta chave tem de passar por um parâmetro de cadeia de caracteres de consulta ou ser especificada no cabeçalho do pedido.
+Serviços de visão do computador exigem chaves de subscrição especial. Todas as chamadas para a API de Imagem Digitalizada necessitam de uma chave de subscrição. Esta chave tem de ser transmitida através de um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido.
 
 Para se inscrever para chaves de subscrição, veja [subscrições](https://azure.microsoft.com/try/cognitive-services/). É gratuito para se inscrever. Os preços para estes serviços são sujeitos a alterações.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: c3c1aa9abc6a7ba97bf7c95aa1c670c7239df3ab
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020223"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556803"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrar do serviço de Cache gerida, para a Cache do Azure, para Redis
 Migrar seus aplicativos que utilizam o serviço de Cache gerida do Azure para a Cache do Azure para Redis pode ser feito com alterações mínimas à sua aplicação, dependendo dos recursos de serviço de Cache gerida utilizado pela sua aplicação de colocação em cache. Enquanto as APIs não são exatamente os mesmos recursos serem similares e grande parte do seu código existente que utiliza o serviço de Cache gerida para aceder uma cache pode ser reutilizado com alterações mínimas. Este artigo mostra como tornar as configurações necessárias e o aplicativo é alterado para migrar as suas aplicações de serviço de Cache gerida a utilizar a Cache do Azure para Redis e mostra como alguns dos recursos de Cache do Azure para Redis podem ser usado para implementar a funcionalidade de uma cache de serviço de Cache gerida.
@@ -47,7 +47,7 @@ A Cache de Redis do Azure e serviço de Cache gerida do Azure são semelhantes, 
 
 | Funcionalidade de serviço de Cache gerida | Suporte de serviço de Cache gerido | Cache do Azure para o suporte de Redis |
 | --- | --- | --- |
-| Caches nomeadas |Uma cache de predefinição está configurada e, na cache Standard e Premium podem ser configuradas ofertas, até nove adicionais com o nome caches se assim o desejar. |A Cache do Azure para Rediss têm um número configurável de bases de dados (predefinição de 16) que podem ser utilizados para implementar uma funcionalidade semelhante à caches nomeadas. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration). |
+| Caches nomeadas |Uma cache de predefinição está configurada e, na cache Standard e Premium podem ser configuradas ofertas, até nove adicionais com o nome caches se assim o desejar. |A Cache de Redis do Azure tem um número configurável de bases de dados (predefinição de 16) que pode ser usado para implementar uma funcionalidade semelhante à caches nomeadas. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration). |
 | Elevada Disponibilidade |Fornece elevada disponibilidade para itens na cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de segurança dos itens na cache ainda estão disponíveis. Escritas para a cache secundária são efetuadas de forma síncrona. |Elevada disponibilidade está disponível nas ofertas de cache Standard e Premium, que tem uma configuração de primário/réplica de dois nós (cada partição horizontal numa Premium cache tem um par de primário/réplica). Escritas para a réplica são feitas de forma assíncrona. Para obter mais informações, consulte [Cache do Azure para Redis preços](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificações |Permite aos clientes receber notificações assíncronas quando ocorrerem várias operações de cache num cache nomeado. |Aplicações cliente podem utilizar o Redis pub/sub ou [notificações Keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para atingir uma funcionalidade semelhante para enviar notificações. |
 | Cache local |Armazena uma cópia dos objetos em cache localmente no cliente para um acesso muito rápido. |Aplicativos cliente seriam necessário implementar essa funcionalidade usando um dicionário ou uma estrutura de dados semelhantes. |
@@ -130,7 +130,7 @@ Adicione a seguinte instrução na parte superior de qualquer ficheiro a partir 
 using StackExchange.Redis
 ```
 
-Se não resolver este espaço de nomes, certifique-se de que adicionou o pacote NuGet do stackexchange. redis conforme descrito em [início rápido: utilizar a Cache do Azure para Redis com um aplicativo .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
+Se não resolver este espaço de nomes, certifique-se de que adicionou o pacote NuGet do stackexchange. redis, tal como descrito no [início rápido: Utilizar a Cache do Azure para Redis com um aplicativo .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Tenha em atenção que o cliente stackexchange. redis requer o .NET Framework 4 ou superior.

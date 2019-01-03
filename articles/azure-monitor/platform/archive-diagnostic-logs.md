@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3aa3b2fa0dffb38970b80fe061f1fe09271e15b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bc3ee549a4219441b657b89bef56d35dfac6626a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438301"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547495"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar registos de diagnóstico do Azure
 
-Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell, CLI ou REST API para arquivar sua [registos de diagnóstico do Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter os seus registos de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou cópia de segurança. A conta de armazenamento não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell, CLI ou REST API para arquivar sua [registos de diagnóstico do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter os seus registos de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou cópia de segurança. A conta de armazenamento não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 > [!WARNING]
 > O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -33,7 +33,7 @@ Antes de começar, precisa [criar uma conta de armazenamento](../../storage/comm
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
+Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -162,6 +162,6 @@ No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Transfira blobs para análise](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Registos de diagnóstico do Stream para um espaço de nomes de Hubs de eventos](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Registos de diagnóstico do Stream para um espaço de nomes de Hubs de eventos](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Arquivar registos do Azure Active Directory com o Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Leia mais sobre os registos de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Leia mais sobre os registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)

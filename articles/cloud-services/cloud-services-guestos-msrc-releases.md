@@ -11,24 +11,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854276"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541035"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
 
-## <a name="november-2018-guest-os"></a>SO de convidado de Novembro de 2018
+## <a name="december-2018-guest-os"></a>SO de convidado de Dezembro de 2018
 
 >[!NOTE]
->O sistema operacional convidado de Novembro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Novembro. Esta lista está sujeita a alterações.
+>O sistema operacional convidado de Dezembro é implementado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Dezembro. Esta lista está sujeita a alterações.
 
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Segurança do Windows 10 | 5.26 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4471328] | Segurança do Windows   | 2.81 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4471326] | Segurança do Windows   | 3,68 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4471322] | Segurança do Windows   | 4.61 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470600] | Segurança do .net 3.x  | 2.81 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470601] | Segurança do .net 3.x  | 3,68 | 11 de Dezembro de 2018|
+| Rel 18-12 | [4470602] | Segurança do .net 3.x  | 4.61 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470493] | Segurança do .net 4.x  | 2.81 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470492] | Segurança do .net 4.x  | 3,68 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470491] | Segurança do .net 4.x  | 4.61| 11 de Dezembro de 2018 |
+| Rel 18-12 | [4471331] | Flash  | 3,68, 4.61, 5.26 | 5 de Dezembro de 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3,68, 4.61 | 11 de Dezembro de 2018 |
+| N/A | [4468323] | Atualização de fuso horário    | 2.81, 3,68, 4.61 | 13 de Dezembro de 2018 |
+| N/A | [4467107] | Rollup de Novembro sem segurança   | 2.81 | 13 de Novembro de 2018 |
+| N/A | [4467701] | Rollup de Novembro sem segurança     | 3,68 | 13 de Novembro de 2018 |
+| N/A | [4467697] | Rollup de Novembro sem segurança     | 4.61 | 13 de Novembro de 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>SO de convidado de Novembro de 2018
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 de Novembro de 2018 |
 | Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | 13 de Novembro de 2018 |
@@ -60,7 +98,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 ## <a name="october-2018-guest-os"></a>SO de convidado de Outubro de 2018
 
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Segurança do Windows 10 | 5.24 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462915] | Segurança do Windows | 2.79 | 9 de outubro de 2018 |
@@ -97,7 +135,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>SO de convidado de Setembro de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Segurança do Windows 10 | 5.23 | 11 de Setembro de 2018 |
 | Rel 18-09 | [4457145] | Segurança do Windows apenas | 2.78 | 11 de Setembro de 2018 |
@@ -119,7 +157,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4344147] | X rollup Agosto sem segurança .NET 4 | 4.58 | 14 de Agosto de 2018 |
 
 ## <a name="august-2018-guest-os"></a>SO de convidado de Agosto de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Segurança do Windows 10 | 5.22 | 14 de Agosto de 2018 |
 | Rel 18-08 | [4343899] | Segurança do Windows apenas | 2.77 | 14 de Agosto de 2018 |
@@ -142,7 +180,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4338415] |X rollup Julho sem segurança .NET 4 |3.64 | 10 de Julho de 2018 |
 
 ## <a name="july-2018-guest-os"></a>SO de convidado de Julho de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 18 | [4338814] |Segurança do Windows 10 |5.21 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4338823] |Segurança do Windows apenas |2.76 |10 de Julho de 2018 |
@@ -162,7 +200,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4284815] |Agregação de não-segurança de Junho |4,56 |12 de junho de 2018 |
 
 ## <a name="june-2018-guest-os"></a>SO de convidado de Junho de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 06 de 18 | [4284880] |Segurança do Windows 10 |5.20 |12 de junho de 2018 |
 | Rel 06 de 18 | [4284867] |Segurança do Windows apenas |2.75 |12 de junho de 2018 |
@@ -187,7 +225,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4132216] |Maio SSU |5.20 |8 de Maio de 2018 |
 
 ## <a name="may-2018-guest-os"></a>SO de convidado de Maio de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 05 de 18 | [4103721], [4103727], [4103723] |Segurança do Windows 10 |5.19 |8 de Maio de 2018 |
 | Rel 05 de 18 | [4103712] |Segurança do Windows apenas |2.74 |8 de Maio de 2018 |
@@ -207,7 +245,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 ## <a name="april-2018-guest-os"></a>SO de convidado de Abril de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Segurança do Windows 10 |5.18 |10 de abril de 2018 |
 | Rel 18-04 | [4093108] |Segurança do Windows apenas |2.73 |10 de abril de 2018 |
@@ -221,7 +259,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4088876] |Agregação de não-segurança de Março |4.53 |13 de março de 2018 |
 
 ## <a name="march-2018-guest-os"></a>SO de convidado de Março de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5,17 |13 de março de 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Segurança do Windows apenas |2.72, 3.59, 4.52 |13 de março de 2018 |
@@ -234,7 +272,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 ## <a name="february-2018-guest-os"></a>SO de convidado de Fevereiro de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Segurança do Windows 10 |5.16 |13 de fevereiro de 2018 |
 | Rel 18-02 | [4074587], [4074589], [4074597] |Segurança do Windows apenas |2.71, 3.58, 4.51 |13 de fevereiro de 2018 |
@@ -248,7 +286,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4054177], [4054170] |Rollup de .NET de Janeiro |4.51 |4 de Janeiro de 2018 |
 
 ## <a name="january-2018-guest-os"></a>SO de convidado de Janeiro de 2018
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Segurança do Windows apenas |à 2.70, 3.57, 4,50 |3 de Janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Segurança do Windows apenas |5.15 |3 de Janeiro de 2018 |
@@ -260,7 +298,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 ## <a name="december-2017-guest-os"></a>SO de convidado de Dezembro de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Atualizações de segurança do Windows 10 |4.49, 5.14 |12 de Dezembro de 2017 |
 | Rel 17-12 | [4054521], [4054522], [4054523] |Segurança do Windows apenas |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
@@ -272,7 +310,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4049068] |Atualização de fuso horário de Dezembro |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
 
 ## <a name="november-2017-guest-os"></a>SO de convidado de Novembro de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Atualizações do Windows 10 |5.13 |14 de novembro de 2017 |
 | Rel 17-11 | [4048960], [4048962], [4048961] |Segurança do Windows apenas |2.68, 3.55, 4.48 |14 de novembro de 2017 |
@@ -286,7 +324,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [3191564] |Atualização para o Windows Management Framework 5.1  |4.48 |14 de novembro de 2017 |
 
 ## <a name="october-2017-guest-os"></a>SO de convidado de Outubro de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17 a 10 | [4041691] |Atualizações do Windows 10 |5.12 |10 de Outubro de 2017 |
 | Rel 17 a 10 | [4041678], [4041679], [4041687] |Segurança do Windows apenas |2.67, 3.54, 4.47 |10 de Outubro de 2017 |
@@ -300,7 +338,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4040981] |Agregação de que não são de segurança do .NET de Setembro |4.47 |12 de Setembro de 2017 |
 
 ## <a name="september-2017-guest-os"></a>SO de convidado de Setembro de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Atualizações do Windows 10 |5.11 |12 de Setembro de 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Segurança do Windows apenas |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
@@ -312,7 +350,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4034681] |Agregação de não-segurança de Agosto |4.46 |8 de Agosto de 2017 |
 
 ## <a name="august-2017-guest-os"></a>SO de convidado de Agosto de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 17 | [4034658] |Atualizações do Windows 10 |5.10 |8 de Agosto de 2017 |
 | Rel 07 de 17 | [4034679] |Segurança do Windows apenas |2.65 |8 de Agosto de 2017 |
@@ -326,7 +364,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 07 de 17 | [4025336] |Agregação de não-segurança de Julho |4.45 |11 de Julho de 2017 |
 
 ## <a name="july-2017-guest-os"></a>SO de convidado de Julho de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 17 | [4025339] |Atualizações do Windows 10 |5.9 |11 de Julho de 2017 |
 | Rel 07 de 17 | [4025337] |Segurança do Windows apenas |2.64 |11 de Julho de 2017 |
@@ -340,7 +378,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4022726] |Agregação de não-segurança de Junho |4.44 |13 de Junho de 2017 |
 
 ## <a name="june-2017-guest-os"></a>SO de convidado de Junho de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 06 de 17 | [4019472] |Aprimoramentos de qualidade de SO do WS 2016 |5.8 |9 de Maio de 2017 |
 | Rel 06 de 17 | [4022722] |Segurança do Windows apenas |2.63 |13 de Junho de 2017 |
@@ -368,7 +406,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4014512] |Pode rollup não relacionados a segurança de .NET |4.43 |9 de Maio de 2017 |
 
 ## <a name="may-2017-guest-os"></a>SO de convidado de Maio de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 05 de 17 | [4019472] |Aprimoramentos de qualidade de SO do WS 2016 |5.7 | 9 de Maio de 2017 |
 | Rel 05 de 17 | [4019263] |Segurança do Windows apenas |2.62 | 9 de Maio de 2017 |
@@ -396,7 +434,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4013418] |Atualização de pilha de manutenção |5.7 | 14 de março de 2017 |
 
 ## <a name="april-2017-guest-os"></a>SO de convidado de Abril de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 04 de 17 |  [4015217]  |Aprimoramentos de qualidade de SO do WS 2016 | 5.6 | 11 de Abril de 2017 |
 | Rel 04 de 17 |  [4015546]  |Segurança do Windows apenas |2.61 | 11 de Abril de 2017 |
@@ -416,7 +454,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 04 de 17 |  [4012216]  |Agregação de qualidade de mensais de segurança do Março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 de Abril de 2017 |
 
 ## <a name="march-2017-guest-os"></a>SO de convidado de Março de 2017
-| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Melhorias e correções | 5.5 | 14 de março de 2017 |
 | Rel 17-03 |  [4012212] |Março de 2017 qualidade de segurança apenas atualizar para o Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
@@ -427,7 +465,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |  [3212646] |Agregação de qualidade de mensais de segurança do Janeiro de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
 | N/A |  [3205409] |Agregação de qualidade de mensais de segurança do Dezembro de 2016 para o Windows Server 2012 |3.47 |14 de março de 2017 |
 | N/A |  [3205401] |Agregação de qualidade de mensais de segurança do Dezembro de 2016 para o Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
-| N/A |  [3211320] |Manutenção de pilha atualização para o Windows 10 versão 1607 e Windows Server 2016: 24 de Janeiro de 2017 |5.5 |14 de março de 2017 |
+| N/A |  [3211320] |Atualização de pilha de manutenção para o Windows 10 versão 1607 e Windows Server 2016: 24 de Janeiro de 2017 |5.5 |14 de março de 2017 |
 
 ## <a name="january-2017-guest-os"></a>SO de convidado de Janeiro de 2017
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -468,13 +506,13 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3192321] |Turquia termina observance de horário de Verão |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
 | N/A |[3185330] |Agregação de qualidade de mensal de segurança do Outubro de 2016 para o Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de Novembro de 2016 |
 | N/A |[3192403] |Outubro de 2016 pré-visualização de Rollup de qualidade mensal para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de Novembro de 2016 |
-| N/A |[3177467] |Manutenção de atualização para o Windows 7 SP1 e Windows Server 2008 R2 SP1 de pilha: 20 de Setembro de 2016 |2.57 |8 de Novembro de 2016 |
+| N/A |[3177467] |Atualização de pilha de manutenção para o Windows 7 SP1 e Windows Server 2008 R2 SP1: 20 de Setembro de 2016 |2.57 |8 de Novembro de 2016 |
 | N/A |[3185332] |Agregação de qualidade de mensal de segurança do Outubro de 2016 para o Windows Server 2012 |3.45 |8 de Novembro de 2016 |
 | N/A |[3192406] |Outubro de 2016 pré-visualização de Rollup de qualidade mensal para o Windows Server 2012 |3.45 |8 de Novembro de 2016 |
 | N/A |[3185331] |Agregação de qualidade de mensal de segurança do Outubro de 2016 para o Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de Novembro de 2016 |
 | N/A |[3192404] |Outubro de 2016 pré-visualização de Rollup de qualidade mensal para Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de Novembro de 2016 |
-| N/A |[3199986] |Manutenção de pilha atualização para o Windows 10 versão 1607: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
-| N/A |[3197954] |A atualização cumulativa para o Windows 10 versão 1607 e no Windows Server 2016: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
+| N/A |[3199986] |Atualização de pilha de manutenção para Windows 10 versão 1607: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
+| N/A |[3197954] |Atualização cumulativa para o Windows 10 versão 1607 e no Windows Server 2016: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
 
 ## <a name="october-2016-guest-os"></a>SO de convidado de Outubro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -581,7 +619,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3133977] |O BitLocker não é possível encriptar unidades por serviço falhas no processo de svchost.exe no Windows 7 ou Windows Server 2008 R2  |2.51 |10 de Maio de 2016 |
 | N/A |[3133681] |Máquinas virtuais não responder a sua operação no SCVMM no Windows Server 2012 R2  |4.32 |10 de Maio de 2016 |
 | N/A |[3123245] |Atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2  |4.32 |10 de Maio de 2016 |
-| N/A |[Desativar RC4] | Consultoria de segurança da Microsoft: atualizar para desativar o RC4  |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| N/A |[Desativar RC4] | Consultoria de segurança de Microsoft: Atualização para desativar o RC4  |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 
 ## <a name="april-2016-guest-os"></a>SO de convidado de Abril de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -630,7 +668,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-005 |[3124584] |Atualização de segurança para Drivers de modo Kernel do Windows resolver a execução remota de código |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 | MS16-007 |[3124901] |Atualização de segurança do Windows da Microsoft abordar a execução remota de código |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 | MS16-008 |[3124605] |Atualização de segurança do Kernel abordar a elevação de privilégios |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
-| Revisão de consultoria de segurança da Microsoft |[2755801] |Atualizar para vulnerabilidades no Adobe Flash Player no Internet Explorer (pacote KB: TBD)-marcador de posição de consultoria |4.28, 3.35 |12 de Janeiro de 2016 |
+| Revisão de consultoria de segurança da Microsoft |[2755801] |Atualização de vulnerabilidades no Adobe Flash Player no Internet Explorer (pacote KB: TBD) - marcador de posição de consultoria |4.28, 3.35 |12 de Janeiro de 2016 |
 | Consultoria de segurança da Microsoft |[3109853] |Atualização para melhorar a interoperabilidade TLS |4.28, 3.35 |12 de Janeiro de 2016 |
 | Consultoria de segurança da Microsoft |[3123479] |Descontinuação de algoritmo hash SHA-1 para Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 | Consultoria de segurança da Microsoft |[2736233] |Atualizações de ActiveX elimina Bits |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
@@ -778,7 +816,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-014 |[3004361] |Vulnerabilidade no SMB poderia permitir a desativação da funcionalidade de segurança |4.17, 3.24, 2.36 |N/A |
 | MS15-015 |[3031432] |Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégios |4.17, 3.24, 2.36 |N/A |
 | MS15-016 |[3029944] |Vulnerabilidade no componente Microsoft gráficos poderia permitir a divulgação de informações |4.17, 3.24, 2.36 |N/A |
-| N/A |[3004375] |Auditoria da linha de comando de atualização para melhorar o Windows<p/>**Tenha em atenção**: Isto foi instalado, mas a chave de registo para ativá-la está desativada |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Auditoria da linha de comando de atualização para melhorar o Windows<p/>**Nota**: Isto foi instalado, mas a chave de registo para ativá-la está desativada |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-2015-guest-os"></a>SO de convidado de Janeiro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |

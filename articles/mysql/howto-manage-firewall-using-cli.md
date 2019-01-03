@@ -1,21 +1,18 @@
 ---
 title: Criar e gerir a base de dados do Azure para as regras de firewall do MySQL com a CLI do Azure
 description: Este artigo descreve como criar e gerir a base de dados do Azure para as regras de firewall do MySQL com a CLI do Azure da linha de comandos.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134901"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549008"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para as regras de firewall do MySQL com a CLI do Azure
 Regras de firewall ao nível do servidor permitem aos administradores gerir o acesso a uma base de dados do Azure para o servidor MySQL de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MySQL firewalls, consulte [base de dados do Azure para as regras de firewall do servidor MySQL](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ Regras de firewall ao nível do servidor permitem aos administradores gerir o ac
 O **az mysql server firewall-rule** comando é utilizado a partir da CLI do Azure para criar, eliminar, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar**: criar uma regra de firewall do servidor MySQL do Azure.
-- **eliminar**: eliminar uma regra de firewall do servidor MySQL do Azure.
-- **lista**: lista as regras de firewall do servidor MySQL do Azure.
-- **Mostrar**: Mostrar os detalhes de um servidor Azure MySQL regra de firewall.
-- **Atualizar**: atualizar uma regra de firewall do servidor MySQL do Azure.
+- **Criar**: Crie uma regra de firewall do servidor MySQL do Azure.
+- **Eliminar**: Elimine uma regra de firewall do servidor MySQL do Azure.
+- **Lista**: Liste as regras de firewall do servidor MySQL do Azure.
+- **Mostrar**: Mostre os detalhes de um servidor MySQL do Azure a regra de firewall.
+- **Atualização**: Atualize uma regra de firewall do servidor MySQL do Azure.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Inicie sessão no Azure e listar a sua base de dados do Azure para servidores MySQL
 Ligar em segurança a CLI do Azure com a sua conta do Azure utilizando o **início de sessão az** comando.

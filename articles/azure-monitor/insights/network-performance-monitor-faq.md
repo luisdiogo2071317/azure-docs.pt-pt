@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166613"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543993"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -70,6 +70,9 @@ O script configura apenas Windows Firewall localmente. Se tiver regras de grupo 
 
 ### <a name="how-many-agents-should-i-use"></a>Número de agentes devo utilizar?
 Deve utilizar, pelo menos, um agente para cada sub-rede que pretende monitorizar.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>O que é o número máximo de agentes que posso usar ou consulte o erro "... atingiu o limite de configuração"?
+NPM limita o número de IPs para 5000 IPs por área de trabalho. Se um nó tiver endereços IPv4 e IPv6, esta será contabilizada como IPs de 2 para esse nó. Por conseguinte, este limite de 5000 IPs seria decidir o limite superior no número de agentes. Pode eliminar os agentes Inativos do separador de nós no NPM >> configurar. NPM também mantém o histórico de todos os IPs que nunca foram atribuídos à VM que aloja o agente e eles também contagem como separado IPs que contribuem para esse limite superior de IPs de 5000. Para libertar IPs sua área de trabalho, pode utilizar a página de nós para eliminar os IPs que não estão em utilização.
 
 ## <a name="monitoring"></a>Monitorização
 

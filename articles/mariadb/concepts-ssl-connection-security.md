@@ -3,17 +3,15 @@ title: Conectividade SSL para a base de dados do Azure para MariaDB
 description: Informações para configurar a base de dados do Azure para MariaDB e os aplicativos associados corretamente utilizar ligações SSL
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1d0b27a8fd7e3882a73624fa1b668ac602a85e6b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 15bb28846b3409dd31bcdf8d42990facc94fd06d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249507"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539607"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL na base de dados do Azure para MariaDB
 Oferece suporte a base de dados do Azure para MariaDB, ligar o seu servidor de base de dados para aplicações de cliente, utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.

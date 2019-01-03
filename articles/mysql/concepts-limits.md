@@ -1,20 +1,17 @@
 ---
 title: Limitações na base de dados do Azure para MySQL
 description: Este artigo descreve as limitações na base de dados do Azure para MySQL, como o número de ligação e opções de motor de armazenamento.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090997"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536095"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -39,7 +36,7 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Memória Otimizada| 32| 10000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
-> Erro 1040 (08004): Demasiadas ligações
+> ERRO 1040 (08004): Demasiadas ligações
 
 ## <a name="storage-engine-support"></a>Suporte ao mecanismo de armazenamento
 
@@ -56,8 +53,8 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Não suportado
-- Função DBA: várias definições de parâmetros do servidor e inadvertidamente podem degradar o desempenho do servidor ou negar as propriedades ACID do DBMS. Como tal, para manter a integridade de serviço e o SLA num nível de produto, este serviço não expõe a função DBA. A conta de usuário padrão, é criada quando é criada uma nova instância de base de dados, permite que o utilizador efetuar a maioria das instruções DDL e DML na instância gerida da base de dados. 
-- Privilégio SUPER: da mesma forma [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
+- Função DBA: Várias definições de parâmetros do servidor e inadvertidamente podem degradar o desempenho do servidor ou negar as propriedades ACID do DBMS. Como tal, para manter a integridade de serviço e o SLA num nível de produto, este serviço não expõe a função DBA. A conta de usuário padrão, é criada quando é criada uma nova instância de base de dados, permite que o utilizador efetuar a maioria das instruções DDL e DML na instância gerida da base de dados. 
+- Privilégio SUPER: Da mesma forma [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
 

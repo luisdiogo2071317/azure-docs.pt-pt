@@ -1,21 +1,18 @@
 ---
-title: Manipulação de erros de conectividade transitória da base de dados do Azure para PostgreSQL | Documentos da Microsoft
+title: Tratamento de erros de conectividade transitória da base de dados do Azure para PostgreSQL
 description: Saiba como lidar com erros de conectividade transitória da base de dados do Azure para PostgreSQL.
 keywords: ligação do postgresql, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação
-services: postgresql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 264656da38608026e3f9e866e2184ff55ba102d8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890065"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536224"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Tratamento de erros de conectividade transitória da base de dados do Azure para PostgreSQL
 
@@ -39,7 +36,7 @@ O primeiro e o segundo caso são bastante simples para processar. Tente abrir a 
 * Para cada tentativa seguinte, o aumento a espera exponencialmente, até 60 segundos.
 * Defina um número máximo de repetições, altura em que seu aplicativo considera a operação falhou.
 
-Quando uma conexão com uma transação ativa falha, é mais difícil de lidar corretamente com a recuperação. Existem dois casos: se a transação foi só de leitura por natureza, é seguro para reabrir a ligação e repita a transação. Se entretanto se a transação também estava escrevendo para a base de dados, tem de determinar se a transação foi revertida ou se ele foi concluída com êxito antes do erro transitório aconteceu. Nesse caso, poderá simplesmente não recebeu a confirmação da consolidação do servidor de base de dados.
+Quando uma conexão com uma transação ativa falha, é mais difícil de lidar corretamente com a recuperação. Existem dois casos: Se a transação foi só de leitura por natureza, é seguro para reabrir a ligação e repita a transação. Se entretanto se a transação também estava escrevendo para a base de dados, tem de determinar se a transação foi revertida ou se ele foi concluída com êxito antes do erro transitório aconteceu. Nesse caso, poderá simplesmente não recebeu a confirmação da consolidação do servidor de base de dados.
 
 Uma forma de fazer isso, é gerar um ID exclusivo do cliente que é utilizado para todas as repetições. Passa este ID exclusivo como parte da transação para o servidor e armazená-los numa coluna com uma restrição exclusiva. Desta forma, que pode tentar novamente a transação com segurança. Será bem sucedida se a transação anterior foi revertida e o ID exclusivo do cliente gerado ainda não existir no sistema. Ocorrerá uma falha que indica uma violação de chave duplicada, se o ID exclusivo armazenado anteriormente porque a transação anterior foi concluída com êxito.
 

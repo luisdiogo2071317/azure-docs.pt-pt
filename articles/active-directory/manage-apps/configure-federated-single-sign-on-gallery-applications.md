@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: a4a80132b243cdf00cac4b14ecb1af3a13864cb5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4b827419d9aaae1b4445880c28bae307ec14391c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357038"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538978"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o início de sessão único federado para uma aplicação da galeria do Azure AD
 
@@ -167,7 +167,7 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 8.  Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
 
-O Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL de metadados específicas para a aplicação: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+O Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL de metadados específico ao aplicativo: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`
 
 ## <a name="assign-users-to-the-application"></a>Atribuir utilizadores à aplicação
 
@@ -197,7 +197,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do usuário ou a logótipo para adicionar o utilizador para o **selecionados** lista.
 
-12. **Opcional:** se quiser **adicionar mais do que um utilizador**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
+12. **Opcional:** Se quiser **adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 

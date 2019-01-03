@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c39100007d3b993031aa06cd106dfa2bf8419a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221184"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538094"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -61,10 +61,10 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
       >Às vezes, os administradores criar sub-redes diferentes para filtrar ou controlar o encaminhamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como pode deseja filtrar e encaminhar o tráfego entre as sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, veja [grupos de segurança de rede](security-overview.md). Azure automaticamente encaminha o tráfego entre sub-redes, mas pode substituir as rotas predefinidas do Azure. Para saber mais sobre o encaminhamento de tráfego do Azures padrão sub-rede, veja [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
       >
 
-    - **Intervalo de endereços da sub-rede**: O intervalo tem de estar dentro do espaço de endereço que introduziu para a rede virtual. O intervalo mais pequeno que pode especificar é /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o endereço do primeiro e último em cada sub-rede para conformidade com o protocolo. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços da sub-rede de/29 tem apenas três endereços IP utilizáveis. Se planear ligar uma rede virtual a um gateway VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois de criar a sub-rede, em condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
-    - **Subscrição**: selecione uma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Não é possível utilizar a mesma rede virtual em mais do que uma subscrição do Azure. No entanto, pode ligar uma rede virtual de uma subscrição para redes virtuais em outras subscrições com [peering de rede virtual](virtual-network-peering-overview.md). Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma subscrição que a rede virtual.
-    - **Grupo de recursos**: selecione um existente [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) ou criar um novo. Um recurso do Azure que se liga à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou num grupo de recursos diferentes.
-    - **Localização**: selecione do Azure [localização](https://azure.microsoft.com/regions/), também conhecido como uma região. Uma rede virtual pode estar em apenas uma localização do Azure. No entanto, pode ligar uma rede virtual num único local a uma rede virtual em outro local com um gateway VPN. Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma localização que a rede virtual.
+    - **Intervalo de endereços da sub-rede**: O intervalo tem de ser dentro do espaço de endereço que introduziu para a rede virtual. O intervalo mais pequeno que pode especificar é /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o endereço do primeiro e último em cada sub-rede para conformidade com o protocolo. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços da sub-rede de/29 tem apenas três endereços IP utilizáveis. Se planear ligar uma rede virtual a um gateway VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois de criar a sub-rede, em condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
+    - **Subscrição**: Selecione um [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Não é possível utilizar a mesma rede virtual em mais do que uma subscrição do Azure. No entanto, pode ligar uma rede virtual de uma subscrição para redes virtuais em outras subscrições com [peering de rede virtual](virtual-network-peering-overview.md). Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma subscrição que a rede virtual.
+    - **Grupo de recursos**: Selecione um existente [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) ou criar um novo. Um recurso do Azure que se liga à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou num grupo de recursos diferentes.
+    - **Localização**: Selecione do Azure [localização](https://azure.microsoft.com/regions/), também conhecido como uma região. Uma rede virtual pode estar em apenas uma localização do Azure. No entanto, pode ligar uma rede virtual num único local a uma rede virtual em outro local com um gateway VPN. Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma localização que a rede virtual.
 
 **Comandos**
 
@@ -76,20 +76,20 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que pretende ver as definições para.
 3. As seguintes definições estão listadas para a rede virtual que selecionou:
-    - **Descrição geral**: fornece informações sobre a rede virtual, incluindo o espaço de endereços e servidores DNS. Captura de ecrã seguinte mostra as definições de descrição geral para uma rede virtual denominada **MyVNet**:
+    - **Descrição geral**: Fornece informações sobre a rede virtual, incluindo o espaço de endereços e servidores DNS. Captura de ecrã seguinte mostra as definições de descrição geral para uma rede virtual denominada **MyVNet**:
 
         ![Descrição geral da interface de rede](./media/manage-virtual-network/vnet-overview.png)
 
       Pode mover uma rede virtual para um grupo diferente de subscrição ou ao recurso, selecionando **alteração** junto a **grupo de recursos** ou **nome da subscrição**. Para saber como mover uma rede virtual, veja [mover recursos para um grupo de recursos diferente ou uma subscrição](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O artigo apresenta uma lista de pré-requisitos e como mover recursos com o portal do Azure, PowerShell e CLI do Azure. Tem de mover todos os recursos que estão ligados à rede virtual com a rede virtual.
-    - **Espaço de endereços**: os espaços de endereços que estão atribuídos à rede virtual estão listados. Para saber como adicionar e remover um intervalo de endereços ao espaço de endereços, conclua os passos em [adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
-    - **Dispositivos ligados**: todos os recursos que estão ligados à rede virtual estão listados. Captura de ecrã anterior, três interfaces de rede e um balanceador de carga estão ligados à rede virtual. São listados todos os novos recursos que criar e ligar à rede virtual. Se eliminar um recurso que foi ligado à rede virtual, ele já não está a aparecer na lista.
-    - **Sub-redes**: é apresentada uma lista de sub-redes que existe dentro da rede virtual. Para saber como adicionar e remover uma sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
-    - **Servidores DNS**: pode especificar se o servidor DNS interno do Azure ou um servidor DNS personalizado fornece resolução de nomes para os dispositivos que estão ligados à rede virtual. Quando cria uma rede virtual com o portal do Azure, os servidores DNS do Azure são utilizados para resolução de nomes numa rede virtual, por predefinição. Para modificar os servidores DNS, conclua os passos na [servidores DNS de alteração](#change-dns-servers) neste artigo.
-    - **Peerings**: se existirem peerings existentes na subscrição, eles estão listados aqui. Pode ver as definições para peerings existente, ou criar, alterar ou eliminar peerings. Para saber mais sobre os peerings, veja [peering de rede Virtual](virtual-network-peering-overview.md).
-    - **Propriedades**: apresenta as definições sobre a rede virtual, incluindo o ID de recurso da rede virtual e a subscrição do Azure está a ser.
+    - **Espaço de endereços**: Os espaços de endereços que estão atribuídos à rede virtual estão listados. Para saber como adicionar e remover um intervalo de endereços ao espaço de endereços, conclua os passos em [adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
+    - **Dispositivos ligados**: São listados todos os recursos que estão ligados à rede virtual. Captura de ecrã anterior, três interfaces de rede e um balanceador de carga estão ligados à rede virtual. São listados todos os novos recursos que criar e ligar à rede virtual. Se eliminar um recurso que foi ligado à rede virtual, ele já não está a aparecer na lista.
+    - **Sub-redes**: É apresentada uma lista de sub-redes que existe dentro da rede virtual. Para saber como adicionar e remover uma sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
+    - **Servidores DNS**: Pode especificar se o servidor DNS interno do Azure ou um servidor DNS personalizado fornece resolução de nomes para os dispositivos que estão ligados à rede virtual. Quando cria uma rede virtual com o portal do Azure, os servidores DNS do Azure são utilizados para resolução de nomes numa rede virtual, por predefinição. Para modificar os servidores DNS, conclua os passos na [servidores DNS de alteração](#change-dns-servers) neste artigo.
+    - **Peerings**: Se existirem peerings existentes na subscrição, estes são apresentados aqui. Pode ver as definições para peerings existente, ou criar, alterar ou eliminar peerings. Para saber mais sobre os peerings, veja [peering de rede Virtual](virtual-network-peering-overview.md).
+    - **Propriedades**: Apresenta as definições sobre a rede virtual, incluindo o ID de recurso da rede virtual e a subscrição do Azure está a ser.
     - **Diagrama**: O diagrama fornece uma representação visual de todos os dispositivos que estão ligadas à rede virtual. O diagrama tem algumas informações chave sobre os dispositivos. Para gerir um dispositivo nesta vista, no diagrama, selecione o dispositivo.
-    - **Definições comuns de Azure**: para saber mais sobre as definições do Azure comuns, consulte as seguintes informações:
-        *   [Registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    - **Definições comuns de Azure**: Para saber mais sobre as definições do Azure comuns, consulte as seguintes informações:
+        *   [Registo de atividades](../azure-monitor/platform/activity-logs-overview.md)
         *   [Controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -116,8 +116,8 @@ Para adicionar ou remover um intervalo de endereços:
 2. Na lista de redes virtuais, selecione a rede virtual para o qual pretende adicionar ou remover um intervalo de endereços.
 3. Selecione **espaço de endereços**, em **definições**.
 4. Realize uma das seguintes opções:
-    - **Adicionar um intervalo de endereços**: introduza o novo intervalo de endereços. O intervalo de endereços não pode sobrepor-se com um intervalo de endereços existente que está definido para a rede virtual.
-    - **Remover um intervalo de endereços**: à direita do intervalo de endereços que pretende remover, selecione **...** , em seguida, selecione **remover**. Se existe uma sub-rede no intervalo de endereços, não é possível remover o intervalo de endereços. Para remover um intervalo de endereços, tem primeiro de eliminar quaisquer sub-redes (e todos os recursos nas sub-redes) que existe no intervalo de endereços.
+    - **Adicionar um intervalo de endereços**: Introduza o novo intervalo de endereços. O intervalo de endereços não pode sobrepor-se com um intervalo de endereços existente que está definido para a rede virtual.
+    - **Remover um intervalo de endereços**: À direita do intervalo de endereços que pretende remover, selecione **...** , em seguida, selecione **remover**. Se existe uma sub-rede no intervalo de endereços, não é possível remover o intervalo de endereços. Para remover um intervalo de endereços, tem primeiro de eliminar quaisquer sub-redes (e todos os recursos nas sub-redes) que existe no intervalo de endereços.
 5. Selecione **Guardar**.
 
 **Comandos**
@@ -133,12 +133,12 @@ Todas as VMs que estão ligadas para o registro de rede virtual com os servidore
 2. Na lista de redes virtuais, selecione a rede virtual para o qual pretende alterar servidores DNS para.
 3.  Selecione **servidores DNS**, em **definições**.
 4. Selecione uma das seguintes opções:
-    - **Predefinição (fornecida pelo Azure)**: todos os nomes de recursos e endereços IP privados são automaticamente registrados para os servidores de DNS do Azure. Pode resolver nomes entre todos os recursos que estão ligados à mesma rede virtual. Não é possível utilizar esta opção para resolver nomes através de redes virtuais. Para resolver nomes através de redes virtuais, tem de utilizar um servidor DNS personalizado.
-    - **Custom**: pode adicionar um ou mais servidores, até ao limite do Azure para uma rede virtual. Para saber mais sobre os limites do servidor DNS, consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Existem as seguintes opções:
+    - **Predefinição (fornecida pelo Azure)**: Todos os nomes de recursos e endereços IP privados são automaticamente registrados para os servidores de DNS do Azure. Pode resolver nomes entre todos os recursos que estão ligados à mesma rede virtual. Não é possível utilizar esta opção para resolver nomes através de redes virtuais. Para resolver nomes através de redes virtuais, tem de utilizar um servidor DNS personalizado.
+    - **Custom**: Pode adicionar um ou mais servidores, até ao limite do Azure para uma rede virtual. Para saber mais sobre os limites do servidor DNS, consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Existem as seguintes opções:
         - **Adicionar um endereço**: Adiciona o servidor à sua lista de servidores DNS de rede virtual. Esta opção também registra o servidor DNS com o Azure. Se já tiver registrado um servidor DNS com o Azure, pode selecionar esse servidor DNS na lista.
-        - **Remover um endereço**: ao lado do servidor que pretende remover, selecione **...** , em seguida, **remover**. A eliminação do servidor remove o servidor apenas a partir desta lista de rede virtual. O servidor DNS permanece registado no Azure para as suas outras redes virtuais para utilizar.
-        - **Reordenar os endereços do servidor DNS**: é importante verificar que lista os servidores DNS na ordem correta para o seu ambiente. Listas de servidor DNS são utilizadas pela ordem que estão especificadas. Eles não funcionam como uma configuração de round robin. Se o primeiro servidor DNS na lista pode ser contatado, o cliente utiliza esse servidor DNS, independentemente se o servidor DNS está a funcionar corretamente. Remova todos os servidores DNS que estão listados e, em seguida, adicioná-las na ordem em que desejar.
-        - **Alterar um endereço**: realce o servidor DNS na lista e, em seguida, introduza o novo endereço.
+        - **Remover um endereço**: Ao lado do servidor que pretende remover, selecione **...** , em seguida, **remover**. A eliminação do servidor remove o servidor apenas a partir desta lista de rede virtual. O servidor DNS permanece registado no Azure para as suas outras redes virtuais para utilizar.
+        - **Reordenar os endereços do servidor DNS**: É importante verificar que lista os servidores DNS na ordem correta para o seu ambiente. Listas de servidor DNS são utilizadas pela ordem que estão especificadas. Eles não funcionam como uma configuração de round robin. Se o primeiro servidor DNS na lista pode ser contatado, o cliente utiliza esse servidor DNS, independentemente se o servidor DNS está a funcionar corretamente. Remova todos os servidores DNS que estão listados e, em seguida, adicioná-las na ordem em que desejar.
+        - **Alterar um endereço**: Realce o servidor DNS na lista e, em seguida, introduza o novo endereço.
 5. Selecione **Guardar**.
 6. Reinicie as VMs que estão ligadas à rede virtual, pelo que são atribuídas as definições do servidor DNS novo. As VMs continuam a utilizar as definições de DNS atuais até que eles são reiniciados.
 

@@ -3,17 +3,15 @@ title: Replicar os dados na base de dados do Azure para MariaDB.
 description: Este artigo descreve os dados na replicação da base de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a6bb6ae45c4240f21b1e0baf4956b053d4b98720
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948184"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547614"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar os dados na base de dados do Azure para MariaDB
 
@@ -22,8 +20,8 @@ Replicação de dados-in permite-lhe sincronizar dados de um servidor de MariaDB
 ## <a name="when-to-use-data-in-replication"></a>Quando utilizar a replicação de dados
 Os principais cenários para considerar a utilização de replicação de dados são:
 
-- **Sincronização de dados híbrida:** com a replicação de dados, pode manter os dados sincronizados entre os servidores no local e a base de dados do Azure para MariaDB. Esta sincronização é útil para criar aplicações híbridas. Este método é atraente quando existir um servidor da base de dados local, mas quiser mover os dados para uma região mais perto dos utilizadores finais.
-- **Sincronização de várias Cloud:** para soluções de cloud complexas, utilize replicação de dados para sincronizar dados entre a base de dados do Azure para MariaDB e fornecedores de cloud diferentes, incluindo máquinas virtuais e serviços de base de dados hospedados nessas nuvens.
+- **Sincronização de dados híbrida:** Com a replicação de dados, pode manter os dados sincronizados entre os servidores no local e a base de dados do Azure para MariaDB. Esta sincronização é útil para criar aplicações híbridas. Este método é atraente quando existir um servidor da base de dados local, mas quiser mover os dados para uma região mais perto dos utilizadores finais.
+- **Sincronização de várias Cloud:** Para soluções de cloud complexas, utilize a replicação de dados para sincronizar dados entre a base de dados do Azure para MariaDB e fornecedores de cloud diferentes, incluindo máquinas virtuais e serviços de base de dados hospedados nessas nuvens.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 

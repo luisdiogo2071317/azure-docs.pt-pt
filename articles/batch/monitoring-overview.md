@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824088"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543415"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -26,7 +26,7 @@ Para uma descrição geral dos componentes do Azure e serviços disponíveis par
 
 ## <a name="subscription-level-monitoring"></a>Monitorização de nível de assinatura
 
-Ao nível da subscrição, incluindo as contas do Batch, o [registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) recolhe dados de eventos operacionais [várias categorias](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+Ao nível da subscrição, incluindo as contas do Batch, o [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md) recolhe dados de eventos operacionais [várias categorias](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Especificamente, para contas do Batch no registo de atividades recolhe os eventos relacionados com a gestão de criação e eliminação e a chave de conta.
 
@@ -34,7 +34,7 @@ Uma forma de obter eventos a partir do seu registo de atividades é utilizar o p
 
 ## <a name="batch-account-level-monitoring"></a>Monitorização de nível de conta do batch
 
-Monitorizar cada conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e, opcionalmente [registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos no âmbito no nível de uma conta do Batch, como conjuntos, trabalhos e tarefas. Recolher e consumir estes dados manualmente ou através de programação para monitorizar atividades na sua conta do Batch e para diagnosticar problemas. Para obter detalhes, consulte [métricas, alertas e registos para a avaliação de diagnóstico e monitorização do Batch](batch-diagnostics.md).
+Monitorizar cada conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e, opcionalmente [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos no âmbito no nível de uma conta do Batch, como conjuntos, trabalhos e tarefas. Recolher e consumir estes dados manualmente ou através de programação para monitorizar atividades na sua conta do Batch e para diagnosticar problemas. Para obter detalhes, consulte [métricas, alertas e registos para a avaliação de diagnóstico e monitorização do Batch](batch-diagnostics.md).
  
 > [!NOTE]
 > As métricas estão disponíveis por predefinição na sua conta do Batch sem configuração adicional e têm um histórico de sem interrupção de 30 dias. Tem de ativar o registo de diagnósticos para uma conta do Batch e pode implicar custos adicionais para armazenar ou processar os dados de registo de diagnóstico. 

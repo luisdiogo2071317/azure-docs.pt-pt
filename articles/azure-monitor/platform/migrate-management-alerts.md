@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346248"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580881"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar os alertas do Azure em eventos de gestão para alertas de registo de atividades
 
@@ -110,9 +110,9 @@ Alertas nos eventos de gestão que tenha criado anteriormente não serão migrad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [registo de atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Saiba mais sobre [registo de atividades](../../azure-monitor/platform/activity-logs-overview.md)
 * Configurar [alertas de registo de atividade através do portal do Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Configurar [alertas de registo de atividade através do Gestor de recursos](../../azure-monitor/platform/alerts-activity-log.md)
 * Reveja o [esquema de webhook de alerta de registo de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Saiba mais sobre [notificações de serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* Saiba mais sobre [notificações de serviço](../../azure-monitor/platform/service-notifications.md)
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md)

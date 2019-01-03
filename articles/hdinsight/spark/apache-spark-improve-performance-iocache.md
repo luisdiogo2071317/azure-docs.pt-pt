@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581940"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608499"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Melhorar o desempenho de cargas de trabalho do Apache Spark com o Azure HDInsight e/s de Cache (pré-visualização)
 
@@ -20,7 +20,7 @@ Cache de e/s é um serviço de colocação em cache de dados para o Azure HDInsi
 
 A maioria dos SSDs fornecem mais do que 1 GByte por segundo de largura de banda. Essa largura de banda, complementada pela cache de ficheiros de dentro da memória do sistema operativo, fornece a largura de banda suficiente para carregar os motores de processamento de computação de grandes volumes de dados, como o Apache Spark. A memória operacional fica disponível para o Apache Spark processar tarefas de bastante dependente de memória, como shuffles. Ter uso exclusivo de operar memória permite o Apache Spark alcançar a utilização de recursos ideal.  
 
->[!Note]
+>[!Note]  
 >Atualmente, o Cache de e/s utiliza RubiX como um componente de colocação em cache, mas isso pode mudar em versões futuras do serviço. Utilize as interfaces de Cache de e/s e não se todas as dependências diretamente sobre a implementação de RubiX.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Benefícios da Cache de e/s do Azure HDInsight
@@ -45,7 +45,7 @@ A Cache de e/s do Azure HDInsight é desativada por predefinição em pré-visua
 
 1. Confirme o reinício de todos os serviços afetados no cluster.
 
->[!NOTE] 
+>[!NOTE]  
 > Mesmo que a barra de progresso mostra ativada, o Cache de e/s, na verdade, não está ativado enquanto não reiniciar os outros serviços afetados.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -78,4 +78,4 @@ Se isto não resultar, desative o Cache de e/s.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Saiba mais sobre a Cache de e/s, incluindo testes de desempenho nesta mensagem de blogue: [tarefas do Apache Spark ganhar até 9 x seja mais rápido com a Cache de e/s do HDInsight](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Leia mais sobre a Cache de e/s, incluindo testes de desempenho nesta mensagem de blogue: [Tarefas do Apache Spark ganhar até 9 x seja mais rápido com a Cache de e/s do HDInsight](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

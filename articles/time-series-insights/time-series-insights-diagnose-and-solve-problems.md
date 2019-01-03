@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de Azure Time Series Insights - diagnosticar e resolver problemas no Azure Time Series Insights | Documentos da Microsoft
+title: Diagnosticar, resolução de problemas e resolver problemas no Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve como diagnosticar, solucionar problemas e resolver problemas comuns que poderá encontrar no seu ambiente do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8e9a2bc8378f71e510d11b3e28438489d620ff6f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 36ea2b8d3649fbda5a5cd6cc5f2cd05cdc095902
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322333"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555817"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente do Time Series Insights
 

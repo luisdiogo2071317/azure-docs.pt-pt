@@ -17,17 +17,17 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238080"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
 Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn em máquinas de virtuais do Azure. O tutorial completo cria um grupo de disponibilidade com uma réplica de base de dados em dois servidores SQL.
 
-**Estimativa de tempo**: demora cerca de 30 minutos a concluir depois dos pré-requisitos são cumpridos.
+**Estimativa de tempo**: Demora cerca de 30 minutos a concluir depois dos pré-requisitos são cumpridos.
 
 O diagrama ilustra o que criar no tutorial.
 
@@ -43,9 +43,9 @@ A tabela seguinte lista os pré-requisitos que tem de concluir antes de começar
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores SQL | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros de testemunho de cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Carga de grupo de disponibilidade balanceador sonda de estado de funcionamento de endereço IP: **59999** ou qualquer porta disponível <br/> -Cluster core sonda Balanceador de carga IP endereço estado de funcionamento: **58888** ou qualquer porta disponível |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta do domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento da base de dados: **5022** ou qualquer porta disponível <br/> -Grupo de disponibilidade sonda de estado de funcionamento do endereço IP do Balanceador de carga: **59999** ou qualquer porta disponível <br/> -Core sonda Balanceador de carga IP endereço estado de funcionamento do cluster: **58888** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores SQL |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
 
@@ -296,7 +296,7 @@ Está agora pronto para configurar um grupo de disponibilidade utilizando os seg
 
     ![Novo Assistente de AG, selecione a sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na **selecionar sincronização de dados inicial** , selecione **completo** e especifique uma localização de rede partilhada. Para a localização, utilize o [partilha de cópia de segurança que criou](#backupshare). No exemplo tenha sido, **\\\\\<primeiro servidor de SQL\>\Backup\\**. Clique em **Seguinte**.
+8. Na **selecionar sincronização de dados inicial** , selecione **completo** e especifique uma localização de rede partilhada. Para a localização, utilize o [partilha de cópia de segurança que criou](#backupshare). No exemplo tenha sido, **\\\\\<primeiro servidor de SQL\>\Backup\**. Clique em **Seguinte**.
 
    >[!NOTE]
    >Sincronização completa usa uma cópia de segurança completa da base de dados na primeira instância do SQL Server e restaurá-lo a segunda instância. Sincronização completa não é recomendada para grandes bancos de dados, porque poderá demorar muito tempo. Pode reduzir esse tempo, manualmente fazer uma cópia de segurança da base de dados e o Restaurei com `NO RECOVERY`. Se a base de dados já está a ser restaurado com `NO RECOVERY` no SQL Server segundo antes de configurar o grupo de disponibilidade, escolha **apenas junção**. Se pretender efetuar a cópia de segurança depois de configurar o grupo de disponibilidade, escolha **ignorar sincronização de dados inicial**.

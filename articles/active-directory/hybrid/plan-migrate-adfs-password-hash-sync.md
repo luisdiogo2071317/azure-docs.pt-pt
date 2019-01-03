@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410266"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555103"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migrar de Federação para a sincronização de hash de palavra-passe para o Azure AD
 O documento seguinte fornece orientações sobre a migração do AD FS para sincronização de hash de palavra-passe.
@@ -295,7 +295,7 @@ Utilize este método quando o AD FS foi inicialmente configurado com o Azure AD 
    > Neste momento, todos os domínios federados serão alterados para a autenticação gerida que irá agora tirar partido de sincronização de Hash de palavra-passe como o método de autenticação.
        
    7. Abra o portal do Azure AD, selecione Azure Active Directory e, em seguida, selecione Azure AD Connect.
-   8. Certifique-se de que o Federação está desativada durante o início de sessão único totalmente integrado- e sincronização de palavra-passe estão ativadas.  
+   8. Certifique-se de que o Federação é desativada durante o início de sessão único totalmente integrado- e sincronização de palavra-passe estão ativadas.  
   ![Figura 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Aceda a [etapas de testes e seguintes](#testing-and-next-steps).
    

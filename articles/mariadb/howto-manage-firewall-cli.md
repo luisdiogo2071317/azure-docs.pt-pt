@@ -1,21 +1,18 @@
 ---
 title: Criar e gerir a base de dados do Azure para as regras de firewall da MariaDB com a CLI do Azure
 description: Este artigo descreve como criar e gerir a base de dados do Azure para as regras de firewall da MariaDB com a CLI do Azure da linha de comandos.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 1dba4b99dc50d1908b7b3d0488ba6ebf2f85c2a4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516289"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543891"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para regras de firewall da MariaDB com a CLI do Azure
 Regras de firewall ao nível do servidor permitem aos administradores gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MariaDB firewalls, consulte [base de dados do Azure para MariaDB regras de firewall de servidor](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ Regras de firewall ao nível do servidor permitem aos administradores gerir o ac
 O **az mariadb server firewall-rule** comando é utilizado a partir da CLI do Azure para criar, eliminar, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar**: criar uma regra de firewall do servidor de Azure MariaDB.
-- **eliminar**: eliminar uma regra de firewall do servidor de Azure MariaDB.
-- **lista**: lista as regras de firewall do servidor de Azure MariaDB.
-- **Mostrar**: Mostrar os detalhes de um servidor de Azure MariaDB regra de firewall.
-- **Atualizar**: atualizar uma regra de firewall do servidor de Azure MariaDB.
+- **Criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
+- **Eliminar**: Elimine uma regra de firewall do servidor de Azure MariaDB.
+- **Lista**: Liste as regras de firewall do servidor de Azure MariaDB.
+- **Mostrar**: Mostre os detalhes de um servidor de Azure MariaDB regra de firewall.
+- **Atualização**: Atualize uma regra de firewall do servidor de Azure MariaDB.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Inicie sessão no Azure e listar a sua base de dados do Azure para MariaDB servidores
 Ligar em segurança a CLI do Azure com a sua conta do Azure utilizando o **início de sessão az** comando.

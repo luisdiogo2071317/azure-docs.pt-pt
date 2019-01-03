@@ -1,20 +1,18 @@
 ---
 title: Descrição geral do ponto de extremidade dos serviços de base de dados do Azure para MySQL Server VNet | Documentos da Microsoft
 description: Descreve como funcionam os pontos finais de serviço de VNet para a base de dados do Azure para o servidor MySQL.
-services: mysql
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 1c159e5c86f713f1f7dbce5cd96cd2ce5d3c22fb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437984"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535289"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para MySQL
 

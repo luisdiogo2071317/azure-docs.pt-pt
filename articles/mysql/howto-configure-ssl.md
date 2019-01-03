@@ -1,27 +1,24 @@
 ---
 title: Configurar a conectividade SSL para ligar em segurança à base de dados do Azure para MySQL
 description: Instruções sobre como configurar corretamente a base de dados do Azure para MySQL e aplicações associadas a corretamente utilizar ligações SSL
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 5787d49623862654a7ef906e8f75ac822b25c0e3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 075f20027153eb9adf5c0daedea7cf5c0b515ee4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803227"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537040"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar a conectividade SSL na sua aplicação para ligar em segurança à base de dados do Azure para MySQL
 Base de dados do Azure para MySQL suporta a ligar a sua base de dados do Azure para o servidor MySQL para aplicações de cliente, utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Passo 1: Obter o certificado SSL
 Transferir o certificado necessário para se comunicar através de SSL com a base de dados do Azure para servidor MySQL a partir [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e guarde o ficheiro de certificado no disco local (Este tutorial utiliza c:\ssl por exemplo).
-**Para o Microsoft Internet Explorer e o Microsoft Edge:** após a conclusão do download, mudar o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
+**Para o Microsoft Internet Explorer e o Microsoft Edge:** Após a conclusão do download, mudar o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Passo 2: Enlace SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>A ligar ao servidor usando a Bancada de trabalho do MySQL através de SSL
@@ -34,7 +31,7 @@ Outra maneira de vincular o certificado SSL é usar a interface de linha de coma
 mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
-## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Passo 3: A imposição de ligações de SSL no Azure 
+## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Passo 3:  A imposição de ligações de SSL no Azure 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 Utilizar o portal do Azure, visite a sua base de dados do Azure para o servidor MySQL e, em seguida, clique em **segurança de ligação**. Utilize o botão de alternar para ativar ou desativar a **ligação impor SSL** definição e, em seguida, clique em **guardar**. A Microsoft recomenda-se para sempre habilitar a **ligação impor SSL** definição para uma maior segurança.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
@@ -45,12 +42,12 @@ Pode ativar ou desativar a **imposição de ssl** parâmetro utilizando valores 
 az mysql server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-the-ssl-connection"></a>Passo 4: Verificar a ligação SSL
+## <a name="step-4-verify-the-ssl-connection"></a>Passo 4: Verificar a ligação de SSL
 Executar o mysql **estado** comando para verificar se tem ser ligada ao seu servidor MySQL através de SSL:
 ```dos
 mysql> status
 ```
-Confirmar a conexão seja criptografada revisando a saída, o que deve mostrar: **SSL: cifras em utilização é AES256 SHA** 
+Confirme que a conexão seja criptografada revisando a saída, o que deve mostrar:  **SSL: Cifras em utilização é AES256 SHA** 
 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma ligação segura à base de dados do Azure para MySQL através de SSL através da aplicação, consulte os seguintes exemplos de código:
