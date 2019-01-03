@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313399"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633032"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -156,7 +156,7 @@ Também é possível providenciar o indexador para executar periodicamente com b
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-O **intervalo** é necessário o parâmetro. O intervalo de refere-se para o tempo entre o início de duas execuções de indexador consecutivos. O intervalo menor permitido é de 5 minutos; há mais tempo é um dia. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). O padrão para isto é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+O **intervalo** é necessário o parâmetro. O intervalo de refere-se para o tempo entre o início de duas execuções de indexador consecutivos. O intervalo menor permitido é de 5 minutos; há mais tempo é um dia. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). O padrão para isto é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 O opcional **startTime** indica quando as execuções agendadas devem começar. Se for omitido, é utilizada a hora UTC atual. Desta vez pode ser no passado – nesse caso a primeira execução está agendado como se estiver a ser executado o indexador continuamente desde a startTime.  
 

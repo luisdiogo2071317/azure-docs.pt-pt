@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2f1a6016f7555cdf1955487da22fc9171c55a480
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5cc5e0e9bf1d05bde273d1c26c03165a38e02122
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811851"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976652"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -47,7 +47,7 @@ Vamos debruçar-nos na parte do feedback do ciclo:
 ![Detect-Triage-Diagnose](./media/detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Detetar disponibilidade fraca
-Marcela Markova é programadora sénior na equipa da OBS e é a responsável máxima pela monitorização do desempenho online. A Marcela configura vários [testes de disponibilidade](../../application-insights/app-insights-monitor-web-app-availability.md):
+Marcela Markova é programadora sénior na equipa da OBS e é a responsável máxima pela monitorização do desempenho online. A Marcela configura vários [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md):
 
 * Um teste de URL exclusivo para a página de destino principal da aplicação, http://fabrikambank.com/onlinebanking/. Define os critérios do código HTTP 200 e o texto “Bem-vindo!”. Se o teste falhar, significa que há um problema grave com a rede ou os servidores ou, talvez, com a implementação. (Ou alguém mudou a mensagem “Bem-vindo!” na página e não avisou a Marcela.)
 * Um teste com vários passos e mais detalhado, que inicia sessão e obtém uma lista de contas atuais, verificando alguns detalhes vitais em cada página. Este teste verifica se a ligação para a base de dados de contas está a funcionar. A Marcela utiliza um id de cliente fictício; são mantidos alguns ids destes para fins de teste.
@@ -228,8 +228,8 @@ A equipa começa a habituar-se a ter informações sobre a atividade dos utiliza
 Pode começar de várias formas, consoante as características da sua aplicação. Escolha o mais adequado para si:
 
 * [Aplicação Web ASP.NET](../../azure-monitor/app/asp-net.md)
-* [Aplicação Web Java](../../application-insights/app-insights-java-get-started.md)
+* [Aplicação Web Java](../../azure-monitor/app/java-get-started.md)
 * [Aplicação Web Node.js](../../application-insights/app-insights-nodejs.md)
-* Aplicações já implementadas, alojadas no [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), no [J2EE](../../application-insights/app-insights-java-live.md) ou no [Azure](../../application-insights/app-insights-overview.md).
-* [Páginas Web](../../application-insights/app-insights-javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
-* [Testes de disponibilidade](../../application-insights/app-insights-monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.
+* Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), no [J2EE](../../azure-monitor/app/java-live.md) ou no [Azure](../../application-insights/app-insights-overview.md).
+* [Páginas Web](../../azure-monitor/app/javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
+* [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.

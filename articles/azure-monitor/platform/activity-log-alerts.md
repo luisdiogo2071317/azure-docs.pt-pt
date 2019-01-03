@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341530"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581441"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registo de atividades 
 
@@ -28,11 +28,11 @@ Normalmente, criar atividade de alertas de registo para receber notificações q
 * Operações específicas ocorrerem nos recursos da sua subscrição do Azure, com freqüência no âmbito de recursos ou grupos de recursos específico. Por exemplo, poderá ser notificado quando qualquer máquina virtual na myProductionResourceGroup é eliminada. Em alternativa, pode querer ser notificado se quaisquer novas funções são atribuídas a um utilizador na sua subscrição.
 * Ocorre um evento de estado de funcionamento do serviço. Eventos de estado de funcionamento do serviço incluem a notificação de incidentes e eventos de manutenção que se aplicam a recursos na sua subscrição.
 
-Uma analogia simple para condições de noções básicas sobre em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos via [registo de atividades no Portal do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). No Azure Monitor - registo de atividades, um pode filtrar ou localizar evento necessários e, em seguida, criar um alerta com o **Adicionar alerta de registo de atividade** botão.
+Uma analogia simple para condições de noções básicas sobre em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos via [registo de atividades no Portal do Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). No Azure Monitor - registo de atividades, um pode filtrar ou localizar evento necessários e, em seguida, criar um alerta com o **Adicionar alerta de registo de atividade** botão.
 
 Em ambos os casos, um alerta de registo de atividade monitoriza apenas para os eventos na subscrição na qual o alerta é criado.
 
-Pode configurar um alerta de registo de atividade com base em qualquer propriedade de nível superior no objeto JSON para o evento do registo de atividades. Para obter mais informações, consulte [descrição geral do registo de atividades do Azure](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). Para saber mais sobre eventos de estado de funcionamento do serviço, veja [receber alertas de registo de atividade nas notificações do serviço](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+Pode configurar um alerta de registo de atividade com base em qualquer propriedade de nível superior no objeto JSON para o evento do registo de atividades. Para obter mais informações, consulte [descrição geral do registo de atividades do Azure](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Para saber mais sobre eventos de estado de funcionamento do serviço, veja [receber alertas de registo de atividade nas notificações do serviço](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Alertas de registo de atividade tem algumas opções comuns:
 
@@ -64,5 +64,5 @@ Para saber mais sobre os grupos de ação, veja [criar e gerir grupos de ação 
 - Obter um [descrição geral dos alertas](../../azure-monitor/platform/alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do registo de atividade](../../azure-monitor/platform/alerts-activity-log.md).
 - Reveja os [esquema de webhook de alerta de registo de atividades](activity-log-alerts-webhook.md).
-- Saiba mais sobre [notificações de estado de funcionamento de serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre [notificações de estado de funcionamento de serviço](../../azure-monitor/platform/service-notifications.md).
 

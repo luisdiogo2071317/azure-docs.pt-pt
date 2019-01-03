@@ -8,20 +8,20 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581005"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651780"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar tarefas do Apache Spark Streaming com exatamente-uma vez o evento de processamento
 
 Aplicações de processamento de Stream tomar diferentes abordagens para como eles lidam com mensagens de processamento novamente após alguns falha no sistema:
 
-* Pelo menos uma vez: cada mensagem é garantida a ser processada, mas podem obter processado mais de uma vez.
-* No máximo uma vez: cada mensagem pode ou não podem ser processada. Se uma mensagem é processada, ele é apenas processado uma vez.
-* Exatamente uma vez: é garantida que cada mensagem a ser processado uma vez e apenas uma vez.
+* Pelo menos, uma vez: Cada mensagem é garantida a ser processada, mas podem obter processado mais de uma vez.
+* No máximo uma vez: Cada mensagem pode ou não pode ser processada. Se uma mensagem é processada, ele é apenas processado uma vez.
+* Exatamente uma vez: Cada mensagem é garantida a ser processado uma vez e apenas uma vez.
 
 Este artigo mostra-lhe como configurar a transmissão em fluxo do Spark para obter exatamente-processamento uma vez.
 
@@ -29,11 +29,11 @@ Este artigo mostra-lhe como configurar a transmissão em fluxo do Spark para obt
 
 Em primeiro lugar, considere como a todos os pontos de falha de sistema reiniciar depois de ter um problema e como pode evitar a perda de dados. Uma aplicação de transmissão em fluxo do Spark tem:
 
-* Uma origem de entrada
-* Um ou mais processos de destinatário que efetuar pull dos dados da origem de entrada
-* Tarefas que processam os dados
-* Um sink de saída
-* Um processo de driver que gere a tarefa de execução longa
+* Uma origem de entrada.
+* Um ou mais processos do recetor que efetuar pull dos dados da origem de entrada.
+* Tarefas que processam os dados.
+* Um sink de saída.
+* Um processo de driver que gere a tarefa de execução longa.
 
 Exatamente-assim que a semântica de exige que não se perdem a qualquer momento e esse processamento de mensagens é reinicializável, independentemente de onde a falha ocorre.
 
@@ -41,7 +41,7 @@ Exatamente-assim que a semântica de exige que não se perdem a qualquer momento
 
 A aplicação de transmissão em fluxo do Spark está a ler os eventos de origem tem de ser *replayable*. Isso significa que em casos em que a mensagem foi obtida, em seguida, o sistema falha antes da mensagem pode ser persistente ou processada, mas, a origem tem de fornecer a mesma mensagem novamente.
 
-No Azure, ambos os Hubs de eventos e [Apache Kafka](https://kafka.apache.org/) no HDInsight fornecem replayable origens. Outro exemplo de uma origem replayable é um sistema de ficheiros tolerante a falhas, como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), blobs de armazenamento do Azure ou do Azure Data Lake Store, onde todos os dados são mantidos para sempre e em qualquer ponto novamente pode ler os dados em sua totalidade.
+No Azure, ambos os Hubs de eventos e [Apache Kafka](https://kafka.apache.org/) no HDInsight fornecem replayable origens. Outro exemplo de uma origem replayable é um sistema de ficheiros tolerante a falhas, como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), blobs de armazenamento do Azure ou o armazenamento do Azure Data Lake, onde todos os dados são mantidos para sempre e em qualquer ponto novamente pode ler os dados em sua totalidade.
 
 ### <a name="reliable-receivers"></a>Recetores fiáveis
 
@@ -49,7 +49,7 @@ No Spark Streaming, origens, como os Hubs de eventos e Kafka têm *recetores fi�
 
 ### <a name="use-the-write-ahead-log"></a>Utilizar o registo de escrita-Ahead
 
-Transmissão em fluxo do Spark suporta a utilização de um registo de escrita-Ahead, em que cada evento recebido é escrito pela primeira vez ao diretório de ponto de verificação do Spark no armazenamento tolerante a falhas e, em seguida, armazenado num Resiliente distribuído conjunto de dados (RDD). No Azure, o armazenamento tolerante a falhas é HDFS apoiadas pelo armazenamento do Azure ou do Azure Data Lake Store. Na sua aplicação de transmissão em fluxo do Spark, o registo de escrita-Ahead está ativado para todos os recetores definindo a `spark.streaming.receiver.writeAheadLog.enable` definição de configuração para `true`. O registo de escrita-Ahead fornece tolerância a falhas para falhas do driver e o executor.
+Transmissão em fluxo do Spark suporta a utilização de um registo de escrita-Ahead, em que cada evento recebido é escrito pela primeira vez ao diretório de ponto de verificação do Spark no armazenamento tolerante a falhas e, em seguida, armazenado num Resiliente distribuído conjunto de dados (RDD). No Azure, o armazenamento tolerante a falhas é HDFS apoiadas pelo armazenamento do Azure ou de armazenamento do Azure Data Lake. Na sua aplicação de transmissão em fluxo do Spark, o registo de escrita-Ahead está ativado para todos os recetores definindo a `spark.streaming.receiver.writeAheadLog.enable` definição de configuração para `true`. O registo de escrita-Ahead fornece tolerância a falhas para falhas do driver e o executor.
 
 Para trabalhadores de tarefas em execução com os dados de eventos, cada RDD é por definição, ambos replicados e distribuídos em várias funções de trabalho. Se uma tarefa falhar porque a função de trabalho em execução que falhou, a tarefa será reiniciada na outra função de trabalho que tenha uma réplica dos dados do evento, portanto, o evento não é perdido.
 
@@ -66,7 +66,7 @@ Pontos de verificação estão ativados em transmissão em fluxo do Spark em dua
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    No HDInsight, esses pontos de verificação deverá ser guardados para o armazenamento de predefinido ligado ao seu cluster, o armazenamento do Azure ou do Azure Data Lake Store.
+    No HDInsight, esses pontos de verificação deverá ser guardados para o armazenamento de predefinido ligado ao seu cluster, o armazenamento do Azure ou o armazenamento do Azure Data Lake.
 
 2. Em seguida, especifica um intervalo de ponto de verificação (em segundos) a DStream. A cada intervalo, derivados do evento de entrada de dados de estado são mantidos no armazenamento. Dados de estado persistente podem reduzir a computação necessária ao reconstruir o estado do evento de origem.
 
@@ -85,7 +85,7 @@ Pode criar idempotentes sinks através da implementação de lógica que começa
 
 Por exemplo, poderia usar um procedimento armazenado com a base de dados do Azure SQL que insere eventos numa tabela. Este procedimento armazenado procura primeiro o evento por campos de chave, e somente quando nenhum evento correspondente encontrado é o registo inserido na tabela.
 
-Outro exemplo é usar um sistema de arquivos particionada, como blobs de armazenamento do Azure ou o Azure Data Lake store. Neste caso sua lógica de sink não é necessário verificar a existência de um ficheiro. Se o ficheiro que representa o evento existir, é simplesmente substituído com os mesmos dados. Caso contrário, é criado um novo ficheiro no caminho calculado.
+Outro exemplo é usar um sistema de ficheiros particionada, como blobs de armazenamento do Azure ou o armazenamento do Azure Data Lake. Neste caso sua lógica de sink não é necessário verificar a existência de um ficheiro. Se o ficheiro que representa o evento existir, é simplesmente substituído com os mesmos dados. Caso contrário, é criado um novo ficheiro no caminho calculado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3e642e5954a8c1154ca5b07f06f9450e4e9ee39a
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996246"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807929"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 O Azure Application Insights apresenta dados sobre a sua aplicação num Microsoft Azure *recursos*. Criar um novo recurso, por conseguinte, é a parte [configurar o Application Insights para monitorizar uma nova aplicação][start]. Em muitos casos, criação de um recurso pode ser feito automaticamente pelo IDE. Mas em alguns casos, criar um recurso manualmente – por exemplo, ter recursos separados para desenvolvimento e produção baseia-se da sua aplicação.
@@ -69,15 +69,15 @@ Se estiver à espera de mais dados, clique em **atualizar** após alguns segundo
 Pode escrever um [script do PowerShell](app-insights-powershell.md) para criar um recurso automaticamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Criar um dashboard](app-insights-dashboards.md)
-* [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md)
+* [Criar um dashboard](../azure-monitor/app/app-insights-dashboards.md)
+* [Pesquisa de Diagnóstico](../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](app-insights-metrics-explorer.md)
-* [Escrever consultas da Análise](app-insights-analytics.md)
+* [Escrever consultas da Análise](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
 

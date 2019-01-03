@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o GitHub | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o GitHub | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e do GitHub.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341162"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607803"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory com o GitHub
+# <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Active Directory do Azure com o GitHub
 
 Neste tutorial, saiba como integrar o GitHub com o Azure Active Directory (Azure AD).
 
@@ -49,7 +49,8 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar GitHub a partir da Galeria
 2. Configuração e teste do Azure AD início de sessão único
@@ -59,21 +60,21 @@ Para configurar a integração do GitHub para o Azure AD, terá de adicionar Git
 
 **Para adicionar GitHub a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![image](./media/github-tutorial/selectazuread.png)
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![image](./media/github-tutorial/a_select_app.png)
-    
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![image](./media/github-tutorial/a_new_app.png)
 
 4. Na caixa de pesquisa, escreva **GitHub**, selecione **GitHub** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
+    ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -109,7 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![image](./media/github-tutorial/tutorial_github_url.png) 
+    ![image](./media/github-tutorial/tutorial_github_url.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://github.com/orgs/<entity-id>/sso`
 
@@ -123,7 +124,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![image](./media/github-tutorial/i3-attribute.png)
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
-    
+
     a. Clique em **edite** botão para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
     ![image](./media/github-tutorial/i2-attribute.png)
@@ -133,7 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Partir do **atributo de origem** , selecione o valor do atributo.
 
     c. Clique em **Guardar**.
- 
+
 7. Na **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** e guarde-o no seu computador.
 
     ![image](./media/github-tutorial/tutorial_github_certficate.png)
@@ -146,7 +147,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. URL de fim de sessão
 
-    ![image](./media/github-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/github-tutorial/d1_samlsonfigure.png)
 
 9. Numa janela do browser web diferente, inicie sessão no seu site de organização do GitHub como um administrador.
 
@@ -170,8 +171,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Clique em **editar** ícone para editar o **método de assinatura** e **Digest método** de **RSA SHA1** e **SHA1**para **RSA-SHA256** e **SHA256** conforme mostrado abaixo.
 
-    ![image](./media/github-tutorial/tutorial_github_sha.png) 
-    
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
+
 13. Clique em **configuração SAML do teste** para confirmar que não existem falhas de validação ou erros durante a SSO.
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_06.png)
@@ -179,7 +180,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 14. Clicar em **Guardar**
 
 > [!NOTE]
-> Início de sessão único no GitHub efetua a autenticação para uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Por conseguinte, se a sessão do utilizador GitHub.com tiver expirado, poderá ser-lhe pedido para autenticar com o ID de/palavra-passe do GitHub durante o processo de início de sessão único.
+> Início de sessão único no GitHub efetua a autenticação para uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Por conseguinte, se a sessão do utilizador github.com tiver expirado, poderá ser-lhe pedido para autenticar com o ID de/palavra-passe do GitHub durante o processo de início de sessão único.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -205,7 +206,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Selecione **Criar**.
- 
+
 ### <a name="create-a-github-test-user"></a>Criar um utilizador de teste do GitHub
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no GitHub. O GitHub suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](github-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
@@ -258,13 +259,13 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 4. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 5. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
-    
+
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico do GitHub no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do GitHub.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

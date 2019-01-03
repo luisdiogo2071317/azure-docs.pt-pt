@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840219"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723676"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -30,7 +30,7 @@ Os itens seguintes são necessários para concluir os passos neste artigo:
 
 - Um cluster do HDInsight. Para criar um cluster, veja [introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e macOS.
 
 ## <a name="install-the-hdinsight-tools"></a>Instalar as ferramentas do HDInsight
    
@@ -72,7 +72,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 
 1. Crie uma nova pasta de trabalho e um novo ficheiro de script, se ainda não tivê-los.
 
-2. O editor de scripts com o botão direito e, em seguida, no menu de contexto, selecione **HDInsight: início de sessão**. Também pode introduzir **Ctrl + Shift + P**e, em seguida, introduza **HDInsight: início de sessão**.
+2. O editor de scripts com o botão direito e, em seguida, no menu de contexto, selecione **HDInsight: Início de sessão**. Também pode introduzir **Ctrl + Shift + P**e, em seguida, introduza **HDInsight: Início de sessão**.
 
     ![Ferramentas do HDInsight para início de sessão do Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -87,7 +87,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 
     Quando estiver ligado, o nome da sua conta do Azure é mostrado na barra de estado no canto inferior esquerdo da janela do VS Code. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Devido a um problema conhecido de autenticação do Azure, terá de abrir um browser no modo privado ou navegação anónima. Se a sua conta do Azure tem dois fatores ativadas, recomendamos utilizar a autenticação de telefone em vez da autenticação do PIN.
   
 
@@ -105,7 +105,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 <h3 id="linkcluster">Para ligar um cluster</h3>
 
 Pode ligar um cluster normal, utilizando uma [Apache Ambari](https://ambari.apache.org/) geridos pelo nome de utilizador ou ao ligar a um cluster de Hadoop seguro do pacote de segurança de Enterprise utilizando um nome de utilizador de domínio (como: user1@contoso.com).
-1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um Cluster**.
+1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: Ligar um Cluster**.
 
    ![comando de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -113,19 +113,19 @@ Pode ligar um cluster normal, utilizando uma [Apache Ambari](https://ambari.apac
    
    ![caixa de diálogo de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > O nome de utilizador ligado e a palavra-passe são utilizados se o cluster tanto registado na subscrição do Azure e ligadas um cluster. 
    
 3. Pode ver um cluster de ligado, utilizando o comando **Cluster de lista**. Agora pode submeter um script para este cluster ligado.
 
    ![cluster ligado](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. Também pode desassociar um cluster ao inserir **HDInsight: desassociar um Cluster** da paleta de comandos.
+4. Também pode desassociar um cluster ao inserir **HDInsight: Desassociar um Cluster** da paleta de comandos.
 
 
 ### <a name="to-link-a-generic-apache-livy-endpoint"></a>Para ligar um ponto de extremidade genérico do Apache Livy
 
-1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um Cluster**.
+1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: Ligar um Cluster**.
 2. Selecione **ponto final do Livy genérico**.
 3. Introduza o ponto de extremidade genérico do Livy, por exemplo: http://10.172.41.42:18080.
 4. Selecione **básica** quando a autorização para o ponto de extremidade genérico Livy, caso contrário, tem de selecionar **nenhum**.
@@ -142,7 +142,7 @@ Para testar a ligação, pode listar os seus clusters do HDInsight:
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Listar clusters do HDInsight com a sua subscrição do Azure
 1. Abra uma área de trabalho e, em seguida, ligar para o Azure. Para obter mais informações, consulte [área de trabalho do HDInsight aberto](#open-hdinsight-workspace) e [ligar ao Azure](#connect-to-hdinsight-cluster).
 
-2. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Cluster de lista** no menu de contexto. 
+2. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Listar clusters** no menu de contexto. 
 
 3. Os clusters do HDInsight são apresentados no **saída** painel.
 
@@ -151,7 +151,7 @@ Para testar a ligação, pode listar os seus clusters do HDInsight:
 ## <a name="set-a-default-cluster"></a>Definir um cluster de predefinição
 1. Abra uma área de trabalho e ligar ao Azure. Ver [área de trabalho do HDInsight aberto](#open-hdinsight-workspace) e [ligar ao Azure](#connect-to-hdinsight-cluster).
 
-2. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Definir Cluster predefinido**. 
+2. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Conjunto predefinido do Cluster**. 
 
 3. Selecione um cluster do cluster predefinido para o ficheiro de script atual. As ferramentas de atualizar automaticamente o ficheiro de configuração **. VSCode\settings.json**. 
 
@@ -160,7 +160,7 @@ Para testar a ligação, pode listar os seus clusters do HDInsight:
 ## <a name="set-the-azure-environment"></a>Defina o ambiente do Azure
 1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**.
 
-2. Introduza **HDInsight: definir o ambiente do Azure**.
+2. Introduza **HDInsight: Definir o ambiente do Azure**.
 
 3. Selecione um ambiente, como "Azure" ou "AzureChina" como a entrada de início de sessão predefinida.
 
@@ -181,15 +181,15 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. O editor de scripts com o botão direito, selecione **HDInsight: interativas do Hive** para submeter a consulta ou utilize o atalho **Ctrl + Alt + I**. Selecione **HDInsight: lote do Hive** submeta o script ou usar o atalho **Ctrl + Alt + H**. 
+4. O editor de scripts com o botão direito, selecione **HDInsight: Hive interativo** para submeter a consulta ou utilize o atalho **Ctrl + Alt + I**. Selecione **HDInsight: Ramo de registo de lote** para submeter o script, ou utilize o atalho **Ctrl + Alt + H**. 
 
 5. Selecione o cluster se ainda não especificou um cluster de predefinição. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Após alguns instantes, os resultados da consulta são apresentados num novo separador.
 
    ![Resultado do Hive interativo](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - Painel **RESULTADOS**: pode guardar todo o resultado como ficheiro CSV, JSON ou Excel no caminho local ou apenas selecionar várias linhas.
+    - **RESULTADOS** painel: Pode guardar o resultado inteiro como ficheiro CSV, JSON ou o Excel para o caminho local ou, basta selecionar várias linhas.
 
-    - Painel **MENSAGENS**: quando seleciona o número da **Linha**, passa para a primeira linha do script em execução.
+    - **MENSAGENS** painel: Quando seleciona **linha** número, ele salta para a primeira linha do script em execução.
 
 ## <a name="submit-interactive-pyspark-queries"></a>Submeter consultas interativas do PySpark
 
@@ -213,7 +213,7 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Realce este script. Em seguida, o editor de scripts com o botão direito e selecione **HDInsight: interativo do PySpark**, ou utilize o atalho **Ctrl + Alt + I**.
+4. Realce este script. Em seguida, o editor de scripts com o botão direito e selecione **HDInsight: Interativo do PySpark**, ou utilize o atalho **Ctrl + Alt + I**.
 
 5. Se ainda não instalou o **Python** extensão no VS Code, selecione a **instalar** botão conforme mostrado na ilustração seguinte:
 
@@ -231,7 +231,7 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
 
    ![Submeter o resultado da tarefa de Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) o estado da submissão é apresentada à esquerda do estado na parte inferior da barra quando estiver a executar consultas. Não se submeta outras consultas quando o estado é **Kernel do PySpark (ocupado)**. 
 
->[!NOTE]
+>[!NOTE]  
 >Os clusters podem manter informações de sessão. A variável definida, a função e a valores correspondentes são mantidas na sessão, pelo que pode ser referenciadas em várias chamadas de serviço para o mesmo cluster. 
 
 ### <a name="to-disable-environment-check"></a>Para desativar a verificação de ambiente
@@ -388,7 +388,7 @@ HDInsight para o VS Code suporta as seguintes funcionalidades:
 ## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="demo"></a>Demonstração
-* HDInsight para o VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para o VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 
@@ -406,9 +406,9 @@ HDInsight para o VS Code suporta as seguintes funcionalidades:
 * [Utilizar Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Criar e executar aplicações

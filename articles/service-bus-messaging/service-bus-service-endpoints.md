@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276133"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651440"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utilizar pontos finais de serviço de rede Virtual com o Azure Service Bus
 
@@ -39,7 +39,7 @@ O resultado é uma relação isolada e privada entre as cargas de trabalho ligad
 > - Azure Data Explorer
 >
 > O abaixo Microsoft serviços são necessários para estar numa rede virtual
-> - Aplicações Web do Azure
+> - Serviço de Aplicações do Azure
 > - Funções do Azure
 
 > [!IMPORTANT]

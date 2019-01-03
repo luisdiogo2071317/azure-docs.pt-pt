@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257646"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720393"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerir a aplicação Web para contentores com a CLI do Azure
 
@@ -108,5 +108,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [O que é o serviço de aplicações do Azure no Linux?](app-service-linux-intro.md)
 * [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (pré-visualização)](../../cloud-shell/overview.md)
-* [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementação contínua com a aplicação Web para contentores](app-service-linux-ci-cd.md)

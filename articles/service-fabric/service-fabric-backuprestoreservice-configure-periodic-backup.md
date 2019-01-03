@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722382"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794248"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
 Configurar cópia de segurança periódica dos seus serviços com estado fiável ou Reliable Actors é composta pelos seguintes passos:
 
-1. **Criação de políticas de cópia de segurança**: neste passo, uma ou mais políticas de cópia de segurança são criadas consoante os requisitos.
+1. **Criação de políticas de cópia de segurança**: Neste passo, uma ou mais políticas de cópia de segurança são criadas consoante os requisitos.
 
-2. **Ativar cópia de segurança**: neste passo, associa políticas de cópia de segurança criadas no **passo 1** para as entidades necessárias, _aplicativo_, _serviço_, ou um  _Partição_.
+2. **Ativar cópia de segurança**: Neste passo, associa políticas de cópia de segurança criadas no **passo 1** para as entidades necessárias, _aplicativo_, _serviço_, ou um _partição_.
 
 ## <a name="create-backup-policy"></a>Criar política de cópia de segurança
 
@@ -35,7 +35,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
 
 * **Auto restauro na perda de dados**: Especifica se pretende acionar restauro automaticamente ao utilizar a mais recente cópia de segurança disponível caso a partição de experiências de um evento de perda de dados.
 
-* **Cópias de segurança incrementais Max**: define o número máximo de cópias de segurança incrementais para ficar entre duas cópias de segurança completas. Cópias de segurança incrementais máx. Especifique o limite superior. Uma cópia de segurança completa pode ser executada antes do número especificado de cópias de segurança incrementais é concluído em uma das seguintes condições
+* **Cópias de segurança incrementais Max**: Define o número máximo de cópias de segurança incrementais para ficar entre duas cópias de segurança completas. Cópias de segurança incrementais máx. Especifique o limite superior. Uma cópia de segurança completa pode ser executada antes do número especificado de cópias de segurança incrementais é concluído em uma das seguintes condições
 
     1. A réplica nunca apresentou uma cópia de segurança completa, uma vez que ele se tornou primário.
 
@@ -43,9 +43,9 @@ Uma política de cópia de segurança inclui as seguintes configurações:
 
     3. Réplica passado o limite de MaxAccumulatedBackupLogSizeInMB.
 
-* **Agenda de cópia de segurança**: A hora ou a frequência com que fazer cópias de segurança periódicas. Um pode agendar cópias de segurança recorrentes intervalo especificado ou numa hora fixa diárias / semanais.
+* **Agenda de cópia de segurança**: A hora ou a frequência no qual pretende efetuar cópias de segurança periódicas. Um pode agendar cópias de segurança recorrentes intervalo especificado ou numa hora fixa diárias / semanais.
 
-    1. **Com base na frequência de cópia de segurança agendada**: este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em intervalos fixos. Intervalo de tempo pretendido entre duas cópias de segurança consecutivas é definido usando o formato de ISO8601. Com base na frequência de cópia de segurança agendada suporta minuto do intervalo resolução até.
+    1. **Com base na frequência de cópia de segurança agendada**: Este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em intervalos fixos. Intervalo de tempo pretendido entre duas cópias de segurança consecutivas é definido usando o formato de ISO8601. Com base na frequência de cópia de segurança agendada suporta minuto do intervalo resolução até.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,8 +53,8 @@ Uma política de cópia de segurança inclui as seguintes configurações:
         }
         ```
 
-    2. **Agenda de cópia de segurança baseados no tempo**: este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em alturas específicas do dia ou da semana. Tipo de frequência da agenda pode ser diária ou semanal.
-        1. **_Diária_ agenda de cópia de segurança baseados no tempo**: este tipo de agenda deve ser utilizado se o id de necessidade de fazer a cópia de segurança de dados em alturas específicas do dia. Para especificar isso, defina `ScheduleFrequencyType` para _diária_; e defina `RunTimes` a lista de tempo pretendido durante o dia no formato de ISO8601, data especificada juntamente com o tempo será ignorado. Por exemplo, `0001-01-01T18:00:00` representa _das 18:00_ todos os dias, a ignorar a parte da data _0001-01-01_. Exemplo abaixo ilustra a configuração de cópia de segurança diária do acionador na _9:00_ e _das 18:00_ todos os dias.
+    2. **Agenda de cópia de segurança baseados no tempo**: Este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em alturas específicas do dia ou da semana. Tipo de frequência da agenda pode ser diária ou semanal.
+        1. **_Diária_ agenda de cópia de segurança baseados no tempo**: Este tipo de agenda deve ser utilizado se o id de necessidade de fazer a cópia de segurança de dados em alturas específicas do dia. Para especificar isso, defina `ScheduleFrequencyType` para _diária_; e defina `RunTimes` a lista de tempo pretendido durante o dia no formato de ISO8601, data especificada juntamente com o tempo será ignorado. Por exemplo, `0001-01-01T18:00:00` representa _das 18:00_ todos os dias, a ignorar a parte da data _0001-01-01_. Exemplo abaixo ilustra a configuração de cópia de segurança diária do acionador na _9:00_ e _das 18:00_ todos os dias.
 
             ```json
             {
@@ -67,7 +67,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
             }
             ```
 
-        2. **_Semanal_ agenda de cópia de segurança baseados no tempo**: este tipo de agenda deve ser utilizado se o id de necessidade de fazer a cópia de segurança de dados em alturas específicas do dia. Para especificar isso, defina `ScheduleFrequencyType` para _semanal_; defina `RunDays` à lista de dias numa semana quando cópia de segurança tem de ser acionados e definir `RunTimes` a lista de tempo pretendido durante o dia no formato de ISO8601, data especificada, juntamente com o tempo será ignorada. Lista de dias de uma semana quando acionar a cópia de segurança periódica. Exemplo abaixo ilustra a configuração de cópia de segurança diária do acionador na _9:00_ e _das 18:00_ durante a segunda a sexta-feira.
+        2. **_Semanal_ agenda de cópia de segurança baseados no tempo**: Este tipo de agenda deve ser utilizado se o id de necessidade de fazer a cópia de segurança de dados em alturas específicas do dia. Para especificar isso, defina `ScheduleFrequencyType` para _semanal_; defina `RunDays` à lista de dias numa semana quando cópia de segurança tem de ser acionados e definir `RunTimes` a lista de tempo pretendido durante o dia no formato de ISO8601, data especificada, juntamente com o tempo será ignorada. Lista de dias de uma semana quando acionar a cópia de segurança periódica. Exemplo abaixo ilustra a configuração de cópia de segurança diária do acionador na _9:00_ e _das 18:00_ durante a segunda a sexta-feira.
 
             ```json
             {
@@ -88,7 +88,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
             ```
 
 * **Armazenamento de cópia de segurança**: Especifica a localização para carregar as cópias de segurança. O armazenamento pode ser qualquer um dos armazenamento de Blobs do Azure ou partilha de ficheiros.
-    1. **Armazenamento de Blobs do Azure**: este tipo de armazenamento deve ser selecionado quando a necessidade é armazenar gerado cópias de segurança no Azure. Ambos _autónomo_ e _baseada no Azure_ clusters podem utilizar este tipo de armazenamento. Descrição para este tipo de armazenamento requer a cadeia de ligação e o nome do contentor onde as cópias de segurança devem ser carregados. Se o contentor com o nome especificado não estiver disponível, em seguida, é criada durante o carregamento de uma cópia de segurança.
+    1. **Armazenamento de Blobs do Azure**: Este tipo de armazenamento deve ser selecionado quando a necessidade é armazenar gerado cópias de segurança no Azure. Ambos _autónomo_ e _baseada no Azure_ clusters podem utilizar este tipo de armazenamento. Descrição para este tipo de armazenamento requer a cadeia de ligação e o nome do contentor onde as cópias de segurança devem ser carregados. Se o contentor com o nome especificado não estiver disponível, em seguida, é criada durante o carregamento de uma cópia de segurança.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,7 +98,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
         }
         ```
 
-    2. **Partilha de ficheiros**: este tipo de armazenamento deve ser selecionado para _autónomo_ clusters quando a necessidade é armazenar dados no local de cópia de segurança. Descrição para este tipo de armazenamento requer o caminho de partilha de ficheiros em que as cópias de segurança têm de ser carregado. Acesso à partilha de ficheiros pode ser configurado através de uma das seguintes opções
+    2. **Partilha de ficheiros**: Este tipo de armazenamento deve ser selecionado para _autónomo_ clusters quando a necessidade é armazenar dados no local de cópia de segurança. Descrição para este tipo de armazenamento requer o caminho de partilha de ficheiros em que as cópias de segurança têm de ser carregado. Acesso à partilha de ficheiros pode ser configurado através de uma das seguintes opções
         1. _Autenticação Windows integrada_, onde o acesso à partilha de ficheiros é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Neste caso, defina seguintes campos para configurar _partilha de ficheiros_ com base em armazenamento de cópia de segurança.
 
             ```json
@@ -128,7 +128,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
 >
 
 * **Política de retenção**: Especifica a política para reter cópias de segurança no armazenamento configurado. Política de retenção apenas básica é suportada.
-    1. **Política de retenção básica**: permite que esta política de retenção para garantir que a utilização de armazenamento ideal, removendo ficheiros de cópia de segurança que são não mais necessários. `RetentionDuration` pode ser especificado para definir o intervalo de tempo para o qual cópias de segurança têm de ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para se certificar de que o número especificado de cópias de segurança é sempre retido irrespective do `RetentionDuration`. Exemplo abaixo ilustra a configuração para reter cópias de segurança para _10_ dias e não aceita o número de cópias de segurança para ir abaixo _20_.
+    1. **Política de retenção básica**: Permite que esta política de retenção para garantir que a utilização de armazenamento ideal, removendo ficheiros de cópia de segurança que são não mais necessários. `RetentionDuration` pode ser especificado para definir o intervalo de tempo para o qual cópias de segurança têm de ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para se certificar de que o número especificado de cópias de segurança é sempre retido irrespective do `RetentionDuration`. Exemplo abaixo ilustra a configuração para reter cópias de segurança para _10_ dias e não aceita o número de cópias de segurança para ir abaixo _20_.
 
         ```json
         {
@@ -137,6 +137,9 @@ Uma política de cópia de segurança inclui as seguintes configurações:
             "MinimumNumberOfBackups": 20
         }
         ```
+
+> [!IMPORTANT]
+> Devido a um problema no tempo de execução, certifique-se de que a duração da retenção na política de retenção está configurada para ser inferior a 24 dias caso contrário, ele iria resultar no serviço de restauração de cópia de segurança de mensagens em fila para entrar em ativação pós-falha de réplica do quórum perda post.
 
 ## <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
 Depois de definir a política de cópia de segurança para atender a requisitos de cópia de segurança de dados, a política de cópia de segurança deve ser adequadamente associada a um _aplicativo_, ou _service_, ou um _partição_.
@@ -215,6 +218,11 @@ Assim que a necessidade de suspensão terminar, em seguida, a cópia de seguran�
 
 * Se a suspensão foi aplicada num _partição_, em seguida, deve ser retomada utilizando [retomar cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
+### <a name="difference-between-suspend-and-disable-backups"></a>Diferença entre suspender e desative as cópias de segurança
+Desativar cópia de segurança deve ser usada quando as cópias de segurança já não são necessárias para uma determinada aplicação, serviço ou partição. Um pode infact invocar desativar pedido cópia de segurança, juntamente com o parâmetro de cópias de segurança limpa para ser verdade significaria que se todas as cópias de segurança existentes também são eliminadas. No entanto, suspender deve ser usado em cenários em que quer desativar as cópias de segurança temporariamente, como quando fica cheio disco local ou carregar a cópia de segurança está a falhar devido a problema de rede conhecido etc. 
+
+Enquanto desativar pode ser invocado apenas num nível que era anteriormente ativado para explicilty cópia de segurança no entanto suspensão pode ser aplicada em qualquer nível, que está atualmente ativada para cópia de segurança seja diretamente ou através de herança / hierarquia. Por exemplo, se a cópia de segurança é ativada ao nível da aplicação, um pode invocar desativar entretanto suspender apenas ao nível da aplicação pode ser invocado na aplicação, qualquer serviço ou a partição sob essa aplicação. 
+
 ## <a name="auto-restore-on-data-loss"></a>Restauro de automática na perda de dados
 A partição de serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco para duas de três réplicas para uma partição (incluindo a réplica primária) obtém danificado ou eliminado.
 
@@ -237,11 +245,11 @@ Essas APIs também suportam a paginação dos resultados, quando _MaxResults_ pa
 
 Segue-se as informações breves sobre variantes suportados.
 
-- [Obter lista de cópia de segurança de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem a determinada aplicação do Service Fabric.
+- [Obter lista de cópia de segurança de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem a determinada aplicação do Service Fabric.
 
-- [Obter lista de cópia de segurança do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem ao fornecido o serviço do Service Fabric.
+- [Obter lista de cópia de segurança do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem ao fornecido o serviço do Service Fabric.
  
-- [Obter lista de cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): devolve uma lista de cópias de segurança disponíveis para a partição especificada.
+- [Obter lista de cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Devolve uma lista de cópias de segurança disponíveis para a partição especificada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Referência da REST API de restauro de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

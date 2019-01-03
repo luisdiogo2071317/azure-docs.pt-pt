@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299083"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993797"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentor do Service Fabric
 O Azure Service Fabric é um orquestrador de contentores e oferece suporte a ambos [contentores do Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como visualizar registos de contentor de um serviço de contentor em execução ou um contentor inativo para que possa diagnosticar e resolver problemas.
@@ -64,10 +64,10 @@ Corpo de resposta 200:
 ```
 
 ### <a name="service-fabric-sfctl"></a>O Service Fabric (SFCTL)
-Utilize o [sfctl get-container-registos do serviço](service-fabric-sfctl-service.md) comando para obter os registos para um contentor falhado.  Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código. Especifique o `-previous` sinalizador.  A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
+Utilize o [sfctl get-container-registos do serviço](service-fabric-sfctl-service.md) comando para obter os registos para um contentor falhado.  Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código. Especifique o `--previous` sinalizador.  A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Resposta:
 ```json

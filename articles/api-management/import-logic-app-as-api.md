@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602960"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969187"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 
@@ -33,8 +33,8 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
-+ Certifique-se de que existe uma Aplicação Lógica na sua subscrição. Para obter mais informações, veja [Criar a sua primeira Aplicação Lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+* Certifique-se de que existe uma aplicação lógica na sua subscrição que expõe um ponto final HTTP. Para obter mais informações, [acionar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ Neste artigo, vai aprender a:
 2. Selecione **Aplicação Lógica** na lista **Adicionar uma nova API**.
 
     ![Aplicação lógica](./media/import-logic-app-as-api/logic-app-api.png)
-3. Prima **Procurar** para ver a lista de Aplicações Lógicas na sua subscrição.
+3. Prima **procurar** para ver a lista de aplicações podem ser chamados de lógica na sua subscrição.
 4. Selecione a aplicação. O APIM localiza o swagger associado à aplicação selecionada, obtém-no e importa-o. 
 5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.
 6. Associe a API a um produto e publique-a. Neste caso, é utilizado o produto "*Unlimited*".  Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
@@ -92,7 +92,7 @@ Também é possível chamar operações a partir do **portal do Programador** pa
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Transformar e proteger a sua API](transform-api.md)

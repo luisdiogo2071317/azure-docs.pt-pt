@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497278"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792786"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 
@@ -26,7 +26,7 @@ Servidor de histórico do Apache Spark é a IU da web para aplicações do Spark
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Abra a interface do Usuário do Apache Spark histórico de servidor Web a partir do portal do Azure
 
-1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Partir **ligações rápidas**, clique em **Dashboard do Cluster**e, em seguida, clique em **servidor de histórico do Spark**. Quando lhe for pedido, introduza as credenciais de administrador para o cluster do Spark. 
 
     ![Servidor de histórico do spark](./media/apache-azure-spark-history-server/launch-history-server.png "Server do histórico do Spark")
@@ -107,10 +107,10 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
 + Reproduzir a tarefa ao clicar o **reprodução** botão e parar em qualquer altura ao clicar no botão stop. O ecrã de tarefa na cor para mostrar o estado diferente quando reprodução:
 
     + Verde para foi concluída com êxito: A tarefa foi concluída com êxito.
-    + Cor de laranja para repetida: instâncias das tarefas que falhou, mas não afetam o resultado final da tarefa. Estas tarefas tinham duplicar ou repita instâncias que podem ter êxito mais tarde.
-    + Azul para execução: A tarefa é executada.
-    + Branco para espera ou ignorada: A tarefa está a aguardar para ser executado, ou o estágio foi ignorada.
-    + Vermelho para falhou: A tarefa falhou.
+    + Cor de laranja para repetidos: Instâncias de tarefas que falhou, mas não afetam o resultado final da tarefa. Estas tarefas tinham duplicar ou repita instâncias que podem ter êxito mais tarde.
+    + Azul para execução: A tarefa está em execução.
+    + Branco para espera ou ignorados: A tarefa está a aguardar para ser executado ou o estágio foi ignorada.
+    + Vermelho para falha: A tarefa falhou.
 
     ![mostruário de cores do gráfico, em execução](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
 
     ![mostruário de cores do gráfico, falhado](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Reprodução de cada tarefa é permitida. Para uma tarefa incompleta, a reprodução não é suportada.
 
 
@@ -132,8 +132,8 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
     ![Descrição do gráfico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + No separador de gráfico da tarefa, fases terão dica de ferramenta e pequeno ícone apresentado se tiverem tarefas cumprir o abaixo condições:
-    + Distorção de dados: tamanho de leitura de dados > tamanho de todas as tarefas dentro desta fase de leitura de dados de média * > 10 MB de tamanho de 2 e dados de leitura
-    + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e o tempo de execução > 2 minutos
+    + Distorção de dados: tamanho de leitura de dados > tamanho de todas as tarefas dentro desta fase de leitura de dados de média * > 10 MB de tamanho de 2 e dados de leitura.
+    + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e o tempo de execução > 2 minutos.
 
     ![ícone de distorção de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
     + Contagem de linhas: a soma dos registos de entrada, saída de registos, misturar os registos de leitura e misturar os registos de escrita.
     + Curso.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Por predefinição, o nó de gráfico de tarefa irá apresentar informações da última tentativa de cada estágio (exceto para o estágio de tempo de execução), mas durante o gráfico de reprodução nó mostrará as informações de cada tentativa.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Para o tamanho de dados de leitura e escrita, utilize 1 MB = 1000 KB = de Bytes 1000 * 1000.
 
 + Enviar comentários com problemas ao clicar **nos fornecer comentários**.
@@ -168,7 +168,7 @@ Selecione o ID da tarefa, em seguida, clique em **diagnóstico** no menu da ferr
 ### <a name="data-skew"></a>Distorção de dados
 Clique em **dados inclinar** separador correspondente inclinadas nas quais tarefas são apresentadas com base nos parâmetros especificados. 
 
-+ **Especifique parâmetros** -a primeira secção apresenta os parâmetros que são utilizados para detetar dados Skew. A regra interna é: leitura de dados de tarefas é superior a 3 vezes dos dados de tarefa médio de leitura e os dados de tarefa de leitura são mais do que 10MB. Se pretender definir sua própria regra inclinadas nas quais tarefas, pode escolher os parâmetros, o **inclinados estágio**, e **inclinar Char** secção será atualizada em conformidade.
++ **Especifique parâmetros** -a primeira secção apresenta os parâmetros que são utilizados para detetar dados Skew. A regra interna é: Leitura de dados de tarefas é superior a 3 vezes os dados de tarefa médio de leitura e os dados de tarefa de leitura são mais do que 10MB. Se pretender definir sua própria regra inclinadas nas quais tarefas, pode escolher os parâmetros, o **inclinados estágio**, e **inclinar Char** secção será atualizada em conformidade.
 
 + **Fase de inclinados** -a segunda secção apresenta as fases que tem inclinados tarefas que satisfaçam os critérios especificados acima. Se existirem mais de uma tarefa inclinadas nas quais a numa fase, a tabela de fase distorcidos apresenta apenas a tarefa mais distorcida (por exemplo, os dados de maior para dados inclinar).
 

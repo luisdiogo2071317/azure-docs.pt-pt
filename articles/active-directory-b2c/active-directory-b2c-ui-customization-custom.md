@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833951"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633015"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Conclua os passos na [introdução às políticas personalizadas](active-directo
 
 Ao utilizar a funcionalidade de personalização da interface do Usuário de página, pode personalizar o aspeto e funcionalidade de qualquer política personalizada. Também pode manter a consistência visual e de marca entre a sua aplicação e o Azure AD B2C.
 
-Eis como funciona: Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Em primeiro lugar, especifique um URL a política personalizada com conteúdo HTML personalizado. O Azure AD B2C une os elementos de IU com o conteúdo HTML que é carregado a partir do URL e, em seguida, apresenta a página ao cliente.
+Eis como funciona: O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Em primeiro lugar, especifique um URL a política personalizada com conteúdo HTML personalizado. O Azure AD B2C une os elementos de IU com o conteúdo HTML que é carregado a partir do URL e, em seguida, apresenta a página ao cliente.
 
 ## <a name="create-your-html5-content"></a>Criar o HTML5 conteúdo
 
@@ -50,9 +50,6 @@ Crie o HTML conteúdo com o nome da marca do seu produto no título.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Por motivos de segurança, o uso de JavaScript está bloqueado para personalização.
 
 2. Cole o fragmento copiado num editor de texto e, em seguida, guarde o ficheiro como *ui.html personalizar*.
 
@@ -124,7 +121,7 @@ Para configurar a personalização da interface do Usuário, copie os **ContentD
 3. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Procure o **BuildingBlocks** elemento. Se o elemento não existir, adicioná-lo.
 4. Cole o conteúdo inteiro dos **ContentDefinitions** elemento que copiou como subordinado da **BuildingBlocks** elemento. 
 5. Procure o **ContentDefinition** elemento que contém `Id="api.signuporsignin"` no XML que copiou.
-6. Alterar o valor de **LoadUri** para o URL do arquivo HTML que carregou para o armazenamento. Por exemplo, "https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Alterar o valor de **LoadUri** para o URL do arquivo HTML que carregou para o armazenamento. Por exemplo, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     A diretiva personalizada deve ter um aspeto semelhante ao seguinte:
 

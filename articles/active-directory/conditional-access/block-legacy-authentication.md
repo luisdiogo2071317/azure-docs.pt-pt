@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfea3ec7380a36f937052a6a994504ca081f187
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020182"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755160"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: antigos de autenticação de bloco para o Azure AD com o acesso condicional   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
 Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud, Azure Active Directory (Azure AD) oferece suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação. No entanto, os protocolos legados não suportam autenticação multifator (MFA). MFA é, em muitos ambientes, um requisito comum para roubo de identidade de endereço. 
 
@@ -60,7 +60,7 @@ Como pode impedir a aplicações que utilizam autenticação legada de aceder a 
 
 Esta secção explica como configurar uma política de acesso condicional para bloquear antigos de autenticação. 
 
-### <a name="block-legacy-authentication"></a>Autenticação de legado do bloco 
+### <a name="block-legacy-authentication"></a>Bloquear a autenticação legada 
 
 Numa política de acesso condicional, pode definir uma condição que está associada às aplicações de cliente que são utilizados para aceder aos seus recursos. A condição de aplicações de cliente permite-lhe restringir o âmbito para aplicações que utilizam a autenticação de legado, selecionando **outros clientes** para **aplicações móveis e clientes de ambiente de trabalho**.
 
@@ -91,7 +91,7 @@ O Azure tem uma funcionalidade de segurança que o impede de criar uma política
 ![Configuração de política não é suportada](./media/block-legacy-authentication/04.png)
 
 
-A funcionalidade de segurança é necessária porque *bloquear todos os utilizadores e todas as aplicações na cloud* tem o potencial para bloquear toda a organização de iniciar sessão seu inquilino. Tem de excluir pelo menos um utilizador para satisfazer o requisito mínimo de práticas recomendado. Pode também 
+A funcionalidade de segurança é necessária porque *bloquear todos os utilizadores e todas as aplicações na cloud* tem o potencial para bloquear toda a organização de iniciar sessão seu inquilino. Tem de excluir pelo menos um utilizador para satisfazer o requisito mínimo de práticas recomendado. Também pode excluir uma função de diretório.
 
 ![Configuração de política não é suportada](./media/block-legacy-authentication/05.png)
 

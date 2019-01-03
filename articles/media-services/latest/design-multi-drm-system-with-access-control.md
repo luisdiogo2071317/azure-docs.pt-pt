@@ -4,22 +4,22 @@ description: Saiba mais sobre licenciamento Microsoft Smooth Streaming cliente p
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136278"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753494"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso 
 
@@ -29,7 +29,7 @@ Conceber e criar um subsistema de gestão de direitos digitais (DRM) para um ove
 
 Os leitores de destinados para este documento são engenheiros que trabalham em subsistemas DRM do OTT ou soluções de transmissão em fluxo/multiscreen online ou leitores que estejam interessados em subsistemas DRM. A pressuposição é de que os leitores estejam familiarizados com pelo menos uma das tecnologias de DRM no mercado, como o PlayReady, Widevine, FairPlay ou acesso Adobe.
 
-Esta discussão, pelo multi-DRM Incluímos os 3 DRMs suportadas pelos serviços de multimédia do Azure: encriptação comum (CENC) para o PlayReady e Widevine, FairPlay, bem como AES-128 encriptação de chave não. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar DRMs nativos em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
+Esta discussão, pelo multi-DRM Incluímos os 3 DRMs suportadas pelos serviços de multimédia do Azure: Encriptação comum (CENC) para o PlayReady e Widevine, FairPlay, bem como AES-128 encriptação de chave não. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar DRMs nativos em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
 
 As vantagens de utilizar o multi-DRM nativo para proteção de conteúdo são:
 
@@ -119,11 +119,11 @@ Por que são essas considerações importantes?
 
 Se utilizar uma cloud pública para entrega de licenças, persistentes e nonpersistent licenças têm um impacto direto no custo da entrega de licença. Os seguintes dois casos de design diferentes servem para ilustrar:
 
-* Subscrição mensal: utilizar uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
+* Subscrição mensal: Utilize uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = 1
 
-* Subscrição mensal: utilizar uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
+* Subscrição mensal: Utilize uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = [número de filmes assistiu] x [número de sessões]
 
@@ -327,7 +327,7 @@ Para registar e configurar a aplicação de ponteiro no Azure AD, siga os passos
 
 2. Adicione uma nova chave para a aplicação de recurso.
 
-3. Atualizar o ficheiro de manifesto de aplicação para que a propriedade groupMembershipClaims tem o valor "groupMembershipClaims": "All".
+3. Atualize o ficheiro de manifesto de aplicação para que a propriedade groupMembershipClaims tem o valor "groupMembershipClaims": "Tudo".
 
 4. Na aplicação do Azure AD que aponta para a aplicação web player, na secção **permissões para outras aplicações**, adicionar a aplicação de recurso que foi adicionada no passo 1. Sob **delegado permissão**, selecione **acesso [resource_name]**. Esta opção dá a permissão da aplicação web para criar tokens de acesso que acederem à aplicação de recurso. Fazer isso para a versão local e implantada da aplicação web se desenvolver com o Visual Studio e a aplicação web do Azure.
 
@@ -361,12 +361,12 @@ Quando utilizar um STS personalizado, duas alterações devem ser feitas:
 Existem dois tipos de chaves de segurança:
 
 * Chave simétrica: A mesma chave é utilizada para gerar e verificar um JWT.
-* Chave assimétrica: um par de chaves públicas-privadas uma X509 certificado é utilizado com uma chave privada para encriptar/gerar um JWT e com a chave pública para verificar o token.
+* Chave assimétrica: Um par de chaves públicas-privadas uma X509 certificado é utilizado com uma chave privada para encriptar/gerar um JWT e com a chave pública para verificar o token.
 
 > [!NOTE]
 > Se usar o .NET Framework / c# como sua plataforma de desenvolvimento, X509 certificado utilizado para uma chave assimétrica segurança tem de ter um comprimento de chave de, pelo menos, 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, é gerada a seguinte exceção:
 
-> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
+> IDX10630: O 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
 
 ## <a name="the-completed-system-and-test"></a>O sistema concluído e o teste
 Esta secção explica os cenários seguintes no sistema ponto a ponto concluído para que possa ter uma imagem básica do comportamento antes de obter uma conta de início de sessão:
@@ -400,7 +400,7 @@ Pode contactar qualquer um dos autores tenham uma conta criada ou adicionado par
 
 As capturas de ecrã seguintes mostram as páginas de início de início de sessão diferentes utilizadas por contas de domínio diferente:
 
-**Conta de domínio de inquilino de personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado de domínio de inquilino.
+**Conta de domínio de inquilino personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado o domínio de inquilino.
 
 ![Conta de domínio de inquilino personalizado do Azure AD um](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 

@@ -1,21 +1,22 @@
 ---
-title: Compreender como utilizar o Swagger do Azure Digital duplos | Documentos da Microsoft
-description: Utilize o Swagger duplos Digital do Azure
+title: Compreender como utilizar a referência de duplos Digital do Azure Swagger | Documentos da Microsoft
+description: Noções básicas sobre como utilizar o Swagger do Azure Digital duplos documentação de referência.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624255"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975649"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Utilize o Swagger duplos Digital do Azure
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência Swagger de duplos Digital do Azure
 
 Cada instância de duplos Digital do Azure aprovisionada inclui a sua própria documentação de referência do Swagger gerada automaticamente.
 
@@ -34,19 +35,19 @@ Swagger fornece um resumo interativo da sua API, que inclui:
 * Informações de resposta de exemplo utilizadas para validar e confirmar as respostas HTTP.
 * Informações de código de erro.
 
-Swagger é uma ferramenta conveniente para ajudá-lo em desenvolvimento e testes chamadas feitas para a API de gestão.
+Swagger é uma ferramenta conveniente para ajudá-lo em desenvolvimento e testes chamadas feitas para as APIs de gestão de duplos Digital do Azure.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Material de referência
 
-Material de referência gerada automaticamente explica conceitos fundamentais e modelos de objeto.
+O material de referência de Swagger gerado automaticamente fornece uma visão geral de conceitos importantes, pontos finais da API de gestão disponíveis e uma descrição de cada modelo de objeto para o ajudar a desenvolvimento e teste.
 
 Um resumo conciso descreve a API.
 
 ![Parte superior do swagger][1]
 
-Modelos de objeto de API Core também estão listados.
+Modelos de objeto de API de gestão também estão listados.
 
 ![Modelos de swagger][2]
 
@@ -58,7 +59,7 @@ Os modelos de objeto do Swagger gerados são convenientes ver todos os gémeos d
 
 ## <a name="endpoint-summary"></a>Ponto final de resumo
 
-Swagger também fornece uma visão geral completa de todos os pontos finais que compõem a API.
+Swagger também fornece uma visão geral completa de todos os pontos finais que compõem as APIs de gestão.
 
 Cada ponto de extremidade listado também inclui as informações de solicitação necessários, como o:
 

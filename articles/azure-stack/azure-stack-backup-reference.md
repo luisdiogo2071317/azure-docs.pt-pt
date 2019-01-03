@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138451"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713578"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de cópia de segurança de infra-estrutura
 
 ## <a name="azure-backup-infrastructure"></a>Infraestrutura de cópia de segurança do Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack é composta por vários serviços que compõem o portal, o Azure Resource Manager, e a experiência de gestão da infraestrutura. A experiência de gestão de tipo de aplicação do Azure Stack se concentra na redução da complexidade exposta para o operador da solução.
 
@@ -87,9 +87,16 @@ Os requisitos incluem:
 
 Controlador de cópia de segurança de infra-estrutura faz a cópia de segurança de dados a pedido. Recomenda-se fazer o backup finalmente duas vezes um dia e manter no máximo de sete dias de cópias de segurança. 
 
+**1811 e muito mais**
 | Dimensionamento do ambiente | Tamanho previsto de cópia de segurança | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
-| 16 de 4 nós        | 10 GB                     | 140 GB                          |
+| 16 de 4 nós        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pré-1811**
+| Dimensionamento do ambiente | Tamanho previsto de cópia de segurança | Quantidade total de espaço necessário |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nós, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos da rede
 | Localização do armazenamento                                                                 | Detalhes                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Considere estes limites, como planejar, implantar e operar as instâncias do Mic
 | Identificador de limite                                                 | Limite        | Comentários                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de cópia de segurança                                                      | Apenas completo    | Controlador de cópia de segurança de infra-estrutura só suporta cópias de segurança completas. Cópias de segurança incrementais não são suportadas.                                          |
-| Cópias de segurança agendadas                                                | Apenas manual  | Controlador de cópia de segurança atualmente só suporta cópias de segurança a pedido                                                                                 |
+| Cópias de segurança agendadas                                                | Agendada e manuais  | Controlador de cópia de segurança suporta cópias de segurança agendadas e sob demanda                                                                                 |
 | Tarefas de cópia de segurança em simultâneo máximas                                   | 1            | Apenas uma tarefa de cópia de segurança Active Directory é suportada por instância do controlador de cópia de segurança.                                                                  |
 | Configuração de comutador de rede                                     | Não está no âmbito | Administrador tem de criar cópias de segurança a configuração de comutador de rede com as ferramentas do OEM. Consulte a documentação para o Azure Stack, fornecido por cada fornecedor de OEM. |
 | Anfitrião de ciclo de vida do hardware                                          | Não está no âmbito | Administrador tem de fazer backup de anfitrião de ciclo de vida do Hardware usando ferramentas de OEM. Consulte a documentação para o Azure Stack, fornecido por cada fornecedor de OEM.      |

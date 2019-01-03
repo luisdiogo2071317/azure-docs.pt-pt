@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 785223f7da1f59288f4fca6e7a3955a6b3af41c0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383821"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975004"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar o Presto em clusters do HDInsight Hadoop
 
@@ -31,9 +31,7 @@ HDInsight também oferece o aplicativo Starburst Presto para clusters do Apache 
 > [!WARNING]  
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportadas e Support da Microsoft irá ajudar a isolar e resolver problemas relacionados com esses componentes.
 > 
-> Componentes personalizados, por exemplo, Presto, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isso pode resultar em resolver o problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
-> 
-> 
+> Componentes personalizados, por exemplo, Presto, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isso pode resultar em resolver o problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Também projetos Apache tem sites de projeto no [ https://apache.org ](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="install-presto-using-script-action"></a>Instalar prontamente com ação de script
@@ -44,7 +42,7 @@ Esta secção fornece instruções sobre como utilizar o script de exemplo, ao c
 
     * Tem de ser um cluster do Hadoop com o HDInsight versão 3.6.
 
-    * Terá de utilizar armazenamento do Azure que o arquivo de dados. Utilizar o Presto no cluster que utilize o Azure Data Lake Store como a opção de armazenamento ainda não é uma opção.
+    * Terá de utilizar armazenamento do Azure que o arquivo de dados. Utilizar o Presto no cluster que utilize o armazenamento do Azure Data Lake como a opção de armazenamento ainda não é uma opção.
 
     ![Criação do cluster HDInsight utilizando opções personalizadas](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -123,17 +121,23 @@ Utilize os seguintes passos para instalar Airpal no nó de extremidade:
 
 5. Clique em **Comprar**.
 
-6. Depois das alterações são aplicadas à configuração do cluster, pode acessar a interface da web Airpal utilizando os seguintes passos.
+6. Depois das alterações são aplicadas à configuração do cluster, pode acessar o Airpal interface da web utilizando os seguintes passos no [portal do Azure](https://portal.azure.com):
 
-    1. A caixa de diálogo do cluster, clique em **aplicativos**.
+    1. No menu à esquerda, selecione **todos os serviços**.
+
+    1. Sob **ANALYTICS**, selecione **clusters do HDInsight**.
+
+    1. Selecione o cluster na lista, que irá abrir a vista predefinida.
+
+    1. A vista predefinida, em **configurações**, selecione **aplicativos**.
 
         ![Lançamento de HDInsight Airpal no Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    2. Partir do **aplicações instaladas** área, clique em **Portal** contra airpal.
+    1. Partir do **aplicações instaladas** página, local a entrada de tabela para **airpal**e selecione **Portal**.
 
         ![Lançamento de HDInsight Airpal no Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    3. Quando lhe for pedido, introduza as credenciais de administrador que especificou ao criar o cluster de Hadoop do HDInsight.
+    1. Quando lhe for pedido, introduza as credenciais de administrador que especificou ao criar o cluster de Hadoop do HDInsight.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>Personalizar uma instalação Presto num cluster do HDInsight
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870236"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603054"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas de base de dados elásticas
 Este documento apresenta a a experiência do desenvolvedor para o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) , ajudando a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação fragmentada simples e explora os principais capacidades da funcionalidade ferramentas de base de dados elásticas da base de dados do Azure SQL. Ele se concentra em casos de utilização [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), e [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como a Java. 
@@ -97,16 +97,16 @@ Parabéns! Ter criado e execute a sua primeira aplicação em partição horizon
 ## <a name="key-pieces-of-the-code-sample"></a>Principais partes do código de exemplo
 * **Gerenciamento de partições horizontais e partição horizontal mapeia**: O código ilustra como trabalhar com partições horizontais, intervalos e mapeamentos no *ShardManagementUtils.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](https://go.microsoft.com/?linkid=9862595).  
 
-* **Encaminhamento dependente de dados**: encaminhamento de transações para a partição horizontal direita mostra a *DataDependentRoutingSample.cs* ficheiro. Para obter mais informações, consulte [encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596). 
+* **Encaminhamento dependente de dados**: Encaminhamento de transações para a partição horizontal direito mostra as *DataDependentRoutingSample.cs* ficheiro. Para obter mais informações, consulte [encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596). 
 
-* **Consultando a várias partições horizontais**: consultas entre partições horizontais é ilustrada na *MultiShardQuerySample.cs* ficheiro. Para obter mais informações, consulte [consultas de vários fragmentos](https://go.microsoft.com/?linkid=9862597).
+* **Consultando a várias partições horizontais**: Consultas entre partições horizontais é ilustrada na *MultiShardQuerySample.cs* ficheiro. Para obter mais informações, consulte [consultas de vários fragmentos](https://go.microsoft.com/?linkid=9862597).
 
 * **Adicionar partições horizontais vazias**: A adição iterativo de novas partições horizontais de vazias é realizada pelo código dos *CreateShardSample.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações de dimensionamento flexível
 * **A divisão de uma partição horizontal existente**: A capacidade de dividir as partições horizontais é fornecida pela ferramenta de divisão / intercalação. Para obter mais informações, consulte [mover dados entre bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Intercalação de partições horizontais existentes**: mesclagens de partição horizontal também são executadas utilizando a ferramenta de divisão / intercalação. Para obter mais informações, consulte [mover dados entre bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **Intercalação de partições horizontais existentes**: Partição horizontal mesclagens também são executadas utilizando a ferramenta de divisão / intercalação. Para obter mais informações, consulte [mover dados entre bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Custo
 A biblioteca de ferramentas de base de dados elásticas é gratuita. Ao utilizar ferramentas de base de dados elásticas, não implica custos adicionais além do custo da sua utilização do Azure. 
@@ -122,10 +122,10 @@ Para obter mais informações sobre ferramentas de base de dados elásticas, con
   * Ferramentas de base de dados elástica ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Ferramentas de bases de dados elásticas para SQL do Azure - integração de Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Elasticidade de fragmentos no Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [anúncio de escala elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* O Channel 9: [dimensionamento elástico vídeo de descrição geral](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: [fórum de base de dados do Azure SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* Para medir o desempenho: [contadores de desempenho para o Gestor de mapas de partições horizontais](sql-database-elastic-database-client-library.md)
+* Blogue: [Anúncio de escala elástico](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* Channel 9: [Elástico dimensionamento vídeo de descrição geral](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Fórum de discussão: [Fórum de base de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Para medir o desempenho: [Contadores de desempenho do gestor de mapas de partições horizontais](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

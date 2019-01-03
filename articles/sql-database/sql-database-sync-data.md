@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101853"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721840"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
 Sincronização de dados SQL é um serviço criado na base de dados do SQL do Azure que permite-lhe sincronizar os dados que selecionar bidirecionalmente em várias bases de dados SQL e instâncias do SQL Server.
+
+> [!IMPORTANT]
+> Sincronização de dados SQL do Azure faz **não** suporta a instância gerida da base de dados SQL do Azure neste momento.
 
 ## <a name="architecture-of-sql-data-sync"></a>Arquitetura de sincronização de dados SQL
 
@@ -51,11 +54,11 @@ Um grupo de sincronização tem as seguintes propriedades:
 
 Sincronização de dados é útil em casos onde os dados têm de ser mantidos atualizados em várias bases de dados SQL do Azure ou bases de dados do SQL Server. Aqui estão os casos de utilização principal para sincronização de dados:
 
--   **Sincronização de dados híbrida:** com sincronização de dados, pode manter os dados sincronizados entre as suas bases de dados no local e bases de dados SQL do Azure para ativar aplicações híbridas. Esta capacidade pode ser atraente para os clientes que estão pensando em mudar para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
+-   **Sincronização de dados híbrida:** Sincronização de dados, pode manter os dados sincronizados entre as suas bases de dados no local e bases de dados SQL do Azure para ativar aplicações híbridas. Esta capacidade pode ser atraente para os clientes que estão pensando em mudar para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 
--   **Aplicações distribuídas:** em muitos casos, é vantajoso separar cargas de trabalho diferentes em diferentes bases de dados. Por exemplo, se tiver uma base de dados de produção de grandes dimensões, mas também tem de executar uma carga de trabalho de relatórios ou análises sobre estes dados, é útil ter uma segunda base de dados para esta carga de trabalho adicional. Essa abordagem minimiza o impacto de desempenho na sua carga de trabalho de produção. Pode usar a sincronização de dados para manter esses dois bancos de dados sincronizados.
+-   **Aplicações distribuídas:** Em muitos casos, é vantajoso separar cargas de trabalho diferentes em diferentes bases de dados. Por exemplo, se tiver uma base de dados de produção de grandes dimensões, mas também tem de executar uma carga de trabalho de relatórios ou análises sobre estes dados, é útil ter uma segunda base de dados para esta carga de trabalho adicional. Essa abordagem minimiza o impacto de desempenho na sua carga de trabalho de produção. Pode usar a sincronização de dados para manter esses dois bancos de dados sincronizados.
 
--   **Globalmente distribuídas aplicações:** muitas empresas que abrangem várias regiões e até mesmo vários países. Para minimizar a latência de rede, é melhor ter seus dados numa região perto de si. Sincronização de dados, pode facilmente manter bases de dados nas regiões em todo o mundo sincronizados.
+-   **Aplicações distribuídas globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países. Para minimizar a latência de rede, é melhor ter seus dados numa região perto de si. Sincronização de dados, pode facilmente manter bases de dados nas regiões em todo o mundo sincronizados.
 
 Sincronização de dados não é a solução preferencial para os seguintes cenários:
 
@@ -69,11 +72,11 @@ Sincronização de dados não é a solução preferencial para os seguintes cen�
 
 ## <a name="how-does-data-sync-work"></a>Como funciona a sincronização de dados? 
 
--   **O controle de alterações de dados:** sincronização de dados controla as alterações usando inserir, atualizar e eliminar acionadores. As alterações são gravadas numa tabela do lado da base de dados do utilizador. Tenha em atenção que inserção em massa não é disparado acionadores por predefinição. Não se não for especificado FIRE_TRIGGERS, executar nenhuma acionador insert. Adicione a opção de FIRE_TRIGGERS para que sincronização de dados possa acompanhar as inserções. 
+-   **O controle de alterações de dados:** Sincronização de dados controla as alterações usando inserir, atualizar e eliminar acionadores. As alterações são gravadas numa tabela do lado da base de dados do utilizador. Tenha em atenção que inserção em massa não é disparado acionadores por predefinição. Não se não for especificado FIRE_TRIGGERS, executar nenhuma acionador insert. Adicione a opção de FIRE_TRIGGERS para que sincronização de dados possa acompanhar as inserções. 
 
--   **Sincronização de dados:** sincronização de dados foi criada num modelo de Hub- and -Spoke. O Hub sincroniza com cada membro individualmente. Alterações do Hub de são transferidas para o membro e, em seguida, as alterações a partir do membro são carregadas para o Hub.
+-   **Sincronização de dados:** Sincronização de dados foi criada num modelo de Hub- and -Spoke. O Hub sincroniza com cada membro individualmente. Alterações do Hub de são transferidas para o membro e, em seguida, as alterações a partir do membro são carregadas para o Hub.
 
--   **Resolver conflitos:** sincronização de dados fornece duas opções para resolução de conflitos *Hub wins* ou *wins membro*.
+-   **Resolver conflitos:** Sincronização de dados fornece duas opções para resolução de conflitos *Hub wins* ou *wins membro*.
     -   Se selecionou *Hub wins*, as alterações no hub substitui sempre as alterações no membro.
     -   Se selecionou *wins membro*, as alterações nas alterações de substituição de membro no hub. Se existir mais do que um membro, o valor final depende qual membro sincroniza pela primeira vez.
 

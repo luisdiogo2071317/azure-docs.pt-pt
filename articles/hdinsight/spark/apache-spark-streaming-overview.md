@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583218"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652086"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Descrição geral do Apache Spark de transmissão em fluxo
 
@@ -203,7 +203,7 @@ As funções de janela deslizante disponíveis na API de transmissão em fluxo d
 
 ## <a name="checkpointing"></a>Ponto de verificação
 
-Para fornecer resiliência e tolerância a falhas, a transmissão em fluxo do Spark baseia-se no ponto de verificação para garantir que o processamento de fluxo pode continuar sem interrupções, mesmo diante de falhas de nó. No HDInsight, Spark cria pontos de verificação para o armazenamento durável (armazenamento do Azure ou Data Lake Store). Estes pontos de verificação armazenam os metadados sobre a aplicação de transmissão em fluxo, como a configuração, as operações definidas pela aplicação e qualquer lotes que foram colocados em fila, mas ainda não processados. Em alguns casos, os pontos de verificação também irão incluir a guardar os dados dos RDDs para reconstruir mais rapidamente o estado dos dados do que está presente no RDDs geridos pelo Spark.
+Para fornecer resiliência e tolerância a falhas, a transmissão em fluxo do Spark baseia-se no ponto de verificação para garantir que o processamento de fluxo pode continuar sem interrupções, mesmo diante de falhas de nó. No HDInsight, Spark cria pontos de verificação para o armazenamento durável (armazenamento do Azure ou armazenamento do Data Lake). Estes pontos de verificação armazenam os metadados sobre a aplicação de transmissão em fluxo, como a configuração, as operações definidas pela aplicação e qualquer lotes que foram colocados em fila, mas ainda não processados. Em alguns casos, os pontos de verificação também irão incluir a guardar os dados dos RDDs para reconstruir mais rapidamente o estado dos dados do que está presente no RDDs geridos pelo Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implementação de aplicações de transmissão em fluxo do Spark
 

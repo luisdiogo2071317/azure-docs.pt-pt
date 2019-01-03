@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495374"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653922"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação de HDInsight no Azure Marketplace
 Pode instalar uma aplicação do Azure HDInsight num cluster do HDInsight baseado em Linux. Neste artigo, saiba como publicar uma aplicação do HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -53,7 +53,7 @@ Duas etapas envolvidas na publicação de aplicações no Marketplace. Primeiro,
 ## <a name="application-installation-script"></a>Script de instalação da aplicação
 Quando uma aplicação é instalada num cluster (seja num cluster existente, ou num novo), é criado um nó de extremidade. O script de instalação do aplicativo é executado no nó de extremidade.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O nome do script de instalação de aplicação tem de ser exclusivo para um cluster específico. O nome do script tem de ter o seguinte formato:
   > 
   > "name": "[concat ('hue-install-v0 ','-', uniquestring]"
@@ -81,9 +81,8 @@ Crie um ficheiro. zip que contém todos os ficheiros que são necessários para 
 * maintemplate. JSON (para obter um exemplo, veja [instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).)
 * Scripts de contas necessários
 
-> [!NOTE]
+> [!NOTE]  
 > Pode alojar os ficheiros da aplicação (incluindo quaisquer ficheiros de aplicação web) em qualquer ponto final acessível publicamente.
-> 
 
 ## <a name="publish-the-application"></a>Publicar a aplicação
 Para publicar uma aplicação do HDInsight:

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994429"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970241"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que razão necessito de Application Insights?
@@ -25,7 +25,7 @@ Application Insights monitoriza a sua aplicação web em execução. Apresenta i
 
 ![Aspectos da complexidade do fornecimento de aplicações web](./media/app-insights-devops/010.png)
 
-É essencial para monitorizar uma aplicação moderna enquanto está em execução. Mais importante, que pretende detetar falhas antes de fazer a maior parte dos seus clientes. Também pretende detetar e corrigir problemas de desempenho que, embora não catastróficos, talvez retardam as ou causar algum inconveniência para seus usuários. E quando o sistema está a efetuar para sua satisfação, deseja saber o que os usuários estão fazendo com o mesmo: elas estão usando o recurso mais recente? São eles que os sucedem com ele?
+É essencial para monitorizar uma aplicação moderna enquanto está em execução. Mais importante, que pretende detetar falhas antes de fazer a maior parte dos seus clientes. Também pretende detetar e corrigir problemas de desempenho que, embora não catastróficos, talvez retardam as ou causar algum inconveniência para seus usuários. E quando o sistema está a efetuar para sua satisfação, deseja saber o que os usuários estão fazendo com o mesmo: Elas estão usando o recurso mais recente? São eles que os sucedem com ele?
 
 Aplicações web modernas são desenvolvidas num ciclo de entrega contínua: uma nova função ou uma melhoria; da versão Observe como ele funciona para os utilizadores; Planear o próximo incremento de desenvolvimento com base nesse conhecimento. Uma parte fundamental do ciclo desta é a fase de observação. O Application Insights fornece as ferramentas para monitorizar uma aplicação web para o desempenho e utilização.
 
@@ -40,7 +40,7 @@ As coisas são agora tão muito diferentes. A aplicação tem uma grande quantid
 
 Nestas condições, a única forma de manter um controle sólido na contagem de bug é testes de unidade automatizados. Seria impossível manualmente testar tudo no cada entrega novamente. Teste de unidade agora é parte do processo de compilação local comum. Ferramentas, como a Xamarin Test Cloud ajudam fornecendo automatizado de interface do usuário do teste em várias versões do navegador. Esses testes regimes permitem que Esperamos que a taxa de erros encontradas dentro de uma aplicação pode ser mantida num mínimo.
 
-Os aplicativos web típicos têm vários componentes em direto. Além do cliente (numa aplicação de browser ou dispositivo) e o servidor web, é provável que seja o processamento back-end substancial. Talvez o back-end é um pipeline de componentes, ou uma coleção menos rígida de partes de colaboração. E muitos deles não estar em seu controle – eles são serviços externos qual dependa.
+Os aplicativos web típicos têm vários componentes em direto. Além do cliente (numa aplicação de browser ou dispositivo) e o servidor web, é provável que seja o processamento back-end substancial. Talvez o back-end é um pipeline de componentes, ou uma coleção menos rígida de partes de colaboração. Muitos deles não estar em seu controle — são serviços externos qual dependa.
 
 Em configurações como essas, pode ser difícil e uneconomical testar ou previr, cada modo de falha possíveis, senão o próprio sistema ao vivo. 
 
@@ -78,8 +78,8 @@ As principais categorias de dados são:
 * Eventos personalizados que pode utilizar para controlar eventos comerciais
 * Rastreios de registo utilizados para depuração.
 
-## <a name="case-study-real-madrid-fc"></a>Estudo de caso: Real Madrid F.C.
-O serviço web do [clube de futebol do Real Madrid](https://www.realmadrid.com/) serve cerca de 450 milhões de fãs em todo o mundo. Os fãs acessá-lo através de browsers e aplicações móveis do clube. Fãs podem não apenas pedidos de suporte do livro, mas também acessar clipes de informações e vídeo nos resultados, jogadores e jogos futuros. Pode pesquisar com filtros, como números das metas classificada. Também existem links para mídia social. A experiência do usuário é altamente personalizada e foi concebida como uma comunicação bidirecional para interagir com os fãs.
+## <a name="case-study-real-madrid-fc"></a>Estudo de caso: O real Madrid F.C.
+O serviço web do [clube de futebol do Real Madrid](https://www.realmadrid.com/) serve cerca de 450 milhões de fãs em todo o mundo. Os fãs acessá-lo através de browsers e aplicações móveis do clube. Os fãs não é possível apenas permissões de livro, mas também acessar clipes de informações e vídeo nos resultados, jogadores e jogos futuros. Pode pesquisar com filtros, como números das metas classificada. Também existem links para mídia social. A experiência do usuário é altamente personalizada e foi concebida como uma comunicação bidirecional para interagir com os fãs.
 
 A solução [é um sistema de serviços e aplicações no Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Escalabilidade é um requisito-chave: tráfego é a variável e pode chegar a volumes muito elevados durante e em torno de correspondências.
 
@@ -102,28 +102,28 @@ Em ambos os casos, o alerta não só indica os sintomas é detetado, mas também
 
 ![Enviar um e-mail de diagnósticos proativos](./media/app-insights-devops/030.png)
 
-Samtec cliente disse: "durante uma funcionalidade recente transferência, encontrámos uma base de dados em dimensionamento, que estava atingindo seus limites de recursos e esgotando. Conjunto de alertas de deteção proativa com a literalmente vamos foram Triar o problema, muito quase em tempo real conforme anunciado. Este alerta juntamente com os alertas de plataforma do Azure ajudou-na quase instantaneamente corrigir o problema. Total de tempo de inatividade < 10 minutos."
+Cliente Samtec disse: "Durante uma funcionalidade recente transferência, encontrámos uma base de dados em dimensionamento, que estava atingindo seus limites de recursos e esgotando. Conjunto de alertas de deteção proativa com a literalmente vamos foram Triar o problema, muito quase em tempo real conforme anunciado. Este alerta juntamente com os alertas de plataforma do Azure ajudou-na quase instantaneamente corrigir o problema. Total de tempo de inatividade < 10 minutos."
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream
 Implementar a compilação mais recente pode ser uma experiência ansioso. Se existirem quaisquer problemas, que pretende saber sobre eles de imediato, para que pode de volta se necessário. Stream de métricas em direto fornece as principais métricas com uma latência de cerca de um segundo.
 
-![Métricas em direto](./media/app-insights-devops/040.png)
+![Métricas em direto](./media/app-insights-devops/0040.png)
 
 E permite-lhe inspecionar imediatamente uma amostra de falhas ou exceções.
 
-![Eventos de falha em direto](./media/app-insights-devops/live-stream-failures.png)
+![Eventos de falha em direto](./media/app-insights-devops/002-live-stream-failures.png)
 
 ## <a name="application-map"></a>Mapeamento de Aplicações
 Mapa da aplicação Deteta automaticamente a topologia do seu aplicativo, definindo as informações de desempenho com base no mesmo, para que possa identificar facilmente estrangulamentos de desempenho e fluxos problemáticos em todo o ambiente distribuído. Permite-lhe detetar dependências de aplicações nos serviços do Azure. Pode fazer a triagem do problema por Noções básicas sobre se é relacionadas ao código ou dependência relacionadas e a partir de um único local teste para diagnóstico relacionado descobrir. Por exemplo, seu aplicativo pode estar a falhar devido a degradação do desempenho no escalão SQL. Com o mapa da aplicação, pode vê-lo imediatamente e explorar o Assistente de índice de SQL ou a experiência de informações de consulta.
 
-![Mapeamento de Aplicações](./media/app-insights-devops/050.png)
+![Mapeamento de Aplicações](./media/app-insights-devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>O Application Insights Analytics
-Com o [Analytics](app-insights-analytics.md), pode escrever consultas arbitrárias numa poderosa linguagem de tipo SQL.  Diagnosticar em toda a pilha de todo aplicativo torna-se fácil à medida que conecte-se várias perspectivas e pode fazer as perguntas certas para correlacionar o desempenho do serviço com métricas de negócio e a experiência do cliente. 
+Com o [Analytics](../azure-monitor/app/analytics.md), pode escrever consultas arbitrárias numa poderosa linguagem de tipo SQL.  Diagnosticar em toda a pilha de todo aplicativo torna-se fácil à medida que conecte-se várias perspectivas e pode fazer as perguntas certas para correlacionar o desempenho do serviço com métricas de negócio e a experiência do cliente. 
 
 Pode consultar a instância de telemetria e métricos dados não processados armazenados no portal. O idioma inclui o filtro, join, agregação e outras operações. Pode calcular campos e efetuar análises estatísticas. Existem visualizações de tabela e gráficas.
 
-![Gráfico de consulta e os resultados da análise](./media/app-insights-devops/025.png)
+![Gráfico de consulta e os resultados da análise](./media/app-insights-devops/0025.png)
 
 Por exemplo, é fácil:
 
@@ -150,16 +150,11 @@ E quando o Application Insights faz uma exceção, pode ver o ponto de dados no 
 
 Durante a depuração, tem a opção para manter a telemetria na sua máquina de desenvolvimento, visualizá-lo no Visual Studio, mas sem enviar para o portal. Esta opção local evita a mistura de depuração com telemetria de produção.
 
-### <a name="build-annotations"></a>Criar anotações
-Se utilizar o Azure DevOps para criar e implementar a sua aplicação, anotações de implementação, aparecem em gráficos no portal. Se a versão mais recente tivesse qualquer efeito sobre as métricas, torna-se óbvio.
-
-![Criar anotações](./media/app-insights-devops/070.png)
-
 ### <a name="work-items"></a>Itens de trabalho
 Quando é gerado um alerta, o Application Insights pode criar automaticamente um item de trabalho no seu sistema de controlo de trabalho.
 
 ## <a name="but-what-about"></a>Mas o que dizer sobre...?
-* [Privacidade e o armazenamento](app-insights-data-retention-privacy.md) -encontram-se a telemetria na proteger os servidores do Azure.
+* [Privacidade e o armazenamento](../azure-monitor/app/data-retention-privacy.md) -encontram-se a telemetria na proteger os servidores do Azure.
 * O impacto no desempenho - é muito baixo. Telemetria é em lotes.
 * [Preços](app-insights-pricing.md) - pode começar a utilizar gratuitamente, e que continua enquanto está na volume baixo.
 
@@ -171,7 +166,7 @@ Quando é gerado um alerta, o Application Insights pode criar automaticamente um
 ## <a name="next-steps"></a>Passos Seguintes
 Introdução ao Application Insights é fácil. As principais opções são:
 
-* Instrumente uma aplicação de web já em execução. Isso lhe dá toda a telemetria de desempenho incorporada. Está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md)e também para [aplicações web do Azure](app-insights-overview.md).
-* Instrumente o seu projeto durante o desenvolvimento. Pode fazê-lo [ASP.NET](app-insights-asp-net.md) ou [Java](app-insights-java-get-started.md) aplicações, bem como [node. js](app-insights-nodejs.md) e um host de [outros tipos de](app-insights-platforms.md). 
-* Instrumentar [qualquer página da web](app-insights-javascript.md) adicionando um trecho de código curtos.
+* Instrumente uma aplicação de web já em execução. Isso lhe dá toda a telemetria de desempenho incorporada. Está disponível para [Java](../azure-monitor/app/java-live.md) e [servidores IIS](../azure-monitor/app/monitor-performance-live-website-now.md)e também para [serviço de aplicações do Azure](app-insights-overview.md).
+* Instrumente o seu projeto durante o desenvolvimento. Pode fazê-lo [ASP.NET](../azure-monitor/app/asp-net.md) ou [Java](../azure-monitor/app/java-get-started.md) aplicações, bem como [node. js](app-insights-nodejs.md) e um host de [outros tipos de](app-insights-platforms.md). 
+* Instrumentar [qualquer página da web](../azure-monitor/app/javascript.md) adicionando um trecho de código curtos.
 

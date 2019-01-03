@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312907"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653990"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Utilizar Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight
-Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) no Azure HDInsight e como utilizar SQLLine. Para obter mais informações sobre a Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para a gramática de Phoenix, consulte [gramática Phoenix](http://phoenix.apache.org/language/index.html).
+Aprenda a usar [Apache Phoenix](https://phoenix.apache.org/) no Azure HDInsight e como utilizar SQLLine. Para obter mais informações sobre a Phoenix, consulte [Apache Phoenix em 15 minutos ou menos](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para a gramática de Phoenix, consulte [gramática Apache Phoenix](https://phoenix.apache.org/language/index.html).
 
-> [!NOTE]
-> Para informações de versão de Phoenix sobre o HDInsight, consulte [quais são as novidades nas versões de cluster do Hadoop fornecidas pelo HDInsight](../hdinsight-component-versioning.md).
+> [!NOTE]  
+> Para informações de versão de Phoenix sobre o HDInsight, consulte [quais são as novidades nas versões de cluster do Apache Hadoop fornecidas pelo HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
@@ -61,7 +61,7 @@ Quando se liga a um cluster do HBase, tem de se ligar a um da [Apache ZooKeeper]
 
         !quit
 
-Para obter mais informações, consulte a [SQLLine manual](http://sqlline.sourceforge.net/#manual) e [gramática Apache Phoenix](http://phoenix.apache.org/language/index.html).
+Para obter mais informações, consulte a [SQLLine manual](http://sqlline.sourceforge.net/#manual) e [gramática Apache Phoenix](https://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o Apache Phoenix no HDInsight. Para obter mais informações, veja estes artigos:

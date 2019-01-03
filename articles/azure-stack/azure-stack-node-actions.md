@@ -1,6 +1,6 @@
 ---
 title: Ações de nó de unidade de dimensionamento no Azure Stack | Documentos da Microsoft
-description: Saiba como ver o estado do nó e tire partido do poder desligar, drenagem e retomar a ações de nó num sistema integrado do Azure Stack.
+description: Saiba como ver o estado do nó e tire partido do poder no poder de fora, desativar e retomar a ações de nó num sistema integrado do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -9,143 +9,144 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959772"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725257"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de dimensionamento no Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
-Este artigo descreve como visualizar o estado de uma unidade de escala e de seus nós associados e como utilizar as ações de nó disponível. Ações de nó incluem power no poder de fora, drenagem, retomam e reparem. Normalmente, utiliza estas ações de nó durante a substituição de campo de partes ou para cenários de recuperação de nó.
+Este artigo descreve como visualizar o estado de uma unidade de escala. Pode ver nós da unidade. Pode executar ações de nó, como o power no power, encerrar, drenar, retomar e reparar. Normalmente, utiliza estas ações de nó durante a substituição de campo de partes ou para ajudar a recuperar um nó.
 
 > [!Important]  
-> Todas as ações de nó descritas neste artigo devem apenas destino um nó por vez.
-
+> Todas as ações de nó descritas neste artigo devem visar um nó por vez.
 
 ## <a name="view-the-node-status"></a>Ver o estado do nó
 
-No portal do administrador, pode ver facilmente o estado de uma unidade de escala e de seus nós associados.
+No portal do administrador, pode ver o estado de uma unidade de escala e de seus nós associados.
 
 Para ver o estado de uma unidade de escala:
 
 1. Sobre o **gestão da região** mosaico, selecione a região.
 2. No lado esquerdo, sob **recursos de infraestrutura**, selecione **unidades de escala**.
 3. Nos resultados, selecione a unidade de escala.
- 
-Aqui, pode ver as seguintes informações:
+4. No lado esquerdo, sob **gerais**, selecione **nós**.
 
-- nome da região. O nome da região é referenciado com **-localização** no módulo do PowerShell.
-- tipo de sistema
-- total de núcleos de lógica
-- total de memória
-- A lista de nós individuais e o respetivo estado; qualquer um dos **em execução** ou **parado**
+  Ver as seguintes informações:
 
-![Mosaico de unidade de escala que mostra o estado de execução para cada nó](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - A lista de nós individuais
+  - Estado operacional (veja a lista abaixo)
+  - Estado de energia (em execução ou parado)
+  - modelo de servidor
+  - Endereço IP do controlador de gestão da placa base (BMC)
+  - Número total de núcleos
+  - quantidade total de memória
 
-## <a name="view-node-information"></a>Ver informações de nó
+![Estado de uma unidade de escala](media/azure-stack-node-actions/multinodeactions.png)
 
-Se selecionar um nó individual, pode ver as seguintes informações:
+### <a name="node-operational-states"></a>Estados operacionais do nó
 
-- Nome da região
-- modelo de servidor
-- Endereço IP do controlador de gestão da placa base (BMC)
-- Estado operacional
-- Número total de núcleos
-- quantidade total de memória
- 
-![Mosaico de unidade de escala que mostra o estado de execução para cada nó](media/azure-stack-node-actions/NodeActions.PNG)
-
-Também pode executar ações de nó de unidade de escala a partir daqui.
+| Estado | Descrição |
+|----------------------|-------------------------------------------------------------------|
+| A executar | O nó está a participar ativamente na unidade de escala. |
+| Parada | O nó não está disponível. |
+| A adicionar | O nó está ativamente a ser adicionado para a unidade de escala. |
+| A reparar | O nó está ativamente a ser reparado. |
+| Manutenção | O nó está em pausa e nenhuma carga de trabalho de utilizador do Active Directory está em execução. |
+| Requer remediação | Foi detetado um erro que exige que o nó ser reparado. |
 
 ## <a name="scale-unit-node-actions"></a>Ações de nó de unidade de escala
 
 Quando Exibe informações sobre um nó de unidade de escala, também pode realizar ações de nó, tais como:
-
-- Drenagem e retomar
-- Reparar
+ - Iniciar e parar (consoante o estado de energia atual)
+ - Desativar e retomar (consoante o estado das operações)
+ - Reparar
+ - Encerrar
 
 Estado operacional do nó determina quais as opções estão disponíveis.
 
-### <a name="power-off"></a>Desligar
+Terá de instalar os módulos do Azure Stack do PowerShell. Estes cmdlets estão no **Azs.Fabric.Admin** módulo. Para instalar ou verificar sua instalação do PowerShell para o Azure Stack, veja [instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 
-O **desligar** ação se desligar o nó. É o mesmo como se pressionar o botão de energia. Ele faz **não** envia um sinal de encerramento para o sistema operativo. Para planeada desligar operações, certifique-se de que drenar um nó de unidade de escala em primeiro lugar.
+## <a name="stop"></a>Parar
+
+O **parar** ação se desligar o nó. É o mesmo como se pressionar o botão de energia. Ele não envia um sinal de encerramento para o sistema operativo. Para operações de paragem planeada, sempre tente a operação de encerramento pela primeira vez. 
 
 Esta ação é normalmente utilizada quando um nó está em estado suspenso e já não responde a pedidos.
 
-> [!Important] 
-> Esta funcionalidade só está disponível através do PowerShell. Estará disponível no portal de administrador do Azure Stack novamente mais tarde.
+Para executar a ação de parar, abra uma linha de comandos elevada do PowerShell e execute o seguinte cmdlet:
 
-
-Para executar a ação através do PowerShell de Desativação:
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-No caso pouco provável que a ação de desligar não funciona, utilize a interface de web BMC em vez disso.
+No caso improvável de que a ação de stop não funcionar, repita a operação e se ele falhar uma segunda vez utilizam a interface da web BMC em vez disso.
 
-### <a name="power-on"></a>Ligar
+Para obter mais informações, consulte [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-O **ligar** ação ativa o nó. É o mesmo como se pressionar o botão de energia. 
+## <a name="start"></a>Iniciar
 
-> [!Important] 
-> Esta funcionalidade só está disponível através do PowerShell. Estará disponível no portal de administrador do Azure Stack novamente mais tarde.
+O **iniciar** ação ativa o nó. É o mesmo como se pressionar o botão de energia. 
+ 
+Para executar a ação de início, abra uma linha de comandos elevada do PowerShell e execute o seguinte cmdlet:
 
-Para executar a potência em ação através do PowerShell:
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-No caso pouco provável que o poder na ação não funciona, utilize a interface de web BMC em vez disso.
+No caso improvável de que a ação de início não funcionar, repita a operação e se ele falhar uma segunda vez utilizam a interface da web BMC em vez disso.
 
-### <a name="drain"></a>Drenar
+Para obter mais informações, consulte [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
-O **drenar** ação evacua todas as cargas de trabalho ativas por distribuí-los entre os nós restantes nessa unidade de escala específico.
+## <a name="drain"></a>Drenar
+
+O **drenar** ação move todas as cargas de trabalho ativas para os nós restantes nessa unidade de escala específico.
 
 Esta ação é normalmente utilizada durante a substituição de campo de partes, como a substituição de um nó completo.
 
-> [!IMPORTANT]  
-> Certifique-se de que drenar um nó apenas durante uma janela de manutenção planeada, onde os utilizadores foram notificadas sobre. Em algumas condições, cargas de trabalho ativas podem assistir a interrupções.
+> [!Important]
+> Certifique-se de que utilize uma operação num nó de drenagem durante uma janela de manutenção planeada, onde os utilizadores foram notificadas sobre. Em algumas condições, cargas de trabalho ativas podem assistir a interrupções.
 
-Para executar a ação de drenagem através do PowerShell:
+Para executar a ação de drenagem, abra uma linha de comandos elevada do PowerShell e execute o seguinte cmdlet:
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="resume"></a>Retomar
+Para obter mais informações, consulte [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-O **retomar** ação de retoma de um nó drained e marca-o Active Directory para colocação de carga de trabalho. Cargas de trabalho anteriores que estavam em execução no nó não a reativação pós-falha. (Se drenar um nó e, em seguida, desligar, ao energia o nó de volta no, não está marcado como ativo para colocação de carga de trabalho. Quando estiver pronto, tem de utilizar a ação de retoma para marcar o nó como o Active Directory.)
+## <a name="resume"></a>Retomar
 
-Para executar a ação de retoma através do PowerShell:
+O **retomar** ação de retoma de um nó desativado e marca-o Active Directory para colocação de carga de trabalho. Cargas de trabalho anteriores que estavam em execução no nó não a reativação pós-falha. (Se usar uma operação de drenagem num nó não se esqueça de desligar. Quando liga o nó de volta no, não está marcado como ativo para colocação de carga de trabalho. Quando estiver pronto, tem de utilizar a ação de retoma para marcar o nó como o Active Directory.)
 
-  ````PowerShell
+Para executar a ação de retoma, abra uma linha de comandos elevada do PowerShell e execute o seguinte cmdlet:
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="repair"></a>Reparar
+Para obter mais informações, consulte [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
-O **reparação** ação repara um nó. Utilize apenas para qualquer um dos seguintes cenários:
+## <a name="repair"></a>Reparar
 
-- Substituição de nó completo (com ou sem novos discos de dados)
-- Após a falha de componente de hardware e de substituição (se aconselhado na documentação (FRU) de unidade substituível em campo).
+O **reparar** ação repara um nó. Utilize apenas para qualquer um dos seguintes cenários:
+ - Substituição de nó completo (com ou sem novos discos de dados)
+ - Após a falha de componente de hardware e de substituição (se aconselhado na documentação (FRU) de unidade substituível em campo).
 
-> [!IMPORTANT]  
-> Consulte a documentação de FRU do seu fornecedor de hardware de OEM para obter os passos exatos quando é necessário substituir um nó ou de componentes de hardware individuais. A documentação de FRU irá especificar se tiver de executar a ação de reparação depois de substituir um componente de hardware.  
+> [!Important]  
+> Consulte a documentação de FRU do seu fornecedor de hardware de OEM para obter os passos exatos quando é necessário substituir um nó ou de componentes de hardware individuais. A documentação de FRU irá especificar se tiver de executar a ação de reparação depois de substituir um componente de hardware. 
 
 Quando executa a ação de reparação, tem de especificar o endereço IP do BMC. 
 
-Para executar a ação de reparação através do PowerShell:
+Para executar a ação de reparação, abra uma linha de comandos elevada do PowerShell e execute o seguinte cmdlet:
 
   ````PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>

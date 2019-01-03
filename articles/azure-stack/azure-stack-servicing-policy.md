@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277941"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632794"
 ---
 # <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
+
 Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que deve fazer para manter seu sistema num estado suportado. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Transferir pacotes de atualização para os sistemas integrados
+
+A Microsoft divulgará os pacotes de atualização completa mensal, bem como pacotes de correção para resolver problemas específicos. 
+
+Pacotes de atualização mensal são alojados num ponto de extremidade seguro do Azure. Pode transferi-las manualmente com o [ferramenta de transferência de atualizações do Azure Stack](http://aka.ms/azurestackupdatedownload). Se estiver ligada a sua unidade de escala, a atualização aparece automaticamente no portal de administrador, como **atualização disponível**. Completa, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
+
+Pacotes de atualização de hotfix estão alojados no mesmo seguro do Azure ponto final. Pode transferi-los manualmente usando os links incorporados em cada um dos artigos da KB correção respectivos; Por exemplo, [do Azure Stack correção 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Assim como os pacotes de atualização completa, mensal, operadores do Azure Stack podem transferir os ficheiros. XML,. bin e .exe e importá-los usando o procedimento [aplicar atualizações no Azure Stack](azure-stack-apply-updates.md). Operadores do Azure Stack com unidades de escala ligado, verá as correções aparecem automaticamente no portal do administrador com a mensagem **atualização disponível**.
+
+Se sua unidade de escala não está ligada e quiser ser notificado sobre cada versão de correção, subscrever o [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed observado em todas as versões.  
 
 ## <a name="update-package-types"></a>Tipos de pacote de atualização
 
@@ -51,7 +62,7 @@ Correções são transferidas e instaladas como os pacotes de atualização comp
 
 
 ## <a name="keep-your-system-under-support"></a>Manter seu sistema em suporte
-Para continuar a receber suporte, deve manter a implementação do Azure Stack atual. A política de diferimento de atualizações é: para a sua implementação do Azure Stack permanecer no suporte, tem de executar a versão de atualização lançada recentemente ou executar qualquer uma das duas versões de atualização anterior. Correções não são consideradas versões de atualização importante. Se a cloud do Azure Stack está por trás por *mais de duas atualizações*, ele é considerado em conformidade e tem de atualizar para, pelo menos, a versão mínima suportada para receber suporte. 
+Para continuar a receber suporte, deve manter a implementação do Azure Stack atual. A política de diferimento de atualizações é: Para a sua implementação do Azure Stack permanecer no suporte, tem de executar a versão de atualização lançada recentemente ou executar qualquer uma das duas versões de atualização anterior. Correções não são consideradas versões de atualização importante. Se a cloud do Azure Stack está por trás por *mais de duas atualizações*, ele é considerado em conformidade e tem de atualizar para, pelo menos, a versão mínima suportada para receber suporte. 
 
 Por exemplo, se a versão de atualização mais recentemente disponível é 1805 e dois pacotes de atualização anteriores foram versões 1804 e versão 1803, versão 1803 e 1804 permanecem no suporte. No entanto, 1802 está fora do suporte. A política se aplica quando não existe nenhuma versão de um mês ou dois. Por exemplo, se a versão atual é 1805 e não havia nenhuma versão 1804, os anterior dois pacotes de atualização de versão 1803 e 1802 permanecem no suporte.
 

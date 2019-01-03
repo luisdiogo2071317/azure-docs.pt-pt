@@ -1,5 +1,5 @@
 ---
-title: FAQs sobre a API de imagem digitalizada
+title: Perguntas mais frequentes sobre - de imagem digitalizada
 titlesuffix: Azure Cognitive Services
 description: Obtenha respostas às perguntas mais frequentes sobre a API de imagem digitalizada nos serviços cognitivos do Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166377"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584280"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>API de imagem digitalizada perguntas mais frequentes
 
@@ -23,21 +24,21 @@ ms.locfileid: "49166377"
 
 -----
 
-**Pergunta**: *posso treinar API de imagem digitalizada para utilizar etiquetas personalizadas?  Por exemplo, eu gostaria de feed em fotografias de breeds gato "Preparar" a IA, em seguida, receber o valor de linhagem numa solicitação de IA.*
+**Pergunta**: *Pode preparar API de imagem digitalizada para utilizar etiquetas personalizadas?  Por exemplo, eu gostaria de feed em fotografias de breeds gato "Preparar" a IA, em seguida, receber o valor de linhagem numa solicitação de IA.*
 
-**Resposta**: esta função não está atualmente disponível. No entanto, os nossos engenheiros a trabalhar para colocar essa funcionalidade para imagem digitalizada.
-
------
-
-**Pergunta**: *visão do computador podem ser usados localmente, sem uma ligação à internet?*
-
-**Resposta**: atualmente não oferecemos no local ou solução local.
+**resposta**: Esta função não está atualmente disponível. No entanto, os nossos engenheiros a trabalhar para colocar essa funcionalidade para imagem digitalizada.
 
 -----
 
-**Pergunta**: *que idiomas são suportados com imagem digitalizada?*
+**Pergunta**: *Imagem digitalizada podem ser usada localmente sem uma ligação à internet?*
 
-**Resposta**: os idiomas suportados incluem:
+**resposta**: Atualmente não oferecemos no local ou solução local.
+
+-----
+
+**Pergunta**: *Que idiomas são suportados com imagem digitalizada?*
+
+**resposta**: As linguagens suportadas incluem:
 
 | | | Idiomas Suportados | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
@@ -48,44 +49,44 @@ ms.locfileid: "49166377"
 
 -----
 
-**Pergunta**: *visão do computador pode ser usado para ler os pratos de licença?*
+**Pergunta**: *Imagem digitalizada pode ser usada para ler pratos de licença?*
 
-**Resposta**: A API de imagem digitalizada oferece deteção de texto boa com o OCR, mas não está atualmente otimizado para pratos de licença. Estamos constantemente a tentar melhorar os nossos serviços e adicionou OCR para reconhecimento de placa de automática para nossa lista de pedidos de funcionalidades.
-
------
-
-**Pergunta:** *que idiomas são suportados para o reconhecimento de manuscrito?*
-
-**Resposta**: atualmente, é suportada apenas em inglês.
+**resposta**: A API de imagem digitalizada oferece deteção de texto boa com o OCR, mas não está atualmente otimizado para pratos de licença. Estamos constantemente a tentar melhorar os nossos serviços e adicionou OCR para reconhecimento de placa de automática para nossa lista de pedidos de funcionalidades.
 
 -----
 
-**Pergunta**: *que tipos de superfícies de escrita são suportados para o reconhecimento de manuscrito?*
+**Pergunta:** *Que idiomas são suportados para reconhecimento de manuscrito?*
 
-**Resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros de comunicações, documentos técnicos e notas.
-
------
-
-**Pergunta**: *quanto a operação de reconhecimento de manuscrito demora?*
-
-**Resposta**: A quantidade de tempo que demora depende o comprimento do texto. Para textos de mais tempo, ele pode demorar vários segundos. Portanto, depois de concluída a operação de reconhecer texto manuscrito, poderá ter de aguardar antes de pode recuperar os resultados usando a operação obter Resultado da operação texto manuscrito.
+**resposta**: Atualmente, é suportada apenas em inglês.
 
 -----
 
-**Pergunta**: *como é que o texto de identificador de tecnologia de reconhecimento de manuscrito que foi inserido usando um acento circunflexo no meio de uma linha?*
+**Pergunta**: *Que tipos de superfícies de escrita são suportados para reconhecimento de manuscrito?*
 
-**Resposta**: tal texto é devolvido como uma linha separada pela operação de reconhecimento de manuscrito.
-
------
-
-**Pergunta**: *como a tecnologia de reconhecimento de manuscrito lidar com palavras ultrapassados-out ou linhas?*
-
-**Resposta**: se as palavras são riscamos com várias linhas para capturá-los irreconhecível, a operação de reconhecimento de manuscrito não escolhê-los. No entanto, se as palavras são riscamos usando uma única linha, essa cruzamento é tratado como ruído e as palavras ainda obterem pegou pela operação de reconhecimento de manuscrito.
+**resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros de comunicações, documentos técnicos e notas.
 
 -----
 
-**Pergunta**: *as orientações de texto são suportadas para a tecnologia de reconhecimento de manuscrito?*
+**Pergunta**: *Quanto tempo demora a operação de reconhecimento de manuscrito?*
 
-**Resposta**: texto orientado em ângulos de até cerca de 30 graus para 40 graus pode obter pegou pela operação de reconhecimento de manuscrito.
+**resposta**: A quantidade de tempo que demora depende o comprimento do texto. Para textos de mais tempo, ele pode demorar vários segundos. Portanto, depois de concluída a operação de reconhecer texto manuscrito, poderá ter de aguardar antes de pode recuperar os resultados usando a operação obter Resultado da operação texto manuscrito.
+
+-----
+
+**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito com texto que foi inserido usando um acento circunflexo no meio de uma linha?*
+
+**resposta**: Esse texto é devolvido como uma linha separada pela operação de reconhecimento de manuscrito.
+
+-----
+
+**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito com linhas ou Escalamento ultrapassados palavras?*
+
+**resposta**: Se as palavras são riscamos com várias linhas para capturá-los irreconhecível, a operação de reconhecimento de manuscrito não escolhê-los. No entanto, se as palavras são riscamos usando uma única linha, essa cruzamento é tratado como ruído e as palavras ainda obterem pegou pela operação de reconhecimento de manuscrito.
+
+-----
+
+**Pergunta**: *As orientações de texto são suportadas para a tecnologia de reconhecimento de manuscrito?*
+
+**resposta**: Texto orientado em ângulos de até cerca de 30 graus para 40 graus pode obter capturado pela operação de reconhecimento de manuscrito.
 
 -----

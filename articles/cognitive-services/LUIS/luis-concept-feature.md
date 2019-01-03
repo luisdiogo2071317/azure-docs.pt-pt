@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271390"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993072"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funcionalidades de lista de frase na sua aplicação LUIS
 
@@ -29,6 +29,10 @@ Uma lista de frase inclui um grupo de valores (palavras ou frases) que pertencem
 
 Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um sinal de segundo para LUIS sobre essas palavras.
 
+## <a name="phrase-lists-help-all-models"></a>Todos os modelos de ajudar a frase listas
+
+Listas de expressão não estão ligadas a um objetivo específico ou uma entidade, mas são adicionadas como um aumento para todos os modelos. Seu objetivo é melhorar a classificação de deteção e de entidade intencional.
+
 ## <a name="how-to-use-phrase-lists"></a>Como utilizar listas de frase
 A aplicação de recursos humanos [tutorial simples de entidade](luis-quickstart-primary-and-secondary-data.md), a aplicação utiliza uma **tarefa** lista de frase de tipos de tarefa como programador, roofer e secretário. Se um dos seguintes valores o rótulo como uma entidade aprendidas por máquina, LUIS aprende a reconhecer os outros. 
 
@@ -40,6 +44,7 @@ Uma lista de expressão pode ser intercambiáveis ou não intercambiáveis. Uma 
 |Não intercambiáveis|Vocabulário de aplicação, específico para a sua aplicação, mais, para que, geralmente, outro palavras nesse idioma.|
 
 Apresenta uma lista de expressão não só ajuda com a detecção de entidade, mas também classificação intenção onde não intercambiáveis faz sentido como adicionar fora de palavras de vocabulário que não são conhecidas no idioma inglês.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

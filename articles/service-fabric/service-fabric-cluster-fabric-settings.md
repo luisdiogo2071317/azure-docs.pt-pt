@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ddd5bc574dcef548a62fbe7d3a0300a71ce73cf3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728315"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558843"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -51,7 +51,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |NumberOfParallelOperations | Uint, a predefinição é 5000 |Estático|Número de leituras por oposição a publicar na fila de servidor http. Esse item controla o número de pedidos simultâneos que podem ser concluídas ao HttpGateway. |
 |RemoveServiceResponseHeaders|cadeia de caracteres, predefinido é "data; Servidor"|Estático|Dois pontos de volumes / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo ao cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. ou seja Não substituir a data e o servidor |
 |ResolveServiceBackoffInterval |Tempo em segundos, a predefinição é 5 |Dinâmica|Especifique o período de tempo em segundos.  Fornece a resolver o intervalo de término do padrão antes de repetir uma falha na operação de serviço. |
-|SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: true: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy reverso pode reencaminhar pedidos de pontos de extremidade seguro/não segura. Para obter mais informações, consulte [inverter a lógica de seleção de ponto de extremidade do proxy](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: verdadeiro: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy inverso pode encaminhar pedidos para pontos finais secure/não segura. Para obter mais informações, consulte [inverter a lógica de seleção de ponto de extremidade do proxy](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
 |ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Gateway de aplicação/Http/ServiceCommonNameAndIssuer
@@ -179,7 +179,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ClientAuthX509FindValue |cadeia de caracteres, a predefinição é "" | Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado para a função de administrador predefinida FabricClient. |
 |ClientAuthX509FindValueSecondary |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado para a função de administrador predefinida FabricClient. |
 |ClientAuthX509StoreName |cadeia de caracteres, a predefinição é "Meu" |Dinâmica|Nome do arquivo de certificados X.509 que contém o certificado para a função de administrador predefinida FabricClient. |
-|ClusterX509FindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica|Indica como procurar o certificado de cluster no arquivo especificado pelos valores ClusterX509StoreName suportado: "FindByThumbprint"; "FindBySubjectName" com "FindBySubjectName"; Quando existem várias correspondências; a expiração furthest é usado. |
+|ClusterX509FindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica|Indica como procurar o certificado de cluster no arquivo especificado por valores ClusterX509StoreName suportados: "FindByThumbprint"; "FindBySubjectName" com "FindBySubjectName"; Quando existem várias correspondências; a expiração furthest é usado. |
 |ClusterX509FindValue |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de cluster. |
 |ClusterX509FindValueSecondary |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de cluster. |
 |ClusterX509StoreName |cadeia de caracteres, a predefinição é "Meu" |Dinâmica|Nome do arquivo de certificados X.509, que contém o certificado de cluster para proteger a comunicação de dentro do cluster. |
@@ -237,7 +237,6 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="federation"></a>de Federação
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|GlobalTicketLeaseDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Estático|Especifique o período de tempo em segundos. Nós do cluster tem de manter uma concessão global com os eleitores. Os eleitores submeter seus concessões global para serem propagadas no cluster para esta duração. Se a duração expirar; em seguida, a concessão é perdida. Perda de quórum de concessões faz com que um nó abandonar o cluster; por um problema na receber a comunicação com um quórum de nós neste período de tempo.  Este valor tem de ser ajustado com base no tamanho do cluster. |
 |LeaseDuration |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos. |
 |LeaseDurationAcrossFaultDomain |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos entre domínios de falha. |
 
@@ -275,6 +274,8 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |SecondaryAccountType | cadeia de caracteres, a predefinição é ""|Estático| O elemento secundário AccountType da entidade de segurança para a ACL a FileStoreService partilhas. |
 |SecondaryAccountUserName | cadeia de caracteres, a predefinição é ""| Estático|A nome de utilizador do principal de ACL de conta secundária o FileStoreService partilhas. |
 |SecondaryAccountUserPassword | SecureString, a predefinição está vazia |Estático|A palavra-passe de conta secundária da entidade de segurança para a ACL a FileStoreService partilhas. |
+|SecondaryFileCopyRetryDelayMilliseconds|uint, predefinido é 500|Dinâmica|A cópia do ficheiro Repita atraso (em milissegundos).|
+|UseChunkContentInTransportMessage|bool, a predefinição é TRUE|Dinâmica|O sinalizador para utilizar a nova versão do protocolo de carregamento introduzida no v6.4. Esta versão de protocolo usa o transporte do service fabric para carregar ficheiros para o armazenamento de imagens que fornece desempenho melhor do que o protocolo SMB utilizado em versões anteriores. |
 
 ## <a name="healthmanager"></a>HealthManager
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -294,7 +295,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima de nós delta de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, a predefinição é 15|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima do delta de mau estado de funcionamento nós num domínio de atualização permitidos para o cluster seja bom estado de funcionamento |
 
-## <a name="hosting"></a>Hospedagem
+## <a name="hosting"></a>Alojamento
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |É o número inteiro, predefinição 10 |Dinâmica|Número de vezes repete o sistema falha na ativação antes de desistir |
@@ -311,9 +312,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |CreateFabricRuntimeTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
 |DefaultContainerRepositoryAccountName|cadeia de caracteres, a predefinição é ""|Estático|Credenciais predefinidas utilizadas em vez das credenciais especificadas em applicationmanifest. XML |
 |DefaultContainerRepositoryPassword|cadeia de caracteres, a predefinição é ""|Estático|Credenciais de palavra-passe padrão usadas em vez das credenciais especificadas em applicationmanifest. XML|
+|DefaultContainerRepositoryPasswordType|cadeia de caracteres, a predefinição é ""|Estático|Quando a cadeia não vazia, o valor pode ser "Encrypted" ou "SecretsStoreRef".|
 |DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
+|DisableContainers|bool, a predefinição é falso|Estático|Configuração para o desativar contentores - usados em vez de DisableContainerServiceStartOnContainerActivatorOpen que é preterida config |
 |DisableDockerRequestRetry|bool, a predefinição é falso |Dinâmica| Por predefinição SF comunica com DD (docker dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação de http enviado para o mesmo. Se DD não responde dentro deste período de tempo; SF reenvia o pedido se a operação de nível superior ainda tem remining tempo.  Com o contentor de Hyper-v; DD por vezes, demorar muito mais tempo para abrir o contentor ou desativar. No pedido DD tais casos expire da perspectiva de SF e SF repetem a operação. Por vezes, isso parece adiciona mais pressão no DD. Esta configuração permite desativar esta repetição e aguarde DD responder. |
 |EnableActivateNoWindow| bool, a predefinição é falso|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
 |EnableContainerServiceDebugMode|bool, a predefinição é TRUE|Estático|Ativar/desativar o registo para contentores do docker.  Windows.|
@@ -323,6 +326,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |FabricContainerAppsEnabled| bool, a predefinição é falso|Estático| |
 |FirewallPolicyEnabled|bool, a predefinição é falso|Estático| Permite a abertura de portas de firewall para recursos de ponto final com portas explícitas especificadas no ServiceManifest |
 |GetCodePackageActivationContextTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não se aplica aos serviços do ad-hoc. |
+|GovernOnlyMainMemoryForProcesses|bool, a predefinição é falso|Estático|Comportamento predefinido de governação de recursos é colocar o limite especificado na MemoryInMB na quantidade de total de memória (RAM + comutação) que processam o utiliza. Se o limite for excedido; o processo receberá OutOfMemory exceção. Se este parâmetro estiver definido como true; limite será aplicado apenas a quantidade de memória RAM que irá utilizar um processo. Se este limite for excedido; e se esta definição for true; em seguida, sistema operacional será trocar a memória principal para o disco. |
 |IPProviderEnabled|bool, a predefinição é falso|Estático|Ativa a gestão de endereços IP. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, a predefinição é falso|Estático|Se o DefaultContainerRepositoryPassword está ou não ser encriptada.|
 |LinuxExternalExecutablePath|cadeia de caracteres, a predefinição é "/ usr/bin /" |Estático|O diretório principal de comandos executáveis externos no nó.|
@@ -345,17 +349,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |ActiveListeners |Uint, a predefinição é 50 |Estático| Número de leituras por oposição a publicar na fila de servidor http. Esse item controla o número de pedidos simultâneos que podem ser concluídas ao HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tempo em segundos, a predefinição é 30 |Estático|Especifique o período de tempo em segundos. O intervalo em que o Http Gateway envia o estado de funcionamento acumulado relatórios para o Gestor de estado de funcionamento. |
+|HttpStrictTransportSecurityHeader|cadeia de caracteres, a predefinição é ""|Dinâmica| Especifique o valor de cabeçalho de segurança de transporte HTTP Strict a serem incluídos em cada resposta enviada pelo HttpGateway. Quando definido como cadeia de caracteres vazia; Este cabeçalho não será incluído na resposta de gateway.|
 |IsEnabled|Bool, a predefinição é falso |Estático| Ativa/desativa o HttpGateway. HttpGateway está desativada por predefinição. |
 |MaxEntityBodySize |Uint, a predefinição é 4194304 |Dinâmica|Fornece o tamanho máximo do corpo que pode esperar de uma solicitação http. Valor predefinido é de 4MB. Httpgateway falhará um pedido, se tiver um corpo de tamanho > Este valor. Tamanho dos segmentos de leitura mínimo é 4096 bytes. Para que isso tem de ser > = 4096. |
-
-## <a name="imagestoreclient"></a>ImageStoreClient
-| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
-| --- | --- | --- | --- |
-|ClientCopyTimeout | Tempo em segundos, a predefinição é 1800 |Dinâmica| Especifique o período de tempo em segundos. Valor de tempo limite para o pedido de cópia de nível superior para o serviço de Store de imagem. |
-|ClientDefaultTimeout | Tempo em segundos, a predefinição é de 180 |Dinâmica| Especifique o período de tempo em segundos. Valor de tempo limite para todos os pedidos não-carregar/não-transferir (por exemplo, existe; eliminar) ao serviço de Store de imagem. |
-|ClientDownloadTimeout | Tempo em segundos, a predefinição é 1800 |Dinâmica| Especifique o período de tempo em segundos. Valor de tempo limite para o pedido de transferência de nível superior para o serviço de Store de imagem. |
-|ClientListTimeout | Tempo em segundos, a predefinição é de 600 |Dinâmica|Especifique o período de tempo em segundos. Valor de tempo limite para o pedido de lista de nível superior para o serviço de Store de imagens. |
-|ClientUploadTimeout |Tempo em segundos, a predefinição é 1800 |Dinâmica|Especifique o período de tempo em segundos. Valor de tempo limite para o pedido de carregamento de nível superior para o serviço de Store de imagem. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -463,12 +459,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de afinidade: 0: difícil; 1: software; negativo: Ignorar. |
-|ApplicationCapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
+|AffinityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de afinidade: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
+|ApplicationCapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |AutoDetectAvailableResources|bool, a predefinição é TRUE|Estático|Esta configuração irá acionar a deteção automática de recursos disponíveis no nó (CPU e memória) quando esta configuração está definida como true - iremos ler as capacidades reais e corrija-os se o utilizador especificado as capacidades de nó incorreto ou não defini-los em todos os se esta configuração é definida como falso - iremos  rastrear um aviso de que o utilizador especificado as capacidades de nó incorreto; mas não corrigiremos-los; o que significa que o utilizador quer que as capacidades especificadas como > que o nó tem realmente ou se as capacidades são indefinidas; ele presumirá capacidade ilimitada |
 |BalancingDelayAfterNewNode | Tempo em segundos, a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos. Não inicie o balanceamento de atividades durante este período depois de adicionar um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos. Não inicie o balanceamento de atividades durante este período após um nó de evento para baixo. |
-|CapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
+|CapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, a predefinição é 20 | Dinâmica|Define o número de vezes consecutivas que emitido ResourceBalancer movimentos são ignorados antes de diagnóstico é conduzido e são emitidos avisos de estado de funcionamento. Negativo: Não existem avisos emitida sob essa condição. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique o período de tempo em segundos. DDo não FaultDomain de corrigir e violações de restrição de UpgradeDomain durante este período depois de adicionar um novo nó. |
 |ConstraintFixPartialDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique o período de tempo em segundos. Fazer não as violações de restrição FaultDomain corrigir e UpgradeDomain durante este período após um nó de evento para baixo. |
@@ -478,7 +474,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |DetailedNodeListLimit | int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes da truncagem nos relatórios de réplica Unplaced. |
 |DetailedPartitionListLimit | int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes da truncagem no diagnóstico. |
 |DetailedVerboseHealthReportLimit | Int, a predefinição é 200 | Dinâmica|Define o número de vezes que uma réplica unplaced tem de ser persistentemente unplaced antes de relatórios de estado de funcionamento detalhadas são emitidos. |
-|FaultDomainConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: difícil; 1: software; negativo: Ignorar. |
+|FaultDomainConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, a predefinição é de 600 |Estático| Especifique o período de tempo em segundos. Indica o comprimento do intervalo passado para o qual pretende controlar por Movimentos de réplica de domínio (utilizados juntamente com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar completamente a limitação global. |
 |GlobalMovementThrottleThreshold | Uint, a predefinição é 1000 |Dinâmica| Número máximo de movimentos permitido na fase de balanceamento no intervalo nos últimos indicado pelo GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, o padrão é 0 | Dinâmica|Número máximo de movimentos permitido na fase de balanceamento no intervalo nos últimos indicado pelo GlobalMovementThrottleCountingInterval. 0 indica sem limite. |
@@ -498,18 +494,19 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MoveParentToFixAffinityViolation | Bool, a predefinição é falso |Dinâmica| Definição que determina se as réplicas principal podem ser movidas para corrigir as restrições de afinidade.|
 |PartiallyPlaceServices | Bool, a predefinição é verdadeiro |Dinâmica| Determina se todas as réplicas do serviço em cluster serão colocadas "tudo ou nada" fornecido limitados nós adequado para eles.|
 |PlaceChildWithoutParent | Bool, a predefinição é verdadeiro | Dinâmica|Definição que determina se a réplica do serviço de subordinados pode ser colocado se nenhuma réplica principal está ativo. |
-|PlacementConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de posicionamento: 0: difícil; 1: software; negativo: Ignorar. |
+|PlacementConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de posicionamento: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |PlacementConstraintValidationCacheSize | Int, a predefinição é 10000 |Dinâmica| Limita o tamanho da tabela utilizado para rápido de validação e de expressões de restrição de colocação em cache. |
 |PlacementSearchTimeout | Tempo em segundos, a predefinição é 0,5 |Dinâmica| Especifique o período de tempo em segundos. Quando colocar os serviços; Pesquisar no máximo essa longa antes de devolver um resultado. |
 |PLBRefreshGap | Tempo em segundos, a predefinição é 1 |Dinâmica| Especifique o período de tempo em segundos. Define a quantidade mínima de tempo que deve passar antes de PLB atualiza o estado novamente. |
-|PreferredLocationConstraintPriority | Int, a predefinição é 2| Dinâmica|Determina a prioridade de restrição de localização preferencial: 0: difícil; 1: software; 2: Otimização; negativo: Ignorar |
+|PreferredLocationConstraintPriority | Int, a predefinição é 2| Dinâmica|Determina a prioridade de restrição de localização preferencial: 0: Disco rígido; 1: Forma recuperável; 2: Otimização; negativo: Ignorar |
+|PreferUpgradedUDs|bool, a predefinição é TRUE|Dinâmica|Se e desativar a lógica que prefere a mover para já atualizado UDs.|
 |PreventTransientOvercommit | Bool, a predefinição é falso | Dinâmica|Determina a deve PLB imediatamente contar com recursos que serão liberados pelas movimentações iniciadas. Por padrão. PLB pode iniciar a movimentação terminar e mudança no mesmo nó que pode criar transitório sobreconsolidar. Definir esse parâmetro como true, irá impedir que esses tipos de overcommits e que serão de desfragmentação de sob demanda (também conhecido como placementWithMove) desativada. |
-|ScaleoutCountConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de contagem de aumento horizontal: 0: difícil; 1: software; negativo: Ignorar. |
+|ScaleoutCountConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de contagem de aumento horizontal: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |SwapPrimaryThrottlingAssociatedMetric | cadeia de caracteres, a predefinição é ""|Estático| O nome métrico associado para esta limitação. |
 |SwapPrimaryThrottlingEnabled | Bool, a predefinição é falso|Dinâmica| Determine se a limitação de comutação primário está ativada. |
 |SwapPrimaryThrottlingGlobalMaxValue | int, a predefinição é 0 |Dinâmica| O número máximo de réplicas de comutação primário permitido globalmente. |
 |TraceCRMReasons |Bool, a predefinição é verdadeiro |Dinâmica|Especifica se pretende rastrear motivos para CRM emitido movimentos para o canal de eventos operacionais. |
-|UpgradeDomainConstraintPriority | int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: difícil; 1: software; negativo: Ignorar. |
+|UpgradeDomainConstraintPriority | int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |UseMoveCostReports | Bool, a predefinição é falso | Dinâmica|Instrui o LB para ignorar o elemento de custo da função de classificação; resultando número potencialmente grande de movimentações para melhor equilibrada colocação. |
 |UseSeparateSecondaryLoad | Bool, a predefinição é verdadeiro | Dinâmica|Definição que determina se utilizar a carga secundária diferente. |
 |ValidatePlacementConstraint | Bool, a predefinição é verdadeiro |Dinâmica| Especifica se é ou não a expressão de PlacementConstraint para um serviço é validada quando ServiceDescription um serviço é atualizado. |
@@ -590,6 +587,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |AADTokenEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD ponto final do Token, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|cadeia de caracteres, a predefinição é ""|Dinâmica|Todos os possíveis declarações esperadas de clientes da administração; o mesmo formato que ClientClaims; Esta lista internamente é adicionada à ClientClaims; portanto, não é necessário também adicionar as entradas do mesmo a ClientClaims. |
 |AdminClientIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows de clientes de recursos de infraestrutura na função de administrador utilizado para autorizar as operações de recursos de infraestrutura com privilégios. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe é atribuída automaticamente a função de administrador portanto, é agrupar ServiceFabricAdministrators. |
+|AppRunAsAccountGroupX509Folder|cadeia de caracteres, predefinido é /home/sfuser/sfusercerts |Estático|Pasta onde se encontram AppRunAsAccountGroup X509 certificados e chaves privadas |
 |CertificateExpirySafetyMargin|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(43200)|Estático|Especifique o período de tempo em segundos. Margem de segurança para a expiração do certificado; Estado de relatório de estado de funcionamento do certificado é alterado de OK para aviso quando a expiração é mais parecido com que isso. A predefinição é 30 dias. |
 |CertificateHealthReportingInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600 * 8)|Estático|Especifique o período de tempo em segundos. Especifique o intervalo de relatórios de estado de funcionamento de certificado; predefinida para 8 horas; definição como 0 desativa a relatórios de estado de funcionamento do certificado |
 |ClientCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes para comunicar com o cluster; utiliza-o cluster de autorizar a ligação de entrada. É uma lista de nomes separados por vírgulas. |
@@ -629,7 +627,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |CodePackageControl |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para o reinício de pacotes do código. |
 |CreateApplication |cadeia de caracteres, predefinido for "Admin" | Dinâmica|Configuração de segurança para a criação do aplicativo. |
 |CreateComposeDeployment|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Cria uma implementação de composição descrita por ficheiros de composição |
+|CreateGatewayResource|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Criar um recurso de gateway |
 |CreateName |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a criação do URI de nomenclatura. |
+|CreateNetwork|cadeia de caracteres, predefinido for "Admin" |Dinâmica|Cria uma rede de contentor |
 |CreateService |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para a criação do serviço. |
 |CreateServiceFromTemplate |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a criação do serviço do modelo. |
 |CreateVolume|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Cria um volume |
@@ -638,7 +638,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |Eliminar |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configurações de segurança para a imagem de armazenam a operação de eliminação de cliente. |
 |DeleteApplication |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para a eliminação de aplicação. |
 |DeleteComposeDeployment|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Elimina a implementação de composição |
+|DeleteGatewayResource|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Elimina um recurso de gateway |
 |DeleteName |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a eliminação de URI de nomenclatura. |
+|DeleteNetwork|cadeia de caracteres, predefinido for "Admin" |Dinâmica|Elimina uma rede de contentor |
 |DeleteService |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a eliminação de serviço. |
 |DeleteVolume|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Elimina um volume.| 
 |EnumerateProperties |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para atribuir nomes a enumeração de propriedades. |
@@ -655,6 +657,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |GetPartitionDataLossProgress | cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Obtém o progresso de uma chamada de api de perda de dados de invoke. |
 |GetPartitionQuorumLossProgress | cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Obtém o progresso de uma chamada de api de perda de quórum de invoke. |
 |GetPartitionRestartProgress | cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Obtém o progresso de uma chamada de api de partição de reinício. |
+|GetSecrets|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Obter valores secretos |
 |GetServiceDescription |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para notificações do serviço de pesquisa de longa e ler as descrições de serviço. |
 |GetStagingLocation |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Cliente de obtenção de localização de transição do arquivo de configuração de segurança para a imagem. |
 |GetStoreLocation |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Obtenção de localização de armazenamento do cliente do arquivo de configuração de segurança para a imagem. |
@@ -794,7 +797,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, a predefinição é verdadeiro |Estático| Consulta automática e a ação de atualização com base num arquivo de estado de objetivos. |
-|MinReplicaSetSize |int, a predefinição é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.
+|AutoupgradeInstallEnabled|bool, a predefinição é falso|Estático|Consulta automática, o aprovisionamento e a instalação de código atualizam ações com base num arquivo de estado de objetivos.|
+|GoalStateExpirationReminderInDays|int, a predefinição é 30|Estático|Define o número de dias restantes após o qual o lembrete de estado do objetivo deve ser mostrada.|
+|MinReplicaSetSize |int, a predefinição é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.|
 |PlacementConstraints | cadeia de caracteres, a predefinição é "" |Estático| O PlacementConstraints para UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Estático| Especifique o período de tempo em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, a predefinição é 60 minutos|Estático| Especifique o período de tempo em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
@@ -811,6 +816,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MinReplicaSetSize | Int, a predefinição é 2 |Não Permitido| O MinReplicaSetSize para UpgradeService. |
 |OnlyBaseUpgrade | Bool, a predefinição é falso |Dinâmica|OnlyBaseUpgrade para UpgradeService. |
 |PlacementConstraints |cadeia de caracteres, a predefinição é "" |Não Permitido|O PlacementConstraints para o serviço de atualização. |
+|PollIntervalInSeconds|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60) |Dinâmica|Especifique o período de tempo em segundos. O intervalo entre a consulta de UpgradeService para operações de gestão do ARM. |
 |TargetReplicaSetSize | Int, a predefinição é 3 |Não Permitido| O TargetReplicaSetSize para UpgradeService. |
 |TestCabFolder | cadeia de caracteres, a predefinição é "" |Estático| TestCabFolder para UpgradeService. |
 |X509FindType | cadeia de caracteres, a predefinição é ""|Dinâmica| X509FindType para UpgradeService. |

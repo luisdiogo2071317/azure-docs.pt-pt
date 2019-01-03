@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011747"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652495"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilize o Sqoop com o Hadoop no HDInsight
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Saiba como utilizar o Apache Sqoop para importar e exportar entre o cluster do HDInsight e a base de dados SQL do Azure ou a base de dados do SQL Server no HDInsight.
 
 Embora o Apache Hadoop é uma opção natural para processar os dados não estruturados e semiestruturados, tais como registos e ficheiros, também pode haver a necessidade de processar dados estruturados que são armazenados em bases de dados relacionais.
 
-[Apache Sqoop] [ sqoop-user-guide-1.4.4] é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste tutorial, está a utilizar uma base de dados do SQL Server da base de dados relacional.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou o Apache Hive e, em seguida, exportar os dados de volta para um RDBMS . Neste tutorial, está a utilizar uma base de dados do SQL Server da base de dados relacional.
 
 Para versões de Sqoop que são suportadas nos clusters do HDInsight, consulte [quais são as novidades nas versões do cluster fornecidas pelo HDInsight?][hdinsight-versions]
 
@@ -31,7 +31,7 @@ Para versões de Sqoop que são suportadas nos clusters do HDInsight, consulte [
 
 Cluster de HDInsight vem com alguns dados de exemplo. Utilize os seguintes dois exemplos:
 
-* Um ficheiro de registo log4j, que está localizado em */example/data/sample.log*. Os seguintes registos são extraídos a partir do ficheiro:
+* Um ficheiro de registo Apache Log4j, que está localizado em */example/data/sample.log*. Os seguintes registos são extraídos a partir do ficheiro:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ Esta secção mostra-lhe como criar um cluster, uma base de dados SQL e os esque
 
 Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados SQL, veja [apêndice A](#appendix-a---a-powershell-sample).
 
-> [!NOTE]
+> [!NOTE]  
 > Importar com um modelo ou do portal do Azure só suporta a importação de um ficheiro BACPAC do armazenamento de Blobs do Azure.
 
 **Para configurar o ambiente com um modelo de gestão de recursos**
@@ -75,15 +75,15 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados S
    
 2. Introduza as seguintes propriedades:
 
-    - **Subscrição**: introduza a sua subscrição do Azure.
-    - **Grupo de recursos**: Crie um novo grupo de recursos do Azure ou selecione um grupo de recursos existente.  É um grupo de recursos para fins de gestão.  É um contentor de objetos.
-    - **Localização**: selecione uma região.
-    - **ClusterName**: introduza um nome para o cluster do Hadoop.
-    - **Nome e palavra-passe de início de sessão do cluster**: o nome de início de sessão predefinido é admin.
+    - **Subscrição**: Introduza a sua subscrição do Azure.
+    - **Grupo de recursos**: Criar um novo grupo de recursos do Azure ou selecione um grupo de recursos existente.  É um grupo de recursos para fins de gestão.  É um contentor de objetos.
+    - **Localização**: Selecione uma região.
+    - **ClusterName**: Introduza um nome para o cluster do Hadoop.
+    - **Nome de início de sessão e palavra-passe do cluster**: O nome de início de sessão predefinido é admin.
     - **Nome de utilizador e palavra-passe do SSH**.
     - **Base de dados SQL nome do servidor de início de sessão e palavra-passe**.
-    - **_artifacts localização**: Utilize o valor predefinido, a menos que queira utilizar o seu próprio ficheiro de backpac numa localização diferente.
-    - **Token de Sas de localização de _artifacts**: deixe em branco.
+    - **localização de _artifacts**: Utilize o valor predefinido, a menos que desejar usar seu próprio ficheiro backpac numa localização diferente.
+    - **Token de Sas de localização de _artifacts**: Deixe em branco.
     - **Nome de ficheiro Bacpac**: Utilize o valor predefinido, a menos que queira utilizar o seu próprio ficheiro backpac.
      
         Os seguintes valores estão codificados na secção de variáveis:
@@ -99,34 +99,31 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados S
 
 Se optar por utilizar a base de dados SQL do Azure existente ou o Microsoft SQL Server
 
-* **Base de dados SQL do Azure**: tem de configurar uma regra de firewall para o servidor de base de dados SQL do Azure permitir o acesso da sua estação de trabalho. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurando o firewall, consulte [começar a utilizar a base de dados SQL do Azure][sqldatabase-get-started]. 
+* **Base de dados SQL do Azure**: Tem de configurar uma regra de firewall para o servidor de base de dados SQL do Azure permitir o acesso da sua estação de trabalho. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurando o firewall, consulte [começar a utilizar a base de dados SQL do Azure][sqldatabase-get-started]. 
   
-  > [!NOTE]
+  > [!NOTE]  
   > Por predefinição, uma base de dados SQL do Azure permite ligações a partir de serviços do Azure, como o Azure HDInsight. Se esta definição de firewall estiver desativada, terá de ativá-la a partir do portal do Azure. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurar regras de firewall, consulte [criar e configurar a base de dados do SQL][sqldatabase-create-configure].
-  > 
-  > 
-* **SQL Server**: se o cluster do HDInsight na mesma rede virtual no Azure que o SQL Server, pode utilizar os passos neste artigo para importar e exportar dados para uma base de dados do SQL Server.
+
+* **SQL Server**: Se o cluster do HDInsight na mesma rede virtual no Azure que o SQL Server, pode utilizar os passos neste artigo para importar e exportar dados para uma base de dados do SQL Server.
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight suporta apenas com base na localização de redes virtuais e não funciona atualmente com redes virtuais baseadas no grupo de afinidade.
-  > 
-  > 
+
   
   * Para criar e configurar uma rede virtual, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
     
     * Quando estiver a utilizar o SQL Server no seu datacenter, tem de configurar a rede virtual como *site a site* ou *ponto a site*.
       
-      > [!NOTE]
+      > [!NOTE]  
       > Para **ponto a site** redes virtuais, do SQL Server tem de executar o cliente VPN do aplicativo de configuração, o que está disponível a partir do **Dashboard** da sua configuração de rede virtual do Azure.
-      > 
-      > 
+
+
     * Quando estiver a utilizar o SQL Server numa máquina virtual do Azure, qualquer configuração de rede virtual pode ser utilizada se a máquina virtual que aloja o SQL Server for um membro da mesma rede virtual como o HDInsight.
-  * Para criar um cluster do HDInsight numa rede virtual, veja [criar clusters Hadoop no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md)
+  * Para criar um cluster do HDInsight numa rede virtual, veja [criar Apache Hadoop clusters no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md)
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server também tem de permitir a autenticação. Tem de utilizar um início de sessão do SQL Server para concluir os passos neste artigo.
-    > 
-    > 
+
 
 **Para validar a configuração**
 
@@ -158,9 +155,9 @@ HDInsight pode executar o Sqoop tarefas utilizando uma variedade de métodos. Ut
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 
-* [Utilizar o Hive com o HDInsight](../hdinsight-use-hive.md)
-* [Utilizar o Pig com o HDInsight](../hdinsight-use-pig.md)
-* [Carregar dados para o HDInsight][hdinsight-upload-data]: encontrar outros métodos para carregar dados para o armazenamento de Blobs do HDInsight/do Azure.
+* [Utilizar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o HDInsight](../hdinsight-use-pig.md)
+* [Carregar dados para o HDInsight][hdinsight-upload-data]: Encontre outros métodos para carregar dados para o armazenamento de Blobs do HDInsight/do Azure.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Apêndice A – um exemplo do PowerShell
 O exemplo do PowerShell executa as seguintes etapas:
@@ -211,12 +208,12 @@ O exemplo do PowerShell executa as seguintes etapas:
    
     O ficheiro de origem é tutorials/usesqoop/data/sample.log. A tabela em que os dados são exportados para é chamada log4jlogs.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Além de informações da cadeia de ligação, os passos nesta secção devem funcionar para uma base de dados SQL do Azure ou para o SQL Server. Estes passos foram testados, utilizando a seguinte configuração:
    > 
-   > * **Configuração de ponto a site de rede virtual do Azure**: uma rede virtual ligado ao cluster do HDInsight para um SQL Server no Centro de dados privado. Ver [configurar uma VPN de ponto a Site no Portal de gestão](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-   > * **O Azure HDInsight**: veja [criar clusters Hadoop no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster numa rede virtual.
-   > * **SQL Server 2014**: configurado para permitir a autenticação e a executar o cliente VPN do pacote de configuração para ligar de forma segura à rede virtual.
+   > * **Configuração de ponto a site de rede virtual do Azure**: Uma rede virtual ligado ao cluster do HDInsight para um SQL Server no Centro de dados privado. Ver [configurar uma VPN de ponto a Site no Portal de gestão](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
+   > * **O Azure HDInsight**: Ver [criar clusters Hadoop no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster numa rede virtual.
+   > * **SQL Server 2014**: Configurado para permitir a autenticação e a executar o cliente VPN do pacote de configuração para ligar de forma segura à rede virtual.
    > 
    > 
 7. Exporte uma tabela do Hive para a base de dados SQL do Azure.
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

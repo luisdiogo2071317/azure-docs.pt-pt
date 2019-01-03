@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8a8b1e29a6504c725e244efa1ae8c37a9a0d8420
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0d673ee9d316f14f95f6924929ad319eae13efcc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726275"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973320"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.
@@ -140,7 +140,7 @@ Também pode filtrar por **origem do tráfego sintético**.
 ### <a name="to-add-properties-to-the-filter-list"></a>Para adicionar propriedades para a lista de filtro
 Deseja filtrar a telemetria numa categoria à sua escolha? Por exemplo, talvez divide os seus utilizadores em categorias diferentes e pretender segmentar os seus dados por estas categorias.
 
-[Criar sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defini-lo [inicializador de telemetria](app-insights-api-custom-events-metrics.md#defaults) -lo a aparecer em toda a telemetria - incluindo a padrão telemetria enviada pelo diferentes módulos SDK.
+[Criar sua própria propriedade](../azure-monitor/app/api-custom-events-metrics.md#properties). Defini-lo [inicializador de telemetria](../azure-monitor/app/api-custom-events-metrics.md#defaults) -lo a aparecer em toda a telemetria - incluindo a padrão telemetria enviada pelo diferentes módulos SDK.
 
 ## <a name="edit-the-chart-type"></a>Editar o tipo de gráfico
 Tenha em atenção que pode alternar entre grades e gráficos:
@@ -163,7 +163,7 @@ Se editar um painel, mas, em seguida, gostaria de voltar para o original conjunt
 
 ![Nos botões na parte superior do Explorador de métricas](./media/app-insights-metrics-explorer/17-reset.png)
 
-## <a name="live-metrics-stream"></a>Fluxo de métricas em direto
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 
 Para obter uma visão muito mais imediata da sua telemetria, abra [Live Stream](app-insights-live-stream.md). A maioria das métricas demorar alguns minutos a aparecer, devido ao processo de agregação. Por outro lado, as métricas ao vivo são otimizadas de baixa latência. 
 
@@ -176,13 +176,13 @@ Para ser notificado por correio eletrónico dos valores invulgares de qualquer m
 
 
 ## <a name="continuous-export"></a>Exportação Contínua
-Se pretender que os dados exportados continuamente para que pode processá-lo externamente, considere utilizar [exportação contínua](app-insights-export-telemetry.md).
+Se pretender que os dados exportados continuamente para que pode processá-lo externamente, considere utilizar [exportação contínua](../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Se pretender que as exibições ainda mais avançadas dos seus dados, pode [exportar para o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Análise
-[Análise](app-insights-analytics.md) é uma maneira mais versátil para analisar a sua telemetria, através de uma linguagem de consulta poderosa. Utilize-o se pretender combinar, os resultados de métricas de computação ou executar uma análise profunda de desempenho recente da sua aplicação. 
+[Análise](../azure-monitor/app/analytics.md) é uma maneira mais versátil para analisar a sua telemetria, através de uma linguagem de consulta poderosa. Utilize-o se pretender combinar, os resultados de métricas de computação ou executar uma análise profunda de desempenho recente da sua aplicação. 
 
 A partir de um gráfico de métricas, pode clicar no ícone de análise para ir diretamente para a consulta do Analytics equivalente.
 
@@ -193,7 +193,7 @@ A partir de um gráfico de métricas, pode clicar no ícone de análise para ir 
 
     Se pretender definir filtros diferentes em gráficos de diferentes, criá-las nos diferentes painéis, salvá-los separados como favoritos. Se quiser, pode afixá-los ao dashboard para que pode vê-los em conjunto com outro.
 * Se um gráfico é agrupar por uma propriedade que não está definida na métrica, em seguida, haverá nada no gráfico. Experimente limpar "Agrupar por" ou escolha uma propriedade de agrupamento diferente.
-* Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível para os serviços de web de Java, aplicativos de desktop do Windows, [IIS aplicações web e serviços se instalar o monitor de estado](app-insights-monitor-performance-live-website-now.md), e [serviços Cloud do Azure](app-insights-overview.md). Não está disponível para Web sites do Azure.
+* Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível para os serviços de web de Java, aplicativos de desktop do Windows, [IIS aplicações web e serviços se instalar o monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md), e [serviços Cloud do Azure](app-insights-overview.md). Não está disponível para Web sites do Azure.
 
 ## <a name="video"></a>Vídeo
 
@@ -201,10 +201,10 @@ A partir de um gráfico de métricas, pode clicar no ícone de análise para ir 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar a utilização com o Application Insights](app-insights-usage-overview.md)
-* [Utilizar a pesquisa de diagnóstico](app-insights-diagnostic-search.md)
+* [Utilizar a pesquisa de diagnóstico](../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
+[alerts]: ../azure-monitor/app/alerts.md
 [start]: app-insights-overview.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md

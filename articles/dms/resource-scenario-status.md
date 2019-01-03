@@ -4,22 +4,22 @@ description: Saiba mais sobre o estado dos cenários de migração suportados pe
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267871"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722095"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure
-O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração suportados atualmente pelo serviço de migração de base de dados do Azure e o estado (pré-visualização privada, pré-visualização pública ou em disponibilidade geral) ou cada cenário.
+O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração atualmente suportados pelo serviço de migração de base de dados do Azure e o estado (privada [ou limitado] pré-visualização, pré-visualização pública ou em disponibilidade geral) ou a cada cenário.
 
 ## <a name="offline-versus-online-migrations"></a>Offline versus migrações online
 Quando migrar bases de dados para o Azure ao utilizar o serviço de migração de base de dados do Azure, pode efetuar uma migração online ou uma offline. Com o *offline* migrações, tempo de inatividade do aplicativo começa ao mesmo tempo que começa a migração. Para *online* migrações, o período de indisponibilidade é limitado ao tempo necessário para transitar para o novo ambiente quando a migração estiver concluída. É recomendado para testar uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, efetuar uma migração online.

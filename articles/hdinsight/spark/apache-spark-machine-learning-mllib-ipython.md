@@ -10,21 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498097"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653718"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Apache Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
 
 Saiba como utilizar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning para fazer uma análise preditiva simple num conjunto de dados aberta. Da máquina incorporada do Spark bibliotecas de aprendizagem, este exemplo utiliza *classificação* por meio de regressão logística. 
 
-> [!TIP]
+> [!TIP]  
 > Este exemplo também está disponível como um [bloco de notas do Jupyter](https://jupyter.org/) num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para seguir o tutorial a partir de um bloco de notas, crie um cluster do Spark e iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de notas **Spark do Machine Learning - Análise Preditiva em dados de inspeção de comida usando MLlib.ipynb** sob a **Python** pasta.
->
->
 
 MLlib é uma biblioteca de Spark core que fornece muitos utilitários útil para tarefas de machine learning, incluindo utilitários que são adequados para:
 
@@ -178,7 +176,7 @@ Vamos começar a perceber o que contém o conjunto de dados.
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    O `%%sql` seguido de mágica `-o countResultsdf` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](http://pandas.pydata.org/) dataframe com o nome especificado **countResultsdf**. Para obter mais informações sobre o `%%sql` mágica e sobre outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis nos blocos de notas do Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    O `%%sql` seguido de mágica `-o countResultsdf` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](https://pandas.pydata.org/) dataframe com o nome especificado **countResultsdf**. Para obter mais informações sobre o `%%sql` mágica e sobre outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis nos blocos de notas do Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     O resultado é:
 
@@ -211,7 +209,7 @@ Vamos começar a perceber o que contém o conjunto de dados.
     - Passar com condições
     - Fora do negócio
 
-    Para prever um resultado de inspeção de comida, terá de desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, faz sentido para agrupar os dados de resultado em duas categorias: **falhar** e **passar**:
+    Para prever um resultado de inspeção de comida, terá de desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, faz sentido para agrupar os dados de resultado em duas categorias: **Falhar** e **passar**:
 
     - Passagem
         - Passagem
@@ -382,11 +380,11 @@ Agora pode construir uma visualização final para o ajudar a ponderar os result
 Depois de terminar de executar a aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Isso encerra e fecha o bloco de notas.
 
 ## <a name="seealso"></a>Ver também
-* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

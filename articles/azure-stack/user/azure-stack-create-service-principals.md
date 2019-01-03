@@ -3,27 +3,26 @@ title: Criar um Principal de serviço para o Azure Stack | Documentos da Microso
 description: Descreve como criar um principal de serviço que pode ser utilizado com o controlo de acesso baseado em funções no Azure Resource Manager para gerir o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958319"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715836"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode dar uma aplicação acesso aos recursos do Azure Stack através da criação de um serviço principal, que utiliza o Azure Resource Manager. Um principal de serviço permite-lhe permissões específicas de delegado usando [controlo de acesso baseado em funções](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ A forma como tiver configurado o Active Directory para o Azure Stack determina c
 
 Os passos para atribuir um principal de serviço a uma função o mesmo para o Azure AD e AD FS. Depois de criar o principal de serviço, poderá [delegar permissões](azure-stack-create-service-principals.md#assign-role-to-service-principal) ao atribuí-lo a uma função.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Criar um principal de serviço para o Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Criar principal de serviço para o Azure AD
 
 Se a sua pilha do Azure utiliza o Azure AD como o repositório de identidades, pode criar um serviço principal com os mesmos passos como no Azure, através do portal do Azure.
 
@@ -95,11 +94,11 @@ Se tiver implementado o Azure Stack através do AD FS como o repositório de ide
 * Atribua o principal de serviço a uma função.
 * Inicie sessão com a identidade do principal de serviço.
 
-Para obter detalhes sobre como criar o principal de serviço, consulte [criar principal de serviço para o AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Para obter detalhes sobre como criar o principal de serviço, consulte [criar principal de serviço para o AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Atribuir o principal de serviço a uma função
 
-Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, veja [RBAC: funções incorporadas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte o artigo [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 Pode definir o âmbito de uma função no nível de uma subscrição, um grupo de recursos ou um recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, uma aplicação com a função de leitor para um grupo de recursos significa que a aplicação pode ler qualquer um dos recursos no grupo de recursos.
@@ -114,9 +113,7 @@ Utilize os passos seguintes como guia para atribuir uma função a um principal 
 
 3. Selecione **controlo de acesso (IAM)** para a subscrição.
 
-     ![Selecione o controlo de acesso](./media/azure-stack-create-service-principal/image17.png)
-
-4. Selecione **Adicionar**.
+4. Selecione **adicionar atribuição de função**.
 
 5. Selecione a função que pretende atribuir à aplicação.
 

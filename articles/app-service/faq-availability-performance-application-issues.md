@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389064"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721568"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQs de desempenho da aplicação para aplicações Web no Azure
 
@@ -163,7 +163,7 @@ Para obter mais informações, consulte [configurar aplicações web no serviço
 
 O Balanceador de carga do Azure tem uma definição de tempo limite de inatividade do padrão de quatro minutos. Normalmente, é um limite de tempo de resposta razoáveis para uma solicitação da web. Se a sua aplicação web requer processamento em segundo plano, recomendamos que utilize o WebJobs do Azure. A aplicação web do Azure pode chamar o WebJobs e ser notificada quando o processamento em segundo plano estiver concluído. Pode escolher entre vários métodos para utilizar o WebJobs, incluindo filas e acionadores.
 
-WebJobs foi concebido para processamento em segundo plano. Pode fazer muito mais processamento em segundo plano que quiser um WebJob. Para obter mais informações sobre o WebJobs, consulte [executar tarefas em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
+WebJobs foi concebido para processamento em segundo plano. Pode fazer muito mais processamento em segundo plano que quiser um WebJob. Para obter mais informações sobre o WebJobs, consulte [executar tarefas em segundo plano com o WebJobs](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Aplicações de ASP.NET Core que estão alojadas no serviço de aplicações, às vezes, deixam de responder. Como corrigir este problema?
 

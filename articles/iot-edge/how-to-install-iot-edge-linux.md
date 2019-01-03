@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: beda9fa096dd8308822a5cd5a816b569712b8c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086092"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557755"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o runtime do Azure IoT Edge no Linux (x64)
 
@@ -107,7 +107,7 @@ O daemon de pode ser configurado com o ficheiro de configuração em `/etc/ioted
 
 Um único dispositivo IoT Edge pode ser aprovisionado manualmente através de uma cadeia de ligações de dispositivo fornecida pelo IoT Hub. Em alternativa, pode utilizar o serviço de aprovisionamento de dispositivos para aprovisionar automaticamente os dispositivos, que é útil quando tem o número de dispositivos para aprovisionar. Dependendo de sua escolha de aprovisionamento, escolha o script de instalação apropriado. 
 
-### <a name="option-1-manual-provisioning"></a>Opção 1: De aprovisionamento Manual
+### <a name="option-1-manual-provisioning"></a>Opção 1: Serviço de aprovisionamento manual
 
 Para aprovisionar manualmente um dispositivo, tem de fornecê-lo com uma [cadeia de ligação do dispositivo](how-to-register-device-portal.md) que pode criar ao registar um novo dispositivo no IoT hub.
 
@@ -206,7 +206,39 @@ Em dispositivos de restrição de recursos, é altamente recomendável que defin
 
 Se a sua rede que tenha um servidor proxy, siga os passos em [configurar o seu dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Desinstalar do IoT Edge
+
+Se pretender remover a instalação do IoT Edge do seu dispositivo de Linux, utilize os seguintes comandos na linha de comando. 
+
+Remova o runtime do IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Quando o tempo de execução do IoT Edge é removido, o contentor que ele criou são parados, mas ainda existem no seu dispositivo. Ver todos os contentores para ver quais os permanecem. 
+
+```bash
+sudo docker ps -a
+```
+
+Elimine os contentores do seu dispositivo, incluindo os dois contentores de tempo de execução. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Por fim, remova o tempo de execução do contentor do seu dispositivo. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
+
+Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
 
 Se estiver a ter problemas com o runtime do Edge corretamente a instalação, consulte a [resolução de problemas](troubleshoot.md) página.
 
+Para atualizar uma instalação existente para a versão mais recente do IoT Edge, veja [atualizar o daemon de segurança de IoT Edge e o tempo de execução](how-to-update-iot-edge.md).

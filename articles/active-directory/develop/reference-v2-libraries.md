@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f47faaf5c0536ce7041e00686d630427c72771aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a7034e65b0c1e804326e5c087b320f8e7ffde907
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426089"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557104"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação de v2.0 do Azure Active Directory
 
@@ -37,15 +37,15 @@ O [ponto final de v2.0 do Azure Active Directory (Azure AD)](active-directory-v2
 
 Ponto final de v2.0 do Azure AD funciona com dois tipos de bibliotecas:
 
-* **Bibliotecas de cliente**: servidores e clientes nativos utilizam bibliotecas de cliente para obter os tokens de acesso para chamar um recurso, como o Microsoft Graph.
-* **Bibliotecas de middleware de servidor**: aplicações Web usam bibliotecas de middleware de servidor para o início de sessão do utilizador. As APIs da Web utilizam bibliotecas de middleware de servidor para validar os tokens que são enviados por clientes nativos ou por outros servidores.
+* **Bibliotecas de cliente**: Servidores e clientes nativos utilizam bibliotecas de cliente para obter os tokens de acesso para chamar um recurso, como o Microsoft Graph.
+* **Bibliotecas de middleware de servidor**: Aplicações Web utilizam bibliotecas de middleware de servidor para o início de sessão do utilizador. As APIs da Web utilizam bibliotecas de middleware de servidor para validar os tokens que são enviados por clientes nativos ou por outros servidores.
 
 ## <a name="library-support"></a>Suporte de bibliotecas
 
 Bibliotecas vêm em duas categorias de suporte:
 
-* **Suporte Microsoft**: a Microsoft fornece correções para essas bibliotecas e fez o SDL auditoria detalhada dessas bibliotecas.
-* **Compatível**: a Microsoft testou essas bibliotecas em cenários básicos e confirmado que elas funcionam com o ponto final v2.0. A Microsoft não fornece correções para essas bibliotecas e não fez uma revisão dessas bibliotecas. Problemas e pedidos de funcionalidades devem ser direcionados para o projeto de código aberto da biblioteca.
+* **Suporte Microsoft**: A Microsoft fornece correções para essas bibliotecas e fez o SDL auditoria detalhada dessas bibliotecas.
+* **Compatível**: A Microsoft testou essas bibliotecas em cenários básicos e confirmado que elas funcionam com o ponto final v2.0. A Microsoft não fornece correções para essas bibliotecas e não fez uma revisão dessas bibliotecas. Problemas e pedidos de funcionalidades devem ser direcionados para o projeto de código aberto da biblioteca.
 
 Para obter uma lista de bibliotecas que funcionam com o ponto final v2.0, consulte as secções seguintes neste artigo.
 
@@ -54,7 +54,7 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v2.0, consul
 Bibliotecas de autenticação de cliente são utilizadas para adquirir um token para chamar uma API Web protegido
 
 | Plataforma | Biblioteca | Transferência | Código de origem | Sample | Referência | Doc conceitual | Mapa |
-| --- | --- | --- | --- | --- | --- | --- | ---| ---|
+| --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | Msal (pré-visualização) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
 |![Angular JS](media/sample-v2-code/logo_angular.png) | Angular JS de MSAL | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | Angular(Preview) MSAL | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
@@ -79,7 +79,7 @@ Bibliotecas de middleware são utilizadas para proteger aplicações Web e Web A
 |![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Há Java](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [O PHP liga Esportiva cliente oauth2](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
+| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 ![iOS](media/sample-v2-code/logo_iOS.png) |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exemplo de aplicação nativa](active-directory-v2-devquickstarts-ios.md) |
 
 Para qualquer biblioteca compatíveis com os padrões, pode utilizar o ponto final v2.0, portanto, é importante saber onde obter suporte.

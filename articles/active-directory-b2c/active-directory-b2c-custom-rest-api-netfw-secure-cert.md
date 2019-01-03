@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344970"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722571"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger o seu serviço RESTful usando certificados de cliente
 
@@ -37,16 +37,16 @@ Este artigo descreve como:
 * Conclua os passos a [trocas de afirmações de API do REST de integrar](active-directory-b2c-custom-rest-api-netfw.md) artigo.
 * Obtenha um certificado válido (um ficheiro. pfx com uma chave privada).
 
-## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Passo 1: Configurar uma aplicação web para autenticação de certificado de cliente
+## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Passo 1: Configurar uma aplicação web para autenticação de certificados de cliente
 Para configurar **App Service do Azure** para exigir certificados de cliente, defina a aplicação web `clientCertEnabled` definição do site *verdadeiro*. Para efetuar esta alteração, no portal do Azure, abra a página da aplicação web. No painel de navegação esquerdo, sob **configurações** selecionar **definições de SSL**. Na **certificados de cliente** secção, ative os **certificado de cliente de entrada** opção.
 
 >[!NOTE]
->Certifique-se de que o seu plano do serviço de aplicações do Azure é Standard ou superior. Para obter mais informações, consulte [descrição geral aprofundada dos planos do App Service do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Certifique-se de que o seu plano do serviço de aplicações do Azure é Standard ou superior. Para obter mais informações, consulte [descrição geral aprofundada dos planos do App Service do Azure](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Para obter mais informações sobre como o **clientCertEnabled** propriedade, veja [autenticação mútua de TLS configurar para aplicações web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Passo 2: Carregar o certificado para chaves de política do Azure AD B2C
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Passo 2: Carregue o certificado para chaves de política do Azure AD B2C
 Depois de definir `clientCertEnabled` para *true*, a comunicação com a sua API RESTful requer um certificado de cliente. Para obter e carregar para armazenar o certificado de cliente no seu inquilino do Azure AD B2C, efetue o seguinte: 
 1. No seu inquilino do Azure AD B2C, selecione **definições do B2C** > **Framework de experiência de identidade**.
 
@@ -152,7 +152,7 @@ Para suportar a autenticação de certificado de cliente na sua política person
    >Se receber a mensagem de erro *o nome não é válido, forneça um nome válido*, significa que o Azure AD B2C chamado com êxito o serviço RESTful enquanto ele apresentou o certificado de cliente. A próxima etapa é validar o certificado.
 
 ## <a name="step-6-add-certificate-validation"></a>Passo 6: Adicionar a validação de certificado
-O certificado de cliente do Azure AD B2C envia ao seu serviço RESTful não tem de passar pela validação da plataforma de aplicações Web do Azure, exceto para verificar se o certificado existe. A validar o certificado é da responsabilidade da aplicação web. 
+O certificado de cliente do Azure AD B2C envia ao seu serviço RESTful não tem de passar pela validação pela plataforma do App Service do Azure, exceto para verificar se o certificado existe. A validar o certificado é da responsabilidade da aplicação web. 
 
 Nesta secção, adicione o código ASP.NET de exemplo que valida as propriedades do certificado para fins de autenticação.
 

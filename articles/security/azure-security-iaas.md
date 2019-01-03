@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321465"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540292"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -68,7 +68,7 @@ Se a VM executa aplicações críticas que tem de ter elevada disponibilidade, r
 
 Um conjunto de disponibilidade é um agrupamento lógico que pode utilizar no Azure para se certificar de que os recursos da VM que nele colocar estão isolados uns dos outros quando são implantados no datacenter do Azure. Azure garante que as VMs que colocar num disponibilidade definida execução em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de software do Azure ou de hardware, apenas um subconjunto das suas VMs são afetados e a aplicação global continua a estar disponível para os seus clientes. Conjuntos de disponibilidade são uma função essencial quando pretende criar soluções cloud fiáveis.
 
-## <a name="protect-against-malware"></a>Proteção contra software maligno
+## <a name="protect-against-malware"></a>Proteja-se contra o software maligno
 Deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outro software malicioso. Pode instalar [Microsoft Antimalware](azure-security-antimalware.md) ou solução de proteção de ponto final de um parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [O Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), e [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
 Antimalware da Microsoft inclui recursos como a proteção em tempo real, análise agendada, remediação de software maligno, atualizações de assinatura, atualizações de mecanismos, exemplos de relatórios e recolha de eventos de exclusão. Para ambientes alojados em separado do seu ambiente de produção, pode usar uma extensão de antimalware para ajudar a proteger as suas VMs e serviços em nuvem.
@@ -137,7 +137,7 @@ Abuso de recursos pode ser um problema quando os processos VM consumam mais recu
 
 Recomendamos que utilize [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ganhar visibilidade sobre o estado de funcionamento do seu recurso. Funcionalidades de Monitor do Azure:
 
-- [Ficheiros de registo de diagnóstico de recursos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Monitoriza os seus recursos VM e identifica potenciais problemas que possam comprometer o desempenho e disponibilidade.
+- [Ficheiros de registo de diagnóstico de recursos](../azure-monitor/platform/diagnostic-logs-overview.md): Monitoriza os seus recursos VM e identifica potenciais problemas que possam comprometer o desempenho e disponibilidade.
 - [Extensão de diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-overview.md): Fornece capacidades de monitorização e diagnóstico em VMs do Windows. Pode ativar estas capacidades, incluindo a extensão como parte da [modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 As organizações que não monitorizar o desempenho da VM não é possível determinar se são determinadas alterações nos padrões de desempenho normal ou anormal. Uma VM que está a consumir mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução na VM.

@@ -1,24 +1,24 @@
 ---
-title: Instalar e executar contentores
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: Como instalar e executar contentores - de imagem digitalizada
+titlesuffix: Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para imagem digitalizada neste tutorial passo a passo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6a6468cd71cf83c627f6dd72e5a1fc5564361d50
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077040"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579860"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contentores
+# <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 
 Contentorização é uma abordagem para distribuição de software em que uma aplicação ou serviço é empacotado como uma imagem de contentor. A configuração e dependências para a aplicação ou serviço estão incluídas na imagem de contentor. A imagem de contentor, em seguida, pode ser implementada num anfitrião de contentor com pouca ou nenhuma modificação. Os contentores são isolados umas das outras e o sistema operacional subjacente, com requisitos de espaço mais pequenos do que uma máquina virtual. Contentores podem ser instanciados a partir de imagens de contentor para tarefas de curta duração e removidos quando já não for necessário.
 
@@ -32,11 +32,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar o contentor de reconhecer texto:
 
-**Motor do docker**: tem de ter o motor de Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [o azure Stack](/azure/azure-stack/). Para obter mais informações sobre a implementação de Kubernetes no Azure Stack, veja [implementar o Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Motor do docker**: Tem de ter o motor do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [o azure Stack](../../azure-stack/index.yml). Para obter mais informações sobre a implementação de Kubernetes no Azure Stack, veja [implementar o Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure.
 
-**Familiaridade com o registo de contentor da Microsoft e a Docker**: deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento de básico `docker` comandos.  
+**Familiaridade com o registo de contentor da Microsoft e a Docker**: Deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.  
 
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -60,7 +60,7 @@ Tem de criar um recurso de imagem digitalizada no Azure, se quiser usar o contê
 Execute os seguintes passos para criar e recuperar informações a partir de um recurso do Azure:
 
 1. Crie um recurso do Azure no portal do Azure.  
-   Se quiser usar o contêiner de reconhecer texto, primeiro tem de criar um recurso de imagem digitalizada correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
+   Se quiser usar o contêiner de reconhecer texto, primeiro tem de criar um recurso de imagem digitalizada correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
 
 1. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure.  
    Depois de criar o recurso do Azure, tem de utilizar a chave de subscrição e o URL de ponto final desse recurso para instanciar o contentor de reconhecer texto correspondente. Pode copiar a chave de subscrição e o URL do ponto final da, respectivamente, os início rápido e as chaves de páginas do recurso de imagem digitalizada no portal do Azure.

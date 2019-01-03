@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567167"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714241"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -53,7 +53,7 @@ Este documento descreve a abordagem da Microsoft para segurança na plataforma d
 ## <a name="summary-azure-security-capabilities"></a>Capacidades de resumo de segurança do Azure
 A seguinte tabela fornece uma breve descrição dos recursos de segurança implementado pela Microsoft para proteger a infraestrutura do Azure, os dados dos clientes e aplicações seguras.
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Recursos de segurança implementados para proteger a plataforma do Azure:
-Os recursos listados a seguir são capacidades, que pode rever para fornecer a garantia de que a plataforma do Azure é gerenciada de forma segura. Ligações foram fornecidas para desagregar ainda mais na forma como a Microsoft lida com questões de confiança dos clientes em quatro áreas: proteger a plataforma, privacidade e controlos, conformidade e transparência.
+Os recursos listados a seguir são capacidades, que pode rever para fornecer a garantia de que a plataforma do Azure é gerenciada de forma segura. Ligações foram fornecidas para desagregar ainda mais na forma como a Microsoft lida com questões de confiança dos clientes em quatro áreas: Proteger a plataforma, privacidade e controlos, conformidade e transparência.
 
 
 | [Plataforma segura](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacidade e controlos](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformidade](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparência](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ Os recursos listados a seguir são capacidades, que pode rever para fornecer a g
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Recursos de segurança oferecidos pelo Azure para proteger os dados e aplicações
 Dependendo do modelo de serviço em nuvem, há variável responsabilidade de quem é responsável por gerenciar a segurança da aplicação ou serviço. Capacidades estão disponíveis na plataforma do Azure para ajudá-lo a cumprir essas responsabilidades por meio de recursos internos e soluções de parceiros que podem ser implementadas numa subscrição do Azure.
 
-As capacidades incorporadas estão organizadas em seis (6) áreas funcionais: operações, aplicativos, armazenamento, rede, computação e identidade. Detalhes adicionais sobre os recursos disponíveis na plataforma do Azure nessas áreas seis (6) são fornecidos através de informações de resumo.
+As capacidades incorporadas estão organizadas em seis (6) áreas funcionais: Operações, aplicativos, armazenamento, rede, computação e identidade. Detalhes adicionais sobre os recursos disponíveis na plataforma do Azure nessas áreas seis (6) são fornecidos através de informações de resumo.
 
 ## <a name="operations"></a>Operações
 Esta seção fornece informações adicionais sobre os principais recursos nas operações de segurança e informações de resumo sobre esses recursos.
@@ -110,7 +110,7 @@ Além disso, o Centro de segurança do Azure ajuda a com operações de seguran�
 A seção fornece informações adicionais sobre os principais recursos nas informações de segurança e o resumo do aplicativo sobre esses recursos.
 
 ### <a name="web-application-vulnerability-scanning"></a>Análise de vulnerabilidades de aplicativos da Web
-Uma das formas mais simples de começar com o teste quanto a vulnerabilidades de sua [aplicação de serviço de aplicações](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste em utilizar o [integração com o Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para efetuar a análise na sua aplicação de vulnerabilidades de um clique. Pode exibir os resultados de teste num relatório fácil de compreender e saiba como corrigir cada vulnerabilidade com instruções passo a passo.
+Uma das formas mais simples de começar com o teste quanto a vulnerabilidades de sua [aplicação de serviço de aplicações](https://docs.microsoft.com/azure/app-service/overview) consiste em utilizar o [integração com o Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para efetuar a análise na sua aplicação de vulnerabilidades de um clique. Pode exibir os resultados de teste num relatório fácil de compreender e saiba como corrigir cada vulnerabilidade com instruções passo a passo.
 
 ### <a name="penetration-testing"></a>Testes de Penetração
 Se preferir executar seus próprios testes de penetração ou quiser utilizar outro conjunto de scanner ou fornecedor, tem de seguir a [processo de aprovação de testes de penetração de Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) e obtenha aprovação anterior para executar os testes de penetração pretendido.
@@ -119,13 +119,13 @@ Se preferir executar seus próprios testes de penetração ou quiser utilizar ou
 A firewall de aplicação web (WAF) no [Gateway de aplicação Azure](https://azure.microsoft.com/services/application-gateway/) ajuda a proteger aplicações web de ataques baseados na web comuns, como injeção SQL, ataques de script entre sites e seqüestro de sessão. Vem pré-configurada com proteção contra ameaças identificadas pelos [Open Web Application Security Project (OWASP) como as vulnerabilidades mais comuns de 10 principais](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
-[Aplicação serviço de autenticação / autorização](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) é uma funcionalidade que fornece uma forma para a sua aplicação iniciar sessão dos utilizadores para que não precisa de alterar o código no back-end da aplicação. Ele fornece uma forma fácil de proteger a sua aplicação e trabalhar com dados de por utilizador.
+[Aplicação serviço de autenticação / autorização](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) é uma funcionalidade que fornece uma forma para a sua aplicação iniciar sessão dos utilizadores para que não precisa de alterar o código no back-end da aplicação. Ele fornece uma forma fácil de proteger a sua aplicação e trabalhar com dados de por utilizador.
 
 ### <a name="layered-security-architecture"></a>Arquitetura de segurança em camadas
 Uma vez que [ambientes de serviço de aplicações](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) proporcionam um ambiente de tempo de execução isolado implementado num [rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), os desenvolvedores podem criar uma arquitetura de segurança em camadas fornecer diferentes níveis de acesso de rede para cada camada da aplicação. É um desejo comum ocultar o back-ends de API de acesso geral de Internet e permitir apenas APIs deve ser chamado por aplicações web a montante. [Grupos de segurança (NSGs) de rede](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) pode ser utilizado em sub-redes da rede Virtual do Azure que contém os ambientes de serviço de aplicações para restringir o acesso público a aplicações de API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnóstico do servidor Web e ao application diagnostics
-Aplicações web do serviço de aplicações fornecem funcionalidade Diagnóstico de informações de registo do servidor web e a aplicação web. Estes são logicamente separados em [diagnóstico do servidor da web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) e [diagnóstico de aplicação](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Servidor Web inclui duas grandes avanços no diagnóstico e resolução de problemas de sites e aplicações.
+Aplicações web do serviço de aplicações fornecem funcionalidade Diagnóstico de informações de registo do servidor web e a aplicação web. Estes são logicamente separados em [diagnóstico do servidor da web](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) e [diagnóstico de aplicação](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Servidor Web inclui duas grandes avanços no diagnóstico e resolução de problemas de sites e aplicações.
 
 O novo recurso de primeira é informações de estado em tempo real sobre pools de aplicativos, processos de trabalho, sites, domínios de aplicativo e pedidos em execução. As vantagens do novo segundo são os eventos de rastreamento detalhados que controlam um pedido ao longo do processo de solicitação e resposta completado.
 
@@ -141,7 +141,7 @@ Pode ativar ou desativar os seguintes tipos de registos:
 -   Web Server registo - informações sobre transações de HTTP utilizando o formato de ficheiro de registo expandido de W3C. Isto é útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
 #### <a name="application-diagnostics"></a>Application diagnostics
-[Diagnóstico de aplicação](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) classe para registar informações no registo de diagnóstico de aplicação. No Application Diagnostics, existem dois tipos principais de eventos, os relacionados com desempenho de aplicações e os relacionados com erros e falhas da aplicação. As falhas e os erros podem ser divididos em problemas de conectividade, segurança e de falha mais detalhes. Problemas de falha estão normalmente relacionados com um problema com o código do aplicativo.
+[Diagnóstico de aplicação](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) classe para registar informações no registo de diagnóstico de aplicação. No Application Diagnostics, existem dois tipos principais de eventos, os relacionados com desempenho de aplicações e os relacionados com erros e falhas da aplicação. As falhas e os erros podem ser divididos em problemas de conectividade, segurança e de falha mais detalhes. Problemas de falha estão normalmente relacionados com um problema com o código do aplicativo.
 
 No Application Diagnostics, pode ver eventos agrupados nas seguintes formas:
 
@@ -291,7 +291,7 @@ O [sistema de nomes de domínio](https://technet.microsoft.com/library/bb629410.
 Pode ativar as seguintes categorias de registo de diagnóstico para NSGs:
 -   Evento: Contém entradas para o qual NSG as regras são aplicadas a VMs e funções de instância com base no endereço MAC. O estado para estas regras é recolhido a cada 60 segundos.
 
--   Contador de regras: contém entradas para o número de vezes que cada regra NSG é aplicada a negar ou permitir tráfego.
+-   Contador de regras: Contém entradas para quantas vezes cada regra NSG é aplicada a negar ou permitir tráfego.
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 Centro de segurança ajuda-o a prevenir, detetar e responder a ameaças, fornece que mais visibilidade e controlo sobre a segurança dos seus recursos do Azure. Fornece gerenciamento integrado de políticas e monitorização de segurança nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança. Centro de recomendações de rede em torno de firewalls, grupos de segurança de rede, configurando regras de tráfego de entrada e muito mais.

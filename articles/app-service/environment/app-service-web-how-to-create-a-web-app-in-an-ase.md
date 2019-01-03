@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338146"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718100"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num ambiente de serviço de aplicações v1
 
@@ -51,7 +51,7 @@ Este tutorial parte do princípio de que criou um ambiente de serviço de aplica
     *Grupos de recursos* permitem-lhe gerir os recursos relacionados do Azure como uma unidade e são úteis durante o estabelecimento *controlo de acesso baseado em funções* regras (RBAC) para as suas aplicações. Para obter mais informações, consulte [descrição geral do Azure Resource Manager][ResourceGroups]. 
 4. Selecione ou crie um plano do Serviço de Aplicações.
    
-    *Planos do App Service* são geridos de conjuntos de aplicações web.  Normalmente quando seleciona a preços, o preço cobrado é aplicado, o plano do serviço de aplicações, em vez das aplicações individuais. Um ASE que paga para as instâncias de computação alocadas para o ASE em vez de ter listado com o ASP.  Para aumentar verticalmente o número de instâncias de uma aplicação web aumentar verticalmente as instâncias do seu serviço de aplicações plano e como ele afeta todas as aplicações web nesse plano.  Alguns recursos como ranhuras do site ou uma integração de VNET também tem restrições de quantidade dentro do plano.  Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *Planos do App Service* são geridos de conjuntos de aplicações web.  Normalmente quando seleciona a preços, o preço cobrado é aplicado, o plano do serviço de aplicações, em vez das aplicações individuais. Um ASE que paga para as instâncias de computação alocadas para o ASE em vez de ter listado com o ASP.  Para aumentar verticalmente o número de instâncias de uma aplicação web aumentar verticalmente as instâncias do seu serviço de aplicações plano e como ele afeta todas as aplicações web nesse plano.  Alguns recursos como ranhuras do site ou uma integração de VNET também tem restrições de quantidade dentro do plano.  Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](../overview-hosting-plans.md)
    
     É possível identificar os planos de serviço de aplicações no ASE ao observar a localização que é indicada com o nome do plano.  
    
@@ -108,7 +108,7 @@ Depois de criar a sua aplicação web e o plano do serviço de aplicações é u
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

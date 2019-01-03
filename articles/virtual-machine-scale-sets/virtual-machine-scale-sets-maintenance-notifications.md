@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270139"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546866"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -32,7 +32,7 @@ O Azure efetua periodicamente atualizações para melhorar a fiabilidade, desemp
 
 Manutenção planeada, que requer uma reinicialização é agendada em etapas. Cada fase tem escopo diferente (regiões):
 
-- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar destinatários e opções de mensagens, como e-mail, SMS e webhooks para notificações ao utilizar o Azure [alertas de registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar destinatários e opções de mensagens, como e-mail, SMS e webhooks para notificações ao utilizar o Azure [alertas de registo de atividades](../azure-monitor/platform/activity-logs-overview.md).  
 - Com a notificação, um *janela de self-service* é disponibilizado. Durante este período, pode encontrar o que as VMs estão incluídas na onda. Pode iniciar proativamente a manutenção, de acordo com suas necessidades de agendamento.
 - Depois da janela de self-service, um *janela de manutenção agendada* começa. Em algum momento durante este período, o Azure agendas e aplica-se a manutenção necessária para a VM. 
 
@@ -95,7 +95,7 @@ O **manutenção self-service** coluna agora aparece na lista de conjuntos de di
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificações e alertas no portal
 
-Azure comunica um agendamento para a manutenção planeada ao enviar um e-mail para o grupo proprietário e os coproprietários de subscrição. Pode adicionar os destinatários e canais para esta comunicação através da criação de alertas de registo de atividades. Para obter mais informações, consulte [monitorizar a atividade de subscrição com o registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure comunica um agendamento para a manutenção planeada ao enviar um e-mail para o grupo proprietário e os coproprietários de subscrição. Pode adicionar os destinatários e canais para esta comunicação através da criação de alertas de registo de atividades. Para obter mais informações, consulte [monitorizar a atividade de subscrição com o registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu da esquerda, selecione **Monitor**. 

@@ -4,19 +4,19 @@ description: Saiba as configurações de origem e de destino para o serviço de 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
-ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971084"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713201"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida BD SQL do Azure com o serviço de migração de base de dados do Azure
 Este artigo aborda várias topologias de rede que funciona com o serviço de migração de base de dados do Azure para proporcionar uma experiência de migração abrangente de servidores do SQL Server no local para a instância gerida da base de dados SQL do Azure.
@@ -74,7 +74,7 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 
 | **NOME**                  | **PORTA**                                              | **PROTOCOLO** | **ORIGEM** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gestão                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de plano de gestão através do service bus e o armazenamento de Blobs do Azure. <br/>(Se estiver ativada o peering da Microsoft, poderá não ter esta regra.)                                                             |
+| móveis                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de plano de gestão através do service bus e o armazenamento de Blobs do Azure. <br/>(Se estiver ativada o peering da Microsoft, poderá não ter esta regra.)                                                             |
 | Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS utiliza esta regra para recolher informações de diagnóstico para fins de resolução de problemas.                                                                                                                      |
 | Servidor de origem de SQL         | 1433 (ou de porta de TCP IP que o SQL Server está escutando para) | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de origem do SQL Server do DMS <br/>(Se tiver conectividade de site a site, poderá não ter esta regra.)                                                                                       |
 | Instância nomeada do SQL Server | 1434                                                  | UDP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de instância de origem do DMS nomeadas de SQL Server <br/>(Se tiver conectividade de site a site, poderá não ter esta regra.)                                                                        |
@@ -87,4 +87,5 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 - [Criar uma rede virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para uma descrição geral do serviço de migração de base de dados do Azure e a disponibilidade regional durante a pré-visualização pública, consulte o artigo [o que é a pré-visualização de serviço de migração de base de dados do Azure](dms-overview.md). 
+- Para uma descrição geral do serviço de migração de base de dados do Azure, consulte o artigo [o que é o serviço de migração de base de dados do Azure?](dms-overview.md).
+- Para obter informações atualizadas sobre a disponibilidade regional do serviço de migração de base de dados do Azure, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) página.

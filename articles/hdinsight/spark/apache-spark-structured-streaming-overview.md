@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582229"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653633"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Descrição geral do Apache Spark transmissão em fluxo estruturada
 
 [Apache Spark](https://spark.apache.org/) transmissão em fluxo estruturada permite-lhe implementar aplicações dimensionáveis e de alto débito, tolerante a falhas para o processamento de fluxos de dados. A transmissão em fluxo estruturada foi criada sobre o mecanismo de Spark SQL e aprimora as construções de quadros de dados do Spark SQL e conjuntos de dados para que pode escrever a transmissão em fluxo consulta da mesma forma que deve escrever consultas em lote.  
 
-Aplicações de transmissão em fluxo estruturadas serem executadas em clusters do HDInsight Spark e ligar a dados a partir de transmissão em fluxo [Apache Kafka](https://kafka.apache.org/), um soquete (para fins de depuração) TCP, o armazenamento do Azure ou o Azure Data Lake Store. As duas últimas opções, que dependem de serviços de armazenamento externo, permitem-lhe ver para novos ficheiros adicionados para o armazenamento e processar seu conteúdo como se eles foram transmitidos em fluxo. 
+Aplicações de transmissão em fluxo estruturadas serem executadas em clusters do HDInsight Spark e ligar a dados a partir de transmissão em fluxo [Apache Kafka](https://kafka.apache.org/), um soquete (para fins de depuração) TCP, o armazenamento do Azure ou o armazenamento do Azure Data Lake. As duas últimas opções, que dependem de serviços de armazenamento externo, permitem-lhe ver para novos ficheiros adicionados para o armazenamento e processar seu conteúdo como se eles foram transmitidos em fluxo. 
 
-A transmissão em fluxo estruturada cria uma consulta de execução longa durante o qual aplicar operações para os dados de entrada, como seleção, projeção, agregação, janelas e associar o pacote de dados de transmissão em fluxo com referência DataFrames. Em seguida, enviar os resultados para armazenamento de ficheiros (Blobs de armazenamento do Azure ou Data Lake Store) ou para qualquer arquivo de dados com o código personalizado (por exemplo, a base de dados SQL ou o Power BI). A transmissão em fluxo estruturada também fornece a saída para a consola de depuração localmente e para uma tabela em memória para que possa ver os dados gerados para depuração no HDInsight. 
+A transmissão em fluxo estruturada cria uma consulta de execução longa durante o qual aplicar operações para os dados de entrada, como seleção, projeção, agregação, janelas e associar o pacote de dados de transmissão em fluxo com referência DataFrames. Em seguida, enviar os resultados para armazenamento de ficheiros (Blobs de armazenamento do Azure ou armazenamento do Data Lake) ou para qualquer arquivo de dados com o código personalizado (por exemplo, a base de dados SQL ou o Power BI). A transmissão em fluxo estruturada também fornece a saída para a consola de depuração localmente e para uma tabela em memória para que possa ver os dados gerados para depuração no HDInsight. 
 
 ![Transmissão em fluxo estruturada de Stream processar com o HDInsight e o Spark ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > A transmissão estruturada do Spark é substituir o Spark Streaming (DStreams). Daqui em diante, transmissão em fluxo estruturada receberá aprimoramentos e manutenção, enquanto DStreams estará no modo de manutenção apenas. A transmissão em fluxo estruturada não está atualmente como recursos completos como DStreams para as origens e sinks que ele oferece suporte de imediato, portanto, avalie os requisitos para escolher o Spark apropriado a opção de processamento de fluxo. 
 
 ## <a name="streams-as-tables"></a>Fluxos como tabelas
@@ -124,11 +124,11 @@ Essa consulta produz resultados semelhantes ao seguinte:
 |{u'start': ' 2016 do u-07-26T07:00:00.000Z', u'end "...  |95 |   96.980971 | 99 |
 |{u'start': ' 2016 do u-07-26T08:00:00.000Z', u'end "...  |95 |   96.965997 | 99 |  
 
-Para obter detalhes sobre a API de Stream estruturada do Spark, juntamente com os dados de entrada origens, as operações e saída Coletores de ele suporta, consulte [Apache Spark Structured Streaming guia de programação](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Para obter detalhes sobre a API de Stream estruturada do Spark, juntamente com os dados de entrada origens, as operações e saída Coletores de ele suporta, consulte [Apache Spark Structured Streaming guia de programação](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Pontos de verificação e registos de escrita-ahead
 
-Para fornecer resiliência e tolerância a falhas, transmissão em fluxo estruturada depende *ponto de verificação* para esse fluxo de garantir o processamento poder continuar sem interrupções, mesmo com falhas de nó. No HDInsight, Spark cria pontos de verificação para o armazenamento durável, de armazenamento do Azure ou de Data Lake Store. Estes pontos de verificação armazenam as informações de progresso sobre a consulta de transmissão em fluxo. Além disso, transmissão em fluxo estruturada utiliza um *registo de escrita-ahead* (WAL). O WAL captura dados ingeridos que foi recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento é reiniciado desde o WAL, nenhum evento recebido da origem não é perdido.
+Para fornecer resiliência e tolerância a falhas, transmissão em fluxo estruturada depende *ponto de verificação* para esse fluxo de garantir o processamento poder continuar sem interrupções, mesmo com falhas de nó. No HDInsight, Spark cria pontos de verificação para o armazenamento durável, de armazenamento do Azure ou de armazenamento do Data Lake. Estes pontos de verificação armazenam as informações de progresso sobre a consulta de transmissão em fluxo. Além disso, transmissão em fluxo estruturada utiliza um *registo de escrita-ahead* (WAL). O WAL captura dados ingeridos que foi recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento é reiniciado desde o WAL, nenhum evento recebido da origem não é perdido.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implementação de aplicações de transmissão em fluxo do Spark
 
@@ -141,5 +141,5 @@ Também pode ser verificado o estado de todos os aplicativos com um pedido GET r
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar um cluster do Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guia de programação de transmissão em fluxo estruturada do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Guia de programação de transmissão em fluxo estruturada do Apache Spark](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Iniciar tarefas do Apache Spark remotamente com o Apache LIVY](apache-spark-livy-rest-interface.md)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001731"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809901"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicações .NET
 
-Pode configurar o [Application Insights](app-insights-overview.md) para monitorizar uma vasta gama de aplicações ou funções de aplicação, componentes ou microsserviços. Para serviços e aplicações Web, o Visual Studio oferece [configuração de um passo](app-insights-asp-net.md). Para outros tipos de aplicações .NET, como funções de servidor de back-end ou aplicações de ambiente de trabalho, pode configurar o Application Insights manualmente.
+Pode configurar o [Application Insights](app-insights-overview.md) para monitorizar uma vasta gama de aplicações ou funções de aplicação, componentes ou microsserviços. Para serviços e aplicações Web, o Visual Studio oferece [configuração de um passo](../azure-monitor/app/asp-net.md). Para outros tipos de aplicações .NET, como funções de servidor de back-end ou aplicações de ambiente de trabalho, pode configurar o Application Insights manualmente.
 
 ![Gráficos de exemplo da monitorização do desempenho](./media/app-insights-windows-services/10-perf.png)
 
@@ -36,7 +36,7 @@ Pode configurar o [Application Insights](app-insights-overview.md) para monitori
 
 O recurso é onde os dados são recolhidos e apresentados no portal do Azure. Tem de decidir se quer criar um novo ou partilhar um existente.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte de uma aplicação maior: utilizar um recurso existente
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte de uma aplicação maior: Utilizar o recurso existente
 
 Se a sua aplicação Web tiver vários componentes, por exemplo, uma aplicação Web de front-end e um ou mais serviços de back-end, deve enviar a telemetria de todos os componentes para o mesmo recurso. Isto permite apresentá-los num único Mapa de Aplicações e rastrear um pedido de um componente para outro.
 
@@ -44,7 +44,7 @@ Assim, se já estiver a monitorizar outros componentes desta aplicação, basta 
 
 Abra o recurso no [portal do Azure](https://portal.azure.com/). 
 
-### <a name="self-contained-app-create-a-new-resource"></a>Aplicação autónoma: criar um novo recurso
+### <a name="self-contained-app-create-a-new-resource"></a>Aplicação autónoma: Criar um novo recurso
 
 Se a nova aplicação não estiver relacionada com outras aplicações, deve ter o seu próprio recurso.
 
@@ -90,7 +90,7 @@ Se tiver efetuado personalizações no ApplicationInsights.config, guarde uma c�
 * Defina a chave de instrumentação no código, por exemplo `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *a sua chave* `";` 
-* [Escreva a sua própria telemetria utilizando a API](app-insights-api-custom-events-metrics.md#ikey).
+* [Escreva a sua própria telemetria utilizando a API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Se tiver instalado outros pacotes do Application Insights,** pode, se preferir, utilizar o ficheiro .config para definir a chave de instrumentação:
 
@@ -119,7 +119,7 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 
 ### <a name="no-data"></a>Não existem dados?
 * Utilize a aplicação, abrindo páginas diferentes, de modo a gerar alguma telemetria.
-* Abra o mosaico [Pesquisa](app-insights-diagnostic-search.md) para ver eventos individuais. Por vezes, os eventos demoram um pouco mais de tempo a chegar ao pipeline de métricas.
+* Abra o mosaico [Pesquisa](../azure-monitor/app/diagnostic-search.md) para ver eventos individuais. Por vezes, os eventos demoram um pouco mais de tempo a chegar ao pipeline de métricas.
 * Aguarde alguns segundos e clique em **Atualizar**. Os gráficos atualizam-se periodicamente, mas pode atualizá-los manualmente se estiver à espera que apareçam alguns dados.
 * Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ Quando é executada em modo de depuração, a telemetria é emitida através do 
 Abra portas para o tráfego de saída na firewall do servidor. Consulte [esta página](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) para ver a lista de endereços necessários 
 
 ### <a name="trouble-on-your-build-server"></a>Problemas no servidor de compilação?
-Veja [este item de Resolução de Problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Veja [este item de Resolução de Problemas](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. No entanto, os eventos relacionados com o mesmo pedido serão selecionados ou desmarcados como um grupo, para que possa navegar entre os eventos relacionados. 
@@ -147,5 +147,5 @@ Veja [este item de Resolução de Problemas](app-insights-asp-net-troubleshoot-n
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Adicione mais telemetria](app-insights-asp-net-more.md) para obter a vista completa em 360 graus da sua aplicação.
+* [Adicione mais telemetria](../azure-monitor/app/asp-net-more.md) para obter a vista completa em 360 graus da sua aplicação.
 

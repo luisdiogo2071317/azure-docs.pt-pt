@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578437"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605811"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Suporte de Gateway de Aplicação para back-ends multi-inquilino
 
-Gateway de aplicação do Azure suporta conjuntos de dimensionamento de máquinas virtuais, interfaces de rede, públicas/privadas IP ou de domínio completamente qualificado o nome (FQDN) como parte dos seus conjuntos de back-end. Por predefinição, o gateway de aplicação não altera o cabeçalho de anfitrião de HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Existem inúmeros serviços, como as [Aplicações Web do Azure](../app-service/app-service-web-overview.md), que são multi-inquilino por natureza e dependem de um cabeçalho de anfitrião específico ou de uma extensão SNI para concretizar a resolução para o ponto final correto. Gateway de aplicação suporta agora a capacidade dos utilizadores substituírem o cabeçalho de anfitrião HTTP recebido com base nas definições de HTTP de back-end. Esta capacidade permite o suporte para a gestão de API e aplicações Web do Azure de back-end multi-inquilino. Esta capacidade está disponível tanto para o SKU WAF como para o SKU padrão. Suporte de back-end multi-inquilino também funciona com cenários SSL de ponto a ponto e terminação de SSL.
+Gateway de aplicação do Azure suporta conjuntos de dimensionamento de máquinas virtuais, interfaces de rede, públicas/privadas IP ou de domínio completamente qualificado o nome (FQDN) como parte dos seus conjuntos de back-end. Por predefinição, o gateway de aplicação não altera o cabeçalho de anfitrião de HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Existem inúmeros serviços, como [App Service do Azure](../app-service/overview.md) que são multi-inquilino por natureza e dependem de um cabeçalho de anfitrião específico ou a extensão SNI para resolver para o ponto final correto. Gateway de aplicação suporta agora a capacidade dos utilizadores substituírem o cabeçalho de anfitrião HTTP recebido com base nas definições de HTTP de back-end. Esta capacidade permite o suporte para a gestão de API e aplicações Web do Azure de back-end multi-inquilino. Esta capacidade está disponível tanto para o SKU WAF como para o SKU padrão. Suporte de back-end multi-inquilino também funciona com cenários SSL de ponto a ponto e terminação de SSL.
 
 > [!NOTE]
 > Configuração de certificado de autenticação não é necessária para serviços do Azure confiáveis, como aplicações Web do Azure.
@@ -36,4 +36,4 @@ Com esta capacidade, os clientes especificam as opções nas definições de HTT
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como configurar um gateway de aplicação com uma aplicação web como membro do conjunto de back-end, visite a página: [aplicações de web de configurar o serviço de aplicações com o Gateway de aplicação](application-gateway-web-app-powershell.md)
+Saiba como configurar um gateway de aplicação com uma aplicação web como membro do conjunto de back-end ao visitar: [Configurar aplicações web do serviço de aplicações com o Gateway de aplicação](application-gateway-web-app-powershell.md)

@@ -2,17 +2,18 @@
 title: Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como configurar o servidor de configuração no local para a recuperação após desastre de servidores físicos no local para o Azure.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: raynew
-ms.openlocfilehash: 04d080d9acd74bea128c0e101165031119900dd1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: ramamill
+ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848413"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976805"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure
 
@@ -35,7 +36,7 @@ A tabela seguinte lista os mínimos de hardware, software e requisitos de rede p
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
 
 1. No portal do Azure, vá para o **serviços de recuperação** cofres dos painel e selecione o cofre.
-2. Na **Resource** menu do cofre, clique em **introdução** > **Site Recovery** > **passo 1: preparar infraestrutura**   >  **Objetivo de proteção**.
+2. Na **Resource** menu do cofre, clique em **introdução** > **Site Recovery** > **passo 1: Preparar infraestrutura** > **objetivo de proteção**.
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/choose-goals.png)
 3. Na **objetivo de proteção**, selecione **para o Azure** e **não virtualizado/outro**e, em seguida, clique em **OK**.

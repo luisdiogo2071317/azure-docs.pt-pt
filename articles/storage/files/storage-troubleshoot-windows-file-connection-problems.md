@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250854"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744244"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
 Este artigo lista problemas comuns relacionados com ficheiros do Microsoft Azure quando se liga a partir de clientes do Windows. Ele também fornece possíveis causas e resoluções para esses problemas. Além dos passos de resolução de problemas neste artigo, pode também usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows tem pré-requisitos corretos. AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o ambiente para obter um desempenho ideal. Também pode encontrar estas informações no [solucionador de problemas de partilhas de ficheiros do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece os passos para ajudá-lo com problemas de partilhas de ficheiros do Azure de ligar/mapeamento/montagem.
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>Erro de 5 ao montar uma partilha de ficheiros do Azure
+
+Ao tentar montar uma partilha de ficheiros, pode receber o erro seguinte:
+
+- Ocorreu um erro de sistema 5. Acesso negado.
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Fazer com que 1: Canal de comunicação sem encriptação
+
+Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Um canal de comunicação encriptado é fornecido apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
+
+Windows 8, Windows Server 2012 e versões posteriores de cada sistema negociam pedidos que incluem o SMB 3.0, que suporta a encriptação.
+
+### <a name="solution-for-cause-1"></a>Solução para causa 1
+
+1. Ligar a partir de um cliente que suporte a encriptação SMB (Windows 8, Windows Server 2012 ou posterior) ou ligar a partir de uma máquina virtual no mesmo datacenter que a conta de armazenamento do Azure que é utilizada para a partilha de ficheiros do Azure.
+2. Verifique se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento se o cliente não suporta a encriptação SMB.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: Regras de firewall ou de rede virtual estão ativadas na conta de armazenamento 
+
+Se a rede virtual (VNET) e regras de firewall estão configuradas na conta de armazenamento, o tráfego de rede será negado acesso a menos que o endereço IP do cliente ou a rede virtual tem permissão de acesso.
+
+### <a name="solution-for-cause-2"></a>Solução para causa 2
+
+Certifique-se de que as regras de rede e de firewall virtual estiverem configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual está a causar o problema, alterar temporariamente a definição da conta de armazenamento para **permitir o acesso de todas as redes**. Para obter mais informações, consulte [armazenamento do Azure configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, erro 67 ou erro 87 ao montar ou desmontar uma partilha de ficheiros do Azure
@@ -30,39 +55,47 @@ Ao tentar montar uma partilha de ficheiros no local ou a partir de um centro de 
 - Ocorreu um erro de sistema 67. Não é possível localizar o nome da rede.
 - Ocorreu um erro de sistema 87. O parâmetro está incorreto.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação sem encriptação
-
-Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Encriptação de canal de comunicação é fornecida apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
-
-Windows 8, Windows Server 2012 e versões posteriores de cada sistema negociam pedidos que incluem o SMB 3.0, que suporta a encriptação.
-
-### <a name="solution-for-cause-1"></a>Solução para causa 1
-
-1. Verifique se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento.
-2. Ligar a partir de um cliente que faz o seguinte:
-
-    - Cumpre os requisitos do Windows 8 e Windows Server 2012 ou versões posteriores
-    - Liga-se de uma máquina virtual no mesmo datacenter como a conta de armazenamento do Azure que é utilizada para a partilha de ficheiros do Azure
-
-### <a name="cause-2-port-445-is-blocked"></a>Causa 2: A porta 445 está bloqueada
+### <a name="cause-1-port-445-is-blocked"></a>Fazer com que 1: A porta 445 está bloqueada
 
 Erro de sistema 53 ou erro 67 do sistema pode ocorrer se a porta 445 comunicação saída para um centro de dados de ficheiros do Azure está bloqueada. Para ver o resumo de ISPs que permitem ou não o acesso de porta 445, aceda à [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Para compreender se este é o motivo por trás da mensagem de "Erro de sistema 53", pode utilizar o Portqry para consultar o ponto de extremidade TCP:445. Se o ponto de extremidade TCP:445 é apresentado como filtrada, a porta TCP está bloqueada. Segue-se uma consulta de exemplo:
+Para verificar se a firewall ou um ISP está a bloquear a porta 445, utilize o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ferramenta ou `Test-NetConnection` cmdlet. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+Para utilizar o `Test-NetConnection` cmdlet, o AzureRM PowerShell módulo tem de estar instalado, consulte [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 
-Se a porta TCP 445 estiver bloqueada por uma regra no caminho de rede, verá a seguinte saída:
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-Para obter mais informações sobre como utilizar o Portqry, veja [Descrição do utilitário de linha de comandos Portqry.exe](https://support.microsoft.com/help/310099).
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>Solução para causa 2
+> [!Note]  
+> O comando acima devolve o endereço IP atual da conta de armazenamento. Não é garantido que este endereço IP permaneça igual e poderá sofrer alterações em qualquer altura. Não codifique este endereço IP em scripts nem numa configuração de firewall.
+
+### <a name="solution-for-cause-1"></a>Solução para causa 1
 
 Trabalhar com o seu departamento de TI para abrir a porta 445 de saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>Causa 3: NTLMv1 está ativada
+### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está ativada
 
 Erro de sistema 53 ou erro de sistema 87 pode ocorrer se a comunicação de NTLMv1 estiver ativada no cliente. Ficheiros do Azure suportam apenas a autenticação NTLMv2. Ter NTLMv1 ativado cria um cliente menos seguras. Por conseguinte, a comunicação é bloqueada para ficheiros do Azure. 
 
@@ -72,7 +105,7 @@ Para determinar se se trata a causa do erro, certifique-se de que a seguinte sub
 
 Para obter mais informações, consulte a [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) tópico no TechNet.
 
-### <a name="solution-for-cause-3"></a>Solução para causa 3
+### <a name="solution-for-cause-2"></a>Solução para causa 2
 
 Reverter o **LmCompatibilityLevel** valor para o valor predefinido de 3 na seguinte subchave do registo:
 
@@ -88,6 +121,27 @@ Ocorre um erro 1816 quando atingir o limite superior de identificadores abertos 
 ### <a name="solution"></a>Solução
 
 Reduzir o número de identificadores abertos em simultâneo por fechar alguns identificadores e tente novamente. Para obter mais informações, consulte [lista de verificação de armazenamento do Microsoft Azure, desempenho e escalabilidade](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Acesso negado" ao navegar para uma partilha de ficheiros do Azure no portal
+
+Ao navegar para uma partilha de ficheiros do Azure no portal, poderá receber o erro seguinte:
+
+Acesso negado  
+Não tem acesso  
+Parece que não tem acesso a este conteúdo. Para obter acesso, contacte o proprietário.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Fazer com que 1: Sua conta de utilizador não tem acesso à conta de armazenamento
+
+### <a name="solution-for-cause-1"></a>Solução para causa 1
+
+Navegue para a conta de armazenamento onde está localizada a partilha de ficheiros do Azure, clique em **controlo de acesso (IAM)** e certifique-se a sua conta de utilizador tem acesso à conta de armazenamento. Para obter mais informações, consulte [como proteger a sua conta de armazenamento com controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: Regras de firewall ou de rede virtual estão ativadas na conta de armazenamento
+
+### <a name="solution-for-cause-2"></a>Solução para causa 2
+
+Certifique-se de que as regras de rede e de firewall virtual estiverem configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual está a causar o problema, alterar temporariamente a definição da conta de armazenamento para **permitir o acesso de todas as redes**. Para obter mais informações, consulte [armazenamento do Azure configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Tornar mais lenta de copiar o arquivo de e para ficheiros do Azure no Windows
@@ -168,12 +222,12 @@ Utilize uma das seguintes soluções:
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Depois de seguir estas instruções, poderá receber a seguinte mensagem de erro ao executar o net use para a conta de serviço do sistema/rede: "erro de sistema 1312 ocorreu. Uma sessão de início de sessão especificado não existe. Ele já foi foi terminado." Se isto ocorrer, certifique-se de que o nome de utilizador que é passada para net utilização inclui informações de domínio (por exemplo: "[nome da conta de armazenamento]. file.core.windows .net").
+Depois de seguir estas instruções, pode receber a seguinte mensagem de erro ao executar o net use para a conta de serviço do sistema/rede: "Erro de sistema 1312 ocorreu. Uma sessão de início de sessão especificado não existe. Ele já foi foi terminado." Se isto ocorrer, certifique-se de que o nome de utilizador que é passada para net utilização inclui informações de domínio (por exemplo: "[nome da conta de armazenamento]. file.core.windows .net").
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Erro "Está a copiar um ficheiro para um destino que não suporta encriptação"
 
-Quando um ficheiro é copiado através da rede, o ficheiro é desencriptado no computador de origem, transmitido em texto não criptografado e encriptado novamente no destino. No entanto, poderá ver o seguinte erro quando está a tentar copiar um ficheiro encriptado: "Está a copiar o ficheiro para um destino que não suporta a encriptação."
+Quando um ficheiro é copiado através da rede, o ficheiro é desencriptado no computador de origem, transmitido em texto não criptografado e encriptado novamente no destino. No entanto, poderá ver o seguinte erro quando está a tentar copiar um arquivo criptografado: "Está a copiar o ficheiro para um destino que não suporta a encriptação."
 
 ### <a name="cause"></a>Causa
 Este problema pode ocorrer se estiver a utilizar o Encrypting File System (EFS). Ficheiros encriptados por BitLocker podem ser copiados para ficheiros do Azure. No entanto, os ficheiros do Azure não suporta EFS de NTFS.

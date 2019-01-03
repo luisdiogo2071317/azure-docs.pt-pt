@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337160"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651067"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrições de IP estático do serviço de aplicações do Azure #
 
 Restrições de IP permitem-lhe definir uma prioridade ordenadas permitir/recusar a lista de endereços IP que têm permissão para aceder à sua aplicação. Lista de permissões pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, existe, em seguida, um implícita Negar tudo o que existe no final da lista. 
 
-A capacidade de restrições de IP funciona com todos os que serviço de aplicações alojadas cargas de trabalho, que incluem; aplicações Web, aplicações api, as aplicações do linux, aplicações de contentor do linux e as funções. 
+A capacidade de restrições de IP funciona com todos os que serviço de aplicações alojadas cargas de trabalho, que incluem; aplicações Web, aplicações API, as aplicações do Linux, aplicações de contentor do Linux e as funções. 
 
 Quando é efetuado um pedido à sua aplicação, o endereço de IP é avaliado relativamente a lista de restrições de IP. Se o endereço não é permitido o acesso com base nas regras na lista, o serviço responde com uma [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) código de estado.
 

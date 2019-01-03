@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 8c347c9ab15b68325a9a7ebc645a3146f4b7a180
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754582"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994727"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -199,14 +199,14 @@ Remove-AzResourceGroup -Name $resourceGroup
 Para remover o grupo de recursos e os respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o comando [eliminação do grupo az](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou uma conta de armazenamento padrão para fins gerais. Para saber como carregar e transferir blobs para e partir da sua conta de armazenamento, avance para o início rápido de armazenamento de Blobs.
+Neste início rápido, criou uma conta de armazenamento standard para fins gerais v2. Para saber como carregar e transferir blobs para e partir da sua conta de armazenamento, avance para o início rápido de armazenamento de Blobs.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -221,6 +221,6 @@ Neste início rápido, criou uma conta de armazenamento padrão para fins gerais
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Trabalhar com o armazenamento de blobs ao utilizar a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+> [Trabalhar com blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

@@ -1,22 +1,21 @@
 ---
 title: Informações de desempenho de consulta na base de dados do Azure para PostgreSQL
 description: Este artigo descreve a funcionalidade de informações de desempenho de consulta na base de dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 38cfac8932859db7daa76e831372c97d97f0b24c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1a71fb81acc91036ce12ff15f6b2762b808c7473
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376316"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541625"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**Aplica-se a:** base de dados do Azure para PostgreSQL 9.6 e 10
+**Aplica-se a:** Base de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
 > A funcionalidade de informações de desempenho de consulta está em pré-visualização pública. 

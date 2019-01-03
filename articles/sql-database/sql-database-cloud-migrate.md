@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863521"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651985"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração de base de dados do SQL Server para a base de dados do Azure SQL
 
@@ -33,9 +33,9 @@ Em ambos os casos, precisa garantir que a base de dados de origem é compatível
 > [!NOTE]
 > Para migrar uma base de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para a Base de Dados SQL do Azure, veja [SQL Server Migration Assistant (Assistente de Migração do SQL Server)](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com período de indisponibilidade durante a migração
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: Migração com período de indisponibilidade durante a migração
 
- Utilize este método para migrar para um único ou uma base de dados em pool, se conseguir sustentar algum período de inatividade ou estiver a efetuar uma migração de teste de uma base de dados de produção para migração posterior. Para obter um tutorial, veja [migrar uma base de dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
+ Utilize este método para migrar para um único ou uma base de dados em pool, se conseguir sustentar algum período de inatividade ou estiver a efetuar uma migração de teste de uma base de dados de produção para migração posterior. Para obter um tutorial, veja [migrar uma base de dados do SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
 A lista seguinte contém o fluxo de trabalho geral para uma migração de base de dados do SQL Server de uma única ou uma base de dados agrupado através deste método. Para a migração para a instância gerida, veja [migração para uma instância gerida](sql-database-managed-instance-migrate.md).
 
@@ -65,7 +65,7 @@ A lista seguinte contém recomendações para um melhor desempenho durante o pro
 
 [Atualize as estatísticas](https://msdn.microsoft.com/library/ms187348.aspx) com uma análise completa após a migração estar concluída.
 
-## <a name="method-2-use-transactional-replication"></a>Método 2: Utilizar a Replicação Transacional
+## <a name="method-2-use-transactional-replication"></a>Método 2: Utilizar a replicação transacional
 
 Quando não pode remover a base de dados do SQL Server da produção enquanto a migração está a ocorrer, pode utilizar a replicação transacional do SQL Server como a sua solução de migração. Para utilizar este método, a base de dados de origem tem de cumprir os [requisitos para a replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com a Base de Dados SQL do Azure. Para obter informações sobre a replicação do SQL com o Always On, veja [configurar a replicação para grupos de Disponibilidade AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 

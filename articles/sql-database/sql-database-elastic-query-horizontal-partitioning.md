@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 02942cafe6e1532a6829ad7a6761b825739a1e85
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865408"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597975"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bases de dados de cloud aumentadas horizontalmente (pré-visualização)
 ![Consultas em partições horizontais][1]
@@ -168,10 +168,10 @@ A seguinte consulta executa uma junção de três vias entre armazéns, orders e
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento para execução remota de T-SQL armazenado: sp\_execute_remote
 Consulta elástica também introduz um procedimento armazenado que fornece acesso direto às partições horizontais. O procedimento armazenado é chamado [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usada para executar procedimentos armazenados remotos ou o código T-SQL nas bases de dados remotas. Ele usa os seguintes parâmetros: 
 
-* O nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): consulta de T-SQL a ser executado em cada partição horizontal. 
-* Declaração de parâmetro (nvarchar) - opcional: cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
-* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
+* Nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): A consulta de T-SQL a ser executado em cada partição horizontal. 
+* Declaração de parâmetro (nvarchar) - opcional: Cadeia com os dados de definições de tipo para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
+* Lista de valores parâmetro - opcional: Lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
 O sp\_executar\_remoto usa a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL específica nas bases de dados remotas. Utiliza a credencial da origem de dados externos para ligar a base de dados do Gestor de shardmap e as bases de dados remotas.  
 

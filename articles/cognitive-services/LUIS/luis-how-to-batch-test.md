@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 340805e668190fedc7df047b66bec710d7e726c7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086403"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992979"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
 
- Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
+ Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. Os conjuntos de dados usados para teste de lote não deve incluir expressões com os objetivos ou expressões com receberam do ponto final de tempo de execução de predição de exemplo. 
 
 <a name="batch-testing"></a>
 
@@ -65,9 +65,6 @@ O conjunto de dados que pode ser baixado é o mesmo ficheiro que foi carregado p
 Para rever os resultados de teste do batch, selecione **ver resultados**.
 
 ![Resultados do teste de batch](./media/luis-how-to-batch-test/run-test-results.png)
-
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

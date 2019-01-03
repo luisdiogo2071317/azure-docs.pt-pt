@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit para Eclipse: Scala criar aplicativos para o HDInsight Spark '
+title: 'Azure Toolkit para Eclipse: Criar aplicações de Scala para o HDInsight Spark '
 description: Utilize ferramentas do HDInsight no Azure Toolkit para Eclipse para desenvolver aplicações do Spark escritas no Scala e enviá-los para um cluster do HDInsight Spark, diretamente a partir do IDE do Eclipse.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496597"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602754"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilizar o Azure Toolkit para Eclipse para criar aplicativos de Apache Spark para um cluster do HDInsight
 
 Utilizar ferramentas do HDInsight no Azure Toolkit para [Eclipse](https://www.eclipse.org/) desenvolver [Apache Spark](https://spark.apache.org/) aplicações escritas em [Scala](https://www.scala-lang.org/) e enviá-los a um cluster do Azure HDInsight Spark, diretamente a partir do IDE do Eclipse. Pode usar as ferramentas do HDInsight Plug-in de algumas formas diferentes:
 
-* Para desenvolver e envie um aplicação Scala Spark num cluster do HDInsight Spark
-* Para aceder aos recursos de cluster do Azure HDInsight Spark
-* Para desenvolver e executar uma aplicação Scala Spark localmente
+* Para desenvolver e envie um aplicação Scala Spark num cluster do HDInsight Spark.
+* Para aceder aos recursos de cluster do Azure HDInsight Spark.
+* Para desenvolver e executar uma aplicação Scala Spark localmente.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Pode utilizar esta ferramenta para criar e submeter aplicações apenas para um cluster do Spark do HDInsight no Linux.
 > 
 > 
@@ -78,7 +78,7 @@ Pode ligar um cluster normal usando o nome de utilizador do Ambari gerido. Da me
    
    ![caixa de diálogo de cluster de ligação](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Usamos a chave de armazenamento ligada, o nome de utilizador e a palavra-passe se o cluster tanto registado na subscrição do Azure e ligadas um cluster.
    > ![Explorador de armazenamento no Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ Pode utilizar ferramentas do HDInsight no Azure Toolkit para Eclipse para execut
 ### <a name="prerequisite"></a>Pré-requisito
 Enquanto estiver a executar a aplicação Spark Scala local num computador Windows, poderá receber uma exceção, conforme explicado na [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Essa exceção ocorre porque **WinUtils.exe** está em falta no Windows. 
 
-Para resolver este erro, precisa [transferir executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) a uma localização como **C:\WinUtils\bin**e, em seguida, adicione a variável de ambiente **HADOOP_HOME** e defina o valor de a variável para **C\WinUtils**.
+Para resolver este erro, precisa [transferir executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) a uma localização como **C:\WinUtils\bin**e, em seguida, adicione a variável de ambiente **HADOOP_HOME** e defina o valor de a variável para **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Executar uma aplicação local do Spark Scala
 1. Abra o Eclipse e crie um projeto. Na **novo projeto** caixa de diálogo, selecione as seguintes opções e, em seguida, selecione **próxima**.
@@ -242,12 +242,12 @@ Existem dois modos para submeter as tarefas. Se a credencial de armazenamento fo
 Se tiver algum comentário ou se tiver quaisquer outros problemas ao utilizar esta ferramenta, envie-num e-mail para hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Ver também
-* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Criar e executar aplicações

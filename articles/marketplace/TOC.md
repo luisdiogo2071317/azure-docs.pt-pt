@@ -196,10 +196,6 @@
 #### [Separador de detalhes da vitrine](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publicar oferta de serviço de consultoria](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [Gerir o perfil do publicador](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Gerir utilizadores](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [Conformidade com o RGPD](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## Versão de Teste
 ### [O que é a Versão de Teste?](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Versão de Teste do Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: f96082aaa174886c085ba67ee0f3e870e53136e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600765"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973180"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET Core para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -188,7 +188,7 @@ Parabéns! Ligou com êxito a uma conta do Azure Cosmos DB.
 
 ## <a name="step-4-create-a-database"></a>Passo 4: Criar uma base de dados
 
-Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) ou [ **CreateDatabaseAsync** ](https://aka.ms/CosmosDotnetAPIDocs) função do `Databases` classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
+Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) ou [ **CreateDatabaseAsync** ](https://aka.ms/CosmosDotnetAPIDocs) função do **CosmosDatabases** classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
 
 1. Copie e cole o **CreateDatabase** método abaixo sua **GetStartedDemoAsync** método. **CreateDatabase** irá criar uma nova base de dados com o id `FamilyDatabase` se ainda não exista, com o id especificado a partir do `databaseId` campo.
 
@@ -304,7 +304,7 @@ Parabéns! Criou uma base de dados do Azure Cosmos DB com êxito.
 > [!WARNING]
 > Chamando o método **CreateContainerIfNotExistsAsync** irá criar um novo contentor, que tem sobre os preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) ou [ **CreateContainerAsync** ](https://aka.ms/CosmosDotnetAPIDocs) funcionem no **Contentores** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
+Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) ou [ **CreateContainerAsync** ](https://aka.ms/CosmosDotnetAPIDocs) funcionem no **CosmosContainers** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
 
 1. Copie e cole o **CreateContainer** método abaixo sua **CreateDatabase** método. **CreateContainer** irá criar um novo contentor com o id `FamilyContainer` se ainda não exista, com o id especificado a partir do `containerId` campo.
 
@@ -341,7 +341,7 @@ Parabéns! Criou um contentor do Azure Cosmos DB com êxito.
 
 ## <a id="CreateDoc"></a>Passo 6: Adicionar itens ao contentor
 
-Um item pode ser criado utilizando o [ **CreateItemAsync** ](https://aka.ms/CosmosDotnetAPIDocs) função dos **itens** classe. Quando é utilizada a API SQL, os itens são projetados como documentos, que são conteúdos JSON definidos pelo utilizador (arbitrários). Pode agora inserir um item no seu contentor do Azure Cosmos DB.
+Um item pode ser criado utilizando o [ **CreateItemAsync** ](https://aka.ms/CosmosDotnetAPIDocs) função dos **CosmosItems** classe. Quando é utilizada a API SQL, os itens são projetados como documentos, que são conteúdos JSON definidos pelo utilizador (arbitrários). Pode agora inserir um item no seu contentor do Azure Cosmos DB.
 
 Em primeiro lugar, temos de criar uma classe **Família** que irá representar objetos armazenados no Azure Cosmos DB neste exemplo. Também iremos criar subclasses **Principal**, **Subordinado**, **Animal de estimação** e **Endereço** utilizadas dentro da **Família**. Tenha em atenção que os documentos têm de ter um **Id** propriedade serializado como **id** no JSON.
 

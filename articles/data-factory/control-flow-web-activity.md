@@ -1,6 +1,6 @@
 ---
-title: Web atividade de Azure Data Factory | Microsoft Docs
-description: Saiba como pode utilizar a atividade de Web, uma das atividades de fluxo de controlo suportadas pela fábrica de dados, para invocar um ponto final de REST de um pipeline.
+title: Web atividade numa fábrica de dados do Azure | Documentos da Microsoft
+description: Saiba como pode utilizar a atividade da Web, uma das atividades de fluxo de controlo suportadas pelo Data Factory, para invocar um ponto final REST a partir de um pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 71e89828645cadbbbf60527fca9968fd8ed568ff
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059222"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723693"
 ---
-# <a name="web-activity-in-azure-data-factory"></a>Atividade de Web no Azure Data Factory
+# <a name="web-activity-in-azure-data-factory"></a>Atividade Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -64,47 +64,47 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade de web | Cadeia | Sim
+nome | Nome da atividade web | Cadeia | Sim
 tipo | Tem de ser definido como **WebActivity**. | Cadeia | Sim
-método | Método de REST API para o ponto final de destino. | cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
-url | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia). A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
-cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia (ou expressão com o resultType da cadeia) | Sim, é necessário o cabeçalho Content-type. `"headers":{ "Content-Type":"application/json"}`
-corpo | Representa o payload de que é enviado para o ponto final.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Necessário para métodos POST/PUT.
-autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se não for necessária a autenticação, exclua esta propriedade. | Cadeia (ou expressão com o resultType da cadeia) | Não
-Conjuntos de dados | Lista de conjuntos de dados transmitido para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
-linkedServices | Lista de serviços ligados transmitido para o ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
+método | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
+url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
+Cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Sim, o cabeçalho Content-type é necessário. `"headers":{ "Content-Type":"application/json"}`
+corpo | Representa o payload que é enviado para o ponto final.  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). <br/><br/>Ver o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | É necessário para métodos POST/PUT.
+autenticação | Método de autenticação utilizado para chamar o ponto final. Tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se a autenticação não é necessária, exclua esta propriedade. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não
+conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
+linkedServices | Lista de serviços ligados são transmitidos ao ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
 
 > [!NOTE]
-> Pontos finais REST, que invoca a atividade de web tem de devolver uma resposta de tipo de JSON. A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final.
+> Pontos finais REST, que invoca a atividade web tem de devolver uma resposta do tipo JSON. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final.
 
 A tabela seguinte mostra os requisitos para o conteúdo JSON:
 
 | Tipo de valor | Corpo do pedido | Corpo da resposta |
 |---|---|---|
 |Objeto JSON | Suportadas | Suportadas |
-|Matriz JSON | Suportadas <br/>(Atualmente, matrizes JSON não funcionam em resultado de erros. Uma correção está em curso.) | Não suportado |
+|Matriz JSON | Suportadas <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. Uma correção está em curso.) | Não suportado |
 | Valor JSON | Suportadas | Não suportado |
-| Tipo de JSON não | Não suportado | Não suportado |
+| Tipo de não-JSON | Não suportado | Não suportado |
 ||||
 
 ## <a name="authentication"></a>Autenticação
 
 ### <a name="none"></a>Nenhuma
-Se não for necessária a autenticação, não inclua a propriedade de "autenticação".
+Se a autenticação não é necessária, não inclua a propriedade de "autenticação".
 
 ### <a name="basic"></a>Básica
 Especifique o nome de utilizador e palavra-passe para utilizar com a autenticação básica. 
 
 ```json
 "authentication":{  
-   "type":"Basic,
+   "type":"Basic",
    "username":"****",
    "password":"****"
 }
 ```
 
 ### <a name="client-certificate"></a>Certificado de cliente
-Especifique com codificação base64 conteúdo de um ficheiro PFX e a palavra-passe. 
+Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-passe. 
 
 ```json
 "authentication":{  
@@ -113,8 +113,20 @@ Especifique com codificação base64 conteúdo de um ficheiro PFX e a palavra-pa
    "password":"****"
 }
 ```
-## <a name="request-payload-schema"></a>Esquema de payload de pedido
-Quando utiliza o método POST/PUT, a propriedade body representa o payload de que é enviado para o ponto final. Pode passar conjuntos de dados e serviços ligados como parte do payload. Segue-se o esquema para o payload de: 
+
+### <a name="managed-identity"></a>Identidade Gerida
+
+Especifique o uri do recurso para o qual o token de acesso será será solicitado usando-a identidade gerida do data Factory. Para chamar a API de gestão de recursos do Azure, utilize `https://management.azure.com/`.
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+## <a name="request-payload-schema"></a>Esquema do payload de pedido
+Quando utiliza o método POST/PUT, a propriedade body representa o payload que é enviado para o ponto final. Pode passar os serviços ligados e conjuntos de dados como parte da carga. Este é o esquema para o payload de: 
 
 ```json
 {
@@ -137,7 +149,7 @@ Quando utiliza o método POST/PUT, a propriedade body representa o payload de qu
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade de web no pipeline chama um ponto final REST. Transmite um serviço ligado SQL do Azure e um conjunto de dados SQL do Azure para o ponto final. O ponto final REST utiliza a cadeia de ligação de SQL do Azure para ligar ao servidor SQL do Azure e devolve o nome da instância do SQL server. 
+Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. Ele passa um serviço ligado SQL do Azure e um conjunto de dados SQL do Azure para o ponto final. O ponto final REST, utiliza a cadeia de ligação de SQL do Azure para ligar ao servidor SQL do Azure e devolve o nome da instância do SQL server. 
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -191,7 +203,7 @@ Neste exemplo, a atividade de web no pipeline chama um ponto final REST. Transmi
 
 ```
 
-### <a name="pipeline-parameter-values"></a>Valores de parâmetros de pipeline
+### <a name="pipeline-parameter-values"></a>Valores de parâmetros do pipeline
 
 ```json
 {
@@ -201,7 +213,7 @@ Neste exemplo, a atividade de web no pipeline chama um ponto final REST. Transmi
 
 ```
 
-### <a name="web-service-endpoint-code"></a>Código de ponto final de serviço Web
+### <a name="web-service-endpoint-code"></a>Código de ponto final do serviço Web
 
 ```csharp
 
@@ -231,7 +243,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)

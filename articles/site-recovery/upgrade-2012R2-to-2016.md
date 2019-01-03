@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: 351213749dcec2b4c16728c04230c75a12179118
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411024"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557871"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Atualizar os anfitriões do Windows Server 2012 R2, o SCVMM 2012 R2, se for configurado com o Azure Site Recovery para o Windows Server 2016 & SCVMM de 2016
 
@@ -49,7 +49,7 @@ Antes de atualizar, tenha em atenção o seguinte:-
     - Tenha em atenção o ID de VMM do 2012R2 principal e servidores do VMM de recuperação. ID do VMM pode ser encontrado no Registro "HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup".
     - Certifique-se de que os SCVMMs novos que adicionar ao cluster tem os mesmos nomes como era antes. 
 
-- Se estiver a replicar entre dois dos estiver seus sites geridos pelo SCVMMs em ambos os lados, certifique-se de que atualiza seu lado da recuperação primeiro antes de atualizar o lado primário.
+- Se estiver a replicar entre dois dos sites geridos pelo SCVMMs em ambos os lados, certifique-se de que atualiza seu lado da recuperação primeiro antes de atualizar o lado primário.
 > [!WARNING]
 > Ao atualizar o SCVMM 2012 R2, sob a gestão distribuída de chaves, optar por **armazenar chaves de encriptação no Active Directory**. Escolha cuidadosamente as definições para a conta de serviço e gestão distribuída de chaves. Com base na sua seleção, os dados encriptados, como palavras-passe em modelos não podem estar disponíveis após a atualização e pode potencialmente afetam a replicação com o Azure Site Recovery
 
@@ -109,5 +109,5 @@ Antes de atualizar os anfitriões do Windows Server 2012 R2, tem de atualizar o 
 4.  Aceda ao portal do Azure e verifique se o estado de funcionamento replicados das máquinas virtuais no interior do Cofre de serviços de recuperação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Após a atualização dos anfitriões for executada, pode realizar uma [ativação pós-falha de teste](tutorial-dr-drill-azure.md) para testar o estado de funcionamento do seu estado de recovey após desastre e de replicação.
+Após a atualização dos anfitriões for executada, pode realizar uma [ativação pós-falha de teste](tutorial-dr-drill-azure.md) para testar o estado de funcionamento do seu estado de recuperação após desastre e de replicação.
 

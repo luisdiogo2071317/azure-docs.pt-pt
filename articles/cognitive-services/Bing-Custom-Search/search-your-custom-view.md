@@ -3,52 +3,51 @@ title: Procurar uma exibição personalizada - pesquisa personalizada do Bing
 titlesuffix: Azure Cognitive Services
 description: Descreve como pesquisar uma vista personalizada da web.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 15c5b3c58c4f3617111707ed82d031b67b6ad4c1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465140"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558333"
 ---
-# <a name="call-your-custom-search"></a>Chamar a sua pesquisa personalizada
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal
 
-Antes de efetuar a primeira chamada para a API de pesquisa personalizada para obter os resultados da pesquisa para a sua instância, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave de API de pesquisa personalizada, consulte [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+Após configurar a sua experiência de pesquisa personalizada, pode testá-lo de dentro da pesquisa personalizada do Bing [portal](https://customsearch.ai). 
+
+![uma captura de ecrã do portal de pesquisa personalizada do bing](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
+
+Depois de se para a pesquisa personalizada do Bing [portal](https://customsearch.ai), selecione a sua instância de pesquisa e clique nas **produção** separador. Sob **pontos de extremidade**, selecione um ponto final de API (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos.
+
+Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a[referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. 
+
+Alguns parâmetros importantes estão abaixo:
 
 
-## <a name="try-it-out"></a>Experimentar
+|Parâmetro  |Descrição  |
+|---------|---------|
+|Consulta     | O termo de pesquisa para procurar. Disponível apenas para pontos finais de Web, imagem, vídeo e de sugestão automática |
+|ID de configuração personalizada | O ID de configuração da instância de pesquisa personalizada selecionada. Este campo é só de leitura. |
+|Comercializar     | O mercado resultados serão provenientes de mensagens em fila. Apenas disponível para os pontos de extremidade da Web, imagem, vídeo e hospedado da interface do Usuário.        |
+|Chave de Subscrição | A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente, ou introduza um manualmente.          |
 
-Após configurar a sua experiência de pesquisa personalizada, pode testar a configuração a partir do portal de pesquisa personalizada. 
+Clicar **parâmetros adicionais** revela os seguintes parâmetros:  
 
-1. Inicie sessão no [pesquisa personalizada](https://customsearch.ai).
-2. Clique numa instância de pesquisa personalizada da sua lista de instâncias.
-3. Clique nas **produção** separador. 
-4. Sob o **pontos de extremidade** separador, selecione um ponto de extremidade (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos (consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para as opções de assinatura). 
-5. Especifique os valores de parâmetro. 
-
-    Seguem-se os possíveis parâmetros que pode definir (a lista real depende do ponto de extremidade selecionado). Para obter mais informações sobre estes parâmetros, consulte [a API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) referência.
-
-    - **Consulta**: O termo de pesquisa para procurar. Disponível apenas para pontos finais de Web, imagem, vídeo e de sugestão automática.
-    - **ID de configuração personalizada**: O ID de configuração de instância de pesquisa personalizada selecionada. Este campo é só de leitura.
-    - **Mercado**: O mercado de onde vêm os resultados. Disponível apenas para pontos finais de Web, imagem, vídeo e hospedado da interface do Usuário.
-    - **Chave de subscrição**: A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente, ou introduza um manualmente.  
-      
-    Clicar **parâmetros adicionais** revela os seguintes parâmetros:  
-      
-    - **Pesquisa segura**: um filtro utilizado para filtrar as páginas Web para o conteúdo para adultos. Disponível apenas para pontos finais de Web, imagem, vídeo e hospedado da interface do Usuário.
-    - **Idioma da Interface do usuário**: O idioma usado para cadeias de caracteres de interface de utilizador. Por exemplo, se ativar imagens e vídeos na interface do Usuário do hospedado, o **imagem** e **vídeo** separadores utilizam o idioma especificado.
-    - **Contagem de**: O número de resultados de pesquisa para devolver na resposta. Disponível apenas para pontos finais de Web, imagem e vídeo.
-    - **Deslocamento**: O número de resultados de pesquisa a ignorar antes de retornar resultados. Disponível apenas para pontos finais de Web, imagem e vídeo.
-
-6. Depois de especificar todas as opções necessárias, clique em **chamar** para ver a resposta JSON no painel da direita. 
-
-Se selecionar o ponto de extremidade hospedado da interface do Usuário, pode testar a experiência de pesquisa no painel inferior.
+|Parâmetro  |Descrição  |
+|---------|---------|
+|Pesquisa segura     | Um filtro utilizado para filtrar as páginas Web para o conteúdo para adultos. Apenas disponível para os pontos de extremidade da Web, imagem, vídeo e hospedado da interface do Usuário.        |
+|Idioma da Interface do usuário    | O idioma usado para cadeias de caracteres de interface de utilizador. Por exemplo, se ativar imagens e vídeos na interface do Usuário do hospedado, o **imagem** e **vídeo** separadores utilizam o idioma especificado.        |
+|Contagem     | O número de resultados da pesquisa para devolver na resposta. Disponível apenas para pontos finais de Web, imagem e vídeo.         |
+|Desvio    | O número de resultados de pesquisa a ignorar antes de retornar resultados. Disponível apenas para pontos finais de Web, imagem e vídeo.        |
+    
+Depois de especificar todas as opções necessárias, clique em **chamar** para ver a resposta JSON no painel da direita. Se selecionar o ponto de extremidade hospedado da interface do Usuário, pode testar a experiência de pesquisa no painel inferior.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

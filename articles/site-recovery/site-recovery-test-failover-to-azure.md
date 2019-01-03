@@ -3,16 +3,17 @@ title: Executar um teste de recuperação após desastre para o Azure com o Azur
 description: Saiba mais sobre como executar um teste de recuperação após desastre no local para o Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844690"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976564"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure 
 
@@ -30,11 +31,11 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 
 1. No Site Recovery no portal do Azure, clique em **planos de recuperação** > *recoveryplan_name* > **ativação pós-falha de teste**.
 2. Selecione um **ponto de recuperação** ao qual pretende efetuar a ativação pós-falha. Pode utilizar uma das opções seguintes:
-    - **Processado mais recentemente**: esta opção faz a ativação pós-falha de todas as VMs no plano do ponto de recuperação mais recente processado pelo Site Recovery. Para ver o ponto para uma VM específica de recuperação mais recente, verifique **pontos de recuperação mais recentes** nas definições de VM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-    - **Mais recente consistente com a aplicação**: esta opção faz a ativação pós-falha de todas as VMs no plano para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery. Para ver o ponto para uma VM específica de recuperação mais recente, verifique **pontos de recuperação mais recentes** nas definições de VM.
-    - **Mais recente**: esta opção processa primeiro todos os dados que tenham sido enviados para o serviço de recuperação de Site, para criar um ponto de recuperação para cada VM antes de realizar a ativação pós-falha para o mesmo. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação), uma vez que a VM criada após a ativação pós-falha terá todos os dados replicados para o Site Recovery quando a ativação pós-falha foi acionada.
-    - **MULTI-VM mais recente processado**: esta opção está disponível para planos de recuperação com uma ou mais VMs que tenham a consistência multi VM ativada. As VMs com a definição ativada com a ativação pós-falha do ponto de recuperação consistente de várias VMS mais recente. Outras VMs com a ativação pós-falha do ponto de recuperação processado mais recente.  
-    - **MULTI-VM mais recente consistente com a aplicação**: esta opção está disponível para planos de recuperação com uma ou mais VMs que tenham a consistência multi VM ativada. VMs que fazem parte de um grupo de replicação a ativação pós-falha do ponto de recuperação consistentes com aplicações de várias VMS mais recente. Outras VMs com a ativação pós-falha para o ponto de recuperação consistente com a aplicação mais recente.
+    - **Processado mais recentemente**: Esta opção faz a ativação pós-falha de todas as VMs no plano do ponto de recuperação mais recente processado pelo Site Recovery. Para ver o ponto para uma VM específica de recuperação mais recente, verifique **pontos de recuperação mais recentes** nas definições de VM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+    - **Mais recente consistente com a aplicação**: Esta opção faz a ativação pós-falha de todas as VMs no plano para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery. Para ver o ponto para uma VM específica de recuperação mais recente, verifique **pontos de recuperação mais recentes** nas definições de VM.
+    - **Mais recente**: Esta opção processa primeiro todos os dados que tenham sido enviados para o serviço de recuperação de Site, para criar um ponto de recuperação para cada VM antes de realizar a ativação pós-falha para o mesmo. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação), uma vez que a VM criada após a ativação pós-falha terá todos os dados replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+    - **MULTI-VM mais recente processado**: Esta opção está disponível para planos de recuperação com uma ou mais VMs que tenham a consistência multi VM ativada. As VMs com a definição ativada com a ativação pós-falha do ponto de recuperação consistente de várias VMS mais recente. Outras VMs com a ativação pós-falha do ponto de recuperação processado mais recente.  
+    - **MULTI-VM mais recente consistente com a aplicação**: Esta opção está disponível para planos de recuperação com uma ou mais VMs que tenham a consistência multi VM ativada. VMs que fazem parte de um grupo de replicação a ativação pós-falha do ponto de recuperação consistentes com aplicações de várias VMS mais recente. Outras VMs com a ativação pós-falha para o ponto de recuperação consistente com a aplicação mais recente.
     - **Custom**: Utilize esta opção para efetuar a ativação pós-falha de uma VM específica para um ponto de recuperação específico.
 3. Selecione uma rede virtual do Azure na qual as VMs de teste será criado.
 
@@ -52,10 +53,10 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 
 Quando uma ativação pós-falha de teste é acionada, ocorre o seguinte:
 
-1. **Pré-requisitos**: uma verificação dos pré-requisitos é executado para certificar-se de que todas as condições necessárias para a ativação pós-falha são cumpridas.
+1. **Pré-requisitos**: Uma verificação dos pré-requisitos é executado para certificar-se de que todas as condições necessárias para a ativação pós-falha são cumpridas.
 2. **Ativação pós-falha**: A ativação pós-falha processa e preparar os dados, para que uma VM do Azure podem ser criada a partir do mesmo.
 3. **Mais recente**: Se tiver escolhido o último ponto de recuperação, é criado um ponto de recuperação dos dados foi enviado para o serviço.
-4. **Iniciar**: este passo cria uma máquina virtual do Azure com os dados processados no passo anterior.
+4. **Iniciar**: Este passo cria uma máquina virtual do Azure com os dados processados no passo anterior.
 
 ### <a name="failover-timing"></a>Tempo de ativação pós-falha
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278683"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608448"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,17 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>Estado da versão
+
+12/18/2018: Lançado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+Esta compilação atualiza os conectores não padrão (por exemplo, o conector LDAP genérico e o conector do SQL genérico) fornecidos com o Azure AD Connect. Para obter mais informações sobre conectores aplicável, consulte versão 1.1.911.0 na [histórico de versões do conector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## <a name="12690"></a>1.2.69.0
 
@@ -485,7 +496,7 @@ Estado: 05 de Setembro de 2017
 * Quando configurar um novo farm do AD FS através do AAD Connect, a página onde as credenciais do AD FS foi movida para que ele ocorra agora antes do usuário é solicitado a fornecer servidores AD FS e WAP.  Isso permite que o AAD Connect verificar que a conta especificada tem as permissões corretas.
 * Durante a atualização do AAD Connect, nós já não falhará uma atualização se a confiança do ADFS AAD não consegue atualizar.  Se isto acontecer, o usuário será apresentado uma mensagem de aviso apropriada e deve continuar para repor a fidedignidade através da tarefa de adicional do AAD Connect.
 
-### <a name="seamless-single-sign-on"></a>Totalmente integrado início de sessão único
+### <a name="seamless-single-sign-on"></a>Início de Sessão Único Totalmente Integrado
 #### <a name="fixed-issues"></a>Problemas corrigidos
 * Foi corrigido um problema que causou o Assistente do Azure AD Connect retornar um erro se tentar ativar [totalmente integrada Single Sign-On](how-to-connect-sso.md). A mensagem de erro é *"Configuração do Microsoft Azure AD Connect do agente de autenticação falhou."* Este problema afeta os clientes existentes que atualizaram manualmente os agentes de autenticação para a versão de pré-visualização [autenticação pass-through](how-to-connect-sso.md) com base nos passos descritos na [artigo](how-to-connect-pta-upgrade-preview-authentication-agents.md).
 

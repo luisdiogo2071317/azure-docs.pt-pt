@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3131afb31fd08903bb349f86634d2b9e6449c59e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407937"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752661"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -42,7 +42,7 @@ Os contadores de predefinição atual, que são recolhidos para aplicações web
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-Para ver todos os seus gráficos mais úteis num único lugar, crie uma [dashboard](app-insights-dashboards.md) e afixá-los à mesma.
+Para ver todos os seus gráficos mais úteis num único lugar, crie uma [dashboard](../azure-monitor/app/app-insights-dashboards.md) e afixá-los à mesma.
 
 ## <a name="add-counters"></a>Adicionar contadores
 
@@ -99,7 +99,7 @@ Ou pode fazer a mesma coisa com métricas personalizadas que criou:
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
-Pode pesquisar e apresentar relatórios de contador de desempenho na [Analytics](app-insights-analytics.md).
+Pode pesquisar e apresentar relatórios de contador de desempenho na [Analytics](../azure-monitor/app/analytics.md).
 
 O **performanceCounters** esquema expõe a `category`, `counter` nome, e `instance` nome de cada contador de desempenho.  A telemetria de cada aplicativo, verá apenas os contadores para essa aplicação. Por exemplo, para ver quais contadores estão disponíveis: 
 
@@ -120,15 +120,15 @@ Como outra telemetria **performanceCounters** também tem uma coluna `cloud_Role
 
 * *Taxa de exceções* é um contador de desempenho do sistema. O CLR conta todas as exceções a processadas e não processadas que são geradas e divide o total num intervalo de amostragem pelo comprimento do intervalo. O SDK do Application Insights recolhe este resultado e envia-os para o portal.
 
-* *Exceções* é uma contagem dos relatórios TrackException recebido pelo portal no intervalo de amostragem do gráfico. Ele inclui apenas as exceções manipuladas em que escreveu TrackException chama em seu código e não incluir a totalidade [exceções não processadas](app-insights-asp-net-exceptions.md). 
+* *Exceções* é uma contagem dos relatórios TrackException recebido pelo portal no intervalo de amostragem do gráfico. Ele inclui apenas as exceções manipuladas em que escreveu TrackException chama em seu código e não incluir a totalidade [exceções não processadas](../azure-monitor/app/asp-net-exceptions.md). 
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos do ASP.Net Core
 Contadores de desempenho são suportados apenas se o aplicativo se destina o .NET Framework completo. Não existe nenhuma capacidade para coletar os contadores de desempenho para o .net aplicativos principais.
 
 ## <a name="alerts"></a>Alertas
-Como outras métricas, pode [definir um alerta](app-insights-alerts.md) para avisá-lo se um contador de desempenho sair de um limite que especificar. Abrir o painel de alertas e clique em Adicionar alerta.
+Como outras métricas, pode [definir um alerta](../azure-monitor/app/alerts.md) para avisá-lo se um contador de desempenho sair de um limite que especificar. Abrir o painel de alertas e clique em Adicionar alerta.
 
 ## <a name="next"></a>Passos seguintes
-* [Rastreamento de dependências](app-insights-asp-net-dependencies.md)
-* [Controlo de exceções](app-insights-asp-net-exceptions.md)
+* [Rastreamento de dependências](../azure-monitor/app/asp-net-dependencies.md)
+* [Controlo de exceções](../azure-monitor/app/asp-net-exceptions.md)
 

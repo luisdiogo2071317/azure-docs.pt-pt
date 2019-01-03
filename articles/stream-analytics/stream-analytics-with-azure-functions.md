@@ -2,8 +2,7 @@
 title: 'Tutorial: Executar funções do Azure com tarefas do Azure Stream Analytics | Documentos da Microsoft'
 description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164165"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993013"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 
@@ -152,7 +151,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Abra a sua tarefa do Stream Analytics no portal do Azure.  
 
-2. Navegue para a sua função e selecione **Descrição Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O novo adaptador de saída das Funções está disponível com as seguintes propriedades:  
+2. Navegue para a sua função e selecione **Descrição Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída das funções tem as seguintes propriedades:  
 
    |**Nome da propriedade**|**Descrição**|
    |---|---|
@@ -160,7 +159,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
    |Opção de Importar| Pode utilizar a função da subscrição atual ou fornecer as definições manualmente se a função estiver localizada noutra subscrição. |
    |Aplicação de Funções| Nome da sua aplicação de Funções. |
    |Função| Nome da função na sua Aplicação de funções (nome da sua função run.csx).|
-   |Tamanho Máx. de Lote|Define o tamanho máximo para cada lote de saída que é enviado para a sua função. Por predefinição, este valor está definido como 256 KB.|
+   |Tamanho Máx. de Lote|Define o tamanho máximo para cada lote de saída que é enviado para a sua função em bytes. Por predefinição, este valor é definido como 262.144 bytes (256 KB).|
    |Contagem Máx. de Lotes|Especifica o número máximo de eventos em cada lote que é enviado para a função. O valor predefinido é 100. Esta propriedade é opcional.|
    |Chave|Permite-lhe utilizar uma função a partir de outra subscrição. Indique o valor da chave para aceder à sua função. Esta propriedade é opcional.|
 

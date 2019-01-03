@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit para IntelliJ: depurar aplicações remotamente no HDInsight Spark '
+title: 'Azure Toolkit para IntelliJ: Depurar aplicações remotamente no HDInsight Spark '
 description: Saiba como utilizar ferramentas do HDInsight no Azure Toolkit para IntelliJ para depurar remotamente aplicações do Spark que são executadas em clusters do HDInsight através de VPN.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: e973c1895a331969eea9997f7122268a9ff783bd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e57257c6965f0da8c2d6ce990d2425847b73884f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584745"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605798"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilizar o Azure Toolkit para IntelliJ depurar aplicações do Apache Spark remotamente no HDInsight através de VPN
 
@@ -34,8 +34,8 @@ Este artigo fornece orientações passo a passo sobre como utilizar as ferrament
 * **Kit de desenvolvimento do Java de Oracle**. Pode instalá-lo do [Web site do Oracle](https://aka.ms/azure-jdks).
 * **IntelliJ IDEIA**. Este artigo utiliza a versão 2017.1. Pode instalá-lo do [Web site da JetBrains](https://www.jetbrains.com/idea/download/).
 * **Ferramentas do HDInsight no Azure Toolkit para IntelliJ**. Ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Azure Toolkit para IntelliJ. Para obter instruções sobre como instalar o Kit de ferramentas do Azure, consulte [instalar o Azure Toolkit para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
-* **Iniciar sessão na sua subscrição do Azure a partir IntelliJ IDEIA**. Siga as instruções em [utilizar o Azure Toolkit para IntelliJ criar Spark aplicações para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Solução de exceção**. Ao executar a aplicação Spark Scala para depuração remota num computador Windows, poderá receber uma exceção. Essa exceção é explicada na [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um ficheiro de WinUtils.exe em falta no Windows. Para contornar este erro, deve [transfira o ficheiro executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para uma localização, como **C:\WinUtils\bin**. Adicionar uma **HADOOP_HOME** variável de ambiente e, em seguida, defina o valor da variável a ser **C\WinUtils**.
+* **Iniciar sessão na sua subscrição do Azure a partir IntelliJ IDEIA**. Siga as instruções em [utilizar o Azure Toolkit para IntelliJ criar aplicativos de Apache Spark para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md).
+* **Solução de exceção**. Ao executar a aplicação Spark Scala para depuração remota num computador Windows, poderá receber uma exceção. Essa exceção é explicada na [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um ficheiro de WinUtils.exe em falta no Windows. Para contornar este erro, deve [transfira o ficheiro executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para uma localização, como **C:\WinUtils\bin**. Adicionar uma **HADOOP_HOME** variável de ambiente e, em seguida, defina o valor da variável a ser **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Passo 1: Criar uma rede virtual do Azure
 Siga as instruções das ligações seguintes para criar uma rede virtual do Azure e, em seguida, certifique-se a conectividade entre o computador de secretária e a rede virtual:
@@ -44,7 +44,7 @@ Siga as instruções das ligações seguintes para criar uma rede virtual do Azu
 * [Criar uma VNet com uma ligação de VPN de site a site com o PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Configurar uma ligação de ponto a site a uma rede virtual com o PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Passo 2: Criar um cluster do Spark do HDInsight
+## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Passo 2: Criar um cluster do Spark no HDInsight
 Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, que faz parte da rede virtual do Azure que criou. Utilize as informações disponíveis no [baseado em Linux criar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Como parte da configuração opcional, selecione a rede virtual do Azure que criou no passo anterior.
 
 ## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>Passo 3: Verificar a conectividade entre o nó principal do cluster e o seu ambiente de trabalho
@@ -259,21 +259,21 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
     ![Saída da consola](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
 ## <a name="seealso"></a>Passos seguintes
-* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demonstração
-* Criar projeto de Scala (vídeo): [criar aplicações de Scala do Apache Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Depuração remota (vídeo): [utilizar o Azure Toolkit para IntelliJ depurar aplicações do Apache Spark remotamente num cluster do HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Crie projeto de Scala (vídeo): [Criar aplicações do Apache Spark Scala](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Depuração remota (vídeo): [Utilizar o Azure Toolkit para IntelliJ depurar aplicações do Apache Spark remotamente num cluster do HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Apache Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)

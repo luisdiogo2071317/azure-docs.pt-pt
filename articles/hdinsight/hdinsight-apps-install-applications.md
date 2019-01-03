@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 993d3dc065b792cc6d4ca0b1321cb1950cea85d8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093561"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652626"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight
 
@@ -28,14 +28,14 @@ A lista seguinte mostra as aplicações publicadas:
 * **O cask CDAP para HDInsight** fornece a primeira plataforma de integração unificada para macrodados que reduz o tempo de produção de aplicações de dados de data lakes em 80%. Esta aplicação apenas suporta clusters Standard HBase 3.4.
 * **DATAIKU DDS no HDInsight** permite aos profissionais de dados para criar protótipos, criar e implementar serviços altamente específicos que transformam dados não processados em predições de negócio com impacto.
 * **Datameer** é uma plataforma escalonável self-service para preparar, explorar, e que regem os dados para análise acelera a transformar dados multisource complexos em informações valiosas de pronto a utilizar, fornecendo o insights rápidos e inteligentes num escala empresarial.
-* **H2O Artificial Intelligence para o HDInsight (Beta)** Sparkling Water da H2O oferece suporte aos seguintes algoritmos distribuídos: GLM, Bayes Ingênua, distribuídas Random floresta, máquina aumentam a gradação, redes Neurais profundas, K-means, o PCA, de aprendizagem profunda Modelos de classificação baixos generalizados, deteção de anomalias e Autoencoders.
+* **H2O Artificial Intelligence para o HDInsight (Beta)** Sparkling Water da H2O oferece suporte aos seguintes algoritmos distribuídos: GLM, Bayes Ingênua, distribuídas Random floresta, máquina aumentam a gradação, redes Neurais profundas, aprendizagem profunda, K-means, PCA, modelos de classificação de baixa generalizada, deteção de anomalias e Autoencoders.
 * **O Kyligence Enterprise**, com tecnologia Apache Kylin, traz informações instantâneas em grandes conjuntos de dados para analistas de dados e os utilizadores empresariais. Com tecnologia de aprendizagem de ponta e a funcionalidade de modelagem de dados inteligentes, bastante melhora a produtividade de análise de macrodados. 
 * **Preparação de dados de autoatendimento a Adaptive**
 * **Servidor de tarefas do Spark para o Executor do Spark de KNIME** servidor de tarefas do Spark para o Executor do Spark de KNIME é utilizada para ligar a plataforma de análise de KNIME a clusters do HDInsight.
 * **Starburst Presto** Presto é um rápidas e dimensionável distribuído motor de consulta SQL. Criado para a separação de armazenamento e computação, Presto é perfeito para consultar dados no armazenamento do Azure Data Lake, bases de dados do armazenamento de Blobs do Azure, SQL e NoSQL e outras origens de dados.
 * O **Recoletor de dados de Streamsets para o HDnsight** fornece um ambiente de desenvolvimento integrado com todas as funcionalidades (IDE) que lhe permite estruturar, testar, implementa e gerir qualquer para qualquer pipelines de ingestão que misturam fluxo e lote de dados e incluem uma variedade de transformações no fluxo — tudo isto sem ter de escrever código personalizado. 
 * **Striim** (pronuncia-se de "stream") é um ponto-a-ponto de transmissão em fluxo integração de dados + plataforma de informações, permitindo contínua ingestão, processamento e análise de fluxos de dados diferentes.
-* **[Trifacta](http://www.trifacta.com/)**  permite que os engenheiros de dados e analistas explorar e preparar os dados de diversos dos dias de hoje com a utilização de machine learning para fornecer uma experiência de usuário de progresso, o fluxo de trabalho e a arquitetura de forma mais eficiente.
+* **[Trifacta](https://www.trifacta.com/)**  permite que os engenheiros de dados e analistas explorar e preparar os dados de diversos dos dias de hoje com a utilização de machine learning para fornecer uma experiência de usuário de progresso, o fluxo de trabalho e a arquitetura de forma mais eficiente.
 * **Plataforma de dados de UNIFI** é um conjunto integrado de forma totalmente integrada de ferramentas de dados de gestão personalizada criadas para oferecer ao usuário de negócios para lidar com os desafios de dados essa receita incremental de unidade, reduzir os custos ou complexidade operacional. 
 * **O WANdisco Fusion HDI aplicação** permite conectividade contínua de consistente a dados à medida que muda independentemente de onde está localizado. Ele fornece acesso aos seus dados em qualquer altura e em qualquer lugar com nenhum tempo de inatividade e sem interrupção.
 * **Waterline** cataloga, organiza e rege dados através de ia para dados de autotag com termos de negócios. Catálogo de alfabetizada do waterline corporativos é um componente de sucesso críticos, para análises de autoatendimento, conformidade e governação e iniciativas de gestão de TI.
@@ -81,9 +81,9 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
    
    * Nome da aplicação: o nome da aplicação.
    * Estado: o estado da aplicação. 
-   * Página da Web: O URL da aplicação web que implementou no nó de extremidade. A credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster.
-   * Ponto final de HTTP: a credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster. 
-   * Ponto final de SSH: pode utilizar o SSH para ligar ao nó de extremidade. As credenciais de SSH são as mesmas que as credenciais de utilizador de SSH que configurou para o cluster. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * Página Web: O URL da aplicação web que implementou no nó de extremidade. A credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster.
+   * Ponto final de HTTP: A credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster. 
+   * Ponto final SSH: Pode utilizar o SSH para ligar ao nó de extremidade. As credenciais de SSH são as mesmas que as credenciais de utilizador de SSH que configurou para o cluster. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. Para eliminar uma aplicação, clique com o botão direito do aplicativo e, em seguida, clique em **eliminar** no menu de contexto.
 
 ## <a name="connect-to-the-edge-node"></a>Ligar ao nó de extremidade
@@ -96,7 +96,7 @@ Veja [Troubleshoot the installation (Resolver problemas de instalação)](hdinsi
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada para o HDInsight.
-* [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
+* [Publicar aplicações HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar aplicações HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseados em Linux através da Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como utilizar a Ação de Script para instalar outras aplicações.
 * [Criar clusters do Apache Hadoop baseado em Linux no HDInsight com modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Saiba como chamar modelos do Resource Manager para criar clusters do HDInsight.

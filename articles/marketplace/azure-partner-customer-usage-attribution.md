@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262606"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602176"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -29,7 +29,7 @@ Agora, a Microsoft oferece um método para ajudar os parceiros a controlar melho
 
 Como um parceiro da Microsoft, pode associar a utilização do Azure com todos os recursos do Azure que for aprovisionado em nome de um cliente. É possível formar a associação através do Azure Marketplace, o repositório início rápido, repositórios de GitHub privados e captação de clientes de um para um. Para ativar o controlo, existem duas abordagens:
 
-- Modelos Azure Resource Manager: modelos do Resource Manager ou modelos de soluções para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
+- Modelos do Azure Resource Manager: Modelos do Resource Manager ou modelos de soluções para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
 - APIs do Resource Manager do Azure: Parceiros podem chamar as APIs do Resource Manager diretamente a implementar um modelo do Resource Manager ou a gerar as chamadas à API para aprovisionar diretamente os serviços do Azure. 
 
 Atribuição de utilização do cliente é necessária em todos os [modelos de soluções](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas no Azure Marketplace. 
@@ -270,15 +270,11 @@ Microsoft fornece aos parceiros com uma visão de implementações dos clientes 
 
 **Quem pode adicionar um GUID para um modelo?**
 
-O recurso de controle destina-se para se ligar soluções de parceiros para a utilização do Azure do cliente. Os dados de utilização estão associados à identidade de um parceiro Microsoft Partner Network (MPN ID). Os relatórios estão disponíveis para parceiros no CPP.
+O recurso de controle destina-se para se ligar soluções de parceiros para a utilização do Azure do cliente. Os dados de utilização estão associados à identidade de um parceiro Microsoft Partner Network (MPN ID). 
 
 **Depois de um GUID é adicionado, pode ela ser alterada?**
  
 Sim, um parceiro de implementação ou do cliente pode personalizar o modelo e pode alterar ou remover o GUID. Sugerimos que parceiros descrevem proativamente a função do recurso e GUID para seus clientes e parceiros para impedir a remoção ou edições feitas para o GUID de controlo. O GUID a alteração afeta apenas as implementações de novo, não existentes e recursos.
-
-**Quando reporting estará disponível?**
-
-Uma versão beta do reporting deve estar disponível em breve. Relatórios serão integrados a CPP.
 
 **Pode controlar implementados a partir de um repositório de terceiros como o GitHub de modelos?**
 

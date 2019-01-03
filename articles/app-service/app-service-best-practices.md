@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261828"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715610"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
 Este artigo resume as melhores práticas para utilizar [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Quando que uma aplicação consome mais memória do que o esperado, como indicad
 ## <a name="CPUresources"></a>Quando aplicativos consumam mais CPU do que o esperado
 Quando observar um aplicativo consome mais CPU do que o esperado ou experiências repetidos picos de CPU como indicado por meio de recomendações de monitorização ou serviços específico, considere aumentar ou reduzir horizontalmente o plano do serviço de aplicações. Se seu aplicativo for com monitoração de estado, o aumento vertical é a única opção, enquanto se seu aplicativo estiver fora sem monitoração de estado, dimensionamento dá-lhe mais flexibilidade e mais alto potencial de dimensionamento. 
 
-Para obter mais informações sobre os aplicativos "sem monitoração de estado" de "com monitoração de estado" vs pode ver este vídeo: [Planeamento de uma aplicação de várias camadas de ponto a ponto escalável no Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no serviço de aplicações do Azure](web-sites-scale.md).  
+Para obter mais informações sobre os aplicativos "sem monitoração de estado" de "com monitoração de estado" vs pode ver este vídeo: [Planeamento de uma aplicação de várias camadas de ponto a ponto escalável no serviço de aplicações do Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no serviço de aplicações do Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de soquete são esgotados
 Um motivo comum para esgotar ligações de saída de TCP é a utilização das bibliotecas de cliente, que não é implementado para reutilizar conexões TCP, ou quando não é utilizado um protocolo de alto nível, como HTTP - Keep-Alive. Reveja a documentação para cada uma das bibliotecas referenciadas pelas aplicações no seu plano de serviço de aplicações para garantir que eles são configurados ou acessados no seu código para reutilização eficiente de ligações de saída. Siga também as diretrizes de documentação da biblioteca para criação adequada e a versão ou a limpeza para evitar a fuga de ligações. Enquanto tais investigações de bibliotecas de cliente estão em curso, o impacto pode ser mitigado ao aumentar horizontalmente para várias instâncias.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>Quando a aplicação criar cópias de segurança começa a falhar
 Os dois motivos mais comuns, por que está a falha de cópia de segurança de aplicação: definições de armazenamento inválido e a configuração de base de dados inválido. Estas falhas normalmente ocorrem quando há alterações aos recursos de armazenamento ou base de dados ou as alterações para saber como aceder a estes recursos (por exemplo, credenciais atualizadas para a base de dados selecionada nas definições de cópia de segurança). Normalmente, as cópias de segurança executam numa agenda e necessitam de acesso a bancos de dados e de armazenamento (para produzir os ficheiros de cópia de segurança) (para copiar e ler o conteúdo a serem incluídos na cópia de segurança). O resultado da falha ao aceder a qualquer um destes recursos seria falha de cópia de segurança consistente. 
 
-Quando ocorrem falhas de cópia de segurança, reveja os resultados mais recentes para compreender o tipo de falha que está acontecendo. Para falhas de acesso de armazenamento, rever e atualizar as definições de armazenamento utilizadas na configuração de cópia de segurança. Para falhas de acesso de base de dados, rever e atualizar suas cadeias de caracteres de ligações como parte das definições da aplicação; em seguida, avance para atualizar a configuração de cópia de segurança para incluir corretamente as bases de dados necessárias. Para obter mais informações sobre cópias de segurança de aplicação, consulte [cópia de segurança numa aplicação web no App Service do Azure](web-sites-backup.md).
+Quando ocorrem falhas de cópia de segurança, reveja os resultados mais recentes para compreender o tipo de falha que está acontecendo. Para falhas de acesso de armazenamento, rever e atualizar as definições de armazenamento utilizadas na configuração de cópia de segurança. Para falhas de acesso de base de dados, rever e atualizar suas cadeias de caracteres de ligações como parte das definições da aplicação; em seguida, avance para atualizar a configuração de cópia de segurança para incluir corretamente as bases de dados necessárias. Para obter mais informações sobre cópias de segurança de aplicação, consulte [cópia de segurança numa aplicação web no App Service do Azure](manage-backup.md).
 
 ## <a name="nodejs"></a>Quando novas de node. js aplicações são implementadas no serviço de aplicações do Azure
 Configuração de padrão do serviço de aplicações do Azure para aplicações node. js destina-se que melhor se adapte às necessidades das aplicações mais comuns. Se a configuração para a sua aplicação node. js beneficiariam com a otimização personalizadas para melhorar o desempenho ou otimizar a utilização de recursos para os recursos de CPU/memória/rede, consulte [melhores práticas e guia de resolução de problemas para as aplicações de nó nas aplicações do Azure Serviço](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Este artigo descreve as definições do iisnode, poderá ter de configurar para a sua aplicação node. js, descreve os vários cenários ou problemas que a sua aplicação possa estar a deparar e mostra como resolver estes problemas.

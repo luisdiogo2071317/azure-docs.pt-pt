@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4f0e4a745aa054f96bf2ce90ff6f2c33588d1337
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833630"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974017"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Efetuar a ativação pós-falha de VMs e servidores físicos 
 
@@ -39,11 +39,11 @@ Este procedimento descreve como executar uma ativação pós-falha para uma [pla
 
 1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **ativação pós-falha**
 2. Sobre o **ativação pós-falha** ecrã, selecione um **ponto de recuperação** a ativação pós-falha. Pode utilizar uma das opções seguintes:
-    1.  **Mais recente**: esta opção inicia a tarefa pela primeira processar todos os dados que tenham sido enviados para o serviço Site Recovery. Processar os dados cria um ponto de recuperação para cada máquina virtual. Este ponto de recuperação é utilizado pela máquina virtual durante a ativação pós-falha. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação) que a máquina virtual criada após a ativação pós-falha tem todos os dados que foram replicada para o serviço Site Recovery quando a ativação pós-falha foi acionada.
-    1.  **Processado mais recentemente**: esta opção efetuará a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação mais recente que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de data / hora do ponto de recuperação processados também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações. Como não é despendido tempo a processar os dados não processados, esta opção fornece uma opção de ativação pós-falha RTO (objetivo de tempo de recuperação) baixo.
-    1.  **Mais recente consistente com a aplicação**: esta opção efetuará a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação consistente com a mais recente do aplicativo que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de hora o mais recente consistente com a aplicação do ponto de recuperação também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações.
-    1.  **MULTI-VM mais recente processado**: esta opção só está disponível para planos de recuperação que tenham, pelo menos, uma máquina virtual com consistência de várias VMS no. Ponto de máquinas virtuais que fazem parte de um grupo de replicação ativação pós-falha para a recuperação mais recente comuns multi-VMS consistente. Outra ativação pós-falha de máquinas virtuais para o ponto mais recente processado recuperação.  
-    1.  **MULTI-VM mais recente consistente com a aplicação**: esta opção só está disponível para planos de recuperação que tenham, pelo menos, uma máquina virtual com Diante de consistência de várias VMS. Ponto de máquinas virtuais que fazem parte de um grupo de replicação ativação pós-falha para a recuperação mais recente comuns multi-VMS consistentes. Outra ativação pós-falha de máquinas virtuais para o ponto de recuperação consistente com a aplicação mais recente.
+    1.  **Mais recente**: Esta opção inicia a tarefa pela primeira processar todos os dados que tenham sido enviados para o serviço Site Recovery. Processar os dados cria um ponto de recuperação para cada máquina virtual. Este ponto de recuperação é utilizado pela máquina virtual durante a ativação pós-falha. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação) que a máquina virtual criada após a ativação pós-falha tem todos os dados que foram replicada para o serviço Site Recovery quando a ativação pós-falha foi acionada.
+    1.  **Processado mais recentemente**: Esta opção faz a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação mais recente que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de data / hora do ponto de recuperação processados também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações. Como não é despendido tempo a processar os dados não processados, esta opção fornece uma opção de ativação pós-falha RTO (objetivo de tempo de recuperação) baixo.
+    1.  **Mais recente consistente com a aplicação**: Esta opção faz a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação consistente com a mais recente do aplicativo que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de hora o mais recente consistente com a aplicação do ponto de recuperação também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações.
+    1.  **MULTI-VM mais recente processado**: Esta opção só está disponível para planos de recuperação que tenham, pelo menos, uma máquina virtual com Diante de consistência de várias VMS. Ponto de máquinas virtuais que fazem parte de um grupo de replicação ativação pós-falha para a recuperação mais recente comuns multi-VMS consistente. Outra ativação pós-falha de máquinas virtuais para o ponto mais recente processado recuperação.  
+    1.  **MULTI-VM mais recente consistente com a aplicação**: Esta opção só está disponível para planos de recuperação que tenham, pelo menos, uma máquina virtual com Diante de consistência de várias VMS. Ponto de máquinas virtuais que fazem parte de um grupo de replicação ativação pós-falha para a recuperação mais recente comuns multi-VMS consistentes. Outra ativação pós-falha de máquinas virtuais para o ponto de recuperação consistente com a aplicação mais recente.
     1.  **Custom**: Se estiver fazendo a ativação pós-falha de teste de uma máquina virtual, em seguida, pode utilizar esta opção para ativação pós-falha para um ponto de recuperação específico.
 
     > [!NOTE]
@@ -78,12 +78,12 @@ Máquinas virtuais/servidores físicos protegidos com o Site Recovery também su
 
 Quando uma ativação pós-falha é disparada, ela envolve os seguintes passos:
 
-1. Verificação de pré-requisitos: este passo garante que todas as condições necessárias para a ativação pós-falha são cumpridas
+1. Verificação de pré-requisitos: Este passo garante que todas as condições necessárias para a ativação pós-falha são cumpridas
 1. Ativação pós-falha: Este passo processa os dados e torna pronto para que possa ser criada a máquina virtual do Azure fora dele. Se tiver escolhido **mais recente** ponto de recuperação, este passo cria um ponto de recuperação dos dados que tenham sido enviados para o serviço.
-1. Introdução: Este passo cria uma máquina virtual do Azure com os dados processados no passo anterior.
+1. Iniciar: Este passo cria uma máquina virtual do Azure com os dados processados no passo anterior.
 
 > [!WARNING]
-> **Não cancelar em curso ativação pós-falha**: antes de iniciar a ativação pós-falha, a replicação para a máquina virtual é parada. Se **Cancelar** uma tarefa de progresso, paradas de ativação pós-falha, mas a máquina virtual não será iniciado replicar. Não é possível iniciar a replicação novamente.
+> **Não cancelar em curso ativação pós-falha**: Antes de iniciar a ativação pós-falha, a replicação para a máquina virtual é parada. Se **Cancelar** uma tarefa de progresso, paradas de ativação pós-falha, mas a máquina virtual não será iniciado replicar. Não é possível iniciar a replicação novamente.
 >
 >
 

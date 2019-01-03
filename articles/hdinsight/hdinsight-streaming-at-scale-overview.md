@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 77a3685f59c7b15473deda1894f6fd6934fafc1f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407257"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993418"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
 Soluções de macrodados em tempo real agirem sobre dados em movimento. Normalmente, estes dados são mais valiosos em seu tempo de chegada. Se o fluxo de dados de entrada se torna maior do que podem ser processadas nesse momento, se pretender limitar a redução de recursos. Em alternativa, um cluster do HDInsight, pode aumentar verticalmente para atender a sua solução de transmissão em fluxo ao adicionar nós a pedido.
 
-Num aplicativo de transmissão em fluxo, uma ou mais origens de dados estão a gerar eventos (por vezes em milhões por segundo), que tem de ser ingeridos rapidamente sem remover quaisquer informações úteis. Os eventos de entrada são processados com *fluxo na memória intermédia*, também conhecido como *fila de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [dos Hubs de eventos](https://azure.microsoft.com/services/event-hubs/). Depois de recolher os eventos, em seguida, pode analisar os dados a utilizar um sistema de análise em tempo real dentro do *processamento de fluxo* colocar em camadas, como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [do Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)e apresentadas em tempo real num business intelligence dashboard, tais como [Power BI](https://powerbi.microsoft.com), Tableau ou uma página da web personalizada .
+Num aplicativo de transmissão em fluxo, uma ou mais origens de dados estão a gerar eventos (por vezes em milhões por segundo), que tem de ser ingeridos rapidamente sem remover quaisquer informações úteis. Os eventos de entrada são processados com *fluxo na memória intermédia*, também conhecido como *fila de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [dos Hubs de eventos](https://azure.microsoft.com/services/event-hubs/). Depois de recolher os eventos, em seguida, pode analisar os dados a utilizar um sistema de análise em tempo real dentro do *processamento de fluxo* colocar em camadas, como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [armazenamento do Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)e apresentadas em tempo real num business intelligence dashboard, tais como [Power BI](https://powerbi.microsoft.com), Tableau ou um web personalizado página.
 
 ![Padrões de Streaming do HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -37,13 +37,13 @@ Para obter mais informações, consulte [o que é o Apache Storm no HDInsight do
 
 ## <a name="spark-streaming"></a>Transmissão em fluxo do Spark
 
-Transmissão em fluxo do Spark é uma extensão para Spark, permitindo-lhe reutilizar o mesmo código que utiliza para processamento em lotes. Pode combinar o batch e consultas interativas no mesmo aplicativo. Ao contrário do Storm, Spark Streaming permite com monitoração de estado exatamente-processamento semântica uma vez. Quando utilizado em combinação com o [API direta do Kafka](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka são recebidos pelo Spark Streaming exatamente uma vez, é possível obter o ponto-a-ponto exatamente-garante uma vez. Uma das vantagens do Spark Streaming é seus recursos de tolerante a falhas, a recuperação falha nós rapidamente quando vários nós que estão a ser utilizados dentro do cluster.
+Transmissão em fluxo do Spark é uma extensão para Spark, permitindo-lhe reutilizar o mesmo código que utiliza para processamento em lotes. Pode combinar o batch e consultas interativas no mesmo aplicativo. Ao contrário do Storm, Spark Streaming permite com monitoração de estado exatamente-processamento semântica uma vez. Quando utilizado em combinação com o [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka são recebidos pelo Spark Streaming exatamente uma vez, é possível obter o ponto-a-ponto exatamente-garante uma vez. Uma das vantagens do Spark Streaming é seus recursos de tolerante a falhas, a recuperação falha nós rapidamente quando vários nós que estão a ser utilizados dentro do cluster.
 
 Para obter mais informações, consulte [o que é o Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Dimensionar um cluster
 
-Embora possa especificar o número de nós do cluster durante a criação, pode querer aumentar ou diminuir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem-lhe [alterar o número de nós do cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Possível ignorar os clusters do Spark sem perda de dados, como todos os dados são armazenados no armazenamento do Azure ou o Data Lake Store.
+Embora possa especificar o número de nós do cluster durante a criação, pode querer aumentar ou diminuir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem-lhe [alterar o número de nós do cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Possível ignorar os clusters do Spark sem perda de dados, como todos os dados são armazenados no armazenamento do Azure ou o armazenamento do Data Lake.
 
 Há vantagens em tecnologias de desassociação. Por exemplo, o Kafka é um evento na memória intermédia de tecnologia, para que ele é bastante e/s intensivas e não precisa de muito poder de processamento. Em comparação, processadores de fluxos, como o Spark Streaming são intensivas de computação, que requerem mais poderosas VMs. Fazendo com que essas tecnologias dissociadas em clusters diferentes, pode ajustá-las forma independente ao utilizar as VMs melhor.
 
@@ -55,7 +55,7 @@ O fluxo na memória intermédia de tecnologias de Hubs de eventos e Kafka utiliz
 
 Apache Storm e Spark Streaming suportam a adição de nós de trabalho para os clusters, mesmo quando os dados que está a ser processados.
 
-Para tirar partido dos novos nós adicionados através do Storm de dimensionamento, tem de reequilibrar as qualquer topologias do Storm iniciadas antes de o aumento do tamanho de cluster. Este reequilíbrio pode ser feito usando o Storm web de interface do Usuário ou a CLI. Para obter mais informações, consulte a [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+Para tirar partido dos novos nós adicionados através do Storm de dimensionamento, tem de reequilibrar as qualquer topologias do Storm iniciadas antes de o aumento do tamanho de cluster. Este reequilíbrio pode ser feito usando o Storm web de interface do Usuário ou a CLI. Para obter mais informações, consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 Apache Spark utiliza três parâmetros de chave para configurar o seu ambiente, dependendo dos requisitos de aplicação: `spark.executor.instances`, `spark.executor.cores`, e `spark.executor.memory`. Uma *executor* é um processo que é iniciado para uma aplicação de Spark. Um executor é executado no nó de trabalho e é responsável pela realização de tarefas do aplicativo. O número predefinido de executores e os tamanhos de executor para cada cluster é calculado com base no número de nós de trabalho e o tamanho de nó de trabalho. Esses números são armazenados no `spark-defaults.conf`arquivo em cada nó principal do cluster.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713100"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975139"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionamento automático de cluster no Azure Kubernetes Service (AKS) - pré-visualização
 
@@ -382,7 +382,7 @@ Events:  <none>
 O estado do dimensionamento automático de cluster permite-lhe ver o estado do dimensionamento automático cluster em dois níveis diferentes: em todo o cluster e em cada grupo de nó. Uma vez que atualmente o AKS suporta apenas um conjunto de nós, estas métricas são os mesmos.
 
 * Estado de funcionamento indica o estado de funcionamento geral de nós. Se o dimensionamento automático de cluster precisa lutar criar ou remove nós no cluster, este estado será alterado para "Mau estado de funcionamento". Também é uma análise detalhada do Estado de diferentes nós:
-    * "Pronto" significa que um nó é um preparado para ter pods agendadas no mesmo.
+    * "Pronto" significa que um nó está pronto para ter pods agendadas no mesmo.
     * "Unready" significa que um nó que dividiu depois de iniciada.
     * "NotStarted" significa que um nó não está completamente iniciado.
     * "LongNotStarted" significa que um nó não conseguiu iniciar dentro de um limite razoável.
@@ -398,7 +398,7 @@ O estado do dimensionamento automático de cluster permite-lhe ver o estado do d
     * Um candidato para reduzir verticalmente é um nó que determinou o dimensionamento automático do cluster pode ser removido sem afetar a capacidade do cluster para processar a carga de trabalho. 
     * Os tempos de fornecido mostram a última vez o cluster foi marcado para reduzir verticalmente candidatos e sua última hora de transição.
 
-Por fim, em eventos, pode ver a qualquer escala ou reduzir verticalmente a eventos, com falhas ou com êxito e os tempos, de que o dimensionamento automático do cluster tem levadas a cabo.
+Por fim, em eventos, pode ver qualquer escala, segurança ou reduzir verticalmente a eventos, com falhas ou com êxito e os tempos, de que o dimensionamento automático do cluster tem levadas a cabo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

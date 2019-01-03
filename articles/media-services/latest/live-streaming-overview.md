@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000247"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788213"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -34,7 +34,7 @@ Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas 
 
 Para entregar transmissões em fluxo a pedido ou em direto com Media Services, tem de ter, pelo menos, um [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando a sua conta de serviços de multimédia é criada um **predefinição** StreamingEndpoint é adicionado à sua conta no **parado** estado. Tem de iniciar o StreamingEndpoint a partir do qual pretende transmitir o seu conteúdo para os seus utilizadores. Pode utilizar a predefinição **StreamingEndpoint**, ou criar outro personalizados **StreamingEndpoint** com a sua configuração desejada e definições da CDN. Pode optar por ativar pontos finais de vários, cada uma segmentação de uma CDN diferente e fornecer um nome de anfitrião exclusivo para a entrega de conteúdos. 
 
-Nos serviços de multimédia [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um LiveEvent, um ponto de final de entrada é criado a que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocol (MP4 fragmentado).  
+Nos serviços de multimédia [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um LiveEvent, um ponto de final de entrada é criado a que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocol (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [recomendado codificadores de transmissão em direto](recommended-on-premises-live-encoders.md).
 
 Uma vez a **LiveEvent** começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização (URL de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes da publicação ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o LiveEvent para disponibilizar a transmissão em direto para uma entrega por meio de um ou mais (previamente criado) **pontos finais**. Para tal, crie um novo [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) sobre o **LiveEvent**. 
 
@@ -42,9 +42,9 @@ O **LiveOutput** objeto é como um gravador de banda que irá capturar e registr
 
 Com serviços de multimédia pode tirar partido das **empacotamento dinâmico**, que permite-lhe visualizar e difusão de transmissões em direto na [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição de feed que são enviados para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode usar [leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) no seu web ou aplicações móveis para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
 
-Serviços de multimédia permite-lhe forneça o conteúdo encriptado dinamicamente (**encriptação dinâmica**) com o Advanced Encryption Standard (AES-128) ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Google Widevine e FairPlay da Apple. Serviços de multimédia também fornecem um serviço para entregar licenças DRM e de chaves AES para os clientes autorizados. Para obter mais informações sobre como encriptar o seu conteúdo com os Media Services, consulte [proteger descrição geral do conteúdo](content-protection-overview.md)
+Serviços de multimédia permite-lhe forneça o conteúdo encriptado dinamicamente (**encriptação dinâmica**) com o Advanced Encryption Standard (AES-128) ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entregar licenças DRM e de chaves AES para os clientes autorizados. Para obter mais informações sobre como encriptar o seu conteúdo com os Media Services, consulte [proteger descrição geral do conteúdo](content-protection-overview.md)
 
-Se assim o desejar, também pode aplicar filtragem dinâmica, que podem ser utilizadas para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. 
+Se assim o desejar, também pode aplicar filtragem dinâmica, que podem ser utilizadas para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Novos recursos para transmissão em fluxo em direto da v3
 
@@ -77,13 +77,13 @@ Ver um exemplo em direto no [MediaV3LiveApp](https://github.com/Azure-Samples/me
 
 ![codificação do Live](./media/live-streaming/live-encoding.png)
 
-Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição do feed LiveEvent (usando o protocolo RTMP ou Mp4 fragmentado). O LiveEvent codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de LiveEvent, especifique o tipo de codificação **básica** (LiveEventEncodingType.Basic).
+Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição do feed LiveEvent (usando o protocolo RTMP ou Mp4 fragmentado). O LiveEvent codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de LiveEvent, especifique o tipo de codificação **padrão** (LiveEventEncodingType.Standard).
 
 Pode enviar a contribuição de feed de cada até 1080 resolução numa taxa de quadros de 30 quadros/segundo, com o codec de vídeo H.264/AVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio. Consulte a [LiveEvent tipos de comparação e limitações](live-event-types-comparison.md) artigo para obter mais detalhes.
 
 ## <a name="liveevent-types-comparison"></a>Comparação de tipos de LiveEvent
 
-O seguinte artigo contém uma tabela que compara as funcionalidades dos dois tipos de LiveEvent: [comparação](live-event-types-comparison.md).
+O seguinte artigo contém uma tabela que compara as funcionalidades dos dois tipos de LiveEvent: [Comparação](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 

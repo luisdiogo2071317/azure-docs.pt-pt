@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138131"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809765"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gerir recursos do Azure Cosmos DB com o Explorador de armazenamento do Azure
 
-A utilização do Azure Cosmos DB no Explorador de Armazenamento do Azure permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local. Neste momento, o Explorador de Armazenamento do Azure suporta contas do SQL, MongoDB, Graph e de Tabela.
+A utilização do Azure Cosmos DB no Explorador de Armazenamento do Azure permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas do Cosmos configuradas para SQL, MongoDB, Graph e APIs de tabela.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do Azure Cosmos DB para API do SQL<!--or MongoDB API-->. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [Azure Cosmos DB: criar uma aplicação Web da SQL API com .NET e o portal do Azure](create-sql-api-dotnet.md).
+Uma conta do Cosmos com a API de SQL ou do Azure Cosmos DB API para MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [do Azure Cosmos DB: Criar uma aplicação de web da SQL API com .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
-Instale os bits mais recentes do Explorador de Armazenamento do Azure aqui: [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), suportamos agora a versão para Windows, Linux e MAC.
+Instale os mais recentes bits de Explorador de armazenamento do Azure aqui: [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), agora, suportamos a versão do Windows, Linux e MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 
@@ -222,9 +222,9 @@ Quando o Explorador de Armazenamento encontra um destes "certificados autoassina
 
 1. Instalar o Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões simples)
-     - Mac e Linux: devem estar incluídos no sistema operativo
+     - Mac e Linux: Deve ser incluído com o sistema operativo
 2. Executar o Open SSL
-    - Windows: aceda ao diretório de instalação, a **/bin/** e faça duplo clique em **openssl.exe**.
+    - Windows: Aceda ao diretório de instalação, em seguida, **/bin/**, em seguida, faça duplo clique em **openssl.exe**.
     - Mac e Linux: execute **openssl** a partir de um terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procure certificados autoassinados. Se não tiver a certeza de quais são autoassinados, verifique se o assunto ("s:") e o emissor ("i:") são os mesmos.
@@ -241,7 +241,7 @@ Se não conseguir obter as suas subscrições depois de iniciar sessão com êxi
 - Certifique-se de que tem sessão iniciada no ambiente correto ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
 - Se estiver por trás de um proxy, certifique-se de que configurou o proxy do Explorador de Armazenamento corretamente
 - Tente remover e adicionar novamente a conta
-- Tente eliminar os seguintes ficheiros do diretório raiz (como: C:\Users\ContosoUser) e, em seguida, adicionar novamente a conta:
+- Tente eliminar os seguintes ficheiros do diretório raiz (tais como: C:\Users\ContosoUser) e, em seguida, adicionar novamente a conta:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -305,6 +305,6 @@ Se nenhuma das soluções resolver o problema, envie um e-mail à equipa de Ferr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Veja o vídeo seguinte para ver como utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Veja o seguinte vídeo para ver como utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de Armazenamento e como ligar mais serviços em [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

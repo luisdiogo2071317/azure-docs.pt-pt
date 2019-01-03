@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634418"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628191"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analisar dados do sensor utilizando a consola de consultas do Apache Hive no Apache Hadoop no HDInsight
 
-Saiba como analisar dados de sensores, utilizando a consola de consulta do Hive com HDInsight (Apache Hadoop), em seguida, visualize os dados no Microsoft Excel com o Power View.
+Saiba como analisar dados de sensores utilizando a consola de consultas do Apache Hive com HDInsight (Apache Hadoop), em seguida, visualize os dados no Microsoft Excel com o Power View.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento funcionam apenas com clusters do HDInsight baseado em Windows. HDInsight só está disponível no Windows para versões mais baixos do que o HDInsight 3.4. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 
@@ -35,10 +35,10 @@ Neste exemplo, utilizar o Hive para processar dados históricos e identificar pr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do HDInsight (Hadoop): veja [criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster.
+* Um cluster do HDInsight (Hadoop): Ver [Apache Hadoop criar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster.
 * O Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel é utilizado para visualização de dados com [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Controlador Microsoft Hive ODBC](https://www.microsoft.com/download/details.aspx?id=40886)

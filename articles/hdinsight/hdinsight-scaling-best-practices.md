@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407886"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742886"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
 
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo de segurança desativada](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> O `-D` comutador é necessário porque o sistema de ficheiros predefinido no HDInsight é o armazenamento do Azure ou do Azure Data Lake Store. `-D` Especifica que os comandos são executados no sistema de ficheiros HDFS local.
+> O `-D` comutador é necessário porque o sistema de ficheiros predefinido no HDInsight é o armazenamento do Azure ou o armazenamento do Azure Data Lake. `-D` Especifica que os comandos são executados no sistema de ficheiros HDFS local.
 
 Em seguida, pode ver um relatório que mostra os detalhes do Estado do HDFS:
 

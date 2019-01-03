@@ -8,16 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: d741677252ba6787701b9ee9da84ebd38528d70e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432159"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633732"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
 O acelerador de solução de monitorização remota permite-lhe definir seus próprios dispositivos simulados. Este artigo mostra-lhe como definir um novo dispositivo simulado lâmpada e, em seguida, testá-lo localmente. O solution accelerator inclui dispositivos simulados como chillers e os autocarros. No entanto, pode definir seus próprios dispositivos simulados para testar as suas soluções de IoT antes de implementar dispositivos reais.
+
+> [!NOTE]
+> Este artigo descreve como utilizar dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo físico, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
 
 Este guia de procedimentos mostra-lhe como personalizar os microsserviços de simulação do dispositivo. Este microsserviço é parte do solution accelerator de monitorização remota. Para mostrar recursos de simulação de dispositivo, este guia de procedimentos utiliza dois cenários no aplicativo de IoT de Contoso:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285012"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582308"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar o estas notificações para outros sistemas para ações de pós-processamento ou personalizados. Este artigo mostra o payload para o HTTP POST para um webhook como fica.
@@ -161,9 +161,9 @@ O payload JSON contido na operação POST difere com base no campo de data.conte
 }
 ```
 
-Para detalhes de esquema específico sobre alertas de registo de atividade de notificação de estado de funcionamento de serviço, consulte [notificações de estado de funcionamento de serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Além disso, saiba como [configurar notificações de webhook do Estado de funcionamento de serviço com as suas soluções de gerenciamento existente do problema](../../service-health/service-health-alert-webhook-guide.md).
+Para detalhes de esquema específico sobre alertas de registo de atividade de notificação de estado de funcionamento de serviço, consulte [notificações de estado de funcionamento de serviço](../../azure-monitor/platform/service-notifications.md). Além disso, saiba como [configurar notificações de webhook do Estado de funcionamento de serviço com as suas soluções de gerenciamento existente do problema](../../service-health/service-health-alert-webhook-guide.md).
 
-Para obter detalhes de esquema específico em todos os outros alertas de registo de atividade, consulte [descrição geral do registo de atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Para obter detalhes de esquema específico em todos os outros alertas de registo de atividade, consulte [descrição geral do registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 | Nome do elemento | Descrição |
 | --- | --- |
@@ -196,7 +196,7 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 | subStatus |Normalmente, inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevem um subestado. Os valores de subestado comuns incluem OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não existe conteúdo (código de estado HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504). |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o registo de atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [Saiba mais sobre o registo de atividades](../../azure-monitor/platform/activity-logs-overview.md).
 * [Executar scripts de automatização do Azure (Runbooks) nos alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utilizar uma aplicação lógica para enviar um SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Neste exemplo é para alertas de métricas, mas pode ser modificado para funcionar com um alerta de registo de atividades.
 * [Utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Neste exemplo é para alertas de métricas, mas pode ser modificado para funcionar com um alerta de registo de atividades.

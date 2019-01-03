@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627594"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717557"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é uma área de trabalho do Translator personalizado?
 
@@ -31,7 +31,7 @@ Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclu
 
 A categoria identifica o domínio – a área de terminologia e estilo de que pretende utilizar – para o seu projeto. Escolha a categoria mais relevante para os seus documentos. Em alguns casos, à sua escolha da categoria influencia diretamente o comportamento do tradutor personalizado.
 
-Não temos os modelos personalizados para categorias, porém, exceto um sistema de linha de base geral. Contudo, ainda, recomendamos aos utilizadores que selecionem a categoria mais aplicável ao seu domínio para que possa ser utilizado como um identificador do CategoryID. Para projetos do domínio de tecnologia, selecionando "Tecnologia" garante que, quando um modelo de linha de base está disponível, o que seu projeto será capaz de usá-lo.
+Temos dois conjuntos de modelos de linha de base. Elas são gerais e tecnologia. Se a categoria **tecnologia** é selecionado, os modelos de linha de base da tecnologia serão utilizados. Para outra seleção de categoria, são utilizados os modelos de linha de base geral. O modelo de linha de base da tecnologia faz bem no domínio de tecnologia, mas mostra mais baixa qualidade, se as frases utilizadas para a tradução não se enquadram dentro do domínio de tecnologia. Sugerimos que aos clientes selecionar categoria tecnologia apenas se as frases enquadram-se estritamente dentro do domínio de tecnologia.
 
 Na mesma área de trabalho, pode criar projetos para o mesmo par de idioma em diferentes categorias. Tradutor personalizado impede a criação de um projeto de duplicados com o mesmo par de idioma e a categoria. Aplicar uma etiqueta ao seu projeto permite-lhe evitar esta restrição. Não utilize etiquetas, a menos que esteja a criar sistemas de tradução para vários clientes, como adicionar que uma etiqueta exclusiva ao seu projeto será apresentada nos seus projetos CategoryID.
 

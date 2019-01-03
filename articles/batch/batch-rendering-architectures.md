@@ -1,18 +1,19 @@
 ---
-title: Composição do Azure - arquiteturas de referência
+title: Arquiteturas de referência de composição do Azure - Batch do Azure
 description: Farm de composição de arquiteturas de utilização do Azure Batch e outros serviços do Azure para expandir no local disparando para a cloud
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: danlep
+ms.author: lahugh
 ms.date: 08/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fe101ee6eb88094034b90c4d39f06ba509c9512
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099932"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543500"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para a composição do Azure
 
@@ -24,7 +25,7 @@ O diagrama seguinte mostra um cenário híbrido, que inclui os seguintes serviç
 
 * **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
 
-* **Rede** -no local: o Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
 * **Armazenamento** - entrada e de ficheiros de saída: NFS ou CFS com VMs do Azure, sincronizadas com o armazenamento no local através do Azure File Sync ou RSync.
 
@@ -36,9 +37,9 @@ O diagrama seguinte mostra um cenário híbrido, que inclui os seguintes serviç
 
 * **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
 
-* **Rede** -no local: o Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - entrada e de ficheiros de saída: BLOBs de armazenamento, montado para recursos através do Azure Blobfuse de computação.
+* **Armazenamento** - entrada e de ficheiros de saída: Armazenamento de BLOBs, montado para recursos através do Azure Blobfuse de computação.
 
   ![Segurança - da cloud híbrida com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -48,7 +49,7 @@ O diagrama seguinte mostra um cenário híbrido totalmente conectada para comput
 
 * **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
 
-* **Rede** -no local: o Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
 * **Armazenamento** -em vários locais: Avere vFXT. Arquivamento opcional de locais ficheiros através do Azure Data Box para o armazenamento de Blobs.
 

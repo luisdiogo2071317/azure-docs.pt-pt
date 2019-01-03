@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 618be936ef0326a1b9f5db426d4c37bb2bd1c760
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263833"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535663"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ O Azure Cosmos DB espera que o tamanho do item a ser 2 MB ou menos para otimizar
 
 ## <a name="optimize-cost-with-indexing"></a>Otimizar o custo de indexação
 
-Por predefinição, os dados são indexados automaticamente, que pode aumentar o armazenamento total consumido. No entanto, pode aplicar políticas de índice personalizado para reduzir esta sobrecarga. Indexação automática que não foi ajustado por meio da diretiva é cerca de 10 a 20% do tamanho do item. Ao remover ou personalizar as políticas de índice, não tenha despesas extra para escritas de custos e não exigem a capacidade de débito adicionais. Ver [indexação no Cosmos DB](indexing-policies.md) para configurar políticas de indexação personalizadas. Se já trabalhou com bases de dados relacionais antes, pode imaginar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso do mediano, é muito inferior. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%), mesmo com o serviço de indexação automática, como ele foi projetado para um espaço de armazenamento reduzido. Ao gerir a política de indexação, pode controlar o compromisso do desempenho de requisitos de espaço e consulta de índice de uma maneira mais refinada.
+Por predefinição, os dados são indexados automaticamente, que pode aumentar o armazenamento total consumido. No entanto, pode aplicar políticas de índice personalizado para reduzir esta sobrecarga. Indexação automática que não foi ajustado por meio da diretiva é cerca de 10 a 20% do tamanho do item. Ao remover ou personalizar as políticas de índice, não tenha despesas extra para escritas de custos e não exigem a capacidade de débito adicionais. Ver [indexação no Azure Cosmos DB](indexing-policies.md) para configurar políticas de indexação personalizadas. Se já trabalhou com bases de dados relacionais antes, pode imaginar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso do mediano, é muito inferior. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%), mesmo com o serviço de indexação automática, como ele foi projetado para um espaço de armazenamento reduzido. Ao gerir a política de indexação, pode controlar o compromisso do desempenho de requisitos de espaço e consulta de índice de uma maneira mais refinada.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Otimizar o custo com a hora em direto e alterar feed
 

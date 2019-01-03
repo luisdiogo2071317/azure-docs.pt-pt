@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077754"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543568"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -166,7 +166,7 @@ Sim. Pode ter até 10 ligações de redes virtuais num circuito ExpressRoute sta
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Tenho várias subscrições do Azure que contêm as redes virtuais. Posso ligar redes virtuais que estão em subscrições separadas para um único circuito ExpressRoute?
 
-Sim. Pode autorizar até 10 outras subscrições do Azure para utilizar um único circuito ExpressRoute. Este limite pode se aumentada ao ativar a funcionalidade premium do ExpressRoute.
+Sim. Pode ligar até 10 redes virtuais na mesma subscrição que o circuito ou de diferentes subscrições com um único circuito ExpressRoute. Este limite pode se aumentada ao ativar a funcionalidade premium do ExpressRoute.
 
 Para obter mais informações, consulte [partilha de um circuito do ExpressRoute entre várias subscrições](expressroute-howto-linkvnet-arm.md).
 

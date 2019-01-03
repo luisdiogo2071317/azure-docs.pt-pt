@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023832"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793544"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito testes (NTTTCP)
 
@@ -29,10 +29,11 @@ Copie a ferramenta para duas VMs do Azure do mesmo tamanho. Uma VM funciona como
 
 #### <a name="deploying-vms-for-testing"></a>Implementação de VMs para teste
 Para efeitos deste teste, as duas VMs devem ser no mesmo serviço Cloud ou no mesmo conjunto de disponibilidade, de modo que podemos usar dos respetivos IPs interno e excluir os balanceadores de carga do teste. É possível testar com o VIP, mas esse tipo de teste está fora do escopo deste documento.
- 
+
 Tome nota do endereço IP do receptor. Vamos chamar esse IP "a.b.c.r"
 
-Anote o número de núcleos na VM. Vamos chamá-lo "\#núm\_núcleos"  
+Anote o número de núcleos na VM. Vamos chamá-lo "\#núm\_núcleos"
+
 Execute o teste NTTTCP para 300 segundos (ou 5 minutos) na VM do remetente e receptor de VM.
 
 Sugestão: Ao configurar este teste pela primeira vez, poderia tentar um período de teste mais curto para obter comentários mais cedo. Quando a ferramenta está a funcionar conforme esperado, alargar o período de teste a 300 segundos para os resultados mais precisos.

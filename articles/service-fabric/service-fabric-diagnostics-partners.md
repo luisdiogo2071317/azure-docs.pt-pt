@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 43b7b2e7b4f4da4939e08a68bc2ac7ea0a2c2a6b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459044"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974408"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitorização de recursos de infraestrutura do serviço do Azure
 
@@ -27,7 +27,7 @@ Este artigo ilustra como um monitorar seus aplicativos, clusters e infraestrutur
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Nossa integração com o Dynatrace fornece muitos fora os recursos de caixa para monitorizar os seus clusters do Service Fabric. Instalar o Dynatrace OneAgent em suas instâncias VMSS fornece contadores de desempenho e uma topologia de implementação do Service Fabric até o nível de aplicação. A Dynatrace também é uma ótima opção para monitorização no local. Confira mais os recursos listados na [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/) para ativar a Dynatrace no seu cluster. 
+Nossa integração com o Dynatrace fornece muitos fora os recursos de caixa para monitorizar os seus clusters do Service Fabric. Instalar o Dynatrace OneAgent em suas instâncias VMSS fornece contadores de desempenho e uma topologia de implementação do Service Fabric até o nível de aplicação. A Dynatrace também é uma ótima opção para monitorização no local. Confira mais os recursos listados na [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para ativar a Dynatrace no seu cluster. 
 
 ## <a name="datadog"></a>Datadog
 

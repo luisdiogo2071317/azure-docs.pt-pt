@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952057"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539590"
 ---
 # <a name="application-types-for-v20"></a>Tipos de aplicativos para o v2.0
 
@@ -121,7 +121,7 @@ Neste fluxo, a aplicação recebe um código de autorização do ponto final v2.
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicações do lado do servidor
 
-Aplicações que têm processos de longa execução ou que não funcionam sem a interação com um utilizador tem também de uma forma de aceder a recursos protegidos, como as APIs da Web. Estas aplicações podem autenticar e obter os tokens utilizando a identidade da aplicação, em vez de um utilizador delegado identidade, com o fluxo de credenciais de cliente OAuth 2.0.
+Aplicações que têm processos de longa execução ou que não funcionam sem a interação com um utilizador tem também de uma forma de aceder a recursos protegidos, como as APIs da Web. Estas aplicações podem autenticar e obter os tokens utilizando a identidade da aplicação, em vez de um utilizador delegado identidade, com o fluxo de credenciais de cliente OAuth 2.0. Pode comprovar a identidade da aplicação com um certificado ou um segredo do cliente. Para mais informações, veja [autenticar no Azure AD em aplicações daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 Neste fluxo, a aplicação interage diretamente com o `/token` ponto final para obter os pontos finais:
 

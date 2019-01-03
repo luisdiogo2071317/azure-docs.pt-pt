@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635497"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722911"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Nota:** o Dashboard não poderá mostrar corretamente o estado e a saída das funções que foram encerradas.
+**Nota:** O Dashboard não poderá mostrar corretamente o estado e a saída das funções que foram encerradas.
 
 Para obter mais informações, consulte [encerramento correto de WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**Nota:** fila, tabela e nomes de BLOBs são resolvidos sempre que uma função é chamada, mas os nomes dos contentores de BLOBs são resolvidos apenas quando o aplicativo é iniciado. Não é possível alterar o nome do contentor de BLOBs, enquanto a tarefa está em execução.
+**Nota:** Nomes de BLOBs, tabela e fila são resolvidos sempre que uma função é chamada, mas os nomes dos contentores de BLOBs são resolvidos apenas quando o aplicativo é iniciado. Não é possível alterar o nome do contentor de BLOBs, enquanto a tarefa está em execução.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Como acionar uma função manualmente
 Para acionar manualmente uma função, utilize o **chamar** ou **CallAsync** método no **JobHost** objeto e a **NoAutomaticTrigger** atributo na função, conforme mostrado no exemplo a seguir.
@@ -514,7 +514,7 @@ Saída dos métodos de consola que chamar uma função ou no **main ()** método
 
 Resultado da consola não pode ser associado a uma invocação de método em particular, porque a consola é um único thread, embora muitas funções de trabalho podem ser executadas ao mesmo tempo. É por isso que o SDK fornece cada invocação de função com seu próprio objeto de escritor de log exclusivos.
 
-Escrever [dos logs de rastreamento do aplicativo](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilize **out** (cria registos marcados como informação) e **Error** (cria registos marcados como erro). Uma alternativa é usar [rastreio ou TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e erro. Registos de rastreio de aplicações são apresentadas nos ficheiros de registo de aplicação web, as tabelas do Azure, ou blobs do Azure, dependendo de como configurar a aplicação web do Azure. Como é verdadeiro para todos os saída da consola, os registos de 100 aplicativos mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
+Escrever [dos logs de rastreamento do aplicativo](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), utilize **out** (cria registos marcados como informação) e **Error** (cria registos marcados como erro). Uma alternativa é usar [rastreio ou TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e erro. Registos de rastreio de aplicações são apresentadas nos ficheiros de registo de aplicação web, as tabelas do Azure, ou blobs do Azure, dependendo de como configurar a aplicação web do Azure. Como é verdadeiro para todos os saída da consola, os registos de 100 aplicativos mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
 
 Resultado da consola é apresentado no Dashboard apenas se o programa está em execução num trabalho Web do Azure, não se o programa está em execução localmente ou em algum outro ambiente.
 
@@ -550,7 +550,7 @@ Num trabalho Web contínuo, registos de aplicações apresentada na/dados/tarefa
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-No Azure blob a aparência de registos de aplicações como esta: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Olá, mundo!, 2014-09-26T21:01:13, erro, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Olá, mundo!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
+No Azure blob a aparência de registos de aplicações como esta: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Olá, mundo!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Olá, mundo!, 2014-09-26T21 : 01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
 
 E uma tabela do Azure a **out** e **Error** registos ter este aspeto:
 

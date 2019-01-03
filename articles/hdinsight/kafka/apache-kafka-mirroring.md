@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309043"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581033"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Utilizar MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight
 
@@ -22,7 +22,7 @@ Aprenda a usar o recurso de espelhamento do Apache Kafka para replicar tópicos 
 
 Neste exemplo, o espelhamento é utilizado para replicar tópicos entre dois clusters do HDInsight. Ambos os clusters estão numa rede Virtual do Azure na mesma região.
 
-> [!WARNING]
+> [!WARNING]  
 > Espelhamento não deve ser considerado como um meio para alcançar a tolerância a falhas. O deslocamento para itens dentro de um tópico são diferentes entre os clusters de origem e de destino, para que os clientes não podem utilizar os dois alternadamente.
 >
 > Se estiver preocupado com tolerância a falhas, deve definir os replicação para os tópicos no seu cluster. Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
@@ -45,13 +45,13 @@ Os clusters de origem e de destino podem ser diferentes do número de nós e par
 
 Se precisar de espelhar entre clusters do Kafka em redes diferentes, existem as seguintes considerações adicionais:
 
-* **Gateways**: as redes tem de ser capazes de comunicar no nível de TCPIP.
+* **Gateways**: As redes tem de ser capazes de comunicar no nível de TCPIP.
 
-* **Resolução de nomes**: O Kafka clusters em cada rede tem de ser capazes de se ligar entre si utilizando nomes de anfitrião. Isso pode exigir um servidor de sistema de nomes de domínio (DNS) em cada rede que está configurada para encaminhar pedidos para as outras redes.
+* **Resolução de nomes**: Os clusters de Kafka em cada rede tem de conseguir ligar-se entre si utilizando nomes de anfitrião. Isso pode exigir um servidor de sistema de nomes de domínio (DNS) em cada rede que está configurada para encaminhar pedidos para as outras redes.
 
     Ao criar uma rede Virtual do Azure, em vez de utilizar o DNS automática fornecido com a rede, tem de especificar um servidor DNS personalizado e o endereço IP para o servidor. Depois de ter sido criada a rede Virtual, tem, em seguida, criar uma Máquina Virtual que utilize esse endereço IP, em seguida, instalar e configurar software DNS no mesmo.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Criar e configurar o servidor DNS personalizado antes de instalar HDInsight numa rede Virtual. Não existe nenhuma configuração adicional necessária para o HDInsight utilizar o servidor DNS configurado para a rede Virtual.
 
 Para obter mais informações sobre como ligar duas redes virtuais do Azure, consulte [configurar uma ligação VNet a VNet](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -66,7 +66,7 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
    
     O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Para garantir a disponibilidade do Kafka no HDInsight, o cluster tem de conter pelo menos três nós de trabalho. Este modelo cria um cluster do Kafka que contém três nós de trabalho.
 
 2. Utilize as seguintes informações para preencher as entradas a **implementação personalizada** painel:
@@ -75,23 +75,23 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
     
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Este grupo contém o cluster do HDInsight.
 
-    * **Localização**: selecione uma localização geograficamente próximo de.
+    * **Localização**: Selecione um local geograficamente próximo de.
      
-    * **Nome do Cluster de base**: este valor é utilizado como o nome de base para clusters do Kafka. Por exemplo, introduzir **hdi** cria clusters com o nome **origem hdi** e **dest hdi**.
+    * **Nome do Cluster de base**: Este valor é utilizado como o nome de base para os clusters do Kafka. Por exemplo, introduzir **hdi** cria clusters com o nome **origem hdi** e **dest hdi**.
 
-    * **Nome de utilizador de início de sessão do cluster**: O nome de utilizador de administrador para a origem e destino clusters de Kafka.
+    * **Nome de utilizador de início de sessão do cluster**: O nome de utilizador de administrador para a origem e destino clusters do Kafka.
 
-    * **Palavra-passe de início de sessão do cluster**: clusters do Kafka a palavra-passe de utilizador do administrador para a origem e de destino.
+    * **Palavra-passe de início de sessão do cluster**: A palavra-passe de utilizador do administrador para a origem e destino clusters do Kafka.
 
     * **Nome de utilizador SSH**: O utilizador SSH para criar para a origem e destino Kafka clusters.
 
-    * **Palavra-passe SSH**: clusters do Kafka a palavra-passe do utilizador SSH para a origem e de destino.
+    * **SSH palavra-passe**: A palavra-passe do utilizador SSH para a origem e destino clusters do Kafka.
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
 4. Por fim, marque **Afixar ao dashboard** e, em seguida, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O nome dos HDInsight clusters estão **origem NOME_DE_BASE** e **dest NOME_DE_BASE**, onde NOME_DE_BASE é o nome que indicou para o modelo. Utilize esses nomes em passos posteriores ao estabelecer ligação com os clusters.
 
 ## <a name="create-topics"></a>Crie tópicos
@@ -218,7 +218,7 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
 
 7. A configuração predefinida para o Kafka no HDInsight não permite a criação automática de tópicos. Tem de utilizar uma das seguintes opções antes de iniciar o processo de espelhamento:
 
-    * **Criar os tópicos no cluster de destino**: esta opção também lhe permite definir o número de partições e o fator de replicação.
+    * **Criar os tópicos no cluster de destino**: Esta opção permite-lhe definir o número de partições e o fator de replicação.
 
         Pode criar tópicos antes do tempo com o seguinte comando:
 
@@ -228,7 +228,7 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
 
         Substitua `testtopic` com o nome do tópico para criar.
 
-    * **Configurar o cluster para a criação de tópico automática**: esta opção permite o MirrorMaker criar automaticamente os tópicos, no entanto, ele poderá criá-los com um número diferente de partições ou o fator de replicação que o tópico de origem.
+    * **Configurar o cluster para a criação de tópico automática**: Esta opção permite MirrorMaker criar automaticamente os tópicos, no entanto, ele poderá criá-los com um número diferente de partições ou o fator de replicação que o tópico de origem.
 
         Para configurar o cluster de destino para criar automaticamente os tópicos, execute estes passos:
 
@@ -254,7 +254,7 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
 
     * **– producer.config**: Especifica o ficheiro que contém as propriedades de produtor. Essas propriedades são utilizadas para criar um produtor que escreve para o *destino* cluster do Kafka.
 
-    * **– a lista de permissões**: uma lista de tópicos que MirrorMaker replica a partir do cluster de origem para o destino.
+    * **– a lista de permissões**: Uma lista de tópicos que MirrorMaker replica a partir do cluster de origem para o destino.
 
     * **– num.streams**: O número de threads de consumidor para criar.
 

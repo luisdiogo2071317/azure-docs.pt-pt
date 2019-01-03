@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273352"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634614"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utilizar o portal do Azure para criar alertas para o Azure SQL Database e o armazém de dados
 
@@ -46,13 +46,13 @@ Pode configurar e obtenha informações sobre como utilizar as regras de alerta
 1. Na [portal](https://portal.azure.com/), localize o recurso que tem interesse em monitorizar e selecioná-lo.
 2. Selecione **alertas (clássico)** na secção monitorização. O texto e o ícone podem variar um pouco para recursos diferentes.  
    
-     ![Monitorização](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Monitorização](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **APENAS O SQL DW**: Clique nas **utilização da DWU** gráfico. Selecione **ver alertas clássicos**
 
 3. Selecione o **Adicionar alerta de métrica (clássico)** botão e preencha os campos.
    
-    ![Adicionar Alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Adicionar Alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Nome** seu alerta da regra e escolha uma **Descrição**, que mostra também nos e-mails de notificação.
 5. Selecione o **métrica** que pretende monitorizar, em seguida, escolha um **condição** e **limiar** valor para a métrica. Escolha também os **período** de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta. Por exemplo, se usar o período de "PT5M" e o alerta procura por CPU superior a 80%, o alerta for acionado quando o **média** CPU já esteve acima de 80% durante 5 minutos. Depois de ocorre o primeiro acionador, novamente aciona quando a CPU média é inferior a 80% mais de 5 minutos. A medição de CPU ocorre a cada 1 minuto. Consulte a tabela abaixo para janelas de tempo suportado e a agregação escreva cada alertar a utilizações e não todos os alertas, use o valor médio.   
 6. Verificar **os proprietários de E-Mail...**  se pretender que os administradores e coadministradores, para ser enviado por e-mail quando o alerta é acionado.
@@ -80,7 +80,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 | Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Média | 5 minutos |
 | Base de dados SQL | armazenamento | Tamanho total da base de dados | Máximo | 30 minutos |
 | Base de dados SQL | connection_successful | Ligações com êxito | Total | 10 minutos |
-| Base de dados SQL | connection_failed | Ligações Falhadas | Total | 10 minutos |
+| Base de dados SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | Base de dados SQL | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
 | Base de dados SQL | Deadlock | Impasses | Total | 10 minutos |
 | Base de dados SQL | storage_percent | Percentagem de tamanho da Base de Dados | Máximo | 30 minutos |
@@ -105,7 +105,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 | SQL data warehouse | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
 | SQL data warehouse | armazenamento | Tamanho total da base de dados | Máximo | 10 minutos |
 | SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
-| SQL data warehouse | connection_failed | Ligações Falhadas | Total | 10 minutos |
+| SQL data warehouse | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
 | SQL data warehouse | service_level_objective | Escalão de serviço da base de dados | Total | 10 minutos |
 | SQL data warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
@@ -117,5 +117,5 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 ## <a name="next-steps"></a>Passos Seguintes
 * [Obtenha uma visão geral da monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md) incluindo os tipos de informações pode recolher e monitorizar.
 * Saiba mais sobre [configurar webhooks nos alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obter um [descrição geral dos registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e recolher métricas de alta frequência detalhadas no seu serviço.
+* Obter um [descrição geral dos registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) e recolher métricas de alta frequência detalhadas no seu serviço.
 * Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e reativo.
