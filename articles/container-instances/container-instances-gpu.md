@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994005"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755024"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentor que utilizam recursos GPU
 
-Para executar determinadas cargas de trabalho intensivas de computação no Azure Container Instances, implementar os grupos de contentor com o *recursos GPU*. As instâncias de contentor podem aceder a um ou mais NVIDIA das GPUs Tesla ao executar cargas de trabalho do contentor como CUDA e aprendizagem profunda de aplicativos.
+Para executar determinadas cargas de trabalho intensivas de computação no Azure Container Instances, implementar sua [grupos de contentores](container-instances-container-groups.md) com *recursos GPU*. As instâncias de contentores no grupo podem aceder a um ou mais NVIDIA das GPUs Tesla ao executar cargas de trabalho do contentor como CUDA e aprendizagem profunda de aplicativos.
 
 Como é mostrado neste artigo, pode adicionar recursos GPU quando implementar um grupo de contentores com um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [modelo do Resource Manager](container-instances-multi-container-group.md).
 
@@ -40,9 +40,9 @@ Em pré-visualização, as seguintes limitações aplicam-se ao usar os recursos
 
 Será adicionado suporte para regiões adicionais ao longo do tempo.
 
-**OS tipos suportados**: apenas Linux
+**OS tipos suportados**: Apenas Linux
 
-**Limitações adicionais**: não não possível utilizar recursos GPU quando implementar um grupo de contentores para um [rede virtual](container-instances-vnet.md).
+**Limitações adicionais**: Não não possível utilizar recursos GPU quando implementar um grupo de contentores para um [rede virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos GPU
 
@@ -50,7 +50,7 @@ Será adicionado suporte para regiões adicionais ao longo do tempo.
 
 Para utilizar GPUs numa instância de contentor, especifique um *recurso GPU* com as seguintes informações:
 
-* **Contagem** -o número de GPUs: **1**, **2**, ou **4**.
+* **Contagem de** -o número de GPUs: **1**, **2**, ou **4**.
 * **SKU** -o SKU de GPU: **K80**, **P100**, ou **V100**. Cada SKU é mapeado para GPU NVIDIA Tesla nas famílias VM ativadas para GPU do Azure seguintes:
 
   | SKU | Família de VM |
@@ -87,7 +87,7 @@ Ao implementar recursos GPU, defina os recursos de CPU e memória adequada para 
 
 ## <a name="yaml-example"></a>Exemplo YAML
 
-Copie o YAML seguinte para um novo ficheiro designado *aci.yaml gpu implementar*, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores com o nome *gpucontainergroup* especificando uma instância de contentor com uma GPU K80. A instância é executada uma aplicação de adição de vetor do exemplo CUDA. As solicitações de recursos são suficientes para executar a carga de trabalho.
+Uma forma de adicionar recursos GPU é para implementar um grupo de contentores com um [ficheiro YAML](container-instances-multi-container-yaml.md). Copie o YAML seguinte para um novo ficheiro designado *aci.yaml gpu implementar*, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores com o nome *gpucontainergroup* especificando uma instância de contentor com uma GPU K80. A instância é executada uma aplicação de adição de vetor do exemplo CUDA. As solicitações de recursos são suficientes para executar a carga de trabalho.
 
 ```YAML
 additional_properties: {}
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Exemplo de modelo do Resource Manager
 
-Comece por criar um arquivo chamado `gpudeploy.json`, em seguida, copie o JSON seguinte para o mesmo. Este exemplo implementa uma instância de contentor com uma GPU V100 que executa uma [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) tarefa de preparação contra o [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/). As solicitações de recursos são suficientes para executar a carga de trabalho.
+Outra forma de implementar um grupo de contentores com os recursos GPU é usando um [modelo do Resource Manager](container-instances-multi-container-group.md). Comece por criar um arquivo chamado `gpudeploy.json`, em seguida, copie o JSON seguinte para o mesmo. Este exemplo implementa uma instância de contentor com uma GPU V100 que executa uma [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) tarefa de preparação contra o [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/). As solicitações de recursos são suficientes para executar a carga de trabalho.
 
 ```JSON
 {

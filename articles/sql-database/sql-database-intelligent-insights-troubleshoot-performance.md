@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273940"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600867"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
-Esta página fornece informações sobre a base de dados do Azure SQL e detetados problemas de desempenho de instância gerida através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. A telemetria de registo de diagnóstico possam ser transmitida para [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e capacidades de relatórios.
+Esta página fornece informações sobre a base de dados do Azure SQL e detetados problemas de desempenho de instância gerida através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. A telemetria de registo de diagnóstico possam ser transmitida para [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e capacidades de relatórios.
 
 > [!NOTE]
 > Para obter um rápido desempenho de base de dados SQL com informações inteligentes de guia de resolução de problemas, consulte a [recomendado a resolução de problemas de fluxo](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) fluxograma neste documento.
@@ -332,4 +332,4 @@ Informações inteligentes, normalmente, precisa de uma hora de tempo para execu
 - Saiba mais [informações inteligentes](sql-database-intelligent-insights.md) conceitos.
 - Utilize o [registo de diagnóstico de desempenho do Intelligent Insights Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [base de dados do Azure SQL através de análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Aprenda a [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Aprenda a [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).

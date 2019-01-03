@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014679"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651610"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache HBase com o Azure HDInsight
 
@@ -288,7 +288,7 @@ Nenhum endereço de servidor está listado na *hbase: meta* para região xxx.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-Poderá ver uma mensagem no seu cluster do Linux que indica que o *hbase: meta* tabela não está online. Executar `hbck` poderão comunicar que "hbase: meta tabela replicaId 0 não for encontrada em qualquer região." O problema poderá ser que HMaster não foi possível inicializar depois de reiniciado o HBase. Nos registos HMaster, poderá ver a mensagem: "nenhum endereço de servidor listado no hbase: meta de região hbase: cópia de segurança \<nome da região\>".  
+Poderá ver uma mensagem no seu cluster do Linux que indica que o *hbase: meta* tabela não está online. Executar `hbck` poderão comunicar que "hbase: meta tabela replicaId 0 não for encontrada em qualquer região." O problema poderá ser que HMaster não foi possível inicializar depois de reiniciado o HBase. Nos registos HMaster, poderá ver a mensagem: "Nenhum endereço de servidor listado no hbase: meta de região hbase: cópia de segurança \<nome da região\>".  
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
@@ -314,12 +314,12 @@ Poderá ver uma mensagem no seu cluster do Linux que indica que o *hbase: meta* 
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-[Não é possível processar a tabela de HBase](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Não é possível processar a tabela de HBase](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Erro
 
-HMaster exceder o tempo limite com uma exceção fatal semelhante a "java.io.IOException: excedido 300000ms à espera de espaço de nomes tabela a ser atribuída."
+HMaster exceder o tempo limite com uma exceção fatal semelhante a "java.io.IOException: Excedido 300000ms à espera de espaço de nomes tabela a ser atribuída."
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
@@ -344,7 +344,7 @@ Este é um problema conhecido com o serviço de HMaster. Tarefas de arranque ger
 
 ### <a name="issue"></a>Problema
 
-Uma falha de reinício num servidor de região pode ser impedida ao seguir as melhores práticas. Recomendamos que coloque em pausa a atividade de carga de trabalho pesadas quando estiver a planear reiniciar os servidores de região do HBase. Se um aplicativo continuar a ligar-se com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é uma boa idéia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como esvaziar tabelas, veja [HBase do HDInsight: como melhorar o tempo de reinício de cluster do Apache HBase, liberá-lo tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Uma falha de reinício num servidor de região pode ser impedida ao seguir as melhores práticas. Recomendamos que coloque em pausa a atividade de carga de trabalho pesadas quando estiver a planear reiniciar os servidores de região do HBase. Se um aplicativo continuar a ligar-se com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é uma boa idéia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como esvaziar tabelas, veja [HBase do HDInsight: Como melhorar o tempo de reinício de cluster do Apache HBase, liberá-lo tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Se iniciar a operação de reinício em servidores de região HBase da IU do Apache Ambari, verá imediatamente que os servidores de região foi desativado, mas eles não reiniciem agora mesmo. 
 

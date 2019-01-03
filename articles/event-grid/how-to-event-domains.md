@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298538"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554593"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Tópicos de gerir e publicar eventos através de domínios de eventos
 
@@ -139,7 +139,7 @@ As permissões que estão definidas para um tópico são armazenadas no Azure Ac
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicar eventos para um domínio de grelha de eventos
 
-A publicação de eventos a um domínio é o mesmo que [publicar um tópico personalizado](./post-to-custom-topic.md). A única diferença é que tem de especificar o tópico que desejar que cada evento para ir para. A matriz de eventos a seguir iria resultar em eventos com `"id": "1111"` para o tópico `foo` ao evento com `"id": "2222"` seriam enviados para o tópico `bar`:
+A publicação de eventos a um domínio é o mesmo que [publicar um tópico personalizado](./post-to-custom-topic.md). No entanto, em vez de publicação para o tópico personalizado, publicar todos os eventos para o ponto final de domínio. Os dados de eventos do JSON, vai especificar o tópico que pretende que os eventos para ir para. A matriz de eventos a seguir iria resultar em eventos com `"id": "1111"` para o tópico `demotopic1` ao evento com `"id": "2222"` seriam enviados para o tópico `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ A publicação de eventos a um domínio é o mesmo que [publicar um tópico pers
 }]
 ```
 
-Para obter as chaves de um domínio com a CLI do Azure, utilize:
+Para obter o ponto de final de domínio com a CLI do Azure, utilize
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Para obter as chaves para um domínio, utilize:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Para o PowerShell, utilize:
+Para obter o ponto de extremidade do domínio com o PowerShell, utilize
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Para obter as chaves para um domínio, utilize:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

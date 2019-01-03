@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625271"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652154"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -31,7 +31,9 @@ Existem dois locais onde revisar os eventos de risco comunicados:
  - **Relatórios do Azure AD** -eventos de risco fazem parte de segurança do Azure AD relatórios. Para obter mais informações, consulte a [utilizadores no relatório de segurança de risco](concept-user-at-risk.md) e o [relatório de inícios de sessão de risco de segurança](concept-risky-sign-ins.md).
 
  - **O Azure AD Identity Protection** -eventos de risco também fazem parte de capacidades de relatórios do [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+Além disso, pode utilizar o [eventos de risco do Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático aos deteções de segurança com o Microsoft Graph. Para obter mais informações, consulte [introdução ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 
 - [Utilizadores com fuga de credenciais](#leaked-credentials) 
@@ -125,11 +127,11 @@ A gravidade do evento de risco representa a força do sinal de como um fator de 
 
 Por exemplo, 
 
-* **Alta**: confiança elevada e o evento de risco de gravidade elevada. Esses eventos são indicadores fortes que a identidade do utilizador foi comprometida e as contas de utilizador afetadas devem ser corrigidas imediatamente.
+* **Alta**: Confiança elevada e o evento de risco de gravidade elevada. Esses eventos são indicadores fortes que a identidade do utilizador foi comprometida e as contas de utilizador afetadas devem ser corrigidas imediatamente.
 
-* **Médio**: gravidade elevada, mas o evento de risco de confiança inferior, ou vice versa. Esses eventos são potencialmente arriscados e devem ser retificadas as contas de utilizador afetadas.
+* **Médio**: Gravidade elevada, mas o evento de risco de confiança inferior, ou vice versa. Esses eventos são potencialmente arriscados e devem ser retificadas as contas de utilizador afetadas.
 
-* **Baixa**: baixa confiança e o evento de risco de gravidade baixa. Este evento não, requerer uma ação imediata, mas quando combinada com outros eventos de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
+* **Baixa**: Confiança de baixa e o evento de risco de gravidade baixa. Este evento não, requerer uma ação imediata, mas quando combinada com outros eventos de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
 
 ![Nível de risco](./media/concept-risk-events/01.png)
 

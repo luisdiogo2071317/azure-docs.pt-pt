@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133762"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810887"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Alterar feed no Azure Cosmos DB
 
@@ -32,7 +32,7 @@ A alteração de feed no Azure Cosmos DB permite-lhe criar soluções eficientes
 
 Esta funcionalidade é atualmente suportada pelas seguintes APIs do Azure Cosmos DB e SDKs do cliente.
 
-| **Controladores do cliente** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin**|**API de Tabela** |
+| **Controladores do cliente** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | ND | Sim | Não | Não | Sim | Não |
 |Java|ND|Sim|Não|Não|Sim|Não|

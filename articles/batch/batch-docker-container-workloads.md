@@ -1,5 +1,5 @@
 ---
-title: Cargas de trabalho de contentor no Azure Batch | Documentos da Microsoft
+title: Cargas de trabalho do contentor - Azure Batch | Documentos da Microsoft
 description: Saiba como executar aplicações a partir de imagens de contentor no Azure Batch.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262436"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541001"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor no Azure Batch
 
@@ -29,16 +30,16 @@ Através de contentores fornece uma forma fácil de executar tarefas do Batch se
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Versões do SDK**: os SDKs do Batch imagens de contentor de suporte no momento da elaboração as seguintes versões:
+* **Versões do SDK**: Os SDKs do Batch suporta imagens de contentor a partir as seguintes versões:
     * API de REST do batch versão 2017-09-01.6.0
     * SDK de .NET do batch versão 8.0.0
     * SDK de Python do batch versão 4.0
     * Batch Java SDK versão 3.0
     * SDK de node. js do batch versão 3.0
 
-* **Contas**: na sua subscrição do Azure, tem de criar uma conta do Batch e, opcionalmente, uma conta de armazenamento do Azure.
+* **Contas**: Na sua subscrição do Azure, terá de criar uma conta do Batch e, opcionalmente, uma conta de armazenamento do Azure.
 
-* **Uma imagem de VM suportada**: apenas são suportados contentores nos agrupamentos criados com a configuração de Máquina Virtual, a partir de imagens detalhadas na secção seguinte, "suportada imagens da máquina virtual". Se fornecer uma imagem personalizada, veja as considerações na seção a seguir e os requisitos na [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais](batch-custom-images.md). 
+* **Uma imagem de VM suportada**: Apenas são suportados contentores nos agrupamentos criados com a configuração de Máquina Virtual, a partir de imagens detalhadas na secção seguinte, "suportada imagens da máquina virtual". Se fornecer uma imagem personalizada, veja as considerações na seção a seguir e os requisitos na [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitações
 

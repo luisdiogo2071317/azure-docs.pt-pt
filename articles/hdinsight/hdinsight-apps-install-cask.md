@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 715e536d7356a4e37f512027a23236b1fd37cbac
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499330"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651304"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Instalar a aplicação publicada - Cask Data Application Platform (CDAP)
 
-Este artigo descreve como instalar e executar o [CDAP](http://cask.co/products/cdap/) publicado [Apache Hadoop](https://hadoop.apache.org/) aplicação no Azure HDInsight. Para uma visão geral da plataforma de aplicações do HDInsight e uma lista de disponíveis independentes fabricante de Software (ISV) a aplicações publicadas, consulte [instalar aplicações do Apache Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar a sua própria aplicação, veja [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o [CDAP](https://cask.co/products/cdap/) publicado [Apache Hadoop](https://hadoop.apache.org/) aplicação no Azure HDInsight. Para uma visão geral da plataforma de aplicações do HDInsight e uma lista de disponíveis independentes fabricante de Software (ISV) a aplicações publicadas, consulte [instalar aplicações do Apache Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar a sua própria aplicação, veja [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>Sobre CDAP
 
@@ -30,7 +30,7 @@ O Cask Data Application Platform (CDAP) é uma plataforma de integração para g
 
 CDAP utiliza conceitos de alto nível e abstrações que familiares aos desenvolvedores. Essas abstrações ocultar as complexidades de sistemas internos e incentive a reutilização de soluções.
 
-Uma extensão CDAP chamado [Cask Hydrator](http://cask.co/products/hydrator/) fornece uma interface do usuário para desenvolver e gerir pipelines de dados. Um pipeline de dados é composto por várias * plug-ins que realizarem tarefas como operações pós-execução, análise, transformação e aquisição de dados.
+Uma extensão CDAP chamado [Cask Hydrator](https://cask.co/products/hydrator/) fornece uma interface do usuário para desenvolver e gerir pipelines de dados. Um pipeline de dados é composto por várias * plug-ins que realizarem tarefas como operações pós-execução, análise, transformação e aquisição de dados.
 
 Cada plug-in do CDAP tem uma interface bem definida para que avaliar tecnologias diferentes é apenas uma questão de substituir um plug-in por outro, sem precisar tocar o restante do aplicativo.
 
@@ -42,7 +42,7 @@ O exemplo seguinte de um pipeline de dados ingere dados do twitter em tempo real
 
 Este pipeline ponto a ponto é criado com o **Cask Hydrator IU**, usando sua funcionalidade de interface e arrastar-e-soltar de plug-in para ligações de formulário entre cada fase. Pode isolar e modificar a funcionalidade de cada plug-in de forma independente. Utilizar CDAP, pipelines semelhante podem ser criados e validados em horas. No mundo típico do Hadoop, a construção de tais soluções pode demorar dias.
 
-CDAP também fornece uma extensão chamada [Cask controlador](http://cask.co/products/tracker/) para visualmente os dados de rastreio à medida que fluem através da aplicação. Adiciona o cask Tracker *governação de dados* no sistema, de modo a que recursos de dados são geridos formalmente em todo o aplicativo. Pode controlar a linhagem de cada ponto de dados, coletar métricas relevantes e o registo de dados em todo o processo de auditoria.
+CDAP também fornece uma extensão chamada [Cask controlador](https://cask.co/products/tracker/) para visualmente os dados de rastreio à medida que fluem através da aplicação. Adiciona o cask Tracker *governação de dados* no sistema, de modo a que recursos de dados são geridos formalmente em todo o aplicativo. Pode controlar a linhagem de cada ponto de dados, coletar métricas relevantes e o registo de dados em todo o processo de auditoria.
 
 Segue-se obter uma ilustração como dados estão a ser encaminhados no pipeline acima:
 
@@ -126,9 +126,9 @@ Para obter instruções passo a passo sobre como instalar esta e outras aplicaç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Documentação de cask](http://cask.co/resources/documentation/).
-* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada para o HDInsight.
-* [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
+* [Documentação de cask](https://cask.co/resources/documentation/).
+* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada HDInsight.
+* [Publicar aplicações HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar aplicações HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseado em Linux com ação de Script](hdinsight-hadoop-customize-cluster-linux.md): Saiba como utilizar a ação de Script para instalar outras aplicações.
 * [Utilizar nós de extremidade vazios no HDInsight](hdinsight-apps-use-edge-node.md): Saiba como utilizar um nó de extremidade vazio para aceder aos clusters do HDInsight e de teste e alojamento de aplicações do HDInsight.

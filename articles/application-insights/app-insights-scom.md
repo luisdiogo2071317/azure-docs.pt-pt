@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e9ba42e33fb763256cd31c255ea42593146dfb7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724082"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969323"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Monitorização de Desempenho de Aplicações com o Application Insights para SCOM
-Se utilizar o System Center Operations Manager (SCOM) para gerenciar seus servidores, pode monitorizar o desempenho e diagnosticar problemas de desempenho com a ajuda do [do Azure Application Insights](app-insights-asp-net.md). Application Insights monitoriza os pedidos recebidos da sua aplicação web, REST e chamadas SQL, exceções e rastreios de registos de saída. Ele fornece a dashboards com gráficos de métricas e alertas inteligentes, bem como poderosa pesquisa de diagnóstico e consultas de análise sobre esta telemetria. 
+Se utilizar o System Center Operations Manager (SCOM) para gerenciar seus servidores, pode monitorizar o desempenho e diagnosticar problemas de desempenho com a ajuda do [do Azure Application Insights](../azure-monitor/app/asp-net.md). Application Insights monitoriza os pedidos recebidos da sua aplicação web, REST e chamadas SQL, exceções e rastreios de registos de saída. Ele fornece a dashboards com gráficos de métricas e alertas inteligentes, bem como poderosa pesquisa de diagnóstico e consultas de análise sobre esta telemetria. 
 
 Pode alternar na monitorização do Application Insights através de um pacote de gestão do SCOM.
 
@@ -35,7 +35,7 @@ Partimos do princípio:
 * Versão da estrutura de aplicação é o .NET 4.5 ou posterior.
 * Tem acesso a uma subscrição no [Microsoft Azure](https://azure.com) e pode iniciar sessão para o [portal do Azure](https://portal.azure.com). Sua organização pode ter uma subscrição e pode adicionar a sua conta Microsoft à mesma.
 
-(A equipe de desenvolvimento pode criar os [SDK do Application Insights](app-insights-asp-net.md) na aplicação web. Essa instrumentação do tempo de compilação dá a eles uma flexibilidade maior escrever telemetria personalizada. No entanto, não importa: pode seguir os passos descritos aqui, com ou sem o SDK incorporada.)
+(A equipe de desenvolvimento pode criar os [SDK do Application Insights](../azure-monitor/app/asp-net.md) na aplicação web. Essa instrumentação do tempo de compilação dá a eles uma flexibilidade maior escrever telemetria personalizada. No entanto, não importa: pode seguir os passos descritos aqui, com ou sem o SDK incorporada.)
 
 ## <a name="one-time-install-application-insights-management-pack"></a>(Uma vez) Instalar o pacote de gestão do Application Insights
 Na máquina em que executar o Operations Manager:
@@ -92,13 +92,13 @@ Pode verificar quais as instâncias da aplicação ser detetado:
 ![Em monitorização, abrir o Application Insights](./media/app-insights-scom/100.png)
 
 ## <a name="view-telemetry-in-application-insights"></a>Ver a telemetria no Application Insights
-Na [portal do Azure](https://portal.azure.com), navegue para o recurso para a sua aplicação. [Ver gráficos que mostram a telemetria](app-insights-dashboards.md) da sua aplicação. (Se ele ainda não mostra a cópia de segurança na página principal ainda, clique em Live Stream de métricas.)
+Na [portal do Azure](https://portal.azure.com), navegue para o recurso para a sua aplicação. [Ver gráficos que mostram a telemetria](../azure-monitor/app/app-insights-dashboards.md) da sua aplicação. (Se ele ainda não mostra a cópia de segurança na página principal ainda, clique em Live Stream de métricas.)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configurar um dashboard](app-insights-dashboards.md) para reunir os gráficos mais importantes monitorização esta e outras aplicações.
+* [Configurar um dashboard](../azure-monitor/app/app-insights-dashboards.md) para reunir os gráficos mais importantes monitorização esta e outras aplicações.
 * [Saiba mais sobre métricas](app-insights-metrics-explorer.md)
-* [Configurar alertas](app-insights-alerts.md)
-* [Diagnosticar problemas de desempenho](app-insights-detect-triage-diagnose.md)
-* [Consultas de análise avançadas](app-insights-analytics.md)
-* [Testes web de disponibilidade](app-insights-monitor-web-app-availability.md)
+* [Configurar alertas](../azure-monitor/app/alerts.md)
+* [Diagnosticar problemas de desempenho](../azure-monitor/app/detect-triage-diagnose.md)
+* [Consultas de análise avançadas](../azure-monitor/app/analytics.md)
+* [Testes web de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md)
 

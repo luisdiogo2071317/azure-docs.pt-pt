@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873755"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811414"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -30,7 +30,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 ## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
-1. **Política de ligação: modo de ligação direta de utilização**
+1. **Política de ligação: Utilizar o modo de ligação direta**
 
     Como um cliente liga-se ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos de latência de lado do cliente observado. Existem duas definições de configuração da chave disponíveis para configurar a política de ligação – a ligação de cliente *modo* e o [ligação *protocolo*](#connection-protocol).  Os dois modos disponíveis são:
 
@@ -45,7 +45,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     * TCP
     * HTTPS
 
-    Ao utilizar o modo de Gateway, Azure Cosmos DB utiliza a porta 443 e portas 10250, 10255 e 10256 utiliza a API do MongoDB. O 10250 porta é mapeado para uma instância de Mongodb predefinida sem georreplicação e mapa de 10255/10256 portas para a instância de Mongodb com a funcionalidade de georreplicação. Quando o TCP no modo direto, além das portas de Gateway, tem de garantir que a porta de intervalo entre 10000 e 20000 está aberto porque o Azure Cosmos DB utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 Serviço indisponível. A tabela seguinte mostra os modos de conectividade disponíveis para as APIs diferentes e o utilizador de portas de serviço para cada API:
+    Ao utilizar o modo de Gateway, Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 ao utilizar a API do Azure Cosmos DB para o MongoDB. O 10250 porta é mapeado para uma instância de MongoDB predefinida sem georreplicação e mapa de 10255/10256 portas para a instância de MongoDB com a funcionalidade de georreplicação. Quando o TCP no modo direto, além das portas de Gateway, tem de garantir que a porta de intervalo entre 10000 e 20000 está aberto porque o Azure Cosmos DB utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 Serviço indisponível. A tabela seguinte mostra os modos de conectividade disponíveis para as APIs diferentes e o utilizador de portas de serviço para cada API:
 
     |Modo de ligação  |Protocolo suportado  |SDKs suportados  |Porta de serviço/API  |
     |---------|---------|---------|---------|

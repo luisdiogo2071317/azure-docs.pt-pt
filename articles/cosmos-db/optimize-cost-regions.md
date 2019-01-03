@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263903"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539709"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Otimizar o custo para implementações em várias regiões do Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Pode adicionar e remover regiões à sua conta do Cosmos do Azure em qualquer al
 
 1. `T x (N+1) RU/s` Se a sua conta do Cosmos do Azure está configurada com todas as regiões capazes de processar escritas. 
 
-Débito aprovisionado com a região de escrita única custa US $0.008/ hora por 100 RU/s e débito aprovisionado com várias regiões graváveis custa US $0.016 / por hora por 100 RU/s. Para obter mais informações, consulte o artigo do Cosmos DB [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Débito aprovisionado com a região de escrita única custa US $0.008/ hora por 100 RU/s e débito aprovisionado com várias regiões graváveis custa US $0.016 / por hora por 100 RU/s. Para obter mais informações, veja o Azure Cosmos DB [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de escrita
 

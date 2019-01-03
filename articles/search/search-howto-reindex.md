@@ -6,50 +6,83 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316901"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745096"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como reconstruir um índice da Azure Search
 
-Reconstruir um alterações de índice sua estrutura, alterar a expressão física do índice no seu serviço de Azure Search. Por outro lado, a atualizar um índice é uma atualização só de conteúdo para recolher as alterações mais recentes a partir de uma origem de dados externas colaborador. Este artigo fornece uma direção sobre como atualizar índices estruturalmente e substantively.
+Este artigo explica como reconstruir um índice da Azure Search, as circunstâncias nas quais as recompilações são necessárias e as recomendações para mitigar o impacto de recompilações em pedidos de consulta em curso.
 
-Permissões de leitura / escrita no nível de serviço são necessárias para atualizações de índices. Por meio de programação, pode chamar REST ou de APIs do .NET para uma reconstrução completa ou a indexação incremental de conteúdo, com parâmetros que especificar opções de atualização. 
+R *reconstruir* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices em invertida com base em campo. No Azure Search, não é possível remover e recriar a campos específicos. Para reconstruir um índice, todo o armazenamento de campo tem de ser eliminado, recriados com base num esquema de índice existente ou revisada e, em seguida, repovoado com os dados enviados por push para o índice ou extraídos de fontes externas. É comum para reconstruir índices durante o desenvolvimento, mas também poderá ter de reconstruir um índice de nível de produção para acomodar alterações estruturais, por exemplo, adicionar tipos complexos.
 
-Em geral, as atualizações para um índice são a pedido. No entanto, para índices utilizando específicos da fonte [indexadores](search-indexer-overview.md), pode usar um agendador interno. O agendador suporta a atualização de documentos com a frequência de 15 minutos, até qualquer intervalo e o padrão de que necessita. Uma taxa de atualização mais rápida requer o envio de índice atualizações manualmente, talvez por meio de uma gravação de double em transações, a atualizar a origem de dados externo e o índice da Azure Search em simultâneo.
+Em contraste com recompilações colocar offline um índice *atualização de dados* é executado como uma tarefa em segundo plano. Pode adicionar, remover e substituir os documentos com a mínima interrupção para cargas de trabalho de consulta, embora normalmente consultas demoram mais tempo a concluir. Para obter mais informações sobre como atualizar o conteúdo de índice, consulte [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## <a name="full-rebuilds"></a>Recompilações completas
+## <a name="rebuild-conditions"></a>Reconstruir condições
 
-Para muitos tipos de atualizações, uma reconstrução completa é necessária. Uma reconstrução completa refere-se até à eliminação de um índice, dados e metadados, seguido de preencher novamente o índice a partir de origens de dados externas. Programaticamente, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index), [crie](https://docs.microsoft.com/rest/api/searchservice/create-index), e [recarregar](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) o índice reconstrui-lo. 
+| Condição | Descrição |
+|-----------|-------------|
+| Alterar uma definição de campo | A revisão de um nome, tipo de dados ou específicos [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) (pesquisável, filtrável, ordenável, facetável) requer uma reconstrução completa. |
+| A eliminar um campo | Para remover fisicamente todos os rastreios de um campo, terá de recriar o índice. Quando uma reconstrução imediata não é prática, a maioria dos desenvolvedores modificar o código de aplicação para desativar o acesso ao campo "eliminado". Fisicamente, a definição de campo e o conteúdo permanece no índice até a recompilação de seguinte, usando um esquema que omite o campo em questão. |
+| Alternância de camadas | Se necessitar de mais capacidade, não existe nenhuma atualização no local. É criado um novo serviço no ponto de nova capacidade e índices devem ser criados a partir do zero no novo serviço. |
 
-Pós-reconstrua, lembre-se de que se tem estado a testar padrões de consulta e perfis de classificação, pode esperar variação nos resultados da consulta se o conteúdo subjacente tiver sido alterado.
+Qualquer modificação de outra pode ser feita sem afetar as estruturas físicas existentes. Especificamente, as seguintes alterações fazer *não* indicar uma recompilação de índice:
 
-## <a name="when-to-rebuild"></a>Quando deve recriar
++ Adicionar um novo campo
++ Definir o **recuperável** atributo num campo existente
++ Definir um analisador num campo existente
++ Adicionar, atualizar ou eliminar perfis de classificação
++ Adicionar, atualizar ou eliminar definições de CORS
++ Adicionar, atualizar ou eliminar sugestores
++ Adicionar, atualizar ou eliminar synonymMaps
 
-Tencione recompilações freqüentes e completas durante o desenvolvimento do Active Directory, quando os esquemas de índice estão num estado recém-implantados.
-
-| Modificação | Recriação do Estado|
-|--------------|---------------|
-| Alterar um nome de campo, tipo de dados, ou seu [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Alterar uma definição de campo, normalmente, implica uma penalidade de reconstrução, com exceção estes [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): Recuperável, SearchAnalyzer, SynonymMaps. Pode adicionar os atributos recuperável, SearchAnalyzer e SynonymMaps para um campo existente sem ter de recriar o seu índice.|
-| Adicionar um campo | Sem requisito rígido na reconstrução. Documentos indexados existentes tem um valor nulo para o novo campo. Numa futura reindex, os valores dos dados de origem substituem nulos adicionados pelo Azure Search. |
-| Eliminar um campo | Diretamente não é possível eliminar um campo de índice da Azure Search. Em vez disso, deve ter o seu aplicativo ignorar o campo "eliminado" para evitar usá-lo. Fisicamente, a definição de campo e o conteúdo mantêm o índice até da próxima vez que reconstrua o índice utilizando um esquema que omite o campo em questão.|
-
-> [!Note]
-> Uma reconstrução também é necessária se alternar escalões. Se em algum momento optar por mais capacidade, não existe nenhuma atualização no local. Tem de ser criado um novo serviço no ponto de nova capacidade e índices devem ser criados a partir do zero no novo serviço. 
+Quando adiciona um novo campo, documentos indexados existentes tem um valor nulo para o novo campo. Numa atualização de dados futuros, valores dos dados de origem externa substituem os valores nulos adicionados pelo Azure Search.
 
 ## <a name="partial-or-incremental-indexing"></a>Parcial ou incrementais de indexação
 
-Depois de um índice em produção, o foco muda para indexação incremental, normalmente com sem interrupções de serviço discernable. A indexação incremental parcial ou de carga de trabalho apenas o conteúdo que sincroniza o conteúdo de um índice de pesquisa para refletir o estado do conteúdo numa origem de dados colaborador é. Um documento adicionada ou excluída na origem é adicionado ou eliminado para o índice. No código, chamar o [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operação ou o equivalente do .NET.
+No Azure Search, não é possível controlar indexação numa base por campo, optando por eliminar ou recrie a campos específicos. Da mesma forma, não existe nenhum mecanismo incorporado para [indexar documentos com base nos critérios](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Quaisquer requisitos que tiver para indexação baseadas em critérios precisam ser atendidos por meio de código personalizado.
 
-> [!Note]
-> Quando utilizar indexadores que pesquisam origens de dados externas, mecanismos de controle de alterações em sistemas de origem são aproveitados para indexação incremental. Para [armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), um `lastModified` campo é utilizado. No [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` tem a mesma finalidade. Da mesma forma, ambos [indexador do Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) e [indexador do Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) ter campos para sinalizando atualizações de linha. Para obter mais informações sobre indexadores, consulte [descrição geral do indexador](search-indexer-overview.md).
+No entanto, o que pode fazer facilmente, é *atualizar documentos* num índice. Para várias soluções de pesquisa, dados de origem externa são volátil e sincronização entre os dados de origem e um índice de pesquisa é uma prática comum. No código, chamar o [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operação ou o [equivalente de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) para atualizar o conteúdo de índice, ou para adicionar valores para um novo campo.
 
+## <a name="partial-indexing-with-indexers"></a>Parcial de indexação com indexadores
+
+[Indexadores](search-indexer-overview.md) simplificar a tarefa de atualização de dados. Um indexador pode indexar apenas uma tabela ou vista da origem de dados externa. Para várias tabelas de índice, a abordagem mais simples é criar uma vista que associa tabelas e projetos as colunas que deseja indexar. 
+
+Quando utilizar indexadores que pesquisam origens de dados externas, verifique a existência de uma coluna de "máximo" nos dados de origem. Se existir, pode utilizá-lo para a deteção de alteração de incremental, escolhendo apenas essas linhas que contêm conteúdo novo ou revisado. Para [armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), um `lastModified` campo é utilizado. No [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` tem a mesma finalidade. Da mesma forma, ambos [indexador do Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) e [indexador do Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) ter campos para sinalizando atualizações de linha. 
+
+Para obter mais informações sobre indexadores, consulte [descrição geral do indexador](search-indexer-overview.md) e [repor o indexador REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+
+## <a name="how-to-rebuild-an-index"></a>Como reconstruir um índice
+
+Tencione recompilações freqüentes e completas durante o desenvolvimento do Active Directory, quando os esquemas de índice estão num estado recém-implantados. Para aplicativos já em produção, recomendamos que crie um novo índice que é executado lado a lado de um índice existente para evitar o tempo de inatividade de consulta.
+
+Se tiver rigorosos requisitos de SLA, considere um novo serviço especificamente para esse trabalho, com o desenvolvimento de aprovisionamento e a indexação que ocorrem no isolamento completo de um índice de produção. Um serviço separado é executado no seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento é concluído, a optar por deixaria o novo índice em vigor, redirecionando consultas para o novo ponto final e o índice ou, deverá executar o código concluído para publicar um índice revisado no seu serviço de Azure Search original. Atualmente, não existe nenhum mecanismo para mover um índice de prontos a utilizar para o outro serviço.
+
+Permissões de leitura / escrita no nível de serviço são necessárias para atualizações de índices. Por meio de programação, pode chamar [API de REST do índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) ou APIs .NET para uma reconstrução completa. O pedido é idêntico à [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index), mas tem um contexto diferente.
+
+1. Se o nome do índice, está a reutilizar [remova o índice existente](https://docs.microsoft.com/rest/api/searchservice/delete-index). Quaisquer consultas de direcionamento desse índice imediatamente são ignoradas. Eliminar um índice é irreversível, destruição de armazenamento físico para a coleção de campos e outras construções. Certifique-se de que está claro sobre as implicações de eliminar um índice antes de removê-lo. 
+
+2. Fornece um esquema de índice com as definições de campo alterados ou modificados. Requisitos de esquema estão documentados em [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+3. Fornecer uma [chave de administrador](https://docs.microsoft.com/azure/search/search-security-api-keys) no pedido.
+
+4. Enviar um [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) comando para reconstruir a expressão física do índice na Azure Search. O corpo do pedido contém o esquema de índice, bem como constrói para a classificação de perfis, analisadores, sugestores e opções CORS.
+
+5. [Carregar o índice com documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de uma origem externa. Também pode utilizar esta API se um esquema de índice existente, inalterada com documentos atualizados da atualização.
+
+Ao criar o índice, o armazenamento físico é alocado para cada campo no esquema do índice, com um índice invertido criado para cada campo pesquisável. Campos são que não pesquisável pode ser usado nos filtros ou expressões, mas não têm invertido índices e não são texto completo pesquisável. Numa recompilação de índice, esses índices invertidas são eliminados e recriados com base no esquema de índice que fornecer.
+
+Quando carrega o índice, o índice de invertida de cada campo é preenchido com todas as palavras exclusivas, com token de cada documento, com um mapa para IDs de documento correspondente. Por exemplo, quando um conjunto de dados de hotéis a indexação, um índice invertido criado para um campo de cidade pode conter termos para Seattle, Portland e assim por diante. Documentos que incluem Seattle ou Portland no campo Cidade teria o ID de documento listado juntamente com o termo. Em qualquer [adicionar, atualizar ou eliminar](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operação, os termos e a lista de ID do documento são atualizados em conformidade.
+
+## <a name="view-updates"></a>Ver atualizações
+
+Pode começar a consultar um índice, assim que o primeiro documento é carregado. Se souber o ID de um documento, o [API de REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/lookup-document) devolve o documento em particular. Para testes mais abrangente, deve aguardar até que o índice está totalmente carregado e, em seguida, utilizar as consultas para verificar o contexto que é esperar.
 
 ## <a name="see-also"></a>Consulte também
 

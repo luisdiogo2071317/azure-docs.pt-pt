@@ -1,5 +1,5 @@
 ---
-title: Planejamento de pré-visualização do Time Series Insights do Azure - planejar seu ambiente de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+title: Planejar seu ambiente de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
 description: Planeje seu ambiente de pré-visualização do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277051"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556089"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de pré-visualização do Azure Time Series Insights
 
@@ -78,7 +78,7 @@ Uma boa regra prática:
 
 * Metadados de Store no seu modelo de série de tempo
 * Modo de série de tempo, campos de instância e eventos incluem apenas as informações necessárias, tais como:
-  * ID de série de tempo
+  * ID de Série de Tempo
   * Carimbo de data/hora
 
 Para obter mais informações, consulte [moldar eventos](./time-series-insights-send-events.md#json).

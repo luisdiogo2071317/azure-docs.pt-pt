@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876318"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604434"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorizar o desempenho de base de dados do Azure SQL através de vistas de gestão dinâmica
 
@@ -131,7 +131,7 @@ ORDER BY end_time DESC;
 
 Se tiver sido atingido o limite de e/s, tem duas opções:
 
-- Opção 1: Atualizar o tamanho de computação ou a camada de serviço
+- Opção 1: Atualizar o tamanho de computação ou camada de serviço
 - Opção 2: Identificar e ajustar as consultas a maioria das e/s de consumo.
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Ver relacionados com a memória intermédia e/s usando o Store de consulta
@@ -574,7 +574,7 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
     ORDER BY start_time DESC;
     ```
 
-2. Para avaliar a eficiência com que sua carga de trabalho se ajusta o tamanho de computação, terá de fazer uma busca detalhada em cada aspecto das métricas de recursos: CPU, leituras, gravações, o número de workers e número de sessões. Aqui está um revisado consultar com o **resource_stats** para comunicar os valores de médios e máximo destas métricas de recurso:
+2. Para avaliar a eficiência com que sua carga de trabalho se ajusta o tamanho de computação, terá de fazer uma busca detalhada em cada aspecto das métricas de recurso: CPU, leituras, gravações, o número de workers e número de sessões. Aqui está um revisado consultar com o **resource_stats** para comunicar os valores de médios e máximo destas métricas de recurso:
 
     ```sql
     SELECT

@@ -8,39 +8,61 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454506"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53748459"
 ---
-Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para bases de dados de grandes volumes de dados SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
+Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
-A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.  As VMs da série ls são ideais para aplicações que requerem baixa latência, alto débito e armazenamento de disco local grandes. 
+O série Lsv2 funcionalidades alto débito, baixa latência, diretamente mapeado armazenamento local de NVMe em execução no [AMD EPYC<sup>TM</sup> processador 7551](https://www.amd.com/en/products/epyc-7000-series) com um todos os núcleos propulsão 2.55 GHz e um aumento máximo de 3.0 GHz. As VMs da série Lsv2 vêm em tamanhos de 8 para 80 vCPU numa configuração simultânea de vários segmentos.  Há 8 GiB de memória por vCPU e um dispositivo de NVMe SSD M.2 1.92TB por 8 vCPUs, com até 19,2 TB (10x1.92TB) disponível na v2 L80s.
 
-Casos de utilização de exemplo incluem bases de dados NoSQL como Cassandra, MongoDB, Cloudera e Redis, o armazenamento de dados e grandes bancos de dados transacionais.
+A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.
 
 > [!NOTE]
-> A série Ls é otimizada para utilização do disco temporário anexado para a máquina VM em vez de utilização de discos de dados durável. O alto débito e IOPS do disco temporário torna a série Ls ideal para arquivos de NoSQL, como o Apache Cassandra e MongoDB que replique dados em várias VMs para alcançar a persistência no caso de falha de uma única VM. A série Ls não suporta a criação de um cache local para aumentar o IOPS alcançável por discos de dados durável.
+> As VMs da série Lsv2 são otimizadas para utilizar o disco local no nó ligados diretamente à VM, em vez de utilizar discos de dados durável.  Isso possibilita maior IOPs / débito das cargas de trabalho.  A série Ls e Lsv2 não suportam a criação de um cache local para aumentar o IOPS alcançável por discos de dados durável. O alto débito e IOPS de disco local torna as VMs de série Ls e Lsv2 ideal para arquivos de NoSQL, como o Apache Cassandra e MongoDB que replique dados em várias VMs para alcançar a persistência no caso de falha de uma única VM. 
+
+## <a name="lsv2-series"></a>Série Lsv2
+ACU: 150 175
+
+Armazenamento Premium: Suportadas
+
+Armazenamento de Preminu colocação em cache: Não suportado
+
+| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe | Débito de disco de NVMe<sup>2</sup> (IOPS de leitura / MBps) | Tamanho da Cache do anfitrião<sup>3</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
+|---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2.000 | N/A | 16 | 2 / 3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9000    | N/A | 32 | 8 / 12,800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18,000   | N/A | 32 | 8 / 25,600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32.000 |
+ 
+<sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações.
+
+<sup>2</sup> a tecnologia Hyper-V NVMe Direct fornece acesso otimizado para unidades de NVMe mapeados de forma segura para o espaço VM do convidado.  Obter o máximo de desempenho, é necessário usar a compilação mais recente do WS2019 ou Ubuntu 18.04 ou 16.04 no Azure Marketplace.  Desempenho de gravação varia com base no tamanho de e/s, a carga de unidade e a utilização de capacidade.
+
+<sup>3</sup> VMs da série Lsv2 não oferecem cache do anfitrião para o disco de dados como não se beneficiem as cargas de trabalho Lsv2.  No entanto, as VMs de Lsv2 pode acomodar a opção de disco de SO efémero de VM do Azure (até 30 GiB). 
+
+
 
 ## <a name="ls-series"></a>Série Ls
+ACU: 180 240
 
-ACU: 180-240
+Armazenamento Premium:  Suportadas
 
-O armazenamento Premium: suportado
-
-Cache de armazenamento Premium: Não suportado
+Cache de armazenamento Premium:  Não suportado
  
-| Tamanho          | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito do armazenamento temporário máximo: IOPS / MBps | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
-|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 5,000 / 125        | 2 / 4,000  | 
-| Standard_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 10,000 / 250       | 4 / 8,000  | 
-| Standard_L16s  | 16   | 128  | 2,807 | 64   | 80,000 / 800   | 20,000 / 500       | 8 / 16,000 | 
+| Tamanho          | vCPU | Memória (GiB) | Armazenamento temporário (GiB) | Discos de dados máximos | Débito máximo do armazenamento temporário (IOPS / MBps) | Max não colocado em cache de débito de disco (IOPS / MBps) | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5,000 / 125  | 2 / 4,000  | 
+| Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10,000 / 250 | 4 / 8,000  | 
+| Standard_L16s  | 16 | 128 | 2,807 | 64 | 80,000 / 800 | 20,000 / 500 | 8 / 16,000 | 
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-O débito máximo do disco possível com VMs da série Ls pode estar limitado pelo número, tamanho e repartição de quaisquer discos de anexados. Para obter mais detalhes, veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
+O débito máximo do disco possível com VMs da série Ls pode estar limitado pelo número, tamanho e repartição de quaisquer discos de anexados. Para obter detalhes, consulte [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 <sup>1</sup> instância está isolada do hardware dedicado de um único cliente.
 

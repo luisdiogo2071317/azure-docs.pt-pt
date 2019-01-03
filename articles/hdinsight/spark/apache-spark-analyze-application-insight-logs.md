@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb3826a2c93ee19e1bb84028a6621d637ce27077
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497991"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810718"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analisar registos de telemetria do Application Insights com o Apache Spark no HDInsight
 
@@ -28,7 +28,7 @@ Aprenda a usar [Apache Spark](https://spark.apache.org/) no HDInsight para anali
 
 * Familiaridade com a criação de um cluster do HDInsight baseado em Linux. Para obter mais informações, consulte [criar o Apache Spark no HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Um navegador da web.
@@ -49,22 +49,22 @@ O diagrama seguinte ilustra a arquitetura de serviço deste exemplo:
 
 O Application Insights pode ser configurado para continuamente exportar informações de telemetria para blobs. HDInsight, em seguida, pode ler os dados armazenados em blobs. No entanto, existem alguns requisitos que tem de seguir:
 
-* **Localização**: se a conta de armazenamento e o HDInsight estiverem em diferentes localizações, ele pode aumentar a latência. Também aumenta o custo, como Cobranças aplicam-se a movimentação entre regiões de dados de saída.
+* **Localização**: Se a conta de armazenamento e o HDInsight estiverem em diferentes localizações, pode aumentar a latência. Também aumenta o custo, como Cobranças aplicam-se a movimentação entre regiões de dados de saída.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Utilizar uma conta de armazenamento numa localização diferente do que o HDInsight não é suportada.
 
-* **Tipo de blob**: HDInsight suporta apenas blobs de blocos. Application Insights a predefinição é usando blobs de blocos, assim, deve funcionar por predefinição com o HDInsight.
+* **Tipo de blob**: O HDInsight suporta apenas blobs de blocos. Application Insights a predefinição é usando blobs de blocos, assim, deve funcionar por predefinição com o HDInsight.
 
 Para obter informações sobre como adicionar armazenamento a um cluster existente, consulte a [adicionar mais contas de armazenamento](../hdinsight-hadoop-add-storage.md) documento.
 
 ### <a name="data-schema"></a>Esquema de dados
 
-O Application Insights fornece [exportar o modelo de dados](../../application-insights/app-insights-export-data-model.md) informações para o formato de dados de telemetria exportados para blobs. Os passos neste documento utilizam o Spark SQL para trabalhar com os dados. Spark SQL pode gerar automaticamente um esquema para a estrutura de dados JSON registado pelo Application Insights.
+O Application Insights fornece [exportar o modelo de dados](../../azure-monitor/app/export-data-model.md) informações para o formato de dados de telemetria exportados para blobs. Os passos neste documento utilizam o Spark SQL para trabalhar com os dados. Spark SQL pode gerar automaticamente um esquema para a estrutura de dados JSON registado pelo Application Insights.
 
 ## <a name="export-telemetry-data"></a>Exportar dados de telemetria
 
-Siga os passos em [configurar a exportação contínua](../../application-insights/app-insights-export-telemetry.md) para configurar o Application Insights para exportar as informações de telemetria para um blob de armazenamento do Azure.
+Siga os passos em [configurar a exportação contínua](../../azure-monitor/app/export-telemetry.md) para configurar o Application Insights para exportar as informações de telemetria para um blob de armazenamento do Azure.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>Configurar o HDInsight para aceder aos dados
 
@@ -72,7 +72,7 @@ Se estiver a criar um cluster do HDInsight, adicione a conta de armazenamento du
 
 Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize as informações a [adicionar contas de armazenamento adicionais](../hdinsight-hadoop-add-storage.md) documento.
 
-## <a name="analyze-the-data-pyspark"></a>Analisar os dados: PySpark
+## <a name="analyze-the-data-pyspark"></a>Analise os dados: PySpark
 
 1. Do [portal do Azure](https://portal.azure.com), selecione o Spark num cluster do HDInsight. Do **ligações rápidas** secção, selecione **Dashboards de clusters**e, em seguida, selecione **bloco de notas do Jupyter** da secção Dashboard__ de Cluster.
 
@@ -111,10 +111,10 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
 
     O caminho de wasb devolvido é a localização dos dados de telemetria do Application Insights. Alteração da `hdfs dfs -ls` linha na célula de utilizar o caminho de wasb devolvido e, em seguida, utilize **SHIFT + ENTER** para executar a célula novamente. Desta vez, os resultados deverá apresentar os diretórios que contêm dados de telemetria.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Para o resto dos passos nesta secção, o `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` foi utilizado o diretório. A estrutura de diretórios pode ser diferente.
 
-6. Na próxima célula, introduza o seguinte código: substitua `WASB_PATH` com o caminho do passo anterior.
+6. Na próxima célula, introduza o seguinte código: Substitua `WASB_PATH` com o caminho do passo anterior.
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -200,7 +200,7 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
 
     Esta consulta devolve as informações de cidade para os primeiros 20 registos onde context.location.city não é nulo.
 
-   > [!NOTE]
+   > [!NOTE]  
    > A estrutura de contexto está presente em toda a telemetria registada pelo Application Insights. O elemento de cidade não pode ser preenchido nos seus registos. Utilize o esquema para identificar outros elementos que pode consultar que podem conter dados para os seus registos.
 
     Esta consulta devolve informações semelhantes ao seguinte texto:
@@ -215,7 +215,7 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
         ...
         +---------+
 
-## <a name="analyze-the-data-scala"></a>Analisar os dados: Scala
+## <a name="analyze-the-data-scala"></a>Analise os dados: Scala
 
 1. Do [portal do Azure](https://portal.azure.com), selecione o Spark num cluster do HDInsight. Do **ligações rápidas** secção, selecione **Dashboards de clusters**e, em seguida, selecione **bloco de notas do Jupyter** da secção Dashboard__ de Cluster.
 
@@ -252,10 +252,10 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
 
     O caminho de wasb devolvido é a localização dos dados de telemetria do Application Insights. Alteração da `hdfs dfs -ls` linha na célula de utilizar o caminho de wasb devolvido e, em seguida, utilize **SHIFT + ENTER** para executar a célula novamente. Desta vez, os resultados deverá apresentar os diretórios que contêm dados de telemetria.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Para o resto dos passos nesta secção, o `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` foi utilizado o diretório. Este diretório pode não existir, a menos que os seus dados de telemetria são para uma aplicação web.
 
-6. Na próxima célula, introduza o seguinte código: substitua `WASB\_PATH` com o caminho do passo anterior.
+6. Na próxima célula, introduza o seguinte código: Substitua `WASB\_PATH` com o caminho do passo anterior.
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -343,7 +343,7 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
 
     Esta consulta devolve as informações de cidade para os primeiros 20 registos onde context.location.city não é nulo.
 
-   > [!NOTE]
+   > [!NOTE]  
    > A estrutura de contexto está presente em toda a telemetria registada pelo Application Insights. O elemento de cidade não pode ser preenchido nos seus registos. Utilize o esquema para identificar outros elementos que pode consultar que podem conter dados para os seus registos.
    >
    >
@@ -364,9 +364,9 @@ Para adicionar a conta de armazenamento do Azure a um cluster existente, utilize
 
 Para obter mais exemplos de utilização do Apache Spark para trabalhar com dados e serviços no Azure, consulte os seguintes documentos:
 
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Para obter informações sobre como criar e executar Spark aplicações, veja os documentos seguintes:

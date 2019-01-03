@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292409"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554661"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -78,8 +78,8 @@ Esta secção mostra o resumo das informações.
 |Atributo | Descrição|
 |---|---|
 |nome|O nome do vídeo. Por exemplo, o Azure Monitor.|
-|shortId|O ID do vídeo. Por exemplo, 63c6d532ff.|
-|privacyMode|Sua análise detalhada pode ter um dos seguintes modos: **privada**, **público**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
+|ID|O ID do vídeo. Por exemplo, 63c6d532ff.|
+|privacyMode|Sua divisão pode ter um dos seguintes modos: **Privada**, **pública**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
 |thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chamar Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
@@ -149,7 +149,7 @@ Esta secção mostra o resumo das informações.
 
 As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), onde cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3), e cada elemento tem seus próprios metadados e uma lista das suas instâncias (que são os intervalos de tempo com opcional metadados adicionais).
 
-Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista das suas instâncias temporais (por exemplo: 00: 00:05 – 00:00:10, 01: 00:00 - 00:02:30 e 00:41:21 – 00:41:49.) Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face as coordenadas (20,230,60,60).
+Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista das suas instâncias temporais (por exemplo: 00: 00:05 – 00:00:10, 01: 00:00-00:02:30 e 00:41:21 – 00:41:49.) Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face as coordenadas (20,230,60,60).
 
 |Versão|A versão de código|
 |---|---|
@@ -553,7 +553,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 |Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
-|WordCount|O número de palavras por orador.|
+|SpeakerWordCount|O número de palavras por orador.|
 |SpeakerNumberOfFragments|A quantidade de fragmentos o orador tem um vídeo.|
 |SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
 |SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
@@ -767,7 +767,7 @@ O Video Indexer torna a inferência de tipos de tópicos principais de transcri�
 |Nome|Descrição|
 |---|---|
 |ID|O ID de tópico.|
-|nome|Nome do tópico, por exemplo: "Farmacêutica".|
+|nome|O nome do tópico, por exemplo: "Farmacêutica".|
 |referenceId|A estrutura de ligações que reflete a hierarquia de tópicos. Por exemplo: "Estado de funcionamento e wellbeing / medicina e saúde / farmacêutica".|
 |confiança|A pontuação de confiança no intervalo [0,1]. Superior é mais confiança.|
 |language|O idioma usado no tópico.|

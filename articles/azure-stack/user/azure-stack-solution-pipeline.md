@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967066"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714615"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e o Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como implementar uma aplicação do Azure e o Azure Stack com um pipeline de entrega (CI/CD) de integração contínua/contínua de híbrida.
 
@@ -72,7 +72,7 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
 ### <a name="azure-requirements"></a>Requisitos do Azure
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Criar uma [aplicação Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) no Azure. Tenha em atenção de URL da aplicação Web de fazer, terá de utilizá-lo no tutorial.
+* Criar uma [aplicação Web](https://docs.microsoft.com/azure/app-service/overview) no Azure. Tenha em atenção de URL da aplicação Web de fazer, terá de utilizá-lo no tutorial.
 
 ### <a name="azure-stack-requirements"></a>Requisitos do Azure Stack
 
@@ -166,7 +166,7 @@ Como parte da configuração do ponto final de serviço, serviços de DevOps do 
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de principal de serviço para implementar recursos na subscrição do Azure Stack
 
-Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função representa as permissões recomendadas para a aplicação. Para saber mais sobre as funções disponíveis, veja [RBAC: funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função representa as permissões recomendadas para a aplicação. Para saber mais sobre as funções disponíveis, consulte o artigo [RBAC: Funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação à função do leitor para um grupo de recursos significa pode ler o grupo de recursos e qualquer um dos seus recursos.
 
@@ -180,9 +180,7 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
 
 3. No Visual Studio Enterprise, selecione **controlo de acesso (IAM)**.
 
-    ![Controlo de Acesso (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Selecione **Adicionar**.
+4. Selecione **adicionar atribuição de função**.
 
     ![Adicionar](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -350,7 +348,7 @@ Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutu
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar implementação da aplicação web autônomo para serviços de aplicações em ambas as nuvens
 
-1. Editar a **WebApplication.csproj** ficheiro: selecionar **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implementação autónoma e contém](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
+1. Editar a **WebApplication.csproj** ficheiro: Selecione **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implementação autónoma e contém](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
 
     ![Configurar Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 

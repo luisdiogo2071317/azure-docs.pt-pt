@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802058"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630976"
 ---
-# <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados do Azure no local
-O gateway de dados no local atua como uma ponte, fornecendo a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 
+# <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados no local
+O gateway de dados no local fornece a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 
 
 Obter configuração com o gateway pela primeira vez é um processo de quatro partes:
 
@@ -93,65 +93,68 @@ Atualmente, não há um local único onde os administradores de inquilinos podem
 
 ### <a name="general"></a>Geral
 
-**As perguntas e**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
-**A**: não. É necessário para ligar a origens de dados no local apenas um gateway.
+**AS PERGUNTAS E**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
+**A**: Não. É necessário para ligar a origens de dados no local apenas um gateway.
 
-**As perguntas e**: o gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
-**A**: não. O gateway precisa apenas a capacidade de ligar ao servidor, normalmente na mesma rede.
+**AS PERGUNTAS E**: O gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
+**A**: Não. O gateway precisa apenas a capacidade de ligar ao servidor, normalmente na mesma rede.
 
 <a name="why-azure-work-school-account"></a>
 
-**As perguntas e**: por que preciso utilizar uma conta escolar ou profissional para iniciar sessão? <br/>
-**A**: só pode utilizar uma conta escolar ou profissional de organizacional ao instalar o gateway de dados no local. E, que conta tem de estar no mesmo inquilino que a subscrição estão a configurar o recurso de gateway no. Sua conta de início de sessão é armazenada num inquilino gerido pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde ao endereço de e-mail.
+**AS PERGUNTAS E**: Por que preciso de utilizar uma conta escolar ou profissional para iniciar sessão? <br/>
+**A**: Só pode utilizar uma conta escolar ou profissional de organizacional ao instalar o gateway de dados no local. E, que conta tem de estar no mesmo inquilino que a subscrição estão a configurar o recurso de gateway no. Sua conta de início de sessão é armazenada num inquilino gerido pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde ao endereço de e-mail.
 
-**As perguntas e**: onde estão armazenadas as minhas credenciais? <br/>
-**A**: as credenciais que introduzir para uma origem de dados são encriptadas e armazenadas no serviço Cloud do Gateway. As credenciais são desencriptadas no gateway de dados no local.
+**AS PERGUNTAS E**: Onde estão armazenadas as minhas credenciais? <br/>
+**A**: As credenciais que introduzir para uma origem de dados são encriptadas e armazenadas no serviço Cloud do Gateway. As credenciais são desencriptadas no gateway de dados no local.
 
-**As perguntas e**: existem requisitos de largura de banda de rede? <br/>
-**A**: recomenda-se a ligação de rede tem bom débito. Cada ambiente é diferente e a quantidade de dados enviados afeta os resultados. Com o ExpressRoute pode ajudar a garantir um nível de débito entre os datacenters do Azure e no local.
+**AS PERGUNTAS E**: Existem requisitos de largura de banda de rede? <br/>
+**A**: Recomenda-se que a ligação de rede tenha bom débito. Cada ambiente é diferente e a quantidade de dados enviados afeta os resultados. Com o ExpressRoute pode ajudar a garantir um nível de débito entre os datacenters do Azure e no local.
 Pode utilizar a aplicação Azure Speed Test de ferramenta de terceiros para ajudar a calcular o débito.
 
-**As perguntas e**: o que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
-**A**: para reduzir a latência de rede, instale o gateway mais próximo possível da origem de dados. Se pode instalar o gateway na origem de dados real, este proximidade minimiza a latência introduzida. Considere também os datacenters. Por exemplo, se o serviço utiliza o datacenter E.U.A. oeste e tiver o SQL Server alojado numa VM do Azure, a VM do Azure deve estar no Oeste dos E.U.A. demasiado. Este proximidade minimiza a latência e evita custos de saída na VM do Azure.
+**AS PERGUNTAS E**: O que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
+**A**: Para reduzir a latência de rede, instale o gateway como próximo da origem de dados quanto possível. Se pode instalar o gateway na origem de dados real, este proximidade minimiza a latência introduzida. Considere também os datacenters. Por exemplo, se o serviço utiliza o datacenter E.U.A. oeste e tiver o SQL Server alojado numa VM do Azure, a VM do Azure deve estar no Oeste dos E.U.A. demasiado. Este proximidade minimiza a latência e evita custos de saída na VM do Azure.
 
-**As perguntas e**: como os resultados são enviados para a cloud? <br/>
-**A**: os resultados são enviados através do Azure Service Bus.
+**AS PERGUNTAS E**: Como os resultados são enviados para a cloud? <br/>
+**A**: Os resultados são enviados através do Azure Service Bus.
 
-**As perguntas e**: existem ligações de entrada para o gateway da cloud? <br/>
-**A**: não. O gateway utiliza ligações de saída para o Azure Service Bus.
+**AS PERGUNTAS E**: Existem ligações de entrada para o gateway da cloud? <br/>
+**A**: Não. O gateway utiliza ligações de saída para o Azure Service Bus.
 
-**As perguntas e**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
-**A**: consulte as portas e os anfitriões que o gateway utiliza.
+**AS PERGUNTAS E**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
+**A**: Ver as portas e os anfitriões que o gateway utiliza.
 
-**As perguntas e**: o que é o serviço real do Windows chamado?<br/>
-**A**: em serviços, o gateway é chamado serviço de gateway de dados no local.
+**AS PERGUNTAS E**: O que é o serviço real do Windows chamado?<br/>
+**A**: Nos serviços, o gateway é chamado serviço de gateway de dados no local.
 
-**As perguntas e**: o serviço Windows do gateway pode executar com uma conta do Azure Active Directory? <br/>
-**A**: não. O serviço do Windows tem de ter uma conta Windows válida. Por predefinição, o serviço é executado com o SID de serviço, o NT SERVICE\PBIEgwService.
+**AS PERGUNTAS E**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
+**A**: Não. O serviço do Windows tem de ter uma conta Windows válida. Por predefinição, o serviço é executado com o SID de serviço, o NT SERVICE\PBIEgwService.
 
-**As perguntas e**: Como faço para obtenção de controlo um gateway? <br/>
-**A**: para obtenção de controlo de um gateway (ao executar o programa de configuração/alterar no painel de controlo > programas), tem de ser um proprietário para o recurso de gateway no Azure e ter a chave de recuperação. Os proprietários de recursos de gateway podem ser configurados no controlo de acesso.
+**AS PERGUNTAS E**: Como faço para obtenção de controlo um gateway? <br/>
+**A**: A obtenção de controlo de um gateway (ao executar o programa de configuração/alterar no painel de controlo > programas), tem de ser um proprietário para o recurso de gateway no Azure e ter a chave de recuperação. Os proprietários de recursos de gateway podem ser configurados no controlo de acesso.
 
 ### <a name="high-availability"></a>Elevada disponibilidade e recuperação após desastre
 
-**As perguntas e**: que opções estão disponíveis para recuperação após desastre? <br/>
-**A**: pode utilizar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
+**AS PERGUNTAS E**: Como podemos ter elevada disponibilidade?  
+**A**: Pode instalar um gateway noutro computador para criar um cluster. Para obter mais informações, consulte [clusters de elevada disponibilidade para o gateway de dados no local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) em documentos do Power BI Gateway.
 
-**As perguntas e**: qual é a vantagem da chave de recuperação? <br/>
+**AS PERGUNTAS E**: Que opções estão disponíveis para recuperação após desastre? <br/>
+**A**: Pode utilizar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
+
+**AS PERGUNTAS E**: Qual é a vantagem da chave de recuperação? <br/>
 **A**: A chave de recuperação fornece uma forma de migrar ou recuperar as definições do gateway após um desastre.
 
 ## <a name="troubleshooting"> </a>Resolução de problemas
 
-**As perguntas e**: por que motivo não vejo meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
+**AS PERGUNTAS E**: Por que motivo não vejo meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
 **A**: Existem duas razões possíveis. O primeiro é que um recurso já foi criado para o gateway no atual ou alguma outra subscrição. Para eliminar essa possibilidade, enumerar recursos do tipo **Gateways de dados no local** do portal. Certifique-se selecionar todas as subscrições ao enumerar todos os recursos. Assim que o recurso é criado, o gateway não aparece na lista de instâncias de gateway na experiência do portal de criar o recurso de Gateway. O segundo também é possível que a identidade do Azure AD do utilizador que instalar o gateway é diferente do utilizador iniciou sessão no portal do Azure. Para resolver, inicie sessão no portal com a mesma conta que o utilizador que instalou o gateway.
 
-**As perguntas e**: como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
-**A**: pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Não se esqueça de alterar a consulta rastreio de volta para o valor original quando terminado a resolução de problemas. Deixar o rastreio de consulta ativado cria registos maiores.
+**AS PERGUNTAS E**: Como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
+**A**: Pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Não se esqueça de alterar a consulta rastreio de volta para o valor original quando terminado a resolução de problemas. Deixar o rastreio de consulta ativado cria registos maiores.
 
 Pode também ver as ferramentas que a sua origem de dados tem para rastreio de consultas. Por exemplo, pode usar eventos expandidos ou o SQL Profiler para SQL Server e do Analysis Services.
 
-**As perguntas e**: onde estão os registos do gateway? <br/>
-**A**: consulte os registos neste artigo.
+**AS PERGUNTAS E**: Onde estão os registos do gateway? <br/>
+**A**: Consulte os registos mais adiante neste artigo.
 
 ### <a name="update"></a>Atualizar para a versão mais recente
 
@@ -184,7 +187,7 @@ Telemetria pode ser utilizada para monitorização e resolução de problemas. P
 
 **Para ativar a telemetria**
 
-1.  Verifique o diretório de cliente do gateway de dados no local no computador. Normalmente, é **gateway de dados de %systemdrive%\Program files\on-Premises**. Em alternativa, pode abrir uma consola de serviços e verifique o caminho para o executável: uma propriedade do serviço de gateway de dados no local.
+1.  Verifique o diretório de cliente do gateway de dados no local no computador. Normalmente, é **gateway de dados de %systemdrive%\Program files\on-Premises**. Em alternativa, pode abrir uma consola de serviços e verifique o caminho para o executável: Uma propriedade do serviço de gateway de dados no local.
 2.  No ficheiro Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config do diretório de cliente. Altere a definição de SendTelemetry como true.
         
     ```
@@ -193,7 +196,7 @@ Telemetria pode ser utilizada para monitorização e resolução de problemas. P
         </setting>
     ```
 
-3.  Guardar as alterações e reinicie o serviço do Windows: serviço de gateway de dados no local.
+3.  Guardar as alterações e reinicie o serviço do Windows: Serviço de gateway de dados no local.
 
 
 

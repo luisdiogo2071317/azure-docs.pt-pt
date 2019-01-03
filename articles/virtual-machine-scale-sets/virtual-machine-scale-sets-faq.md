@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cd84704c7926bfa9ace0d801b2532d2c77296075
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139372"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810513"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -167,48 +167,16 @@ O código suporta Windows e Linux.
 Para obter mais informações, consulte [criar ou atualizar conjunto de dimensionamento de máquinas virtuais](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificate"></a>Exemplo de um certificado autoassinado
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Exemplo de certificados autoassinados aprovisionado para Clusters do Azure Service Fabric.
+A utilização de exemplo mais recente a seguinte instrução de CLI do azure na shell do azure, leia a documentação de exemplo, que serão impressos para stdout do módulo de CLI de recursos de infraestrutura do serviço:
 
-1.  Crie um certificado autoassinado no Cofre de chaves.
+```bash
+az sf cluster create -h
+```
 
-    Utilize os seguintes comandos do PowerShell:
+Reveja a documentação de keyvaults para as operações de certificado mais recente do API suportada no Azure.
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    Este comando dá-lhe a entrada para o modelo Azure Resource Manager.
-
-    Para obter um exemplo de como criar um certificado autoassinado no Cofre de chaves, consulte [cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-
-2.  Altere o modelo do Resource Manager.
-
-    Adicionar essa propriedade **virtualMachineProfile**, como parte da máquina virtual recurso de conjunto de dimensionamento:
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+Certificados autoassinados não podem ser utilizados para confiança distribuída fornecida por uma autoridade de certificação e não devem ser usados para qualquer Cluster do Service Fabric se destina a soluções de host de produção de enterprise; para orientações adicionais de segurança de recursos de infraestrutura do serviço, reveja [do Azure Service Fabric melhores práticas de segurança](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) e [cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Pode especificar um par de chaves SSH para utilizar para autenticação de SSH com um dimensionamento de máquinas virtuais do Linux definido a partir de um modelo do Resource Manager?  
@@ -510,7 +478,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Eu preciso executar um script personalizado que está alojado numa conta de armazenamento privado. O script é executado com êxito quando o armazenamento é público, mas ao tentar utilizar uma assinatura de acesso partilhado (SAS), ocorre uma falha. Será apresentada esta mensagem: "Em falta parâmetros obrigatórios para assinatura de acesso partilhado válida". Ligação + SAS funciona bem a partir do browser de local.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Eu preciso executar um script personalizado que está alojado numa conta de armazenamento privado. O script é executado com êxito quando o armazenamento é público, mas ao tentar utilizar uma assinatura de acesso partilhado (SAS), ocorre uma falha. Esta mensagem é apresentada: "Em falta parâmetros obrigatórios para assinatura de acesso partilhado válido". Ligação + SAS funciona bem a partir do browser de local.
 
 Para executar um script personalizado que está alojado numa conta de armazenamento privado, configure definições protegidas com o nome e chave da conta de armazenamento. Para obter mais informações, consulte [extensão de Script personalizado para o Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
@@ -559,7 +527,7 @@ Sim. Um grupo de segurança de rede podem ser aplicado diretamente para fazer re
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Como posso fazer uma alternância de VIP para conjuntos de dimensionamento de máquinas virtuais na mesma subscrição e na mesma região?
 
-Se tiver dois conjuntos de dimensionamento de máquina virtual com o front-ends do Balanceador de carga do Azure e estão na mesma subscrição e região, foi possível desalocar os endereços IP públicos de cada um deles e atribuir a si. Ver [alternância de VIP: implementação de "Blue-Green" no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) por exemplo. Isso implica um atraso porém os recursos estejam desalocada/alocados na rede de nível. Uma opção mais rápida é usar o Gateway de aplicação do Azure com dois conjuntos de back-end e uma regra de roteamento. Em alternativa, pode alojar a aplicação com [serviço de aplicações do Azure](https://azure.microsoft.com/services/app-service/) que fornece suporte para a troca rápida de entre as ranhuras de teste e produção.
+Se tiver dois conjuntos de dimensionamento de máquina virtual com o front-ends do Balanceador de carga do Azure e estão na mesma subscrição e região, foi possível desalocar os endereços IP públicos de cada um deles e atribuir a si. Consulte [alternância de VIP: Implementação de "blue-Green" no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) por exemplo. Isso implica um atraso porém os recursos estejam desalocada/alocados na rede de nível. Uma opção mais rápida é usar o Gateway de aplicação do Azure com dois conjuntos de back-end e uma regra de roteamento. Em alternativa, pode alojar a aplicação com [serviço de aplicações do Azure](https://azure.microsoft.com/services/app-service/) que fornece suporte para a troca rápida de entre as ranhuras de teste e produção.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Como posso especificar um intervalo de endereços IP privados a utilizar para a alocação de endereço IP privada estático?
 
@@ -573,7 +541,7 @@ Para implementar um conjunto a uma rede virtual do Azure existente de dimensiona
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Como posso adicionar o endereço IP da VM primeiro num conjunto de dimensionamento para a saída de um modelo?
 
-Para adicionar o endereço IP da VM primeiro num conjunto para a saída de um modelo de dimensionamento de máquina virtual, consulte [do Azure Resource Manager: IPs privados de conjuntos de dimensionamento de máquina virtual de Get](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Para adicionar o endereço IP da VM primeiro num conjunto para a saída de um modelo de dimensionamento de máquina virtual, consulte [do Azure Resource Manager: Obter máquina virtual conjuntos de dimensionamento de IPs privados](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Pode utilizar os conjuntos de dimensionamento com redes aceleradas?
 

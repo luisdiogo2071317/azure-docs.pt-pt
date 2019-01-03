@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011999"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789234"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
 
@@ -28,7 +28,7 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de even
 
 ### <a name="job-related-event-types"></a>Tipos de eventos relacionados com a tarefa
 
-Serviços de multimédia emite a **tarefa** relacionados com os tipos de eventos descritos abaixo. Existem duas categorias para o **tarefa** eventos relacionados com: "Monitorização de tarefa de estado alterações" e "Monitorização tarefa saída alterações de estado". 
+Serviços de multimédia emite a **tarefa** relacionados com os tipos de eventos descritos abaixo. Existem duas categorias para o **tarefa** eventos relacionados com: "Altera de estado da tarefa de monitorização" e "Estado de saída de tarefa de monitorização é alterado". 
 
 Pode registar para todos os eventos inscrevendo-se ao evento JobStateChange. Em alternativa, pode subscrever eventos específicos apenas (por exemplo, Estados finais como JobErrored, JobFinished e JobCanceled). 
 
@@ -112,9 +112,9 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | previousState | cadeia | O estado da tarefa antes do evento. |
-| state | cadeia | O novo estado da tarefa a ser notificado neste evento. Por exemplo, "agendado: A tarefa está pronta para começar a" ou "concluído: A tarefa estiver concluída".|
+| state | cadeia | O novo estado da tarefa a ser notificado neste evento. Por exemplo, "agendada: A tarefa está pronta para começar a"ou" concluído: A tarefa é concluída".|
 
-Em que o estado da tarefa pode ser um dos valores: *em fila*, *agendada*, *processamento*, *concluído*, *erro*, *Cancelada*, *Cancelar*
+Em que o estado da tarefa pode ser um dos valores: *Em fila*, *agendada*, *processamento*, *concluído*, *erro*, *cancelada*, *Cancelar*
 
 > [!NOTE]
 > *Em fila* apenas vai estar presente no **previousState** propriedade, mas não na **estado** propriedade.
@@ -134,7 +134,7 @@ Para cada não final tarefa alteração de estado (por exemplo, JobCanceling Job
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ Para cada alteração de estado final da tarefa (por exemplo, JobErrored JobFini
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ O exemplo seguinte mostra o esquema do **JobOutputStateChange** eventos:
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ Para cada alteração de estado de JobOutput, o esquema de exemplo terá um aspe
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ O exemplo seguinte mostra o esquema do **LiveEventConnectionRejected** eventos:
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -277,7 +278,7 @@ O objeto de dados tem as seguintes propriedades:
 | IngestUrl | cadeia | Ingestão de URL fornecido pelo evento em direto. |  
 | EncoderIp | cadeia | IP do codificador. |
 | EncoderPort | cadeia | Porta do codificador de onde vem esse fluxo. |
-| ResultCode | cadeia | O motivo pelo qual a ligação foi rejeitado. Os códigos de resultado estão listados na tabela seguinte. |
+| resultCode | cadeia | O motivo pelo qual a ligação foi rejeitado. Os códigos de resultado estão listados na tabela seguinte. |
 
 Os códigos de resultado são:
 
@@ -358,7 +359,7 @@ O objeto de dados tem as seguintes propriedades:
 | IngestUrl | cadeia | Ingestão de URL fornecido pelo evento em direto. |  
 | EncoderIp | cadeia | IP do codificador. |
 | EncoderPort | cadeia | Porta do codificador de onde vem esse fluxo. |
-| ResultCode | cadeia | O motivo para o codificador a desligar. É possível desligar anulações normais ou de um erro. Os códigos de resultado estão listados na tabela seguinte. |
+| resultCode | cadeia | O motivo para o codificador a desligar. É possível desligar anulações normais ou de um erro. Os códigos de resultado estão listados na tabela seguinte. |
 
 Os códigos de resultado de erro são:
 
@@ -394,14 +395,15 @@ O exemplo seguinte mostra o esquema do **LiveEventIncomingDataChunkDropped** eve
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -413,9 +415,9 @@ O objeto de dados tem as seguintes propriedades:
 | TrackType | cadeia | Tipo da faixa (áudio / vídeo). |
 | TrackName | cadeia | Nome da faixa. |
 | Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
-| Carimbo de data/hora | cadeia | Timestamp do segmento de dados removida. |
-| Escala temporal | cadeia | Escala temporal do período de tempo. |
-| ResultCode | cadeia | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
+| carimbo de data/hora | cadeia | Timestamp do segmento de dados removida. |
+| escala temporal | cadeia | Escala temporal do período de tempo. |
+| resultCode | cadeia | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -456,8 +458,8 @@ O objeto de dados tem as seguintes propriedades:
 | IngestUrl | cadeia | Ingestão de URL fornecido pelo evento em direto. |
 | EncoderIp | cadeia  | IP do codificador. |
 | EncoderPort | cadeia | Porta do codificador de onde vem esse fluxo. |
-| Carimbo de data/hora | cadeia | Primeira timestamp do segmento de dados recebido. |
-| Escala temporal | cadeia | Escala temporal em que é representado timestamp. |
+| carimbo de data/hora | cadeia | Primeira timestamp do segmento de dados recebido. |
+| escala temporal | cadeia | Escala temporal em que é representado timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -509,13 +511,14 @@ O exemplo seguinte mostra o esquema do **LiveEventIncomingVideoStreamsOutOfSync*
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -528,7 +531,7 @@ O objeto de dados tem as seguintes propriedades:
 | FirstDuration | cadeia | Duração do segmento de dados com timestamp primeiro. |
 | SecondTimestamp | cadeia  | Timestamp recebido para algum outro nível de controle/qualidade do tipo vídeo. |
 | SecondDuration | cadeia | Duração do segmento de dados com o segundo timestamp. |
-| Escala temporal | cadeia | Escala temporal de carimbos e duração.|
+| escala temporal | cadeia | Escala temporal de carimbos e duração.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -571,13 +574,13 @@ O objeto de dados tem as seguintes propriedades:
 | Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
 | IncomingBitrate | inteiro | Velocidade de transmissão calculada com base nos segmentos de dados provenientes do codificador. |
 | LastTimestamp | cadeia | Mais recente timestamp recebida um Roteiro na última 20 segundos. |
-| Escala temporal | cadeia | Escala temporal em que são expressos carimbos. |
+| escala temporal | cadeia | Escala temporal em que são expressos carimbos. |
 | OverlapCount | inteiro | Número de segmentos de dados tinha overlapped carimbos de data / no último 20 segundos. |
 | DiscontinuityCount | inteiro | Número de discontinuities observados nos últimos 20 segundos. |
 | NonIncreasingCount | inteiro | Número de segmentos de dados carimbos de data no passado foram recebido nos últimos 20 segundos. |
-| UnexpectedBitrate | Bool | Se forem diferentes velocidades de transmissão de expected e actual ao limite permitido mais do que em última 20 segundos. É verdadeiro se e apenas se, IncomingBitrate > = 2 * velocidade de transmissão ou IncomingBitrate < = IncomingBitrate ou de velocidade de transmissão/2 = 0. |
-| Estado | cadeia | Estado do evento em direto. |
-| Bom estado de funcionamento | Bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
+| UnexpectedBitrate | Bool | Se forem diferentes velocidades de transmissão de expected e actual ao limite permitido mais do que em última 20 segundos. É verdadeiro se e apenas se, incomingBitrate > = 2 * velocidade de transmissão ou incomingBitrate < = IncomingBitrate ou de velocidade de transmissão/2 = 0. |
+| state | cadeia | Estado do evento em direto. |
+| bom estado de funcionamento | Bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -616,7 +619,7 @@ O objeto de dados tem as seguintes propriedades:
 | PreviousTimestamp | cadeia | Timestamp do fragmento anterior. |
 | NewTimestamp | cadeia | Timestamp do fragmento atual. |
 | DiscontinuityGap | cadeia | Lacuna entre acima dois carimbos. |
-| Escala temporal | cadeia | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
+| escala temporal | cadeia | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
 
 ### <a name="common-event-properties"></a>Propriedades de evento comum
 

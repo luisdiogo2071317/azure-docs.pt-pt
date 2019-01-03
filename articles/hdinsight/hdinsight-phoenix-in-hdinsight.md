@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435553"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744346"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix no HDInsight
 
-[O Apache Phoenix](http://phoenix.apache.org/) é uma código-fonte aberto, camada de base de dados relacional paralelo em massa criada na [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite-lhe utilizar consultas do tipo SQL através de HBase. Phoenix utiliza controladores JDBC por baixo, para permitir que os utilizadores a criar, eliminar, alter tabelas SQL, índices, Exibições e sequências e linhas de upsert individualmente e em massa. Phoenix usa a compilação nativo do noSQL, em vez de utilizar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase. Phoenix adiciona coprocessors para suportar a execução do código fornecido pelo cliente no espaço de endereços de servidor, executando o código na mesma localização os dados. Essa abordagem minimiza a transferência de dados de cliente/servidor.
+[O Apache Phoenix](https://phoenix.apache.org/) é uma código-fonte aberto, camada de base de dados relacional paralelo em massa criada na [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite-lhe utilizar consultas do tipo SQL através de HBase. Phoenix utiliza controladores JDBC por baixo, para permitir que os utilizadores a criar, eliminar, alter tabelas SQL, índices, Exibições e sequências e linhas de upsert individualmente e em massa. Phoenix usa a compilação nativo do noSQL, em vez de utilizar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase. Phoenix adiciona coprocessors para suportar a execução do código fornecido pelo cliente no espaço de endereços de servidor, executando o código na mesma localização os dados. Essa abordagem minimiza a transferência de dados de cliente/servidor.
 
-O Apache Phoenix abre-se as consultas de macrodados para não-desenvolvedores que podem utilizar uma sintaxe semelhante a SQL em vez de programação. Phoenix está altamente otimizado para o HBase, ao contrário de outras ferramentas, tal como [Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL. A vantagem para os desenvolvedores, é altamente escrever consultas de alto desempenho com muito menos código.
+O Apache Phoenix abre-se as consultas de macrodados para não-desenvolvedores que podem utilizar uma sintaxe semelhante a SQL em vez de programação. Phoenix está altamente otimizado para o HBase, ao contrário de outras ferramentas, tal como [Apache Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL. A vantagem para os desenvolvedores, é altamente escrever consultas de alto desempenho com muito menos código.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando submete uma consulta SQL, o Phoenix compila a consulta para chamadas nativas do HBase e executa a análise (ou o plano) em paralelo para a otimização. Essa camada de abstração libera o desenvolvedor da escrita de tarefas de MapReduce, para se concentrar em vez disso, a lógica de negócios e o fluxo de trabalho de seu aplicativo em todo o armazenamento de grandes volumes de dados do Phoenix.
@@ -70,17 +70,17 @@ Para adicionar mais colunas mais tarde, utilize o `ALTER VIEW` instrução.
 
 ### <a name="skip-scan"></a>Análise de ignorar
 
-Análise de ignorar usa uma ou mais colunas de um índice composto para encontrar valores distintos. Ao contrário de uma verificação de intervalo de análise de ignorar implementa intra-linhas análise, gerando [melhorou o desempenho](http://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente é ignorado, juntamente com o índice até encontra o valor seguinte.
+Análise de ignorar usa uma ou mais colunas de um índice composto para encontrar valores distintos. Ao contrário de uma verificação de intervalo de análise de ignorar implementa intra-linhas análise, gerando [melhorou o desempenho](https://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente é ignorado, juntamente com o índice até encontra o valor seguinte.
 
 Utiliza uma análise de ignorar o `SEEK_NEXT_USING_HINT` enumeração do filtro de HBase. Usando `SEEK_NEXT_USING_HINT`, a análise de ignorar mantém um registro de qual conjunto de chaves, ou intervalos de chaves, estão a ser procurado para cada coluna. A ignorar de análise, em seguida, usa uma chave que foi passada para ele durante a avaliação de filtro e determina se é uma das combinações. Caso contrário, a análise de ignorar avalia a seguinte chave de mais alta para saltar para.
 
 ### <a name="transactions"></a>Transações
 
-Enquanto o HBase fornece ao nível da linha de transações, Phoenix integra [Tephra](http://tephra.io/) para adicionar suporte a transações da linha e entre tabelas com completo [ACID](https://en.wikipedia.org/wiki/ACID) semântica.
+Enquanto o HBase fornece ao nível da linha de transações, Phoenix integra [Tephra](https://tephra.io/) para adicionar suporte a transações da linha e entre tabelas com completo [ACID](https://en.wikipedia.org/wiki/ACID) semântica.
 
 Como com transações tradicionais de SQL, transações fornecidas através do Gestor de transações de Phoenix permitem-lhe Certifique-se de que uma unidade atômica de dados é com êxito upserted, reverter a transação se a operação de upsert falhar em qualquer tabela habilitados na transação.
 
-Para permitir transações de Phoenix, consulte a [documentação de transação de Apache Phoenix](http://phoenix.apache.org/transactions.html).
+Para permitir transações de Phoenix, consulte a [documentação de transação de Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
 Para criar uma nova tabela com transações ativadas, defina o `TRANSACTIONAL` propriedade `true` num `CREATE` instrução:
 
@@ -94,7 +94,7 @@ Para alterar uma tabela existente seja transacional, utilize a mesma propriedade
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Não é possível voltar a mudar uma tabela transacional para a ser não transacional.
 
 ### <a name="salted-tables"></a>Tabelas de Salt

@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434771"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582563"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Windows na gestão de atualizações
 
 Podem existir muitos motivos pelos quais sua máquina não estiver visível **pronto** na gestão de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo descreve como executar a resolução de problemas para as máquinas do Azure a partir do portal do Azure e máquinas não Azure no [cenário offline](#troubleshoot-offline).
+
+A lista a seguir são os Estados de preparação de três uma máquina pode estar em:
+
+* **Pronto** -o agente de atualização é implementado e foi-visto pela última vez há menos de 1 hora.
+* **Desligado** -o agente de atualização é implementado e foi-visto pela última vez há mais de 1 hora.
+* **Não configurado** -o agente de atualização não for encontrado ou não foi concluída de integração.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
 

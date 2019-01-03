@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739282"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791052"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
 Este artigo aborda considerações de design para conjuntos de dimensionamento de Máquina Virtual. Para obter informações sobre quais são os conjuntos de dimensionamento de máquinas virtuais, consulte [descrição geral dos conjuntos de dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
@@ -71,7 +71,7 @@ Um conjunto de dimensionamento criados numa imagem do Marketplace (também conhe
 
 Um conjunto configurado com contas de armazenamento gerida pelo utilizador de dimensionamento está limitado a 100 VMs (e 5 contas de armazenamento são recomendadas para desta escala).
 
-Um conjunto de dimensionamento criado numa imagem personalizada (um criado por si) pode ter uma capacidade de até 300 VMs quando configurado com os Azure Managed disks. Se o conjunto de dimensionamento está configurado com contas de armazenamento gerida pelo utilizador, tem de criar todos os VHDs de discos de SO numa mesma conta de armazenamento. Como resultado, o máximo recomendado número de VMs num conjunto de dimensionamento criado numa imagem personalizada e de armazenamento gerida pelo utilizador é 20. Se desativar a aprovisionar em excesso, é possível ir até 40.
+Um conjunto de dimensionamento criado numa imagem personalizada (um criado por si) pode ter uma capacidade de até 600 VMs quando configurado com os Azure Managed disks. Se o conjunto de dimensionamento está configurado com contas de armazenamento gerida pelo utilizador, tem de criar todos os VHDs de discos de SO numa mesma conta de armazenamento. Como resultado, o máximo recomendado número de VMs num conjunto de dimensionamento criado numa imagem personalizada e de armazenamento gerida pelo utilizador é 20. Se desativar a aprovisionar em excesso, é possível ir até 40.
 
 Para obter mais VMs que permitir que estes limites, terá de implementar vários conjuntos de dimensionamento, conforme mostrado na [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

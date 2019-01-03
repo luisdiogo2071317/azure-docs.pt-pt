@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1333c8cdb4493530e1e4803192b382720dbfa5ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918881"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634410"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com o Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso ao transformar os seus servidores do Windows numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
 O artigo seguinte ilustra como registar e gerir um servidor com um serviço de sincronização de armazenamento. Ver [como implementar o Azure File Sync](storage-sync-files-deployment-guide.md) para obter informações sobre como implementar o Azure File Sync ponto-a-ponto.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registre-se/anular o registo de um servidor com o serviço de sincronização de armazenamento
 Registar um servidor com o Azure File Sync estabelece uma relação de confiança entre o Windows Server e o Azure. Esta relação, em seguida, pode ser utilizada para criar *pontos finais do servidor* no servidor, que representam as pastas específicas que devem ser sincronizadas com uma partilha de ficheiros do Azure (também conhecido como um *ponto final da cloud*). 
@@ -33,10 +35,10 @@ Para registar um servidor com um serviço de sincronização de armazenamento, p
     
     ![IU de Gestor de servidor com a configuração avançada do IE segurança realçado](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Certifique-se de que o módulo AzureRM PowerShell está instalado no seu servidor. Se o servidor for um membro de um Cluster de ativação pós-falha, cada nó do cluster irá exigir o módulo AzureRM. Podem encontrar mais detalhes sobre como instalar o módulo AzureRM sobre o [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Certifique-se de que o módulo Azure PowerShell está instalado no seu servidor. Se o servidor for um membro de um Cluster de ativação pós-falha, cada nó do cluster irá exigir o módulo de Az. Podem encontrar mais detalhes sobre como instalar o módulo de Az sobre o [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Recomendamos que utilize a versão mais recente do módulo AzureRM PowerShell para registar/anular o registo de um servidor. Se o pacote do AzureRM tiver sido instalado anteriormente neste servidor (e a versão de PowerShell neste servidor é 5.* ou superior), pode usar o `Update-Module` cmdlet para atualizar este pacote. 
+    > Recomendamos que utilize a versão mais recente do módulo do PowerShell de Az para registar/anular o registo de um servidor. Se o pacote de Az tiver sido instalado anteriormente neste servidor (e a versão de PowerShell neste servidor é 5.* ou superior), pode usar o `Update-Module` cmdlet para atualizar este pacote. 
 * Se utilizar um servidor de proxy de rede no seu ambiente, configure as definições de proxy no seu servidor para o agente de sincronização utilizar.
     1. Determinar o número de porta e o endereço IP do proxy
     2. Edite esses dois arquivos:
@@ -61,7 +63,7 @@ Para registar um servidor com um serviço de sincronização de armazenamento, p
 ### <a name="register-a-server-with-storage-sync-service"></a>Registar um servidor com o serviço de sincronização de armazenamento
 Antes de um servidor de pode ser utilizado como uma *ponto final do servidor* num Azure File Sync *grupo de sincronização*, tem de ser registado com um *serviço de sincronização de armazenamento*. Um servidor só pode ser registrado com um serviço de sincronização de armazenamento de cada vez.
 
-#### <a name="install-the-azure-file-sync-agent"></a>Instalar o agente de sincronização de ficheiros do Azure
+#### <a name="install-the-azure-file-sync-agent"></a>Instalar o agente do Azure File Sync
 1. [Transferir o agente do Azure File Sync](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Inicie o instalador do agente do Azure File Sync.
     
@@ -101,8 +103,8 @@ Também pode efetuar o registo do servidor através do PowerShell. Esta é a ún
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Anular o registo do servidor com o serviço de sincronização de armazenamento
@@ -135,15 +137,15 @@ Também pode ser feito com um simple script do PowerShell:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```

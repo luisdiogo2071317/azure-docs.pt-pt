@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339217"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725066"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como configurar alertas de registo utilizando a interface
 - Critérios: Condição específica ou a lógica que quando visto no sinal, deve acionar a ação
 - Ação: Chamada específica enviada para um recetor de uma notificação - enviar um e-mail, SMS, webhook, etc.
 
-O termo **alertas de registo** para descrever os alertas em que o sinal é a consulta personalizada com base nos [do Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos a partir [alertas - descrição geral de registo](../../azure-monitor/platform/alerts-unified-log.md).
+O termo **alertas de registo** para descrever os alertas em que o sinal é a consulta personalizada com base nos [do Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos a partir [alertas - descrição geral de registo](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Dados de registos populares [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ Numa operação concluída com êxito, será devolvido 201 à criação de regra
 
 * Saiba mais sobre [alertas de registo nos alertas do Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Compreender [ações de Webhook para alertas de registo](../../azure-monitor/platform/alerts-log-webhook.md)
-* Saiba mais sobre [Application Insights](../../application-insights/app-insights-analytics.md)
+* Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md)
 * Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

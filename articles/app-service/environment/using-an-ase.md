@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274722"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630670"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -39,22 +39,22 @@ Ambiente de serviço de aplicações do Azure é uma implementação do serviço
 
 Pode implementar um ASE (ASEv1 e ASEv2) com um VIP externo ou interno para aceder à aplicação. A implementação com um VIP externo é frequentemente chamada ASE externo. A versão interna é chamada o ASE de ILB porque utiliza um balanceador de carga interno (ILB). Para saber mais sobre o ASE de ILB, veja [criar e utilizar um ASE de ILB][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Criar uma aplicação web num ASE ##
+## <a name="create-an-app-in-an-ase"></a>Criar uma aplicação num ASE ##
 
-Para criar uma aplicação web num ASE, use o mesmo processo que quando cria normalmente, mas com algumas pequenas diferenças. Quando cria um novo plano do serviço de aplicações:
+Para criar uma aplicação num ASE, use o mesmo processo que quando cria normalmente, mas com algumas pequenas diferenças. Quando cria um novo plano do serviço de aplicações:
 
 - Em vez de selecionar uma localização geográfica na qual implementar a sua aplicação, é possível escolher um ASE como a sua localização.
 - Todos os planos de serviço de aplicações criados num ASE tem de ser uma escalão de preços isolada.
 
 Se não tiver um ASE, pode criar uma ao seguir as instruções em [criar um ambiente de serviço de aplicações][MakeExternalASE].
 
-Para criar uma aplicação web num ASE:
+Para criar uma aplicação num ASE:
 
 1. Selecione **criar um recurso** > **Web + móvel** > **aplicação Web**.
 
-2. Introduza um nome para a aplicação web. Se já tiver selecionado um plano do serviço de aplicações num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
+2. Introduza um nome para a aplicação. Se já tiver selecionado um plano do serviço de aplicações num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
 
-    ![Seleção de nome de aplicação Web][1]
+    ![Seleção do nome de aplicação][1]
 
 1. Selecione uma subscrição.
 
@@ -80,10 +80,10 @@ Para criar uma aplicação web num ASE:
     ![Escalões de preço isolados][2]
 
     > [!NOTE]
-    > Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
+    > Aplicações do Linux e aplicações do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
     >
 
-1. Selecione **Criar**.
+2. Selecione **Criar**.
 
 ## <a name="how-scale-works"></a>Como dimensionar funciona ##
 
@@ -97,7 +97,7 @@ Num ASE, pode dimensionar até 100 instâncias. Esses 100 instâncias podem ser 
 
 ## <a name="ip-addresses"></a>Endereços IP ##
 
-Serviço de aplicações tem a capacidade de atribuir um endereço IP dedicado a uma aplicação. Esta capacidade está disponível depois de configurar o SSL baseado em IP, conforme descrito em [vincular um certificado SSL personalizado já existente às aplicações web do Azure][ConfigureSSL]. No entanto, num ASE, existe uma exceção notável. Não é possível adicionar endereços IP adicionais a utilizar para um SSL baseado em IP num ASE de ILB.
+Serviço de aplicações tem a capacidade de atribuir um endereço IP dedicado a uma aplicação. Esta capacidade está disponível depois de configurar o SSL baseado em IP, conforme descrito em [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure][ConfigureSSL]. No entanto, num ASE, existe uma exceção notável. Não é possível adicionar endereços IP adicionais a utilizar para um SSL baseado em IP num ASE de ILB.
 
 No ASEv1, terá de atribuir os endereços IP como recursos antes de poder utilizá-los. ASEv2, utilize-os da sua aplicação tal como acontece no serviço de aplicações multi-inquilino. Há sempre um endereço de reserva no ASEv2 até 30 endereços IP. Sempre que utilizar um, outra, é adicionada para que um endereço sempre está prontamente disponível para utilização. Um tempo de atraso é necessário atribuir outro endereço IP, que impede a adicionar IP de endereços numa rápida sucessão.
 
@@ -187,6 +187,6 @@ Para eliminar um ASE:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959466"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722401"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementar o Kubernetes para o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
 > Kubernetes no Azure Stack está em pré-visualização.
@@ -101,7 +101,7 @@ Conceder ao principal de serviço acesso à sua subscrição para que o principa
 
 1. Selecione a subscrição criada pela sua operadora de rede para utilizar o Cluster de Kubernetes.
 
-1. Selecione **controlo de acesso (IAM)** > selecione **+ adicionar**.
+1. Selecione **controlo de acesso (IAM)** > selecione **adicionar atribuição de função**.
 
 1. Selecione o **contribuinte** função.
 

@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345361"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753084"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Utilizar a API de REST de reconhecimento de voz do Bing
 
@@ -66,7 +66,7 @@ Alguns exemplos de serviço URIs estão listados na tabela seguinte.
 | Modo de reconhecimento  | Idioma | Formato de saída | URI de serviço |
 |---|---|---|---|
 | `interactive` | pt-BR | Predefinição | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | pt-PT | Detalhado |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Detalhado |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | FR-FR | Simples | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
@@ -76,7 +76,7 @@ Alguns exemplos de serviço URIs estão listados na tabela seguinte.
 
 Os seguintes campos tem de ser definidos no cabeçalho do pedido:
 
-- `Ocp-Apim-Subscription-Key`: A cada vez que chamar o serviço, tem de passar a chave de subscrição a `Ocp-Apim-Subscription-Key` cabeçalho. Serviço de voz também suporta a autorização de passar tokens em vez de chaves de subscrição. Para obter mais informações, consulte [autenticação](../How-to/how-to-authentication.md).
+- `Ocp-Apim-Subscription-Key`: Sempre que chamar o serviço, tem de passar a chave de subscrição a `Ocp-Apim-Subscription-Key` cabeçalho. Serviço de voz também suporta a autorização de passar tokens em vez de chaves de subscrição. Para obter mais informações, veja [Autenticação](../How-to/how-to-authentication.md).
 - `Content-type`: O `Content-type` campo descreve o formato e o codec do fluxo de áudio. Atualmente, apenas arquivo WAV e a codificação do PCM Mono 16000 é suportada. O valor de tipo de conteúdo para esse formato é `audio/wav; codec=audio/pcm; samplerate=16000`.
 
 O campo `Transfer-Encoding` é opcional. Se definir este campo para `chunked`, pode chop o áudio em pequenos segmentos. Para obter mais informações, consulte [segmentado transferência](../How-to/how-to-chunked-transfer.md).
@@ -100,7 +100,7 @@ O exemplo seguinte mostra como enviar um pedido de reconhecimento de voz para po
 > [!NOTE]
 > Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_SUBSCRIPTION_KEY` com sua própria chave de subscrição.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -135,7 +135,7 @@ O exemplo utiliza o curl no Linux com o bash. Se não estiver disponível na sua
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -184,7 +184,7 @@ Depois de processar o pedido, o serviço de voz retorna os resultados numa respo
 
 O fragmento de código seguinte mostra um exemplo de como é possível ler a resposta do fluxo.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -199,7 +199,7 @@ Neste exemplo, o curl diretamente devolve a mensagem de resposta numa cadeia de 
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 /*

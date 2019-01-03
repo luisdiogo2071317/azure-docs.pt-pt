@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067810"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968997"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamicamente criar e utilizar um volume persistente com ficheiros do Azure no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre volumes persistentes do Kubernetes, consulte
 
 Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -184,7 +184,7 @@ Criar o pod com o [aplicam-se de kubectl] [ kubectl-apply] comando.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Tem agora um pod em execução com o seu disco do Azure montado no */mnt/azure* diretório. Esta configuração pode ser vista quando inspecionar o seu pod via `kubectl describe pod mypod`. O resultado de exemplo condensado seguinte mostra o volume montado no contentor:
+Tem agora um pod em execução com a partilha de ficheiros do Azure montada no */mnt/azure* diretório. Esta configuração pode ser vista quando inspecionar o seu pod via `kubectl describe pod mypod`. O resultado de exemplo condensado seguinte mostra o volume montado no contentor:
 
 ```
 Containers:
@@ -211,7 +211,7 @@ Volumes:
 
 Predefinido *fileMode* e *dirMode* valores diferentes entre versões do Kubernetes, conforme descrito na tabela seguinte.
 
-| version | valor |
+| versão | valor |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

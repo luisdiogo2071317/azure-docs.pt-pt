@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b2399e47c9071bac159f407deac9755606763a67
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326374"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788502"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
 Serviços cloud, máquinas virtuais, os conjuntos de dimensionamento de máquinas virtuais e recursos de infraestrutura do serviço de todos os utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, pode também todos os de pipe ou um subconjunto dos dados para outras localizações com a extensão de diagnóstico do Azure versão 1.5 ou posterior.
@@ -62,7 +62,7 @@ Exemplo de configuração de um coletor para o Application Insights:
 
 - O **Application Insights** elemento Especifica a chave de instrumentação do recurso do Application insights onde os dados de diagnóstico do Azure são enviados.
     - Se não tiver um recurso do Application Insights existente, consulte [criar um novo recurso do Application Insights](../../application-insights/app-insights-create-new-resource.md) para obter mais informações sobre como criar um recurso e obter a chave de instrumentação.
-    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchida automaticamente. O valor se baseia a **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotar o projeto de serviço em nuvem. Ver [utilizar o Application Insights com os serviços Cloud](../../application-insights/app-insights-cloudservices.md).
+    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchida automaticamente. O valor se baseia a **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotar o projeto de serviço em nuvem. Ver [utilizar o Application Insights com os serviços Cloud](../../azure-monitor/app/cloudservices.md).
 
 - O **canais** elemento contém um ou mais **canal** elementos.
     - O *nome* atributo refere-se exclusivamente para esse canal.

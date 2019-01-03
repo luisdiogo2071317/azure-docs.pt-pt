@@ -14,12 +14,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 375e1a0ba4be9483986c088195e380e856d32a67
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093753"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973099"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução ao Azure SQL da base de dados geridos instância de auditoria
 
@@ -68,7 +68,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
      ![Painel de navegação][6]
 
    - Configure a SAS da seguinte forma:
-     - **Permitido serviços**: Blob
+     - **Permitido serviços**: Blobs
      - **Data de início**: para evitar problemas relacionados com o fuso horário, é recomendável usar a data de ontem.
      - **Data de fim**: escolher a data em que este Token de SAS expire. 
 
@@ -153,7 +153,7 @@ A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 - Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 

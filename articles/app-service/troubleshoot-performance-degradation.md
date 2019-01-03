@@ -1,6 +1,6 @@
 ---
 title: Resolver problemas de degradação de desempenho - serviço de aplicações do Azure | Documentos da Microsoft
-description: Este artigo ajuda-o a resolver problemas de desempenho de aplicações de web lento no serviço de aplicações do Azure.
+description: Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta no serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -17,20 +17,20 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c0642b24fc8eefd210d5b6b58e7d0c772408166a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389111"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726651"
 ---
-# <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Resolver problemas de desempenho de aplicações de web lento no serviço de aplicações do Azure
-Este artigo ajuda-o a resolver problemas de desempenho de aplicações de web lenta na [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
+# <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas de desempenho de aplicações lenta no serviço de aplicações do Azure
+Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta na [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure no [do Azure do MSDN e os fóruns de Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, também pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **obter suporte**.
 
 ## <a name="symptom"></a>Sintoma
-Ao navegar devagar da aplicação web, a carga de páginas e, às vezes, tempo limite.
+Ao navegar devagar a aplicação, o carregamento de páginas e, às vezes, tempo limite.
 
 ## <a name="cause"></a>Causa
 Esse problema normalmente é causado por problemas de nível de aplicativos, tais como:
@@ -47,7 +47,7 @@ Resolução de problemas pode ser dividida em três tarefas distintas, em ordem 
 2. [Recolher dados](#collect)
 3. [Mitigar o problema](#mitigate)
 
-[Web Apps do App Service](app-service-web-overview.md) dá-lhe várias opções em cada passo.
+[Serviço de aplicações](overview.md) dá-lhe várias opções em cada passo.
 
 <a name="observe" />
 
@@ -55,10 +55,10 @@ Resolução de problemas pode ser dividida em três tarefas distintas, em ordem 
 #### <a name="track-service-health"></a>Controlar o estado de funcionamento do serviço
 Microsoft Azure publicizes sempre que há uma degradação de desempenho ou interrupções de serviço. Pode acompanhar o estado de funcionamento do serviço no [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [controlar o estado de funcionamento do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
-#### <a name="monitor-your-web-app"></a>Monitorizar a sua aplicação web
-Esta opção permite-lhe saber se a aplicação está a ter problemas. No painel da sua aplicação web, clique a **pedidos e erros** mosaico. O **métrica** painel mostra-lhe todas as métricas, pode adicionar.
+#### <a name="monitor-your-app"></a>Monitorizar a sua aplicação
+Esta opção permite-lhe saber se a aplicação está a ter problemas. No painel da sua aplicação, clique a **pedidos e erros** mosaico. O **métrica** painel mostra-lhe todas as métricas, pode adicionar.
 
-Algumas das métricas que possa querer monitorizar para a sua aplicação web são
+Algumas das métricas que possa querer monitorizar para a sua aplicação são
 
 * Média do conjunto de trabalho de memória
 * Tempo médio de resposta
@@ -66,15 +66,15 @@ Algumas das métricas que possa querer monitorizar para a sua aplicação web s�
 * Conjunto de trabalho de memória
 * Pedidos
 
-![monitorizar o desempenho de aplicações web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitorizar o desempenho de aplicações](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Para obter mais informações, consulte:
 
-* [Monitorizar aplicações da Web no serviço de aplicações do Azure](web-sites-monitor.md)
+* [Monitorizar aplicações no serviço de aplicações do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorizar o estado do ponto final web
-Se estiver a executar a aplicação web **padrão** escalão de preço, aplicações Web permite-lhe monitorizar pontos de duas extremidade de três localizações geográficas.
+Se estiver a executar a aplicação **padrão** escalão de preço, serviço de aplicações permite-lhe monitorizar pontos de duas extremidade de três localizações geográficas.
 
 Monitorização de pontos finais configura testes web de localizações geograficamente distribuídos que testam o tempo de resposta e o tempo de atividade dos URLs da web. O teste executa uma operação HTTP GET no URL de web para determinar o tempo de resposta e o tempo de atividade de cada localização. Cada localização configurada é executado um teste de cada cinco minutos.
 
@@ -87,37 +87,37 @@ Além disso, veja [manter os Web Sites do Azure backup e o monitoramento de pont
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitorização de desempenho de aplicações com extensões
 Também pode monitorizar o desempenho da aplicação ao utilizar um *extensão de site*.
 
-Cada aplicação web do serviço de aplicações fornece um ponto de final de gestão extensível que permite que use um conjunto poderoso de ferramentas implementadas como extensões de site. Extensões incluem: 
+Cada aplicação de serviço de aplicações fornece um ponto de final de gestão extensível que permite que use um conjunto poderoso de ferramentas implementadas como extensões de site. Extensões incluem: 
 
 - Gostam de editores de código fonte [do Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
-- Ferramentas de gestão para recursos ligados, tais como a base de dados MySQL ligada a uma aplicação web.
+- Ferramentas de gestão para recursos ligados, tais como a base de dados MySQL ligado a uma aplicação.
 
 [O Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é um extensão de site que também está disponível de monitorização do desempenho. Para utilizar o Application Insights, reconstrua o seu código com um SDK. Também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar a utilização e o desempenho da sua aplicação em mais detalhes. Para obter mais informações, consulte [monitorizar o desempenho em aplicativos web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Recolher dados
-O ambiente de aplicações Web fornece funcionalidade de diagnóstico para informações de registo do servidor web e a aplicação web. As informações são separadas em diagnóstico do servidor web e ao application diagnostics.
+Serviço de aplicações fornece funcionalidade de diagnóstico para informações de registo do servidor web e a aplicação web. As informações são separadas em diagnóstico do servidor web e ao application diagnostics.
 
 #### <a name="enable-web-server-diagnostics"></a>Ativar o diagnóstico do servidor web
 Pode ativar ou desativar os seguintes tipos de registos:
 
 * **Detalhadas de registo de erro** -erro informações detalhadas de códigos de estado HTTP que indicam uma falha (código de estado 400 ou superior). Isto pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro.
-* **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. Isso pode ser útil se está a tentar melhorar o desempenho das aplicações web ou isolar o que está a causar um erro HTTP específico.
-* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o formato de ficheiro de registo expandido de W3C. Isto é útil ao determinar as métricas de aplicação web geral, como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
+* **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. Isso pode ser útil se está a tentar melhorar o desempenho de aplicações ou isolar o que está a causar um erro HTTP específico.
+* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o formato de ficheiro de registo expandido de W3C. Isto é útil ao determinar as métricas de aplicação global, como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
 #### <a name="enable-application-diagnostics"></a>Ativar diagnósticos de aplicação
-Existem várias opções para recolher dados de desempenho de aplicações a partir de aplicações Web, perfil de seu aplicativo em direto a partir do Visual Studio ou modificar o código da aplicação para obter mais informações e rastreios de registo. Pode escolher as opções com base nas ferramentas de acesso que terá do aplicativo e o que observadas da monitorização.
+Existem várias opções para recolher dados de desempenho de aplicações do serviço de aplicações, o perfil de seu aplicativo em direto a partir do Visual Studio ou modificar o código da aplicação para obter mais informações e rastreios de registo. Pode escolher as opções com base nas ferramentas de acesso que terá do aplicativo e o que observadas da monitorização.
 
 ##### <a name="use-application-insights-profiler"></a>Utilizar o Application Insights Profiler
-Pode habilitar o do Application Insights Profiler começar a capturar rastreios de desempenho detalhadas. Pode acessar rastreios capturados até cinco dias atrás quando precisa para investigar problemas aconteceu no passado. Pode escolher esta opção, desde que terá acesso ao recurso do Application Insights da aplicação web no portal do Azure.
+Pode habilitar o do Application Insights Profiler começar a capturar rastreios de desempenho detalhadas. Pode acessar rastreios capturados até cinco dias atrás quando precisa para investigar problemas aconteceu no passado. Pode escolher esta opção, desde que terá acesso ao recurso do Application Insights da aplicação no portal do Azure.
 
 Application Insights Profiler fornece estatísticas sobre o tempo de resposta para cada chamada de web e rastreios, que indica que linha de código causada as repostas lentas. Às vezes, a aplicação de serviço de aplicações é lenta porque certos tipos de código não é escrito num alto desempenho forma. Os exemplos incluem código seqüencial que pode ser executado em contenções de bloqueio de base de dados paralelas e indesejados. Remover esses afunilamentos no código aumenta o desempenho da aplicação, mas eles são difíceis de detectar sem configurar rastreios elaborados e registos. Os rastreios recolhidos pelo Application Insights Profiler ajuda a identificar as linhas de código que o aplicativo mais lento e superar esse desafio para as aplicações de serviço de aplicações.
 
- Para obter mais informações, consulte [aplicações web do Azure em direto de criação de perfil com o Application Insights](../application-insights/app-insights-profiler.md).
+ Para obter mais informações, consulte [criação de perfis de aplicações em direto no serviço de aplicações do Azure com o Application Insights](../application-insights/app-insights-profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Utilizar a análise para otimização remota
-No serviço de aplicações do Azure, aplicações Web, aplicações API e WebJobs pode ser remotamente as quais criar perfis. Escolha esta opção se tiver acesso ao recurso de aplicação web e sabe como reproduzir o problema ou, se souber o intervalo de hora exata a que o problema de desempenho acontece.
+No serviço de aplicações do Azure, aplicações web, aplicações API, back-ends móveis e WebJobs pode ser remotamente as quais criar perfis. Escolha esta opção se tiver acesso ao recurso de aplicação e saber como reproduzir o problema ou se souber o intervalo de hora exata a que o problema de desempenho acontece.
 
 Criação de perfil remota é útil se a utilização da CPU do processo é alta e seu processo está a ser executado mais lentamente do que o esperado, ou a latência dos pedidos HTTP são superior ao normal, pode remotamente seu processo de perfil e obter as pilhas de chamadas de amostragem de CPU para analisar o processo atividade e o código de caminhos de acesso frequente.
 
@@ -126,15 +126,15 @@ Para obter mais informações, consulte [suporte de análise para otimização r
 ##### <a name="set-up-diagnostic-traces-manually"></a>Configurar manualmente o rastreios de diagnóstico
 Se tiver acesso ao código de origem do aplicativo web, o Application diagnostics permite-lhe capturar informações produzidas por um aplicativo web. Os aplicativos ASP.NET podem usar o `System.Diagnostics.Trace` classe para registar informações no registo de diagnóstico de aplicação. No entanto, terá de alterar o código e Reimplementar a sua aplicação. Este método é recomendado se a aplicação está em execução num ambiente de teste.
 
-Para obter instruções detalhadas sobre como configurar a sua aplicação para o registo, consulte [ativar o registo de diagnóstico para aplicações web no App Service do Azure](web-sites-enable-diagnostic-log.md).
+Para obter instruções detalhadas sobre como configurar a sua aplicação para o registo, consulte [ativar o registo de diagnóstico para aplicações no serviço de aplicações do Azure](troubleshoot-diagnostic-logs.md).
 
 #### <a name="use-the-diagnostics-tool"></a>Utilize a ferramenta de diagnóstico
-Serviço de aplicações fornece uma experiência interativa e inteligente para o ajudar a resolver problemas da aplicação de web sem qualquer configuração necessária. Quando se deparar com problemas com a sua aplicação web, a ferramenta Diagnósticos de ressaltar que está errado para orientá-lo para as informações certas para a forma mais fácil e rapidamente resolver problemas e resolver o problema.
+Serviço de aplicações fornece uma experiência interativa e inteligente para o ajudar a resolver problemas da aplicação sem qualquer configuração necessária. Quando se deparar com problemas com a sua aplicação, vai apontar a ferramenta de diagnóstico o que há de errado para orientá-lo para as informações certas para a forma mais fácil e rapidamente resolver problemas e resolver o problema.
 
 Para aceder ao diagnóstico do serviço de aplicações, navegue até à sua aplicação de serviço de aplicações ou o ambiente de serviço de aplicações no [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **diagnosticar e resolver problemas**.
 
 #### <a name="use-the-kudu-debug-console"></a>Utilizar a consola de depuração do Kudu
-As aplicações Web é fornecido com uma consola de depuração que pode usar para depuração, explorar, carregar ficheiros, bem como pontos finais de JSON para obter informações sobre o seu ambiente. Esta consola é chamada de *consola Kudu* ou o *SCM Dashboard* para a sua aplicação web.
+Serviço de aplicações é fornecido com uma consola de depuração que pode usar para depuração, explorar, carregar ficheiros, bem como pontos finais de JSON para obter informações sobre o seu ambiente. Esta consola é chamada de *consola Kudu* ou o *SCM Dashboard* para a sua aplicação.
 
 Pode aceder a este dashboard ao aceder à ligação **https://&lt;o nome da aplicação >.scm.azurewebsites.net/**.
 
@@ -145,30 +145,30 @@ Algumas das coisas que fornece o Kudu são:
 * informação de diagnóstico
 * consola na qual pode executar cmdlets do Powershell e comandos básicos de depuração.
 
-Outro recurso útil do Kudu é que, no caso da aplicação que está a gerar exceções de primeira chance, pode utilizar o Kudu e despeja a ferramenta SysInternals Procdump para criar a memória. Esses despejos de memória são instantâneos do processo e, muitas vezes, podem ajudar a resolver problemas mais complicados, com a sua aplicação web.
+Outro recurso útil do Kudu é que, no caso da aplicação que está a gerar exceções de primeira chance, pode utilizar o Kudu e despeja a ferramenta SysInternals Procdump para criar a memória. Esses despejos de memória são instantâneos do processo e, muitas vezes, podem ajudar a resolver problemas mais complicados, com a sua aplicação.
 
 Para obter mais informações sobre os recursos disponíveis no Kudu, consulte [ferramentas de DevOps do Azure que precisa conhecer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
 ### <a name="3-mitigate-the-issue"></a>3. Mitigar o problema
-#### <a name="scale-the-web-app"></a>Dimensionar a aplicação web
-No serviço de aplicações do Azure, para aumentar o desempenho e o débito, pode ajustar a escala a que está a executar a aplicação. Aumentar verticalmente uma aplicação web envolve duas ações relacionadas: alterar o seu plano do serviço de aplicações para um escalão de preço superior e a configuração de determinadas definições depois que tiver mudado para o escalão de preço superior.
+#### <a name="scale-the-app"></a>Dimensionar a aplicação
+No serviço de aplicações do Azure, para aumentar o desempenho e o débito, pode ajustar a escala a que está a executar a aplicação. Aumentar verticalmente uma aplicação envolve duas ações relacionadas: alterar o seu plano do serviço de aplicações para um escalão de preço superior e a configuração de determinadas definições depois que tiver mudado para o escalão de preço superior.
 
-Para obter mais informações sobre o dimensionamento, veja [dimensionar uma aplicação web no serviço de aplicações do Azure](web-sites-scale.md).
+Para obter mais informações sobre o dimensionamento, veja [dimensionar uma aplicação no App Service do Azure](web-sites-scale.md).
 
 Além disso, pode optar por executar a sua aplicação em mais de uma instância. Aumento horizontal não apenas fornece a mais capacidade de processamento, mas também fornece algum período de tolerância a falhas. Se o processo de ficar inativo numa instância, as outras instâncias continuam para servir pedidos.
 
 Pode definir o dimensionamento Manual ou automático.
 
 #### <a name="use-autoheal"></a>Utilizam o AutoHeal
-AutoHeal recicla o processo de trabalho para a sua aplicação com base nas definições que escolher (como alterações de configuração, pedidos, limites baseados em memória ou o tempo necessário para executar um pedido). Na maioria das vezes, a forma mais rápida para recuperar a partir de um problema é a Reciclagem do processo. Embora sempre pode reiniciar a aplicação web a partir diretamente no portal do Azure, AutoHeal faz isso automaticamente para. Tudo o que precisa fazer é adicionar alguns acionadores ao Web. config de raiz para a sua aplicação web. Estas definições funciona da mesma forma, mesmo que seu aplicativo não é uma aplicação .net.
+AutoHeal recicla o processo de trabalho para a sua aplicação com base nas definições que escolher (como alterações de configuração, pedidos, limites baseados em memória ou o tempo necessário para executar um pedido). Na maioria das vezes, a forma mais rápida para recuperar a partir de um problema é a Reciclagem do processo. Embora sempre pode reiniciar a aplicação a partir diretamente no portal do Azure, AutoHeal faz isso automaticamente para. Tudo o que precisa fazer é adicionar alguns acionadores ao Web. config de raiz para a sua aplicação. Estas definições funciona da mesma forma, mesmo que seu aplicativo não é uma aplicação .net.
 
 Para obter mais informações, consulte [Autorrecuperação dos Web Sites Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### <a name="restart-the-web-app"></a>Reinicie a aplicação web
-A reiniciar, muitas vezes, é a forma mais simples para recuperar rapidamente de problemas de uso individual. Sobre o [portal do Azure](https://portal.azure.com/), no painel da sua aplicação web, tem as opções para parar ou reiniciar a aplicação.
+#### <a name="restart-the-app"></a>Reinicie a aplicação
+A reiniciar, muitas vezes, é a forma mais simples para recuperar rapidamente de problemas de uso individual. Sobre o [portal do Azure](https://portal.azure.com/), no painel da sua aplicação, terá as opções para parar ou reiniciar a aplicação.
 
- ![reiniciar a aplicação web para resolver problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![Reinicie a aplicação para resolver problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também pode gerir a sua aplicação web com o Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../powershell-azure-resource-manager.md).
+Também pode gerir a sua aplicação com o Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../powershell-azure-resource-manager.md).

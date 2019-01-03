@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878352"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724764"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso a dados do Azure Cosmos DB
 Este artigo fornece uma descrição geral da proteção de acesso a dados armazenados no [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -128,7 +128,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Um recurso de permissão do Cosmos DB está associado um utilizador do Cosmos DB.  Cada utilizador pode conter zero ou mais permissões do Cosmos DB.  Um recurso de permissão fornece acesso a um token de segurança que o usuário precisa ao tentar aceder a um recurso de aplicação específica.
 Existem dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
-* Todos: O utilizador tem permissão total no recurso.
+* Todos os: O utilizador tem permissão total no recurso.
 * Leitura: O utilizador só pode ler o conteúdo do recurso, mas não é possível efetuar a escrita, atualização ou operações de eliminação do recurso.
 
 > [!NOTE]
@@ -188,10 +188,10 @@ Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de ut
 A entidade já pode ler os recursos do Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Eliminar ou exportar dados de utilizador
-O Azure Cosmos DB permite-lhe pesquisar, selecione, modificar e eliminar quaisquer dados pessoais, localizados na base de dados ou coleções. O Azure Cosmos DB fornece APIs para localizar e eliminar os dados pessoais no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API com vários modelo (API de SQL, API de MongoDB, Gremlin API, API de Cassandra, API de tabela) fornece SDKs que contêm métodos para procurar e eliminar os dados pessoais de idioma diferente. Também pode ativar a [altura de live (TTL)](time-to-live.md) funcionalidade para eliminar os dados automaticamente após um período especificado, sem incorrer em quaisquer custos adicionais.
+O Azure Cosmos DB permite-lhe pesquisar, selecione, modificar e eliminar quaisquer dados pessoais, localizados na base de dados ou coleções. O Azure Cosmos DB fornece APIs para localizar e eliminar os dados pessoais no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API com vários modelo (SQL, MongoDB, Gremlin, Cassandra, tabela) fornece SDKs que contêm métodos para procurar e eliminar os dados pessoais de idioma diferente. Também pode ativar a [altura de live (TTL)](time-to-live.md) funcionalidade para eliminar os dados automaticamente após um período especificado, sem incorrer em quaisquer custos adicionais.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre a segurança de base de dados do Cosmos DB, veja [Cosmos DB: segurança de base de dados](database-security.md).
+* Para saber mais sobre a segurança de base de dados do Cosmos DB, veja [do Cosmos DB: Segurança de base de dados](database-security.md).
 * Para saber como construir tokens de autorização do Azure Cosmos DB, veja [controlo de acesso em recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

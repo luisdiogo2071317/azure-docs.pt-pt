@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109444"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972572"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Atividade de transformação de dados | Ambiente de computação
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) | VM do Azure
+[Atividades do Machine Learning: Execução de lotes e atualizar recurso](transform-data-using-machine-learning.md) | VM do Azure
 [Procedimento Armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Código Personalizado](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -97,13 +97,13 @@ Eis como os pipelines são definidos no formato JSON:
 
 Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia | Sim
+nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia | Sim
 descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
 atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
 
 ## <a name="activity-json"></a>JSON da Atividade
-A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: atividades de Execução e de Controlo.
+A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: A execução e atividades de controlo.
 
 ### <a name="execution-activities"></a>Atividades de Execução
 As atividades de execução incluem [atividades de movimento de dados](#data-movement-activities) e [de transformação de dados](#data-transformation-activities). Têm a estrutura de nível superior abaixo:
@@ -130,7 +130,7 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
 Etiqueta | Descrição | Necessário
 --- | ----------- | ---------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
+nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções [Atividades de Movimento de Dados](#data-movement-activities), [Atividades de Transformação de Dados](#data-transformation-activities) e [Atividades de Controlo](#control-activities). | Sim
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
@@ -194,7 +194,7 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 
 Etiqueta | Descrição | Necessário
 --- | ----------- | --------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
+nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-activities). | Sim
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
@@ -203,16 +203,16 @@ dependsOn | Esta propriedade é utilizada para definir a Dependência da Ativida
 ### <a name="activity-dependency"></a>Dependência das atividades
 A Dependência das atividades define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
 
-As condições de dependência diferentes são: Bem-sucedida, Falha, Ignorada, Concluída.
+As condições de dependência diferentes são: Foi efetuada com êxito, falha, ignorada, concluída.
 
 Por exemplo, se um pipeline tiver a Atividade A -> Atividade B, os diferentes cenários que podem ocorrer são:
 
-- A Atividade B tem a condição de dependência de a Atividade A ser **bem-sucedida** - a Atividade B só é executada se o estado final de A for “bem-sucedida”
-- A Atividade B tem a condição de dependência de a Atividade A **falhar** - a Atividade B só é executada se o estado final de A for “falha”
-- A Atividade B tem a condição de dependência de a Atividade A ser **concluída** - a Atividade B só é executada se o estado final de A for “concluída”
-- A Atividade B tem a condição de dependência de a Atividade A ser **ignorada** - a Atividade B só é executada se o estado final de A for “ignorada”. “Ignorada” ocorre no cenário de Atividade X -> Atividade Y -> Atividade Z, em que cada atividade só é executada se a anterior for bem-sucedida. Se a Atividade X falhar, a Y fica com o estado “Ignorada”, porque nunca é executada. Do mesmo modo, o estado da Atividade Z também será “Ignorada”.
+- A atividade B tem a condição de dependência de atividade **foi concluída com êxito**: A atividade B só é executada se o estado final de foi concluída com êxito
+- A atividade B tem a condição de dependência de atividade **falha**: A atividade B só é executada se o estado final de falha
+- A atividade B tem a condição de dependência de atividade **concluída**: Execuções de atividade B se o estado final de com êxito ou falhadas
+- A atividade B tem a condição de dependência de atividade **ignorada**: Execuções de atividades B se o estado final de ignorada. “Ignorada” ocorre no cenário de Atividade X -> Atividade Y -> Atividade Z, em que cada atividade só é executada se a anterior for bem-sucedida. Se a Atividade X falhar, a Y fica com o estado “Ignorada”, porque nunca é executada. Do mesmo modo, o estado da Atividade Z também será “Ignorada”.
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemplo: a Atividade 2 depende de a Atividade 1 ser bem-sucedida
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemplo: A atividade 2 depende da atividade 1 ser bem-sucedida
 
 ```json
 {

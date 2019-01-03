@@ -1,5 +1,5 @@
 ---
-title: Preparar os certificados de infraestrutura de chave pública do Azure Stack para a implementação de sistemas integrados do Azure Stack | Documentos da Microsoft
+title: Preparar os certificados de infraestrutura de chave pública do Azure Stack para implementação de sistemas integrados do Azure Stack ou rotação secreta | Documentos da Microsoft
 description: Descreve como preparar os certificados PKI de pilha do Azure para os sistemas integrados do Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972039"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631486"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparar os certificados PKI de pilha do Azure para utilização na implementação ou de rotação
 Os ficheiros de certificado [obtido a partir de sua autoridade de certificação à escolha](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes a requisitos de certificado do Azure Stack.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Preparar os certificados para implementação
-Utilize estes passos para preparar e validar os certificados PKI de pilha do Azure: 
+Utilize estes passos para preparar e validar os certificados PKI de pilha do Azure que serão utilizados para implementar um novo ambiente do Azure Stack ou para efetuar a rotação de segredos num ambiente existente do Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importar o certificado
 

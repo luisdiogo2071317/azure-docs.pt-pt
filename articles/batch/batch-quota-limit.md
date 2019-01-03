@@ -1,9 +1,9 @@
 ---
-title: Quotas e limites de serviço para o Azure Batch | Documentos da Microsoft
+title: Quotas e limites - Azure Batch Service | Documentos da Microsoft
 description: Saiba mais sobre quotas do Azure Batch predefinidas, limites e restrições e aumenta a como pedir quota
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263609"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753204"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -65,9 +65,9 @@ Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definid
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 x número de núcleos do nó |
 | [Aplicativos](batch-application-packages.md) por conta do Batch | 20 |
 | Pacotes de aplicação por aplicação | 40 |
-| Duração de tarefa máximo | 7 dias<sup>1</sup> |
+| Duração de tarefa máximo | 180 dias<sup>1</sup> |
 
-<sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
+<sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 180 dias. As tarefas concluídas mantêm durante sete dias; dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
 ## <a name="view-batch-quotas"></a>Ver quotas de Batch
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139229"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599949"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementar um gateway de borda para o acelerador de solução de fábrica ligada no Windows ou Linux
 
@@ -70,7 +70,7 @@ Para obter mais informações, consulte a [utilizar volumes](https://docs.docker
 
 Antes de instalar os componentes OPC, conclua os seguintes passos para preparar o seu ambiente:
 
-1. Para concluir a implementação do gateway, terá do **iothubowner** cadeia de ligação do IoT Hub na sua implementação de fábrica ligada. Na [portal do Azure](http://portal.azure.com/), navegue até ao seu IoT Hub no grupo de recursos criado quando implementou a solução de fábrica ligada. Clique em **políticas de acesso partilhado** para o acesso a **iothubowner** cadeia de ligação:
+1. Para concluir a implementação do gateway, terá do **iothubowner** cadeia de ligação do IoT Hub na sua implementação de fábrica ligada. Na [portal do Azure](https://portal.azure.com/), navegue até ao seu IoT Hub no grupo de recursos criado quando implementou a solução de fábrica ligada. Clique em **políticas de acesso partilhado** para o acesso a **iothubowner** cadeia de ligação:
 
     ![Localize a cadeia de ligação do IoT Hub](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

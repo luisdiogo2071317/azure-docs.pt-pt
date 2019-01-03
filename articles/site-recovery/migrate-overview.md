@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9ec502f63df23bab311a45972e31e6df13fa9281
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843993"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792981"
 ---
 # <a name="about-migration"></a>Acerca da migração
 
@@ -21,9 +21,9 @@ Leia este artigo para uma descrição geral de como o [do Azure Site Recovery](s
 
 Eis o que pode migrar com o Site Recovery:
 
-- **Migrar do local para o Azure**: Migrar VMs de Hyper-V no local, VMware VMs e servidores físicos para o Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
-- **Migrar no Azure**: migre VMs do Azure entre regiões do Azure. 
-- **Migrar AWS**: migre instâncias do Windows AWS para VMs IaaS do Azure. 
+- **Migrar do local para o Azure**: Migre VMs de Hyper-V no local, VMware VMs e servidores físicos para o Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
+- **Migrar no Azure**: Migre VMs do Azure entre regiões do Azure. 
+- **Migrar o AWS**: Migre instâncias do Windows AWS para VMs IaaS do Azure. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer com migração?

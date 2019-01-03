@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346224"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972176"
 ---
 # <a name="offer-settings-tab"></a>Separador de definições da oferta
 
@@ -42,9 +42,6 @@ Este identificador está relacionado com a sua conta. Quando estiver conectado c
 *Nome*
 
 Esta cadeia é o que será apresentado como o nome da oferta no AppSource ou no Azure Marketplace. O *nome* campo está limitado a 50 carateres.  O revisor poderá ter de editar o título para permitir a acrescentar o nome da oferta com a duração e o tipo de oferta.
-
->[!Note]
->Importante: Introduza apenas o nome do serviço real aqui. Não inclua a duração e o tipo de serviço.
 
 O exemplo seguinte pelo Edgewater Fullscope mostra como o nome da oferta é reunido. O nome da oferta é apresentado como:
 

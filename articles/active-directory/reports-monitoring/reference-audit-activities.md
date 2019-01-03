@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622879"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971380"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -227,11 +227,11 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Autorização|Atualizar política|
 |Autorização|Atualizar atributo de utilizador|
 |Autorização|Carregar uma chave encriptada CPIM|
-|Autorização|Autorização de Utilizador: a API está desativada para featureset de inquilino|
-|Autorização|Autorização de Utilizador: foi concedido acesso ao utilizador como “Administrador do Inquilino”|
-|Autorização|Autorização de Utilizador: foi concedido ao utilizador direitos de acesso “Utilizadores Autenticados”|
+|Autorização|Autorização de utilizador: A API está desativada para featureset de inquilino|
+|Autorização|Autorização de utilizador: Acesso concedido ao utilizador como administrador de inquilinos|
+|Autorização|Autorização de utilizador: Foi concedido ao utilizador direitos de acesso de utilizadores autenticados|
 |Autorização|Verifique se a funcionalidade B2C está ativada|
-|Autorização|Verifique se a funcionalidade está ativada|
+|Autorização|Verificar se a funcionalidade está ativada|
 |Autorização|Criar programa|
 |Autorização|Eliminar programa|
 |Autorização|Associar controlo de programa|
@@ -255,7 +255,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Diretórios|Obter tenantDomains|
 |Chave|Obtém o tipo de inquilino|
 |Chave|Verifique se a funcionalidade B2C está ativada|
-|Chave|Verifique se a funcionalidade está ativada|
+|Chave|Verificar se a funcionalidade está ativada|
 |Chave|Adicionar parceiro à empresa|
 |Chave|Adicionar domínio não verificado|
 |Chave|Adicionar domínio verificado|
@@ -515,10 +515,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Grupos|Rever pedido de aprovação de pedidos|
 |Gestão de Grupos|Atualizar Revisão de Acesso|
 |Gestão de Grupos|Atualizar definições de notificação de correio da revisão de acesso|
-|Gestão de Grupos|Atualizar definição da contagem de recorrências da revisão de acesso|
-|Gestão de Grupos|Atualizar definição da duração de dias das recorrências da revisão de acesso|
-|Gestão de Utilizadores|Atualizar definição do tipo de fim das recorrências da revisão de acesso|
-|Gestão de Utilizadores|Atualizar definição do tipo de recorrência da revisão de acesso|
+|Gestão de Grupos|Atualizar a definição de contagem de periodicidade de revisões de acesso|
+|Gestão de Grupos|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
+|Gestão de Utilizadores|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
+|Gestão de Utilizadores|Atualizar definição de tipo de periodicidade de revisões de acesso|
 
 
 

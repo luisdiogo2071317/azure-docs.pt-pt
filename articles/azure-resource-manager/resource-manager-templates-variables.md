@@ -1,6 +1,6 @@
 ---
-title: As variáveis de modelo do Azure Resource Manager | Microsoft Docs
-description: Descreve como definir as variáveis num modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
+title: As variáveis de modelo do Azure Resource Manager | Documentos da Microsoft
+description: Descreve como definir variáveis numa modelos Azure Resource Manager usando sintaxe declarativa do JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359293"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712751"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Secção de variáveis de modelos Azure Resource Manager
-Na secção de variáveis, construir valores que podem ser utilizados em todo o seu modelo. Não é necessário definir as variáveis, mas são, muitas vezes, simplificam o modelo ao reduzir as expressões complexas.
+Na secção de variáveis, é possível construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir variáveis, mas elas, muitas vezes, simplificam seu modelo, reduzindo as expressões complexas.
 
-## <a name="define-and-use-a-variable"></a>Definir e utilizar uma variável
+## <a name="define-and-use-a-variable"></a>Definir e usar uma variável
 
-O exemplo seguinte mostra uma definição de variável. Cria um valor de cadeia para um nome de conta de armazenamento. Utiliza várias funções de modelo para obter um valor de parâmetro e concatená-la a uma cadeia exclusiva.
+O exemplo seguinte mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Utiliza várias funções de modelo para obter um valor de parâmetro e concatená-lo a uma cadeia exclusiva.
 
 ```json
 "variables": {
@@ -33,7 +33,7 @@ O exemplo seguinte mostra uma definição de variável. Cria um valor de cadeia 
 },
 ```
 
-Utilize a variável quando se definem o recurso.
+Utilize a variável quando definir o recurso.
 
 ```json
 "resources": [
@@ -45,7 +45,7 @@ Utilize a variável quando se definem o recurso.
 
 ## <a name="available-definitions"></a>Definições disponíveis
 
-O exemplo anterior mostrou uma forma de definir uma variável. Pode utilizar qualquer uma das seguintes definições:
+O exemplo anterior mostrou uma forma de definir uma variável. Pode usar qualquer uma das seguintes definições:
 
 ```json
 "variables": {
@@ -78,7 +78,7 @@ O exemplo anterior mostrou uma forma de definir uma variável. Pode utilizar qua
 
 ## <a name="configuration-variables"></a>Variáveis de configuração
 
-Pode utilizar os tipos complexos JSON para definir os valores relacionados para um ambiente. 
+Pode utilizar tipos complexos de JSON para definir valores relacionados para um ambiente. 
 
 ```json
 "variables": {
@@ -95,7 +95,7 @@ Pode utilizar os tipos complexos JSON para definir os valores relacionados para 
 },
 ```
 
-Nos parâmetros, crie um valor que indica que configuração valores a utilizar.
+Parâmetros, vai criar um valor que indica que configuração valores devem ser usados.
 
 ```json
 "parameters": {
@@ -115,9 +115,9 @@ Obter as definições atuais com:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-## <a name="use-copy-element-in-variable-definition"></a>Utilize o elemento de cópia na definição de variável
+## <a name="use-copy-element-in-variable-definition"></a>Usar o elemento de cópia na definição de variável
 
-Pode utilizar o **cópia** sintaxe para criar uma variável com uma matriz de vários elementos. Forneça uma contagem do número de elementos. Cada elemento contém as propriedades dentro de **entrada** objeto. Pode utilizar a cópia dentro de uma variável ou para criar a variável. Quando definir uma variável e utilize **cópia** dentro essa variável, criar um objeto que tem uma propriedade de matriz. Quando utiliza **cópia** no nível superior e definir uma ou mais variáveis dentro da mesma, criar matrizes de um ou mais. Ambas as abordagens são mostradas no exemplo seguinte:
+Pode utilizar o **cópia** sintaxe para criar uma variável com uma matriz de vários elementos. Forneça uma contagem do número de elementos. Cada elemento contém as propriedades dentro de **entrada** objeto. Pode usar a cópia dentro de uma variável ou para criar a variável. Quando definir uma variável e utilize **cópia** nessa variável, pode criar um objeto que tem uma propriedade de matriz. Quando utiliza **cópia** no nível superior e definir um ou mais variáveis dentro do mesmo, criar um ou mais matrizes. Ambas as abordagens são mostradas no exemplo a seguir:
 
 ```json
 "variables": {
@@ -148,7 +148,7 @@ Pode utilizar o **cópia** sintaxe para criar uma variável com uma matriz de v�
 },
 ```
 
-A variável **disco matriz no objeto** contém o seguinte objeto com uma matriz com o nome **discos**:
+A variável **disco matriz no objeto** contém o seguinte objeto com uma matriz chamada **discos**:
 
 ```json
 {
@@ -172,7 +172,7 @@ A variável **disco matriz no objeto** contém o seguinte objeto com uma matriz 
 }
 ```
 
-A variável **discos top-nível matriz** contém a matriz seguinte:
+A variável **nível-matriz de discos-top** contém a matriz a seguir:
 
 ```json
 [
@@ -194,7 +194,7 @@ A variável **discos top-nível matriz** contém a matriz seguinte:
 ]
 ```
 
-Também pode especificar mais de um objeto ao utilizar a cópia para criar variáveis. O exemplo seguinte define duas matrizes como variáveis. Um nome **discos top-nível matriz** e tem cinco elementos. O outro é denominado **a diferentes matriz** e tem três elementos.
+Também é possível especificar mais de um objeto ao utilizar a cópia para criar variáveis. O exemplo a seguir define duas matrizes como variáveis. Uma é denominada **nível-matriz de discos-top** e tem cinco elementos. A outra é denominada **um diferentes matriz** e tem três elementos.
 
 ```json
 "variables": {
@@ -221,7 +221,7 @@ Também pode especificar mais de um objeto ao utilizar a cópia para criar vari�
 },
 ```
 
-Esta abordagem funciona bem quando tem de ter valores de parâmetros e certifique-se de que estão no formato correto para um valor de modelo. O exemplo seguinte formata os valores de parâmetros para utilização em definir regras de segurança:
+Essa abordagem funciona bem quando precisa usar valores de parâmetros e certificar-se de que estão no formato correto para um valor de modelo. O exemplo seguinte formatos valores de parâmetro para utilização na definição das regras de segurança:
 
 ```json
 {
@@ -269,26 +269,19 @@ Esta abordagem funciona bem quando tem de ter valores de parâmetros e certifiqu
 }
 ```
 
-## <a name="recommendations"></a>Recomendações
-As seguintes informações podem ser úteis quando trabalha com variáveis:
-
-* Utilize as variáveis para valores que tem de utilizar mais do que uma vez num modelo. Se for utilizado um valor apenas uma vez, um valor hard-coded faz com que o seu modelo mais fáceis de ler.
-* Não é possível utilizar o [referência](resource-group-template-functions-resource.md#reference) funcionar o **variáveis** secção do modelo. O **referência** deriva de função de valor de estado de runtime do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construção valores que tem o **referência** funcionarem diretamente no **recursos** ou **produz** secção do modelo.
-* Inclua as variáveis para os nomes de recursos que têm de ser exclusivos.
-
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Estes modelos de exemplo demonstram alguns cenários de utilização de variáveis. Implementá-las para testar a forma como as variáveis são processadas em cenários diferentes. 
+Estes modelos de exemplo demonstram alguns cenários de utilização de variáveis. Implementá-las para testar como as variáveis são tratadas em cenários diferentes. 
 
 |Modelo  |Descrição  |
 |---------|---------|
-| [definições de variável](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo não implementa todos os recursos. Constrói valores das variáveis e devolve esses valores. |
-| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra a utilização de uma variável que define valores de configuração. O modelo não implementa todos os recursos. Constrói valores das variáveis e devolve esses valores. |
-| [regras de segurança de rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [ficheiro de parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para a atribuição de regras de segurança para um grupo de segurança de rede. |
+| [definições de variável](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
+| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define os valores de configuração. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
+| [regras de segurança de rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [ficheiro de parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para a atribuição de regras de segurança a um grupo de segurança de rede. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-* Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Terá de utilizar os recursos que existe dentro de um grupo de recursos diferente. Este cenário é comum quando trabalhar com as contas de armazenamento e as redes virtuais que são partilhadas em vários grupos de recursos. Para obter mais informações, consulte o [resourceId função](resource-group-template-functions-resource.md#resourceid).
+* Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+* Para obter recomendações sobre a criação de modelos, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
+* Poderá ter de utilizar recursos que existem dentro de um grupo de recursos diferente. Este cenário é comum ao trabalhar com redes virtuais que são partilhadas entre mais de um grupo de recursos ou contas de armazenamento. Para obter mais informações, consulte a [resourceId função](resource-group-template-functions-resource.md#resourceid).

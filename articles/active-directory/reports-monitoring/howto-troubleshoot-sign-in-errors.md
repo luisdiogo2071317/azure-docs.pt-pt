@@ -13,14 +13,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277358"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652035"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Resolução de problemas de erros de início de sessão através de relatórios do Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Resolver problemas de erros de início de sessão através de relatórios do Azure Active Directory
 
 O [relatório de inícios de sessão](concept-sign-ins.md) no Azure Active Directory (Azure AD) permite-lhe encontrar respostas para perguntas sobre gerir o acesso as aplicações na sua organização, incluindo:
 
@@ -35,7 +35,7 @@ Além disso, o relatório de inícios de sessão pode também ajudar a resolver 
 
 É necessário:
 
-* Um inquilino do Azure AD com uma licença premium (P1/P2). 
+* Um inquilino do Azure AD com uma licença premium (P1/P2). Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
 * Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Resolver erros de início de sessão usando o relatório de inícios de sessão

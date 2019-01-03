@@ -1,5 +1,5 @@
 ---
-title: Gerir preços e volumes de dados do Azure Application Insights | Documentos da Microsoft
+title: Gerir a utilização e os custos do Azure Application Insights | Documentos da Microsoft
 description: Gerir volumes de telemetria e monitorizar os custos no Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -9,75 +9,57 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
+ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 08/11/2018
+ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a65db0dd21c2a5f85b1818f02031f1fb08ac564b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436066"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969918"
 ---
-# <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir preços e volumes de dados no Application Insights
+# <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
 > [!NOTE]
 > Este artigo descreve como analisar a utilização dos dados do Application Insights.  Veja os artigos seguintes para obter informações relacionadas.
-> - [Monitorizar a utilização e custos estimados](../azure-monitor/platform/usage-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
-
-Preços para [do Azure Application Insights] [ start] baseia-se no volume de dados por aplicação. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a faturação da sua subscrição do Azure.
-
-O Application Insights tem dois planos de preços: Básico e Enterprise. O plano de preços básico é o plano predefinido. Inclui todas as funcionalidades do plano de Enterprise, sem custos adicionais. As listas de plano básico, principalmente no volume de dados que são ingeridos. 
-
-O plano de Enterprise tem uma cobrança por nó e cada nó recebe um montante diário de dados. Na empresa preços do plano, é-lhe cobrada aos dados ingeridos acima do montante incluído. Se utilizar o Operations Management Suite, deve escolher o plano Enterprise. 
+> - [Monitorizar a utilização e custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
 
 Se tiver perguntas sobre preços do Application Insights, pode postar uma pergunta no nosso [fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
 
-## <a name="pricing-plans"></a>Planos de preços
+## <a name="pricing-model"></a>Modelo preços
+
+Preços para [do Azure Application Insights] [ start] baseia-se no volume de dados ingerido. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a faturação da sua subscrição do Azure.
+
+### <a name="data-volume-details"></a>Detalhes do volume de dados
+
+* Volume de dados é o número de bytes de telemetria recebida pelo Application Insights. Volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pelo Application Insights a partir da sua aplicação. Para [importados para a análise de dados tabulares](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), volume de dados é medido como o tamanho descomprimido de ficheiros que são enviados para o Application Insights.
+* Encargos de dados do seu aplicativo agora são comunicados num novo contador de faturação com o nome **ingestão de dados** a partir de Abril de 2018. Este é o novo medidor ser partilhadas entre a monitorização de tecnologias, como informações de aplicativos e do Log Analytics e está atualmente sob o nome do serviço **do Log Analytics**. 
+* [Live Stream métricas](app-insights-live-stream.md) dados não são contabilizados para fins de preços.
 
 Para obter preços atuais na sua moeda e região, veja [os preços do Application Insights][pricing].
 
-> [!NOTE]
-> Em Abril de 2018, vamos [introduzida](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para a monitorização do Azure. Esse modelo adota um modelo simples de "pay as you go" em todo o portefólio completado dos serviços de monitorização. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto da migração para esse modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de utilização, e [como otimizado para o novo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
-
-### <a name="basic-plan"></a>Plano básico
-
-O plano Basic é a predefinição de plano de preços, quando é criado um novo recurso do Application Insights. O plano básico é ideal para todos os clientes, exceto aqueles que tiver uma subscrição do Operations Management Suite.
-
-* No plano Basic, é cobrado por volume de dados. Volume de dados é o número de bytes de telemetria recebida pelo Application Insights. Volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pelo Application Insights a partir da sua aplicação. Para [importados para a análise de dados tabulares](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), volume de dados é medido como o tamanho descomprimido de ficheiros que são enviados para o Application Insights.
-* Encargos de dados do seu aplicativo agora são comunicados num novo contador de faturação com o nome **ingestão de dados** a partir de Abril de 2018. Este é o novo medidor ser partilhadas entre a monitorização de tecnologias, como informações de aplicativos e do Log Analytics e está atualmente sob o nome do serviço **dos serviços de aplicações** (e a alteração em breve para **do Log Analytics**). 
-* [Live Stream métricas](app-insights-live-stream.md) dados não são contabilizados para fins de preços.
-* [A exportação contínua](app-insights-export-telemetry.md) e o [conector do Azure Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estão disponíveis sem custo adicional no plano Basic a partir de Abril de 2018.
-
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Plano de Enterprise e elegibilidades da subscrição do Operations Management Suite
-
-Os clientes que comprarem o Operations Management Suite E1 e E2 podem obter o Application Insights empresarial como um componente adicional sem custos adicionais, como [anunciado anteriormente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Especificamente, cada unidade do Operations Management Suite E1 e E2 inclui a elegibilidade para um nó do plano Enterprise do Application Insights. Cada nó do Application Insights inclui até 200 MB de dados ingeridos por dia (separado da ingestão de dados do Log Analytics), com uma retenção de dados de 90 dias sem custos adicionais. O plano é descrito em mais detalhada posteriormente neste artigo. 
-
-Uma vez que este plano é aplicável apenas para clientes com uma assinatura do Operations Management Suite, os clientes que não tem uma subscrição do Operations Management Suite não vir uma opção para selecionar este plano.
-
-> [!NOTE]
-> Para garantir que obtém esta elegibilidade, seus recursos do Application Insights tem de ser na empresa plano de preços. Esta elegibilidade aplica-se apenas como nós. Recursos do Application Insights no plano Basic não percebem algum benefício. Este direito não está visível os custos estimados mostrada os **utilização e custo estimado** painel. Além disso, se mover uma subscrição para o novo Azure monitorização o modelo de preços em Abril de 2018, o plano básico é o plano apenas disponível. Mover uma subscrição para o Azure de novo modelo de preços de monitorização não é aconselhável se tiver uma subscrição do Operations Management Suite.
-
-Para obter mais informações sobre o plano Enterprise, consulte [os detalhes dos preços do Enterprise](app-insights-pricing-enterprise-details.md).
-
 ### <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
-[Testes web de vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests) implicar um custo adicional. Testes web de vários passos são testes web que executam uma sequência de ações.
+[Testes web de vários passos](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) implicar um custo adicional. Testes web de vários passos são testes web que executam uma sequência de ações.
 
 Não existe cobrança separada para *testes de ping* de uma única página. Telemetria dos testes de ping e testes de vários passos é cobrada a mesma que outros telemetria da sua aplicação.
 
-## <a name="review-pricing-plans-and-estimate-costs"></a>Reveja os planos de preços e estimar os custos
+## <a name="review-usage-and-estimate-costs"></a>Custos de utilização e estimativa de revisão
 
-O Application Insights torna mais fácil de compreender os planos de preços que estão disponíveis e que os seus custos têm probabilidades de ser com base nos padrões de utilização recente. Para começar a utilizar, no portal do Azure, para o recurso do Application Insights, vá para o **utilização e custos estimados** painel:
+O Application Insights torna fácil de entender o que os seus custos têm probabilidades de ser com base nos padrões de utilização recente. Para começar a utilizar, no portal do Azure, para o recurso do Application Insights, vá para o **utilização e custos estimados** página:
 
 ![Escolha preços](./media/app-insights-pricing/pricing-001.png)
 
 R. Reveja o volume dos seus dados para o mês. Isto inclui todos os dados que recebeu e mantidos (após qualquer [amostragem](app-insights-sampling.md)) de seu servidor e as aplicações de cliente e de testes de disponibilidade.  
-B. Cobrado separadamente é feito [testes web de vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (Isso não incluir testes de disponibilidade simples, que estão incluídos no custo de volume de dados.)  
+B. Cobrado separadamente é feito [testes web de vários passos](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Isso não incluir testes de disponibilidade simples, que estão incluídos no custo de volume de dados.)  
 C. Ver as tendências de volume de dados do mês passado.  
 D. Ativar a ingestão de dados [amostragem](app-insights-sampling.md).   
 E. Defina o limite de volume de dados diário.  
+
+Para investigar mais profundamente a sua utilização do Application Insights, abra a **métricas** página, adicione o métrica denominado "ponto de volume de dados" e, em seguida, selecione a *aplicam-se de que a divisão* opção para dividir os dados por "telemetria tipo de item". 
 
 Custos do Application Insights são adicionados à sua fatura do Azure. Pode ver detalhes do seu do Azure são faturadas no **faturação** secção do portal do Azure ou no [portal de faturação do Azure](https://account.windowsazure.com/Subscriptions). 
 
@@ -110,8 +92,8 @@ Pode utilizar uma das seguintes opções para ver a quantidade de dados a aplica
 Aqui estão algumas coisas que pode fazer para reduzir o volume dos seus dados:
 
 * Uso [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem a inclinação de suas métricas. Não perde a capacidade de navegar entre os itens relacionados na pesquisa. Em aplicativos de servidor, amostragem funciona automaticamente.
-* [Limitar o número de chamadas de Ajax que podem ser comunicadas](app-insights-javascript.md#detailed-configuration) em cada vista de página ou desativar o relatório de Ajax.
-* [Edite applicationinsights. config](app-insights-configuration-with-applicationinsights-config.md) para alterar os módulos de coleção de que não precisa. Por exemplo, poderá decidir que os contadores de desempenho ou dados de dependência são inessential.
+* [Limitar o número de chamadas de Ajax que podem ser comunicadas](../azure-monitor/app/javascript.md#detailed-configuration) em cada vista de página ou desativar o relatório de Ajax.
+* [Edite applicationinsights. config](../azure-monitor/app/configuration-with-applicationinsights-config.md) para alterar os módulos de coleção de que não precisa. Por exemplo, poderá decidir que os contadores de desempenho ou dados de dependência são inessential.
 * Divida a telemetria entre chaves de instrumentação separado. 
 * Métricas de agregação previamente. Se colocar chamadas para TrackMetric na sua aplicação, pode reduzir o tráfego utilizando a sobrecarga que aceita o cálculo da média e o desvio-padrão de um lote de medidas. Em alternativa, pode utilizar um [pré-agregar pacote](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
@@ -163,6 +145,55 @@ Pode escrever um script para definir o plano de preços com a gestão de recurso
 
 Para desativar os emails de limite de volume diário, no **configurar** secção de recurso do Application Insights, na **utilização e custos estimados** painel, selecione **limite diário** . Existem definições para enviar um e-mail quando for atingido o limite máximo, bem como quando um nível de aviso ajustável foi atingido. Se pretender desativar todas as diariamente cap relacionados com o volume e-mails desmarque as caixas.
 
+## <a name="legacy-enterprise-pricing-plan"></a>Plano de preços legado Enterprise
+
+Para os pioneiros de Azure Application Insights, ainda existem dois planos de preços dois possíveis: Básico e Enterprise. O plano de preços básico é igual à descrita acima sendo o plano predefinido. Inclui todas as funcionalidades do plano de Enterprise, sem custos adicionais. As listas de plano básico, principalmente no volume de dados que são ingeridos. 
+
+O plano de Enterprise tem uma cobrança por nó e cada nó recebe um montante diário de dados. Na empresa preços do plano, é-lhe cobrada aos dados ingeridos acima do montante incluído. Se estiver a utilizar o Operations Management Suite, escolha o plano Enterprise. 
+
+Para obter preços atuais na sua moeda e região, veja [os preços do Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+
+> [!NOTE]
+> Em Abril de 2018, vamos [introduzida](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para a monitorização do Azure. Esse modelo adota um modelo simples de "pay as you go" em todo o portefólio completado dos serviços de monitorização. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto da migração para esse modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de utilização, e [como otimizado para o novo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
+
+### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Plano de Enterprise e elegibilidades da subscrição do Operations Management Suite
+
+Os clientes que comprarem o Operations Management Suite E1 e E2 podem obter o Application Insights empresarial como um componente adicional sem custos adicionais, como [anunciado anteriormente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Especificamente, cada unidade do Operations Management Suite E1 e E2 inclui a elegibilidade para um nó do plano Enterprise do Application Insights. Cada nó do Application Insights inclui até 200 MB de dados ingeridos por dia (separado da ingestão de dados do Log Analytics), com uma retenção de dados de 90 dias sem custos adicionais. O plano é descrito em mais detalhada posteriormente neste artigo. 
+
+Uma vez que este plano é aplicável apenas para clientes com uma assinatura do Operations Management Suite, os clientes que não tem uma subscrição do Operations Management Suite não vir uma opção para selecionar este plano.
+
+> [!NOTE]
+> Para garantir que obtém esta elegibilidade, seus recursos do Application Insights tem de ser na empresa plano de preços. Esta elegibilidade aplica-se apenas como nós. Recursos do Application Insights no plano Basic não percebem algum benefício. Este direito não está visível os custos estimados mostrada os **utilização e custo estimado** painel. Além disso, se mover uma subscrição para o novo Azure monitorização o modelo de preços em Abril de 2018, o plano básico é o plano apenas disponível. Mover uma subscrição para o Azure de novo modelo de preços de monitorização não é aconselhável se tiver uma subscrição do Operations Management Suite.
+
+### <a name="how-the-enterprise-plan-works"></a>Como funciona o plano Enterprise
+
+* Paga para cada nó que envia telemetria para todas as aplicações no plano do Enterprise.
+ * R *nó* é uma máquina física ou virtual server ou uma instância de função de plataforma-como-serviço que aloja a aplicação.
+ * Máquinas de desenvolvimento, os browsers cliente e dispositivos móveis não contam como nós.
+ * Se a sua aplicação tem vários componentes que enviam telemetria, como um serviço da web e uma função de trabalho back-end, os componentes são contados em separado.
+ * [Live Stream métricas](app-insights-live-stream.md) dados não são contabilizados para fins de preços. Numa subscrição, as cobranças são por nó, não por aplicação. Se tiver cinco nós que enviam telemetria para 12 aplicações, o custo é para cinco nós.
+* Embora os encargos são apresentados por mês, é-lhe cobrado apenas para a qualquer hora em que um nó envia telemetria a partir de uma aplicação. O custo por hora é o custo mensal com aspas simples, dividido por 744 (o número de horas no mês de 31 dias).
+* Recebe uma alocação de volume de dados de 200 MB por dia para cada nó detetado (com granularidade de hora a hora). Alocação de dados não utilizados não é transportada através de um dia para a próxima.
+ * Se escolher a empresa plano de preços, cada subscrição recebe um montante diário de dados com base no número de nós que enviam telemetria para os recursos do Application Insights nessa subscrição. Então, se tiver cinco nós que enviam dados todo o dia, terá um volume total permitido de 1 GB aplicada a todos os recursos do Application Insights nessa subscrição. Não importa se alguns nós enviam mais dados do que outros nós, uma vez que os dados incluídos são partilhados por todos os nós. Se, num determinado dia, os recursos do Application Insights recebem mais dados do que está incluído na alocação diária de dados para esta subscrição, se aplicam os encargos de dados excedidos por GB. 
+ * O volume de dados diário é calculado como o número de horas do dia (utilizando a UTC) que cada nó envia telemetria, dividido por 24 multiplicado por 200 MB. Por isso, se tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos nesse dia seriam ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. O preço de USD 2.30 por GB de dados excedida, o custo seria USD 1.15 se os nós de envio de 1 GB de dados nesse dia.
+ * O montante diário de plano de Enterprise não serem partilhado com aplicações para o qual optou pelo plano básico. Montante não utilizado não é herdado do dia a dia. 
+
+### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem de nós distintos
+
+| Cenário                               | Contagem total de nó diária |
+|:---------------------------------------|:----------------:|
+| 1 aplicação usando 3 instâncias de serviço de aplicações do Azure e 1 servidor virtual | 4 |
+| aplicações de 3 em execução em 2 VMs; os recursos do Application Insights para estas aplicações estão na mesma subscrição e no plano do Enterprise | 2 | 
+| 4 aplicativos cujos recursos de informações de aplicativos estão na mesma subscrição; cada aplicativo executar 2 instâncias 16 horas de ponta e 4 instâncias durante 8 horas de pico | 13.33 | 
+| Serviços cloud com 1 função de trabalho e 1 função da Web, sendo que a execução de 2 instâncias | 4 | 
+| Um cluster do Azure Service Fabric de 5 nós executar 50 microsserviços; cada microsserviço 3 instâncias em execução | 5|
+
+* A contagem de nós precisa depende em qual SDK do Application Insights a aplicação está a utilizar. 
+  * Nas versões SDK 2.2 e posteriores, tanto o Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) e o [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) cada anfitrião de aplicação como um nó de relatório. Os exemplos são o nome do computador para o servidor físico e anfitriões VM ou o nome da instância para serviços em nuvem.  A única exceção é uma aplicação que utiliza apenas a [.NET Core](https://dotnet.github.io/) e o SDK do Application Insights básico. Nesse caso, apenas um nó é comunicado para todos os anfitriões porque o nome do anfitrião não está disponível. 
+  * Para versões anteriores do SDK, o [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporta como as versões mais recentes do SDK, mas o [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) relatórios apenas um nó, independentemente do número de anfitriões de aplicação. 
+  * Se o aplicativo utilizar o SDK para definir **roleInstance** para um valor personalizado, por padrão, esse mesmo valor é utilizado para determinar a contagem de nós. 
+  * Se estiver a utilizar uma nova versão do SDK com uma aplicação que é executado a partir de dispositivos móveis ou computadores cliente, a contagem de nós pode devolver um número que é muito grande (devido ao elevado número de dispositivos móveis ou computadores cliente). 
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Amostragem](app-insights-sampling.md)
@@ -170,4 +201,4 @@ Para desativar os emails de limite de volume diário, no **configurar** secção
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
-[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: http://azure.microsoft.com/pricing/details/application-insights/

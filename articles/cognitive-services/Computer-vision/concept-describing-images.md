@@ -1,7 +1,7 @@
 ---
 title: Descrevendo imagens - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a descrever as imagens usando a API de imagem digitalizada.
+description: Conceitos relacionados com a funcionalidade de descrição de imagem da API de visão do computador.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342420"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583413"
 ---
-# <a name="describing-images"></a>Descrever imagens
+# <a name="describe-images-with-human-readable-language"></a>Descrever as imagens com linguagem legível por humanos
 
-Algoritmos do imagem digitalizada analisam o conteúdo numa imagem. Esta análise serve de alicerce para uma 'description' apresentada como uma linguagem legível em sentenças completas. A descrição resume o que for encontrado na imagem. Algoritmos do imagem digitalizada geram vários descrições com base nos recursos visual identificados na imagem. Descrição de cada é avaliada e uma pontuação de confiança gerado. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.
+Algoritmos do imagem digitalizada analisam o conteúdo numa imagem. Esta análise é a base de uma "descrição" apresentada como um idioma legível por humanos em frases completas. A descrição resume o que é encontrado na imagem. Algoritmos do imagem digitalizada geram vários descrições com base nos recursos visual identificados na imagem. Descrição de cada é avaliada e uma pontuação de confiança gerado. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.
 
 ## <a name="image-description-example"></a>Exemplo de descrição de imagem
 
 A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve ao descrever a imagem de exemplo com base nos seus recursos do visual.
 
-![B & edifícios W](./Images/bw_buildings.png)
+![Uma imagem simples de edifícios em Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

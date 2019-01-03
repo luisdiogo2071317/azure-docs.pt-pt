@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 818801a7f36e82d0065f85b5cf9e36288ccbff32
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422036"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970395"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory (AD)
 
@@ -57,11 +57,11 @@ O fluxo de concessão implícita não emitirá tokens de atualização, principa
 
 No entanto, uma aplicação de JavaScript tem outro mecanismo à sua disposição para renovar os tokens de acesso sem repetidamente pedir ao utilizador as credenciais. O aplicativo pode usar um iframe oculto para realizar novos pedidos de token relativamente ao ponto final de autorização do Azure AD:, desde que o navegador ainda tem uma sessão ativa (ler: tem um cookie de sessão) contra o domínio do Azure AD, o pedido de autenticação pode ocorra com êxito sem a necessidade de interação do utilizador.
 
-Esse modelo concede a aplicação do JavaScript a capacidade de forma independente renovar os tokens de acesso e até mesmo adquirir novos para uma nova API (desde que o anteriormente consentidas por utilizadores para os mesmos. Isso evita a carga a mais ao adquirir, manter e proteger um artefato de valor elevado, como um token de atualização. O artefacto que possibilita a renovação automática, o cookie de sessão do Azure AD, é gerido fora do aplicativo. Outra vantagem dessa abordagem é que um utilizador pode terminar sessão no Azure AD, com qualquer um dos aplicativos tem sessão iniciados no Azure AD, em execução em qualquer um dos separadores de browser. Isso resulta na eliminação do cookie de sessão do Azure AD e o aplicativo de JavaScript automaticamente perderá a capacidade de renovar os tokens para o utilizador assinado horizontalmente.
+Esse modelo concede a aplicação do JavaScript a capacidade de forma independente renovar os tokens de acesso e até mesmo adquirir novos para uma nova API (desde que o anteriormente consentidas por utilizadores para os mesmos). Isso evita a carga a mais ao adquirir, manter e proteger um artefato de valor elevado, como um token de atualização. O artefacto que possibilita a renovação automática, o cookie de sessão do Azure AD, é gerido fora do aplicativo. Outra vantagem dessa abordagem é que um utilizador pode terminar sessão no Azure AD, com qualquer um dos aplicativos tem sessão iniciados no Azure AD, em execução em qualquer um dos separadores de browser. Isso resulta na eliminação do cookie de sessão do Azure AD e o aplicativo de JavaScript automaticamente perderá a capacidade de renovar os tokens para o utilizador assinado horizontalmente.
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>A concessão implícita é adequado para a minha aplicação?
 
-A concessão implícita apresenta riscos de mais do que outros concede e as áreas que precisa prestar atenção a sejam bem documentadas. Por exemplo, [utilização indevida de Token de acesso para representar o proprietário de recursos no fluxo implícito] [ OAuth2-Spec-Implicit-Misuse] e [modelo de risco do OAuth 2.0 e considerações de segurança] [ OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que o principal objetivo é permitir que os aplicativos que executam código Active Directory, servido por um recurso remoto para um browser. Se estiver a planear uma arquitetura SPA, nenhum componente de back-end de tenham ou pretendam invocar uma API Web por meio de JavaScript, recomenda-se a utilização do fluxo implícito para aquisição do token.
+A concessão implícita apresenta riscos de mais do que outros concede e as áreas que precisa prestar atenção a sejam bem documentadas (por exemplo, [utilização indevida de Token de acesso para representar o proprietário de recursos no fluxo implícito] [ OAuth2-Spec-Implicit-Misuse]e [modelo de risco de OAuth 2.0 e considerações de segurança][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que o principal objetivo é permitir que os aplicativos que executam código Active Directory, servido por um recurso remoto para um browser. Se estiver a planear uma arquitetura SPA, nenhum componente de back-end de tenham ou pretendam invocar uma API Web por meio de JavaScript, recomenda-se a utilização do fluxo implícito para aquisição do token.
 
 Se seu aplicativo for um cliente nativo, o fluxo implícito não é uma excelente escolha. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo deprives a aplicação a partir do meio de manutenção de uma sessão de longa duração. Que significa que seu aplicativo repetidamente pedirá ao utilizador ao obter os tokens de acesso para novos recursos.
 

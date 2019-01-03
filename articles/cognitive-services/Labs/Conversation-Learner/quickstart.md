@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166137"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791077"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de aprendiz de conversação com node. js
 
@@ -112,14 +112,11 @@ As instruções acima a utilizar o bot vazio genérico.  Para executar um tutori
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:5050/home. 
 
-5. Clique em "Tutoriais de importação" (apenas precisa ser feito uma vez).  Isto irá demorar cerca de um minuto e copiará os modelos de aprendiz de conversação para todos os tutoriais na sua conta de aprendiz de conversação.
-
-6. Clique no modelo de demonstração na IU de aprendiz de conversação que corresponde à demonstração iniciou.
+5. Clique em "Tutoriais de importação" e selecione o modelo de demonstração na IU de aprendiz de conversação que corresponde à demonstração iniciou.
 
 Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Olá, mundo](./tutorials/1-hello-world.md)
+> [Olá, mundo](./tutorials/01-hello-world.md)

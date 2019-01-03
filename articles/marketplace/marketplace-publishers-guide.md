@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223077"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753970"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure de Marketplace e AppSource
 
 O guia de publicação do Marketplace foi concebido para ajudar a nova e publicadores existentes Saiba como utilizar lojas no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) expandir seus negócios em parceria com a Microsoft, listando as aplicações e serviços.
+
+>[!Note]
+>O Marketplace aqui refere-se para o Azure Marketplace e AppSource.  Ver [Marketplace uma, duas lojas se](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
 
 Este guia abrange os seguintes tópicos: 
 *   O que é o Marketplace e como funciona 
@@ -62,9 +65,9 @@ As novas listagens no Marketplace são elegíveis para um conjunto variado de be
 
 *   Técnico: Tudo o que precisa para obter o seu aplicativo pronto para lançamento. Do suporte técnico, o design do aplicativo e o design de arquitetura, os créditos do Azure para desenvolvimento e teste. 
 
-*   Co-marketing: Tudo o que precisa para iniciar a sua oferta. Acesso gratuito Microsoft Go-To-Market iniciar conceitos básicos para o ajudar a iniciar e promova a sua solução. Também pode ser elegível para adicional inclusão de campanha de marketing de outros Microsoft e oportunidades para ser apresentado no Marketplace.
+*   Marketing conjunto: Tudo o que precisa para iniciar a sua oferta. Acesso gratuito Microsoft Go-To-Market iniciar conceitos básicos para o ajudar a iniciar e promova a sua solução. Também pode ser elegível para adicional inclusão de campanha de marketing de outros Microsoft e oportunidades para ser apresentado no Marketplace.
 
-*   Comece a vender em conjunto: Ou Acelere a sua viagem para venda com a Microsoft através do Marketplace. Acesso a programas e suporte para orientar as vendas com o Microsoft teams.
+*   Vender em conjunto: Iniciar ou Acelere a sua viagem para venda com a Microsoft através do Marketplace. Acesso a programas e suporte para orientar as vendas com o Microsoft teams.
 
 Depois de [submeter a sua solução](https://azuremarketplace.microsoft.com/sell/signup) no Marketplace, a nossa equipa de integração contacta-o para suportar a sua experiência de publicação.
 

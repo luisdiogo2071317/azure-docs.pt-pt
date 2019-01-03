@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076796"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716759"
 ---
 # <a name="azure-stack-add-on-plans"></a>Planos de suplementos do Azure Stack
 
@@ -32,7 +32,7 @@ Existem ocasiões combinar tudo num único plano é ideal. Outras vezes poderá 
 Outro motivo para usar os planos de suplementos é ajudar os utilizadores a estar atento a sua utilização de recursos. Para fazer isso, pode começar com um plano base que inclui quotas relativamente pequenas (consoante os serviços necessários). Em seguida, como utilizadores atingem a capacidade, eles seriam ser alertados de que eles consumiu a alocação de recursos com base no respetivo plano atribuído. A partir daí, os utilizadores, em seguida, podem selecionar um plano de suplemento que fornece os recursos adicionais.
 
 > [!NOTE]
-> Quando não quiser utilizar um plano de suplemento para expandir uma quota, também pode optar por [editar a configuração original da quota de](azure-stack-quota-types.md#to-edit-a-quota). 
+> Quando não quiser utilizar um plano de suplemento para expandir uma quota, também pode optar por [editar a configuração original da quota de](azure-stack-quota-types.md#edit-a-quota). 
 
 Quando um utilizador adiciona um plano de suplemento a uma subscrição de oferta existente, os recursos adicionais poderiam demorar uma hora a aparecer. 
 

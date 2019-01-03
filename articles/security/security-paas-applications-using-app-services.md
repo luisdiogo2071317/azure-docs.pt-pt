@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bece63c36bf0027524dea051e78d290c407ca349
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451991"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716094"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Melhores práticas para proteger o PaaS web e móveis com o serviço de aplicações do Azure
 
-Neste artigo, discutimos a uma coleção de [App Service do Azure](../app-service/app-service-web-overview.md) melhores práticas de segurança para proteger as suas aplicações móveis e web de PaaS. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.
+Neste artigo, discutimos a uma coleção de [App Service do Azure](../app-service/overview.md) melhores práticas de segurança para proteger as suas aplicações móveis e web de PaaS. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.
 
 Serviço de aplicações do Azure é uma oferta de plataforma-como-serviço (PaaS) que lhe permite criar aplicações web e móveis para qualquer plataforma ou dispositivo e ligue-se aos dados em qualquer local e na cloud ou no local. Serviço de aplicações inclui as capacidades web e móveis que anteriormente foram entregues em separado como Web sites do Azure e serviços móveis do Azure. Também inclui novas capacidades para automatizar processos de negócio e o alojar APIs da nuvem. Como um serviço integrado único, o serviço de aplicações fornece um conjunto avançado de capacidades para a web, móveis e cenários de integração.
 
 ## <a name="authenticate-through-azure-active-directory-ad"></a>Autenticar através do Azure Active Directory (AD)
-Serviço de aplicações fornece um serviço OAuth 2.0 para o seu fornecedor de identidade. OAuth 2.0 se concentra na simplicidade de desenvolvedor do cliente ao mesmo tempo, os fluxos de autorização específico para aplicações web, aplicativos de desktop e celulares. Azure AD utiliza o OAuth 2.0 para lhe permitir autorizar o acesso a dispositivos móveis e aplicações web. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md).
+Serviço de aplicações fornece um serviço OAuth 2.0 para o seu fornecedor de identidade. OAuth 2.0 se concentra na simplicidade de desenvolvedor do cliente ao mesmo tempo, os fluxos de autorização específico para aplicações web, aplicativos de desktop e celulares. Azure AD utiliza o OAuth 2.0 para lhe permitir autorizar o acesso a dispositivos móveis e aplicações web. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Restringir o acesso com base na função 
 Restringir o acesso é fundamental para as organizações que desejam aplicar políticas de segurança para acesso a dados. Pode utilizar o controlo de acesso baseado em funções (RBAC) para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito, como a necessidade de conhecer e princípios de segurança de privilégio mínimo. Para saber mais sobre como conceder aos utilizadores acesso a aplicações, veja [o que é o controlo de acesso baseado em funções](../role-based-access-control/overview.md).

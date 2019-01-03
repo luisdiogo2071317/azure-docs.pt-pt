@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263959"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807946"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de débito no Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Conforme mostrado na tabela a seguir, consoante a opção da API, pode aprovisio
 |API|Para **partilhado** débito, configurar |Para **dedicado** débito, configurar |
 |----|----|----|
 |SQL API|Base de Dados|Contentor|
-|API do MongoDB|Base de Dados|Coleção|
+|API do Azure Cosmos DB para o MongoDB|Base de Dados|Coleção|
 |API de Cassandra|Espaço de chaves|Tabela|
 |API do Gremlin|Conta de base de dados|Graph|
 |API de Tabela|Conta de base de dados|Tabela|

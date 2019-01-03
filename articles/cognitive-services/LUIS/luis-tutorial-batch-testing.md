@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106044"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754395"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de dados de teste de Batch
+# <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste do batch
 
 Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão na sua aplicação e corrigi-los.  
 
@@ -36,7 +36,7 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
+> * Aplicação de exemplo de importação
 > * Crie um ficheiro de teste do batch 
 > * Executar um teste de batch
 > * Rever os resultados de teste
@@ -45,13 +45,13 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+Utilize os passos seguintes:
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
@@ -61,7 +61,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 
 ## <a name="batch-file"></a>Arquivo em lotes
 
-1. Crie `HumanResources-jobs-batch.json` num editor de texto ou [transferir](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) -lo. 
+1. Crie `HumanResources-jobs-batch.json` num editor de texto ou [transferir](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) -lo. 
 
 2. No ficheiro batch formatada em JSON, adicionar expressões com o **intenção** desejar prevista no teste. 
 
@@ -177,7 +177,7 @@ Quando o primeiro escrever e testar arquivos em lote, é melhor começar com alg
 
 O valor de um **tarefa** entidade, fornecida nas expressões de teste, é normalmente uma ou duas palavras, com alguns exemplos que está a ser mais palavras. Se _suas próprias_ aplicação de recursos humanos normalmente tem os nomes das tarefas de várias palavras, as expressões de exemplo com o nome com **tarefa** entidade nesta aplicação não funcionaria bem.
 
-1. Crie `HumanResources-entities-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/) ou [transferir](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) -lo.
+1. Crie `HumanResources-entities-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/) ou [transferir](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) -lo.
 
 
 2. No ficheiro batch formatada em JSON, adicione uma matriz de objetos que incluem expressões com o **intenção** desejar prevista no teste, bem como localizações de qualquer entidades na expressão. Uma vez que uma entidade é baseada em tokens, certifique-se iniciar e parar a cada entidade num caractere. Não começar ou terminar a expressão num espaço. Isso faz com que um erro durante a importação de ficheiros do batch.  

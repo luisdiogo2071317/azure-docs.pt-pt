@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686624"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721602"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 
 Este artigo descreve as melhores práticas para a sincronização de dados SQL do Azure.
 
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Sincronização de dados SQL do Azure faz **não** suporta a instância gerida da base de dados SQL do Azure neste momento.
 
 ## <a name="security-and-reliability"></a> Segurança e confiabilidade
 
@@ -196,7 +199,7 @@ Em algumas circunstâncias, anular o registo de uma base de dados com um agente 
 1. Grupo de sincronização foi criado utilizando uma instância de base de dados SQL e no local do SQL Server da base de dados, que está associada a 1 de agente local.
 2. O mesmo banco de dados no local está registado com o agente local 2 (este agente não está associado a qualquer grupo de sincronização).
 3. A anulação do registo da base de dados no local do agente local 2 remove o controlo e tabelas de metadados para sincronizar o grupo A para a base de dados no local.
-4. Grupo de sincronização de uma falha de operações, com este erro: "a operação atual não foi possível concluir uma vez que a base de dados não está aprovisionada para sincronização ou não tem permissões para as tabelas de configuração de sincronização."
+4. Operações de um grupo de sincronização falharem com este erro: "A operação atual não foi possível concluir uma vez que a base de dados não está aprovisionada para sincronização ou não tem permissões para as tabelas de configuração de sincronização."
 
 #### <a name="solution"></a>Solução
 
@@ -221,7 +224,7 @@ Para obter mais informações sobre a sincronização de dados SQL, consulte:
 
 -   Descrição geral - [sincronizar dados em várias bases de dados na cloud e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md)
 -   Configurar a sincronização de dados
-    - No portal - [Tutorial: configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: Configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434050"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741594"
 ---
 # <a name="os-patching-for-hdinsight"></a>Sistema operacional a aplicação de patches para HDInsight 
 Como um serviço gerido do Apache Hadoop, HDInsight assume o controlo de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, alteramos a política de aplicação de patches de SO convidado para clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido a aplicação de patches. A nova política irá continuar a máquinas de virtuais de patch (VMs) em clusters do Linux cada segunda-feira ou a partir de 12 AM UTC de forma escalonada em todos os nós em qualquer determinado cluster de quinta-feira. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a partir da data de criação do cluster. Patches entrarão em vigor assim que as VMs são reiniciadas.
@@ -33,7 +33,6 @@ Com a ação de script descrita neste artigo, pode modificar o sistema operacion
 
 > [!NOTE]  
 > Esta ação de script só funciona com clusters do HDInsight baseado em Linux criados após 1 de Agosto de 2016. Patches entrarão em vigor apenas quando as VMs são reiniciadas. 
->
 
 ## <a name="how-to-use-the-script"></a>Como utilizar o script 
 

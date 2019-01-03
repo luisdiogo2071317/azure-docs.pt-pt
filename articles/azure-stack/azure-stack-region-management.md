@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 9a10d4fc90b916b3cb1eda7b9bac99c5d5f9deba
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 80a8414d98eba984f2427f5f746cd0e1061248a4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160788"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726923"
 ---
 # <a name="region-management-in-azure-stack"></a>Gestão da região no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack usa o conceito de *regiões*, que são entidades lógicas compostas os recursos de hardware que compõem a infraestrutura do Azure Stack. Na gestão de região, pode encontrar todos os recursos necessários para operar com êxito a infraestrutura do Azure Stack.
 
@@ -34,11 +34,11 @@ Integrada uma implementação do sistema (conhecido como um *cloud do Azure Stac
 
 O Azure Stack tem um conjunto de capacidades de gestão de região disponíveis na **gestão da região** mosaico. Este mosaico não está disponível para um operador do Azure Stack no dashboard predefinido no portal do administrador. Através deste mosaico, pode monitorizar e atualizar a sua região do Azure Stack e os respetivos componentes, que são específicos de cada região.
 
-![O mosaico de gestão da região](media/azure-stack-manage-region/image1.png)
+![O mosaico de gestão da região](media/azure-stack-region-management/image1.png)
 
 Se clicar numa região no **gestão da região** mosaico, pode acessar as seguintes informações:
 
-![Descrição de painéis no painel de gestão da região](media/azure-stack-manage-region/image2.png)
+[ ![Descrição de painéis no painel de gestão da região](media/azure-stack-region-management/regionssm.png "painel de gestão da região") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Menu de recursos**. Acessar áreas de gerenciamento de infra-estrutura específicas e ver e gerir recursos de utilizador, como contas de armazenamento e redes virtuais.
 
@@ -49,6 +49,8 @@ Se clicar numa região no **gestão da região** mosaico, pode acessar as seguin
 4. **Fornecedores de recursos**. Gerir a funcionalidade de utilizador fornecida pelos componentes necessários para executar o Azure Stack. Cada fornecedor de recursos é fornecido com uma experiência administrativa. Esta experiência pode incluir alertas para o fornecedor específico, métricas e outras capacidades de gestão específicas para o fornecedor de recursos.
 
 5. **Funções de infraestrutura**. Os componentes necessários para executar o Azure Stack. Apenas as funções de infraestrutura que reportam os alertas são listadas. Ao selecionar uma função, pode ver os alertas associados a função e as instâncias de função onde esta função está em execução.
+
+6. **propriedades**. O estado de registo e os detalhes do seu ambiente no painel de gestão da região. O estado pode ser **registada** ou **não registado**. Se registrado, ela também mostra o ID de subscrição do Azure que utilizou para registar o Azure Stack, juntamente com o grupo de recursos de registo e o nome.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,18 +1,18 @@
 ---
-title: Autenticação de registo de contentor do Azure com os principais de serviço
-description: Saiba como fornecer acesso a imagens no seu registo de contentor privadas através de um principal de serviço do Azure Active Directory.
+title: Autenticação de registo de contentor do Azure com um principal de serviço
+description: Fornece acesso a imagens no seu registo de contentor privado, utilizando um principal de serviço do Azure Active Directory.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854492"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754208"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação de registo de contentor do Azure com os principais de serviço
 
@@ -20,9 +20,9 @@ Pode utilizar um principal de serviço do Azure Active Directory (Azure AD) para
 
 ## <a name="what-is-a-service-principal"></a>O que é um principal de serviço?
 
-O Azure AD *principais de serviço* fornecer acesso aos recursos do Azure na sua subscrição. Pode considerar um serviço principal como uma identidade de utilizador para um serviço, em que o "serviço" é qualquer aplicativo, o serviço ou a plataforma que precisa de acesso aos recursos. Pode configurar um principal de serviço com direitos de acesso no âmbito apenas a esses recursos que especificar. Em seguida, pode configurar a aplicação ou serviço para utilizar credenciais do principal de serviço para aceder a esses recursos.
+O Azure AD *principais de serviço* fornecer acesso aos recursos do Azure na sua subscrição. Pode considerar um serviço principal como uma identidade de utilizador para um serviço, em que o "serviço" é qualquer aplicativo, o serviço ou a plataforma que precisa de acesso aos recursos. Pode configurar um principal de serviço com direitos de acesso no âmbito apenas a esses recursos que especificar. Em seguida, configure a sua aplicação ou serviço para utilizar credenciais do principal de serviço para aceder a esses recursos.
 
-No contexto do registo de contentor do Azure, pode criar um Azure AD principal de serviço com permissões de solicitação, push e pull ou proprietário para o registo de Docker privado no Azure.
+No contexto do registo de contentor do Azure, pode criar um Azure AD principal de serviço com a solicitação, push e pull ou outras permissões para o seu registo privado no Azure. Para obter uma lista completa, consulte [permissões e funções do Azure Container Registry](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Por que usar um principal de serviço?
 

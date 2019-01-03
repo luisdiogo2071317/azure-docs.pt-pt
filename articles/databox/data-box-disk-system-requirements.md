@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5debc14a6a20c42b62b9a7b2c524e36e94302221
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092257"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792871"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos de sistema de disco de caixa de dados do Azure (pré-visualização)
 
@@ -61,6 +61,9 @@ Aqui está uma lista dos tipos de armazenamento suportadas para o disco do Data 
 | --- | --- |
 | Clássica | Standard |
 | Fins Gerais  |Standard; ambos o V1 e V2 são suportadas. São suportadas camadas frequentes e esporádica. |
+
+>[!NOTE]
+> Contas de armazenamento Gen 2 do Azure Data Lake não são suportadas.
 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas

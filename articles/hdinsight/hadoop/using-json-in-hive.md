@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f50767ad4fc979962968c32bbe972e28d93cce88
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166409"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652700"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON com o Apache Hive no HDInsight do Azure
 
@@ -57,9 +57,9 @@ Saiba como processar e analisar ficheiros JavaScript Object Notation (JSON) util
 }
 ```
 
-O ficheiro pode ser encontrado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Para obter mais informações sobre como utilizar o armazenamento de Blobs do Azure com o HDInsight, consulte [compatível com o uso HDFS Blob storage do Azure com o Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o contentor predefinido do cluster.
+O ficheiro pode ser encontrado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Para obter mais informações sobre como utilizar o armazenamento de Blobs do Azure com o HDInsight, consulte [compatível com o uso HDFS Blob storage do Azure com o Apache Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o contentor predefinido do cluster.
 
-Neste tutorial, vai utilizar a consola do Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
+Neste tutorial, vai utilizar a consola Apache Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Apache Hive com o Apache Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
 
 ## <a name="flatten-json-documents"></a>Nivelamento de documentos JSON
 Os métodos listados na secção seguinte requerem que o documento JSON ser composto por uma única linha. Por isso, tem de nivelamento o documento JSON para uma cadeia de caracteres. Se o documento JSON já foi simplificado, pode ignorar este passo e ir diretamente para a próxima seção sobre análise de dados JSON. Aplaná o documento JSON, execute o seguinte script:
@@ -101,7 +101,7 @@ Hive fornece três mecanismos diferentes para executar consultas nos documentos 
 * Use a função no get_json_object definidas pelo utilizador (UDF).
 * Utilize o json_tuple UDF.
 * Utilize o serializador/desserializador personalizado (SerDe).
-* Escreva seu próprio UDF com o Python ou outras linguagens. Para obter mais informações sobre como executar seu próprio código de Python com o Hive, consulte [UDF Python com o Apache Hive e Pig][hdinsight-python].
+* Escreva seu próprio UDF com o Python ou outras linguagens. Para obter mais informações sobre como executar seu próprio código de Python com o Hive, consulte [UDF Python com o Apache Hive e Apache Pig][hdinsight-python].
 
 ### <a name="use-the-getjsonobject-udf"></a>Utilizar o get_json_object UDF
 Ramo de registo fornece uma UDF interna chamada [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode realizar uma consulta de JSON durante o tempo de execução. Este método aceita dois argumentos – o nome da tabela e o nome de método, que tem o documento JSON simplificado e o campo JSON que tem de ser analisado. Vamos examinar um exemplo para ver como funciona este UDF.
@@ -152,9 +152,9 @@ Concluindo, o tipo de operador JSON no Hive que escolher depende do seu cenário
 
 Para artigos relacionados, consulte:
 
-* [Utilizar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um ficheiro do Apache log4j de exemplo](../hdinsight-use-hive.md)
-* [Analisar dados de atraso de voo utilizando o Hive no HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analisar dados do Twitter através do Hive no HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Utilizar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight para analisar um ficheiro do Apache log4j de exemplo](../hdinsight-use-hive.md)
+* [Analisar dados de atraso de voo com o Apache Hive no HDInsight](../hdinsight-analyze-flight-delay-data.md)
+* [Analisar dados do Twitter com o Apache Hive no HDInsight](../hdinsight-analyze-twitter-data.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

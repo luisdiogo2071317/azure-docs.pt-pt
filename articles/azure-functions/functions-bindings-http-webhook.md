@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317445"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727008"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -491,7 +491,7 @@ Por predefinição, todas as rotas de função têm o prefixo *api*. Também pod
 
 ### <a name="working-with-client-identities"></a>Trabalhar com identidades de cliente
 
-Se estiver a utilizar a aplicação de funções [aplicação serviço de autenticação / autorização](../app-service/app-service-authentication-overview.md), pode ver informações sobre os clientes autenticados a partir do código. Essas informações estão disponíveis como [injetados pela plataforma de cabeçalhos de pedido](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Se estiver a utilizar a aplicação de funções [aplicação serviço de autenticação / autorização](../app-service/overview-authentication-authorization.md), pode ver informações sobre os clientes autenticados a partir do código. Essas informações estão disponíveis como [injetados pela plataforma de cabeçalhos de pedido](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 Também é possível ler essas informações de vinculação de dados. Esta funcionalidade só está disponível para o runtime 2.x de funções. Também está atualmente apenas disponível para linguagens .NET.
 
@@ -577,7 +577,7 @@ Pode permitir pedidos anónimos, que não necessitam de chaves. Também pode exi
 
 Para proteger completamente seus pontos de extremidade de função na produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação de função:
 
-* Ativar a autenticação do serviço de aplicação / autorização para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD) e de vários fornecedores de identidade de terceiros para autenticar clientes. Pode utilizá-lo para implementar regras de autorização personalizada para as suas funções e pode trabalhar com informações de utilizador a partir do código de função. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md) e [trabalhar com identidades-cliente](#working-with-client-identities).
+* Ativar a autenticação do serviço de aplicação / autorização para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD) e de vários fornecedores de identidade de terceiros para autenticar clientes. Pode utilizá-lo para implementar regras de autorização personalizada para as suas funções e pode trabalhar com informações de utilizador a partir do código de função. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md) e [trabalhar com identidades-cliente](#working-with-client-identities).
 
 * Utilize a gestão de API do Azure (APIM) para autenticar pedidos. APIM fornece uma variedade de opções de segurança de API para pedidos recebidos. Para obter mais informações, consulte [políticas de autenticação de gestão de API](../api-management/api-management-authentication-policies.md). Com APIM no local, pode configurar a aplicação de funções para aceitar pedidos apenas a partir do endereço IP da sua instância APIM. Para obter mais informações, consulte [restrições de endereço IP](ip-addresses.md#ip-address-restrictions).
 

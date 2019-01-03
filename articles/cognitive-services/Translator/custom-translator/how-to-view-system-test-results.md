@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627647"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630347"
 ---
-# <a name="view-system-test-results"></a>Ver resultados do teste de sistema
+# <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
 Quando seu treinamento é efetuada com êxito, reveja os testes de sistema para analisar os resultados de treinamento. Se estiver satisfeito com os resultados de treinamento, coloca um pedido de implementação para o modelo preparado. 
 
@@ -26,13 +26,13 @@ Selecione um projeto, em seguida, selecione o separador de modelos desse projeto
 
 O separador de teste mostra-lhe:
 
-1.  Resultados do teste de sistema: O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação de BLEU.
+1.  **Resultados do teste de sistema:** o resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação de BLEU.
 
-    **Contagem de sentença:** frases paralelas quantas foram utilizadas no conjunto de teste.
+    **Contagem de sentença:** O número de frases paralelas foram utilizadas no conjunto de teste.
 
-     **Pontuação de BLEU:** pontuação BLEU gerada para um modelo após a conclusão do treinamento.
+     **Pontuação de BLEU:** Pontuação de BLEU gerada para um modelo após a conclusão do treinamento.
 
-    **Estado:** indica se o processo de teste for concluído ou em curso.
+    **Estado:** Indica se o processo de teste for concluído ou em curso.
 
     ![Resultados do teste de sistema](media/how-to/how-to-system-test-results.png)
 
@@ -40,9 +40,9 @@ O separador de teste mostra-lhe:
 
 3.  A tabela na página de detalhes do resultado de teste tem duas colunas – uma para cada idioma no par. A coluna para a linguagem de código mostra a frase ser traduzido. A coluna para o idioma de destino contém duas frases em cada linha.
 
-    **Ref:** esta frase é a tradução de referência da frase de origem fornecido no conjunto de dados de teste.
+    **Ref:** Esta frase é a conversão de referência da frase de origem fornecido no conjunto de dados de teste.
 
-    **MT:** esta frase é a tradução automática da sentença origem feita com o modelo criado após a formação foi realizada.
+    **TA:** Esta frase é a tradução automática da sentença origem feita com o modelo criado após a formação foi realizada.
 
     ![Comparação de resultados do teste de sistema](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,11 +54,11 @@ Clique na ligação de traduções de transferir para transferir um ficheiro zip
 
 Este arquivo zip transferido contém três arquivos.
 
-1.  Custom.MT.txt: este ficheiro contém traduções de máquina de frases de idioma de origem no idioma de destino efetuada pelo modelo preparado com dados do utilizador.
+1.  **Custom.MT.txt:** Este ficheiro contém traduções de máquina de frases de idioma de origem no idioma de destino efetuada pelo modelo preparado com dados do utilizador.
 
-2.  Ref.txt: este ficheiro contém traduções fornecido pelo utilizador de frases de idioma de origem no idioma de destino.
+2.  **Ref.txt:** Este ficheiro contém utilizador fornecido traduções de frases de idioma de origem no idioma de destino.
 
-3.  Source.txt: este ficheiro contém as frases no idioma de origem.
+3.  **Source.txt:** Este ficheiro contém as frases no idioma de origem.
 
     ![Resultados do teste de sistema transferido](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Para pedir uma implementação:
     ![Implementar modelo](media/how-to/how-to-deploy-model.png)
 
 3.  Clique em implementar.
-4.  Selecione as regiões onde pretende que o seu modelo de implementação e clique em Guardar. Pode selecionar várias regiões.
+4.  Selecione **implementado** para as regiões onde pretende que o seu modelo deve ser implementado e clique em Guardar. Pode selecionar **implementado** para várias regiões.
 
     ![Implementar modelo](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Pode ver o estado do seu modelo na coluna "Estado".
 
+## <a name="update-deployment-settings"></a>Definições de implementação de atualização
+
+Para atualizar as definições de implementação:
+
+1.  Selecione um projeto e vá para o **modelos** separador.
+
+2. Para um modelo implementado com êxito, ela mostra uma **atualização** botão.
+
+    ![Implementar modelo](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Selecione **atualização**.
+4.  Selecione **implementado** ou **Undeployed** para as regiões onde pretende que o seu modelo implementado ou não implementadas, em seguida, clique em **guardar**.
+
+    ![Implementar modelo](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Se já é implementado um modelo, verá um botão "Undeploy" para esse modelo. Para anular a implementação um modelo, clique em "Undeploy".
+>Se selecionou **Undeployed** para todas as regiões, o modelo é não implementado a partir de todas as regiões e colocar num Estado de funcionamento não implementado. Está agora disponível para utilização.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165168"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720089"
 ---
-# <a name="find-endpoint-region-with-c"></a>Localizar a região de ponto final com c# 
+# <a name="programmatically-find-endpoint-region-with-c"></a>Encontrar programaticamente a região de ponto final com oC# 
 Se tiver o LUIS ID da aplicação e o ID de subscrição do LUIS, pode encontrar a qual a região a utilizar para consultas de ponto final.
 
 > [!NOTE] 
-> O completa C# solução está disponível a partir do [ **LUIS-Samples** repositório do GitHub](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> O completa C# solução está disponível a partir do [ **Azure-Samples** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Estratégia de consulta de ponto final do LUIS
 Cada consulta de ponto final do LUIS requer:

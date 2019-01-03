@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341672"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583685"
 ---
-# <a name="extracting-text-with-ocr"></a>Extrair texto com o OCR
+# <a name="extracting-text-with-optical-character-recognition"></a>Extrair texto com reconhecimento Ótico de carateres
 
-Tecnologia de reconhecimento ótico de carateres (OCR) na imagem digitalizada Deteta o conteúdo de texto numa imagem e extrai o texto identificado para um fluxo de carateres legível por máquina. Pode usar o resultado de pesquisa e inúmeras outras finalidades, como registros médicos, segurança e banca. Deteta automaticamente o idioma. O OCR poupa tempo e cómodo para os utilizadores ao permitir tirar fotografias do texto em vez de transcrever o texto.
+Tecnologia de reconhecimento ótico de carateres (OCR) na imagem digitalizada Deteta o conteúdo de texto numa imagem e extrai o texto identificado para um fluxo de carateres legível por máquina. Pode utilizar o resultado para pesquisa e inúmeras outras finalidades, como registos médicos, segurança e atividades bancárias. O OCR deteta automaticamente o idioma. O OCR poupa tempo e é mais cómodo para os utilizadores ao permitir tirar fotografias do texto em vez de o transcrever.
 
-OCR suporta 25 idiomas. Essas linguagens são: Árabe, chinês simplificado, chinês tradicional, checo, dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, Sérvio (Cirílico e Latim) Eslovaco, espanhol, sueco e turco.
+O OCR suporta 25 idiomas. Essas linguagens são: Árabe, chinês simplificado, chinês tradicional, checo, dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, Sérvio (Cirílico e Latim), eslovaco, espanhol, Sueco e turco.
 
-Se for necessário, OCR corrige a rotação do texto reconhecido, em graus, à volta do eixo horizontal de imagem. OCR fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração seguinte.
+Se for necessário, o OCR corrige a rotação do texto reconhecido, em graus, à volta do eixo de imagem horizontal. OCR fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração seguinte.
 
-![Descrição geral de OCR](./Images/vision-overview-ocr.png)
+![Diagrama a ilustrar uma imagem a ser girada e o texto a ser lido e delimitado](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>Requisitos de OCR
 
@@ -39,15 +40,15 @@ A imagem de entrada pode ser rodada qualquer múltiplo de 90 graus além de um �
 
 ## <a name="improving-ocr-accuracy"></a>Melhorar a precisão de OCR
 
-A precisão de reconhecimento de texto depende a qualidade da imagem. Uma leitura incorreta pode ser causada por seguintes situações:
+A precisão de reconhecimento do texto depende da qualidade da imagem. As seguintes situações podem causar uma leitura incorreta:
 
-* Imagens indistinta.
+* Imagens desfocadas.
 * Texto manuscrito ou cursivo.
-* Estilos de tipo de letra artístico.
+* Estilos de tipos de letra artísticos.
 * Tamanho do texto pequeno.
-* Planos de fundo complexos, sombras ou glare pela distorção de texto ou uma perspetiva.
-* Demasiado grandes ou em falta letras maiúsculas nos primórdios de palavras
-* Dolní Index Je, superior ou rasurado texto.
+* Planos de fundo complexos, sombras ou distorção de perspetiva ou por reflexos sobre o texto.
+* Letras maiúsculas demasiado grandes ou em falta no início das palavras.
+* Texto inferior à linha, superior à linha ou rasurado.
 
 ### <a name="ocr-limitations"></a>Limitações de OCR
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993368"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808389"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.locfileid: "52993368"
 Existem três métodos de exportação de dados do Application Insights para o Power BI:
 
 * [**Exportar consultas de análise**](#export-analytics-queries). Este é o método preferencial. Escrever qualquer consulta que pretende e exportá-lo para o Power BI. Pode colocar esta consulta num dashboard, juntamente com quaisquer outros dados.
-* [**A exportação contínua e o Azure Stream Analytics**](app-insights-export-stream-analytics.md). Esse método é útil se desejar armazenar os dados por longos períodos de tempo. Se não tiver um requisito de retenção de dados expandidos, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolve mais trabalho para configurar e a sobrecarga de armazenamento adicional.
+* [**A exportação contínua e o Azure Stream Analytics**](../azure-monitor/app/export-stream-analytics.md). Esse método é útil se desejar armazenar os dados por longos períodos de tempo. Se não tiver um requisito de retenção de dados expandidos, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolve mais trabalho para configurar e a sobrecarga de armazenamento adicional.
 * [**Adaptador do Power BI**](#power-pi-adapter). O conjunto de gráficos está predefinido, mas pode adicionar suas próprias consultas de quaisquer outras fontes.
 
 > [!NOTE]
@@ -119,7 +119,7 @@ Se reduzir o conjunto de dados provenientes da consulta de análise não cumpre 
  ```
 
 ## <a name="about-sampling"></a>Sobre a amostragem
-Se a sua aplicação envia uma grande quantidade de dados, pode querer utilizar a funcionalidade de amostragem adaptável, que envia apenas uma percentagem da sua telemetria. O mesmo se aplica se tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](app-insights-sampling.md).
+Dependendo da quantidade de dados enviados pela sua aplicação, pode querer utilizar a funcionalidade de amostragem adaptável, que envia apenas uma percentagem da sua telemetria. O mesmo se aplica se tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](app-insights-sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adaptador do Power BI (preterido)
 Este método cria um dashboard completo de telemetria para. O conjunto de dados inicial está predefinido, mas pode adicionar mais dados a ele.

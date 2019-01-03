@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387068"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790882"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -457,7 +457,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | applicationgateways | Não | Não |
 | applicationsecuritygroups | Sim | Sim |
-| azurefirewalls | Sim | Sim |
+| azurefirewalls | Não | Não |
 | ligações | Sim | Sim |
 | ddosprotectionplans | Não | Não |
 | dnszones | Sim | Sim |

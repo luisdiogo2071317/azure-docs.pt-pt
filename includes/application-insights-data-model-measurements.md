@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572569"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728987"
 ---
 Coleção de medidas personalizadas. Utilize esta coleção para o relatório com o nome medidas associadas ao item de telemetria. Casos de utilização típicos são:
 - o tamanho do payload de telemetria de dependência
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Medições personalizadas estão associadas com o item de telemetria que pertencem. Estão sujeitas à amostragem com o item de telemetria que contém essas medidas. Para controlar uma medida com um valor independente dos outros tipos de telemetria, utilize [telemetria de métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Medições personalizadas estão associadas com o item de telemetria que pertencem. Estão sujeitas à amostragem com o item de telemetria que contém essas medidas. Para controlar uma medida com um valor independente dos outros tipos de telemetria, utilize [telemetria de métrica](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
-Comprimento de chave máximo: 150
+Comprimento máximo da chave: 150

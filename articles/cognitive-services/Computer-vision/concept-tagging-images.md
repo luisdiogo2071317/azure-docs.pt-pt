@@ -1,7 +1,7 @@
 ---
-title: Identificação de imagens - o de imagem digitalizada
+title: Aplicar etiquetas de conteúdo para imagens - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a marcação de imagens usando a API de imagem digitalizada.
+description: Aprenda conceitos relacionados com as funcionalidade da API de imagem digitalizada de marcação de imagens.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960912"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582937"
 ---
-# <a name="tagging-images"></a>Identificar imagens
+# <a name="applying-content-tags-to-images"></a>Aplicação de conteúdo de marcas a imagens
 
 Imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
@@ -27,7 +28,7 @@ Depois de carregar uma imagem ou especificar um URL de imagem, algoritmos de ima
 
 A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando as funcionalidades visual detetadas na imagem de exemplo de identificação.
 
-![House_Yard](./Images/house_yard.png).
+![Uma casa azul e o front-yard](./Images/house_yard.png).
 
 ```json
 {

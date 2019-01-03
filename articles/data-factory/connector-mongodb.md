@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de MongoDB utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados da base de dados do Mongo para os arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados do MongoDB com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados de Mongo DB para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,58 +11,48 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e11c62f338a9e6ce74ce2e04a933b0458df784d0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054063"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807912"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Versão atual](connector-mongodb.md)
+# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados de MongoDB. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados do MongoDB. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+
+>[!IMPORTANT]
+>Esta nova versão do conector do MongoDB que fornece melhor suporte nativo do MongoDB de versão do ADF. Se estiver a utilizar o conector do MongoDB anterior na sua solução que é suportada como-é para compatibilidade com versões anteriores, consulte [conector do MongoDB (Legado)](connector-mongodb-legacy.md) artigo.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados da base de dados de MongoDB para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da base de dados do MongoDB para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector MongoDB suporta:
-
-- MongoDB **versões 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6**.
-- Copiar dados utilizando **básico** ou **anónimo** autenticação.
+Especificamente, este conector do MongoDB suporta **versões até 3.4**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados de uma base de dados MongoDB, que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes. O tempo de execução de integração fornece um controlador de MongoDB incorporado, por conseguinte, não precisa de instalar manualmente a quaisquer controladores ao copiar dados de MongoDB.
+Para copiar dados de uma base de dados do MongoDB que não está acessível ao público, terá de configurar um Runtime de integração autoalojado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para saber mais detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do MongoDB.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do MongoDB.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo tem de ser definida: **MongoDb** |Sim |
-| servidor |Nome anfitrião ou endereço IP do servidor MongoDB. |Sim |
-| porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
-| databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
-| authenticationType | Tipo de autenticação utilizado para ligar à base de dados MongoDB.<br/>Valores permitidos são: **básico**, e **anónimo**. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
-| palavra-passe |Palavra-passe para o utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
-| authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é falso.  | Não |
-| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é falso.  | Não |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| tipo |A propriedade de tipo tem de ser definida como: **MongoDbV2** |Sim |
+| connectionString |Por exemplo, a especificar a cadeia de ligação do MongoDB `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte a [MongoDB manual na cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| base de dados | Nome da base de dados que pretende aceder. | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -70,16 +60,13 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 {
     "name": "MongoDBLinkedService",
     "properties": {
-        "type": "MongoDb",
+        "type": "MongoDbV2",
         "typeProperties": {
-            "server": "<server name>",
-            "databaseName": "<database name>",
-            "authenticationType": "Basic",
-            "username": "<username>",
-            "password": {
+            "connectionString": {
                 "type": "SecureString",
-                "value": "<password>"
-            }
+                "value": "mongodb://[username:password@]host[:port][/[database][?options]]"
+            },
+            "database": "myDatabase"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -91,14 +78,12 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados de MongoDB.
-
-Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados para **MongoDbCollection**. São suportadas as seguintes propriedades:
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). As seguintes propriedades são suportadas para o conjunto de dados do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **MongoDbCollection** | Sim |
-| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbV2Collection** | Sim |
+| CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -106,7 +91,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 {
      "name":  "MongoDbDataset",
     "properties": {
-        "type": "MongoDbCollection",
+        "type": "MongoDbV2Collection",
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
@@ -120,16 +105,24 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem do MongoDB.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do MongoDB.
 
 ### <a name="mongodb-as-source"></a>MongoDB como origem
 
-Para copiar dados de MongoDB, defina o tipo de origem na atividade de cópia para **MongoDbSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **MongoDbSource** | Sim |
-| consulta |Utilize a consulta de SQL 92 personalizada para ler os dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "collectionName" no conjunto de dados) |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbV2Source** | Sim |
+| filtro | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
+| cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
+| cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
+| cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não | 
+| cursorMethods.skip | Especifica o número de documentos para ignorar e para onde o MongoDB começa a devolver resultados. Consulte a [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
+| batchSize | Especifica o número de documentos a devolver em cada lote da resposta de instância de MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetarão o utilizador ou a aplicação. Limites do cosmos DB cada lote não pode exceder 40MB de tamanho, o que é a soma do número batchSize do tamanho dos documentos, por isso, reduza este valor se o tamanho do documento a ser grande. | Não<br/>(a predefinição é **100**) |
+
+>[!TIP]
+>Suporte do ADF consumir o documento BSON no **Strict modo**. Certifique-se de que a consulta de filtro está no modo de Strict em vez do modo de Shell. Descrição mais pode ser encontrada em [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Exemplo:**
 
@@ -152,8 +145,14 @@ Para copiar dados de MongoDB, defina o tipo de origem na atividade de cópia par
         ],
         "typeProperties": {
             "source": {
-                "type": "MongoDbSource",
-                "query": "SELECT * FROM MyTable"
+                "type": "MongoDbV2Source",
+                "filter": "{datetimeData: {$gte: ISODate(\"2018-12-11T00:00:00.000Z\"),$lt: ISODate(\"2018-12-12T00:00:00.000Z\")}, _id: ObjectId(\"5acd7c3d0000000000000000\") }",
+                "cursorMethods": {
+                    "project": "{ _id : 1, name : 1, age: 1, datetimeData: 1 }",
+                    "sort": "{ age : 1 }",
+                    "skip": 3,
+                    "limit": 3
+                }
             },
             "sink": {
                 "type": "<sink type>"
@@ -163,83 +162,13 @@ Para copiar dados de MongoDB, defina o tipo de origem na atividade de cópia par
 ]
 ```
 
-> [!TIP]
-> Especifique quando a consulta SQL, preste atenção, no formato DateTime. Por exemplo: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou para utilizar o parâmetro `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+## <a name="export-json-documents-as-is"></a>Exportar documentos JSON como-é
 
-## <a name="schema-by-data-factory"></a>Esquema pela fábrica de dados
+Pode utilizar este conector do MongoDB para exportar documentos JSON como-é a partir de uma coleção do MongoDB para vários arquivos baseados em ficheiros ou ao Azure Cosmos DB. Para alcançar essa cópia sem esquema, ignore a "estrutura" (também denominado *esquema*) secção no conjunto de dados e o mapeamento de esquema na atividade de cópia.
 
-Serviço do Azure Data Factory infere esquema de uma coleção de MongoDB utilizando o **mais recentes 100 documentos** na coleção. Se estes 100 documentos não contêm esquema completa, algumas colunas podem ser ignoradas durante a operação de cópia.
+## <a name="schema-mapping"></a>Mapeamento de esquema
 
-## <a name="data-type-mapping-for-mongodb"></a>Tipo de dados de mapeamento para MongoDB
-
-Quando copiar dados de MongoDB, os seguintes mapeamentos são utilizados MongoDB tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
-
-| Tipo de dados de MongoDB | Tipo de dados intermédio de fábrica de dados |
-|:--- |:--- |
-| Binário |Byte[] |
-| Booleano |Booleano |
-| Date |DateTime |
-| NumberDouble |Valor de duplo |
-| NumberInt |Int32 |
-| NumberLong |Int64 |
-| ObjectID |Cadeia |
-| Cadeia |Cadeia |
-| UUID |GUID |
-| Object |Renormalized para aplanar colunas com "_" como separador aninhada |
-
-> [!NOTE]
-> Para saber mais sobre o suporte para as matrizes de tabelas virtuais a utilizar, consulte [suporte para tipos complexos utilizando tabelas virtuais](#support-for-complex-types-using-virtual-tables) secção.
->
-> Atualmente, não são suportados os seguintes tipos de dados de MongoDB: DBPointer, JavaScript, Máx. por minuto da chave, expressão Regular, símbolo, Timestamp, Undefined.
-
-## <a name="support-for-complex-types-using-virtual-tables"></a>Suporte para tipos complexos utilizando tabelas virtuais
-
-O Azure Data Factory utiliza um controlador ODBC incorporado para ligar a e copiar os dados da sua base de dados de MongoDB. Para os tipos complexos, tais como os objetos ou matrizes com diferentes tipos entre os documentos, o controlador normaliza novamente dados em tabelas virtuais correspondentes. Especificamente, se uma tabela que contém este tipo de colunas, o controlador gera as tabelas seguintes virtuais:
-
-* A **tabela base**, que contém os mesmos dados que a tabela real, exceto as colunas de tipo complexo. A tabela base utiliza o mesmo nome como a tabela real que representa.
-* A **tabela virtual** para cada coluna de tipo complexo, que expande os dados aninhados. As tabelas virtuais são denominadas utilizando o nome de tabela real, existe um separador de "_" e o nome da matriz ou objeto.
-
-Consulte os dados na tabela real, ativar o controlador para aceder aos dados denormalized tabelas virtuais. Pode aceder ao conteúdo de matrizes de MongoDB consultando e associar as tabelas virtuais.
-
-### <a name="example"></a>Exemplo
-
-Por exemplo, aqui ExampleTable é uma tabela de MongoDB que tenha uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
-
-| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
-| --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prateado |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
-
-O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable" mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
-
-| ID | Nome do cliente | Nível de Serviço |
-| --- | --- | --- |
-| 1111 |ABC |Prateado |
-| 2222 |XYZ |Dourado |
-
-As tabelas seguintes mostram as tabelas virtuais que representam matrizes originais no exemplo. Estas tabelas contenham o seguinte:
-
-* Uma referência para a coluna de chave primária original correspondente para a linha da matriz original (através da coluna de ID)
-* Uma indicação da posição de dados dentro da matriz original
-* Os dados expandidos para cada elemento na matriz
-
-**Tabela "ExampleTable_Invoices":**
-
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | Item | preço | Desconto |
-| --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |Toaster |456 |0.2 |
-| 1111 |1 |124 |oven |1235 |0.2 |
-| 2222 |0 |135 |fridge |12543 |0.0 |
-
-**Tabela "ExampleTable_Ratings":**
-
-| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
-| --- | --- | --- |
-| 1111 |0 |5 |
-| 1111 |1 |6 |
-| 2222 |0 |1 |
-| 2222 |1 |2 |
-
+Para copiar dados do MongoDB para o sink de tabela, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

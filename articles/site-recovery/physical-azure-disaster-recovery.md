@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: fa2f16f1a7d99a825039e2191c69642a45ff728a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845234"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971854"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação após desastre para o Azure para servidores físicos no local
 
@@ -137,7 +137,7 @@ Regras de firewall baseadas no endereço IP devem permitir a comunicação a tod
 - **IPs comerciais** -permitir que o [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e a porta HTTPS (443). Permitir que os intervalos de endereços IP para a região do Azure da sua subscrição para suportar o AAD, a cópia de segurança, a replicação e a URLs de armazenamento.  
 - **Governo IPs** -permitir que o [intervalos de IP do Azure Government Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=57063)e a porta HTTPS (443) para todas as regiões de USGov (Virginia, Texas, Arizona e Iowa) para suportar o AAD, cópia de segurança, replicação e URLs de armazenamento.  
 
-#### <a name="run-setup"></a>Execute a configuração
+#### <a name="run-setup"></a>Executar a configuração
 Execute a configuração unificada como administrador Local, para instalar o servidor de configuração. O servidor de processos e o servidor de destino mestre também são instalados por predefinição no servidor de configuração.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]

@@ -1,24 +1,24 @@
 ---
-title: Configurar contentores
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Definições de configuração para contentores na visão do computador.
+title: Configurar contentores - o de imagem digitalizada
+titlesuffix: Azure Cognitive Services
+description: Configure várias definições para os contentores de reconhecer texto na visão do computador.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077023"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579792"
 ---
-# <a name="configure-containers"></a>Configurar contentores
+# <a name="configure-recognize-text-containers"></a>Configurar os contentores de reconhecer texto
 
 Imagem digitalizada fornece o contentor de reconhecer texto com uma estrutura comum de configuração, para que possa facilmente configurar e gerir as definições de armazenamento, registo e telemetria e segurança para os seus contentores.
 
@@ -41,7 +41,7 @@ Valores de variáveis de ambiente substituem valores de argumento da linha de co
 
 ### <a name="configuration-settings-as-environment-variables"></a>Definições de configuração como variáveis de ambiente
 
-Pode utilizar o [sintaxe de variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) para especificar as definições de configuração.
+Pode utilizar o [sintaxe de variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) para especificar as definições de configuração.
 
 O contentor lê as variáveis de ambiente de utilizador quando o contentor é instanciado. Se existir uma variável de ambiente, o valor da variável de ambiente substitui o valor predefinido para a definição de configuração especificado. A vantagem de usar variáveis de ambiente é que múltiplas definições de configuração podem ser definidas antes de instanciar a contentores e vários contentores automaticamente podem utilizar o mesmo conjunto de definições de configuração.
 
@@ -130,10 +130,10 @@ O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as defi
 
   | Nome | Tipo de dados | Descrição |
   |------|-----------|-------------|
-  | `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** este valor tem de ser definido como `json` para ativar o fornecedor de registo. Se este valor for especificado sem também especificar uma montagem de saída ao instanciar um contentor, ocorrerá um erro. |
+  | `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor tem de ser definido como `json` para ativar o fornecedor de registo. Se este valor for especificado sem também especificar uma montagem de saída ao instanciar um contentor, ocorrerá um erro. |
   | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do arquivo de log atual atende ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se não for especificado -1, o tamanho do ficheiro de registo está limitado apenas pelo tamanho máximo do ficheiro, se existir, para a montagem de saída. O valor predefinido é 1. |
 
-Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [configuração das definições do ficheiro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [iniciar sessão no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Monta definições de configuração
 

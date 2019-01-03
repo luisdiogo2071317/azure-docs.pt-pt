@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075357"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543007"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 
@@ -47,7 +47,7 @@ Recomenda-se que configure o débito numa base de dados quando pretende partilha
 
 * Partilhar o débito aprovisionado de uma base de dados num conjunto de contentores é útil quando estiver a migrar uma base de dados NoSQL (por exemplo, o MongoDB, Cassandra) alojado de um cluster de VMs ou de servidores físicos no local ao Azure Cosmos DB. Pode considerar o débito aprovisionado configurado na sua base de dados do Cosmos do Azure como um equivalente lógico (mas mais econômico e elástica) para que a capacidade de computação do seu cluster do MongoDB ou o Cassandra.  
 
-Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando tiver o débito aprovisionado num banco de dados de partilha de contentores, não pode aplicar seletivamente a taxa de transferência para um contentor específico ou de uma partição lógica. Se a carga de trabalho numa partição lógica consome mais do que a taxa de transferência que é atribuída a uma partição lógica específica, suas operações será limitado de taxa. Quando ocorre a limitação de velocidade, pode aumentar o débito para o contêiner inteiro ou repita a operação. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
+Todos os contentores criados dentro de uma base de dados com débito aprovisionado tem de ser criados com uma chave de partição. Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando tiver o débito aprovisionado num banco de dados de partilha de contentores, não pode aplicar seletivamente a taxa de transferência para um contentor específico ou de uma partição lógica. Se a carga de trabalho numa partição lógica consome mais do que a taxa de transferência que é atribuída a uma partição lógica específica, suas operações será limitado de taxa. Quando ocorre a limitação de velocidade, pode aumentar o débito para o contêiner inteiro ou repita a operação. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
 Várias partições lógicas partilha o débito aprovisionado para um banco de dados podem ser hospedadas numa partição de recursos único. Enquanto uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição de recursos, partições lógicas do "L" em contentores de "C" partilha o débito aprovisionado das bases de dados podem ser mapeadas e alojadas em partições físicas de 'R'. A imagem seguinte mostra como uma partição de recursos pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
 

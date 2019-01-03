@@ -7,46 +7,46 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: ae8634fbfdaa250cbabda6189c6c2eeef8e5e4f1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292376"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789828"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
 O Azure Video Indexer é uma aplicação da cloud criada com base na Análise de Multimédia do Azure, no Azure Search e nos Serviços Cognitivos (tais como, a API Face, o Microsoft Translator, a API de Imagem Digitalizada e o Serviço de Voz Personalizada). Esta aplicação permite extrair as informações dos seus vídeos através dos modelos do Video Indexer descritos abaixo:
  
-- **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. São suportados, entre outros, os seguintes idiomas: inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil). Será revertido para inglês quando não conseguir detetar o idioma.
-- **Audio transcription** (Transcrição de áudio): converte voz em texto em 10 idiomas e permite extensões. São suportados, entre outros, os seguintes idiomas: inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo e português (Brasil).
-- **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
-- **Two channel processing** (Processamento de dois canais): deteta automaticamente, separa e une transcrições numa única linha cronológica.
-- **Noise reduction** (Redução de ruído): torna as conversas telefónicas e as gravações ruidosas mais claras (com base em filtros do Skype).
-- **Transcript customization (CRIS)** (Personalização da transcrição [CRIS]): prepara e executa modelos de conversão de voz em texto personalizados e expandidos para criar transcrições específicas da indústria.
-- **Speaker enumeration** (Enumeração de oradores): mapeia e identifica o orador que proferiu determinadas palavras e o momento em que o fez.
-- **Speaker statistics** (Estatísticas dos oradores): fornece estatísticas relativamente às taxas de discurso dos oradores.
-- **Visual text recognition (OCR)** (Reconhecimento de texto visual [OCR]): extrai o texto que é visualmente apresentado no vídeo.
-- **Keyframe extraction** (Extração de keyframes): deteta keyframes estáveis num vídeo.
-- **Sentiment analysis** (Análise de sentimentos): identifica sentimentos positivos, negativos e neutros a partir do discurso e de texto visual.
-- **Visual content moderation** (Moderação de conteúdo visual): deteta elementos visuais para adultos.
-- **Keywords extraction** (Extração de palavras-chave): extrai palavras-chave a partir do discurso e de texto visual.
-- **Labels identification** (Identificação através de etiquetas): identifica as ações e os objetos visuais apresentados.
-- **Brands extraction** (Extração de marcas): extrai marcas a partir do discurso e de texto visual.
-- **Face detection** (Deteção facial): deteta e agrupa os rostos que aparecem no vídeo.
-- **Thumbnail extraction for faces ("best face")** Extração de miniaturas de rostos ["o melhor rosto"]: identifica automaticamente o melhor rosto captado em cada grupo de rostos (com base na qualidade, no tamanho e na posição frontal) e extrai esse rosto sob a forma de recurso de imagem.
-- **Identificação de celebridades**: o Video Indexer identifica automaticamente mais de 1 milhão de celebridades – como líderes mundiais, atores e atrizes, atletas, investigadores e líderes de empresas e de grupos tecnológicos em todo o mundo. Os dados sobre estas celebridades também podem ser encontrados em vários sites conhecidos como, por exemplo, o IMDB e a Wikipédia.
-- **Identificação facial com base na conta**: o Video Indexer prepara um modelo para uma conta específica. Em seguida, reconhece os rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
-- **Textual content moderation** (Moderação de conteúdo textual): deteta texto explícito na transcrição de áudio.
-- **Shot detection** (Deteção de cenas): determina os momentos em que há mudanças de cena no vídeo.
-- **Black frame detection** (Deteção de fotogramas pretos): identifica os fotogramas pretos apresentados no vídeo.
-- **Audio effects** (Efeitos de áudio): identifica os efeitos de áudio, tais como palmas, voz e silêncio.
-- **Topic inference** (Inferência de tópicos): faz inferências relativamente aos principais tópicos a partir de transcrições. A taxonomia do [IPTC](https://iptc.org/standards/media-topics/) de 1.º nível está incluída.
-- **Emotion detection** (Deteção de emoções): identifica emoções com base em estímulos de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.
-- **Artifacts** (Artefactos): extrai um conjunto avançado de artefactos mais detalhados para cada um dos modelos.
-- **Translation** (Tradução): cria traduções da transcrição de áudio para 54 idiomas diferentes.
+- **Deteção de idioma automática**: Identifica automaticamente o idioma falado dominante. São suportados, entre outros, os seguintes idiomas: inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil). Será revertido para inglês quando não conseguir detetar o idioma.
+- **Transcrição de áudio**: Converte voz em texto 12 idiomas e permite que as extensões. Idiomas suportados incluem o inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português (Brasil), Híndi e coreano.
+- **Legendagem de áudio**: Cria fechado as legendas de áudio em três formatos: VTT, TTML, SRT.
+- **Dois channel processamento**: Deteta automaticamente, separe transcrição e mesclagens para uma única linha do tempo.
+- **Redução de ruído**:  Vai limpar gravações de áudio ou desnecessárias de telefonia (com base nos filtros do Skype).
+- **Personalização de transcrição (CRIS)**: Prepara e executa a conversão de voz personalizada expandida para modelos de texto para criar transcrições específicos da indústria.
+- **Enumeração de orador**:  Mapeia e compreende que orador spoke que palavras e quando.
+- **Estatísticas de orador**: Apresenta estatísticas para proporções de voz de oradores.
+- **Reconhecimento de texto visual (OCR)**: Extrai o texto que visualmente é apresentado no vídeo.
+- **Extração de quadro-chave**: Deteta keyframes estável num vídeo.
+- **Análise de sentimentos**: Identifica positivos, negativos e neutros sentimentos de voz e texto visual.
+- **Moderação de conteúdos Visual**: Deteta elementos visuais para adultos e/ou para adultos.
+- **Extração de palavras-chave**: Extrai as palavras-chave de voz e texto visual.
+- **Etiquetas de identificação**: Identifica os objetos visuais e ações apresentadas.
+- **Marcas extração**: Extrai as marcas de voz e texto visual.
+- **Deteção facial**: Detecta e grupos de rostos que aparecem no vídeo.
+- **Extração de miniatura do rostos ("o melhor face")**: Identifica a melhor face capturada em cada grupo de faces (com base na qualidade, o tamanho e posição frontal) e extraí-lo como um recurso de imagem automaticamente.
+- **Identificação de celebridade**: O Video Indexer identifica automaticamente celebridades de mais de 1 milhão – como líderes mundiais, atores e actresses, atletas Favoritos, pesquisadores, empresas e líderes de tecnologia em todo o mundo. Os dados sobre estas celebridades também podem ser encontrados em vários sites conhecidos como, por exemplo, o IMDB e a Wikipédia.
+- **Identificação facial com base na conta**: O Video Indexer prepara um modelo para uma conta específica. Em seguida, reconhece os rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
+- **Moderação de conteúdo textual**: Deteta texto explícito na transcrição áudio.
+- **Captura de deteção**: Determina quando uma cena é alterado no vídeo.
+- **Marcar a negrito de deteção de quadro**: Identifica os quadros pretas apresentados no vídeo.
+- **Efeitos de áudio**: Identifica os efeitos de áudio como claps mão, voz e silêncio.
+- **Inferência de tipos de tópico**: Faz a inferência de tipos de tópicos principais de transcrições. A taxonomia do [IPTC](https://iptc.org/standards/media-topics/) de 1.º nível está incluída.
+- **Deteção de emoções**: Identifica emoções com base nas ajudas de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.
+- **Artefactos**: Extrai o conjunto avançado de "próximo nível de detalhes" artefactos para cada um dos modelos.
+- **Tradução**: Cria as traduções de transcrição áudio a 54 diferentes idiomas.
 
 Assim que o Video Indexer terminar o processamento e a análise, pode rever, organizar, pesquisar e publicar as informações do vídeo.
 

@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978703"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729344"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
@@ -39,6 +39,7 @@ Utilize os seguintes inícios rápidos e tutoriais para saber como desenvolver m
     |------|-----|
     |[Utilizar referência de modelo](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize a documentação de referência de modelo para desenvolver modelos. No tutorial, vai encontrar o esquema da conta de armazenamento e utilizar as informações para criar uma conta de armazenamento encriptado.|
     |[Criar múltiplas instâncias](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Criar várias instâncias de recursos do Azure. No tutorial, vai criar várias instâncias da conta de armazenamento.|
+    |[Mover recursos](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Mova recursos de um grupo de recursos para outro grupo de recursos. O tutorial, executar um modelo existente para criar dois grupos de recursos e uma conta de armazenamento e, em seguida, executar um cmdlet do PowerShell do Azure para mover a conta de armazenamento para o grupo de recursos.|
     |[Definir a ordem de implementação de recursos](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina as dependências de recursos. No tutorial, vai criar uma rede virtual, uma máquina virtual e os recursos do Azure dependentes. Saiba como as dependências são definidas.|
     |[Condições de utilização](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Implemente os recursos com base em alguns valores de parâmetro. No tutorial, vai definir um modelo para criar uma nova conta de armazenamento ou utilizar uma conta de armazenamento existente, com base no valor de um parâmetro.|
     |[Integrar o cofre de chaves](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Obter segredos/palavras-passe do Azure Key Vault. No tutorial, vai criar uma máquina virtual.  A palavra-passe de administrador da máquina virtual é obtida a partir de um Key Vault.|
