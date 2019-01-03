@@ -1,38 +1,35 @@
 ---
-title: Criar utilizadores na base de dados do Azure para o servidor de MySQL
-description: Este artigo descreve como pode criar novas contas de utilizador para interagir com uma base de dados do Azure para o servidor de MySQL.
-services: mysql
+title: Criar utilizadores na base de dados do Azure para o servidor MySQL
+description: Este artigo descreve como pode criar novas contas de usuário para interagir com uma base de dados do Azure para o servidor MySQL.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ee74ea9e114f6401bfcafe44ca3caedfcd0005c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e8714777b1f9f08de4d02fcb44c25197cdc48899
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265623"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546016"
 ---
-# <a name="create-users-in-azure-database-for-mysql-server"></a>Criar utilizadores na base de dados do Azure para o servidor de MySQL 
-Este artigo descreve como pode criar utilizadores numa base de dados do Azure para o servidor de MySQL.
+# <a name="create-users-in-azure-database-for-mysql-server"></a>Criar utilizadores na base de dados do Azure para o servidor MySQL 
+Este artigo descreve como pode criar os utilizadores numa base de dados do Azure para o servidor MySQL.
 
-Quando criou a sua base de dados do Azure pela primeira vez para MySQL, que forneceu um nome de utilizador de início de sessão de administrador de servidor e a palavra-passe. Para obter mais informações, pode seguir o [início rápido](quickstart-create-mysql-server-database-using-azure-portal.md). Pode localizar o nome de utilizador do início de sessão do administrador do servidor do portal do Azure.
+Ao criar a base de dados do Azure para MySQL, que forneceu um nome de utilizador de início de sessão de administrador do servidor e a palavra-passe. Para obter mais informações, pode seguir a [guia de introdução](quickstart-create-mysql-server-database-using-azure-portal.md). Pode localizar o seu nome de utilizador do início de sessão do administrador do servidor do portal do Azure.
 
-O utilizador de administrador do servidor obtém determinados privilégios para o servidor, conforme listado: SELECIONAR, inserir, ATUALIZAR, eliminar, criar, remover, recarregar, processo, as referências, índice, ALTER, Mostrar bases de dados, criar tabelas temporárias, tabelas de bloqueio, executar, replicação MULTISSERVIDOR, replicação CLIENTE, CRIAR VISTA, MOSTRAR VISTA, CRIE ROTINA, ALTER ROTINA, CRIAR O ACIONADOR DE UTILIZADOR, EVENTO,
+O utilizador de administrador de servidor obtém determinados privilégios para o seu servidor, conforme listado: SELECIONAR, INSERIR, ATUALIZAR, ELIMINAR, CRIAR, REMOVER, RECARREGUE, PROCESSAR, REFERÊNCIAS, INDEX, ALTER, VEJA AS BASES DE DADOS, CRIAR TABELAS TEMPORÁRIAS, BLOQUEAR TABELAS, EXECUTAR, CRIAR SUBORDINADO DE REPLICAÇÃO, O CLIENTE DE REPLICAÇÃO, VISUALIZAR, MOSTRAR EXIBIÇÃO, CRIAR ROTINA, ALTER ROTINA, CRIAR UTILIZADOR , EVENTO, O ACIONADOR
 
-Assim que a base de dados do Azure para o servidor de MySQL for criado, pode utilizar a primeira conta de utilizador do administrador do servidor para criar utilizadores adicionais e conceder acesso de administrador aos mesmos. Além disso, a conta de administrador do servidor pode ser utilizada para criar com menos privilégios de utilizadores que têm acesso para esquemas de base de dados individuais.
+Depois de criar a base de dados do Azure para o servidor MySQL, pode utilizar a conta de utilizador de administrador do servidor primeiro para criar mais utilizadores e conceder acesso de administrador aos mesmos. Além disso, pode servir-se a conta de administrador do servidor para criar com menos privilégios de utilizadores que têm acesso aos esquemas de banco de dados individuais.
 
-## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Como criar utilizadores administradores adicionais na base de dados do Azure para MySQL
-1. Obter o nome de utilizador de admin e informações da ligação.
-   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode localizar facilmente o nome do servidor e informações de início de sessão do servidor **descrição geral** página ou o **propriedades** página no portal do Azure. 
+## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Como criar os utilizadores administradores adicionais na base de dados do Azure para MySQL
+1. Obtenha o nome de utilizador de administração e de informações da ligação.
+   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de início de sessão do servidor **descrição geral** página ou o **propriedades** página no portal do Azure. 
 
-2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a ferramenta de cliente preferencial, tais como o Workbench do MySQL, mysql.exe, HeidiSQL ou outros. 
-   Se não souber como ligar, consulte [utilize MySQL Workbench para ligar e consultar dados](./connect-workbench.md)
+2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferido, como o MySQL Workbench, mysql.exe, HeidiSQL ou outras pessoas. 
+   Se tiver a certeza de como se pode ligar, consulte o artigo [utilizar o MySQL Workbench para se ligar e consultar dados](./connect-workbench.md)
 
-3. Edite e execute o seguinte código do SQL Server. Substitua o novo nome de utilizador para o valor do marcador de posição `new_master_user`. Esta sintaxe concede os privilégios listados em todos os esquemas de base de dados (*.*) para o nome de utilizador (new_master_user neste exemplo). 
+3. Edite e execute o seguinte código SQL. Substitua o novo nome de utilizador para o valor do marcador de posição `new_master_user`. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados (*.*) para o nome de utilizador (new_master_user neste exemplo). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -42,7 +39,7 @@ Assim que a base de dados do Azure para o servidor de MySQL for criado, pode uti
    FLUSH PRIVILEGES;
    ```
 
-4. Certifique-se a concede 
+4. Verifique se as concessões 
    ```sql
    USE sys;
    
@@ -51,15 +48,15 @@ Assim que a base de dados do Azure para o servidor de MySQL for criado, pode uti
 
 ## <a name="how-to-create-database-users-in-azure-database-for-mysql"></a>Como criar utilizadores de base de dados na base de dados do Azure para MySQL
 
-1. Obter o nome de utilizador de admin e informações da ligação.
-   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode localizar facilmente o nome do servidor e informações de início de sessão do servidor **descrição geral** página ou o **propriedades** página no portal do Azure. 
+1. Obtenha o nome de utilizador de administração e de informações da ligação.
+   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de início de sessão do servidor **descrição geral** página ou o **propriedades** página no portal do Azure. 
 
-2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a ferramenta de cliente preferencial, tais como o Workbench do MySQL, mysql.exe, HeidiSQL ou outros. 
-   Se não souber como ligar, consulte [utilize MySQL Workbench para ligar e consultar dados](./connect-workbench.md)
+2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferido, como o MySQL Workbench, mysql.exe, HeidiSQL ou outras pessoas. 
+   Se tiver a certeza de como se pode ligar, consulte o artigo [utilizar o MySQL Workbench para se ligar e consultar dados](./connect-workbench.md)
 
-3. Edite e execute o seguinte código do SQL Server. Substitua o valor do marcador de posição `db_user` com os seus pretendido novo nome de utilizador e o valor do marcador de posição `testdb` com o seu próprio nome de base de dados.
+3. Edite e execute o seguinte código SQL. Substitua o valor do marcador de posição `db_user` com o seu novo nome de utilizador pretendido e seu valor do marcador de posição `testdb` com seu próprio nome de base de dados.
 
-   Esta sintaxe de código do SQL Server cria uma nova base de dados com o nome testdb para fins de exemplo. Em seguida, cria um novo utilizador no serviço de MySQL e concede todos os privilégios para o novo esquema de base de dados (testdb.\*) para esse utilizador. 
+   Essa sintaxe de código sql cria uma nova base de dados com o nome testdb para fins de exemplo. Em seguida, cria um novo utilizador no serviço de MySQL e concede todos os privilégios para o novo esquema de base de dados (testdb.\*) para esse utilizador. 
 
    ```sql
    CREATE DATABASE testdb;
@@ -71,20 +68,20 @@ Assim que a base de dados do Azure para o servidor de MySQL for criado, pode uti
    FLUSH PRIVILEGES;
    ```
 
-4. Certifique-se a concede na base de dados.
+4. Verifique se concede na base de dados.
    ```sql
    USE testdb;
    
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Inicie sessão no servidor, especificar a base de dados designado, utilizando o novo nome de utilizador e palavra-passe. Este exemplo mostra a linha de comandos mysql. Com este comando, é-lhe pedida a palavra-passe para o nome de utilizador. Substitua o seu próprio nome do servidor, o nome de base de dados e o nome de utilizador.
+5. Inicie sessão servidor, especificar a base de dados designado, usando o novo nome de utilizador e palavra-passe. Este exemplo mostra a linha de comandos do mysql. Com este comando, lhe for pedida a palavra-passe para o nome de utilizador. Substitua o seu próprio nome do servidor, o nome de base de dados e o nome de utilizador.
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Abra a firewall para os endereços IP de máquinas de novos utilizadores para permitir que os mesmos se liguem: [criar e gerir o Azure base de dados MySQL das regras de firewall com o portal do Azure](howto-manage-firewall-using-portal.md) ou [CLI do Azure](howto-manage-firewall-using-cli.md).
+Abra a firewall para os endereços IP de máquinas de novos utilizadores para que estes possam ligar-se: [Criar e gerir a base de dados do Azure para as regras de firewall do MySQL com o portal do Azure](howto-manage-firewall-using-portal.md) ou [CLI do Azure](howto-manage-firewall-using-cli.md).
 
-Para obter mais informações sobre a gestão de contas de utilizador, consulte a documentação do produto MySQL para [gestão de contas de utilizador](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [conceder sintaxe](https://dev.mysql.com/doc/refman/5.7/en/grant.html), e [privilégios](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Para obter mais informações sobre a gestão de conta de utilizador, consulte a documentação de produto do MySQL para [gestão de contas de utilizador](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [sintaxe de concessão](https://dev.mysql.com/doc/refman/5.7/en/grant.html), e [privilégios](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

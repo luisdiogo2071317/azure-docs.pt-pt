@@ -1,20 +1,17 @@
 ---
 title: Ligar aplicações à base de dados do Azure para MySQL
 description: Este documento apresenta uma lista de cadeias de ligação suportado atualmente para aplicações ligar à base de dados do Azure para MySQL, incluindo o ADO.NET (c#), JDBC, node. js, ODBC, PHP, Python e Ruby.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 06bd91adb0a86198f7709d0989624657ce00dfa9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 721950160974ef21f88791e64a41cfe0dd2b23ba
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058776"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546764"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como ligar aplicações à base de dados do Azure para MySQL
 Este tópico lista os tipos de cadeia de ligação que são suportados pela base de dados do Azure para MySQL, em conjunto com modelos e exemplos. Pode ter parâmetros diferentes e as definições na sua cadeia de ligação.
@@ -65,7 +62,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter detalhes de cadeia de caracteres da ligação do portal do Azure
-Na [portal do Azure](https://portal.azure.com), aceda à sua base de dados do Azure para o servidor MySQL e, em seguida, clique em **cadeias de ligação** para obter a lista de cadeia de caracteres para a sua instância: ![painel de cadeias de caracteres de conexão a no Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+Na [portal do Azure](https://portal.azure.com), aceda à sua base de dados do Azure para o servidor MySQL e, em seguida, clique em **cadeias de ligação** para obter a lista de cadeia de caracteres para a sua instância: ![O painel de cadeias de ligação no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 A cadeia de caracteres fornece detalhes como o driver, o servidor e o outro banco de dados de parâmetros de ligação. Modificar estes exemplos para utilizar os seus parâmetros, como o nome de base de dados, palavra-passe e assim por diante. Em seguida, pode utilizar essa cadeia de caracteres para ligar ao servidor a partir do seu código e aplicativos.
 

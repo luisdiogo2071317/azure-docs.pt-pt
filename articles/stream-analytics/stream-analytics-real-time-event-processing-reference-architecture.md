@@ -4,19 +4,18 @@ description: Este artigo descreve a arquitetura de referência para alcançar o 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 1195ab125749cd211a35d7ff00c4f418dbd59f62
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232431"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555443"
 ---
-# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento com o Microsoft Azure Stream Analytics de eventos em tempo real
+# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: Eventos em tempo real de processamento com o Microsoft Azure Stream Analytics
 Destina-se a arquitetura de referência para o Azure Stream Analytics de processamento de eventos em tempo real para fornecer um plano gráfico genérico para implementar uma plataforma em tempo real como uma solução de processamento de fluxo de serviço (PaaS) com o Microsoft Azure.
 
 ## <a name="summary"></a>Resumo
@@ -37,13 +36,13 @@ O Microsoft Azure fornece um catálogo extenso de tecnologias de análise que s�
   * Apresentação / consumo de camada
 * Conclusão
 
-**Autor:** Charles Feddersen, Arquiteto de soluções, Centro de informações de dados de excelência, Microsoft Corporation
+**Autor:** Centro de informações de dados de Charles Feddersen, Arquiteto de soluções, de excelência, Microsoft Corporation
 
 **Publicado:** Janeiro de 2015
 
 **Revisão:** 1.0
 
-**Transferências:** [eventos em tempo real de processamento com o Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**Transferir:** [Eventos em tempo real de processamento com o Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter assistência, tente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

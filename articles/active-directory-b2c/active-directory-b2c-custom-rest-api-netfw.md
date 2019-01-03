@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339598"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557296"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário
 
@@ -26,19 +26,19 @@ Com o Framework de experiência de identidade, que dão suporte para Azure Activ
 ## <a name="introduction"></a>Introdução
 Ao utilizar o Azure AD B2C, pode adicionar sua própria lógica de negócio para um percurso do utilizador ao chamar o seu próprio serviço RESTful. O Framework de experiência de identidade envia dados para o serviço RESTful numa *afirmações de entrada* coleção e recebe dados de volta de RESTful num *declarações de saída* coleção. Com a integração de serviço RESTful, pode:
 
-* **Validar dados de entrada do usuário**: Esta ação impede dados mal formados de persistência para o Azure AD. Se o valor do usuário não é válido, o seu serviço RESTful devolve uma mensagem de erro que indica ao utilizador para fornecer uma entrada. Por exemplo, pode verificar que o endereço de e-mail fornecido pelo utilizador existe na base de dados do seu cliente.
-* **Substituir afirmações de entrada**: por exemplo, se um utilizador introduz o nome próprio em letras minúsculas ou todas as letras maiúsculas, pode formatar o nome com a primeira letra em maiúsculas.
-* **Enriquecer os dados de utilizador com a integração mais com aplicações de linha de negócio empresariais**: serviço Your RESTful pode receber o endereço de e-mail do utilizador, consultar base de dados do cliente e retornar o número de fidelização do utilizador para o Azure AD B2C. O retorno de afirmações podem ser armazenados em que a conta de utilizador do Azure AD, avaliada nos próximos *etapas da orquestração*, ou incluídas no token de acesso.
-* **Executar a lógica de negócio personalizada**: pode enviar notificações push, Atualizar bancos de dados corporativos, executar um processo de migração de utilizador, gerir as permissões, bases de dados de auditoria e efetuar outras ações.
+* **Validar dados de entrada do usuário**: Esta ação impede que os dados mal formados persistência com o Azure AD. Se o valor do usuário não é válido, o seu serviço RESTful devolve uma mensagem de erro que indica ao utilizador para fornecer uma entrada. Por exemplo, pode verificar que o endereço de e-mail fornecido pelo utilizador existe na base de dados do seu cliente.
+* **Substituir afirmações de entrada**: Por exemplo, se um utilizador introduz o nome em letras minúsculas ou todas as letras maiúsculas, pode formatar o nome com a primeira letra em maiúsculas.
+* **Enriquecer os dados de utilizador com a integração mais com aplicações de linha de negócio empresariais**: O serviço RESTful pode receber o endereço de e-mail do utilizador, consultar base de dados do cliente e retornar o número de fidelização do utilizador para o Azure AD B2C. O retorno de afirmações podem ser armazenados em que a conta de utilizador do Azure AD, avaliada nos próximos *etapas da orquestração*, ou incluídas no token de acesso.
+* **Executar a lógica de negócio personalizada**: Pode enviar notificações push, Atualizar bancos de dados corporativos, executar um processo de migração de utilizador, gerir as permissões, bases de dados de auditoria e efetuar outras ações.
 
 Pode projetar a integração com os serviços RESTful das seguintes formas:
 
-* **Perfil de técnica de validação**: A chamada para o serviço RESTful acontece dentro do perfil técnico de validação do perfil técnico especificado. O perfil técnico de validação valida os dados fornecidos pelo usuário antes do percurso do utilizador avança. Com o perfil técnico de validação, pode:
+* **Perfil de técnica de validação**: A chamada para o serviço RESTful ocorre no prazo do perfil técnico de validação do perfil técnico especificado. O perfil técnico de validação valida os dados fornecidos pelo usuário antes do percurso do utilizador avança. Com o perfil técnico de validação, pode:
    * Envie afirmações de entrada.
    * Validar afirmações de entrada e gerar mensagens de erro personalizadas.
    * Envie afirmações de saída anterior.
 
-* **Afirmações do exchange**: esta estrutura é semelhante para o perfil técnico de validação, mas acontece dentro de um passo de orquestração. Esta definição está limitada a:
+* **Afirmações do exchange**: Esse design é semelhante para o perfil técnico de validação, mas acontece dentro de um passo de orquestração. Esta definição está limitada a:
    * Envie afirmações de entrada.
    * Envie afirmações de saída anterior.
 
@@ -248,7 +248,7 @@ Um fornecedor de afirmações pode ter vários perfis técnicos por vários moti
 
 O seguinte fragmento XML contém um nó de fornecedor de afirmações com dois perfis técnicos:
 
-* **TechnicalProfile Id = "SignUp da API REST"**: define o seu serviço RESTful. 
+* **TechnicalProfile Id = "SignUp da API REST"**: Define o seu serviço RESTful. 
    * `Proprietary` é descrita como o protocolo de um fornecedor com base na RESTful. 
    * `InputClaims` Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST. 
 
@@ -260,40 +260,40 @@ Localize a `<ClaimsProviders>` nó e, em seguida, adicione o seguinte fragmento 
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 

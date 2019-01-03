@@ -1,25 +1,71 @@
 ---
 title: Saída e os pontos finais no duplos Digital do Azure | Documentos da Microsoft
-description: Diretrizes sobre como criar pontos finais duplos Digital do Azure
+description: Diretrizes sobre como criar pontos finais duplos Digital do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636310"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994836"
 ---
 # <a name="egress-and-endpoints"></a>Saída e os pontos finais
 
-Os gémeos Digital do Azure suporta o conceito de **pontos de extremidade**. Cada ponto de extremidade representa um mediador de mensagem ou eventos na subscrição do Azure do utilizador. Eventos e as mensagens podem ser enviadas para os tópicos do Event Hubs do Azure, o Azure Event Grid e o Azure Service Bus.
+Os gémeos Digital do Azure *pontos de extremidade* representam um mediador de mensagem ou eventos na subscrição do Azure de um utilizador. Eventos e as mensagens podem ser enviadas para os tópicos do Event Hubs do Azure, o Azure Event Grid e o Azure Service Bus.
 
-Eventos são enviados para pontos finais de acordo com as preferências de encaminhamento predefinidos. O utilizador pode especificar o ponto final deve receber qualquer um dos seguintes eventos: 
+Eventos são encaminhados para pontos finais de acordo com as preferências de encaminhamento predefinidos. Os utilizadores podem especificar quais *tipos de evento* poderá receber a cada ponto de extremidade.
+
+Para obter mais informações sobre eventos, roteamento e tipos de eventos, consulte [eventos de roteamento e mensagens na duplos Digital do Azure](./concepts-events-routing.md).
+
+## <a name="events"></a>Eventos
+
+Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) para processamento por mediadores de mensagens e eventos do Azure. Eventos são definidos pelos seguintes [referência de esquema de eventos do Azure Event Grid](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Atributo | Tipo | Descrição |
+| --- | --- | --- |
+| ID | cadeia | Identificador exclusivo para o evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
+| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+
+Para obter mais informações sobre o esquema de eventos do Event Grid:
+
+- Reveja os [referência de esquema de eventos do Azure Event Grid](../event-grid/event-schema.md).
+- Leitura a [referência do Azure EventGrid node. js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Tipos de eventos
+
+Tipos de eventos classificar a natureza do evento e estão definidos no **eventType** campo. Tipos de eventos disponíveis são indicados pela lista seguinte:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Eventos são enviados para pontos finais de acordo com as preferências de encam
 - SpaceChange
 - DeviceMessage
 
-Para obter uma compreensão básica de encaminhamento de eventos e tipos de eventos, consulte [mensagens de eventos de roteamento e](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Descrição de tipos de eventos
-
-Os formatos de evento para cada um dos tipos de eventos são descritos nas seções a seguir.
+Os formatos de evento para cada tipo de evento são descritos com mais detalhe nas subsecções seguintes.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** aplica-se às alterações de gráfico. O **assunto** propriedade especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem disparar esse evento: 
+**TopologyOperation** aplica-se às alterações de gráfico. O **assunto** propriedade especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem disparar esse evento:
 
 - Dispositivo
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Os formatos de evento para cada um dos tipos de eventos são descritos nas seç�
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** é um evento enviado por uma função definida pelo utilizador (UDF). 
+**UdfCustom** é um evento enviado por uma função definida pelo utilizador (UDF).
   
 > [!IMPORTANT]  
 > Este evento deve ser explicitamente enviado a partir do UDF em si.
@@ -195,10 +237,19 @@ Usando **DeviceMessage**, pode especificar um **EventHub** ligação para o qual
 
 ## <a name="configure-endpoints"></a>Configurar pontos finais
 
-Gestão de ponto final é exercido por meio da API de pontos de extremidade. Os exemplos seguintes demonstram como configurar os pontos finais suportados diferentes. Preste atenção especial à matriz de tipos de eventos, porque definem o encaminhamento para o ponto final:
+Gestão de ponto final é exercido por meio da API de pontos de extremidade.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Os exemplos seguintes demonstram como configurar os pontos finais suportados.
+
+>[!IMPORTANT]
+> Prestar bastante atenção para o **eventTypes** atributo. Define o evento que tipos são processados pelo ponto final e, portanto, determinam seu roteamento.
+
+Um pedido de HTTP POST autenticado em relação a
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Rota para tipos de eventos do Service Bus **SensorChange**, **SpaceChange**, e **TopologyOperation**:

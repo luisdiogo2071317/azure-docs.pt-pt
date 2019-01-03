@@ -9,25 +9,26 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877875"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743906"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilizar o PowerShell para criar cópias de segurança e restaurar máquinas virtuais
 
-Este artigo mostra como utilizar cmdlets do Azure PowerShell para criar cópias de segurança e recuperar uma máquina virtual do Azure (VM) a partir de um cofre dos serviços de recuperação. Um cofre dos serviços de recuperação é um recurso do Azure Resource Manager utilizado para proteger dados e ativos nos serviços de cópia de segurança do Azure e o Azure Site Recovery. 
+Este artigo mostra como utilizar cmdlets do Azure PowerShell para criar cópias de segurança e recuperar uma máquina virtual do Azure (VM) a partir de um cofre dos serviços de recuperação. Um cofre dos serviços de recuperação é um recurso do Azure Resource Manager utilizado para proteger dados e ativos nos serviços de cópia de segurança do Azure e o Azure Site Recovery.
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo é para utilização com as VMs criadas com o modelo do Resource Manager.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo é para utilização com as VMs criadas com o modelo do Resource Manager.
 >
 >
 
 Este artigo orienta-o através da utilização do PowerShell para proteger uma VM e restaurar dados a partir de um ponto de recuperação.
 
 ## <a name="concepts"></a>Conceitos
+
 Se não estiver familiarizado com o serviço de cópia de segurança do Azure, para uma descrição geral do serviço, veja o artigo, [o que é o Azure Backup?](backup-introduction-to-azure-backup.md) Antes de começar, certifique-se de que abrangem os pré-requisitos necessários com cópia de segurança do Azure e as limitações da solução de cópia de segurança de VM atual.
 
 Para utilizar o PowerShell com eficiência, é necessário compreender a hierarquia de objetos e o local começar.
@@ -40,10 +41,10 @@ Para ver a referência de cmdlets do PowerShell Recoveryservices, consulte a [c�
 
 Para começar:
 
-1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (é a versão mínima necessária: 1.4.0)
+1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
 
 2. Encontre os cmdlets do PowerShell de cópia de segurança do Azure disponíveis, escrevendo o seguinte comando:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -311,7 +312,7 @@ $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "Az
 $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point"></a>Escolher um ponto de recuperação
 
 Utilize o **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** cmdlet para listar todos os pontos de recuperação para o item de cópia de segurança. Em seguida, escolha o ponto de recuperação para restaurar. Se tiver a certeza do ponto de recuperação a utilizar, é uma boa prática para escolher a mais recente RecoveryPointType = AppConsistent ponto na lista.
 
@@ -326,7 +327,7 @@ $rp[0]
 
 O resultado é semelhante ao seguinte exemplo:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Para restaurar os discos e as informações de configuração:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Restaurar discos geridos
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG ao qual vão ser restaurados discos geridos.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 O **VMConfig.JSON** ficheiro será restaurado para a conta de armazenamento e o destino especificado RG serão restaurados os discos geridos.
 
-
 O resultado é semelhante ao seguinte exemplo:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ Depois de restaurar os discos, utilize os seguintes passos para criar e configur
 > Para criar VMs encriptadas a partir de discos restaurados, sua função do Azure tem de ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se a sua função não tiver esta permissão, crie uma função personalizada com esta ação. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Depois de restaurar discos, agora pode obter um modelo de implementação que pode utilizar diretamente para criar uma nova VM. Cmdlets de PS não mais diferentes para criar VMs kombinace spravovaného a nespravovaného que são encriptados/não encriptada.
+
+Os detalhes da tarefa resultante oferece o modelo de URI que pode ser consultada e implementado.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Basta implementar o modelo para criar uma nova VM, conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+A secção seguinte apresenta uma lista de etapas necessárias para criar uma VM com o ficheiro de "VMConfig".
+
+> [!NOTE]
+> É altamente recomendado para utilizar o modelo de implementação detalhado acima para criar uma VM. Nesta secção (pontos de 1 a 6) vai ser preterida em breve.
 
 1. Consulte as propriedades de disco restaurado para os detalhes da tarefa.
 
@@ -476,14 +498,14 @@ Depois de restaurar os discos, utilize os seguintes passos para criar e configur
    * **VMs geridas e não encriptadas** – para VMs não encriptadas geridas, anexar os discos geridos restaurados. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Gerido e VMs (apenas BEK) encriptadas** – para VMs encriptadas geridas (encriptadas com BEK apenas), ligue os discos geridos restaurados. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Utilize o seguinte comando para ativar manualmente a encriptação para os discos de dados.
+
+     Utilize o seguinte comando para ativar manualmente a encriptação para os discos de dados.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Gerido e VMs (BEK e KEK) encriptadas** – para VMs encriptadas geridas (encriptadas com BEK e KEK), ligue os discos geridos restaurados. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Gerido e VMs (BEK e KEK) encriptadas** – para VMs encriptadas geridas (encriptadas com BEK e KEK), ligue os discos geridos restaurados. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Utilize o seguinte comando para ativar manualmente a encriptação para os discos de dados.
 
@@ -516,11 +538,10 @@ Além de restauro dos discos, também pode restaurar ficheiros individuais a par
 Os passos básicos para restaurar um ficheiro a partir de uma cópia de segurança de VM do Azure são:
 
 * Selecione a VM
-* Escolha um ponto de recuperação
+* Escolher um ponto de recuperação
 * Montar os discos de ponto de recuperação
 * Copie os ficheiros necessários
 * Desmontar o disco
-
 
 ### <a name="select-the-vm"></a>Selecione a VM
 
@@ -531,7 +552,7 @@ $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "Az
 $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point"></a>Escolher um ponto de recuperação
 
 Utilize o **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** cmdlet para listar todos os pontos de recuperação para o item de cópia de segurança. Em seguida, escolha o ponto de recuperação para restaurar. Se tiver a certeza do ponto de recuperação a utilizar, é uma boa prática para escolher a mais recente RecoveryPointType = AppConsistent ponto na lista.
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 O resultado é semelhante ao seguinte exemplo:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

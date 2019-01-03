@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1cfecca7d7b8a3f554466d95c666e2cbddbffde
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158623"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975683"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Ativar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 
@@ -51,7 +51,7 @@ Para ativar o LDAP seguro, execute os seguintes passos de configuração:
 5. Por predefinição, o acesso de secure LDAP ao seu domínio gerido através da internet está desativado. Botão de alternar **permitir o acesso de secure LDAP pela internet** para **ativar**, se for necessário.
 
     > [!WARNING]
-    > Quando ativar o acesso de secure LDAP pela internet, seu domínio é suscetível a ataques de força bruta de palavra-passe através da internet. Por conseguinte, recomendamos que configuração de um NSG para bloquear o acesso aos intervalos de endereços IP de origem necessários. Veja as instruções para [bloquear o acesso LDAPS ao seu domínio gerido através da internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
+    > Quando ativar o acesso de secure LDAP pela internet, seu domínio é suscetível a ataques de força bruta de palavra-passe através da internet. Por conseguinte, recomendamos que configuração de um NSG para bloquear o acesso aos intervalos de endereços IP de origem necessários. Veja as instruções para [bloquear o acesso LDAPS ao seu domínio gerido através da internet](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Clique em seguinte de ícone pasta **. Ficheiro PFX com certificado de secure LDAP**. Especifique o caminho para o ficheiro PFX com o certificado para acesso de secure LDAP para o domínio gerido.

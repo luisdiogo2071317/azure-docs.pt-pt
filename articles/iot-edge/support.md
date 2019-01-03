@@ -4,17 +4,17 @@ description: Saiba quais sistemas operacionais podem executar o daemon de Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100191"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555613"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -44,9 +44,11 @@ Disponível em geral
 Pré-visualização pública
 | Sistema Operativo | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (atualização de Abril de 2018) | Sim | Não |
-| Windows 10 IoT Enterprise (atualização de Abril de 2018) | Sim | Não |
-| Servidor do Windows 10 versão 1803 | Sim | Não |
+| Compilação do Windows 10 IoT Core 17763 | Sim | Não |
+| Windows 10 criar 17763 para contentores do Windows<br><br>Windows 10 compilação 14393 ou mais recente para contentores do Linux\* | Sim | Não |
+| Windows Server 2019 para contentores do Windows<br><br>Windows Server 2016 ou mais recente para contentores do Linux\* | Sim | Não |
+
+\* A Microsoft fornece pacotes de instalação para contentores do Linux em dispositivos Windows para desenvolvimento e teste apenas. Não se trata de uma configuração suportada para utilização em produção. 
 
 ### <a name="tier-2"></a>Escalão 2
 Os sistemas de camada 2 podem ser considerados como compatível com o Azure IoT Edge e podem ser utilizados com relativa facilidade. Isso significa que:

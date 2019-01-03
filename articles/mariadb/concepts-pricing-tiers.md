@@ -3,21 +3,19 @@ title: Escalões de preços para a base de dados do Azure para MariaDB
 description: Este artigo descreve os escalões de preço da base de dados do Azure para MariaDB.
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249033"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544588"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de dados do Azure para MariaDB escalões de preço
 
-Pode criar uma base de dados do Azure para MariaDB servidor das três escalões de preços diferentes: básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor de MariaDB. Um servidor pode ter uma ou mais bases de dados.
+Pode criar uma base de dados do Azure para MariaDB servidor das três escalões de preço diferentes: Básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor de MariaDB. Um servidor pode ter uma ou mais bases de dados.
 
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
@@ -60,9 +58,9 @@ Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
-O servidor está marcado como só de leitura quando a quantidade de armazenamento livre atingir inferior a 5 GB ou 5% do armazenamento de aprovisionamento, o que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 250 MB.  
+O servidor está marcado como sendo só de leitura quando a quantidade de armazenamento gratuito alcançar a menor das opções de 5 GB ou 5% do armazenamento aprovisionado. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Como alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento gratuito chegar a menos de 250 MB.  
 
-Embora o serviço tenta tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e transações ativas existentes continuarão a executar. Quando o servidor está definido como só de leitura, todas as operações de gravação subseqüentes de transação consolida a ativação. Consultas de leitura irão continuar a funcionar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor estará pronto para aceitar transações de escrita novamente.
+Apesar de o serviço tentar tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e as transações ativas existentes continuam a executar. Quando o servidor estiver definido como só de leitura, todas as subsequentes operações de escrita e de transação falham. As consultas de leitura continuam a trabalhar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor fica pronto para aceitar novamente as transações de escrita.
 
 Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. 
 

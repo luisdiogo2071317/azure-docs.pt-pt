@@ -1,20 +1,17 @@
 ---
 title: Replicar os dados na base de dados do Azure para MySQL.
 description: Este artigo descreve os dados na replicação da base de dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666081"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544231"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar os dados na base de dados do Azure para MySQL
 
@@ -23,8 +20,8 @@ Replicação de dados-in permite-lhe sincronizar dados de um servidor MySQL em e
 ## <a name="when-to-use-data-in-replication"></a>Quando utilizar a replicação de dados
 Os principais cenários para considerar a utilização de replicação de dados são:
 
-- **Sincronização de dados híbrida:** com a replicação de dados, pode manter os dados sincronizados entre os servidores no local e a base de dados do Azure para MySQL. Esta sincronização é útil para criar aplicações híbridas. Este método é atraente quando existir um servidor da base de dados local, mas quiser mover os dados para uma região mais perto dos utilizadores finais.
-- **Sincronização de várias Cloud:** para soluções de cloud complexas, utilize replicação de dados para sincronizar dados entre a base de dados do Azure para MySQL e fornecedores de cloud diferentes, incluindo máquinas virtuais e serviços de base de dados hospedados nessas nuvens.
+- **Sincronização de dados híbrida:** Com a replicação de dados, pode manter os dados sincronizados entre os servidores no local e a base de dados do Azure para MySQL. Esta sincronização é útil para criar aplicações híbridas. Este método é atraente quando existir um servidor da base de dados local, mas quiser mover os dados para uma região mais perto dos utilizadores finais.
+- **Sincronização de várias Cloud:** Para soluções de cloud complexas, utilize a replicação de dados para sincronizar dados entre a base de dados do Azure para MySQL e fornecedores de cloud diferentes, incluindo máquinas virtuais e serviços de base de dados hospedados nessas nuvens.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - modelo de série de tempo | Documentos da Microsoft
+title: Pré-visualização do modelo de série de tempo no Azure Time Series Insights | Documentos da Microsoft
 description: Modelo de série de tempo de noções básicas sobre o Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278190"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716587"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
@@ -136,17 +136,17 @@ Considere o exemplo seguinte, em que tem a hierarquia H1 *criando*, *piso*, e *s
  H1 = [“building”, “floor”, “room”]
 ```
 
-Consoante a *campos de instância*, os valores de atributos de hierarquia e aparecem como mostrado na tabela a seguir: 
+Consoante a *campos de instância*, os valores de atributos de hierarquia e aparecem como mostrado na tabela a seguir:
 
-| ID de série de tempo | Campos de instância |
+| ID de Série de Tempo | Campos de instância |
 | --- | --- |
 | ID1 | "Criar" = "1000", "piso" = "10", "espaço" = "55"  |
 | ID2 | "Criar" = "1000", "espaço" = "55" |
 | ID3 | "floor" = "10" |
 | ID4 | "Criar" = "1000", "piso" = "10"  |
-| ID5 | |
+| ID5 | Nenhuma das "Criar", "floor" ou "espaço" está definida |
 
-No exemplo anterior, ID1 mostra como parte da hierarquia H1 na interface do Usuário/UX e, como o resto *instâncias Unparented* porque elas não se ajustem à hierarquia de dados especificada.
+No exemplo anterior, ID1 e do ID4 mostra como parte da hierarquia H1 no Explorador do Azure Time Series Insights, e como o resto *instâncias Unparented* porque elas não se ajustem à hierarquia de dados especificada.
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo de série de tempo
 

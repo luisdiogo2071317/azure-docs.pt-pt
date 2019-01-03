@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285124"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720310"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alerts-log.md), tem a opção de [configurar a utilização de grupos de ação](action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -73,13 +73,13 @@ Este payload de exemplo deve resolver para algo semelhante ao seguinte quando en
 ```
 Que tenham todas as variáveis num webhook personalizado especificado no bastidor JSON, como "#searchinterval", o webhook resultante também terão os dados da variável dentro de bastidor, como "00: 05:00".
 
-Para incluir os resultados da pesquisa num payload personalizado, certifique-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no payload de json. 
+Para incluir os resultados da pesquisa num payload personalizado, certifique-se de que **IncludeSearchResults** está definido como uma propriedade de nível superior no payload de json. 
 
 ## <a name="sample-payloads"></a>Cargas de exemplo
 Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo a carga é padrão e quando seu custom.
 
 > [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](alerts-metric.md). Mas para os alertas de registo utilizando [Application Insights](../../application-insights/app-insights-analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
+> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](alerts-metric.md). Mas para os alertas de registo utilizando [Application Insights](../../azure-monitor/app/analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Padrão Webhook para alertas de registo 
 Ambos estes exemplos tiveram indicado um payload fictício com apenas duas colunas e linhas de duas.
@@ -200,5 +200,5 @@ Segue-se um payload de exemplo para uma ação personalizada de webhook para qua
 - Saiba mais sobre [alertas de registo nos alertas do Azure ](alerts-unified-log.md)
 - Compreender [managaing alertas de registo no Azure](alerts-log.md)
 - Criar e gerir [grupos de ação no Azure](action-groups.md)
-- Saiba mais sobre [Application Insights](../../application-insights/app-insights-analytics.md)
+- Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md)
 - Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

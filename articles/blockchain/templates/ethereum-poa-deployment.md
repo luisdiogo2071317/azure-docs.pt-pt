@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243161"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974051"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
 
@@ -150,7 +150,7 @@ Depois de instalar MetaMask, navegue para o DApp de governação no browser.  Po
 #### <a name="becoming-an-admin"></a>Tornar-se um administrador
 Se for o primeiro membro implementado na rede, em seguida, tornará automaticamente um administrador e os nós de paridade serão listados como Validadores.  Se estiver associando a rede, terá de obter votado como um administrador por uma maioria (mais de 50%) de existente administrador definir.  Se optar por não se tornar um administrador, em seguida, os nós ainda irão sincronizar e validar o blockchain; No entanto, não irá participar do processo de criação de blocos. Para iniciar o processo de voto para se tornar um administrador, clique em __Nominate__ e introduza o seu endereço de Ethereum e alias.
 
-![Nomeie os](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+![Nomear](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>Candidatos
 Selecionar o __candidatos__ separador mostrará a o conjunto atual de administradores do Release candidate.  Quando um candidato atingirem um voto de maioria, os administradores atuais, o candidato será é promovido para um administrador.  Votar num candidato, selecione a linha e clique em "Voto" na parte superior.  Se mudar de ideias sobre um voto, pode selecionar a Release candidate e clique em "Rescind voto".
@@ -198,7 +198,7 @@ Este processo requer uma subscrição do Azure que pode suportar a implementaç�
 
 Depois de uma subscrição está protegida, aceda ao portal do Azure. Selecione '+', o Marketplace ("ver tudo") e procure Ethereum PoA Consortium.
 
-A secção seguinte explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, regiões de implementação, o tamanho de rede e o desempenho, Ethereum definições, Azure Monitor.
+A secção seguinte explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, regiões de implementação, o tamanho de rede e desempenho, Ethereum definições, Azure Monitor.
 
 #### <a name="basics"></a>Noções básicas
 
@@ -212,7 +212,7 @@ Criar uma nova rede ou de rede existente de associação?|Crie uma nova rede ou 
 Endereço de e-mail (opcional)|Receberá uma notificação por e-mail quando a implementação é concluída com informações sobre a implementação.|Endereço de e-mail válido|ND
 Nome de utilizador VM|Nome de utilizador de administrador de cada VM implementada (apenas carateres alfanuméricos)|1 e 64 carateres|ND
 Tipo de autenticação|O método para autenticar para a máquina virtual.|Chave pública de palavra-passe ou SSH|Palavra-passe
-Palavra-passe (tipo de autenticação = a palavra-passe)|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas.  A palavra-passe tem de conter 3 dos seguintes: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial. Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 e 72 carateres|ND
+Palavra-passe (tipo de autenticação = a palavra-passe)|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas.  A palavra-passe tem de conter 3 dos seguintes procedimentos: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial. Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 e 72 carateres|ND
 Chave SSH (tipo de autenticação = a chave pública)|A chave secure shell utilizada para início de sessão remoto.||ND
 Subscrição|A subscrição ao qual pretende implementar a rede de consórcio||ND
 Grupo de Recursos|O grupo de recursos ao qual pretende implementar a rede de consórcio.||ND
@@ -273,7 +273,7 @@ Segue-se uma descrição detalhada de cada parâmetro:
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
 ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0 e 255|ND
-ID de Rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
+ID da rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
 Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|ND
 Opções Avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desativar
 IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP público
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Depurar o contrato inteligente com Truffle
 
-Truffle tem uma rede de desenvolver local que está disponível para contrato inteligente de depuração. Pode encontrar o tutorial completo [aqui](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle tem uma rede de desenvolver local que está disponível para contrato inteligente de depuração. Pode encontrar o tutorial completo [aqui](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Suporte de WebAssembly (WASM)
 

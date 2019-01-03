@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315643"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584501"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -48,16 +48,20 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56GB - 156GB<br/>Gen5: 44GB A 440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB - 156GB <br/> Gen5: 44GB A 440GB<br/>\*Proporcional ao número de vCores |
+| Memória | Gen4: 56GB - 156GB<br/>Gen5: 44GB A 440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB - 156GB <br/> Gen5: 41GB A 408GB<br/>\*Proporcional ao número de vCores |
 | Tamanho máximo de armazenamento | 8 TB | Geração 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS (aproximado) | 500-7500 por ficheiro<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 mil - 110 mil (1375 por vCore) |
+| IOPS de dados/do registo (aproximado) | 500-7500 por ficheiro<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 mil - 110 mil (1375 por vCore) |
+| Débito de registo da instância | 22MB/s por instância | 3MB/s por vCore<br/>Máx. 48MB/s |
+| Débito de dados (aproximado) | 100 a 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s por vCore |
 | Latência de e/s (aproximada) | 5 a 10 ms | 1 a 2 ms |
-| Tamanho máximo de tempDB | 192 1920 GB (24 GB por vCore) | Determinado pelo tamanho de armazenamento máximo por instância |
+| Tamanho máximo de tempDB | 192 1920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
 
-- O utilizador e as bases de dados do sistema estão incluídas no tamanho de armazenamento de instância é comparado com o limite de tamanho de armazenamento máximo. Uso <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">master_files</a> vista de sistema para determinar o total de espaço utilizado pelas bases de dados. Registos de erros não são persistentes e não incluídos no tamanho. As cópias de segurança não estão incluídas no tamanho de armazenamento.
+**Notas de**:
+- Tamanho do ficheiro de dados e de registo no utilizador e bases de dados do sistema estão incluídas no tamanho de armazenamento de instância é comparado com o limite de tamanho de armazenamento máximo. Uso <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">master_files</a> vista de sistema para determinar o total de espaço utilizado pelas bases de dados. Registos de erros não são persistentes e não incluídos no tamanho. As cópias de segurança não estão incluídas no tamanho de armazenamento.
+- Débito e IOPS também dependem do tamanho de página que não está limitado explicitamente por instância gerida.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713833"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Apache Giraph nos clusters do Hadoop do HDInsight e utilizar Giraph para processar gráficos em grande escala
 
 Saiba como instalar o Apache Giraph num HDInsight cluster. A funcionalidade de ação de script do HDInsight permite-lhe personalizar o seu cluster ao executar um script de bash. Scripts podem ser usados para personalizar os clusters durante e após a criação do cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="whatis"></a>O que é o Giraph
 
-[O Apache Giraph](http://giraph.apache.org/) permite-lhe efetuar o processamento através do Hadoop de gráficos e pode ser utilizado com o Azure HDInsight. Gráficos de modelam relações entre objetos. Por exemplo, as ligações entre routers numa rede de grandes dimensões, como a Internet ou as relações entre as pessoas nas redes sociais. Processamento de gráficos permite-lhe de ponderar sobre as relações entre objetos num gráfico, tais como:
+[O Apache Giraph](https://giraph.apache.org/) permite-lhe efetuar o processamento através do Hadoop de gráficos e pode ser utilizado com o Azure HDInsight. Gráficos de modelam relações entre objetos. Por exemplo, as ligações entre routers numa rede de grandes dimensões, como a Internet ou as relações entre as pessoas nas redes sociais. Processamento de gráficos permite-lhe de ponderar sobre as relações entre objetos num gráfico, tais como:
 
 * Identificar amigos potenciais com base nas suas relações atuais.
 
@@ -36,7 +36,7 @@ Saiba como instalar o Apache Giraph num HDInsight cluster. A funcionalidade de a
 > [!WARNING]  
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportadas - Support da Microsoft ajuda a isolar e resolver problemas relacionados com esses componentes.
 >
-> Componentes personalizados, por exemplo, o Giraph, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Microsoft Support poderá conseguir resolver o problema. Caso contrário, tem de consultar Comunidades de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados, por exemplo, o Giraph, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Microsoft Support poderá conseguir resolver o problema. Caso contrário, tem de consultar Comunidades de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Também projetos Apache tem sites de projeto no [ https://apache.org ](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>O que faz o script
@@ -55,7 +55,7 @@ Um script de exemplo para instalar o Giraph num cluster do HDInsight está dispo
 
 Esta secção fornece instruções sobre como utilizar o script de exemplo ao criar o cluster com o portal do Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > Uma ação de script pode ser aplicada usando qualquer um dos seguintes métodos:
 > * Azure PowerShell
 > * A CLI clássica do Azure
@@ -86,7 +86,7 @@ Esta secção fornece instruções sobre como utilizar o script de exemplo ao cr
 
 ## <a name="usegiraph"></a>Como posso utilizar Giraph no HDInsight?
 
-Depois do cluster ter sido criado, utilize os seguintes passos para executar o exemplo de SimpleShortestPathsComputation incluído com o Giraph. Este exemplo utiliza o básico [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) implementação para localizar o caminho mais curto entre objetos num gráfico.
+Depois do cluster ter sido criado, utilize os seguintes passos para executar o exemplo de SimpleShortestPathsComputation incluído com o Giraph. Este exemplo utiliza o básico [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) implementação para localizar o caminho mais curto entre objetos num gráfico.
 
 1. Ligar ao cluster do HDInsight com o SSH:
 
@@ -146,7 +146,7 @@ Depois do cluster ter sido criado, utilize os seguintes passos para executar o e
    | `-op` |A localização de saída. |
    | `-w 2` |O número de funções de trabalho para utilizar. Neste exemplo, 2. |
 
-    Para obter mais informações sobre esses e outros parâmetros utilizados com o Giraph exemplos, consulte a [guia de início rápido Giraph](http://giraph.apache.org/quick_start.html).
+    Para obter mais informações sobre esses e outros parâmetros utilizados com o Giraph exemplos, consulte a [guia de início rápido Giraph](https://giraph.apache.org/quick_start.html).
 
 6. Assim que a tarefa estiver concluída, os resultados são armazenados no **/example/out/shotestpaths** diretório. Os nomes de ficheiro de saída de começar por **parte-m -** e terminar com um número a indicar o primeiro, o segundo, o ficheiro etc. Utilize o seguinte comando para ver o resultado:
 

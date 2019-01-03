@@ -3,17 +3,15 @@ title: Configure a replicação de dados para replicar os dados na base de dados
 description: Este artigo descreve como configurar a dados na replicação da base de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212765"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548906"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados de MariaDB
 
@@ -155,7 +153,7 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
    - master_password: palavra-passe para o servidor mestre
    - master_log_file: nome de ficheiro de registo binário a execução `show master status`
    - master_log_pos: posição do registo binário a execução `show master status`
-   - master_ssl_ca: o contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
+   - master_ssl_ca: Contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
        - Recomenda-se para transmitir este parâmetro no como uma variável. Veja os exemplos seguintes para obter mais informações.
 
    **Exemplos**

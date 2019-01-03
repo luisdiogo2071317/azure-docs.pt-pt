@@ -1,5 +1,5 @@
 ---
-title: Integrar a solução de monitorização remota com o Azure Data Lake Store | Documentos da Microsoft
+title: Integrar a solução de monitorização remota com o Data Lake Store - Azure | Documentos da Microsoft
 description: Saiba como integrar a solução de monitorização remota com o Azure Data Lake Store através de uma tarefa do Azure Stream Analytics.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188076"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603934"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de monitorização remota com o Azure Data Lake Store
 
@@ -154,7 +154,7 @@ O Azure Stream Analytics utiliza uma linguagem de consulta do tipo SQL para espe
 
 1. Hora personalizada definida para voltar atrás algumas horas para recolher dados a partir de quando o seu dispositivo foi iniciada a transmissão em fluxo.
 
-1. Clique em **iniciar**.
+1. Clique em **Iniciar**.
 
     ![Escolher data personalizada](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

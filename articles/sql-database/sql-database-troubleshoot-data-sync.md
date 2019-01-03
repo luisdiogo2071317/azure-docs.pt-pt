@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685825"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723897"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 
 Este artigo descreve como resolver problemas conhecidos com sincronização de dados SQL do Azure. Se existir uma resolução para um problema, ele é fornecido aqui.
 
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Sincronização de dados SQL do Azure faz **não** suporta a instância gerida da base de dados SQL do Azure neste momento.
 
 ## <a name="sync-issues"></a>Problemas de sincronização
 
@@ -37,7 +40,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 - [Vejo uma degradação significativa do desempenho](#sync-perf)
 
-- [Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo?](#sync-nulls)
+- [Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo?](#sync-nulls)
 
 - [Como a sincronização de dados com referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?](#sync-circ)
 
@@ -102,7 +105,7 @@ O desempenho degrada significativamente, possivelmente ao ponto em que ainda nã
 
 - **Resolução**. A melhor correção é prevenção. Certifique-se de que não tem referências circulares nos seus grupos de sincronização. Não não possível sincronizar todas as linhas que são sincronizadas por um grupo de sincronização por outro grupo de sincronização.
 
-### <a name="sync-nulls"></a> Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo? 
+### <a name="sync-nulls"></a> Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo? 
 Esta mensagem de erro indica que tenha ocorrido um dos dois problemas seguintes:
 -  Uma tabela não tem uma chave primária. Para corrigir este problema, adicione uma chave primária para todas as tabelas que se estiver a sincronizar.
 -  Há uma cláusula WHERE na instrução CREATE INDEX. Sincronização de dados não lida com esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, faça as alterações a todas as bases de dados. 
@@ -241,7 +244,7 @@ Para obter mais informações sobre a sincronização de dados SQL, consulte:
 
 -   Descrição geral - [sincronizar dados em várias bases de dados na cloud e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md)
 -   Configurar a sincronização de dados
-    - No portal - [Tutorial: configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: Configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)

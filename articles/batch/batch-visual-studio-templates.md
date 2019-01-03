@@ -1,9 +1,9 @@
 ---
-title: Crie soluções de Batch com modelos do Visual Studio - Azure | Documentos da Microsoft
+title: Crie soluções com modelos do Visual Studio - Azure Batch | Documentos da Microsoft
 description: Saiba como modelos de projeto do Visual Studio podem ajudá-lo a implementar e executar cargas de trabalho intensivas de computação no Azure Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114101"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538128"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utilizar modelos de projeto do Visual Studio para o pontapé inicial em soluções do Batch
 
@@ -62,7 +62,7 @@ Para utilizar os modelos do Batch, terá o seguinte:
     
     * Gestor de tarefas de lote do Azure com o divisor de tarefa
     * Processador de tarefa de lote do Azure
-  * Transferir os modelos a partir da Galeria online para o Visual Studio: [modelos de projeto do Microsoft Azure Batch][vs_gallery_templates]
+  * Transferir os modelos a partir da Galeria online para o Visual Studio: [Modelos de projeto do Microsoft Azure Batch][vs_gallery_templates]
 * Se planeia utilizar o [pacotes de aplicações](batch-application-packages.md) para implementar a tarefa do Gestor de recursos e nós de computação de processador de tarefas para o Batch, precisa de associar uma conta de armazenamento à conta do Batch.
 
 ## <a name="preparation"></a>Preparação
@@ -119,12 +119,12 @@ O resto desta secção descreve os diferentes arquivos e suas estruturas de cód
 
 **Divisor de tarefa**
 
-`JobSplitter.cs`: Esta classe contém lógica de aplicativo específica para dividir o trabalho em tarefas. O framework invoca o método de JobSplitter.Split para obter uma sequência de tarefas, que adiciona ao trabalho, como o método retorna-los. Esta é a classe em que injetará a lógica do seu trabalho. Implemente o método Split para retornar uma seqüência de instâncias de CloudTask que representa as tarefas no qual deseja particionar o trabalho.
+`JobSplitter.cs`: Essa classe contém lógica de aplicativo específica para dividir o trabalho em tarefas. O framework invoca o método de JobSplitter.Split para obter uma sequência de tarefas, que adiciona ao trabalho, como o método retorna-los. Esta é a classe em que injetará a lógica do seu trabalho. Implemente o método Split para retornar uma seqüência de instâncias de CloudTask que representa as tarefas no qual deseja particionar o trabalho.
 
 **Arquivos de projeto de linha de comandos de .NET Standard**
 
-* `App.config`: Arquivo de configuração do aplicativo de .NET standard.
-* `Packages.config`: Ficheiro de dependência do pacote de NuGet standard.
+* `App.config`: Arquivo de configuração do aplicativo de .NET padrão.
+* `Packages.config`: Ficheiro de dependência do pacote de NuGet padrão.
 * `Program.cs`: Contém o ponto de entrada de programa e manipulação de exceções de nível superior.
 
 ### <a name="implementing-the-job-splitter"></a>Implementando o divisor de tarefa
@@ -297,8 +297,8 @@ O resto desta secção descreve os diferentes arquivos e suas estruturas de cód
 
 **Arquivos de projeto de linha de comandos de .NET Standard**
 
-* `App.config`: Arquivo de configuração do aplicativo de .NET standard.
-* `Packages.config`: Ficheiro de dependência do pacote de NuGet standard.
+* `App.config`: Arquivo de configuração do aplicativo de .NET padrão.
+* `Packages.config`: Ficheiro de dependência do pacote de NuGet padrão.
 * `Program.cs`: Contém o ponto de entrada de programa e manipulação de exceções de nível superior.
 
 ## <a name="implementing-the-task-processor"></a>Implementando o processador de tarefa

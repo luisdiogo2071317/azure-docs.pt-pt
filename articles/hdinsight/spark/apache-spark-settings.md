@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583249"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652240"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -33,7 +33,7 @@ Utilize a versão de Spark melhor para o seu cluster.  O serviço HDInsight incl
 Quando cria um novo cluster, há várias versões de Spark à sua escolha. Para ver a lista completa, [versões e componentes do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
-> [!NOTE]
+> [!NOTE]  
 > A versão predefinida do Apache Spark no HDInsight serviço podem ser alteradas sem aviso prévio. Se tiver uma dependência de versão, a Microsoft recomenda que especifica que a versão específica ao criar clusters com o .NET SDK do Azure PowerShell e CLI clássica do Azure.
 
 Apache Spark tem três locais de configuração de sistema:
@@ -76,7 +76,7 @@ Para ver e alterar os valores de configuração individuais do Spark, selecione 
 
 Se criar um conjunto de não-padrão de valores de configuração, em seguida, também pode ver o histórico de atualizações de configuração.  Esse histórico de configuração pode ser útil para ver a configuração não predefinida tem um desempenho ideal.
 
-> [!NOTE]
+> [!NOTE]  
 > Para ver, mas não alterar, definições de configuração do cluster de Spark comuns, selecione o **ambiente** separador no nível superior **IU de tarefa do Spark** interface.
 
 ## <a name="configuring-spark-executors"></a>Configurar o executor do Spark
@@ -89,7 +89,7 @@ Tarefas do Spark utilizam recursos de trabalho, particularmente memória, portan
 
 São três parâmetros de chave que são, muitas vezes, ajustados para ajustar as configurações do Spark para melhorar os requisitos de aplicação `spark.executor.instances`, `spark.executor.cores`, e `spark.executor.memory`. Um Executor é um processo iniciado para uma aplicação de Spark. Um Executor é executado no nó de trabalho e é responsável por tarefas para a aplicação. Para cada cluster, o número predefinido de executores e os tamanhos de executor, é calculado com base no número de nós de trabalho e o tamanho de nó de trabalho. Eles são armazenados no `spark-defaults.conf` sobre os nós principais do cluster.  Pode editar estes valores num cluster em execução, selecionando o **personalizado spark-predefinições** link na IU da web Ambari.  Depois de efetuar alterações, lhe for pedido, a interface do Usuário **reiniciar** todos os serviços afetados.
 
-> [!NOTE]
+> [!NOTE]  
 > Esses parâmetros de configuração de três podem ser configurados ao nível do cluster (para todas as aplicações executadas no cluster) e também são especificados para cada aplicativo individual.
 
 Outra fonte de informações sobre os recursos a ser utilizado pelo executor do Spark é a interface do Usuário de aplicativo do Spark.  Na IU do Spark, selecione o **executores** separador para apresentar exibições de resumo e detalhes da configuração e os recursos consumidos pelo executor.  Estas vistas podem ajudá-lo a determinar se deve alterar os valores predefinidos para o executor do Spark para todo o cluster ou um determinado conjunto de execuções de tarefas.
@@ -123,15 +123,15 @@ YARN controla a soma de máxima de memória utilizada pelos contentores em cada 
 
 Clusters do Spark no HDInsight incluem uma série de componentes, por predefinição. Cada um desses componentes inclui valores de configuração padrão, o que podem ser substituídos, conforme necessário.
 
-* Spark Core - núcleo do Spark, Spark SQL, APIs, GraphX e MLlib transmissão em fluxo do Spark
-* Anaconda - Gestor de pacotes de python
-* [Apache Livy](https://livy.incubator.apache.org/) -da API de REST Apache Spark, utilizado para submeter tarefas remotas para um cluster do Spark do HDInsight
-* [Jupyter](https://jupyter.org/) e [Apache Zeppelin](https://zeppelin.apache.org/) blocos de notas - interativa baseada no browser da interface do Usuário para interagir com o seu cluster do Spark
-* Controlador ODBC - liga-se a clusters do Spark no HDInsight para as ferramentas de business intelligence (BI), como o Microsoft Power BI e o Tableau
+* Spark Core - núcleo do Spark, Spark SQL, APIs, GraphX e Apache Spark MLlib transmissão em fluxo do Spark.
+* Anaconda - Gestor de pacotes de uma python.
+* [Apache Livy](https://livy.incubator.apache.org/) -da API de REST Apache Spark, utilizado para submeter tarefas remotas para um cluster do Spark do HDInsight.
+* [Jupyter](https://jupyter.org/) e [Apache Zeppelin](https://zeppelin.apache.org/) blocos de notas - interativa baseada no browser da interface do Usuário para interagir com o seu cluster do Spark.
+* Controlador ODBC - liga-se a clusters do Spark no HDInsight para as ferramentas de business intelligence (BI), como o Microsoft Power BI e o Tableau.
 
 Para aplicativos em execução no bloco de notas Jupyter, use o `%%configure` comando para fazer a configuração é alterado de dentro do bloco de notas em si. Estas alterações de configuração serão aplicadas a executar a partir de sua instância do bloco de notas as tarefas do Spark. Deve fazer essas alterações no início do aplicativo, antes de executar a sua primeira célula do código. A configuração alterada é aplicada à sessão Livy quando é criada.
 
-> [!NOTE]
+> [!NOTE]  
 > Para alterar a configuração num estágio posterior na aplicação, utilize o `-f` parâmetro (force). No entanto, todo o progresso na aplicação serão perdido.
 
 O código abaixo mostra como alterar a configuração para uma aplicação em execução num bloco de notas do Jupyter.

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832229"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975326"
 ---
 # <a name="about-site-recovery"></a>Sobre o Site Recovery
 
@@ -23,8 +23,8 @@ Enquanto organização, tem de adotar uma estratégia de continuidade de negóci
 
 Os Serviços de Recuperação do Azure contribuem para a sua estratégia BCDR:
 
-- **Serviço do Site Recovery**: o Site Recovery ajuda a assegurar a continuidade do negócio ao manter as aplicações empresariais e cargas de trabalho em execução durante as falhas. O Site Recovery replica cargas de trabalho em execução em máquinas virtuais (VMs) e físicas a partir de um site primário para uma localização secundária. Quando ocorre uma falha no seu site primário, pode realizar a ativação pós-falha para a localização secundária e aceder às aplicações a partir daí. Depois de executar novamente a localização primária, pode fazer a reativação pós-falha.  
-- **Serviço de Cópia de Segurança**: o serviço [Azure Backup](https://docs.microsoft.com/azure/backup/) mantém os seus dados seguros e recuperáveis, fazendo uma cópia de segurança dos mesmos para o Azure.
+- **O serviço de recuperação do site**: Site Recovery ajuda a assegurar a continuidade do negócio ao manter aplicações empresariais e cargas de trabalho em execução durante as falhas. O Site Recovery replica cargas de trabalho em execução em máquinas virtuais (VMs) e físicas a partir de um site primário para uma localização secundária. Quando ocorre uma falha no seu site primário, pode realizar a ativação pós-falha para a localização secundária e aceder às aplicações a partir daí. Depois de executar novamente a localização primária, pode fazer a reativação pós-falha.  
+- **Serviço de cópia de segurança**: O [Azure Backup](https://docs.microsoft.com/azure/backup/) mantém os seus dados seguros e recuperáveis, fazendo-o para o Azure.
 
 O Site Recovery pode gerir a replicação de:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497366"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994721"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Certifique-se e resolver problemas de configuração de elevada disponibilidade de escalamento horizontal de SAP HANA no SLES 12 SP3 
 
@@ -173,7 +173,7 @@ O **corosync** ficheiro de configuração tem de ser corretos em cada nó do clu
 
 O conteúdo do **corosync.conf** do teste o sistema é um exemplo.
 
-A primeira seção é **totem**, conforme descrito nas [instalação de Cluster](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), passo 11. Pode ignorar o valor para **mcastaddr**. Apenas manter a entrada existente. As entradas **token** e **consenso** deve ser definida de acordo com [documentação do Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
+A primeira seção é **totem**, conforme descrito nas [instalação de Cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), passo 11. Pode ignorar o valor para **mcastaddr**. Apenas manter a entrada existente. As entradas **token** e **consenso** deve ser definida de acordo com [documentação do Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Dispositivo SBD
 
-Como configurar um dispositivo SBD numa VM do Azure é descrito em [a delimitação por barreiras SBD](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Como configurar um dispositivo SBD numa VM do Azure é descrito em [a delimitação por barreiras SBD](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
 Em primeiro lugar, verifique no servidor SBD VM, se existirem entradas ACL para cada nó no cluster. Execute o seguinte comando no servidor SBD VM:
 
@@ -423,7 +423,7 @@ No lado VM, de destino **hso-hana-vm-s2-2** neste exemplo, encontrará a seguint
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Verifique se as entradas na **/etc/sysconfig/sbd** correspondem à descrição na [Pacemaker no SUSE Linux Enterprise Server no Azure a configurar](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Certifique-se de que esta definição de arranque **/etc/iscsi/iscsid.conf** é definido como automático.
+Verifique se as entradas na **/etc/sysconfig/sbd** correspondem à descrição na [Pacemaker no SUSE Linux Enterprise Server no Azure a configurar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Certifique-se de que esta definição de arranque **/etc/iscsi/iscsid.conf** é definido como automático.
 
 As entradas a seguir são importantes **/etc/sysconfig/sbd**. Adaptar a **id** valor se necessário:
 

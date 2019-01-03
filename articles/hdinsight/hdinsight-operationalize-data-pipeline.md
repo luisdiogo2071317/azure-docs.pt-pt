@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436165"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744450"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -551,7 +551,7 @@ Como pode ver, a maioria do coordenador de está passando apenas informações d
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Ele é responsável pelo agendamento de ações dentro da `start` e `end` intervalo, de datas, de acordo com o intervalo especificado pelo `frequency` atributo. Cada ação agendada por sua vez executa o fluxo de trabalho conforme configurado. Na definição do coordenador acima, o coordenador está configurado para executar ações a partir de 1 de Janeiro de 2017 para 5 de Janeiro de 2017. A frequência está definida para 1 dia, o [linguagem de expressão de Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) expressão de frequência `${coord:days(1)}`. Isso resulta no coordenador de agendamento de uma ação (e, por conseguinte, o fluxo de trabalho) uma vez por dia. Para intervalos de datas que estão no passado, tal como neste exemplo, a ação será agendada para ser executado sem demora. Denomina-se o início da data do que uma ação está agendada para executar o *tempo nominal*. Por exemplo, para processar os dados de 1 de Janeiro de 2017, o coordenador de agendará ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
+    Ele é responsável pelo agendamento de ações dentro da `start` e `end` intervalo, de datas, de acordo com o intervalo especificado pelo `frequency` atributo. Cada ação agendada por sua vez executa o fluxo de trabalho conforme configurado. Na definição do coordenador acima, o coordenador está configurado para executar ações a partir de 1 de Janeiro de 2017 para 5 de Janeiro de 2017. A frequência está definida para 1 dia, o [linguagem de expressão de Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) expressão de frequência `${coord:days(1)}`. Isso resulta no coordenador de agendamento de uma ação (e, por conseguinte, o fluxo de trabalho) uma vez por dia. Para intervalos de datas que estão no passado, tal como neste exemplo, a ação será agendada para ser executado sem demora. Denomina-se o início da data do que uma ação está agendada para executar o *tempo nominal*. Por exemplo, para processar os dados de 1 de Janeiro de 2017, o coordenador de agendará ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
 
 * Ponto de 2: Dentro do intervalo de datas de fluxo de trabalho, o `dataset` elemento Especifica onde procurar os dados para um determinado intervalo de datas no HDFS e configura a forma como o Oozie determina se os dados estão disponíveis ainda para processamento.
 
@@ -651,6 +651,6 @@ Para executar o pipeline com um coordenador, continue de maneira semelhante, com
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Documentação do Apache Oozie](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Documentação do Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

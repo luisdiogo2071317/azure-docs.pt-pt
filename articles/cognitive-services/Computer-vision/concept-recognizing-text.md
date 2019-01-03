@@ -1,5 +1,5 @@
 ---
-title: Reconhecimento de texto manuscrito e impresso - de imagem digitalizada
+title: Reconhecer texto impresso, manuscritos - de imagem digitalizada
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados com o reconhecimento de manuscrito e impresso texto em imagens usando a API de imagem digitalizada.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: b23140eef4de904fb862253b6511b6fc2b1ce6dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338105"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582274"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer impressos e texto manuscrito
 
 Imagem digitalizada pode detetar e extrair texto impresso ou manuscrito de imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, letras e quadros de comunicações.
 
-Reconhecimento de texto economiza tempo e esforço. Pode ser mais produtivos ao colocar uma imagem de texto em vez de o transcrever. Reconhecimento de texto possibilita a digitalização de notas. Este digitalização permite que implemente a pesquisa rápida e fácil. Também reduz a aglomeração de papel.
+Reconhecimento de texto economiza tempo e esforço. Pode ser mais produtivos ao colocar uma imagem de texto em vez de o transcrever. Reconhecimento de texto possibilita a digitalização de notas. Esta digitalização permite-lhe implementar uma pesquisa rápida e fácil. Também reduz a aglomeração de papel.
 
 ## <a name="text-recognition-requirements"></a>Requisitos de reconhecimento de texto
 

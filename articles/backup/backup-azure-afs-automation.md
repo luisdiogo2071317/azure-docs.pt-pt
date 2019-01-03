@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318711"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632640"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Utilize o PowerShell para criar cópias de segurança e restaurar partilhas de ficheiros do Azure
 
@@ -34,11 +34,11 @@ Para ver a referência de cmdlets do PowerShell Recoveryservices, consulte a [c�
 ## <a name="setup-and-registration"></a>Configuração e registo
 
 > [!NOTE]
-> Conforme observado [aqui](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), suporte para novos recursos no final do módulo AzureRM em Novembro de 2018. Portanto, estamos oferecendo suporte para cópia de segurança de partilhas de ficheiros do Azure com o novo módulo de "Az" PS. Estamos também a planear a carregar a versão de disponibilidade geral do módulo de Az.
+> Conforme observado [aqui](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), suporte para novos recursos no final do módulo AzureRM em Novembro de 2018. Portanto, estamos oferecendo suporte para cópia de segurança de partilhas de ficheiros do Azure com o novo módulo de "Az" PS agora em GA.
 
 Para começar:
 
-1. [Baixe a versão mais recente do PowerShell de "Az"](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (a versão mínima necessária é: 0.7.0)
+1. [Baixe a versão mais recente do PowerShell de "Az"](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (a versão mínima necessária é: 1.0.0)
 
 2. Encontre os cmdlets do PowerShell de cópia de segurança do Azure disponíveis, escrevendo o seguinte comando:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+O NewAFSPolicy demora um backup diário e os retém durante 30 dias.
 
 ### <a name="enable-protection"></a>Ativar a proteção
 

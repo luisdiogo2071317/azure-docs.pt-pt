@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829415"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634718"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Ligar o seu dispositivo para o acelerador de solução de monitorização remota (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra-lhe como ligar um dispositivo físico para o acelerador de solução de monitorização remota.
+Este tutorial mostra-lhe como ligar um dispositivo real para o acelerador de solução de monitorização remota.
 
 Tal como acontece com aplicativos mais incorporados que são executadas em dispositivos restritos, o código de cliente para a aplicação de dispositivo é escrito em C. Neste tutorial, vai criar a aplicação de cliente de dispositivo num computador a executar o Windows.
+
+Se preferir simular um dispositivo, veja [criar e teste de um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +35,7 @@ O [código de exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samp
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Baixe o código-fonte e preparar o projeto
 
-Para preparar o projeto, clonar ou transferir os [repositório Azure IoT SDKs de C](https://github.com/Azure/azure-iot-sdk-c) do GitHub.
+Para preparar o projeto, [clonar o repositório de SDKs do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) do GitHub.
 
 O exemplo está localizado no **amostras/soluções/remote_monitoring_client** pasta.
 

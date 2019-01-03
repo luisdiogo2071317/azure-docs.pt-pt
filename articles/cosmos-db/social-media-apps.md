@@ -1,5 +1,5 @@
 ---
-title: 'Padrão de design do Azure Cosmos DB: aplicações de redes sociais'
+title: 'Padrão de design do Azure Cosmos DB: Aplicações de redes sociais'
 description: Saiba mais sobre um padrão de design de redes sociais ao tirar partido da flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure.
 keywords: aplicações de redes sociais
 services: cosmos-db
@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083976"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726787"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
 
 Vivendo numa sociedade em massa interconectada significa que, em algum momento na vida, se parte de um **rede social**. Utilizar redes sociais para manter-se em contacto com amigos, colegas, família, ou, às vezes, para partilhar a sua paixão com pessoas com interesses comuns.
 
-Como engenheiros ou desenvolvedores, talvez tenha se perguntado como estas redes armazenar e interligar os seus dados. Ou pode ter até mesmo foi a tarefa de criar ou arquitetar uma nova rede social para um mercado de nicho específico. Que é quando surge a questão importante: como a todos esses dados são armazenados?
+Como engenheiros ou desenvolvedores, talvez tenha se perguntado como estas redes armazenar e interligar os seus dados. Ou pode ter até mesmo foi a tarefa de criar ou arquitetar uma nova rede social para um mercado de nicho específico. Que é quando surge a questão significativa: Como são armazenados todos esses dados?
 
 Suponha que está criando uma nova e brilhante rede social, onde os utilizadores podem postar artigos com suporte de dados relacionados, como imagens, vídeos ou músicas até mesmo. Os utilizadores podem comentar postagens e entregar pontos para classificações. Haverá um feed de postagens que os utilizadores irão ver e interagir com na página de aterrissagem do site principal. Este método não parece complexo, primeiro, mas para simplificar, vamos pare por aí. (Me aprofundar em feeds do usuário personalizada afetados por relações, mas ele faz mais do que o objetivo deste artigo.)
 
@@ -100,7 +100,7 @@ A criação de feeds é apenas uma questão de criação de documentos que podem
 
 Poderia ter um fluxo de "mais recente" com postagens ordenadas por data de criação. Ou poderia ter um fluxo "mais interessantes" com esses posts com gostos mais nas últimas 24 horas. Ainda pode implementar um fluxo personalizado para cada utilizador com base numa lógica como seguidores e interesses. Ainda seria uma lista de publicações. É uma questão de como criar estas listas, mas o desempenho de leitura permanece unhindered. Depois de adquirir uma destas listas, emite uma consulta única para o Cosmos DB utilizando a [no operador](how-to-sql-query.md#WhereClause) para obter páginas de postagens por vez.
 
-Os fluxos de feeds podem ser criados usando [dos serviços de aplicações do Azure](https://azure.microsoft.com/services/app-service/) processos de fundo: [Webjobs](../app-service/web-sites-create-web-jobs.md). Quando é criada uma publicação, o processamento em segundo plano pode ser acionado, utilizando [armazenamento do Azure](https://azure.microsoft.com/services/storage/) [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e Webjobs acionados com o [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando o após a propagação dentro de fluxos com base na sua própria lógica personalizada.
+Os fluxos de feeds podem ser criados usando [dos serviços de aplicações do Azure](https://azure.microsoft.com/services/app-service/) processos de fundo: [Webjobs](../app-service/webjobs-create.md). Quando é criada uma publicação, o processamento em segundo plano pode ser acionado, utilizando [armazenamento do Azure](https://azure.microsoft.com/services/storage/) [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e Webjobs acionados com o [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando o após a propagação dentro de fluxos com base na sua própria lógica personalizada.
 
 Pontos e gostos ao longo de uma postagem podem ser processados de forma diferida usando essa mesma técnica para criar um ambiente eventualmente consistente.
 
@@ -206,15 +206,15 @@ Para obter mais informações sobre o Azure Search, pode visitar o [guia para pe
 
 ## <a name="the-underlying-knowledge"></a>O conhecimento subjacente
 
-Depois de armazenar esse conteúdo que aumenta e que cresce todos os dias, pode achar a pensar: o que posso fazer com todos esse fluxo de informações dos meus utilizadores?
+Depois de armazenar esse conteúdo que aumenta e que cresce todos os dias, pode achar pensamento: O que posso fazer com todos esse fluxo de informações dos meus utilizadores?
 
-A resposta é simples: colocá-lo a funcionar e aprender com ele.
+A resposta é simples: Colocá-lo a funcionar e aprender com ele.
 
 Mas o que aprender? Alguns exemplos de fácil incluem [a análise de sentimentos](https://en.wikipedia.org/wiki/Sentiment_analysis), o conteúdo recomendações com base nas preferências de um utilizador, ou até mesmo um automatizada o content moderator que certifica-se de que o conteúdo publicado pela rede social é seguro para a família.
 
 Agora que tenho é conectado, provavelmente o achará terá algumas doutorado em ciência matemáticas para extrair estes padrões e informações das bases de dados simples e de ficheiros, mas não seria certo.
 
-[O Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que faz parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço cloud totalmente gerido que permite-lhe criar fluxos de trabalho usando algoritmos numa interface de arrastar e largar simple, código de seus próprios algoritmos no [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), ou usar alguns dos já incorporado e pronto a utilizar APIs como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator, ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[O Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que faz parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço cloud totalmente gerido que permite-lhe criar fluxos de trabalho usando algoritmos numa interface de arrastar e largar simple, código de seus próprios algoritmos no [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), ou usar alguns dos já incorporado e pronto a utilizar APIs como: [Análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [do Content Moderator, ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Para obter qualquer um desses cenários de Machine Learning, pode usar [do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) ingerir as informações de diferentes origens. Também pode utilizar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que pode ser processada por Azure Machine Learning.
 

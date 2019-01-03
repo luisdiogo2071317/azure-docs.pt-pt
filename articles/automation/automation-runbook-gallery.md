@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283302"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634325"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de módulos e Runbooks de automatização do Azure
 Em vez de criar seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já foram criadas pela Microsoft e pela Comunidade.  Pode utilizar estes cenários sem modificações ou pode usá-los como um ponto de partida e editá-los às suas necessidades específicas.
+
+> [!NOTE]
+> A nova [módulo do Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) não são suportados na automatização do Azure. Quaisquer scripts transferidos a partir da galeria do PowerShell com os cmdlets que não funcionará na automatização do Azure.
 
 Pode obter runbooks a partir da [Galeria de Runbooks](#runbooks-in-runbook-gallery) e módulos da [galeria do PowerShell](#modules-in-powerShell-gallery).  Também pode contribuir para a Comunidade por meio do compartilhamento de cenários que desenvolver, consulte [adicionar um runbook na Galeria](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 

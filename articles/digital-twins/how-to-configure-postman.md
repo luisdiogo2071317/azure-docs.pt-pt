@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: 5c06e38bf5a51744a4878a7acb6c365d7e812a61
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711145"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975020"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
 
@@ -31,7 +31,7 @@ Configure a sua aplicação do Azure AD para utilizar o fluxo de concessão impl
 
 1. Siga os passos em [este guia de introdução](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD do tipo nativo. Ou pode reutilizar um registo de aplicação nativa existente.
 
-1. Sob **permissões obrigatórias**, introduza `Azure Digital Twins` e selecione **permissões delegadas**. Em seguida, selecione **conceder permissões**.
+1. Sob **permissões obrigatórias**, selecione **Add** e introduza **duplos Digital do Azure** sob **adicionar acesso à API**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa. Em seguida, selecione **conceder permissões > permissões delegadas** e **feito**.
 
     ![Api de adicionar registos de aplicações do Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -53,20 +53,19 @@ Em seguida, definir e configurar o Postman para obter um token do Azure AD. Em s
 1. Certifique-se de que sua **URL de autorização** está correto. Deve demorar o formato:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | O nome do seu inquilino ou a organização | `microsoft` |
-    | YOUR_RESOURCE_ID | O ID de recurso | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Selecione o **autorização** separador, selecione **OAuth 2.0**e, em seguida, selecione **obter novo Token de acesso**.
 
     | Campo  | Valor |
     |---------|---------|
     | Tipo de Concessão | `Implicit` |
-    | Url de chamada de retorno | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | Url de chamada de retorno | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Utilize o **URL de autorização** do passo 2 acima |
     | ID de Cliente | Utilize o **ID da aplicação** para a aplicação do Azure AD que tenha sido criada ou reobjetivada da seção anterior |
     | Âmbito | Deixar em branco |

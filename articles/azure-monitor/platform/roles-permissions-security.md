@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 310a349aad4e6626033ca2f378e7c1b0ffa96560
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389099"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584382"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
@@ -26,10 +26,10 @@ As pessoas atribuídas a função de leitor de monitorização podem ver todos o
 
 * Ver dashboards de monitorização no portal e crie seus próprios dashboards de monitorização privados.
 * Ver as regras de alerta definidas no [alertas do Azure](../../azure-monitor/platform/alerts-overview.md)
-* Consultas de métricas de utilização a [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [cmdlets do PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md), ou [CLI de várias plataformas](../../azure-monitor/platform/cli-samples.md).
+* Consultas de métricas de utilização a [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [cmdlets do PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md), ou [CLI de várias plataformas](../../azure-monitor/platform/cli-samples.md).
 * Consulte o registo de atividades com o portal, API de REST do Azure Monitor, cmdlets do PowerShell ou CLI de várias plataformas.
-* Ver os [das definições de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
-* Ver os [perfil de registo](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma subscrição.
+* Ver os [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) para um recurso.
+* Ver os [perfil de registo](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para uma subscrição.
 * Ver definições de dimensionamento automático.
 * Ver atividade de alerta e definições.
 * Acessar dados do Application Insights e visualizar dados no Analytics de IA.
@@ -49,8 +49,8 @@ As pessoas atribuídas a função de leitor de monitorização podem ver todos o
 As pessoas atribuídas a função de Contribuidor de monitorização podem ver todos os dados de monitorização numa subscrição e criar ou modificar definições de monitorização, mas não é possível modificar quaisquer outros recursos. Esta função é um superconjunto da função do leitor de monitorização e é adequada para os membros da equipe de monitorização ou fornecedores de serviços geridos que, além das permissões acima, também tem de ser capaz de uma organização:
 
 * Publica dashboards de monitorização como um dashboard partilhado.
-* Definir [das definições de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um resource.*
-* Definir o [perfil de registo](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma subscrição. *
+* Definir [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) para um resource.*
+* Definir o [perfil de registo](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para uma subscrição. *
 * Defina a atividade de regras de alerta e definições através de [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Crie testes web do Application Insights e componentes.
 * Listar chaves partilhada da área de trabalho de Log Analytics.

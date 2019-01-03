@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166647"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744943"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelação de dados de documento para bases de dados NoSQL
 
@@ -71,7 +71,7 @@ Agora vamos dar uma olhada em como podemos deve modelar os mesmos dados como uma
         ] 
     }
 
-Usando a abordagem acima, temos agora **desnormalizada** a pessoa de registos onde podemos **embedded** todas as informações relacionadas com a esta pessoa, tais como os detalhes de contacto e os endereços, num único JSON documento.
+Usando a abordagem acima, temos agora **desnormalizada** a pessoa de registos onde podemos **embedded** todas as informações relacionadas com esta pessoa, tais como os detalhes de contacto e os endereços, num único JSON documento.
 Além disso, uma vez que não está se limita a um esquema fixo temos a flexibilidade para fazer coisas como ter totalmente os detalhes de contacto de formas diferentes. 
 
 A recuperação de um registo de pessoa completa da base de dados é agora uma única operação em relação a uma única coleção e de um único documento de leitura. Atualizar um registo de pessoa, com seus detalhes de contacto e os endereços, também é uma operação de escrita única em relação a um único documento.
@@ -172,7 +172,7 @@ Tome este fragmento JSON.
         ]
     }
 
-Isso pode representar o portfólio de ações de uma pessoa. Escolhemos incorporar as informações das ações para cada documento de Portfólio. Num ambiente onde os dados relacionados são alterados muitas vezes, como uma ação de aplicação de comércio, incorporar dados alterados com frequência será significa que está constantemente a atualizar cada documento de Portfólio sempre que uma ação é cedência das.
+Isso pode representar o portfólio de ações de uma pessoa. Escolhemos incorporar as informações das ações em cada documento de Portfólio. Num ambiente onde os dados relacionados são alterados muitas vezes, como uma ação de aplicação de comércio, incorporar dados alterados com frequência será significa que está constantemente a atualizar cada documento de Portfólio sempre que uma ação é cedência das.
 
 Stock *zaza* podem ser cedência das muitas centenas de vezes num único dia e milhares de usuários podem ter *zaza* em seu portfólio. Com um modelo de dados como o anterior que teríamos para atualizar vários milhares de documentos de Portfólio, muitas vezes todos os dias que leva a um sistema que não dimensiona bem. 
 
@@ -259,7 +259,7 @@ Se observarmos o JSON abaixo que modela os publicadores e livros.
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 Se o número de livros por publicador é pequeno com crescimento limitado, em seguida, armazenar a referência do livro dentro do documento de fabricante poderá ser útil. No entanto, se o número de livros por publicador for imensos, em seguida, esse modelo de dados levaria a matrizes mutáveis, cada vez mais, tal como o documento de publicador do exemplo acima. 
 
@@ -278,7 +278,7 @@ Mudar as coisas um pouco resultaria num modelo que ainda representa os mesmos da
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 No exemplo acima, podemos ter removido a coleção não vinculada no documento de publicador. Em vez disso, temos apenas uma referência para o publicador em cada documento do livro.
 
@@ -298,7 +298,7 @@ Pode ser tentado a replicar a mesma coisa usando os documentos e produzir um mod
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Considere o seguinte.
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 Agora, se eu tivesse um autor, eu sei que imediatamente os livros que escreveram e por outro lado se eu tivesse um documento de livro carregado eu saberia os ids do author(s). Isso poupa essa consulta intermediária em relação a tabela de associação reduzindo o número de servidor de seu aplicativo deve tomar de ida e volta. 
 
@@ -381,7 +381,7 @@ Se examinar o documento do livro, podemos ver alguns campos de interessante quan
 
 No exemplo, existem **previamente calculado agregações** valores para guardar o processamento dispendioso numa operação de leitura. No exemplo, alguns dos dados incorporados ao documento de autor são os dados que são calculados em tempo de execução. Sempre que for publicado um novo livro, um documento de livro é criado **e** o campo de countOfBooks é definido como um valor calculado com base no número de documentos do livro que existem para um determinado autor. Essa otimização seria bom em sistemas pesados leitura onde podemos puder fazer cálculos em escritas para otimizar as leituras.
 
-A capacidade de ter um modelo com campos calculados previamente se tornou possível porque o Azure Cosmos DB suporta **transações de vários documentos**. Muitos arquivos de NoSQL não é possível fazer transações entre documentos e, portanto, as decisões de design, como "sempre incorporar tudo", devido a essa limitação de desenvolvimento. Com o Azure Cosmos DB, pode utilizar o servidor acionadores ou procedimentos armazenados, o que inserir livros e atualizar os autores tudo dentro de uma transação ACID. Agora não **ter** incorporar tudo num documento apenas para ter certeza de que os seus dados permanecem consistentes.
+A capacidade de ter um modelo com campos calculados previamente se tornou possível porque o Azure Cosmos DB suporta **transações de vários documentos**. Muitos arquivos de NoSQL não é possível fazer transações entre documentos e, portanto, as decisões de design, como "sempre incorporar tudo", devido a essa limitação de desenvolvimento. Com o Azure Cosmos DB, pode utilizar o servidor acionadores ou procedimentos armazenados, o que inserir livros e atualizar os autores tudo dentro de uma transação ACID. Agora não **ter** para incorporar tudo num documento apenas para ter certeza de que os seus dados permanecem consistentes.
 
 ## <a name="NextSteps"></a>Passos seguintes
 Maiores das novidades deste artigo estão compreender que dados de modelagem num mundo sem esquema são tão importantes quanto cada vez. 

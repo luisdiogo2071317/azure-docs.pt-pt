@@ -1,7 +1,7 @@
 ---
 title: Dados de utilização - Cloud Shell
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Saiba como obter as informações de utilização no Azure Cloud Shell LUIS.
+description: Saiba como obter o ponto final de informações de utilização de contagem no Azure Cloud Shell para LUIS de acessos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,21 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 703332ece0208856bfbedb852b4b1e985d157dc9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133484"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605961"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Dados de utilização para o serviço de LUIS do Azure Cloud Shell
+
+Saiba como obter o ponto final de informações de utilização de contagem no Azure Cloud Shell para LUIS de acessos.
+
 O portal do Azure permite-lhe utilizar cmdlets do PowerShell para trabalhar com recursos de LUIS. 
 
 Estes cmdlets permitem-lhe [crie](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) uma assinatura do LUIS, obtenha informações sobre a subscrição, incluindo [utilização](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), e [remover](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) a subscrição. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Conta de armazenamento na cloud shell e autenticação
+
 Para poder utilizar o PowerShell no portal do Azure [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), tem de ter uma conta de armazenamento do Azure. Se não tiver uma [conta de armazenamento](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), será solicitado a criar uma. A conta de armazenamento permite-lhe guardar os scripts do PowerShell no cloud shell.  
 
 Também tem de autenticar para o Azure no cloud shell para aceder a quaisquer recursos. 
@@ -31,6 +35,7 @@ Também tem de autenticar para o Azure no cloud shell para aceder a quaisquer re
 Depois de ter uma conta de armazenamento e são autenticados, pode executar cmdlets do PowerShell.
 
 ## <a name="open-cloud-shell"></a>Abrir o Cloud Shell
+
 Quando utiliza o Azure portal cloud shell, são sempre a versão mais recente do PowerShell. 
 
 Utilize o **Launch Cloud Shell** botão para abrir o Cloud Shell ou abra um browser com [ https://shell.azure.com ](https://shell.azure.com). Selecione Power Shell como o ambiente. Se não tiver uma conta de armazenamento do Azure, terá de criar uma. 

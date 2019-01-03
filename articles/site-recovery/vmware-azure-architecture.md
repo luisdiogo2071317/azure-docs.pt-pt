@@ -3,15 +3,16 @@ title: VMware para a arquitetura da recuperação após desastre do Azure no Azu
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada ao definir a recuperação após desastre de VMs de VMware no local para o Azure com o Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 962ced808f97dd1fea3805fa8c953e6d7563cd17
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1c47f9d511cd6461ef5a31f308669eba751d1de4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871749"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976006"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para a arquitetura da recuperação após desastre do Azure
 
@@ -25,7 +26,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
 **Azure** | Uma subscrição do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados de VMs no local são armazenados na conta de armazenamento. VMs do Azure são criadas com os dados replicados quando executar uma ativação pós-falha do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
-**Máquina do servidor de configuração** | Uma única máquina no local. Recomendamos que executá-la como uma VM de VMware que podem ser implementadas a partir de um modelo do OVF transferido.<br/><br/> A máquina é executada todos os componentes do Site Recovery no local, que incluem o servidor de configuração, o servidor de processos e o servidor de destino mestre. | **Servidor de configuração**: coordena as comunicações entre no local e o Azure e gere a replicação de dados.<br/><br/> **Servidor de processos**: instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. O servidor de processos também instala o serviço de mobilidade de recuperação de sites do Azure nas VMs que pretende replicar, e efetua a deteção automática de máquinas no local. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.<br/><br/> **Servidor de destino mestre**: instalado por predefinição no servidor de configuração. Ele processa dados de replicação durante a reativação pós-falha do Azure. Para implementações maiores, pode adicionar um servidor de destino mestre adicionais, em separado para a reativação pós-falha.
+**Máquina do servidor de configuração** | Uma única máquina no local. Recomendamos que executá-la como uma VM de VMware que podem ser implementadas a partir de um modelo do OVF transferido.<br/><br/> A máquina é executada todos os componentes do Site Recovery no local, que incluem o servidor de configuração, o servidor de processos e o servidor de destino mestre. | **Servidor de configuração**: Coordena as comunicações entre no local e o Azure e gere a replicação de dados.<br/><br/> **Servidor de processos**: Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. O servidor de processos também instala o serviço de mobilidade de recuperação de sites do Azure nas VMs que pretende replicar, e efetua a deteção automática de máquinas no local. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.<br/><br/> **Servidor de destino mestre**: Instalado por predefinição no servidor de configuração. Ele processa dados de replicação durante a reativação pós-falha do Azure. Para implementações maiores, pode adicionar um servidor de destino mestre adicionais, em separado para a reativação pós-falha.
 **Servidores de VMware** | VMware VMs são alojadas em servidores do ESXi do vSphere no local. Recomendamos um servidor vCenter para gerir os anfitriões. | Durante a implementação da recuperação de Site, pode adicionar servidores VMware para o Cofre dos serviços de recuperação.
 **Máquinas replicadas** | O serviço de mobilidade está instalado em cada VM de VMware, replicar. | Recomendamos que permite que a instalação automática do servidor de processos. Em alternativa, pode instalar o serviço manualmente ou utilizar um método de implementação automatizada, como o System Center Configuration Manager.
 
@@ -70,14 +71,14 @@ Após a replicação está configurada e executar um teste de recuperação apó
 2. Depois de acionar a ativação pós-falha inicial, confirmá-lo a começar a aceder à carga de trabalho da VM do Azure.
 3. Quando o seu site no local primário estiver novamente disponível, pode se preparar para reativação pós-falha. Para efetuar a reativação pós-falha, terá de configurar uma infraestrutura de reativação pós-falha, incluindo:
 
-    * **Servidor de processo temporário no Azure**: para reativação pós-falha do Azure, configurar uma VM do Azure para atuar como um servidor de processos para processar a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
-    * **Ligação VPN**: para efetuar a reativação pós-falha, terá de uma ligação de VPN (ou ExpressRoute) da rede do Azure para o site no local.
-    * **Servidor de destino principal separado**: por predefinição, o servidor de destino mestre foi instalado com o servidor de configuração do VM de VMware no local processa a reativação pós-falha. Se precisar de efetuar a ativação pós-falha grandes volumes de tráfego, configure um servidor de destino principal independente no local para esta finalidade.
-    * **Política de reativação pós-falha**: para replicar de novo para o site no local, precisa de uma política de reativação pós-falha. Esta política é criada automaticamente quando cria uma política de replicação no local para o Azure.
+    * **Servidor de processo temporário no Azure**: Para efetuar a ativação pós-falha do Azure, configurar uma VM do Azure para atuar como um servidor de processos para processar a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
+    * **Ligação VPN**: Para efetuar a reativação pós-falha, terá uma ligação VPN (ou ExpressRoute) da rede do Azure para o site no local.
+    * **Servidor de destino principal separado**: Por predefinição, o servidor de destino mestre foi instalado com o servidor de configuração do VM de VMware no local processa a reativação pós-falha. Se precisar de efetuar a ativação pós-falha grandes volumes de tráfego, configure um servidor de destino principal independente no local para esta finalidade.
+    * **Política de reativação pós-falha**: Para replicar para o seu site no local, terá de uma política de reativação pós-falha. Esta política é criada automaticamente quando cria uma política de replicação no local para o Azure.
 4. Depois dos componentes estão em vigor, a reativação pós-falha ocorre em três ações:
 
     - Fase 1: Voltar a proteger as VMs do Azure para que eles replicar a partir do Azure para as VMs do VMware no local.
-    -  Fase 2: Executar uma ativação pós-falha para o site no local.
+    -  Fase 2: Execute uma ativação pós-falha para o site no local.
     - Fase 3: Depois de tem realizarão a reativação pós-falha cargas de trabalho, reativar a replicação para as VMs no local.
     
  

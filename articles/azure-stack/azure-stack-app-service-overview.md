@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353027"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607948"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Serviço de aplicações do Azure no Azure Stack é uma oferta de plataforma-como-serviço (PaaS) do Microsoft Azure está disponível para o Azure Stack. O serviço ativa a seus clientes internos ou externos criar as funções do Azure, API e web, aplicativos para qualquer plataforma ou dispositivo. Podem integrar as suas aplicações com aplicações no local e Automatize os processos empresariais. Operadores de nuvem do Azure Stack podem executar aplicações de cliente em totalmente gerido de máquinas virtuais (VMs), com a sua escolha de recursos de mV partilhados ou VMs dedicadas.
+Serviço de aplicações do Azure no Azure Stack é uma oferta de plataforma-como-serviço (PaaS) do Microsoft Azure está disponível para o Azure Stack. O serviço ativa a seus clientes internos ou externos criar as funções do Azure, API e web, aplicativos para qualquer plataforma ou dispositivo. Podem integrar as suas aplicações em aplicações no local e automatizar os processos empresariais. Os operadores de cloud do Azure Stack podem executar aplicações dos clientes em máquinas virtuais (VMs) totalmente geridas e escolher os recursos de VM partilhados ou VMs dedicadas que preferem.
 
 Serviço de aplicações do Azure permite-lhe automatizar processos empresariais e alojar APIs da nuvem. Como um serviço integrado único, o serviço de aplicações do Azure permite-lhe combinar vários componentes, como Web sites, as APIs REST e processos de negócios, numa única solução.
 
@@ -33,16 +33,16 @@ Serviço de aplicações do Azure permite-lhe automatizar processos empresariais
 
 São a seguir apresentadas algumas funcionalidades-chave e capacidades do App Service:
 
-- **Várias linguagens e arquiteturas**: serviço de aplicações tem suporte de primeira classe para ASP.NET, node. js, Java, PHP e Python. Pode também executar o Windows PowerShell e outros scripts ou executáveis em VMs do App Service.
-- **Otimização de DevOps**: configurar a integração contínua e implementação com o GitHub, local Git ou o BitBucket. Pode promover atualizações através de ambientes de teste e gerir as suas aplicações no serviço de aplicações com o Azure PowerShell ou a interface de linha de comandos para várias plataformas (CLI).
-- **Integração do Visual Studio**: ferramentas dedicadas do Visual Studio simplificam o trabalho de criação e implantação de aplicativos.
+- **Várias linguagens e arquiteturas**: Serviço de aplicações tem suporte de primeira classe para ASP.NET, node. js, Java, PHP e Python. Pode também executar o Windows PowerShell e outros scripts ou executáveis em VMs do App Service.
+- **Otimização de DevOps**: Configure a integração contínua e implementação com o GitHub, local Git ou o BitBucket. Pode promover atualizações através de ambientes de teste e gerir as suas aplicações no serviço de aplicações com o Azure PowerShell ou a interface de linha de comandos para várias plataformas (CLI).
+- **Integração do Visual Studio**: Ferramentas dedicadas do Visual Studio simplificam o trabalho de criação e implantação de aplicativos.
 
 ## <a name="app-types-in-app-service"></a>Tipos de aplicação no App Service
 
 Serviço de aplicações oferece vários tipos de aplicação, sendo que cada um concebido para alojar uma carga de trabalho específica:
 
-- [Aplicações Web](../app-service/app-service-web-overview.md) para alojar sites e aplicações web.
-- [Aplicações API](../app-service/app-service-web-overview.md) para alojar REST APIs.
+- [Aplicações Web](../app-service/overview.md) para alojar sites e aplicações web.
+- [Aplicações API](../app-service/overview.md) para alojar REST APIs.
 - Funções do Azure para alojar o evento condicionada por cargas de trabalho sem servidor.
 
 A palavra *aplicação* refere-se ao alojamento de recursos dedicados à execução de uma carga de trabalho. Levando *aplicação web* como por exemplo, está provavelmente habituado a pensar de uma aplicação web, como os recursos de computação e o aplicativo de código essa funcionalidade de entrega em conjunto para um browser. No serviço de aplicações, uma aplicação web é o recurso de computação do Azure Stack fornece para alojar o código da aplicação.

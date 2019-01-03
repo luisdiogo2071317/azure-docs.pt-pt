@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099567"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994339"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
 
-Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado nos [armazenamento de Blobs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/en-us/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
+Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado nos [armazenamento de Blobs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Concebido para análise de macrodados de enterprise
 
@@ -37,13 +37,13 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos de geração 2 de armazenamento do Data Lake
 
--   **Acesso compatível do Hadoop**: geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
+-   **Acesso compatível do Hadoop**: Geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
 
 -   **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake suporta permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas através do Explorador de armazenamento ou por meio de estruturas como o Hive e do Spark.
 
--   **Custo-eficiência**: geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md).
+-   **Custo-eficiência**: Geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md).
 
--   **Controlador otimizada**: é o controlador de abfs [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
+-   **Controlador otimizada**: É o controlador de abfs [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
 
 ### <a name="scalability"></a>Escalabilidade
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341411"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713236"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnósticos no funções duráveis (funções do Azure)
 
@@ -25,7 +25,7 @@ Existem várias opções para diagnosticar problemas com [funções duráveis](d
 
 [O Application Insights](../../application-insights/app-insights-overview.md) é a forma recomendada para fazer o diagnóstico e monitorização nas funções do Azure. O mesmo se aplica às funções durável. Para uma descrição geral de como tirar partido do Application Insights na sua aplicação de funções, consulte [as funções do Azure de Monitor](../functions-monitoring.md).
 
-A extensão de durável de funções do Azure também emite *acompanhar eventos* que permitem-lhe rastrear a execução de ponto-a-ponto de uma orquestração. Estes podem ser encontrados e consultados usando o [Application Insights Analytics](../../application-insights/app-insights-analytics.md) ferramenta no portal do Azure.
+A extensão de durável de funções do Azure também emite *acompanhar eventos* que permitem-lhe rastrear a execução de ponto-a-ponto de uma orquestração. Estes podem ser encontrados e consultados usando o [Application Insights Analytics](../../azure-monitor/app/analytics.md) ferramenta no portal do Azure.
 
 ### <a name="tracking-data"></a>Dados de controlo
 
@@ -36,7 +36,7 @@ Cada evento de ciclo de vida de uma instância da orquestração faz com que um 
 * **slotName**: O [bloco de implementação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) no qual a aplicação de função atual está em execução. Isto é útil quando utilizar blocos de implementação para a versão suas orquestrações.
 * **functionName**: O nome da função de orquestrador ou atividade.
 * **functionType**: O tipo de função, como **Orchestrator** ou **atividade**.
-* **instanceId**: O ID exclusivo da instância de orquestração.
+* **InstanceId**: O ID exclusivo da instância de orquestração.
 * **estado**: O estado de execução do ciclo de vida da instância. Valores válidos incluem:
   * **Agendado**: A função foi agendada para execução, mas ainda não começou ainda em execução.
   * **Iniciado**: A função foi iniciada em execução, mas não tem ainda aguardada ou concluída.

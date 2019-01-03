@@ -4,15 +4,16 @@ description: Resume os sistemas operativos suportados e componentes para recuper
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 12/12/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 7593183093a722f55b2bd638ef551fb1343433c4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5d457a6b7eb96486a24ca53d9093ffa4f573b774
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323478"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974425"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -48,12 +49,12 @@ Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenç
 Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 |
 Região do sistema operativo | Inglês (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") deve ser instalado.
-Funções do Windows Server | Não ative: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
-Políticas de grupo| Não ative: <br> -Impedi o acesso ao prompt de comando. <br> -Impedi o acesso a ferramentas de edição do registo. <br> -Lógica para anexos de ficheiros de fidedignidade. <br> – Ative a execução do Script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Certifique-se de que:<br/><br/> -Não é necessário um Web site predefinido do preexistente <br> -Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br> -Não tiverem preexistente de Web site/aplicação em escuta na porta 443<br>
+Funções do Windows Server | Não ative: <br/> - Active Directory Domain Services <br/>- Serviços de Informação da Internet <br/> - Hyper-V |
+Políticas de grupo| Não ative: <br/> -Impedi o acesso ao prompt de comando. <br/> -Impedi o acesso a ferramentas de edição do registo. <br/> -Lógica para anexos de ficheiros de fidedignidade. <br/> – Ative a execução do Script. <br/> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Certifique-se de que:<br/><br/> -Não é necessário um Web site predefinido do preexistente <br/> -Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br/> -Não tiverem preexistente de Web site/aplicação em escuta na porta 443<br/>
 Tipo NIC | VMXNET3 (quando implementado como uma VM VMware)
 Tipo de endereço IP | Estático
-Portas | 443 utilizado para a orquestração de canal de controlo)<br>9443 utilizado para o transporte de dados
+Portas | 443 utilizado para a orquestração de canal de controlo)<br/>9443 utilizado para o transporte de dados
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
@@ -62,8 +63,8 @@ Recuperação de sites suporta a replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Definições do computador | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
-Sistema de operativo do Windows | 64-bit Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). </br></br> O servidor Nano do Windows 2016 não é suportado.
-Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>Servidor de Ubuntu 14.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3) <br/><br/></br>-Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.</br></br> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código aberto no Azure. Recuperação de sites orquestra a ativação pós-falha para executar servidores Linux no Azure. No entanto fornecedores do Linux podem limitar o suporte para apenas as versões de distribuição que não atingiram o fim-de-vida.<br/><br/> -Em distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.<br/><br/> -Atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.<br/><br/> -Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 5.11 devem ter o [componentes de serviços de integração do Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalado para as máquinas efetuar o arranque no Azure.
+Sistema de operativo do Windows | 64-bit Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. <br/><br/>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). <br/><br/> O servidor Nano do Windows 2016 não é suportado.
+Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>Servidor de Ubuntu 14.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * <br/><br/>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3) <br/><br/><br/>-Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.<br/><br/> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código aberto no Azure. Recuperação de sites orquestra a ativação pós-falha para executar servidores Linux no Azure. No entanto fornecedores do Linux podem limitar o suporte para apenas as versões de distribuição que não atingiram o fim-de-vida.<br/><br/> -Em distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.<br/><br/> -Atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.<br/><br/> -Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 5.11 devem ter o [componentes de serviços de integração do Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalado para as máquinas efetuar o arranque no Azure.
 
 
 
@@ -99,9 +100,9 @@ Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.64-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default<br/><br/>4.4.73-5-default SP3 para 4.4.156-94.64-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default<br/><br/>4.4.73-5-default SP3 para 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default<br/><br/>4.4.73-5-default SP3 para 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Armazenamento de convidado/sistemas de ficheiros do Linux
 
@@ -112,9 +113,11 @@ Gestor de volumes | Antes de [versão 9.20](https://support.microsoft.com/en-in/
 Dispositivos de armazenamento Paravirtualizados | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos de e/s de fila multi bloco | Não suportado.
 Servidores físicos com o controlador de armazenamento de HP CCISS | Não suportado.
+
+Convenção de nomenclatura do ponto de montagem/dispositivo | Nome do dispositivo ou nome do ponto de montagem deve ser exclusivo. Certifique-se de que não existem dois pontos de montagem/dispositivos têm nomes maiúsculas de minúsculas. </br> Exemplo: Dois dispositivos da mesma máquina virtual como de nomenclatura *device1* e *Device1* não é permitida.
 Diretórios | Antes de [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Os seguintes diretórios (se definido como separados partições /-sistemas de ficheiros) todos têm de estar no mesmo disco de SO no servidor de origem: / (raiz), /boot, /usr, /usr/local., /var, /etc.</br>2. /boot deve estar numa partição de disco e não ser um volume LVM.<br/><br/> Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e posteriores, acima restrições não se aplicam.
-Requisitos de espaço livre| 2 GB na partição /root <br/><br/> 250 MB na pasta de instalação
-XFSv5 | Funcionalidades de XFSv5 em sistemas de ficheiros XFS, por exemplo, soma de verificação de metadados, são suportadas a partir do serviço de mobilidade versão 9.10 ou superior. Utilize o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype é definido como 1, em seguida, XFSv5 funcionalidades estão em utilização.
+
+Libertar os requisitos de espaço | 2 GB na partição /root <br/><br/> 250 MB na pasta de instalação XFSv5 | Funcionalidades de XFSv5 em sistemas de ficheiros XFS, por exemplo, soma de verificação de metadados, são suportadas a partir do serviço de mobilidade versão 9.10 ou superior. Utilize o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype é definido como 1, em seguida, XFSv5 funcionalidades estão em utilização.
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
@@ -163,7 +166,7 @@ Anfitrião de vSAN | Sim para VMware<br/><br/> N/d para servidores físicos
 Multipath i de anfitrião (MPIO) | Sim, testado com o Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes virtuais do anfitrião (VVols) | Sim para VMware<br/><br/> N/d para servidores físicos
 VMDK/servidor convidado | Sim
-Servidor de convidado/EFI/UEFI| Parcial (migração para o Azure para o Windows Server 2012 e posterior) </br></br> Consulte a nota no final da tabela
+Servidor de convidado/EFI/UEFI| Parcial (migração para o Azure para o Windows Server 2012 e posterior) <br/><br/> Consulte a nota no final da tabela
 Disco de cluster partilhado do servidor/convidado | Não
 Disco de convidado/servidor encriptado | Não
 Convidado/servidor NFS | Não
@@ -172,7 +175,7 @@ Convidado/servidor RDM | Sim<br/><br/> N/d para servidores físicos
 Servidor/convidado disco > 1 TB | Sim<br/><br/>Até 4095 GB
 Disco de convidado/servidor com o tamanho de setor físico de k lógicos e 4 de 4K | Sim
 Disco de convidado/servidor com lógico de 4K e o tamanho de setor físico de 512 bytes | Sim
-Volume de convidado/servidor com o disco repartido > 4 TB <br><br/>Gestão de volumes lógicos (LVM)| Sim
+Volume de convidado/servidor com o disco repartido > 4 TB <br/><br/>Gestão de volumes lógicos (LVM)| Sim
 Servidor/convidado - espaços de armazenamento | Não
 Disco de acesso frequente Adicionar/Remover/servidor de convidado | Não
 Servidor/convidado - excluir o disco | Sim
@@ -218,8 +221,8 @@ As VMs no local que replica para o Azure tem de cumprir os requisitos de VM do A
 Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated-machines) para replicar máquinas. | Falha na verificação se não suportado.
 Arquitetura de sistema operativo convidado | 64 bits. | Falha na verificação se não suportado.
 Tamanho de disco do sistema operativo | Até 2048 GB. | Falha na verificação se não suportado.
-Número de discos do sistema operativo | 1 | Falha na verificação se não suportado.  
-Número de discos de dados | 64 ou menos. | Falha na verificação se não suportado.  
+Número de discos do sistema operativo | 1 | Falha na verificação se não suportado.
+Número de discos de dados | 64 ou menos. | Falha na verificação se não suportado.
 Tamanho do disco de dados | Até 4095 GB | Falha na verificação se não suportado.
 Placas de rede | São suportados vários adaptadores. |
 VHD partilhado | Não suportado. | Falha na verificação se não suportado.

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012577"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650512"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilize a API de REST do Apache Spark para submeter as tarefas remotas para um cluster do Spark do HDInsight
 
-Aprenda a usar [Apache Livy](https://livy.incubator.apache.org/), o [Apache Spark](https://spark.apache.org/) API REST, que é utilizado para submeter tarefas remotas para um cluster do Azure HDInsight Spark. Para obter documentação detalhada, consulte [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Aprenda a usar [Apache Livy](https://livy.incubator.apache.org/), o [Apache Spark](https://spark.apache.org/) API REST, que é utilizado para submeter tarefas remotas para um cluster do Azure HDInsight Spark. Para obter documentação detalhada, consulte [ https://livy.incubator.apache.org/ ](https://livy.incubator.apache.org/).
 
 Pode usar o Livy para executar o Spark interativa shells ou submeter as tarefas de lote para ser executado no Spark. Este artigo fala sobre a utilização do Livy para submeter trabalhos de lote. Os trechos de código neste artigo utilizam o cURL para fazer chamadas de REST API para o ponto de extremidade do Livy Spark.
 
@@ -172,7 +172,7 @@ Seguem-se alguns problemas que podem ocorrer durante o uso do Livy para submiss�
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Não é suportado utilizar um jar externo do armazenamento adicional
 
-**Problema:** se a sua tarefa do Spark do Livy referencia um jar externo da conta de armazenamento adicional associada ao cluster, a tarefa falha.
+**Problema:** Se a sua tarefa do Spark do Livy referencia um jar externo da conta de armazenamento adicional associada ao cluster, a tarefa falha.
 
 **Resolução:** Certifique-se de que o jar que pretende utilizar está disponível no armazenamento predefinida associado ao cluster do HDInsight.
 
@@ -182,7 +182,7 @@ Seguem-se alguns problemas que podem ocorrer durante o uso do Livy para submiss�
 
 ## <a name="next-step"></a>Passo seguinte
 
-* [Documentação da API de REST do Apache Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Documentação da API de REST do Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
 

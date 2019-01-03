@@ -1,24 +1,24 @@
 ---
-title: Indexação no Azure Cosmos DB MongoDB API
-description: Apresenta uma descrição geral das capacidades de indexação na API do MongoDB do Azure Cosmos DB.
+title: Indexar na API do Azure Cosmos DB para o MongoDB
+description: Apresenta uma visão geral das capacidades de indexação com a API do Azure Cosmos DB para o MongoDB.
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875302"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792287"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexar na API do MongoDB do Azure Cosmos DB
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexação com a API do Azure Cosmos DB do MongoDB
 
-A API do MongoDB do Azure Cosmos DB tira partido das capacidades de gestão automática de índices do Azure Cosmos DB. Como resultado, os utilizadores têm acesso às políticas de indexação predefinidas do Azure Cosmos DB. Assim, se o utilizador não tiver definido índices, ou não tiverem sido removidos índices, todos os campos serão automaticamente indexados por predefinição quando forem inseridos na coleção. Para a maioria dos cenários, recomendamos que utilize a política de indexação predefinida na conta.
+API do Azure Cosmos DB para o MongoDB tira partido das capacidades de gestão de índices automática do Cosmos DB. Como resultado, os utilizadores têm acesso às políticas do Cosmos DB de indexação predefinidas. Então, se não tiver definido pelo utilizador, ou tem sido removidos sem índices, em seguida, todos os campos serão automaticamente indexados por predefinição quando inserido numa coleção. Para a maioria dos cenários, recomendamos que utilize a política de indexação predefinida na conta.
 
 ## <a name="dropping-the-default-indexes"></a>Remover os índices predefinidos
 
@@ -97,5 +97,5 @@ O comando anterior irá causar a eliminação de todos os documentos na coleçã
 Atualmente, apenas é possível criar índices exclusivos quando a coleção não tiver documentos. As ferramentas de migração populares do MongoDB tentam criar os índices exclusivos após a importação dos dados. Para contornar este problema, é sugerido que os utilizadores criem manualmente as coleções correspondentes e os índices exclusivos, em vez de permitir a ferramenta de migração (para ```mongorestore```, este comportamento é conseguido com o sinalizador --noIndexRestore na linha de comandos).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [De que forma o Azure Cosmos DB indexa dados?](../cosmos-db/index-policy.md)
-* [Expirar automaticamente os dados em coleções do Azure Cosmos DB com TTL](../cosmos-db/time-to-live.md)
+* [Indexação no Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Expirar dados no Azure Cosmos DB automaticamente com o tempo de duração](../cosmos-db/time-to-live.md)

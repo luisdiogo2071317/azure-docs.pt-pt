@@ -1,5 +1,5 @@
 ---
-title: Retenção de dados do Azure Time Series Insights - compreender a retenção de dados no seu ambiente do Azure Time Series Insights | Documentos da Microsoft
+title: Compreender a retenção de dados no seu ambiente do Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve as duas definições que controlam a retenção de dados no seu ambiente do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c44b09e15a227e11426d2798fc071778ca47ebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272155"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557468"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Compreender a retenção de dados no Time Series Insights
 

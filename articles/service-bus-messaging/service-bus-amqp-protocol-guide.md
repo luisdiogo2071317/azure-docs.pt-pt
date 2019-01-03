@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961149"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542514"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -264,7 +264,7 @@ Cada ligação tem de iniciar a sua própria ligação de controlo para poder co
 
 #### <a name="starting-a-transaction"></a>Iniciar uma transação
 
-Para iniciar o trabalho transacional. o controlador tem de obter um `txn-id` do coordenador. Ele faz isso enviando um `declare` mensagem do tipo. Se a declaração for bem-sucedida, o coordenador de responde com um resultado de disposição, que carrega o atribuído `txn-id`.
+Para iniciar o trabalho transacional. o controlador tem de obter um `txn-id` do coordenador. Ele faz isso enviando um `declare` mensagem do tipo. Se a declaração for bem-sucedida, o coordenador de responde com um resultado de disposição, o que traz o atribuído `txn-id`.
 
 | Cliente (controlador) | | O Service Bus (coordenador) |
 | --- | --- | --- |
@@ -351,7 +351,7 @@ Integração do SASL do AMQP tem duas desvantagens:
 * Todas as credenciais e tokens passam para a ligação. Uma infraestrutura de mensagens poderá fornecer controle de acesso diferenciada numa base por entidade; Por exemplo, permitindo que o portador de um token enviar para fila A, mas não para a fila B. Com o contexto de autorização ancorado na ligação, não é possível utilizar uma ligação única e ainda utilizar tokens de acesso diferentes para respostas e a fila B.
 * Tokens de acesso, normalmente, só são válidos por um período limitado. Este validade pedir ao utilizador que periodicamente obter novamente a tokens e fornece uma oportunidade para o emissor de tokens para recusar a emitir um novo token, se tem alterado as permissões de acesso do utilizador. As ligações AMQP podem durar por longos períodos de tempo. O modelo do SASL apenas fornece a oportunidade de se configurar um token ao tempo de ligação, o que significa que a infraestrutura de mensagens ou tem de desligar o cliente quando o token expira ou ele precisa aceitar o risco de permitir a comunicação contínua com um cliente que do direitos de acesso podem ter byl odvolán até lá.
 
-A especificação de AMQP CBS, implementada pelo Service Bus, permite uma solução elegante para dois desses problemas: permite que um cliente para associar os tokens de acesso a cada nó e para atualizar esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
+A especificação de AMQP CBS, implementada pelo Service Bus, permite que uma solução elegante para dois desses problemas: Ele permite que um cliente para associar os tokens de acesso a cada nó e para atualizar esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
 
 CBS define um nó virtual de gestão, denominado *$cbs*, para ser fornecido pela infraestrutura de mensagens. O nó de gestão aceita tokens em nome de todos os outros nós na infraestrutura de mensagens.
 
@@ -374,7 +374,7 @@ O *nome* propriedade identifica a entidade com a qual o token deve ser associado
 | amqp:swt |Simple Web tokens (SWT) |Valor de AMQP (cadeia) |Só é suportado para tokens SWT emitidos pelo AAD/ACS |
 | servicebus.Windows.NET:sastoken |Token SAS do Service Bus |Valor de AMQP (cadeia) |- |
 
-Tokens a concessão de direitos. Do Service Bus tem conhecimento três direitos fundamentais: "Enviar" permite enviar, "Escutar" permite que recebem e "Gerenciar" permite manipulando entidades. Tokens SWT vystavitel AAD/ACS explicitamente incluem esses direitos como afirmações. Tokens SAS de barramento de serviço Consulte regras configuradas no espaço de nomes ou entidade, e essas regras estão configuradas com direitos. O token de assinatura com a chave associada essa regra, portanto, faz com que o token express os respetivos direitos. O token associado à utilização uma entidade *token de put* permite que o cliente conectado para interagir com a entidade pelos direitos de token. Uma ligação em que o cliente assume a *remetente* a função requer "Enviar" diretamente; utilizando o *recetor* a função requer "Listen" à direita.
+Tokens a concessão de direitos. Do Service Bus tem conhecimento três direitos fundamentais: "Enviar" permite enviar, permite "Escutar" receber e permite manipular entidades de "Gerir". Tokens SWT vystavitel AAD/ACS explicitamente incluem esses direitos como afirmações. Tokens SAS de barramento de serviço Consulte regras configuradas no espaço de nomes ou entidade, e essas regras estão configuradas com direitos. O token de assinatura com a chave associada essa regra, portanto, faz com que o token express os respetivos direitos. O token associado à utilização uma entidade *token de put* permite que o cliente conectado para interagir com a entidade pelos direitos de token. Uma ligação em que o cliente assume a *remetente* a função requer "Enviar" diretamente; utilizando o *recetor* a função requer "Listen" à direita.
 
 A mensagem de resposta tem segue *propriedades da aplicação* valores
 

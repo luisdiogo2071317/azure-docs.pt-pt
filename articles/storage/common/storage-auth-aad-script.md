@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426486"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633770"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell (pré-visualização)
 
@@ -56,10 +56,7 @@ A variável de ambiente associada com o `--auth-mode` parâmetro é `AZURE_STORA
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Chamar comandos do PowerShell com uma identidade do Azure AD
 
-O Azure PowerShell suporta início de sessão com uma identidade do Azure AD com um dos apenas os seguintes módulos de pré-visualização: 
-
-- 4.4.0-Preview 
-- 4.4.1-Preview 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Para utilizar o Azure PowerShell para iniciar sessão com uma identidade do Azure AD:
 
@@ -78,23 +75,23 @@ Para utilizar o Azure PowerShell para iniciar sessão com uma identidade do Azur
 1. Instale a versão mais recente do Azure PowerShell:
 
     ```powershell
-    Install-Module AzureRM –Repository PSGallery –AllowClobber
+    Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instale um dos módulos de pré-visualização do armazenamento do Azure que suporte do Azure AD:
-
-    ```powershell
-    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
-    ```
+1. Instale um módulo de pré-visualização do armazenamento do Azure que suporte do Azure AD:
+   
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+   ```
 1. Feche e reabra a janela do PowerShell.
-1. Chamar o [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet para criar um contexto e incluir o `-UseConnectedAccount` parâmetro. 
+1. Chamar o [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet para criar um contexto e incluir o `-UseConnectedAccount` parâmetro. 
 1. Para chamar um cmdlet com uma identidade do Azure AD, passe o contexto de recentemente criado para o cmdlet.
 
 O exemplo seguinte mostra como listar os blobs num contentor do Azure PowerShell com uma identidade do Azure AD. Certifique-se de que substitua os nomes de conta e contentor de marcador de posição pelos seus próprios valores: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzureStorageBlob -Container sample-container -Context $ctx 
+$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879414"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975462"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -55,7 +55,7 @@ Esta secção utiliza um script do Azure PowerShell para criar a conta de armaze
 
 
 **Para criar uma conta de armazenamento e copie os ficheiros com o Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Especifique nomes para o grupo de recursos do Azure e a conta de armazenamento do Azure que será criada pelo script.
 > Anote **nome do grupo de recursos**, **nome da conta de armazenamento**, e **chave da conta de armazenamento** produzido pelo script. Precisa na próxima seção.
 
@@ -166,7 +166,11 @@ Neste artigo, vai configurar a atividade de ramo de registo para criar um cluste
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. No portal do Azure, selecione **criar um recurso** > **dados + análise** > **Data Factory**.
+1. No menu à esquerda, selecione **+ criar um recurso**.
+
+1. Sob **do Azure Marketplace**, selecione **Analytics**.
+
+1.  Sob **em destaque**, selecione **Data Factory**.
 
     ![O Azure Data Factory no portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "no portal do Azure Data Factory")
 
@@ -181,19 +185,18 @@ Neste artigo, vai configurar a atividade de ramo de registo para criar um cluste
     |**Nome** |  Introduza um nome para a fábrica de dados. Este nome tem de ser globalmente exclusivo.|
     |**Subscrição**     |  Selecione a sua subscrição do Azure. |
     |**Grupo de recursos**     | Selecione **utilizar existente** e, em seguida, selecione o grupo de recursos que criou com o script do PowerShell. |
-    |**Versão**     | Selecione **V2 (pré-visualização)** |
-    |**Localização**     | A localização é automaticamente definida para a localização que especificou ao criar o grupo de recursos anteriormente. Para este tutorial, a localização está definida como **E.U.A. Leste 2**. |
+    |**Versão**     | Selecione **V2** |
+    |**Localização**     | A localização é automaticamente definida para a localização que especificou ao criar o grupo de recursos anteriormente. Para este tutorial, a localização está definida como **E.U.A. Leste**. |
     
 
-1. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**. Irá ver um novo mosaico intitulado **A submeter a implementação** no dashboard do portal. Criar uma fábrica de dados pode demorar entre 2 a 4 minutos.
+1. Selecione **Criar**. Criar uma fábrica de dados pode demorar entre 2 a 4 minutos.
 
-    ![Progresso da implementação de modelo](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "progresso da implementação de modelo") 
- 
-1. Depois de criar a fábrica de dados, o portal mostra a visão geral da fábrica de dados.
 
-    ![Descrição geral do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "descrição geral da fábrica de dados do Azure")
+1. Depois de criada a fábrica de dados, receberá um **implementação concluída com êxito** notificação com uma **Ir para recurso** botão.  Selecione **Ir para recurso** para abrir a vista predefinida do Data Factory.
 
 1. Selecione **criar e monitorizar** para iniciar a fábrica de dados do Azure, criação e monitorização do portal.
+
+    ![Descrição geral do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "descrição geral da fábrica de dados do Azure")
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 

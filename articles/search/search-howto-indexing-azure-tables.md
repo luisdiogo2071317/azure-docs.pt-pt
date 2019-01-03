@@ -1,6 +1,6 @@
 ---
 title: Indexar conteúdo do armazenamento de tabelas do Azure para pesquisa em texto completo - Azure Search
-description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com o Azure Search.
+description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com um indexador de Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317275"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632964"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Armazenamento de tabelas do índice do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para dados de índice armazenados no armazenamento de tabelas do Azure.

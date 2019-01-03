@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970689"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600017"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar tarefas do Apache Spark em execução no Azure HDInsight
 
-Neste artigo, irá aprender a controlar e depurar [Apache Spark](https://spark.apache.org/) tarefas em execução HDInsight clusters com o [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) interface do Usuário, interface do Usuário do Spark e o servidor de histórico do Spark. Iniciar uma tarefa do Spark com um bloco de notas disponível com o cluster do Spark **Machine learning: Análise Preditiva em dados de inspeção de comida usando MLLib**. Pode utilizar os seguintes passos para controlar um aplicativo que enviados através de qualquer outra abordagem, por exemplo, **spark-submit**.
+Neste artigo, irá aprender a controlar e depurar [Apache Spark](https://spark.apache.org/) tarefas em execução HDInsight clusters com o [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) interface do Usuário, interface do Usuário do Spark e o servidor de histórico do Spark. Iniciar uma tarefa do Spark com um bloco de notas disponível com o cluster do Spark, **Machine learning: Análise Preditiva em dados de inspeção de comida usando MLLib**. Pode utilizar os seguintes passos para controlar um aplicativo que enviados através de qualquer outra abordagem, por exemplo, **spark-submit**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Tem de ter o seguinte:
@@ -32,10 +32,9 @@ Tem de ter o seguinte:
    
     ![Iniciar a IU do YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
-   > [!TIP]
-   > Em alternativa, também pode iniciar a IU do YARN do IU do Ambari. Para iniciar a IU do Ambari, clique em **Ambari doméstica** sob **dashboards de clusters**. A partir da IU do Ambari, clique em **YARN**, clique em **ligações rápidas**, clique em Gestor de recursos do Active Directory e, em seguida, clique em **da IU do Gestor de recursos**.    
-   > 
-   > 
+   > [!TIP]  
+   > Em alternativa, também pode iniciar a IU do YARN do IU do Ambari. Para iniciar a IU do Ambari, clique em **Ambari doméstica** sob **dashboards de clusters**. A partir da IU do Ambari, clique em **YARN**, clique em **ligações rápidas**, clique em Gestor de recursos do Active Directory e, em seguida, clique em **da IU do Gestor de recursos**. 
+
 2. Uma vez que iniciou a tarefa do Spark com blocos de notas do Jupyter, o aplicativo tem o nome **remotesparkmagics** (este é o nome para todas as aplicações que são iniciadas a partir de blocos de notas). Clique no ID da aplicação contra o nome da aplicação para obter mais informações sobre a tarefa. Esta ação inicia o modo de exibição do aplicativo.
    
     ![Localizar o ID de aplicação do Spark](./media/apache-spark-job-debugging/find-application-id.png)
@@ -72,10 +71,9 @@ Na IU do Spark, pode desagregar para as tarefas do Spark que são geradas pela a
    
     Esta ação apresenta os eventos do Spark na forma de uma linha do tempo. A vista de linha cronológica está disponível em três níveis, em tarefas, dentro de uma tarefa e dentro de uma fase. A imagem acima captura a vista de linha cronológica para uma determinada fase.
    
-   > [!TIP]
+   > [!TIP]  
    > Se selecionar a **ativar o zoom** caixa de verificação, pode rolar à esquerda e à direita em toda a vista de linha do tempo.
-   > 
-   > 
+
 6. Outros separadores na IU do Spark fornecem informações úteis sobre a instância do Spark.
    
    * Separador de armazenamento - se a sua aplicação cria um RDDs, pode encontrar informações sobre eles no separador de armazenamento.
@@ -92,10 +90,9 @@ Assim que uma tarefa é concluída, as informações sobre a tarefa são mantida
    
     ![Inicie o servidor de histórico do Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
-   > [!TIP]
+   > [!TIP]  
    > Em alternativa, pode também iniciar a interface do Usuário do Spark histórico de servidor da IU do Ambari. Para iniciar a IU do Ambari, no painel Descrição geral, clique em **Ambari doméstica** sob **dashboards de clusters**. A partir da IU do Ambari, clique em **Spark**, clique em **ligações rápidas**e, em seguida, clique em **da IU do servidor de histórico de Spark**.
-   > 
-   > 
+
 2. Ver todos os aplicativos concluídos listados. Clique num ID de aplicação para fazer uma busca detalhada num aplicativo para obter mais informações.
    
     ![Inicie o servidor de histórico do Spark](./media/apache-spark-job-debugging/view-completed-applications.png)
@@ -106,8 +103,8 @@ Assim que uma tarefa é concluída, as informações sobre a tarefa são mantida
 
 ### <a name="for-data-analysts"></a>Para analistas de dados
 
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise dados Application Insight telemetria com o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark](apache-spark-deep-learning-caffe.md)

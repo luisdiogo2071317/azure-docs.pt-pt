@@ -1,19 +1,20 @@
 ---
-title: Aprovisionar conjunto de Batch do Azure numa rede virtual | Documentos da Microsoft
+title: Aprovisionar um conjunto numa rede virtual - Azure Batch | Documentos da Microsoft
 description: Como criar um conjunto do Batch numa rede virtual do Azure, para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091965"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543917"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Batch do Azure numa rede virtual
 
@@ -37,7 +38,7 @@ Um conjunto do Azure Batch tem definições para permitir que nós de computaç�
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Criar um conjunto com uma VNet no portal
 
-Depois de criar a VNet e atribuído uma sub-rede para o mesmo, pode criar um conjunto do Batch com essa VNet. Siga estes passos para criar um conjunto a partir do portal do Azure: 
+Depois de criar a VNet e atribuído uma sub-rede para o mesmo, pode criar um conjunto do Batch com essa VNet. Siga estes passos para criar um conjunto a partir do portal do Azure: 
 
 1. No portal do Azure, navegue para a sua conta do Batch. Esta conta tem de ser na mesma subscrição e região que o grupo de recursos que contém a VNet que pretende utilizar. 
 2. Na **definições** janela à esquerda, selecione a **conjuntos** item de menu.

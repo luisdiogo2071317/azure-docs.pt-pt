@@ -3,16 +3,15 @@ title: Otimizar autovacuum na base de dados do Azure para o servidor PostgreSQL
 description: Este artigo descreve como pode otimizar autovacuum na base de dados do Azure para o servidor PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685995"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539794"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Otimizando autovacuum na base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como otimizar efetivamente autovacuum na base de dados do Azure para PostgreSQL.
@@ -34,7 +33,7 @@ Se não executar aspirador de tempos em tempos, as tuplas Inativas que acumulare
 - E/s maior.
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>Monitorização inchaço com consultas autovacuum
-A seguinte consulta de exemplo foi concebida para identificar o número de tuplas de ativos e inativos numa tabela chamada "XYZ": "SELECIONE relname, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_ tabelas onde relname = ordem "XYZ" por n_dead_tup DESC; "
+A seguinte consulta de exemplo foi concebida para identificar o número de tuplas de ativos e inativos numa tabela chamada "XYZ": "SELECIONE relname, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables onde relname = ordem"XYZ"por n_dead_tup DESC;"
 
 ## <a name="autovacuum-configurations"></a>Configurações de Autovacuum
 Os parâmetros de configuração que controlam autovacuum giram em torno de duas questões-chave:

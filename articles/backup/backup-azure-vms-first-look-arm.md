@@ -1,24 +1,21 @@
 ---
-title: 'Primeira impressão: proteger VMs do Azure com um cofre de serviços de recuperação'
-description: Proteger VMs do Azure com um cofre de serviços de recuperação. Utilize cópias de segurança de VMs implementadas no Resource Manager, VMs implementadas de forma Clássica e VMs do Armazenamento Premium, VMs encriptadas, VMs em Managed Disks para proteger os seus dados. Crie e registe um cofre dos serviços de recuperação. Registe VMs, crie uma política e proteja VMs no Azure.
+title: Fazer cópias de segurança de VMs do Azure com o serviço de cópia de segurança do Azure
+description: Saiba como fazer cópias de segurança de VMs do Azure com o serviço de cópia de segurança do Azure
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: cópias de segurança; cópia de segurança de VM
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631588"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para cofre dos serviços de recuperação
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Fazer cópias de segurança de VMs do Azure com o serviço de cópia de segurança do Azure
 
 Este artigo explica como configurar a proteção para uma máquina virtual a partir do menu de operações de máquinas virtuais ou o Cofre dos serviços de recuperação. Os cofres dos Serviços de Recuperação protegem:
 
@@ -32,7 +29,7 @@ Este artigo explica como configurar a proteção para uma máquina virtual a par
 
 Para obter mais informações sobre como proteger VMs de Armazenamento Premium, veja o artigo [Criar cópias de segurança e Restaurar VMs do Armazenamento Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para obter mais informações sobre o suporte para VMs de discos geridos, veja [Criar cópias de segurança e restauro de VMs em discos geridos](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para obter mais informações sobre arquitetura de scripts anteriores e posteriores para cópias de segurança de VM Linux veja [Cópia de segurança consistente com a aplicação da VM Linux com o script anterior e o script posterior](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Para obter mais informações sobre o que pode e não é possível fazer a cópia de segurança, consulte [preparar o ambiente para fazer uma cópia de segurança de VMs do Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Para obter mais informações sobre o que pode e não é possível fazer a cópia de segurança, consulte [preparar o ambiente para fazer uma cópia de segurança de VMs do Azure](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança.
@@ -337,7 +334,9 @@ O serviço de Cópia de Segurança instala a extensão de cópia de segurança, 
 Se tiver problemas ao realizar algumas das tarefas neste artigo, veja a [Orientação na resolução de problemas](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Preços
-O custo de fazer cópias de segurança das VMs do Azure baseia-se no número de instâncias protegidas. Para uma definição de instância protegida, veja [o que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Para obter um exemplo de como calcular o custo de fazer uma cópia de segurança de uma máquina virtual, veja [Como as instâncias protegidas são calculadas](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Consulte a página de Preços do Azure Backup para obter informações sobre [Preços da Cópia de Segurança](https://azure.microsoft.com/pricing/details/backup/).
+O custo de fazer cópias de segurança das VMs do Azure baseia-se no número de instâncias protegidas. Para uma definição de instância protegida, veja [o que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Consulte a página de Preços do Azure Backup para obter informações sobre [Preços da Cópia de Segurança](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>Tem dúvidas?
-Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Passos Seguintes
+
+[Gerir](backup-azure-manage-vms.md) as cópias de segurança.
+

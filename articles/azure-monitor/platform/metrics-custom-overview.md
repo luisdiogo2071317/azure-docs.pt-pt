@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326362"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605590"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -25,7 +25,7 @@ Métricas personalizadas podem ser enviadas para o Azure Monitor por vários mé
 - Instrumentalize a sua aplicação ao utilizar o Azure Application Insights SDK e enviar telemetria personalizada para o Azure Monitor. 
 - Instale a extensão do Windows Azure Diagnostics (WAD) no seu [VM do Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [conjunto de dimensionamento de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md), ou [clássico de serviços Cloud](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar os contadores de desempenho para o Azure Monitor. 
 - Instalar o [InfluxData Telegraf agente](collect-custom-metrics-linux-telegraf.md) na sua VM Linux do Azure e as métricas de envio utilizando o Azure Monitor de saída do plug-in.
-- Enviar métricas personalizadas [diretamente para a API de REST do Azure Monitor](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Enviar métricas personalizadas [diretamente para a API de REST do Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 Quando enviar métricas personalizadas para o Azure Monitor, cada ponto de dados ou o valor, comunicado tem de incluir as seguintes informações.
 
@@ -57,7 +57,7 @@ Esta propriedade captura em que região do Azure, o recurso que está a emitir m
 ### <a name="timestamp"></a>Carimbo de data/hora
 Cada ponto de dados enviado para o Azure Monitor deve ser marcado com um carimbo. Este timestamp captura a DateTime em que o valor da métrica é medido ou recolhido. O Azure Monitor aceita dados métricos carimbos de data máximo 20 minutos no passado e 5 minutos no futuro.
 
-### <a name="namespace"></a>Espaço de Nomes
+### <a name="namespace"></a>Espaço de nomes
 Espaços de nomes são uma forma de categorizar ou agrupar métricas semelhante. Ao utilizar espaços de nomes, pode atingir o isolamento entre grupos de métricas, que poderão recolher informações diferentes ou indicadores de desempenho. Por exemplo, pode ter um namespace chamado **ContosoMemoryMetrics** que controla as métricas de utilização de memória que a aplicação de perfil. Outro namespace chamado **ContosoAppTransaction** pode acompanhar todas as métricas sobre transações de utilizador na sua aplicação.
 
 ### <a name="name"></a>Nome
@@ -193,6 +193,6 @@ Utilize métricas personalizadas dos serviços de diferentes:
  - [Conjunto de dimensionamento de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina Virtual Linux utilizando o agente de Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços Cloud clássico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

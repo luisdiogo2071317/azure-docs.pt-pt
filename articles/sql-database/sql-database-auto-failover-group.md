@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284942"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994645"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
-Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor lógico ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador através de uma política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
+Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor lógico ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
 
 > [!NOTE]
 > Ao trabalhar com bancos de dados individuais ou agrupados num servidor lógico e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
@@ -81,7 +81,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Escuta de só de leitura do grupo de ativação pós-falha**
 
-  Um registo CNAME no DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas.
+  Um registo CNAME de DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas.
 
   - **Servidor lógico de registo CNAME de DNS para o serviço de escuta só de leitura**
 
@@ -203,7 +203,7 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
 - **Esteja preparado para degradação de desempenho**
 
-  Decisão de ativação pós-falha SQL é independente do restante do aplicativo ou outros serviços utilizados. O aplicativo pode ser "misturar" com alguns componentes numa região e alguns em outro. Para evitar a degradação, certifique-se a implementação da aplicação redundante na região DR e siga estes [diretrizes de segurança de rede](#Failover groups-and-network-security).
+  Decisão de ativação pós-falha SQL é independente do restante do aplicativo ou outros serviços utilizados. O aplicativo pode ser "misturar" com alguns componentes numa região e alguns em outro. Para evitar a degradação, certifique-se a implementação da aplicação redundante na região DR e siga estes [diretrizes de segurança de rede](#failover-groups-and-network-security).
 
 - **Preparar para a perda de dados**
 
@@ -262,7 +262,7 @@ Quando configurar um grupo de ativação pós-falha entre a primárias e secund�
     > [!IMPORTANT]
     > Configurado incorretamente oportunidades potenciais de regras do NSG segurança para operações de cópia da base de dados paralisado.
 
-7. Tem de configurar o parceiro de zona DNS na instância secundária. Uma zona DNS é uma propriedade de uma instância gerida. Ele representa a parte do nome de anfitrião que segue o nome de instância gerida e que precede o `.database.windows.net` prefixo. Este é gerado como cadeia de caracteres aleatória durante a criação da primeira instância gerida em cada VNet. A zona DNS não pode ser modificada após a criação de instância gerida e todas as instâncias geridas na mesma sub-rede partilham o mesmo valor de zona DNS. Para a configuração do grupo de ativação pós-falha de instância geridas, a instância gerida primária e a instância gerida secundário têm de partilhar o mesmo valor de zona DNS. Para tal, especificando o parâmetro DnsZonePartner ao criar a instância gerida secundário. A propriedade de parceiro de zona DNS define a instância gerida para partilhar um grupo de ativação pós-falha de instância com. Ao passar para o id de recurso de outra instância gerida, como a entrada de DnsZonePartner, a instância gerida, atualmente a ser criada herda o mesmo valor de zona DNS de parceiro de instância gerida.
+7. Tem de configurar o parceiro de zona DNS na instância secundária. Uma zona DNS é uma propriedade de uma instância gerida. Ele representa a parte do nome de anfitrião que segue o nome de instância gerida e que precede o `.database.windows.net` prefixo. Este é gerado como cadeia de caracteres aleatória durante a criação da primeira instância gerida em cada VNet. A zona DNS não pode ser modificada após a criação de instância gerida e todas as instâncias geridas na mesma sub-rede partilham o mesmo valor de zona DNS. Para a configuração do grupo de ativação pós-falha de instância gerida, a instância gerida primária e a instância gerida secundário têm de partilhar o mesmo valor de zona DNS. Para tal, especificando o parâmetro DnsZonePartner ao criar a instância gerida secundário. A propriedade de parceiro de zona DNS define a instância gerida para partilhar um grupo de ativação pós-falha de instância com. Ao passar para o id de recurso de outra instância gerida, como a entrada de DnsZonePartner, a instância gerida, atualmente a ser criada herda o mesmo valor de zona DNS de parceiro de instância gerida.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
 
@@ -306,17 +306,17 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do Powershell
 
-1. Atualize o módulo powershellget 1.6.5 (ou versão de pré-visualização mais recente). Ver [site de pré-visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Atualize o módulo PowerShellGet 1.6.5 (ou versão de pré-visualização mais recente). Ver [site de pré-visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Numa nova janela do PowerShell, execute os seguintes comandos:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```

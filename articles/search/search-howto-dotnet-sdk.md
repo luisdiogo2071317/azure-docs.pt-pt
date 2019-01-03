@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310692"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634546"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como utilizar o Azure Search a partir de uma aplicação .NET
 Este artigo é um passo a passo para ajudá-lo em execução com o [SDK .NET da Azure Search](https://aka.ms/search-sdk). Pode utilizar o SDK de .NET para implementar uma experiência de pesquisa avançadas na sua aplicação com o Azure Search.
@@ -48,7 +48,7 @@ Se já estiver a utilizar uma versão mais antiga do SDK de .NET de pesquisa do 
 ## <a name="requirements-for-the-sdk"></a>Requisitos para o SDK
 1. O Visual Studio 2017.
 2. O próprio serviço de Azure Search. Para utilizar o SDK, terá o nome do seu serviço e uma ou mais chaves de API. [Criar um serviço no portal do](search-create-service-portal.md) irá ajudá-lo a esses passos.
-3. Transferir o SDK .NET da Azure Search [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Gerir pacotes NuGet" no Visual Studio. Procurar pelo nome do pacote `Microsoft.Azure.Search` NuGet.org (ou uma das outras, se tiver apenas um subconjunto da funcionalidade do pacote nomes acima).
+3. Transferir o SDK .NET da Azure Search [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Gerir pacotes NuGet" no Visual Studio. Procurar pelo nome do pacote `Microsoft.Azure.Search` NuGet.org (ou uma das outras, se tiver apenas um subconjunto da funcionalidade do pacote nomes acima).
 
 O SDK .NET da Azure Search oferece suporte a aplicativos, visando o .NET Framework 4.5.2 e versões superiores, bem como o .NET Core.
 
@@ -243,7 +243,7 @@ Este método cria uma nova `Index` objeto com uma lista de `Field` objetos que d
 >
 > 
 
-Além dos campos, também pode adicionar perfis de classificação, sugestores ou opções CORS para o índice (elas são omitidas do exemplo para fins de brevidade). Pode encontrar mais informações sobre o objeto de índice e suas partes constituintes no [referência do SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index#microsoft_azure_search_models_index), e na [referência da API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
+Além dos campos, também pode adicionar perfis de classificação, sugestores ou opções CORS para o índice (elas são omitidas do exemplo para fins de brevidade). Pode encontrar mais informações sobre o objeto de índice e suas partes constituintes no [referência do SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), e na [referência da API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Preenchimento do índice
 O próximo passo `Main` é preencher o índice recentemente criado. Isso é feito no método seguinte:
@@ -324,7 +324,7 @@ A segunda parte cria um `IndexBatch` que contém os documentos. Especificar a op
 A terceira parte desse método é um bloco catch que processa um caso de erro importantes para indexação. Se o serviço Azure Search não consegue indexar alguns dos documentos no lote, uma `IndexBatchException` é emitida pelo `Documents.Index`. Isto pode acontecer se indexar documentos enquanto o seu serviço estiver sobrecarregado. **Recomendamos vivamente que processe explicitamente este caso no seu código.** Pode atrasar e, em seguida, repetir a indexação dos documentos que falharam, pode iniciar sessão e continuar como no exemplo ou pode fazer algo diferente dependendo dos requisitos de consistência de dados da aplicação.
 
 > [!NOTE]
-> Pode utilizar o `FindFailedActionsToRetry` método para construir um novo lote que contém apenas as ações que falha numa chamada anterior para `Index`. O método está documentado [aqui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception#Microsoft_Azure_Search_IndexBatchException_FindFailedActionsToRetry_Microsoft_Azure_Search_Models_IndexBatch_System_String_) e não há uma discussão sobre como usar adequadamente [no StackOverflow](http://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
+> Pode utilizar o [ `FindFailedActionsToRetry` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) método para construir um novo lote que contém apenas as ações que falha numa chamada anterior para `Index`. Há uma discussão sobre como usar adequadamente [no StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
@@ -390,20 +390,20 @@ public partial class Hotel
 A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença crucial: O nome de cada campo começa com uma letra minúscula ("camel case"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("Pascal case"). Este é um cenário comum em aplicações .NET que realizam enlace de dados no qual o esquema de destino está fora do controlo do programador da aplicação. Em vez de ter de violar as diretrizes de nomenclatura .NET aplicando o estilo camel-case aos nomes de propriedade, pode indicar ao SDK para mapear os nomes das propriedades no estilo camel-case automaticamente com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
-> O SDK .NET da Azure Search utiliza a biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e anular a serialização dos objetos do modelo personalizado de e para JSON. Se necessário, pode personalizar esta serialização. Para obter mais detalhes, consulte [personalizados de serialização com JSON.NET](#JsonDotNet).
+> O SDK .NET da Azure Search utiliza a biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e anular a serialização dos objetos do modelo personalizado de e para JSON. Se necessário, pode personalizar esta serialização. Para obter mais detalhes, consulte [personalizados de serialização com JSON.NET](#JsonDotNet).
 > 
 > 
 
 A segunda coisa a observar são os atributos, tais como `IsFilterable`, `IsSearchable`, `Key`, e `Analyzer` decorar que cada propriedade pública. Esses atributos são mapeados diretamente para o [atributos correspondentes do índice da Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). O `FieldBuilder` classe utiliza-os para construir as definições de campo para o índice.
 
-O terceiro ponto importante sobre o `Hotel` classe são os tipos de dados das propriedades públicas. Os tipos .NET destas propriedades mapeiam para os tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade da cadeia `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Existem mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset`, etc. As regras específicas para o mapeamento do tipo estão documentadas com o método `Documents.Get` em [Azure Search .NET SDK reference (Referência SDK .NET do Azure Search)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_). O `FieldBuilder` classe se encarrega desse mapeamento para, mas ainda pode ser útil compreender caso precise resolver quaisquer problemas de serialização.
+O terceiro ponto importante sobre o `Hotel` classe são os tipos de dados das propriedades públicas. Os tipos .NET destas propriedades mapeiam para os tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade da cadeia `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Existem mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset`, etc. As regras específicas para o mapeamento do tipo estão documentadas com o método `Documents.Get` em [Azure Search .NET SDK reference (Referência SDK .NET do Azure Search)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). O `FieldBuilder` classe se encarrega desse mapeamento para, mas ainda pode ser útil compreender caso precise resolver quaisquer problemas de serialização.
 
 Essa capacidade de usar suas próprias classes, como documentos funciona em ambas as direções; Também pode obter os resultados da pesquisa e ter o SDK automaticamente tirar de série-los a um tipo de sua escolha, como veremos na próxima seção.
 
 > [!NOTE]
-> O SDK .NET da Azure Search também suporta documentos dinâmicos utilizando a classe `Document`, que é um mapeamento de chave/valor dos nomes de campo para valores de campo. Isto é útil em cenários onde não sabe qual o esquema de índice no momento da conceção, nem onde seria inconveniente discretizar as classes do modelo específico. Todos os métodos no SDK que lidam com documentos têm sobrecargas que funcionam com a classe `Document`, bem como as sobrecargas de tipo seguro que assumem um parâmetro do tipo genérico. Apenas o último caso é utilizado no código de exemplo neste tutorial. O `Document` classe herda de `Dictionary<string, object>`. Pode encontrar outros detalhes [aqui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document#microsoft_azure_search_models_document).
+> O SDK .NET da Azure Search também suporta documentos dinâmicos utilizando a classe `Document`, que é um mapeamento de chave/valor dos nomes de campo para valores de campo. Isto é útil em cenários onde não sabe qual o esquema de índice no momento da conceção, nem onde seria inconveniente discretizar as classes do modelo específico. Todos os métodos no SDK que lidam com documentos têm sobrecargas que funcionam com a classe `Document`, bem como as sobrecargas de tipo seguro que assumem um parâmetro do tipo genérico. Apenas o último caso é utilizado no código de exemplo neste tutorial. O [ `Document` classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) herda de `Dictionary<string, object>`.
 > 
-> 
+>
 
 **Por que deve utilizar tipos de dados anuláveis**
 
@@ -418,7 +418,7 @@ Por este motivo, recomendamos que utilize tipos anuláveis nas suas classes de m
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Personalizado serialização com JSON.NET
-O SDK utiliza JSON.NET para serializar e anular a serialização de documentos. Pode personalizar a serialização e desserialização se for necessário, definindo suas próprias `JsonConverter` ou `IContractResolver` (consulte a [JSON.NET documentação](http://www.newtonsoft.com/json/help/html/Introduction.htm) para obter mais detalhes). Isso pode ser útil quando quer adaptar uma classe de modelo existente de seu aplicativo para uso com o Azure Search e outros cenários mais avançados. Por exemplo, com a serialização personalizada, pode:
+O SDK utiliza JSON.NET para serializar e anular a serialização de documentos. Pode personalizar a serialização e desserialização se for necessário, definindo suas próprias `JsonConverter` ou `IContractResolver` (consulte a [JSON.NET documentação](https://www.newtonsoft.com/json/help/html/Introduction.htm) para obter mais detalhes). Isso pode ser útil quando quer adaptar uma classe de modelo existente de seu aplicativo para uso com o Azure Search e outros cenários mais avançados. Por exemplo, com a serialização personalizada, pode:
 
 * Incluir ou excluir determinadas propriedades de classe do modelo de que está a ser armazenados como campos de documentos.
 * Mapear entre os nomes das propriedades em seu código e os nomes de campos no seu índice.

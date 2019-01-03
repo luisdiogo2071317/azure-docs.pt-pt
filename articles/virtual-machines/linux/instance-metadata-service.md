@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026284"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994203"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -288,7 +288,7 @@ localização | Região do Azure a VM está em execução | 2017-04-02
 nome | Nome da VM | 2017-04-02
 oferta | Oferecem informações para a imagem VM. Este valor só é aplicável imagens implementadas a partir da Galeria de imagens do Azure. | 2017-04-02
 publicador | Publicador da imagem VM | 2017-04-02
-SKU | SKU específica para a imagem VM | 2017-04-02
+sku | SKU específica para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução | 2017-04-02
@@ -409,6 +409,50 @@ O Azure tem várias clouds soberanas, como [do Azure Government](https://azure.m
   echo $environment
 ```
 
+### <a name="failover-clustering-in-windows-server"></a>Cluster de failover do Windows Server
+
+Para determinados cenários, ao consultar o serviço de metadados de instância com o Clustering de ativação pós-falha, é necessário adicionar uma rota à tabela de roteamento.
+
+1. Abra a linha de comandos com privilégios de administrador.
+
+2. Execute o seguinte comando e tome nota do endereço da Interface de rede de destino (`0.0.0.0`) na tabela de rotas de IPv4.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> A seguinte saída de exemplo de uma VM do Windows Server com o Cluster de ativação pós-falha ativados contém apenas a tabela de rotas IPv4 para manter a simplicidade.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. Execute o comando seguinte e utilize o endereço da Interface de rede de destino (`0.0.0.0`) que é (`10.0.1.10`) neste exemplo.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamar o serviço de metadados que utilizam idiomas diferentes dentro da VM 
 

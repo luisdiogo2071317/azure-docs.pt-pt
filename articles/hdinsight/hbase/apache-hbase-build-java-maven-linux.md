@@ -9,30 +9,30 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1eab8b248fd8ad42adf8c0a747565fed9bbc14e8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164063"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652562"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Criar aplicações de Java para o Apache HBase
 
-Saiba como criar uma [Apache HBase](http://hbase.apache.org/) aplicação em Java. Em seguida, utilize a aplicação com o HBase no HDInsight do Azure.
+Saiba como criar uma [Apache HBase](https://hbase.apache.org/) aplicação em Java. Em seguida, utilize a aplicação com o HBase no HDInsight do Azure.
 
 Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de compreensão que permite a criação de software, documentação e relatórios para projetos de Java e o gerenciamento de projetos de software.
 
-> [!NOTE]
+> [!NOTE]  
 > Os passos neste documento foram testados mais recentemente com o HDInsight 3.6.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="requirements"></a>Requisitos
 
 * [A plataforma Java JDK](https://aka.ms/azure-jdks) 8 ou posterior.
 
-    > [!NOTE]
+    > [!NOTE]  
     > HDInsight 3.5 e superior requer Java 8. Versões anteriores do HDInsight requerem Java 7.
 
 * [Apache Maven](https://maven.apache.org/)
@@ -49,14 +49,14 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se estiver a utilizar o PowerShell, tem de incluir o `-D` parâmetros entre aspas duplas.
     >
     > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Este comando cria um diretório com o mesmo nome que o **artifactID** parâmetro (**hbaseapp** neste exemplo.) Esse diretório contém os seguintes itens:
 
-   * **pom. XML**:  O modelo de objeto de projeto ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
+   * **pom. XML**:  O modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
    * **SRC**: O diretório que contém o **main/java/com/microsoft/exemplos** directory, onde criar a aplicação.
 
 3. Eliminar o `src/test/java/com/microsoft/examples/apptest.java` ficheiro. Não é utilizado neste exemplo.
@@ -78,9 +78,9 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
     </dependency>
    ```
 
-    Esta secção indica que o projeto precisa **hbase-cliente** e **núcleos phoenix** componentes. No momento da compilação, estas dependências são transferidas do repositório Maven padrão. Pode utilizar o [pesquisa de repositório Central Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre esta dependência.
+    Esta secção indica que o projeto precisa **hbase-cliente** e **núcleos phoenix** componentes. No momento da compilação, estas dependências são transferidas do repositório Maven padrão. Pode utilizar o [pesquisa de repositório Central Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre esta dependência.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > O número de versão do cliente do hbase tem de corresponder à versão do Apache HBase, que é fornecido com o seu cluster do HDInsight. Utilize a seguinte tabela para encontrar o número de versão correta.
 
    | Versão de cluster do HDInsight | Versão do Apache HBase para utilizar |
@@ -88,7 +88,7 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 e 3.6 |1.1.2 |
 
-    Para obter mais informações sobre componentes e versões do HDInsight, consulte [quais são os diferentes componentes do Hadoop disponíveis com o HDInsight](../hdinsight-component-versioning.md).
+    Para obter mais informações sobre componentes e versões do HDInsight, consulte [quais são os diferentes componentes de Apache Hadoop disponíveis com o HDInsight](../hdinsight-component-versioning.md).
 
 3. Adicione o seguinte código para o **pom** ficheiro. Este texto deve ser dentro de `<project>...</project>` etiquetas no ficheiro, por exemplo, entre `</dependencies>` e `</project>`.
 
@@ -139,10 +139,10 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
 
     Nesta secção configura um recurso (`conf/hbase-site.xml`) que contém informações de configuração para o HBase.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Também pode definir valores de configuração por meio do código. Veja os comentários no `CreateTable` exemplo.
 
-    Esta secção também configura a [Plug-in do Maven compilador](http://maven.apache.org/plugins/maven-compiler-plugin/) e [Plug-in do Maven tom](http://maven.apache.org/plugins/maven-shade-plugin/). O compilador Plug-in é usado para compilar a topologia. A Plug-in de tonalidade é utilizada para evitar a duplicação de licença do pacote de JAR que é criado pela Maven. Este plug-in é usado para impedir que um erro de "arquivos de licença duplicados" em tempo de execução no cluster do HDInsight. Utilizar maven-tom-Plug-in com o `ApacheLicenseResourceTransformer` implementação evita que o erro.
+    Esta secção também configura a [Plug-in de compilador do Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/) e [Plug-in do Apache Maven tom](https://maven.apache.org/plugins/maven-shade-plugin/). O compilador Plug-in é usado para compilar a topologia. A Plug-in de tonalidade é utilizada para evitar a duplicação de licença do pacote de JAR que é criado pela Maven. Este plug-in é usado para impedir que um erro de "arquivos de licença duplicados" em tempo de execução no cluster do HDInsight. Utilizar maven-tom-Plug-in com o `ApacheLicenseResourceTransformer` implementação evita que o erro.
 
     O maven-tom-Plug-in também produz um jar uber que contém todas as dependências exigidas pela aplicação.
 
@@ -357,7 +357,7 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
 
 2. Quando o comando for concluído, o `hbaseapp/target` diretório contém um arquivo chamado `hbaseapp-1.0-SNAPSHOT.jar`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > O `hbaseapp-1.0-SNAPSHOT.jar` ficheiro é um jar uber. Ele contém todas as dependências necessárias para executar a aplicação.
 
 

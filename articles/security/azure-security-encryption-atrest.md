@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420392"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994407"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação em repouso da dados do Azure
 
@@ -201,7 +201,7 @@ Quando é utilizada com chaves geridas pelo serviço no hardware controlado pelo
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Encriptação em inatividade nos serviços cloud da Microsoft
 
-Serviços Cloud da Microsoft são utilizados em todos os modelos de três cloud: IaaS, PaaS, SaaS. Abaixo, pode encontrar exemplos de como eles se relacionam em cada modelo:
+Serviços Cloud da Microsoft são utilizados em todos os modelos de nuvem três: IaaS, PaaS, SaaS. Abaixo, pode encontrar exemplos de como eles se relacionam em cada modelo:
 
 - Serviços de software, chamado de Software como um servidor ou o SaaS, com a aplicação fornecida pela cloud como o Office 365.
 - Serviços de plataforma que clientes tirar partido da cloud nas respetivas aplicações, utilizando a cloud para armazenamento, análise e funcionalidade de barramento de serviço.
@@ -244,7 +244,7 @@ Todos os clientes utilizando a infraestrutura do Azure como um serviço (IaaS) f
 Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, o armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor em repouso, com alguns serviços de suporte de chaves geridas pelo cliente e a encriptação do lado do cliente.  
 
 - Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, com chaves geridas pelo serviço, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam chaves geridas pelo cliente de RSA 2048 bits no Azure Key Vault. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Lado do cliente: Filas, tabelas e Blobs do Azure suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptam os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Lado do cliente: Blobs, tabelas e filas do Azure suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptam os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
@@ -262,6 +262,7 @@ Encriptação do lado do cliente de dados SQL Database do Azure é suportada atr
 | Disco (IaaS)                      | -                  | Sim, RSA de 2048 bits  | -                  |
 | SQL Server (IaaS)                | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | SQL do Azure (base de dados/Data Warehouse) | Sim                | Sim, RSA de 2048 bits  | Sim                |
+| SQL do Azure (instância gerida da base de dados) | Sim                | Pré-visualização, RSA de 2048 bits  | Sim                |
 | Armazenamento do Azure (Blobs de bloco/páginas) | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | Armazenamento do Azure (ficheiros)            | Sim                | Sim, RSA de 2048 bits  | -                  |
 | Armazenamento do Azure (tabelas, filas)   | Sim                | -                  | Sim                |

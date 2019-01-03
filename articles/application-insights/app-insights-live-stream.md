@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b44903244147f556e620e9726f6e9884b12ac8a8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967134"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976533"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
-Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](app-insights-profiler.md), [depurador de instantâneos](app-insights-snapshot-debugger.md), e [testes de desempenho](app-insights-monitor-web-app-availability.md#performance-tests), Stream de métricas em direto fornece uma ferramenta de diagnóstico avançada e não INVASIVO para a web em direto site.
+Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](app-insights-profiler.md), [depurador de instantâneos](app-insights-snapshot-debugger.md), e [testes de desempenho](../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Stream de métricas em direto fornece uma ferramenta de diagnóstico avançada e não INVASIVO para a web em direto site.
 
 Com o Stream de métricas em direto, pode:
 
@@ -38,7 +38,7 @@ Com o Stream de métricas em direto, pode:
 
 ## <a name="get-started"></a>Introdução
 
-1. Se ainda não ainda [instalou o Application Insights](app-insights-asp-net.md) na sua aplicação web ASP.NET ou [aplicação do Windows server](app-insights-windows-services.md), fazer isso agora. 
+1. Se ainda não ainda [instalou o Application Insights](../azure-monitor/app/asp-net.md) na sua aplicação web ASP.NET ou [aplicação do Windows server](app-insights-windows-services.md), fazer isso agora. 
 2. **Atualização para a versão mais recente** do pacote do Application Insights. No Visual Studio, clique no projeto e escolha **gerir pacotes Nuget**. Abra o **atualizações** separador, verificação **incluir pré-lançamento**e selecione todos os pacotes de Microsoft.ApplicationInsights.*.
 
     Volte a implementar a aplicação.
@@ -52,7 +52,7 @@ Com o Stream de métricas em direto, pode:
 
 ### <a name="no-data-check-your-server-firewall"></a>Não existem dados? Verifique a firewall do servidor
 
-Verifique os [portas de saída para o Stream de métricas em direto](app-insights-ip-addresses.md#outgoing-ports) estão abertas no firewall dos seus servidores. 
+Verifique os [portas de saída para o Stream de métricas em direto](../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos seus servidores. 
 
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Stream de métricas em direto difere do Explorador de métricas e análise?
@@ -60,10 +60,10 @@ Verifique os [portas de saída para o Stream de métricas em direto](app-insight
 | |Live Stream | Explorador de métricas e análise |
 |---|---|---|
 |Latência|Dados apresentados dentro de um segundo|Agregado ao longo de minutos|
-|Nenhuma retenção|Dados persistir enquanto ele está no gráfico e, em seguida, é rejeitado|[Dados retidos durante 90 dias](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
+|Nenhuma retenção|Dados persistir enquanto ele está no gráfico e, em seguida, é rejeitado|[Dados retidos durante 90 dias](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |A pedido|Dados são transmitidos ao abrir o Live Metrics|Os dados são enviados sempre que o SDK está instalado e ativado|
 |Gratuito|Não tem custos para os dados do Stream em direto|Sujeito à [preços](app-insights-pricing.md)
-|Amostragem|Contadores e métricas de todos os selecionados são transmitidas. Falhas e de rastreamentos de pilha são objeto de amostragem. TelemetryProcessors não são aplicadas.|Eventos podem ter [amostragem](app-insights-api-filtering-sampling.md)|
+|Amostragem|Contadores e métricas de todos os selecionados são transmitidas. Falhas e de rastreamentos de pilha são objeto de amostragem. TelemetryProcessors não são aplicadas.|Eventos podem ter [amostragem](../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de controlo|Sinais de controle de filtro são enviadas para o SDK. Recomendamos que [proteja este canal](#secure-channel).|A comunicação é unidirecional, para o portal|
 
 
@@ -75,7 +75,7 @@ Pode monitorizar ao vivo de KPI personalizado ao aplicar os filtros arbitrários
 
 ![Pedido personalizado KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-Pode monitorizar um valor diferente da contagem. As opções dependem do tipo de fluxo, o que poderia ser qualquer telemetria do Application Insights: pedidos, dependências, exceções, rastreios, eventos ou métricas. Pode ser sua própria [medida personalizada](app-insights-api-custom-events-metrics.md#properties):
+Pode monitorizar um valor diferente da contagem. As opções dependem do tipo de fluxo, o que poderia ser qualquer telemetria do Application Insights: pedidos, dependências, exceções, rastreios, eventos ou métricas. Pode ser sua própria [medida personalizada](../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Opções de valor](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
@@ -83,7 +83,7 @@ Além de telemetria do Application Insights, também é possível monitorizar qu
 
 Métricas dinâmicas são agregadas ao dois pontos: localmente em cada servidor e, em seguida, em todos os servidores. Pode alterar o padrão em qualquer um ao selecionar outras opções no respetivas suspensas.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Telemetria de exemplo: Eventos de diagnóstico em direto personalizados
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Telemetria de exemplo: Eventos de diagnóstico em direto de personalizado
 Por predefinição, a transmissão em direto de eventos mostra exemplos de pedidos falhados e chamadas de dependências, exceções, eventos e rastreios. Clique no ícone de filtro para ver os critérios aplicados em qualquer ponto no tempo. 
 
 ![Feed em direto do padrão](./media/app-insights-live-stream/live-stream-eventsdefault.png)
@@ -188,7 +188,7 @@ No entanto, se reconhece e confia em todos os servidores ligados, pode experimen
 
 ## <a name="generating-a-performance-test-load"></a>Gerar uma carga de teste de desempenho
 
-Se pretender ver o efeito de um aumento de carga, utilize o painel de teste de desempenho. Ela simula a pedidos de um número de usuários simultâneos. Ele pode executar qualquer um dos "testes manuais" (testes de ping) de uma única URL, ou pode ser executada uma [teste de desempenho na web de vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests) que carrega (da mesma forma como um teste de disponibilidade).
+Se pretender ver o efeito de um aumento de carga, utilize o painel de teste de desempenho. Ela simula a pedidos de um número de usuários simultâneos. Ele pode executar qualquer um dos "testes manuais" (testes de ping) de uma única URL, ou pode ser executada uma [teste de desempenho na web de vários passos](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) que carrega (da mesma forma como um teste de disponibilidade).
 
 > [!TIP]
 > Depois de criar o teste de desempenho, abra o teste e o painel de Stream em direto no windows separadas. Pode ver quando é iniciado o teste de desempenho em fila de mensagens em fila e a transmissão em direto do watch ao mesmo tempo.
@@ -197,12 +197,12 @@ Se pretender ver o efeito de um aumento de carga, utilize o painel de teste de d
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Não existem dados? Se seu aplicativo estiver numa rede protegida: Live Stream de métricas utiliza um endereços IP diferentes do que de outra telemetria do Application Insights. Certifique-se [esses endereços IP](app-insights-ip-addresses.md) estão abertas na firewall.
+Não existem dados? Se seu aplicativo estiver numa rede protegida: Stream de métricas em direto utiliza um endereços IP diferentes do que de outra telemetria do Application Insights. Certifique-se [esses endereços IP](../azure-monitor/app/ip-addresses.md) estão abertas na firewall.
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar a utilização com o Application Insights](app-insights-usage-overview.md)
-* [Utilizar a pesquisa de diagnóstico](app-insights-diagnostic-search.md)
+* [Utilizar a pesquisa de diagnóstico](../azure-monitor/app/diagnostic-search.md)
 * [Gerador de perfis](app-insights-profiler.md)
 * [Depurador de instantâneos](app-insights-snapshot-debugger.md)

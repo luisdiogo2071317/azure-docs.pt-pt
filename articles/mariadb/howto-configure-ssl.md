@@ -3,24 +3,22 @@ title: Configurar a conectividade SSL para ligar em segurança à base de dados 
 description: Instruções sobre como configurar corretamente a base de dados do Azure para MariaDB e os aplicativos associados corretamente utilizar ligações SSL
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 00e8479eab927acccc8f797311a0a2d440bb96da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4bf18a44255903df09aae3382c0eb35a2a55eea5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961676"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541817"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurar a conectividade SSL na sua aplicação para ligar em segurança à base de dados do Azure para MariaDB
 Oferece suporte a base de dados do Azure para MariaDB, ligar a sua base de dados do Azure para MariaDB server para as aplicações de cliente, utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
 ## <a name="obtain-ssl-certificate"></a>Obter o certificado SSL
 Transferir o certificado necessário para se comunicar através de SSL com a base de dados do Azure para MariaDB servidor a partir [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e guarde o ficheiro de certificado no disco local (Este tutorial utiliza c:\ssl por exemplo).
-**Para o Microsoft Internet Explorer e o Microsoft Edge:** após a conclusão do download, mudar o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
+**Para o Microsoft Internet Explorer e o Microsoft Edge:** Após a conclusão do download, mudar o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Enlace SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>A ligar ao servidor usando a Bancada de trabalho do MySQL através de SSL
@@ -49,7 +47,7 @@ Executar o mysql **estado** comando para verificar se tem ser ligada ao seu serv
 ```sql
 status
 ```
-Confirmar a conexão seja criptografada revisando a saída, o que deve mostrar: **SSL: cifras em utilização é AES256 SHA** 
+Confirme que a conexão seja criptografada revisando a saída, o que deve mostrar:  **SSL: Cifras em utilização é AES256 SHA** 
 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma ligação segura à base de dados do Azure para MariaDB através de SSL através da aplicação, consulte os seguintes exemplos de código:

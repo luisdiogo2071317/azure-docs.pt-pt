@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8af8e4b7844feb785600ef683891642ea89bccaf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542587"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556905"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar trocas de afirmações de REST API no seu percurso do utilizador do Azure AD B2C, como validação na entrada do usuário
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Descrição Passo a Passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação na entrada do usuário
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,7 +30,7 @@ O IEF envia os dados em afirmações e recebe dados de volta nas afirmações. A
 - Pode ser criado como uma troca de afirmações de REST API ou como um perfil de validação, o que acontece dentro de um passo de orquestração.
 - Normalmente, valida a entrada do usuário. Se o valor do usuário for rejeitado, o utilizador pode tentar novamente para introduzir um valor válido com a oportunidade de retornar uma mensagem de erro.
 
-Também é possível projetar a interação como um passo de orquestração. Para obter mais informações, consulte [passo a passo: trocas no seu percurso do utilizador do Azure AD B2C como um passo de orquestração de afirmações de API do REST de integrar](active-directory-b2c-rest-api-step-custom.md).
+Também é possível projetar a interação como um passo de orquestração. Para obter mais informações, consulte [passo a passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como um passo de orquestração](active-directory-b2c-rest-api-step-custom.md).
 
 No exemplo de perfil de validação, utilizaremos o percurso de utilizador de edição de perfil no ficheiro de pacote de iniciação ProfileEdit.xml.
 
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 O IEF espera que o `userMessage` afirmação que devolve a função do Azure. Essa declaração será apresentada como uma cadeia de caracteres para o usuário se a validação falhar, por exemplo, quando é devolvido um Estado de 409 conflito no exemplo anterior.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Passo 2: Configurar a troca de afirmações de RESTful API, como um perfil técnico em seu arquivo TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Passo 2: Configurar a troca de afirmações de RESTful API como um perfil técnico em seu arquivo TrustFrameworkExtensions.xml
 
 Um perfil técnico é a configuração completa do exchange pretendido com o serviço RESTful. Abra o ficheiro de TrustFrameworkExtensions.xml e adicione o seguinte fragmento XML dentro do `<ClaimsProviders>` elemento.
 
@@ -93,6 +93,7 @@ Um perfil técnico é a configuração completa do exchange pretendido com o ser
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
@@ -130,4 +131,4 @@ Para adicionar a troca de afirmações para o perfil técnico de declaração pr
 
 [Modificar o registo de utilizador e Editar perfil para coletar informações adicionais de seus usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Passo a passo: Integrar trocas de afirmações de REST API no seu percurso do utilizador do Azure AD B2C, como um passo de orquestração](active-directory-b2c-rest-api-step-custom.md)
+[Passo a passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como um passo de orquestração](active-directory-b2c-rest-api-step-custom.md)

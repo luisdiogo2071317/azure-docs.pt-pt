@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271016"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630466"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -49,7 +49,7 @@ Se tiver um ASE de ILB, o endereço do ILB é o ponto de extremidade HTTP/S, FTP
 
 As portas de acesso de aplicação normal são:
 
-| Utilizar | De | Para |
+| Utilizar | A partir de | Para |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Utilizador configurável |  80, 443 |
 |  FTP/FTPS    | Utilizador configurável |  21, 990, 10001-10020 |
@@ -59,7 +59,7 @@ Isso é verdade se estiver num ASE externo ou num ASE de ILB. Se estiver num ASE
 
 ## <a name="ase-subnet-size"></a>Tamanho da sub-rede do ASE ##
 
-Não é possível alterar o tamanho da sub-rede utilizada para alojar um ASE depois de implementar o ASE.  O ASE utiliza um endereço para cada função de infraestrutura, bem como para cada instância de plano de serviço de aplicações isolado.  Além disso, existem 5 endereços utilizados pelo sistema de rede do Azure para cada sub-rede que for criado.  Um ASE com não existem planos de serviço de aplicações em todos os usará 12 endereços antes de criar uma aplicação.  Se for um ASE de ILB, em seguida, ele usará 13 endereços antes de criar uma aplicação nesse ASE. Ao dimensionar o ASE, funções de infraestrutura são adicionadas a cada múltiplo de 15 e 20 das suas instâncias do plano de serviço de aplicações.
+O tamanho da sub-rede utilizada para alojar um ASE não pode ser alterado depois de o ASE ser implementado.  O ASE utiliza um endereço para cada função de infraestrutura, bem como para cada instância de plano de serviço de aplicações isolado.  Além disso, existem 5 endereços utilizados pelo sistema de rede do Azure para cada sub-rede que for criado.  Um ASE com não existem planos de serviço de aplicações em todos os usará 12 endereços antes de criar uma aplicação.  Se for um ASE de ILB, em seguida, ele usará 13 endereços antes de criar uma aplicação nesse ASE. Ao dimensionar o ASE, funções de infraestrutura são adicionadas a cada múltiplo de 15 e 20 das suas instâncias do plano de serviço de aplicações.
 
    > [!NOTE]
    > Nada mais é possível na sub-rede, mas o ASE. Certifique-se de que escolha um espaço de endereços que permite para o crescimento futuro. Não é possível alterar esta definição mais tarde. Recomendamos um tamanho de `/24` com 256 endereços.
@@ -72,7 +72,7 @@ Quando aumenta ou reduzir verticalmente, são adicionadas novas funções do tam
 
 O ASE de entrada de acesso são dependências:
 
-| Utilizar | De | Para |
+| Utilizar | A partir de | Para |
 |-----|------|----|
 | Gestão | Endereços de gestão do serviço de aplicações | Sub-rede do ASE: 454, 455 |
 |  Comunicação interna do ASE | Sub-rede do ASE: Todas as portas | Sub-rede do ASE: Todas as portas
@@ -151,7 +151,7 @@ Todos os, estes endereços IP são facilmente visíveis num ASEv2 no portal do A
 
 ### <a name="app-assigned-ip-addresses"></a>Aplicação atribuída endereços IP ###
 
-Com um ASE externo, pode atribuir endereços IP para aplicações individuais. Não é possível fazê-lo com um ASE de ILB. Para obter mais informações sobre como configurar a sua aplicação tenha seu próprio endereço IP, consulte [vincular um certificado SSL personalizado já existente às aplicações web do Azure](../app-service-web-tutorial-custom-ssl.md).
+Com um ASE externo, pode atribuir endereços IP para aplicações individuais. Não é possível fazê-lo com um ASE de ILB. Para obter mais informações sobre como configurar a sua aplicação tenha seu próprio endereço IP, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-ssl.md).
 
 Quando uma aplicação tem seu próprio endereço SSL baseado em IP, o ASE reserva-se duas portas para mapear para esse endereço IP. É de uma porta para o tráfego HTTP e a outra porta é para HTTPS. Essas portas são listadas na IU do ASE, na secção de endereços IP. Tráfego deve ser capaz de alcançar essas portas do VIP ou as aplicações estão inacessíveis. Este requisito é importante lembrar-se ao configurar grupos de segurança de rede (NSGs).
 

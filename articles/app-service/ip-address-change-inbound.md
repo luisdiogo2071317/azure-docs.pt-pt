@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249333"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721364"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP entrada
 
@@ -50,4 +50,4 @@ O endereço IP de entrada novo que está a ser dado à sua aplicação estiver n
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre os endereços IP no serviço de aplicações do Azure, consulte [de entrada e endereços IP de saída no serviço de aplicações do Azure](app-service-ip-addresses.md).
+Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre os endereços IP no serviço de aplicações do Azure, consulte [de entrada e endereços IP de saída no serviço de aplicações do Azure](overview-inbound-outbound-ips.md).

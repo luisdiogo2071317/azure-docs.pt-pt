@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 947abea50685b04c3500a13a950375c32547efaf
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498771"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652970"
 ---
 # <a name="install-published-application---datameer"></a>Instalar a aplicação publicada - Datameer
 
@@ -22,7 +22,7 @@ Este artigo descreve como instalar e executar o [Datameer](https://www.datameer.
 
 ## <a name="about-datameer"></a>Sobre o Datameer
 
-Datameer é um aplicativo nativo para o Hadoop plataforma, estendendo existente capacidades do Azure HDInsight e fornecer integração rápida, preparação e análises de dados estruturados e não estruturados. Datameer pode aceder a mais de 70 origens e formatos: estruturados, semiestruturados e não estruturados. Diretamente pode carregar dados, ou utilizar as suas ligações de dados exclusivo para extrair os dados a pedido. A funcionalidade de autoatendimento do Datameer e interface de folha de cálculo familiar reduz a complexidade da tecnologia de grandes volumes de dados e acelera o tempo para obter conhecimentos aprofundados. A interface de folha de cálculo fornece um mecanismo simples para inserir fórmulas declarativas que, em seguida, são traduzidas para otimizadas para tarefas do Hadoop. Com o Datameer e sua business intelligence (BI) e a habilidades de Excel, pode utilizar o Hadoop na cloud rapidamente. Para obter mais informações, consulte a [Datameer documentação](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+Datameer é um aplicativo nativo para o Hadoop plataforma, estendendo existente capacidades do Azure HDInsight e fornecer integração rápida, preparação e análises de dados estruturados e não estruturados. Datameer pode aceder a mais de 70 origens e formatos: estruturados, semiestruturados e não estruturados. Diretamente pode carregar dados, ou utilizar as suas ligações de dados exclusivo para extrair os dados a pedido. A funcionalidade de autoatendimento do Datameer e interface de folha de cálculo familiar reduz a complexidade da tecnologia de grandes volumes de dados e acelera o tempo para obter conhecimentos aprofundados. A interface de folha de cálculo fornece um mecanismo simples para inserir fórmulas declarativas que, em seguida, são traduzidas para otimizadas para tarefas do Hadoop. Com o Datameer e sua business intelligence (BI) e a habilidades de Excel, pode utilizar o Hadoop na cloud rapidamente. Para obter mais informações, consulte a [Datameer documentação](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Para obter instruções passo a passo sobre como instalar esta e outras aplicaç
 
 3. Na primeira inicialização, existem duas opções de licença: qualquer um de uma avaliação gratuita de 14 dias, ou ativar uma licença já existente.
 
-    ![Opções da licença](./media/hdinsight-apps-install-datameer/license.png)
+    ![Opções de licença](./media/hdinsight-apps-install-datameer/license.png)
 
 4. Depois de concluir a sua opção de licenças selecionado, será apresentada com um formulário de início de sessão. Introduza as credenciais de predefinição exibidas antes o formulário de início de sessão. Após iniciar sessão, aceite o contrato de software para continuar.
 
@@ -106,9 +106,9 @@ Parabéns! Acabou de criar uma visualização dos seus dados sem escrever nenhum
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Documentação de Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
-* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada para o HDInsight.
-* [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
+* [Documentação de Datameer](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada HDInsight.
+* [Publicar aplicações HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar aplicações HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseado em Linux com ação de Script](hdinsight-hadoop-customize-cluster-linux.md): Saiba como utilizar a ação de Script para instalar outras aplicações.
 * [Utilizar nós de extremidade vazios no HDInsight](hdinsight-apps-use-edge-node.md): Saiba como utilizar um nó de extremidade vazio para aceder aos clusters do HDInsight e de teste e alojamento de aplicações do HDInsight.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499472"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584535"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos serviços de ML e capacidades de R de código-fonte aberto no HDInsight
 
-> [!NOTE]
+> [!NOTE]  
 > Em Setembro de 2017, o Microsoft R Server foi lançado com o novo nome de **Microsoft Machine Learning Server** ou servidor de ML. Conseqüentemente, agora é chamado de cluster do R Server no HDInsight **serviços de Machine Learning** ou **serviços ML** cluster no HDInsight. Para obter mais informações sobre a alteração do nome do R Server, consulte [agora, o Microsoft R Server é o Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 Microsoft Machine Learning Server está disponível como uma opção de implementação quando criar clusters do HDInsight no Azure. O tipo de cluster que fornece esta opção é chamado **serviços ML**. Esta capacidade fornece cientistas de dados, estatísticos e programadores de R com acesso a pedido dimensionável, distribuído métodos de análise no HDInsight.
@@ -29,7 +29,7 @@ Serviços de ML no HDInsight oferece as capacidades mais recentes para análise 
 
 Nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e para executar os scripts R. Com um nó de extremidade, tem a opção de executar as funções em paralelo distribuídas de ScaleR entre os núcleos do servidor de nó edge. Também pode executá-los em todos os nós do cluster com o Hadoop mapeamento redução do ScaleR ou contextos de cálculo do Apache Spark.
 
-Os modelos ou predições resultantes de análise podem ser transferidas para utilização no local. Eles podem também serem operacionalizados noutro local no Azure, em particular através de [Azure Machine Learning Studio](http://studio.azureml.net) [serviço web](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+Os modelos ou predições resultantes de análise podem ser transferidas para utilização no local. Eles podem também serem operacionalizados noutro local no Azure, em particular através de [Azure Machine Learning Studio](https://studio.azureml.net) [serviço web](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução aos serviços de ML no HDInsight
 
@@ -72,7 +72,7 @@ As seguintes funcionalidades estão incluídas nos serviços de ML no HDInsight.
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opções de armazenamento de dados para serviços de ML no HDInsight
 
-Armazenamento de predefinido para o sistema de ficheiros HDFS de clusters do HDInsight pode ser associado uma conta de armazenamento do Azure ou um Store do Azure Data Lake. Esta associação garante que os dados que são carregados para o cluster de armazenamento durante a análise é efetuado, persistente e os dados estão disponíveis mesmo após o cluster é eliminado. Existem várias ferramentas para lidar com a transferência de dados para a opção de armazenamento que selecionar, incluindo o recurso de carregamento com base no portal da conta de armazenamento e o [AzCopy](../../storage/common/storage-use-azcopy.md) utilitário.
+Armazenamento de predefinido para o sistema de ficheiros HDFS de clusters do HDInsight pode ser associado uma conta de armazenamento do Azure ou um armazenamento do Azure Data Lake. Esta associação garante que os dados que são carregados para o cluster de armazenamento durante a análise é efetuado, persistente e os dados estão disponíveis mesmo após o cluster é eliminado. Existem várias ferramentas para lidar com a transferência de dados para a opção de armazenamento que selecionar, incluindo o recurso de carregamento com base no portal da conta de armazenamento e o [AzCopy](../../storage/common/storage-use-azcopy.md) utilitário.
 
 Tem a opção de permitir o acesso aos BLOBs adicionais e o Data lake armazena durante o processo, independentemente da opção de armazenamento primário utilizado de aprovisionamento de clusters. Ver [introdução aos serviços de ML no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) para obter informações sobre como adicionar o acesso a contas adicionais. Ver [opções de armazenamento do Azure para serviços de ML no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artigo para saber mais sobre como utilizar várias contas de armazenamento.
 

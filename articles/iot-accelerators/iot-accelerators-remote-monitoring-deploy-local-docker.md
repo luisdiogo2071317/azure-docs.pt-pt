@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288549"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601156"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementar o monitorização remota acelerador de soluções localmente - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como implementar os microsserviços em contentores do Docker locais. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: serviços de IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights na cloud.
+Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como implementar os microsserviços em contentores do Docker locais. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights serviços na cloud.
 
 Se quiser executar o acelerador de solução de monitorização remota num IDE no seu computador local, veja [implementar o monitorização remota acelerador de soluções localmente - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -27,7 +27,7 @@ Se quiser executar o acelerador de solução de monitorização remota num IDE n
 
 Para implementar os serviços do Azure utilizados pelo acelerador de solução de monitorização remota, precisa de uma subscrição do Azure Active Directory.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração de máquina
 
@@ -72,11 +72,11 @@ Na primeira vez que executar este comando, o Docker transfere as imagens de micr
 > [!TIP]
 > Com freqüência, a Microsoft publica novas imagens do Docker com a nova funcionalidade. Pode utilizar o seguinte conjunto de comandos para limpeza seus contentores do Docker locais e as imagens correspondentes antes de extrair os mais recentes:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 Pode utilizar um shell separado para ver os registos do contentor. Primeiro, encontrar o ID de contentor com o `docker ps` comando. Em seguida, utilizar `docker logs {container-id} --tail 1000` para ver as últimas 1 000 entradas para o contentor especificado.
 

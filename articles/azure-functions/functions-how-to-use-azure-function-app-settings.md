@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999902"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713631"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -126,7 +126,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 | | |
 |-|-|
-| ![Autenticação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Quando as funções utilizam um acionador HTTP, pode exigir a chamadas para ser autenticada pela primeira vez. Serviço de aplicações suporta a autenticação do Azure Active Directory e inicie sessão com fornecedores de redes sociais, como o Facebook, Microsoft e Twitter. Para obter detalhes sobre como configurar fornecedores de autenticação específicos, consulte [descrição geral da autenticação do serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md). |
+| ![Autenticação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Quando as funções utilizam um acionador HTTP, pode exigir a chamadas para ser autenticada pela primeira vez. Serviço de aplicações suporta a autenticação do Azure Active Directory e inicie sessão com fornecedores de redes sociais, como o Facebook, Microsoft e Twitter. Para obter detalhes sobre como configurar fornecedores de autenticação específicos, consulte [descrição geral da autenticação do serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md). |
 
 ![Configurar a autenticação para uma aplicação de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

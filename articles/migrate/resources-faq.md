@@ -4,14 +4,14 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257799"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975479"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -48,12 +48,13 @@ O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site 
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quais as geografias do Azure são suportadas pelo Azure Migrate?
 
-O Azure Migrate suporta atualmente dos Estados Unidos e o Azure Government como as geografias do projeto. Mesmo que só pode criar projetos de migração nestes geografias, ainda pode avaliar as máquinas para [várias localizações dos destinos](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A geografia do projeto só é utilizada para armazenar os metadados detetados.
+O Azure Migrate suporta atualmente na Europa, Estados Unidos e o Azure Government como as geografias do projeto. Mesmo que só pode criar projetos de migração nestes geografias, ainda pode avaliar as máquinas para [várias localizações dos destinos](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A geografia do projeto só é utilizada para armazenar os metadados detetados.
 
 **Geografia** | **Localização de armazenamento de metadados**
 --- | ---
-Une Estados | EUA Centro-Oeste ou E.U.A. leste
 Azure Government | Gov (US) - Virginia
+Europa | Europa do Norte ou da Europa Ocidental
+Une Estados | E.U.A. Leste dos EUA Centro-Oeste
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como ligar o site no local para o Azure Migrate?
 

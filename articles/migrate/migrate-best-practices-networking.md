@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139752"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994968"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar as redes para cargas de trabalho migradas para o Azure
 
@@ -37,7 +37,7 @@ O Azure fornece redes virtuais (VNets):
 
 Há uma série de coisas que precisa pensar sobre o quando planear a topologia de VNet, incluindo como dispor o endereço IP de espaços, como implementar uma rede hub-and-spoke, como segmentar VNets em sub-redes, configurar o DNS e implementar as zonas de disponibilidade do Azure.
 
-## <a name="best-practice-plan-ip-addressing"></a>Melhor prática: planear endereçamento IP
+## <a name="best-practice-plan-ip-addressing"></a>Prática recomendada: Planear o endereçamento IP
 
 Quando cria VNets como parte da sua migração, é importante planejar seu espaço de endereços IP de VNet.
 
@@ -53,7 +53,7 @@ Quando cria VNets como parte da sua migração, é importante planejar seu espa�
 - [Saiba mais sobre](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) limitações de rede.
 
 
-## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>Melhor prática: implementar uma topologia de rede hub-and-spoke
+## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>Prática recomendada: Implementar uma topologia de rede hub-and-spoke
 
 Uma topologia de rede hub-and-spoke isola as cargas de trabalho, compartilhando serviços, como a identidade e segurança.
 - O hub é uma VNet do Azure que age como um ponto central de conectividade.
@@ -76,7 +76,7 @@ Considere o seguinte:
 - [Saiba mais sobre](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o VNet peering.
 
 
-## <a name="best-practice-design-subnets"></a>Melhor prática: Crie sub-redes
+## <a name="best-practice-design-subnets"></a>Prática recomendada: Sub-redes de design
 
 Para fornecer isolamento dentro de uma VNet, pode segmentá-lo num ou mais sub-redes e atribuir uma parte do espaço de endereços da VNet para cada sub-rede.
 - Pode criar várias sub-redes dentro de cada VNet.
@@ -101,7 +101,7 @@ DEV-DB-EUS2 | 10.245.24.0/23 | 507 | VMs de base de dados
 - [Saiba como](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) numa empresa fictícia (Contoso) preparada sua infraestrutura de rede para migração.
 
 
-## <a name="best-practice-set-up-a-dns-server"></a>Melhor prática: configurar um servidor DNS
+## <a name="best-practice-set-up-a-dns-server"></a>Prática recomendada: Configurar um servidor DNS
 
 O Azure adiciona um servidor DNS por predefinição quando implementar uma VNet. Isto permite-lhe rapidamente criar VNets e implementar recursos. No entanto, este servidor DNS oferece apenas serviços para os recursos nessa VNet. Se pretender ligar várias VNets entre si, ou ligar a um servidor no local a partir de VNets, tem capacidades de resolução de nome adicionais. Por exemplo, poderá ter o Active Directory para resolver nomes DNS entre redes virtuais. Para tal, implemente o seu próprio servidor DNS personalizado no Azure.
 
@@ -118,10 +118,10 @@ O Azure adiciona um servidor DNS por predefinição quando implementar uma VNet.
 
 **Saiba mais:**
 - [Saiba mais sobre](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) resolução de nomes ao utilizar o seu próprio servidor DNS.
-- [Saiba mais sobre](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS regras e restrições de nomenclatura.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS regras e restrições de nomenclatura.
 
 
-## <a name="best-practice-set-up-availability-zones"></a>Melhor prática: Configure as zonas de disponibilidade
+## <a name="best-practice-set-up-availability-zones"></a>Prática recomendada: Configure as zonas de disponibilidade
 
 As zonas de disponibilidade aumentam a elevada disponibilidade para proteger as aplicações e dados de falhas de datacenter.
 
@@ -134,7 +134,7 @@ As zonas de disponibilidade aumentam a elevada disponibilidade para proteger as 
     ![Zona de disponibilidade](./media/migrate-best-practices-networking/availability-zone.png) *zona de disponibilidade*
 
 - Planear e criar alta disponibilidade em sua arquitetura de migração ao colocalizar computação, armazenamento, redes e recursos de dados dentro de uma zona e replicá-los noutras zonas. Serviços do Azure que suportam zonas de disponibilidade enquadram-se em duas categorias:
-    - Serviços zonais: associar um recurso com uma zona específica. Para VMs de exemplo, os discos geridos, endereços IP).
+    - Serviços zonais: Associar um recurso uma zona específica. Para VMs de exemplo, os discos geridos, endereços IP).
     - Serviços com redundância de zona: O recurso é replicada automaticamente nas zonas. Por exemplo, com redundância de zona de armazenamento, base de dados do Azure SQL.
 - Pode implementar uma padrão com a com cargas de trabalho de acesso à internet ou de camadas de aplicação, para fornecer tolerância a falhas zonal de balanceamento de carga do Azure.
 
@@ -149,14 +149,14 @@ As zonas de disponibilidade aumentam a elevada disponibilidade para proteger as 
 
 Para uma migração com êxito, é fundamental para ligar a redes empresariais no local ao Azure. Esta ação cria uma conexão sempre ativa conhecida como uma rede na cloud híbrida, quais serviços são fornecidos do Azure na cloud para os usuários corporativos. Existem duas opções para criar este tipo de rede:
 
-- **VPN de site a site:** estabelecer uma ligação site a site entre o dispositivo VPN compatível no local e um gateway de VPN do Azure que é implementado numa VNet. Qualquer autorizado no local podem aceder a recursos VNets. Comunicações de site a site são enviadas através de um túnel encriptado através da internet. 
-- **O Azure ExpressRoute:** estabelece uma ligação de ExpressRoute do Azure entre a rede no local e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada e o tráfego não entram na Internet.
+- **VPN de site a site:** Estabelecer uma ligação site a site entre o dispositivo VPN compatível no local e um gateway de VPN do Azure que é implementado numa VNet. Qualquer autorizado no local podem aceder a recursos VNets. Comunicações de site a site são enviadas através de um túnel encriptado através da internet. 
+- **O Azure ExpressRoute:** Estabelecer uma ligação do ExpressRoute do Azure entre a rede no local e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada e o tráfego não entram na Internet.
 
 **Saiba mais:**
 
 - [Saiba mais](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn) sobre redes na cloud híbrida.
 
-## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>Melhor prática: implementar uma VPN de site a site de elevada disponibilidade
+## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>Prática recomendada: Implementar uma VPN de site a site de elevada disponibilidade
 
 Para implementar uma VPN de site a site, configurar um gateway de VPN no Azure.
 - Um gateway de VPN é um tipo específico de gateway de VNet, que é utilizada para enviar tráfego encriptado entre uma VNet do Azure e uma localização no local através da Internet pública.
@@ -193,7 +193,7 @@ Quando configurar uma VPN de site a site, faça o seguinte:
 - [Leia sobre](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview) configurar o BGP com gateways de VPN do Azure.
 
 
-### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>Melhor prática: configurar um gateway para Gateways de VPN
+### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>Prática recomendada: Configurar um gateway para Gateways de VPN
 
 Quando cria um gateway de VPN no Azure, tem de utilizar uma sub-rede especial com o nome GatewaySubnet. Ao criar esta nota de sub-rede essas práticas recomendadas:
 
@@ -205,7 +205,7 @@ Quando cria um gateway de VPN no Azure, tem de utilizar uma sub-rede especial co
 **Saiba mais:**
 - [Utilize esta ferramenta](https://gallery.technet.microsoft.com/scriptcenter/Address-prefix-calculator-a94b6eed) para determinar o seu espaço de endereços IP.
 
-## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>Recomendado: implemente Azure Virtual WAN para filiais
+## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>Prática recomendada: Implementar o WAN Virtual do Azure para sucursais
 
 Para várias ligações de VPN, o WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramificação para ramificação otimizada e automatizada através do Azure.
 - A WAN Virtual permite-lhe ligar e configurar dispositivos de ramo para comunicar com o Azure. Isso pode ser feito manualmente ou através de dispositivos do fornecedor preferencial através de um parceiro de Virtual WAN.
@@ -215,7 +215,7 @@ Para várias ligações de VPN, o WAN Virtual do Azure é um serviço de rede qu
 **Saiba mais:**
 [Saiba mais sobre](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about) WAN Virtual do Azure.
 
-### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>Recomendado: implemente ExpressRoute para ligações de missão crítica
+### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>Prática recomendada: Implementar o ExpressRoute para ligações de missão crítica
 
 O serviço Azure ExpressRoute permite-lhe expandir a sua infraestrutura no local para a cloud da Microsoft através da criação de ligações privadas entre o datacenter virtual do Azure e redes no local.
 - As ligações do ExpressRoute podem ser através de uma rede de qualquer a qualquer (VPN de IP), uma rede de Ethernet ponto a ponto, ou através de um fornecedor de conectividade. Eles não passam pela internet pública.
@@ -230,7 +230,7 @@ Implementar as ligações do ExpressRoute, normalmente, envolve a começar a usa
 - [Obtenha uma visão geral](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) do ExpressRoute.
 - [Saiba mais sobre](https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about) direta do ExpressRoute.
 
-### <a name="best-practice-optimize-expressroute-routing-with-bgp-communities"></a>Melhor prática: otimizar o encaminhamento do ExpressRoute com as Comunidades de BGP
+### <a name="best-practice-optimize-expressroute-routing-with-bgp-communities"></a>Prática recomendada: Otimizar o encaminhamento do ExpressRoute com as Comunidades de BGP
 
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Como resultado, o encaminhamento inferior ao ideal pode acontecer e o seu tráfego, poderá demorar um caminho mais longo para chegar à Microsoft e Microsoft à sua rede. Quanto mais tempo o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de utilizador e de desempenho da aplicação.
 
@@ -280,7 +280,7 @@ A responsabilidade de proteger VNETs é compartilhada entre a Microsoft e. A Mic
 - [Obtenha uma visão geral](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices) de melhores práticas para segurança de rede.
 - [Saiba como](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#security) design para redes seguras.
 
-## <a name="best-practice-implement-an-azure-perimeter-network"></a>Melhor prática: implementar uma rede de perímetro do Azure
+## <a name="best-practice-implement-an-azure-perimeter-network"></a>Prática recomendada: Implementar uma rede de perímetro do Azure
 
 Embora a Microsoft investe intensamente a proteger a infraestrutura de nuvem, também terá de proteger seus serviços cloud e os grupos de recursos. Uma abordagem de várias camadas para segurança fornece o melhor defesa. Colocar uma rede de perímetro no local é uma parte importante dessa estratégia de defesa.
 
@@ -301,7 +301,7 @@ A figura a seguir mostra um exemplo de uma rede de perímetro única sub-rede nu
 - [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) implementar uma rede de perímetro entre o Azure e o seu datacenter no local.
 
 
-## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>Melhor prática: tráfego de VNet de filtro com NSGs
+## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>Prática recomendada: Filtrar o tráfego de VNet com NSGs
 
 Grupos de segurança de rede (NSG) contêm várias regras de segurança de entrada e saída que filtrar o tráfego que passa para e de recursos. Filtragem pode ser por origem e endereço IP de destino, porta e protocolo. 
 - Os NSGs contêm regras de segurança que permitem ou negam o tráfego de rede de entrada (ou tráfego de rede de saída do) vários tipos de recursos do Azure. Para cada regra, pode especificar a origem e o destino, a porta e o protocolo.
@@ -312,7 +312,7 @@ Grupos de segurança de rede (NSG) contêm várias regras de segurança de entra
 - Ligações existentes não sejam interrompidas quando remove uma regra de segurança ativado o fluxo. Fluxos de tráfego são interrompidos quando as ligações são paradas e nenhum tráfego estiver fluindo em ambas as direções para, pelo menos, alguns minutos.
 - Ao criar NSGs, crie, no mínimo possível, mas o máximo que são necessárias.
 
-### <a name="best-practice-secure-northsouth-and-eastwest-traffic"></a>Melhor prática: proteger o tráfego de Norte/Sul e este/oeste
+### <a name="best-practice-secure-northsouth-and-eastwest-traffic"></a>Prática recomendada: Proteger o tráfego de Norte/Sul e este/oeste
 
 Ao proteger VNets, é importante considerar vetores de ataque.
 - Usando apenas a sub-rede NSGs simplifica o seu ambiente, mas só protege o tráfego para a sub-rede. Isso é conhecido como Norte/Sul tráfego.
@@ -336,11 +336,11 @@ Etiquetas de serviço demorar trabalho manual de atribuição de uma regra a gru
 
 **Saiba mais:**
 
-- [Leia sobre](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) NSGs.
+- [Leia sobre](https://docs.microsoft.com/azure/virtual-network/security-overview) NSGs.
 - [Revisão](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) as etiquetas de serviço disponíveis para NSGs.
 
 
-## <a name="best-practice-use-application-security-groups"></a>Melhor prática: utilizar grupos de segurança de aplicação
+## <a name="best-practice-use-application-security-groups"></a>Prática recomendada: Utilizar grupos de segurança de aplicação
 
 Grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural de uma estrutura de aplicação.
 
@@ -365,9 +365,9 @@ NIC4 | AsgDb
 
     **Nome da regra** | **Objetivo** | **Detalhes**
     --- | --- | ---   
-    Allow-HTTP-Inbound-Internet | Permitir o tráfego da internet para os servidores web. Tráfego de entrada da internet é negado pela regra de segurança do DenyAllInbound predefinida, pelo que nenhuma regra adicional é necessária para os grupos de segurança de aplicativo AsgLogic ou AsgDb. | Prioridade: 100<br/><br/> Origem: internet<br/><br/> Porta de origem: *<br/><br/> Destino: AsgWeb<br/><br/> Porta de destino: 80<br/><br/> Protocolo: TCP<br/><br/> Acesso: permitir.
-    Deny-Database-All | Regra de segurança predefinida AllowVNetInBound permite todas as comunicações entre os recursos na mesma VNet, esta regra é necessária para negar o tráfego de todos os recursos. | Prioridade: 120<br/><br/> Origem: *<br/><br/> Porta de origem: *<br/><br/> Destino: AsgDb<br/><br/> Porta de destino: 1433<br/><br/> Protocolo: todos<br/><br/> Acesso: negar.
-    Allow-Database-BusinessLogic | Permita o tráfego do grupo de segurança de aplicativo de AsgLogic para o grupo de segurança de aplicações AsgDb. A prioridade para esta regra é maior do que a regra de negação-base de dados-All e vai ser processada antes essa regra, para que o tráfego do grupo de segurança de aplicativo de AsgLogic é permitido e todos os outros tráfegos está bloqueado. | Prioridade: 110<br/><br/> Origem: AsgLogic<br/><br/> Porta de origem: *<br/><br/> Destino: AsgDb<br/><br/> Porta de destino: 1433<br/><br/> Protocolo: TCP<br/><br/> Acesso: permitir.
+    Allow-HTTP-Inbound-Internet | Permitir o tráfego da internet para os servidores web. Tráfego de entrada da internet é negado pela regra de segurança do DenyAllInbound predefinida, pelo que nenhuma regra adicional é necessária para os grupos de segurança de aplicativo AsgLogic ou AsgDb. | Prioridade: 100<br/><br/> Origem: internet<br/><br/> Porta de origem: *<br/><br/> Destino: AsgWeb<br/><br/> Porta de destino: 80<br/><br/> Protocolo: TCP<br/><br/> Acesso: Permita.
+    Deny-Database-All | Regra de segurança predefinida AllowVNetInBound permite todas as comunicações entre os recursos na mesma VNet, esta regra é necessária para negar o tráfego de todos os recursos. | Prioridade: 120<br/><br/> Origem: *<br/><br/> Porta de origem: *<br/><br/> Destino: AsgDb<br/><br/> Porta de destino: 1433<br/><br/> Protocolo: Todos<br/><br/> Acesso: Negar.
+    Allow-Database-BusinessLogic | Permita o tráfego do grupo de segurança de aplicativo de AsgLogic para o grupo de segurança de aplicações AsgDb. A prioridade para esta regra é maior do que a regra de negação-base de dados-All e vai ser processada antes essa regra, para que o tráfego do grupo de segurança de aplicativo de AsgLogic é permitido e todos os outros tráfegos está bloqueado. | Prioridade: 110<br/><br/> Origem: AsgLogic<br/><br/> Porta de origem: *<br/><br/> Destino: AsgDb<br/><br/> Porta de destino: 1433<br/><br/> Protocolo: TCP<br/><br/> Acesso: Permita.
 
 - As regras que especifiquem grupos de segurança de aplicações como a origem ou o destino só são aplicadas às interfaces de rede que são membros do grupo de segurança de aplicações. Se a interface de rede não for membro de um grupo de segurança de aplicações, a regra não é aplicada à interface de rede, mesmo que o grupo de segurança de rede esteja associado à sub-rede.
 
@@ -376,7 +376,7 @@ NIC4 | AsgDb
 - [Saiba mais sobre](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups) grupos de segurança do aplicativo.
 
 
-### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>Melhor prática: proteger o acesso a PaaS com pontos finais de serviço de VNet
+### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>Prática recomendada: Acesso seguro a PaaS com pontos finais de serviço de VNet
 
 Pontos finais de serviço de VNet expandem o seu espaço de endereços privados da VNet e a identidade para serviços do Azure através de uma ligação direta.
 
@@ -392,7 +392,7 @@ Pontos finais de serviço de VNet expandem o seu espaço de endereços privados 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pontos finais de serviço da VNet.
 
 
-## <a name="best-practice-control-public-ip-addresses"></a>Melhor prática: controlar endereços IP públicos
+## <a name="best-practice-control-public-ip-addresses"></a>Prática recomendada: Endereços IP públicos do controlo
 
 Endereços IP públicos no Azure podem ser associados a VMs, balanceadores de carga, gateways de aplicação e gateways de VPN.
 
@@ -414,7 +414,7 @@ Endereços IP públicos no Azure podem ser associados a VMs, balanceadores de ca
 
 O Azure tem recursos de segurança de plataforma que são fáceis de usar e fornecem contramedidas avançadas para ataques de rede comuns. Estes incluem-se ao Firewall do Azure, o Firewall de aplicações Web e o observador de rede.
 
-## <a name="best-practice-deploy-azure-firewall"></a>Recomendado: Implemente o Firewall do Azure
+## <a name="best-practice-deploy-azure-firewall"></a>Prática recomendada: Implantar o Firewall do Azure
 
 Firewall do Azure é um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da VNet. É um totalmente com monitoração de estado firewall-como-serviço com elevada disponibilidade incorporada e a escalabilidade da cloud sem restrições.
 
@@ -435,7 +435,7 @@ Firewall do Azure é um serviço de segurança de rede gerido e baseado na nuvem
 - [Saiba mais sobre](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN etiquetas.
 
 
-## <a name="best-practice-deploy-azure-web-application-firewall-waf"></a>Melhor prática: implementar o Azure Web Application Firewall (WAF)
+## <a name="best-practice-deploy-azure-web-application-firewall-waf"></a>Prática recomendada: Implementar Firewall de aplicação Web do Azure (WAF)
 
 Aplicativos Web são cada vez mais alvos de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Explorações incluem ataques de injeção de SQL e ataques de script entre sites. Impedir esses ataques no código da aplicação pode ser um desafio e pode exige manutenção rigorosa, correção e monitorização em várias camadas da topologia da aplicação. Uma firewall de aplicações web centralizada ajuda a tornar o gerenciamento de segurança muito mais simples e ajuda os administradores de aplicações protegem contra ameaças ou intrusões. Uma firewall de aplicação web pode reagir a ameaças de segurança mais rapidamente, ao corrigir vulnerabilidades conhecidas num local central, em vez de proteção de aplicações web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
 
@@ -452,7 +452,7 @@ Firewall de aplicações do Azure Web (WAF) é um recurso do gateway de aplicaç
 - [Revisão](https://docs.microsoft.com/azure/application-gateway/application-gateway-waf-configuration) WAF limitações e exclusões.
 
 
-## <a name="best-practice-implement-azure-network-watcher"></a>Recomendado: implemente observador de rede do Azure
+## <a name="best-practice-implement-azure-network-watcher"></a>Prática recomendada: Implementar o observador de rede do Azure
 
 O observador de rede do Azure fornece ferramentas para monitorizar os recursos e comunicações numa VNet do Azure. Por exemplo, pode monitorizar as comunicações entre uma VM e um ponto de extremidade como outra VM ou FQDN, ver recursos e as relações de recursos numa VNet, ou diagnosticar problemas de tráfego de rede.
 
@@ -480,7 +480,7 @@ Para topologias de rede mais complexas, poderá utilizar os produtos de seguran�
 - NVA está disponível a partir de vários fornecedores no [do Azure Marketplace](https://azuremarketplace.microsoft.com/). 
  
 
-## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>Recomendado: implemente as firewalls e NVAs em redes de hub
+## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>Prática recomendada: Implementar firewalls e de NVAs em redes de hub
 
 No hub, rede de perímetro (com acesso à internet) normalmente é gerenciada por meio de uma Firewall do Azure, um farm de firewall, ou com Firewalls de aplicações Web (WAFs). Considere as seguintes comparações.
 

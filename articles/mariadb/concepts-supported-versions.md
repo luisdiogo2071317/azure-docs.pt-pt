@@ -3,17 +3,15 @@ title: Versões suportadas na base de dados do Azure para MariaDB
 description: Descreve as versões suportadas na base de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: aa83b9955839aaa03aa2ebf46c9e464dc75c8d3a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69330e9d5a05fbcc892889f70a04f5eb4a4a2fb9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977507"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541426"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Suporte base de dados do Azure para MariaDB versões de servidor
 Base de dados do Azure para MariaDB foi desenvolvido a partir de open source [MariaDB servidor](https://downloads.mariadb.org/), usando o mecanismo de InnoDB. Atualmente, a base de dados do Azure para MariaDB suporta a versão seguinte:

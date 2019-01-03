@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436182"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975190"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -39,9 +39,7 @@ Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-<<<<<<< Dados de registo de cabeça recolhidos pelo Monitor do Azure podem ser analisados com [consultas](log-query/log-query-overview.md) que rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através de [do log analytics](../log-analytics/log-analytics-log-search-portals.md) no portal do Azure e, em seguida, em qualquer um analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [alerta regras](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-=== Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../azure-monitor/log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../azure-monitor/log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../azure-monitor/platform/alerts-overview.md).
 
 Monitor do Azure utiliza uma versão dos [linguagem de consulta do Data Explorer](/azure/kusto/query/) que é adequado para registo simples consulta, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](log-query/get-started-queries.md).  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados
 - **Subscrição do Azure, os dados de monitorização**: Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. 
 - **Inquilino do Azure, os dados de monitorização**: Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory.
 
-Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) gravar quando os recursos são criados ou modificados. [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
+Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](../azure-monitor/platform/activity-logs-overview.md) gravar quando os recursos são criados ou modificados. [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
 
-Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e [adicionando um agente](platform/agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](platform/agent-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
+Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](../azure-monitor/platform/diagnostic-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](platform/agent-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
 
-[Adicionar um pacote de instrumentação à sua aplicação](../application-insights/app-insights-azure-web-apps.md), para ativar o Application Insights para recolher as informações detalhadas sobre a sua aplicação, incluindo exceções, pedidos de aplicações e vistas de página. Verificar a disponibilidade da sua aplicação ao configurar uma [teste de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) para simular o tráfego de utilizador.
+[Adicionar um pacote de instrumentação à sua aplicação](../azure-monitor/app/azure-web-apps.md), para ativar o Application Insights para recolher as informações detalhadas sobre a sua aplicação, incluindo exceções, pedidos de aplicações e vistas de página. Verificar a disponibilidade da sua aplicação ao configurar uma [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego de utilizador.
 
 ### <a name="custom-sources"></a>Origens personalizadas
 O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizando o [API do Recoletor de dados](../azure-monitor/platform/data-collector-api.md). Isto permite-lhe criar cenários de monitorização personalizados e expande a monitorização para recursos que não expõem a telemetria por meio de outras origens.
@@ -131,7 +129,7 @@ Dimensionamento automático permite que tenha a quantidade certa de recursos em 
 Muitas vezes, terá que o requisito para integrar o Azure Monitor com outros sistemas e para criar soluções personalizadas que utilizam os seus dados de monitorização. Outros serviços do Azure funcionam com o Azure Monitor para fornecer essa integração.
 
 ### <a name="event-hub"></a>Hub de Eventos
-[Os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs) é um serviço de ingestão plataforma e o evento de transmissão em fluxo que pode transformar e armazenar dados em qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Utilizar os Hubs de eventos para [transmitir dados de registo do Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para SIEM e ferramentas de monitorização de parceiros.
+[Os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs) é um serviço de ingestão plataforma e o evento de transmissão em fluxo que pode transformar e armazenar dados em qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Utilizar os Hubs de eventos para [transmitir dados de registo do Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para SIEM e ferramentas de monitorização de parceiros.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015420"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728368"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Secção de recursos de modelos Azure Resource Manager
 
@@ -289,7 +289,7 @@ O formato do tipo de recurso subordinado é: `{resource-provider-namespace}/{par
 
 O formato do nome do recurso subordinado é: `{parent-resource-name}/{child-resource-name}`
 
-No entanto, não precisa de definir a base de dados no servidor. Pode definir os recursos filho no nível superior. Pode usar essa abordagem se o recurso de principal não está implementado no mesmo modelo, ou se pretende utilizar `copy` para criar subordinado vários recursos. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome do recurso subordinado.
+No entanto, não precisa de definir a base de dados no servidor. Pode definir os recursos filho no nível superior. Pode usar essa abordagem se o recurso de principal não está implementado no mesmo modelo, ou se pretende utilizar `copy` para criar mais do que um recurso de subordinados. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome do recurso subordinado.
 
 ```json
 {
@@ -318,122 +318,11 @@ Por exemplo:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
-## <a name="recommendations"></a>Recomendações
-As seguintes informações podem ser úteis quando trabalhar com recursos:
-
-* Para ajudar a outros contribuintes compreender a finalidade do recurso, especifique **comentários** para cada recurso do modelo:
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
-
-* Se utilizar um *ponto final público* no seu modelo (por exemplo, um Blob do Azure armazenamento ponto final público), *efetue não embutir* o espaço de nomes. Utilize o **referência** função para recuperar dinamicamente o espaço de nomes. Pode utilizar esta abordagem para implementar o modelo em ambientes de outro namespace público sem alterar manualmente o ponto final no modelo. Defina a versão de API para a mesma versão que está a utilizar para a conta de armazenamento no seu modelo:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Se a conta de armazenamento é implementada no mesmo modelo em que está a criar, não precisa de especificar o espaço de nomes do fornecedor quando referencia o recurso. O exemplo seguinte mostra a sintaxe simplificada:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Se tiver outros valores no seu modelo que estão configurados para utilizar um espaço de nomes público, alterar estes valores para refletir o mesmo **referência** função. Por exemplo, pode definir o **storageUri** propriedade do perfil de diagnóstico de máquina virtual:
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   Também pode fazer referência a uma conta de armazenamento existente que esteja no grupo de recursos diferente:
-
-   ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-
-* Atribua endereços IP públicos a uma máquina virtual apenas quando um aplicativo exigi-lo. Para ligar a uma máquina virtual (VM) de depuração ou de gestão ou fins administrativos, use regras NAT de entrada, um gateway de rede virtual ou uma jumpbox.
-   
-     Para obter mais informações sobre como ligar a máquinas virtuais, consulte:
-   
-   * [Executar VMs para uma arquitetura de N camadas no Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [Configurar o acesso ao WinRM para VMs no Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Permitir acesso externo à sua VM com o portal do Azure](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Permitir acesso externo à sua VM com o PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Permitir acesso externo a sua VM do Linux ao utilizar a CLI do Azure](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* O **domainNameLabel** propriedade para endereços IP públicos têm de ser exclusiva. O **domainNameLabel** valor tem de ter entre 3 e 63 carateres de comprimento e siga as regras especificadas por essa expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Uma vez que o **uniqueString** função gera uma cadeia de 13 carateres de comprimento, o **dnsPrefixString** parâmetro é limitado a 50 carateres:
-
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
-
-* Quando adiciona uma palavra-passe para uma extensão de script personalizado, utilize o **commandToExecute** propriedade na **protectedSettings** propriedade:
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
-   > [!NOTE]
-   > Para garantir que os segredos são encriptados quando são transmitidos como parâmetros para VMs e as extensões, utilize o **protectedSettings** propriedade das extensões relevantes.
-   > 
-   > 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Para utilizar mais do que um modelo durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para obter recomendações sobre a criação de modelos, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
 * Poderá ter de utilizar recursos que existem dentro de um grupo de recursos diferente. Este cenário é comum ao trabalhar com redes virtuais que são partilhadas entre vários grupos de recursos ou contas de armazenamento. Para obter mais informações, consulte a [resourceId função](resource-group-template-functions-resource.md#resourceid).
 * Para obter informações sobre restrições de nome de recurso, consulte [convenções de nomenclatura para recursos do Azure recomendadas](../guidance/guidance-naming-conventions.md).

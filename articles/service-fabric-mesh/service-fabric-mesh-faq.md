@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314843"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555851"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Malha de recursos de infraestrutura do serviço perguntas mais frequentes
 
@@ -79,7 +79,7 @@ Para eliminar o grupo de recursos, utilize o `az group delete <nameOfResourceGro
 
 ## <a name="supported-container-os-images"></a>Imagens de contentor suportados SO
 
-Se estiver a desenvolver numa máquina Windows Fall Creators Update (versão 1709), só pode utilizar imagens do docker de docker do Windows versão 1709.
+Se estiver a desenvolver numa máquina Windows Fall Creators Update (versão 1709), só pode utilizar imagens do docker Windows versão 1709.
 
 Se estiver a desenvolver num Windows 10 de Abril de 2018 atualização máquina (versão 1803), pode utilizar a versão 1709 do Windows ou imagens do Windows versão 1803 docker.
 
@@ -101,7 +101,7 @@ Comunicação de serviço para serviço pode falhar em determinadas circunstânc
 - Se o nome do serviço autónomo não funcionar, experimente o nome totalmente qualificado: ServiceName.ApplicationName.
 - No ficheiro do Docker para o seu serviço, adicione `EXPOSE <port>` em que a porta é a porta estão a expor seu serviço de mensagens em fila no. Por exemplo:
 
-```
+```DockerFile
 EXPOSE 80
 ```
 

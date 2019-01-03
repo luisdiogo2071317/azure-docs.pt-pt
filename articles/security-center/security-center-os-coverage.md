@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185584"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608839"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
 
@@ -30,7 +30,7 @@ Monitorização de estado de segurança e recomendações, estão disponíveis p
 >
 >
 
-## <a name="supported-platforms"></a>Plataformas suportadas 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Plataformas que suportam o agente de recolha de dados 
 
 Esta secção lista as plataformas em que pode executar o agente do Centro de segurança do Azure e de que esta possa recolher dados.
 
@@ -43,6 +43,10 @@ São suportados os seguintes sistemas operativos Windows:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Integração com o Windows Defender ATP suporta apenas o Windows Server 2012 R2 e o Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para VMs e computadores Linux
 São suportados os seguintes sistemas operativos Linux:
@@ -55,11 +59,6 @@ São suportados os seguintes sistemas operativos Linux:
 * Versões de Linux do Oracle 5, 6 e 7.
 * Amazon Linux 2012.09 por meio de 2017.
 * OpenSSL 1.1.0 só é suportado em plataformas de x86_64, 64 bits.
-
-> [!NOTE]
-> Análise comportamental de máquinas virtuais ainda não está disponível para sistemas operativos Linux.
->
->
 
 ## <a name="vms-and-cloud-services"></a>VMs e serviços Cloud
 VMs que são executadas num serviço cloud também são suportadas. Apenas funções na nuvem serviços web e de trabalho que são executados nas ranhuras de produção são monitorizadas. Para saber mais sobre os serviços cloud, veja [descrição geral dos serviços Cloud do Azure](../cloud-services/cloud-services-choose-me.md).

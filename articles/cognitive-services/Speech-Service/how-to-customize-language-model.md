@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Como criar um modelo de idioma com o Serviço de Voz'
+title: 'Tutorial: Como criar um modelo de idioma com o serviço de voz'
 titlesuffix: Azure Cognitive Services
 description: Saiba como criar um modelo de idioma com o Serviço de Voz. Utilize este modelo de idioma personalizado em conjunto com modelos de voz topo de gama existentes da Microsoft para adicionar a interação de voz à sua aplicação.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e65fa21eefcc103f553f8e1bc47792ac372c59e3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093473"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975445"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -100,9 +100,7 @@ Tem de selecionar a região apropriada antes de realizar qualquer ação. A regi
 
 Na página Criar Modelo de Linguagem, introduza um **Nome** e uma **Descrição** para ajudá-lo a manter-se a par de informações pertinentes sobre este modelo, tal como o conjunto de dados utilizado. Em seguida, selecione **Modelo de Linguagem Base** no menu pendente. Este modelo é o ponto de partida para a sua personalização.
 
-Pode escolher entre dois modelos de linguagem base. O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões.
-
-O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. Um novo modelo chamado "Universal" também está publicamente disponível. O Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e da Conversação.
+Pode escolher entre dois modelos de linguagem base. O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. Um novo modelo chamado "Universal" também está publicamente disponível. O Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e da Conversação.
 
 Conforme mostrado no exemplo abaixo, depois de especificar o modelo de linguagem base, utilize o menu pendente **Dados de Linguagem** para selecionar o conjunto de dados de linguagem que pretende utilizar para a personalização.
 

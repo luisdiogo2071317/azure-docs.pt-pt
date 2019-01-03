@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384208"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714666"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET para o HDInsight baseado em Windows para HDInsight baseado em Linux
 
@@ -24,7 +24,7 @@ Utilização de clusters do HDInsight baseado em Linux [Mono (https://mono-proje
 
 Versão mono 4.2.1 está incluída com o HDInsight versão 3.6. Para obter mais informações sobre a versão do Mono incluído com o HDInsight, consulte [versões de componente de HDInsight](hdinsight-component-versioning.md). Para instalar uma versão específica do Mono, consulte a [instalar ou atualizar o Mono](hdinsight-hadoop-install-mono.md) documento.
 
-Para obter mais informações sobre a compatibilidade entre o Mono e .NET, consulte a [compatibilidade Mono (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) documento.
+Para obter mais informações sobre a compatibilidade entre o Mono e .NET, consulte a [compatibilidade Mono (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) documento.
 
 > [!IMPORTANT]  
 > Da arquitetura SCP.NET é compatível com Mono. Para obter mais informações sobre como utilizar SCP.NET com Mono, consulte [Use o Visual Studio para desenvolver topologias c# para Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ O [analisador de portabilidade do .NET](https://marketplace.visualstudio.com/ite
 
 ## <a name="manual-portability-analysis"></a>Análise de portabilidade manual
 
-Realizar uma auditoria manual de seu código usando as informações a [portabilidade da aplicação (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) documento.
+Realizar uma auditoria manual de seu código usando as informações a [portabilidade da aplicação (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) documento.
 
 ## <a name="modify-and-build"></a>Modificar e criar
 

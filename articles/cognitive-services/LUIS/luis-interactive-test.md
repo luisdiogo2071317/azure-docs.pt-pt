@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141582"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601972"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar a sua aplicação LUIS no portal do LUIS
 <a name="train-your-app"></a>
@@ -51,11 +51,11 @@ Inspecionar os detalhes do resultado do teste nos **Inspect** painel.
  
 1. Com o **teste** deslizantes painel aberto, selecione **Inspect** para uma expressão que pretende comparar. 
 
-    ![Inspecione o botão](./media/luis-how-to-interactive-test/inspect.png)
+    ![Selecione o botão de Inspect para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
 2. O **inspeção** painel é apresentada. O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
 
-    ![Inspecione o botão](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>Parte superior correto intenção de classificação
 
