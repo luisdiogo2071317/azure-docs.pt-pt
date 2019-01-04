@@ -1,12 +1,10 @@
 ---
-title: Pontos finais do serviço de rede virtual do Azure | Microsoft Docs
+title: Pontos finais de serviço de rede virtual do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba como ativar o acesso direto aos recursos do Azure a partir de uma rede virtual através de pontos finais de serviço.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: acb5897825a2a7762869d3ad961dfcdcb87071b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7e04ae151d5fe992bf17e9b76f6ed276e91d3c2c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540559"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023282"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 

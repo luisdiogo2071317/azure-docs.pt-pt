@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966863"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001639"
 ---
-# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
+# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o portal do Azure e tópicos/subscrições
 
 O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens mediadas, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando o portal do Azure e .NET.
 
@@ -70,7 +70,7 @@ A criação de um espaço de nomes gera automaticamente uma regra inicial de Ass
 1. Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
 2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
 3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** junto a **Cadeia de Ligação Primária** para copiar a cadeia de ligação para a sua área de transferência e utilizá-la mais tarde. Cole este valor no Bloco de Notas ou noutra localização temporária.
+4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
 
     ![connection-string][connection-string]
 5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
@@ -91,7 +91,7 @@ Para criar um tópico do Service Bus, especifique o espaço de nomes abaixo da f
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro nas subscrições
 
-Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter as credenciais necessárias, está pronto para criar regras de filtro nas subscrições e enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters).
+Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter as credenciais necessárias, está pronto para criar regras de filtro nas subscrições e enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 

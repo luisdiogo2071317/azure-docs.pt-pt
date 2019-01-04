@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228067"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018998"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados do Teradata com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,9 +54,9 @@ As seguintes propriedades são suportadas para o serviço de Teradata ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Teradata** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Teradata** | Sim |
 | servidor | Nome do servidor de Teradata. | Sim |
-| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Teradata.<br/>Valores permitidos são: **básica**, e **Windows**. | Sim |
+| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Teradata.<br/>Valores permitidos são: **Básica**, e **Windows**. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados Teradata. | Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -94,7 +93,7 @@ Para copiar dados do Teradata, defina a propriedade de tipo de conjunto de dados
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados Teradata. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo:**
@@ -171,7 +170,7 @@ Ao copiar dados da Teradata, os seguintes mapeamentos são utilizados entre tipo
 | char |Cadeia |
 | CLOB |Cadeia |
 | Date |DateTime |
-| decimal |decimal |
+| Decimal |Decimal |
 | Valor de duplo |Valor de duplo |
 | Gráfico |Cadeia |
 | Número inteiro |Int32 |

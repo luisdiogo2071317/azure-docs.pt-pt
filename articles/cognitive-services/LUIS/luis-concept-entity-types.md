@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 79c279e351ce467bea8affc313da09ce8087bd2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994900"
+ms.locfileid: "53999990"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -167,7 +167,6 @@ Pattern.any é um marcador de posição de comprimento variável utilizado apena
 A entidade é uma boa ajustar quando:
 
 * O fim da entidade pode ser confundido com o texto restante da expressão. 
-
 [Tutorial](luis-tutorial-pattern.md)<br>
 [Resposta JSON de exemplo para a entidade](luis-concept-data-extraction.md#patternany-entity-data)
 

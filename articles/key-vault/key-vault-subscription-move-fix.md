@@ -1,5 +1,5 @@
 ---
-title: Alterar o ID do inquilino do cofre de chaves após a movimentação de uma subscrição | Microsoft Docs
+title: Alterar o ID de inquilino do Cofre de chaves após a movimentação de uma subscrição - Azure Key Vault | Documentos da Microsoft
 description: Saiba como mudar o ID do inquilino para um cofre de chaves depois de mover uma subscrição para um inquilino diferente
 services: key-vault
 documentationcenter: ''
@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: e9acd011c76ea23dbbee2c52c5d1909168878d69
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 185a1954b1dbc3f56864b75fdbb32bdf9f18bc1a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161616"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002234"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar um ID do inquilino do cofre de chaves após a movimentação de uma subscrição
-### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: A minha subscrição foi movida do inquilino A para o inquilino B. Como altero o ID do inquilino para o meu cofre de chaves existente e defino os ACLs corretos para os principais no inquilino B?
+
+## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: A minha subscrição foi movida do inquilino A para o inquilino B. Como altero o ID do inquilino para o meu cofre de chaves existente e defino os ACLs corretos para os principais no inquilino B?
+
 Ao criar um novo cofre de chaves numa subscrição, é automaticamente associado ao ID de inquilino do Azure Active Directory predefinido nessa subscrição. Todas as entradas de política de acesso também estão associadas a este ID de inquilino. Ao mover a sua subscrição do Azure do inquilino A para o inquilino B, os seus cofres de chaves existentes estão inacessíveis pelos principais (utilizadores e aplicações) no inquilino B. Para corrigir este problema, tem de:
 
 * Alterar o ID de inquilino associado a todos os cofres de chaves existentes nesta subscrição para o inquilino B.
@@ -45,5 +47,5 @@ Uma vez que este cofre estava no inquilino A antes da movimentação, o valor or
 Agora que o cofre está associado ao ID de inquilino correto e as entradas de política de acesso antigas foram removidas, defina as novas entradas de política de acesso com [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se tiver perguntas sobre o Cofre de Chaves do Azure, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
+Se tiver perguntas sobre o Cofre de Chaves do Azure, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

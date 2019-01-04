@@ -10,17 +10,16 @@ ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5d490b195f2e8fd58ca331b3e68ed451d92932f0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: e3421f8401d227e5c14dd244d87711427c57eefb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241842"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019236"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -35,14 +34,14 @@ ms.locfileid: "50241842"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja o [Início Rápido: criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-powershell.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [início rápido: Criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-powershell.md).
 
 Neste artigo, vai utilizar o Azure PowerShell para criar a sua primeira fábrica de dados do Azure. Para fazer o tutorial com outras ferramentas/SDKs, selecione uma das opções na lista pendente.
 
-O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
+O pipeline neste tutorial tem uma atividade: **Atividade do Hive do HDInsight**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Não copia dados de um de dados de origem para um arquivo de dados de destino. Para um tutorial sobre como copiar dados com o Azure Data Factory, consulte [Tutorial: Copy data from Blob Storage to SQL Database (Tutorial: copiar dados do Armazenamento de Blobs para a Base de Dados SQL)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Não copia dados de um de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como copiar dados com o Azure Data Factory, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (agendamento e execução no Data Factory).
 
@@ -83,7 +82,7 @@ Tenha em atenção os seguintes pontos:
 * O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro **Nome "FirstDataFactoryPSH" não disponível para a fábrica de dados**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Utilize este nome em vez de ADFTutorialFactoryPSH ao realizar os passos deste tutorial. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
 * Para criar instâncias do Data Factory, tem de ser um contribuidor/administrador da subscrição do Azure
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
-* Se receber o erro: "**Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory**", realize um dos seguintes procedimentos e tente publicar novamente:
+* Se receber o erro: "**Esta subscrição não está registada para utilizar o espaço de nomes DataFactory**", realize um dos seguintes procedimentos e tente publicar novamente:
 
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory:
 
@@ -262,7 +261,7 @@ Agora, irá criar o conjunto de dados de saída para representar os dados de sa�
     ```
 
 ## <a name="create-pipeline"></a>Criar pipeline
-Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHive**. O setor de entrada está disponível mensalmente (frequência: mês, intervalo: 1), o setor de saída é produzido mensalmente e a propriedade do agendador da atividade também está definida como mensal. As definições para o conjunto de dados de saída e o agendador de atividade têm de corresponder. Atualmente, o conjunto de dados de saída é o que pauta a agenda, pelo que deve criar um conjunto de dados de saída, mesmo que a atividade não produza dados. Se a atividade não incluir entradas, pode ignorar a criação do conjunto de dados de entrada. No final desta secção, encontrará uma explicação sobre as propriedades utilizadas no seguinte JSON.
+Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHive**. Setor de entrada está disponível mensalmente (frequência: Mês, intervalo: 1), o setor de saída é produzido mensalmente e a propriedade do agendador da atividade também está definida como mensal. As definições para o conjunto de dados de saída e o agendador de atividade têm de corresponder. Atualmente, o conjunto de dados de saída é o que pauta a agenda, pelo que deve criar um conjunto de dados de saída, mesmo que a atividade não produza dados. Se a atividade não incluir entradas, pode ignorar a criação do conjunto de dados de entrada. No final desta secção, encontrará uma explicação sobre as propriedades utilizadas no seguinte JSON.
 
 1. Crie um ficheiro JSON com o nome MyFirstPipelinePSH.json na pasta C:\ADFGetStarted com o seguinte conteúdo:
 
@@ -410,8 +409,8 @@ Neste tutorial, criou uma fábrica de dados do Azure para processar dados execut
 3. Criar dois **conjuntos de dados**, que descrevem os dados de entrada e de saída da atividade do HDInsight Hive no pipeline.
 4. Criar um **pipeline** com uma atividade do **Ramo de Registo do HDInsight**.
 
-## <a name="next-steps"></a>Passos seguintes
-Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma Atividade de Cópia para copiar dados de um Blob do Azure para o Azure SQL, veja o [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+## <a name="next-steps"></a>Passos Seguintes
+Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma atividade de cópia para copiar dados de um Blob do Azure para SQL do Azure, consulte [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Consultar Também
 | Tópico | Descrição |

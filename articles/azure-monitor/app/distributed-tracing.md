@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ab6782a63c019bea11d047af8588c4489d8b580
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812310"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002217"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é distribuída rastreio?
 
@@ -51,7 +51,7 @@ Com o adequada Application Insights SDK instalado e configurado, os informaçõe
 
 Além de SDKs do Application Insights, o Application Insights suporta também rastreio distribuído por meio [OpenCensus](https://opencensus.io/). OpenCensus é um código-fonte aberto, a desconhecidas do fornecedor, a única distribuição de bibliotecas para fornecer a coleta de métricas e de rastreio distribuído para os serviços. Também permite que a Comunidade de código-fonte aberto ativar o rastreio distribuído com tecnologias populares, como o Redis, Memcached ou MongoDB. [Microsoft colabora no OpenCensus com vários outros parceiros de monitorização e a cloud](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Para adicionar capacidades de rastreio distribuído para uma aplicação com OpenCensus, primeiro [instalar e configurar o reencaminhador de Local do Application Insights](./../../application-insights/opencensus-local-forwarder.md). A partir daí, configure OpenCensus para encaminhar dados de rastreio distribuído por meio do reencaminhador de Local. Ambos [Python](./../../application-insights/opencensus-python.md) e [vá](./../../application-insights/opencensus-go.md) são suportados.
+Para adicionar capacidades de rastreio distribuído para uma aplicação com OpenCensus, primeiro [instalar e configurar o reencaminhador de Local do Application Insights](./../../azure-monitor/app/opencensus-local-forwarder.md). A partir daí, configure OpenCensus para encaminhar dados de rastreio distribuído por meio do reencaminhador de Local. Ambos [Python](./../../azure-monitor/app/opencensus-python.md) e [vá](./../../azure-monitor/app/opencensus-go.md) são suportados.
 
 O Web site OpenCensus mantém a documentação de referência de API para [Python](https://opencensus.io/api/python/trace/usage.html) e [vá](https://godoc.org/go.opencensus.io), assim como várias guias diferentes para a utilização de OpenCensus. 
 

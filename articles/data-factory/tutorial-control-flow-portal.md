@@ -9,21 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 4cb133cc617ecc121fb93a4da816120986e131e8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086931"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015428"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
+Uma visão geral do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -149,7 +148,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -326,7 +325,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     ![Erro da execução da atividade](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

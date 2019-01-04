@@ -1,13 +1,10 @@
 ---
-title: Criar uma Azure virtual network peering - Resource Manager - subscrições diferentes | Documentos da Microsoft
+title: Criar uma Azure virtual network peering - Resource Manager - subscrições diferentes
+titlesuffix: Azure Virtual Network
 description: Saiba como criar uma rede virtual peering entre redes virtuais criadas através do Resource Manager que existam em diferentes subscrições do Azure.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727482"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014972"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Gestor de recursos, subscrições diferentes
 
@@ -53,8 +50,8 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Espaço de endereços**: *10.0.0.0/16*
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
-    - **Subscrição**: selecione a subscrição A.
-    - **Grupo de recursos**: selecione **criar novo** e introduza *myResourceGroupA*
+    - **Subscrição**: Selecione a subscrição A.
+    - **Grupo de recursos**: Selecione **criar novo** e introduza *myResourceGroupA*
     - **Localização**: *E.U.A. leste*
 4. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Selecione **myVnetA** quando for apresentada nos resultados da pesquisa. 
 5. Selecione **controlo de acesso (IAM)** na vertical lista de opções no lado esquerdo.
@@ -70,8 +67,8 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Espaço de endereços**: *10.1.0.0/16*
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
-    - **Subscrição**: selecione a subscrição B.
-    - **Grupo de recursos**: selecione **criar novo** e introduza *myResourceGroupB*
+    - **Subscrição**: Selecione a subscrição B.
+    - **Grupo de recursos**: Selecione **criar novo** e introduza *myResourceGroupB*
     - **Localização**: *E.U.A. leste*
 
 13. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetB*. Selecione **myVnetB** quando for apresentada nos resultados da pesquisa.
@@ -84,9 +81,9 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 20. Sob **myVnetA - Peerings**, selecione **+ adicionar**
 21. Sob **adicionar peering**, introduza ou selecione as seguintes opções, em seguida, selecione **OK**:
      - **Name**: *myVnetAToMyVnetB*
-     - **Modelo de implementação de rede virtual**: selecione **do Resource Manager**.
-     - **Eu sei o ID de recurso**: selecione esta caixa.
-     - **ID de recurso**: introduza o ID de recurso a partir do passo 14.
+     - **Modelo de implementação de rede virtual**:  Selecione o **Resource Manager**.
+     - **Eu sei o ID de recurso**: Esta caixa de verificação.
+     - **ID de recurso**: Introduza o ID de recurso do passo 14.
      - **Permitir o acesso de rede virtual:** Certifique-se de que **ativado** está selecionada.
     Não existem outras definições são utilizadas neste tutorial. Para saber mais sobre todas as definições de peering, leia [gerir peerings de rede virtual](virtual-network-manage-peering.md#create-a-peering).
 22. O peering que criou é apresentada uma breve espera depois de selecionar **OK** no passo anterior. **Iniciada** é listado na **estado de PEERING** coluna para o **myVnetAToMyVnetB** peering é criado. Já em modo de peering myVnetA para myVnetB, mas agora deve fazer um ponto myVnetB para myVnetA. O peering tem de ser criado em ambas as direções para permitir recursos em redes virtuais para comunicar entre si.
@@ -96,7 +93,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 26. Terminar sessão no portal como UserB e iniciar sessão como utilizador.
 27. Conclua os passos 17-19 novamente. O **estado de PEERING** para o **myVnetAToVNetB** peering é agora também **ligado**. O peering é estabelecido com êxito depois de confirmar **ligado** no **estado de PEERING** coluna para ambas as redes virtuais no peering. Todos os recursos do Azure que cria em qualquer rede virtual agora são capazes de comunicar entre si através de seus endereços IP. Se estiver a utilizar a resolução de nomes do Azure do padrão para as redes virtuais, os recursos as redes virtuais não são capazes de resolver nomes entre as redes virtuais. Se pretender resolver nomes entre redes virtuais num modo de peering, tem de criar seu próprio servidor DNS. Saiba como configurar [resolução de nomes através de seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 28. **Opcional**: Embora a criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conectividade.
-29. **Opcional**: para eliminar os recursos que criar neste tutorial, conclua os passos a [eliminar recursos](#delete-portal) seção deste artigo.
+29. **Opcional**: Para eliminar os recursos que criar neste tutorial, conclua os passos a [eliminar recursos](#delete-portal) seção deste artigo.
 
 ## <a name="cli"></a>Criar peering - CLI do Azure
 
@@ -174,7 +171,7 @@ Em vez de instalar a CLI e as respetivas dependências, pode utilizar o Azure Cl
     > O peering é estabelecido não até que seja o estado do peering **ligado** para ambas as redes virtuais.
 
 11. **Opcional**: Embora a criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conectividade.
-12. **Opcional**: para eliminar os recursos que criar neste tutorial, conclua os passos [eliminar recursos](#delete-cli) neste artigo.
+12. **Opcional**: Para eliminar os recursos que criar neste tutorial, conclua os passos em [eliminar recursos](#delete-cli) neste artigo.
 
 Todos os recursos do Azure que cria em qualquer rede virtual agora são capazes de comunicar entre si através de seus endereços IP. Se estiver a utilizar a resolução de nomes do Azure do padrão para as redes virtuais, os recursos as redes virtuais não são capazes de resolver nomes entre as redes virtuais. Se pretender resolver nomes entre redes virtuais num modo de peering, tem de criar seu próprio servidor DNS. Saiba como configurar [resolução de nomes através de seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
  
@@ -244,7 +241,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     Todos os recursos do Azure que cria em qualquer rede virtual agora são capazes de comunicar entre si através de seus endereços IP. Se estiver a utilizar a resolução de nomes do Azure do padrão para as redes virtuais, os recursos as redes virtuais não são capazes de resolver nomes entre as redes virtuais. Se pretender resolver nomes entre redes virtuais num modo de peering, tem de criar seu próprio servidor DNS. Saiba como configurar [resolução de nomes através de seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 13. **Opcional**: Embora a criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conectividade.
-14. **Opcional**: para eliminar os recursos que criar neste tutorial, conclua os passos [eliminar recursos](#delete-powershell) neste artigo.
+14. **Opcional**: Para eliminar os recursos que criar neste tutorial, conclua os passos em [eliminar recursos](#delete-powershell) neste artigo.
 
 ## <a name="template"></a>Criar peering - modelo do Resource Manager
 
@@ -285,11 +282,11 @@ Se as redes virtuais estão em subscrições diferentes, e subscrições estejam
 
 3. Inicie sessão no Azure como UserA e implementar o modelo através da [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), ou o [da CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome de ficheiro que guardou o texto json de exemplo no passo 2 para.
 4. Copie o json de exemplo do passo 2 para um ficheiro no seu computador e fazer alterações para as linhas que começam com:
-    - **nome**: alteração *myVnetA/myVnetAToMyVnetB* para *myVnetB/myVnetBToMyVnetA*.
-    - **ID**: substitua `<subscription ID>` com o ID de subscrição e a alteração do User-b *myVnetB* para *myVnetA*.
+    - **Nome**: Alteração *myVnetA/myVnetAToMyVnetB* ao *myVnetB/myVnetBToMyVnetA*.
+    - **ID**: Substitua `<subscription ID>` com o ID de subscrição e a alteração do User-b *myVnetB* para *myVnetA*.
 5. Passo concluído 3 novamente, sessão iniciada no Azure como o utilizador b.
 6. **Opcional**: Embora a criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conectividade.
-7. **Opcional**: para eliminar os recursos que criar neste tutorial, conclua os passos a [eliminar recursos](#delete) seção deste artigo, com o portal do Azure, PowerShell ou a CLI do Azure.
+7. **Opcional**: Para eliminar os recursos que criar neste tutorial, conclua os passos a [eliminar recursos](#delete) seção deste artigo, com o portal do Azure, PowerShell ou a CLI do Azure.
 
 ## <a name="delete"></a>Eliminar recursos
 Quando tiver concluído este tutorial, pode querer eliminar os recursos que criou no tutorial, pelo que não a incorrer em custos de utilização. Eliminar um grupo de recursos também elimina a todos os recursos que estão no grupo de recursos.

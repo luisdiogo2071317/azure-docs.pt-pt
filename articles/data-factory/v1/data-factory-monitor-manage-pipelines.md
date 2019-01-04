@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618874"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015497"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -162,7 +161,7 @@ Depois de implementar uma fábrica de dados e pipelines têm um período de Acti
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: espera -> no curso/em andamento (validação) -> pronto/com falhas.
+O fluxo de transição de estado do conjunto de dados no data factory é a seguinte: Espera -> no curso/em andamento (validar) ->/que não pronto.
 
 O setor é iniciado num **aguardando** Estado, à espera de pré-condições ser cumpridos antes de ser executada. Em seguida, começa a executar a atividade e o setor entra num **em curso** estado. A execução da atividade pode ter êxito ou falhar. O setor está marcado como **pronto** ou **falha**, com base no resultado da execução.
 

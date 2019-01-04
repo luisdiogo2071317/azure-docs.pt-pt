@@ -1,5 +1,5 @@
 ---
-title: Tutorial Utilizar o Azure Key Vault a partir de uma Aplicação Web | Microsoft Docs
+title: Utilizar o Azure Key Vault a partir de um tutorial de aplicação Web - Azure Key Vault | Documentos da Microsoft
 description: Utilize este tutorial para aprender a utilizar o Azure Key Vault a partir de uma aplicação Web.
 services: key-vault
 author: barclayn
@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 85eb7762437bff8d9f6f6a360fc9cc1ea2e6e145
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718219"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999310"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Utilizar o Azure Key Vault de um aplicativo web
 
@@ -71,8 +71,6 @@ Existem três configurações de aplicação que têm de ser adicionadas ao fich
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Adicionar um método para obter um token de acesso
 
@@ -188,7 +186,7 @@ Depois de executar estes comandos, pode ver a aplicação no Azure AD. Ao pesqui
 
 Agora, vamos adicionar código à sua Aplicação Web para aceder ao certificado e utilizá-lo para a autenticação. 
 
-Em primeiro lugar, há código para aceder ao certificado. Note que StoreLocation é CurrentUser em vez de LocalMachine. Note também que estamos a indicar «false» para o método Find porque estamos a utilizar um certificado de teste.
+Em primeiro lugar, há código para aceder ao certificado. A localização do arquivo é CurrentUser em vez de LocalMachine. Note também que estamos a indicar «false» para o método Find porque estamos a utilizar um certificado de teste.
 
 ```cs
 //Add this using statement

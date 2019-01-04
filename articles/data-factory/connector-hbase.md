@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f5fb62a04f1829726796b674a8e6e72951e6bb35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083381"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019457"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
@@ -42,11 +41,11 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **HBase** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Sim |
 | porta | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
-| authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **anónimo**, **básico** | Sim |
+| authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **Anónimo**, **básico** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar à instância do HBase.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
@@ -123,7 +122,7 @@ Para copiar dados do HBase, defina a propriedade de tipo de conjunto de dados pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **HBaseObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

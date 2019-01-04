@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 519b237b217aac8dc254a4bf7dcb447c3e4eb447
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980850"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999463"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](../../application-insights/app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -120,7 +120,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](../../application-insights/app-insights-troubleshoot-faq.md).
 
-O painel Browser é um [painel do Explorador de Métricas](../../application-insights/app-insights-metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
+O painel Browser é um [painel do Explorador de Métricas](../../azure-monitor/app/metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 
 ## <a name="page-load-performance"></a>Desempenho de carregamento de página
 Na parte superior, está um gráfico segmentado dos tempos de carregamento de página. A altura total do gráfico representa o tempo médio para carregar e apresentar páginas a partir da sua aplicação nos browsers dos seus utilizadores. O tempo é medido desde que o browser envia o pedido HTTP inicial até que todos os eventos de carregamento síncronos tenham sido processados, incluindo esquema e scripts em execução. Não inclui tarefas assíncronas, como carregar peças Web a partir de chamadas AJAX.

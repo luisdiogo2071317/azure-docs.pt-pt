@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015717"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,8 +42,8 @@ Se estiver interessado em conformidade do Azure e como o Azure protege a sua pr�
 
 Neste artigo, vamos rever considerações de segurança nos seguintes cenários de movimento de dados de dois: 
 
-- **Cenário de nuvem**: neste cenário, a origem e destino estão publicamente acessíveis pela internet. Estes incluem os serviços de armazenamento gerida na cloud, como o armazenamento do Azure, Azure SQL Data Warehouse, SQL Database do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como o Salesforce e protocolos de web, como o FTP e OData. Encontrar uma lista completa das origens de dados suportados no [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Cenário híbrido**: neste cenário, a origem ou de destino é protegido por uma firewall ou dentro de uma rede empresarial no local. Em alternativa, o arquivo de dados está numa privada, rede ou de rede virtual (com mais frequência a origem) e não está acessível ao público. Servidores de base de dados hospedados em máquinas virtuais também abrangidos por este cenário.
+- **Cenário de nuvem**: Neste cenário, a origem e destino estão publicamente acessíveis pela internet. Estes incluem os serviços de armazenamento gerida na cloud, como o armazenamento do Azure, Azure SQL Data Warehouse, SQL Database do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como o Salesforce e protocolos de web, como o FTP e OData. Encontrar uma lista completa das origens de dados suportados no [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Cenário híbrido**: Neste cenário, a origem ou de destino é protegido por uma firewall ou dentro de uma rede empresarial no local. Em alternativa, o arquivo de dados está numa privada, rede ou de rede virtual (com mais frequência a origem) e não está acessível ao público. Servidores de base de dados hospedados em máquinas virtuais também abrangidos por este cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
 

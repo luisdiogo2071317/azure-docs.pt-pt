@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b0023c42d99842c704734d4f994273436f201e4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 76f54674b6c292cfaecfe8440d12bfa17d5a5a5e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077652"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016585"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de HubSpot ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Hubspot** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Hubspot** | Sim |
 | clientId | O ID de cliente associado à sua aplicação Hubspot.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação Hubspot. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessToken | O token de acesso que obteve quando inicialmente está a autenticar a sua integração de OAuth. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -88,7 +87,7 @@ Para copiar dados de HubSpot, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **HubspotObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **HubspotObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

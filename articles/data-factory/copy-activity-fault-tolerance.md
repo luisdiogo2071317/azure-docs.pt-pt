@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418348"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014918"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas de atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,15 +34,15 @@ Atividade de cópia suporta três cenários para detetar, a ignorar e registo de
 
 - **Incompatibilidade entre o tipo de dados de origem e sink obsahující nativní typ**. 
 
-    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém três colunas de tipo INT. As linhas do ficheiro CSV que contêm dados numéricos, como 123,456,789 são copiadas com êxito para o arquivo sink. No entanto, as linhas que contêm valores não numéricos, como 123,456, abc são detetados como incompatíveis e são ignorados.
+    Por exemplo: Copie dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém três colunas de tipo INT. As linhas do ficheiro CSV que contêm dados numéricos, como 123,456,789 são copiadas com êxito para o arquivo sink. No entanto, as linhas que contêm valores não numéricos, como 123,456, abc são detetados como incompatíveis e são ignorados.
 
 - **Erro de correspondência no número de colunas entre a origem e o sink**.
 
-    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém seis colunas. As linhas do ficheiro CSV que contêm seis colunas são copiadas com êxito para o arquivo sink. As linhas do ficheiro CSV que contêm mais ou menos seis colunas são detetadas como incompatíveis e são ignoradas.
+    Por exemplo: Copie dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém seis colunas. As linhas do ficheiro CSV que contêm seis colunas são copiadas com êxito para o arquivo sink. As linhas do ficheiro CSV que contêm mais ou menos seis colunas são detetadas como incompatíveis e são ignoradas.
 
 - **Violação de chave primária ao escrever para o SQL Server/Azure SQL da base de dados/do Azure Cosmos DB**.
 
-    Por exemplo: copiar dados de um SQL server para uma base de dados SQL. Uma chave primária é definida na base de dados do SQL sink, mas a chave não principal está definido no servidor SQL de origem. Não não possível copiar as linhas duplicadas que existam na origem para o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas de origem subsequentes que contêm o valor da chave primário duplicado são detetadas como incompatíveis e são ignoradas.
+    Por exemplo: Copie dados de um SQL server para uma base de dados SQL. Uma chave primária é definida na base de dados do SQL sink, mas a chave não principal está definido no servidor SQL de origem. Não não possível copiar as linhas duplicadas que existam na origem para o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas de origem subsequentes que contêm o valor da chave primário duplicado são detetadas como incompatíveis e são ignoradas.
 
 >[!NOTE]
 >- Para carregar dados para o SQL Data Warehouse com o PolyBase, configurar as definições de tolerância de falhas nativo do PolyBase ao especificar políticas de rejeitar através de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Ainda pode ativar o redirecionamento PolyBase de linhas incompatíveis para Blob ou ADLS como normal, conforme mostrado abaixo.

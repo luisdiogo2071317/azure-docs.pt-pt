@@ -1,6 +1,6 @@
 ---
-title: Copiar dados a partir do servidor SFTP utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre o conector de MySQL no Azure Data Factory que lhe permite copiar dados de um servidor SFTP para um arquivo de dados suportado como um sink.
+title: Copiar dados do servidor SFTP com o Azure Data Factory | Documentos da Microsoft
+description: Saiba mais sobre o conector de MySQL no Azure Data Factory, que permite copiar dados de um servidor SFTP para um arquivo de dados suportado como um sink.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,61 +9,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 28802b018711b3cd95946b60a8505684089dca18
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049635"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019219"
 ---
-# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados a partir do servidor SFTP utilizando o Azure Data Factory
+# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados do servidor SFTP com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-sftp-connector.md)
 > * [Versão atual](connector-sftp.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados a partir de um servidor SFTP. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de um servidor SFTP. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados do servidor SFTP para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de servidor SFTP para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector SFTP suporta:
 
-- Copiar ficheiros utilizando **básico** ou **parâmetros SshPublicKey** autenticação.
-- Copiar ficheiros como-está ou analisar ficheiros com o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
+- Copiar ficheiros usando **básica** ou **SshPublicKey** autenticação.
+- Copiar ficheiros como-é ou analisar ficheiros com o [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas ao SFTP.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para SFTP.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço SFTP ligada:
+As seguintes propriedades são suportadas para o serviço SFTP ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **Sftp**. |Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Sftp**. |Sim |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
-| porta | Porta em que o servidor SFTP faz a escuta.<br/>Valores permitidos são: inteiro, valor predefinido é **22**. |Não |
-| skipHostKeyValidation | Especifique se pretende ignorar a validação de chave de anfitrião.<br/>Valores permitidos são: **verdadeiro**, **falso** (predefinição).  | Não |
-| hostKeyFingerprint | Especifique a impressão de cima da situação da chave do anfitrião. | Sim, se o "skipHostKeyValidation" estiver definido como false.  |
-| authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **básico**, **parâmetros SshPublicKey**. Consulte [utilizando a autenticação básica](#using-basic-authentication) e [utilizando SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções mais propriedades e exemplos JSON, respetivamente. |Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| porta | Porta em que o servidor SFTP está a escutar.<br/>Valores permitidos são: número inteiro, o valor predefinido é **22**. |Não |
+| skipHostKeyValidation | Especifique se pretende ignorar a validação da chave de anfitrião.<br/>Valores permitidos são: **true**, **falso** (predefinição).  | Não |
+| hostKeyFingerprint | Especifique a impressão digital da chave de anfitrião. | Sim, se o "skipHostKeyValidation" estiver definido como false.  |
+| authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **Básica**, **SshPublicKey**. Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
-### <a name="using-basic-authentication"></a>Utilizar a autenticação básica
+### <a name="using-basic-authentication"></a>Usando a autenticação básica
 
-Para utilizar autenticação básica, defina a propriedade de "authenticationType" como **básico**e especifique as seguintes propriedades além do conector SFTP aqueles genéricos introduzidas na última secção:
+Para utilizar a autenticação básica, defina a propriedade de "authenticationType" como **básica**e especifique as seguintes propriedades além do conector do SFTP genéricas introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | Utilizador que tenha acesso ao servidor SFTP. |Sim |
-| palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo:**
 
@@ -96,19 +95,19 @@ Para utilizar autenticação básica, defina a propriedade de "authenticationTyp
 
 ### <a name="using-ssh-public-key-authentication"></a>Utilizar a autenticação de chave pública SSH
 
-Para utilizar a autenticação de chave pública SSH, definir a propriedade de "authenticationType" como **parâmetros SshPublicKey**e especifique as seguintes propriedades além do conector SFTP aqueles genéricos introduzidas na última secção:
+Para utilizar a autenticação de chave pública SSH, defina a propriedade de "authenticationType" como **SshPublicKey**e especifique as seguintes propriedades além do conector do SFTP genéricas introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| userName | Utilizador com acesso ao servidor de SFTP |Sim |
-| privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privado que podem aceder a integração do tempo de execução. Aplica-se apenas quando personalizada alojada de tempo de execução de integração for especificado em "connectVia". | Especifique o `privateKeyPath` ou `privateKeyContent`.  |
-| privateKeyContent | Conteúdo da chave privado SSH de codificados Base64. A chave privada SSH deve ter o formato de OpenSSH. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Especifique o `privateKeyPath` ou `privateKeyContent`. |
-| frase de acesso | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
+| userName | Utilizador que tenha acesso ao servidor SFTP |Sim |
+| privateKeyPath | Especifique o caminho absoluto para o ficheiro de chave privada do Integration Runtime pode aceder. Aplica-se apenas quando o tipo de hospedagem interna do Integration Runtime é especificado no "connectVia". | Especifique a `privateKeyPath` ou `privateKeyContent`.  |
+| privateKeyContent | Conteúdo da chave privado SSH de codificado em Base64. Chave privada SSH deve ter o formato de OpenSSH. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Especifique a `privateKeyPath` ou `privateKeyContent`. |
+| frase de acesso | Especifique a pass frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
-> Conector SFTP suporta chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] chave privada---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato. 
+> Conector do SFTP oferece suporte a chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] PRIVATE KEY---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato. 
 
-**Exemplo 1: Autenticação de parâmetros SshPublicKey utilizar filePath chave privada**
+**Exemplo 1: Autenticação de SshPublicKey com o caminho do ficheiro chave privado**
 
 ```json
 {
@@ -137,7 +136,7 @@ Para utilizar a autenticação de chave pública SSH, definir a propriedade de "
 }
 ```
 
-**Exemplo 2: Autenticação de parâmetros SshPublicKey utilizando o conteúdo da chave privado**
+**Exemplo 2: Autenticação de SshPublicKey com o conteúdo da chave privado**
 
 ```json
 {
@@ -171,23 +170,23 @@ Para utilizar a autenticação de chave pública SSH, definir a propriedade de "
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados SFTP.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados SFTP.
 
-Para copiar dados de SFTP, defina a propriedade de tipo do conjunto de dados para **FileShare**. São suportadas as seguintes propriedades:
+Para copiar dados de SFTP, defina a propriedade de tipo de conjunto de dados para **partilha de ficheiros**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **partilha de ficheiros** |Sim |
-| folderPath | Caminho para a pasta. Filtro de caráter universal não é suportado. Por exemplo: pasta/subpasta / |Sim |
-| fileName |  **Filtro de nome ou o caráter universal** para os ficheiros em especificado "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos são de carateres universais: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou único caráter).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para o escape se o nome de ficheiro real tem carateres universais ou este caráter de escape no interior. |Não |
-| Formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
-| compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **Partilha de ficheiros** |Sim |
+| folderPath | Caminho para a pasta. Não é suportado o filtro de carateres universais. Por exemplo: pasta/subpasta / |Sim |
+| fileName |  **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
+| Formato | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Ideal** e **mais rápida**. |Não |
 
 >[!TIP]
->Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um nome específico, especifique **folderPath** com parte de pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros de uma pasta, especifique **folderPath** com parte de pasta e **fileName** com filtro de caráter universal.
+>Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro de carateres universais.
 
 >[!NOTE]
->Se estava a utilizar a propriedade de "fileFilter" para o filtro de ficheiro, ainda é suportado como-é, enquanto são sugeridos para utilizar a nova capacidade de filtro adicionada ao "fileName" passa.
+>Se estivesse usando a propriedade de "fileFilter" para o filtro de ficheiro, ainda é suportado como-é, ao passo que são sugeridas para utilizar a nova capacidade de filtro adicionada ao "fileName" daqui em diante.
 
 **Exemplo:**
 
@@ -221,16 +220,16 @@ Para copiar dados de SFTP, defina a propriedade de tipo do conjunto de dados par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem SFTP.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem SFTP.
 
 ### <a name="sftp-as-source"></a>SFTP como origem
 
-Para copiar dados de SFTP, defina o tipo de origem na atividade de cópia para **FileSystemSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados de SFTP, definir o tipo de origem na atividade de cópia para **FileSystemSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
-| recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção quando recursiva é definida como true e de sink é baseada em ficheiros de arquivo, vazia pasta/subutilização-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **true** (predefinição), **FALSO** | Não |
 
 **Exemplo:**
 
@@ -266,4 +265,4 @@ Para copiar dados de SFTP, defina o tipo de origem na atividade de cópia para *
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

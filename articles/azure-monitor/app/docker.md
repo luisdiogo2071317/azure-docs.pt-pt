@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10a84011dca4a95c7ac7749329592d2de28a0d36
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974074"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999123"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorizar aplicações do Docker no Application Insights
 
@@ -108,5 +108,5 @@ Telemetria de pedido enviada a partir da aplicação instrumentada com IA SDK, �
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Application Insights para Java](../../azure-monitor/app/java-get-started.md)
-* [Application Insights para node. js](../../application-insights/app-insights-nodejs.md)
+* [Application Insights para node. js](../../azure-monitor/app/nodejs.md)
 * [Application Insights para ASP.NET](../../azure-monitor/app/asp-net.md)

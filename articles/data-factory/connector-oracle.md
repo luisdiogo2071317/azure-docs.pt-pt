@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275691"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016917"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para Oracle com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,11 +58,11 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo deve ser definida como **Oracle**. | Sim |
-| connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de ligação suportado**: pode utilizar **SID do Oracle** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>– Se utilizar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
+| connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de ligação suportado**: Pode usar **SID do Oracle** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>– Se utilizar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!TIP]
->Se tiver atingido o ditado de erro "ORA 01025: parâmetro UPI fora do intervalo" e o Oracle é de versões 8i, adicionar `WireProtocolMode=1` para sua cadeia de ligação e tente novamente.
+>Se tiver atingido o ditado de erro "ORA 01025: Parâmetro de UPI fora do intervalo"e o Oracle é de versões 8i, adicione `WireProtocolMode=1` para sua cadeia de ligação e tente novamente.
 
 **Para ativar a encriptação numa ligação de Oracle**, tem duas opções:
 

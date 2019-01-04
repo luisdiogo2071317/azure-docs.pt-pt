@@ -1,5 +1,5 @@
 ---
-title: O que é o cofre de chave do Azure? | Microsoft Docs
+title: O que é o cofre de chave do Azure? -Cofre de chaves azure | Documentos da Microsoft
 description: O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o cofre de chave do Azure, os clientes podem encriptar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .PFX e palavras-passe) utilizando as teclas que estejam protegidas por módulos de segurança de hardware (HSMs).
 services: key-vault
 documentationcenter: ''
@@ -12,48 +12,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 01dacd88bb3be8ff0f05333bfba6711687ea0c74
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246536"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002574"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
 O Azure Key Vault ajuda a resolver os problemas seguintes:
+
 - **Gestão de segredos** -Azure Key Vault pode ser utilizado para armazenar de forma segura e totalmente controlar o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos.
-- **Gestão de Chaves** – O Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
-- **Gestão de Certificados** – O Azure Key Vault também é um serviço que lhe permite aprovisionar, gerir e implementar facilmente certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e os seus recursos ligados internos. 
+- **Gestão de Chaves** – o Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
+- **Gestão de Certificados** – o Azure Key Vault também é um serviço que lhe permite aprovisionar, gerir e implementar facilmente certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e os seus recursos ligados internos. 
 - **Store apoiados por módulos de Hardware de segurança de segredos** -os segredos e as chaves podem ser protegidas por software ou FIPS 140-2 nível 2 valida HSMs.
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 
 O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segurança. Um segredo é tudo cujo acesso deseja controlar rigidamente, como chaves de API, palavras-passe ou certificados. R **cofre** é um grupo lógico de segredos. Agora fazer todas as operações com o Key Vault primeiro tem de autenticar para o mesmo. 
 
-Fundamentalmente, há 3 formas de autenticar para o Key Vault:
+Fundamentalmente, há três formas de autenticar para o Key Vault:
 
-1. **Usando [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e nas práticas recomendadas**): ao implementar uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade para a Máquina Virtual que tenha acesso ao Key Vault. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
-2. **Principal de serviço e o certificado a utilizar:** a opção 2nd consiste em utilizar um Principal de serviço e um certificado associado que tem acesso ao Cofre de chaves. Onus de rotação do certificado é o proprietário da aplicação ou o desenvolvedor e, portanto, isso não é recomendável.
-3. **Com o Principal de serviço e o segredo:** a opção 3 (opção não preferida) é utilizar um Principal de serviço e um segredo para autenticar para o Key Vault.
+1. **Usando [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e nas práticas recomendadas**): Quando implementa uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade à máquina Virtual que tenha acesso ao Cofre de chaves. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
+2. **Utilizar o Principal de serviço e de certificado:** A segunda opção é usar um Principal de serviço e um certificado associado que tem acesso ao Cofre de chaves. Onus de rotação do certificado é o proprietário da aplicação ou o desenvolvedor e, portanto, isso não é recomendável.
+3. **Utilizar o Principal de serviço e o segredo:** A terceira opção (opção não preferida) é utilizar um Principal de serviço e um segredo para autenticar para o Key Vault.
 
 > [!NOTE]
 > Não deve ser utilizada a opção 3 acima, pois é difícil automática rodar o segredo de bootstrap utilizado para autenticar para o Key Vault.
 
 Eis alguns termos-chave:
-- **Inquilino**: um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É utilizado mais frequentemente de forma exata para fazer referência ao conjunto de serviços do Azure e do Office 365 para uma organização.
-- **Proprietário do Key Vault**: um proprietário do cofre pode criar um cofre de chaves e obter acesso total e controlo sobre o mesmo. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
-- **Consumidor do cofre**: um consumidor do cofre pode efetuar ações nos recursos dentro do cofre de chaves quando o proprietário do cofre lhe concede acesso. As ações disponíveis dependem das permissões concedidas.
-- **Recurso**: um recurso é um item gerível que está disponível através do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual, mas existem muitos mais.
-- **Grupo de recursos**: um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
-- **Principal de serviço** -principal de serviço de um Azure é uma identidade de segurança utilizada pelo utilizador criou aplicações, serviços e ferramentas de automatização para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões fortemente controladas. Um principal de serviço apenas precisa de fazer determinadas coisas, ao contrário das identidades de utilizador gerais. Melhora a segurança se apenas lhe conceder o nível de permissões mínimo de que precisa para realizar as tarefas de gestão.
-- **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino. 
-- **ID do inquilino do Azure**: um ID do inquilino é uma forma exclusiva para identificar uma instância do Azure AD numa subscrição do Azure.
-- **Gerido identidades para recursos do Azure**: Azure Key Vault oferece uma forma de armazenar em segurança as credenciais e outras chaves e segredos, mas o seu código precisa para autenticar para o Key Vault para recuperá-los. Utilizar uma identidade gerida faz a resolver esse problema mais simples, fornecendo serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para obter mais informações, veja a imagem abaixo e o [geridos identidades para descrição geral de recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagrama de como geridos identidades para funciona de recursos do Azure](./media/key-vault-whatis/msi.png)
+- **Inquilino**: Um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É utilizado mais frequentemente de forma exata para fazer referência ao conjunto de serviços do Azure e do Office 365 para uma organização.
+- **Proprietário do cofre**: Um proprietário de cofre pode criar um cofre de chaves e obtenha acesso total e controle sobre ele. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
+- **Consumidor de cofre**: Um consumidor de cofre pode executar ações nos recursos no interior do Cofre de chaves, quando o proprietário do cofre concede o acesso de consumidor. As ações disponíveis dependem das permissões concedidas.
+- **Recurso**: Um recurso é um item gerível que está disponível através do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual, mas existem muitos mais.
+- **Grupo de recursos**: Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
+- **Principal de serviço** -principal de serviço de um Azure é uma identidade de segurança utilizada pelo utilizador criou aplicações, serviços e ferramentas de automatização para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões fortemente controladas. Um principal de serviço apenas precisa de fazer determinadas coisas, ao contrário das identidades de utilizador gerais. Melhora a segurança se apenas lhe conceder o nível de permissões mínimo de que precisa para realizar as tarefas de gestão.
+- **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: O Azure AD é o serviço de diretório Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino. 
+- **ID de inquilino do Azure**: Um ID de inquilino é uma maneira única para identificar uma instância do Azure AD dentro de uma subscrição do Azure.
+- **Gerido identidades para recursos do Azure**: O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. Utilizar uma identidade gerida faz a resolver esse problema mais simples, fornecendo serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para obter mais informações, veja a imagem abaixo e o [geridos identidades para descrição geral de recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+    ![Diagrama de como geridos identidades para o trabalho de recursos do Azure](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Funções do Key Vault
 
@@ -67,11 +69,11 @@ Utilize a tabela seguinte para melhor compreender como a chave de cofre pode aju
 
 Qualquer pessoa com uma subscrição do Azure pode criar e utilizar cofres de chave. Apesar do Key Vault beneficiar os programadores e os administradores de segurança, pode ser implementado e gerido pelo administrador de uma organização que gere outros serviços do Azure para uma organização. Por exemplo, este administrador pode iniciar sessão com uma subscrição do Azure, criar um cofre para a organização na qual pretende armazenar chaves e, em seguida, ser responsável por tarefas operacionais como:
 
-* Criar ou importar uma chave ou segredo
-* Revogar ou eliminar uma chave ou segredo
-* Autorizar aos utilizadores ou aplicações o acesso à chave de cofre para que possam gerir ou utilizar as suas chaves e segredos
-* Configurar a utilização da chave (por exemplo, iniciar sessão ou encriptar)
-* Monitorizar a utilização da chave
+- Criar ou importar uma chave ou segredo
+- Revogar ou eliminar uma chave ou segredo
+- Autorizar aos utilizadores ou aplicações o acesso à chave de cofre para que possam gerir ou utilizar as suas chaves e segredos
+- Configurar a utilização da chave (por exemplo, iniciar sessão ou encriptar)
+- Monitorizar a utilização da chave
 
 Este administrador iria fornecer URIs aos programadores para os contactar a partir das suas aplicações e iria fornecer também ao respetivo administrador de segurança as informações de utilização da chave de registo. 
 

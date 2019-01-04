@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6d0524471ddc62e1ff6285bd0c80049917e726a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876482"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014952"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 
@@ -92,7 +91,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com a API REST](quickstart-create-data-factory-rest-api.md).
+Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com a API de REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 O comando de exemplo que se segue mostra como executar manualmente o pipeline com o Azure PowerShell:
@@ -118,7 +117,7 @@ O payload de resposta é um ID exclusivo da execução de pipeline:
 }
 ```
 
-Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>SDK .NET
 A chamada de exemplo que se segue mostra como executar manualmente o pipeline com o SDK de .NET:
@@ -127,7 +126,7 @@ A chamada de exemplo que se segue mostra como executar manualmente o pipeline co
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md).
+Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > Pode utilizar o SDK de .NET para invocar pipelines do Data Factory a partir de Funções do Azure, dos seus próprios serviços Web, etc.
@@ -135,11 +134,11 @@ Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dad
 <h2 id="triggers">Execução de acionadores</h2>
 Os acionadores são outra forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta três tipos de acionadores:
 
-- Acionador de agenda: um acionador que invoca um pipeline com base numa agenda.
+- Acionador de agenda: Um acionador que invoca um pipeline com uma agenda de relógio.
 
-- Acionador de janela em cascata: um acionador que opera num intervalo periódico, ao mesmo tempo que mantém o estado.
+- Acionador de janela em cascata: Um acionador que opera num intervalo periódico, mantendo também o estado.
 
-- Acionador baseado em eventos: um acionador que responde a um evento.
+- Baseado em evento acionador: Um acionador que responde a um evento.
 
 Os pipelines e os acionadores têm uma relação muitos para muitos. Vários acionadores podem desencadear um único pipeline ou um só acionador pode desencadear vários pipelines. Na definição de acionador que se segue, a propriedade **pipelines** refere-se a uma lista de pipelines que são acionados pelo acionador especificado. A definição da propriedade inclui valores para os parâmetros do pipeline.
 
@@ -370,7 +369,7 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 |:--- |:--- |:--- |
 | **Cenários de reposição** | Suportado. As execuções de pipeline podem ser agendadas para períodos de tempo no passado. | Não suportado. As execuções de pipeline só podem ser executadas em períodos de na hora atual ou numa hora futura. |
 | **Fiabilidade** | 100% de fiabilidade. As execuções de pipeline podem ser agendadas para todos os períodos de tempo a partir de uma data de início especificada sem lacunas. | Menos fiável. |
-| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando as execuções de pipeline falham devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de estado 400: Erro de Utilizador, 429: Demasiados Pedidos e 500: Erro Interno do Servidor). | Não suportado. |
+| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando as execuções de pipeline falham devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de estado 400: Erro de utilizador, 429: Demasiados pedidos e 500: Erro de servidor interno). | Não suportado. |
 | **Simultaneidade** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
 | **Variáveis do sistema** | Suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd**. Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não suportado. |
 | **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. | 
@@ -378,6 +377,6 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 ## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes:
 
-- [Início Rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
+- [Início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
 - [Criar um acionador de agenda](how-to-create-schedule-trigger.md)
 - [Criar um acionador de janela em cascata](how-to-create-tumbling-window-trigger.md)

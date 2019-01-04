@@ -1,5 +1,5 @@
 ---
-title: Filtrar a atividade no Azure Data Factory | Microsoft Docs
+title: Filtrar atividade no Azure Data Factory | Documentos da Microsoft
 description: A atividade de filtro filtra as entradas.
 services: data-factory
 documentationcenter: ''
@@ -9,18 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050357"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021837"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Filtro de atividade no Azure Data Factory
+# <a name="filter-activity-in-azure-data-factory"></a>Filtrar atividade no Azure Data Factory
 Pode utilizar uma atividade de filtro num pipeline para aplicar uma expressão de filtro a uma matriz de entrada. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -42,12 +41,12 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome do `Filter` atividade. | Cadeia | Sim
 tipo | Tem de ser definido como **filtro**. | Cadeia | Sim
-condição | Condição a utilizar para a entrada de filtragem. | Expressão | Sim
+condition | Condição para ser utilizado para filtrar a entrada. | Expressão | Sim
 itens | Matriz de entrada em que o filtro deve ser aplicado. | Expressão | Sim
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo, o pipeline com duas atividades: **filtro** e **ForEach**. A atividade do filtro está configurada para filtrar a matriz de entrada para itens com um valor superior a 3. Em seguida, a atividade ForEach itera repetidamente os valores filtrados e aguarda o número de segundos especificado pelo valor atual.
+Neste exemplo, o pipeline tem duas atividades: **Filtro** e **ForEach**. A atividade de filtro está configurada para filtrar a matriz de entrada para itens com um valor superior a 3. Em seguida, a atividade ForEach itera os valores filtrados e aguarda o número de segundos especificado pelo valor atual.
 
 ```json
 {
@@ -93,12 +92,12 @@ Neste exemplo, o pipeline com duas atividades: **filtro** e **ForEach**. A ativi
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade de Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

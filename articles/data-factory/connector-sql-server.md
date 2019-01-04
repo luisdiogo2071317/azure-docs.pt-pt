@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345220"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020528"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +53,7 @@ As seguintes propriedades são suportadas para o serviço ligado do SQL Server:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **SqlServer** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **SqlServer** | Sim |
 | connectionString |Especifique as informações de connectionString necessárias para ligar à base de dados do SQL Server com a autenticação SQL ou autenticação do Windows. Consulte o exemplo a seguir. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | userName |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
@@ -118,7 +117,7 @@ Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **SqlServerTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
 | tableName |Nome da tabela ou vista de instância de base de dados do SQL Server pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
 
 **Exemplo:**
@@ -534,7 +533,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 3. Na janela da mesma, faça duplo clique em **TCP/IP** para iniciar **propriedades de TCP/IP** janela.
 4. Mude para o **endereços IP** separador. Desloque-se para baixo para ver **IPAll** secção. Tome nota a * * a porta TCP * * (a predefinição é **1433**).
 5. Criar uma **regra da Firewall do Windows** na máquina para permitir o tráfego de entrada por essa porta.  
-6. **Verificar ligação**: para ligar ao servidor SQL com o nome totalmente qualificado, utilize o SQL Server Management Studio noutra máquina. Por exemplo: `"<machine>.<domain>.corp.<company>.com,1433"`.
+6. **Verificar ligação**: Para ligar ao servidor SQL com o nome totalmente qualificado, utilize o SQL Server Management Studio noutra máquina. Por exemplo: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

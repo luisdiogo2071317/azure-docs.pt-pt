@@ -10,17 +10,16 @@ ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: bf39f9d0ea96259aaec14562e302e31781b64231
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023775"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -33,16 +32,16 @@ ms.locfileid: "43106867"
 > 
  
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja o [Início Rápido: criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [início rápido: Criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Neste artigo, vai utilizar um modelo do Azure Resource Manager para criar a sua primeira fábrica de dados do Azure. Para fazer o tutorial com outras ferramentas/SDKs, selecione uma das opções na lista pendente.
 
-O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
+O pipeline neste tutorial tem uma atividade: **Atividade do Hive do HDInsight**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para um tutorial sobre como copiar dados com o Azure Data Factory, consulte [Tutorial: Copy data from Blob Storage to SQL Database (Tutorial: copiar dados do Armazenamento de Blobs para a Base de Dados SQL)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para obter um tutorial sobre como copiar dados com o Azure Data Factory, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> O pipeline neste tutorial tem apenas uma atividade de tipo: atividade do HDInsight Hive. Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (agendamento e execução no Data Factory). 
+> O pipeline neste tutorial tem apenas uma atividade do tipo: HDInsightHive. Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (agendamento e execução no Data Factory). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Leia o artigo [Descrição Geral do Tutorial](data-factory-build-your-first-pipeline.md) e conclua os passos de **pré-requisitos**.
@@ -262,7 +261,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM.json** na pasta **C:\ADFGetSta
 ```
 
 > [!NOTE]
-> Pode encontrar outro exemplo do modelo do Resource Manager para criar uma fábrica de dados do Azure no [Tutorial: criar um pipeline com a Atividade de Cópia utilizando um modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
+> Pode encontrar outro exemplo de modelo do Resource Manager para criar uma fábrica de dados do Azure no [Tutorial: Criar um pipeline com a atividade de cópia com um modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 > 
 > 
 

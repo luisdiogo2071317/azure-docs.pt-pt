@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501882"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013184"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Python no Azure Databricks
 
-A atividade de Python do Azure Databricks numa [pipeline do Data Factory](concepts-pipelines-activities.md) executa um ficheiro de Python no seu cluster do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
+A atividade de Python do Azure Databricks numa [pipeline do Data Factory](concepts-pipelines-activities.md) executa um ficheiro de Python no seu cluster do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
 
 Para uma introdução e demonstração de onze minutos desta funcionalidade, veja o seguinte vídeo:
 
@@ -68,7 +67,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
-|linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
+|linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |pythonFile|O URI do ficheiro de Python a ser executado. Apenas os caminhos de DBFS são suportados.|Sim|
 |parâmetros|Parâmetros de linha de comandos que serão passados para o ficheiro de Python. Esta é uma matriz de cadeias de caracteres.|Não|
 |Bibliotecas|Uma lista de bibliotecas seja instalado no cluster que executará a tarefa. Pode ser uma matriz de < string, objeto >|Não|

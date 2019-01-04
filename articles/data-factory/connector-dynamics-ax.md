@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 48c6fb178b61fd65e0fbf6122d541bef5e3e9830
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339540"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014391"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiar dados do Dynamics AX com o Azure Data Factory (pré-visualização)
 
@@ -135,7 +134,7 @@ Para copiar dados do Dynamics AX, defina o **origem** tipo de atividade de cópi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **DynamicsAXSource**. | Sim |
-| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Tenha em atenção**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 

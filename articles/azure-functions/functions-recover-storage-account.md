@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604978"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000024"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 
@@ -37,6 +37,7 @@ Vamos examinar os quatro casos de erro mais comuns, como identificar e como reso
 1. Definições de aplicação de conta de armazenamento eliminadas
 1. Credenciais da conta de armazenamento inválidas
 1. Conta de armazenamento inacessível
+1. Quota de execução diária completa
 
 ## <a name="storage-account-deleted"></a>Conta de armazenamento eliminada
 
@@ -79,6 +80,13 @@ A aplicação de função tem de ser capaz de aceder à conta de armazenamento. 
 * Aplicações de funções implementadas para ambientes de serviço de aplicações sem as regras de rede correto para permitir o tráfego de e para a conta de armazenamento
 * A firewall de conta de armazenamento é ativada e não configurada para permitir o tráfego de e para as funções. [Saiba mais sobre a configuração de firewall de conta de armazenamento aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Quota de execução diária completa
+
+Se tiver uma Quota de execução diária configurado, a aplicação de função será desativada temporariamente e muitos dos controles portais deixará de estar disponíveis. 
+
+* Para verificar, verificação de abrir a recursos da plataforma > definições da aplicação de funções no portal. Verá a seguinte mensagem se excedeu a quota
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Remover a quota e reinicie a aplicação para resolver o problema.
 
 ## <a name="next-steps"></a>Próximos Passos
 

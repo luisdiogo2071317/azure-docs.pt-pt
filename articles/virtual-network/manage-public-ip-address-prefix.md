@@ -1,13 +1,10 @@
 ---
-title: Criar, alterar ou eliminar um prefixo de endereço IP público do Azure | Documentos da Microsoft
+title: Criar, alterar ou eliminar um prefixo de endereço IP público do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou eliminar um prefixo de endereço IP público.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015292"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
@@ -29,7 +26,7 @@ Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e eli
 ## <a name="before-you-begin"></a>Antes de começar
 
 > [!IMPORTANT]
-> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: e.u.a. centro-oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, visite [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, visite [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
@@ -84,8 +81,8 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
 1. Na caixa que contém o texto *recursos de pesquisa* na parte superior do portal do Azure, escreva *prefixo de endereço ip público*. Quando **prefixos de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 2. Selecione o nome do prefixo de endereço IP público que pretende ver, alterar as definições para ou eliminar da lista.
 3. Realize uma das seguintes opções, dependendo se pretende ver, eliminar ou alterar o prefixo de endereço IP público.
-    - **Modo de exibição**: A **descrição geral** secção mostra as definições de chave para o prefixo de endereço IP público, tais como prefixo.
-    - **Eliminar**: para eliminar o prefixo de endereço IP público, selecione **eliminar** no **descrição geral** secção. Se os endereços dentro do prefixo estão associados a recursos de endereço IP público, tem primeiro de eliminar os recursos de endereço IP públicos. Ver [eliminar um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+    - **Vista**: O **descrição geral** secção mostra as definições de chave para o prefixo de endereço IP público, tais como prefixo.
+    - **Eliminar**: Para eliminar o prefixo de endereço IP público, selecione **elimine** no **descrição geral** secção. Se os endereços dentro do prefixo estão associados a recursos de endereço IP público, tem primeiro de eliminar os recursos de endereço IP públicos. Ver [eliminar um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Comandos**
 

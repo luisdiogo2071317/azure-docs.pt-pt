@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970166"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024370"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift, com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +53,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Amazon Redsh
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **AmazonRedshift** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **AmazonRedshift** | Sim |
 | servidor |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
 | porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, a predefinição é 5439 |
 | base de dados |Nome da base de dados do Amazon Redshift. |Sim |
@@ -96,7 +95,7 @@ Para copiar dados do Amazon Redshift, defina a propriedade de tipo de conjunto d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela em que o Amazon Redshift. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -214,7 +213,7 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados ent
 | VALOR BOOLEANO |Cadeia |
 | CHAR |Cadeia |
 | DATA |DateTime |
-| DECIMAL |decimal |
+| DECIMAL |Decimal |
 | PRECISÃO DUPLA |Valor de duplo |
 | NÚMERO INTEIRO |Int32 |
 | REAL |Único |

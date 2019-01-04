@@ -1,6 +1,6 @@
 ---
-title: Repetíveis cópia no Azure Data Factory | Microsoft Docs
-description: Saiba como evitar duplicados, apesar de um setor que copia dados é executado mais do que uma vez.
+title: Cópia passível de repetição no Azure Data Factory | Documentos da Microsoft
+description: Saiba como evitar duplicatas, apesar de um setor que copia dados é executado mais do que uma vez.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,27 +9,26 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b1d1cf62dad94ca6141ce33783c0b16b50c931c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 450e6a180b104d8f384fd08cc7c4cafcd53b4453
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622640"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021344"
 ---
-# <a name="repeatable-copy-in-azure-data-factory"></a>Repetíveis cópia no Azure Data Factory
+# <a name="repeatable-copy-in-azure-data-factory"></a>Cópia passível de repetição no Azure Data Factory
 
-## <a name="repeatable-read-from-relational-sources"></a>Repetíveis leitura a partir de origens relacionais
-Quando armazena a cópia de dados de dados relacionais, manter a repetibilidade em mente para evitar resultados inesperados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor é voltar a executar qualquer forma, tem de certificar-se de que os mesmos dados é a leitura não independentemente um setor é executado o número de vezes.  
+## <a name="repeatable-read-from-relational-sources"></a>Leitura passível de repetição de fontes relacionais
+Quando armazena a cópia de dados de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor será novamente executado de qualquer forma, terá de certificar-se de que os mesmos dados é de leitura não questão número de vezes que um setor é executado.  
  
 > [!NOTE]
-> Os exemplos seguintes são para o Azure SQL, mas são aplicáveis a qualquer arquivo de dados que suporta conjuntos de dados retangular. Terá de ajustar o **tipo** de origem e o **consulta** propriedade (por exemplo: consulta em vez de sqlReaderQuery) para os dados de arquivo.   
+> Os exemplos seguintes são para o SQL do Azure, mas são aplicáveis a qualquer arquivo de dados que suporta conjuntos de dados retangulares. Poderá ter de ajustar a **tipo** de origem e o **consulta** propriedade (por exemplo: consulta em vez de sqlReaderQuery) para os dados de armazenamento.   
 
-Normalmente, ao ler do relacionais arquivos, pretende apenas os dados correspondente a essa segmentação de leitura. Uma forma de fazê-lo seria utilizando variáveis de sistema WindowStart e WindowEnd disponíveis no Azure Data Factory. Leia sobre as variáveis e funções no Azure Data Factory aqui no [do Azure Data Factory - as funções e variáveis do sistema](data-factory-functions-variables.md) artigo. Exemplo: 
+Normalmente, ao ler a partir de repositórios relacionais, queira ler apenas os dados correspondentes para essas fatias. Uma maneira de fazer isso seria utilizando variáveis de sistema WindowStart e WindowEnd disponíveis no Azure Data Factory. Leia sobre as variáveis e funções no Azure Data Factory aqui no [do Azure Data Factory - funções e variáveis de sistema](data-factory-functions-variables.md) artigo. Exemplo: 
 
 ```json
 "source": {
@@ -37,9 +36,9 @@ Normalmente, ao ler do relacionais arquivos, pretende apenas os dados correspond
     "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
-Esta consulta lê os dados que se situe no intervalo de duração setor (WindowStart -> WindowEnd) da tabela MyTable. Volte a executar este setor seria também sempre Certifique-se de que os mesmos dados é de leitura. 
+Esta consulta lê os dados que se situe no intervalo de duração de setor (WindowStart -> WindowEnd) da tabela MyTable. Volte a executar de neste setor seria também sempre Certifique-se de que os mesmos dados é de leitura. 
 
-Noutros casos, pode pretender ler a tabela completa e pode definir o sqlReaderQuery da seguinte forma:
+Em outros casos, pode pretender ler a tabela inteira e pode definir o sqlReaderQuery da seguinte forma:
 
 ```json
 "source": 
@@ -49,10 +48,10 @@ Noutros casos, pode pretender ler a tabela completa e pode definir o sqlReaderQu
 },
 ```
 
-## <a name="repeatable-write-to-sqlsink"></a>Operação de escrita repetíveis SqlSink
-Quando copiar dados para **Azure SQL/SQL Server** de outros arquivos de dados, terá de manter a repetibilidade em mente para evitar resultados inesperados. 
+## <a name="repeatable-write-to-sqlsink"></a>Escrita passível de repetição para SqlSink
+Quando se copiam dados para **do Azure SQL e do SQL Server** de outros arquivos de dados, terá de ter a capacidade de repetição em mente para evitar resultados indesejados. 
 
-Quando copiar dados para a base de dados do Azure SQL/SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Imaginemos que está a copiar dados de um ficheiro CSV (valores separados por vírgulas) que contém dois registos para a tabela seguinte uma base de dados do servidor SQL/SQL do Azure. Quando um setor é executado, os dois registos são copiados para a tabela SQL. 
+Quando se copiam dados para o banco de dados do Azure SQL/SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Por exemplo, está a copiar dados de um ficheiro CSV (valores separados por vírgulas) que contém dois registos para a tabela a seguir num banco de dados do Azure SQL/SQL Server. Quando um setor é executada, os dois registros são copiados para a tabela SQL. 
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -61,7 +60,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suponha que encontrou erros no ficheiro de origem e atualizar a quantidade de baixo Tube de 2 a 4. Se voltar a executar o setor de dados para esse período manualmente, encontrará dois novos registos anexados a base de dados do Azure SQL/SQL Server. Este exemplo parte do princípio de que nenhuma das colunas na tabela tem restrição de chave primária.
+Suponha que encontrou erros no ficheiro de origem e atualizado a quantidade de baixo Tube de 2 a 4. Se voltar a executar o setor de dados durante esse período manualmente, encontrará dois novos registos anexados ao banco de dados do Azure SQL/SQL Server. Este exemplo parte do princípio de que nenhuma das colunas na tabela tem restrição de chave primária.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -72,10 +71,10 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Para evitar este comportamento, tem de especificar semântica UPSERT utilizando um dos dois mecanismos seguintes:
+Para evitar este comportamento, terá de especificar semântica UPSERT utilizando um dos dois mecanismos seguintes:
 
-### <a name="mechanism-1-using-sqlwritercleanupscript"></a>Mecanismo de 1: sqlWriterCleanupScript utilizando o
-Pode utilizar o **sqlWriterCleanupScript** propriedade a limpeza dos dados da tabela do sink antes de inserir os dados, quando um setor é executado. 
+### <a name="mechanism-1-using-sqlwritercleanupscript"></a>Mecanismo de 1: sqlWriterCleanupScript usando o
+Pode utilizar o **sqlWriterCleanupScript** propriedade a limpeza dos dados da tabela do sink antes de inserir os dados quando um setor é executado. 
 
 ```json
 "sink":  
@@ -85,7 +84,7 @@ Pode utilizar o **sqlWriterCleanupScript** propriedade a limpeza dos dados da ta
 }
 ```
 
-Quando um setor é executado, o script de limpeza é executado pela primeira vez para eliminar dados que corresponde ao setor da tabela SQL. A atividade de cópia, em seguida, insere dados para a tabela de SQL. Se o setor será novamente executado, a quantidade é atualizada conforme pretendido.
+Quando um setor é executado, o script de limpeza é executado primeiro para eliminar dados de que corresponde ao setor da tabela SQL. A atividade de cópia, em seguida, insere dados na tabela SQL. Se o setor será novamente executado, a quantidade é atualizada conforme pretendido.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -102,17 +101,17 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-A atividade de cópia foi executado o script de limpeza para eliminar os dados para esse setor correspondentes. Em seguida, lê-lo a entrada de csv (que contidas, em seguida, apenas um registo) e serão inseridos na tabela. 
+A atividade de cópia foi executado o script de limpeza para eliminar os dados correspondentes para essas fatias. Em seguida, a entrada leem o csv (que contidas, em seguida, apenas um registo) e inseridos-lo na tabela. 
 
-### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mecanismo de 2: sliceIdentifierColumnName utilizando o
+### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mecanismo de 2: sliceIdentifierColumnName usando o
 > [!IMPORTANT]
 > Atualmente, sliceIdentifierColumnName não é suportada para o Azure SQL Data Warehouse. 
 
-O segundo mecanismo para alcançar repetibilidade é ter uma coluna dedicada (sliceIdentifierColumnName) na tabela de destino. Esta coluna seria utilizada pelo Azure Data Factory para garantir que a origem e de destino permanecem sincronizadas. Esta abordagem funciona quando existe flexibilidade na alterar ou definir o esquema da tabela de SQL de destino. 
+O mecanismo de segundo para atingir a capacidade de repetição é ter uma coluna dedicada (sliceIdentifierColumnName) na tabela de destino. Esta coluna seria usada pelo Azure Data Factory para garantir que a origem e de destino ser mantidos em sincronia. Essa abordagem funciona quando houver flexibilidade para alterar ou definir o esquema de tabela SQL de destino. 
 
-Esta coluna é utilizada pelo Azure Data Factory para fins de repetibilidade e o processo do Azure Data Factory não fazer quaisquer alterações de esquema para a tabela. Para utilizar esta abordagem:
+Esta coluna é utilizada pelo Azure Data Factory para fins de capacidade de repetição e no processo do Azure Data Factory não faz quaisquer alterações de esquema para a tabela. Forma de usar essa abordagem:
 
-1. Definir uma coluna do tipo **binário (32)** no destino da tabela de SQL. Não deverá haver nenhum restrições nesta coluna. Vamos nome desta coluna como AdfSliceIdentifier para este exemplo.
+1. Definir uma coluna do tipo **binário (32)** no destino da tabela SQL. Não deve haver nenhuma restrição nesta coluna. Vamos dar o nome desta coluna como AdfSliceIdentifier para este exemplo.
 
 
     Tabela de origem:
@@ -134,7 +133,7 @@ Esta coluna é utilizada pelo Azure Data Factory para fins de repetibilidade e o
     )
     ```
 
-2. Utilize-a atividade de cópia da seguinte forma:
+2. Utilizá-la na atividade de cópia da seguinte forma:
    
     ```json
     "sink":  
@@ -145,12 +144,12 @@ Esta coluna é utilizada pelo Azure Data Factory para fins de repetibilidade e o
     }
     ```
 
-O Azure Data Factory preenche esta coluna de acordo com a respetiva necessidade de Certifique-se de que a origem e de destino permanecem sincronizadas. Os valores desta coluna não devem ser utilizados fora neste contexto. 
+O Azure Data Factory preenche nesta coluna, de acordo com a sua necessidade de garantir que a origem e de destino ser mantidos em sincronia. Os valores desta coluna não devem ser utilizados fora deste contexto. 
 
-Semelhante ao mecanismo 1, atividade de cópia automaticamente limpa os dados para o setor especificado de tabela de SQL de destino. Em seguida, inserem dados de origem para a tabela de destino. 
+Assim como o mecanismo de 1, atividade de cópia limpa automaticamente os dados para o determinado setor de tabela SQL de destino. Em seguida, insere dados de origem para a tabela de destino. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Reveja o conector seguinte artigos que, para obter exemplos JSON concluídos: 
+Reveja o conector seguinte artigos que para obter exemplos JSON completos: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)
 - [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)

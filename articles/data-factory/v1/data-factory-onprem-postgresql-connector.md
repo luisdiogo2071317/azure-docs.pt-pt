@@ -9,17 +9,16 @@ ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7357b609909c3db0bc42d58cb2cd32436c864f66
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235875"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025713"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +48,7 @@ Para o Data Management Gateway ligar à base de dados do PostgreSQL, instalar o 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do PostgreSQL no local através de APIs/ferramentas diferentes. 
 
-- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
+- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
 - Também pode utilizar as seguintes ferramentas para criar um pipeline: 
     - Portal do Azure
     - Visual Studio
@@ -66,7 +65,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
 3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do PostgreSQL no local, veja [exemplo de JSON: copiar dados do PostgreSQL para BLOBs do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do PostgreSQL no local, consulte [exemplo de JSON: Copiar dados do PostgreSQL para BLOBs do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) seção deste artigo. 
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para um arquivo de dados do PostgreSQL:
 
@@ -75,11 +74,11 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **OnPremisesPostgreSql** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
 | esquema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
@@ -111,7 +110,7 @@ Quando a origem é do tipo **RelationalSource** (que inclui o PostgreSQL), as se
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo de JSON: copiar dados do PostgreSQL para BLOBs do Azure
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo JSON: Copiar dados do PostgreSQL para BLOBs do Azure
 Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.   
 
 > [!IMPORTANT]
@@ -334,8 +333,8 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 | Linha | |Byte [], cadeia de caracteres |&nbsp;
 | lseg | |Byte [], cadeia de caracteres |&nbsp;
 | macaddr | |Byte [], cadeia de caracteres |&nbsp;
-| dinheiro | |decimal |&nbsp;
-| numérico [(p, s)] |decimal [(p, s)] |decimal |
+| dinheiro | |Decimal |&nbsp;
+| numérico [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Cadeia |&nbsp;
 | OID | |Int32 |&nbsp;
 | caminho | |Byte [], cadeia de caracteres |&nbsp;

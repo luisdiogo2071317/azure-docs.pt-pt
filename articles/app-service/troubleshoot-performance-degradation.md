@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726651"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016550"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas de desempenho de aplicações lenta no serviço de aplicações do Azure
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta na [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -114,7 +114,7 @@ Pode habilitar o do Application Insights Profiler começar a capturar rastreios 
 
 Application Insights Profiler fornece estatísticas sobre o tempo de resposta para cada chamada de web e rastreios, que indica que linha de código causada as repostas lentas. Às vezes, a aplicação de serviço de aplicações é lenta porque certos tipos de código não é escrito num alto desempenho forma. Os exemplos incluem código seqüencial que pode ser executado em contenções de bloqueio de base de dados paralelas e indesejados. Remover esses afunilamentos no código aumenta o desempenho da aplicação, mas eles são difíceis de detectar sem configurar rastreios elaborados e registos. Os rastreios recolhidos pelo Application Insights Profiler ajuda a identificar as linhas de código que o aplicativo mais lento e superar esse desafio para as aplicações de serviço de aplicações.
 
- Para obter mais informações, consulte [criação de perfis de aplicações em direto no serviço de aplicações do Azure com o Application Insights](../application-insights/app-insights-profiler.md).
+ Para obter mais informações, consulte [criação de perfis de aplicações em direto no serviço de aplicações do Azure com o Application Insights](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Utilizar a análise para otimização remota
 No serviço de aplicações do Azure, aplicações web, aplicações API, back-ends móveis e WebJobs pode ser remotamente as quais criar perfis. Escolha esta opção se tiver acesso ao recurso de aplicação e saber como reproduzir o problema ou se souber o intervalo de hora exata a que o problema de desempenho acontece.

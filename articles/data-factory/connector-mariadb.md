@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 59078ae86adce861f9e4ad3d02e35b12fd345e60
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c62dd8d51d229f2270d244fea06700175c1f5e98
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077686"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014884"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar dados da MariaDB com o Azure Data Factory 
 
@@ -44,7 +43,7 @@ As seguintes propriedades são suportadas para o serviço de MariaDB ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **MariaDB** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **MariaDB** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação ao MariaDB. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 

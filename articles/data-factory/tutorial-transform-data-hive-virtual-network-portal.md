@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: 60dc0e88998580732b50cb202fb5d00a7cfcae21
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: a8ac93d5a820b7d15b46efceb5db383d5b83a804
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106686"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019814"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Data Factory que transforma os dados com a Atividade do Hive num cluster HDInsight que se encontra numa Rede Virtual do Azure (VNet). Vai executar os seguintes passos neste tutorial:
@@ -38,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 - **Rede Virtual do Azure.** Se não tiver uma rede virtual do Azure, crie-a seguindo [estas instruções](../virtual-network/quick-create-portal.md). Neste exemplo, o HDInsight está numa Rede Virtual do Azure. Eis um exemplo de configuração da Rede Virtual do Azure. 
 
     ![Criar a rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **Cluster HDInsight.** Crie um cluster HDInsight e associe-o à rede virtual que criou no passo anterior, seguindo este artigo: [Extend Azure HDInsight using an Azure Virtual Network (Expandir o Azure HDInsight com uma Rede Virtual do Azure)](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
+- **Cluster HDInsight.** Criar um cluster do HDInsight e associe-o para a rede virtual que criou no passo anterior ao seguir este artigo: [Expandir HDInsight do Azure com uma rede Virtual do Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
 
     ![HDInsight numa rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
@@ -91,7 +90,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 5. Selecione a **localização** da fábrica de dados. Só são mostradas na lista as localizações que são suportadas para a criação de fábricas de dados.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -256,7 +255,7 @@ Tenha em atenção os seguintes pontos:
 
     ![Ficheiro de saída](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

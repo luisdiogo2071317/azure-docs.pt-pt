@@ -1,6 +1,6 @@
 ---
-title: Transformar dados utilizando a atividade de MapReduce do Hadoop no Azure Data Factory | Microsoft Docs
-description: Saiba como processar dados executando Hadoop MapReduce programas num cluster do Azure HDInsight a partir de um Azure data factory.
+title: Transformar dados com a atividade MapReduce do Hadoop no Azure Data Factory | Documentos da Microsoft
+description: Saiba como processar os dados ao executar programas de MapReduce do Hadoop num cluster HDInsight do Azure a partir de uma fábrica de dados do Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -8,27 +8,26 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: cb7009d0e7f31b2f503ac51d378fd117fff9f9b2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7ba1c4e0f358a2168c06ab9172229525cd4c136c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049956"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016142"
 ---
-# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de MapReduce do Hadoop no Azure Data Factory
+# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados com a atividade MapReduce do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-map-reduce.md)
 > * [Versão atual](transform-data-using-hadoop-map-reduce.md)
 
-A atividade de HDInsight MapReduce numa fábrica de dados [pipeline](concepts-pipelines-activities.md) invoca o programa de MapReduce no [os seus próprios](compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportados.
+A atividade de MapReduce do HDInsight numa fábrica de dados [pipeline](concepts-pipelines-activities.md) invoca o programa MapReduce no [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados.
 
-Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e efetue o tutorial: [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
+Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e fazer o tutorial: [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
-Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using-hadoop-hive.md) para obter detalhes sobre como executar Pig/Hive scripts no HDInsight a um cluster de um pipeline, utilizando as atividades de HDInsight Pig e do Hive. 
+Ver [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using-hadoop-hive.md) para obter detalhes sobre o Pig/Hive a executar scripts num HDInsight cluster partir de um pipeline com o HDInsight Pig e Hive atividades. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -59,26 +58,26 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 }
 ```
 
-## <a name="syntax-details"></a>Detalhes de sintaxe
+## <a name="syntax-details"></a>Detalhes da sintaxe
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
 | nome              | Nome da atividade                     | Sim      |
-| descrição       | Texto que descreve o que é utilizada a atividade para | Não       |
+| descrição       | Texto que descreve o que a atividade é utilizada para | Não       |
 | tipo              | Para a atividade de MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
-| linkedServiceName | Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
-| className         | Nome da classe para ser executada         | Sim      |
-| jarLinkedService  | Referência a um serviço ligado do Storage do Azure utilizados para armazenar os ficheiros Jar. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
-| jarFilePath       | Forneça o caminho para os ficheiros Jar armazenados no Storage do Azure que referida pelo jarLinkedService. O nome de ficheiro é maiúsculas e minúsculas. | Sim      |
-| jarlibs           | Matriz do caminho para os ficheiros da biblioteca Jar referenciada pela tarefa armazenada no Storage do Azure definido no jarLinkedService de cadeia. O nome de ficheiro é maiúsculas e minúsculas. | Não       |
-| getDebugInfo      | Especifica se os ficheiros de registo são copiados para o armazenamento do Azure utilizados pelo cluster do HDInsight (ou) especificado por jarLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |
+| linkedServiceName | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
+| className         | Nome da classe a ser executado         | Sim      |
+| jarLinkedService  | Referência para um serviço ligado de armazenamento do Azure utilizada para armazenar os ficheiros Jar. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
+| jarFilePath       | Forneça o caminho para os ficheiros Jar armazenados no armazenamento do Azure referenciado pela jarLinkedService. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim      |
+| jarlibs           | Matriz do caminho para os ficheiros da biblioteca Jar referenciado pela tarefa armazenada no armazenamento do Azure, definido no jarLinkedService de cadeias de caracteres. O nome de ficheiro diferencia maiúsculas de minúsculas. | Não       |
+| getDebugInfo      | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo jarLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
 | argumentos         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
-| Define           | Especifique parâmetros como pares chave-valor para referenciar dentro do script de ramo de registo. | Não       |
+| Define           | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       |
 
 
 
 ## <a name="example"></a>Exemplo
-Pode utilizar a atividade de MapReduce do HDInsight para executar qualquer ficheiro jar do MapReduce num cluster do HDInsight. A seguinte definição de JSON exemplo de um pipeline, a atividade do HDInsight é configurada para executar um ficheiro Mahout JAR.
+Pode usar a atividade de MapReduce do HDInsight para executar qualquer ficheiro. jar do MapReduce num cluster do HDInsight. A seguinte definição de JSON exemplo de um pipeline, a atividade do HDInsight está configurada para executar um ficheiro Mahout JAR.
 
 ```json   
 {
@@ -111,16 +110,16 @@ Pode utilizar a atividade de MapReduce do HDInsight para executar qualquer fiche
     }
 }
 ```
-Pode especificar os argumentos para o programa de MapReduce no **argumentos** secção. Em runtime, pode ver alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do framework de MapReduce. Para diferenciar os argumentos com os argumentos de MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo seguinte (- s, - entrada, - saída etc., são opções seguidas imediatamente pelos respetivos valores).
+Pode especificar qualquer argumentos para o programa de MapReduce na **argumentos** secção. No tempo de execução, verá alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do MapReduce framework. Para diferenciar os argumentos com os argumentos do MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo a seguir (- s, - entrada, – resultado etc., são as opções seguidas imediatamente pelos respetivos valores).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte os artigos seguintes que explicam como transformar dados de outras formas: 
+Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do ramo de registo](transform-data-using-hadoop-hive.md)
-* [Atividade do PIg](transform-data-using-hadoop-pig.md)
+* [Atividade do Hive](transform-data-using-hadoop-hive.md)
+* [Atividade PIg](transform-data-using-hadoop-pig.md)
 * [Atividade de transmissão em fluxo do Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade do Spark](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de lote de aprendizagem máquina](transform-data-using-machine-learning.md)
+* [Atividade de execução de lotes de Aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

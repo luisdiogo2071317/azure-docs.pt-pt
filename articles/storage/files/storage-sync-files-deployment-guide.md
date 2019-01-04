@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 58afaacb6e0165582f9f54c3ec3c273e2a063804
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: eeaedc84e860cebc0b001300ace4fe1594375af2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753255"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999412"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -202,18 +202,18 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzStorageSync `
+Login-AzureRmStorageSync `
     -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
 ```
 
-Depois de criar o contexto de sincronização de ficheiros do Azure com o `Login-AzStorageSync` cmdlet, pode criar o serviço de sincronização de armazenamento. Certifique-se de que substitua `<my-storage-sync-service>` com o nome pretendido do seu serviço de sincronização de armazenamento.
+Depois de criar o contexto de sincronização de ficheiros do Azure com o `Login-AzureR,StorageSync` cmdlet, pode criar o serviço de sincronização de armazenamento. Certifique-se de que substitua `<my-storage-sync-service>` com o nome pretendido do seu serviço de sincronização de armazenamento.
 
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzStorageSyncService -StorageSyncServiceName $storageSyncName
+New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -239,7 +239,7 @@ Depois de selecionar as informações apropriadas, selecione **registar** para c
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
-$registeredServer = Register-AzStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -269,7 +269,7 @@ Para criar o grupo de sincronização, execute o PowerShell seguinte. Não se es
 
 ```PowerShell
 $syncGroupName = "<my-sync-group>"
-New-AzStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Quando o grupo de sincronização tiver sido criado com êxito, pode criar seu ponto final da cloud. Não se esqueça de substituir `<my-storage-account>` e `<my-file-share>` com os valores esperados.
@@ -302,7 +302,7 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzStorageSyncCloudEndpoint `
+New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
     -StorageAccountResourceId $storageAccount.Id `
@@ -345,7 +345,7 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
@@ -355,7 +355,7 @@ if ($cloudTieringDesired) {
 }
 else {
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `

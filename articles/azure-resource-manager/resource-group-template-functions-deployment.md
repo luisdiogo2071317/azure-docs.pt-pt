@@ -4,22 +4,20 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407359"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022347"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos Azure Resource Manager 
 
@@ -97,6 +95,8 @@ Pode usar deployment() para ligar a outro modelo com base no URI do modelo princ
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+Se voltar a implementar um modelo do histórico de implementação no portal, o modelo é implementado como um ficheiro local. O `templateLink` propriedade não é devolvida na função de implementação. Se o seu modelo baseia-se em `templateLink` para construir uma ligação para outro modelo, não utilize o portal para voltar a implementar. Em alternativa, utilize os comandos que utilizou originalmente implementar o modelo.
 
 ### <a name="example"></a>Exemplo
 

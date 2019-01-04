@@ -9,17 +9,16 @@ ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667443"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020341"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +40,7 @@ Uma atividade pode ter zero ou mais entradas **conjuntos de dados**e produzem um
 
 Antes de criar um conjunto de dados, criar um **serviço ligado** para ligar o seu armazenamento de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Conjuntos de dados identificam dados dentro dos arquivos de dados ligados, como tabelas SQL, arquivos, pastas e documentos. Por exemplo, um armazenamento do Azure ligado serviço liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados de Blobs do Azure representa o contentor de BLOBs e a pasta que contém os blobs de entrada para serem processados. 
 
-Eis um cenário de exemplo. Para copiar dados do armazenamento de BLOBs para base de dados SQL, criar dois serviços ligados: armazenamento do Azure e base de dados do Azure SQL. Em seguida, crie dois conjuntos de dados: conjunto de dados de Blobs do Azure (que se refere ao serviço ligado do armazenamento do Azure) e o conjunto de dados de tabela SQL do Azure (o que se refere-se para o serviço de base de dados do SQL do Azure ligada). O armazenamento do Azure e serviços de base de dados do SQL Azure ligado contenham cadeias de ligação que o Data Factory utiliza no tempo de execução para ligar para o armazenamento do Azure e a base de dados SQL do Azure, respectivamente. O conjunto de dados de Blobs do Azure Especifica o contentor de BLOBs e a pasta de BLOBs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados de tabela SQL do Azure Especifica a tabela SQL na base de dados SQL para o qual os dados estão a ser copiado.
+Eis um cenário de exemplo. Para copiar dados do armazenamento de BLOBs para base de dados SQL, criar dois serviços ligados: Armazenamento do Azure e Azure base de dados SQL. Em seguida, crie dois conjuntos de dados: Conjunto de dados Blob do Azure (que se refere ao serviço ligado do armazenamento do Azure) e o conjunto de dados de tabela SQL do Azure (o que se refere-se para o serviço de base de dados do SQL do Azure ligada). O armazenamento do Azure e serviços de base de dados do SQL Azure ligado contenham cadeias de ligação que o Data Factory utiliza no tempo de execução para ligar para o armazenamento do Azure e a base de dados SQL do Azure, respectivamente. O conjunto de dados de Blobs do Azure Especifica o contentor de BLOBs e a pasta de BLOBs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados de tabela SQL do Azure Especifica a tabela SQL na base de dados SQL para o qual os dados estão a ser copiado.
 
 O diagrama seguinte mostra as relações entre o pipeline, atividade, conjunto de dados e serviço ligado no Data Factory: 
 
@@ -85,7 +84,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | nome |Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
 | tipo |Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
-| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
+| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
 | externo | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como true. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
 | disponibilidade | Define o período de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), diariamente é produzido um setor. <br/><br/>Para obter detalhes, consulte [conjunto de dados disponibilidade](#Availability). <br/><br/>Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte a [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | política |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte a [política de conjunto de dados](#Policy) secção. |Não |ND |
@@ -198,7 +197,7 @@ Cada coluna na estrutura contém as seguintes propriedades:
 | nome |Nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
 | cultura |. Com base em NET cultura a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
-| formato |Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
+| Formato |Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
 
 As seguintes diretrizes ajudá-lo a determinar quando deve incluir informações sobre a estrutura e o que pretende incluir no **estrutura** secção.
 
@@ -207,7 +206,7 @@ As seguintes diretrizes ajudá-lo a determinar quando deve incluir informações
     Como as informações de tipo já estão disponíveis para origens de dados estruturados, não deve incluir informações sobre o tipo ao incluir a secção de estrutura.
 * **Para o esquema em origens de dados de leitura (especificamente o armazenamento de BLOBs)**, pode optar por armazenar os dados sem armazenar as informações de esquema ou tipo com os dados. Para estes tipos de origens de dados, inclua estrutura quando pretende mapear colunas de origem para colunas de sink. Também deve inclua estrutura quando o conjunto de dados é uma entrada para uma atividade de cópia e tipos de dados do conjunto de dados de origem devem ser convertidos em tipos nativos para o sink. 
     
-    O Data Factory suporta os seguintes valores para fornecer informações sobre tipos na estrutura: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleano, cadeia de caracteres, Guid, Datetime, Datetimeoffset e Timespan**. Estes valores são a especificação de linguagem comum (CLS)-em conformidade,. Valores de tipo com base em NET.
+    Data Factory suporta os seguintes valores para fornecer informações sobre tipos na estrutura: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleano, cadeia de caracteres, Guid, Datetime, Datetimeoffset e Timespan**. Estes valores são a especificação de linguagem comum (CLS)-em conformidade,. Valores de tipo com base em NET.
 
 Fábrica de dados executa automaticamente as conversões de tipo ao mover dados de um arquivo de dados de origem para um arquivo de dados de sink. 
   
@@ -238,10 +237,10 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: minuto, hora, dia, semana, mês |Sim |ND |
+| frequência |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |ND |
 | Estilo |Especifica se o setor de deve ser produzido no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definida como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definida como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definida como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definida como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de 1 PM - 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo utilizado pelo scheduler para computar os limites de setor de conjunto de dados. <br/><br/>Tenha em atenção que, se este propoerty tiver partes de data que são mais granulares do que a frequência especificada, as partes mais granulares são ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes minutos e segundos **anchorDateTime** são ignorados. |Não |01/01/0001 |
+| anchorDateTime |Define a posição absoluta no tempo utilizado pelo scheduler para computar os limites de setor de conjunto de dados. <br/><br/>Tenha em atenção que, se este propoerty tiver partes de data que são mais granulares do que a frequência especificada, as partes mais granulares são ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes de minutos e segundos da **anchorDateTime** são ignorados. |Não |01/01/0001 |
 | deslocamento |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/>Observe que, se os dois **anchorDateTime** e **deslocamento** forem especificados, o resultado é a mudança combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
@@ -340,7 +339,7 @@ Pode criar conjuntos de dados ao utilizar uma destas ferramentas ou SDKs:
 
 Veja os tutoriais seguintes para obter instruções passo a passo para a criação de pipelines e conjuntos de dados ao utilizar uma destas ferramentas ou SDKs:
  
-- [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md) (Criar um pipeline cum uma atividade de transformação de dados)
+- [Criar um pipeline cum uma atividade de transformação de dados](data-factory-build-your-first-pipeline.md)
 - [Criar um pipeline com uma atividade de movimento de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
 Depois de um pipeline é criado e implementado, pode gerir e monitorizar os seus pipelines com os painéis do portal do Azure ou a aplicação de monitorização e gestão. Consulte os seguintes tópicos para obter instruções passo a passo: 

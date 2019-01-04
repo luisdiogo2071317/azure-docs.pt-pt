@@ -1,6 +1,6 @@
 ---
-title: Mover os dados da base de dados do Azure Cosmos | Microsoft Docs
-description: Saiba como mover dados da coleção de BD do Cosmos Azure utilizando o Azure Data Factory
+title: Mover dados de/para o Azure Cosmos DB | Documentos da Microsoft
+description: Saiba como mover dados de/para o conjunto do Azure Cosmos DB com o Azure Data Factory
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -9,59 +9,58 @@ ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ebd704129aabecffdaa2589b8b086803a2d092
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046608"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017604"
 ---
-# <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e da base de dados do Cosmos do Azure utilizando o Azure Data Factory
+# <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e do Azure Cosmos DB com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-azure-documentdb-connector.md)
 > * [Versão 2 (versão atual)](../connector-azure-cosmos-db.md)
 
 > [!NOTE]
-> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector de base de dados do Azure Cosmos no V2](../connector-azure-cosmos-db.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector do Azure Cosmos DB no V2](../connector-azure-cosmos-db.md).
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Azure Cosmos BD (API do SQL Server). Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia. 
+Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de/para Azure Cosmos DB (SQL API). Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia. 
 
-Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para a base de dados do Azure Cosmos ou da base de dados do Azure Cosmos qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. 
+Pode copiar dados de qualquer arquivo de dados de origem suportada para o Azure Cosmos DB ou do Azure Cosmos DB para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. 
 
 > [!IMPORTANT]
-> Conector do Cosmos BD do Azure suporta apenas a API do SQL Server.
+> Conector do Azure Cosmos DB suporta apenas a API de SQL.
 
-Para copiar dados como-é para/de ficheiros JSON ou de outra coleção Cosmos DB, consulte [documentos JSON de importação/exportação](#importexport-json-documents).
+Para copiar dados como-é de/para ficheiros JSON ou de outra coleção do Cosmos DB, veja [documentos JSON de importação/exportação](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia move os dados do Azure Cosmos DB utilizando ferramentas diferentes/APIs.
+Pode criar um pipeline com uma atividade de cópia que move os dados de/para Azure Cosmos DB ao utilizar ferramentas/APIs diferentes.
 
-A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
+A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
-Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink: 
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
 
-1. Criar **serviços ligados** associar dados de entrada e de saída armazena à fábrica de dados.
-2. Criar **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia executa um conjunto de dados como entrada e um conjunto de dados como resultado. 
+1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utilizar o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e o pipeline) são criadas automaticamente para si. Ao utilizar ferramentas/APIs (exceto .NET API), é possível definir estas entidades do Data Factory, utilizando o formato JSON.  Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados da base de dados do Cosmos, consulte [exemplos JSON](#json-examples) secção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para o Cosmos DB, consulte [exemplos JSON](#json-examples) seção deste artigo. 
 
-As secções seguintes fornecem detalhes sobre as propriedades JSON que são utilizados para definir entidades do Data Factory específicas à base de dados do Cosmos: 
+As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para o Cosmos DB: 
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
-A tabela seguinte fornece uma descrição para os elementos JSON específicos do serviço de base de dados do Cosmos Azure ligado.
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço ligado do Azure Cosmos DB.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida: **DocumentDb** |Sim |
-| connectionString |Especifique as informações necessárias para estabelecer ligação à base de dados do Azure Cosmos DB. |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **DocumentDb** |Sim |
+| connectionString |Especifica as informações necessárias para ligar à base de dados do Azure Cosmos DB. |Sim |
 
 Exemplo:
 
@@ -78,13 +77,13 @@ Exemplo:
 ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções como estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, Azure blob, tabela do Azure, etc.).
+Para uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, BLOBs do Azure, tabela do Azure, etc.).
 
-A secção de typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **DocumentDbCollection** tem as seguintes propriedades.
+A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **DocumentDbCollection** tem as seguintes propriedades.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| collectionName |Nome da coleção de documentos de BD do Cosmos. |Sim |
+| CollectionName |Nome da coleção de documento do Cosmos DB. |Sim |
 
 Exemplo:
 
@@ -105,63 +104,63 @@ Exemplo:
   }
 }
 ```
-### <a name="schema-by-data-factory"></a>Esquema pela fábrica de dados
-Para os arquivos de dados sem esquema, tais como a base de dados do Azure Cosmos, o serviço Data Factory infere o esquema de uma das seguintes formas:  
+### <a name="schema-by-data-factory"></a>Esquema pelo Data Factory
+Para arquivos de dados sem esquema, como o Azure Cosmos DB, o serviço Data Factory infere o esquema de uma das seguintes formas:  
 
-1. Se especificar a estrutura de dados utilizando o **estrutura** propriedade na definição do conjunto de dados, o serviço Data Factory honra esta estrutura como o esquema. Neste caso, se uma linha não contém um valor para uma coluna, irá ser fornecido um valor nulo para o mesmo.
-2. Se não especificar a estrutura de dados utilizando o **estrutura** propriedade na definição do conjunto de dados, o serviço Data Factory infere o esquema utilizando a primeira linha dos dados. Neste caso, se a primeira linha contém o esquema completo, algumas colunas estará em falta no resultado da operação de cópia.
+1. Se especificar a estrutura de dados utilizando o **estrutura** propriedade na definição do conjunto de dados, o serviço Data Factory respeita essa estrutura como o esquema. Neste caso, se uma linha não contém um valor para uma coluna, irá ser fornecido um valor nulo para o mesmo.
+2. Se não especificar a estrutura de dados utilizando o **estrutura** propriedade na definição do conjunto de dados, o serviço Data Factory infere o esquema ao utilizar a primeira linha dos dados. Neste caso, se a primeira linha contém o esquema completo, algumas colunas estará em falta no resultado da operação de cópia.
 
-Por conseguinte, para origens de dados sem esquema, a melhor prática é especificar a estrutura dos dados utilizando o **estrutura** propriedade.
+Por conseguinte, para origens de dados sem esquema, a prática recomendada é especificar a estrutura de dados com o **estrutura** propriedade.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
+Para uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, entrada e saída de tabelas e a política estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
-> A atividade de cópia demora apenas uma entrada e produz saída de apenas um.
+> A atividade de cópia precisar apenas uma entrada e saída de apenas um.
 
-Propriedades disponíveis na secção typeProperties da atividade por outro lado variam com cada tipo de atividade e, em caso de atividade de cópia variam consoante os tipos de origens e sinks.
+Propriedades disponíveis na secção typeProperties da atividade variam por outro lado, com cada tipo de atividade e, em caso de atividade de cópia variam consoante os tipos de origens e sinks.
 
-Em caso de atividade de cópia quando a origem é do tipo **DocumentDbCollectionSource** as propriedades seguintes estão disponíveis no **typeProperties** secção:
+Em caso de atividade de cópia quando a origem é do tipo **DocumentDbCollectionSource** as seguintes propriedades estão disponíveis no **typeProperties** secção:
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| consulta |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução de SQL que é executada: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Caráter especial para indicar que o documento está aninhado |Qualquer caráter. <br/><br/>BD do Cosmos do Azure é um arquivo de NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. O Azure Data Factory permite que o utilizador denota hierarquia através de nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia irá gerar o objeto "Name" com elementos três subordinados em primeiro lugar, média e o último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. |Não |
+| consulta |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução SQL que é executada: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Caráter especial para indicar que o documento está aninhado |Qualquer caráter. <br/><br/>O Azure Cosmos DB é um arquivo de NoSQL para documentos JSON, onde as estruturas aninhadas são permitidas. O Azure Data Factory permite que o utilizador denotar hierarquia via nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia irá gerar o objeto "Nome" com elementos de três filhos em primeiro lugar, média e por último, a fim de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. |Não |
 
 **DocumentDbCollectionSink** suporta as seguintes propriedades:
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nestingSeparator |É necessário um caráter especial no nome de coluna de origem para indicar que documentos aninhados. <br/><br/>Por exemplo acima: `Name.First` na saída tabela produz a seguinte estrutura JSON no documento de BD do Cosmos:<br/><br/>"Nome": {<br/>    "First": "John"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto final). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto final). |
-| writeBatchSize |Número de pedidos paralelos ao serviço de base de dados do Azure Cosmos para criar documentos.<br/><br/>Pode otimizar o desempenho ao copiar dados do Cosmos DB utilizando esta propriedade. Pode esperar um desempenho melhor quando aumenta writeBatchSize porque são enviados mais pedidos paralelos à base de dados do Cosmos. No entanto, terá de evitar limitação que pode acionar a mensagem de erro: "taxa é grande pedido".<br/><br/>Limitação é decidida por um número de fatores, incluindo o tamanho de documentos, número de termos de documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção melhor (por exemplo, S3) para ter o maior débito disponível (2,500 pedidos unidades por segundo). |Número inteiro |Não (predefinição: 5) |
-| writeBatchTimeout |De tempo de espera para a operação seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
+| nestingSeparator |É necessário um caráter especial no nome da coluna de origem para indicar esse documento aninhado. <br/><br/>Por exemplo acima: `Name.First` na saída da tabela produz a seguinte estrutura JSON no documento do Cosmos DB:<br/><br/>"Name": {<br/>    "Primeiro": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto). |
+| writeBatchSize |Número de pedidos paralelos para o serviço do Azure Cosmos DB para criar documentos.<br/><br/>Pode ajustar o desempenho ao copiar dados de/para Cosmos DB ao utilizar esta propriedade. Pode esperar um melhor desempenho quando aumenta writeBatchSize porque são enviados os pedidos paralelos mais ao Cosmos DB. No entanto, terá de evitar a limitação que pode gerar a mensagem de erro: "Taxa de pedidos é grande".<br/><br/>A limitação é decidida por um número de fatores, incluindo o tamanho de documentos, o número de termos em documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção de melhor (por exemplo, S3) que tenha o máximo débito disponível (pedido de 2500 unidades por segundo). |Número inteiro |Não (predefinição: 5) |
+| writeBatchTimeout |Tempo para a operação seja concluída antes de atingir o tempo limite de espera. |Período de tempo<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
-## <a name="importexport-json-documents"></a>Documentos JSON para importar/exportar
-Utilizar este conector Cosmos DB, pode facilmente
+## <a name="importexport-json-documents"></a>Documentos JSON de importação/exportação
+Utilizar este conector do Cosmos DB, pode facilmente
 
-* Importe documentos JSON de várias origens para Cosmos DB, incluindo o Blob do Azure, Azure Data Lake, sistema de ficheiros no local ou outros arquivos de ficheiros suportados pelo Azure Data Factory.
-* Exporte documentos JSON do Cosmos DB collecton em vários arquivos de ficheiros.
-* Migrar dados entre duas coleções de BD do Cosmos como-é.
+* Importe documentos JSON de várias origens para o Cosmos DB, incluindo BLOBs do Azure, Azure Data Lake, sistema de ficheiros no local ou outros arquivos baseados em ficheiros do Azure Data Factory suportados.
+* Exporte documentos JSON do Cosmos DB collecton em vários arquivos baseados em ficheiros.
+* Migrar dados entre duas coleções de Cosmos DB como-é.
 
-Para obter uma cópia deste tipo desconhecidas do esquema, 
-* Ao utilizar o Assistente para copiar, verifique o **"Exportar como-é ficheiros JSON ou coleção de BD do Cosmos"** opção.
-* Quando utilizar JSON editar, não especificar a secção "estrutura" dos DataSets de BD do Cosmos nem origem de propriedade de "nestingSeparator" na base de dados do Cosmos/sink na atividade de cópia. Para importar a partir de / exportar para ficheiros JSON, no conjunto de dados de arquivo de ficheiro especificar tipo de formato como "JsonFormat", "filePattern" de configuração e ignorar as definições do formato de rest, consulte [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format) secção em detalhes.
+Para alcançar essa cópia sem esquema, 
+* Ao utilizar o Assistente de cópia, consulte a **"Exportar como-é ficheiros JSON ou coleção do Cosmos DB"** opção.
+* Quando utilizar a edição de JSON, não especifique a seção de "estrutura" em conjuntos de dados do Cosmos DB nem propriedade de "nestingSeparator" no Cosmos DB origem/sink na atividade de cópia. Para importar a partir do / exportar para ficheiros JSON, o conjunto de dados do armazenamento de ficheiros de especificar o tipo de formato como "JsonFormat" configuração "filePattern" e ignorar as definições do formato de rest, consulte [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format) secção em detalhes.
 
 ## <a name="json-examples"></a>Exemplos JSON
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Estes mostram como copiar dados para e da base de dados do Azure Cosmos e armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia no Azure Data Factory.
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para o Azure Cosmos DB e armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
-## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Exemplo: Copiar dados da base de dados do Azure Cosmos para Blob do Azure
+## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Exemplo: Copiar dados do Azure Cosmos DB para BLOBs do Azure
 O exemplo abaixo mostra:
 
 1. Um serviço ligado do tipo [DocumentDb](#linked-service-properties).
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Uma entrada [dataset](data-factory-create-datasets.md) do tipo [DocumentDbCollection](#dataset-properties).
-4. Uma saída [dataset](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. A [pipeline](data-factory-create-pipelines.md) com atividade de cópia que utiliza [DocumentDbCollectionSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [DocumentDbCollection](#dataset-properties).
+4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [DocumentDbCollectionSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia os dados na base de dados do Azure Cosmos para Blob do Azure. As propriedades JSON utilizadas nestes exemplos são descritas nas secções seguintes exemplos.
+O exemplo copia os dados no Azure Cosmos DB para BLOBs do Azure. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 
-**BD do Azure do Cosmos serviço ligado:**
+**Serviço ligado do Azure Cosmos DB:**
 
 ```JSON
 {
@@ -189,9 +188,9 @@ O exemplo copia os dados na base de dados do Azure Cosmos para Blob do Azure. As
 ```
 **Conjunto de dados de entrada Document DB do Azure:**
 
-O exemplo assume que tem uma coleção designada **pessoa** numa base de dados do Azure Cosmos DB.
+O exemplo parte do princípio de que tem uma coleção designada **pessoa** numa base de dados do Azure Cosmos DB.
 
-A definição "external": "true" e especificando externalData informações da política de serviço do Azure Data Factory que a tabela é externa à fábrica de dados e não são produzidos por uma atividade no factory de dados.
+A definição "externo": "true" e especificando externalData informações de política do serviço do Azure Data Factory que a tabela é externa à fábrica de dados e não são produzidos por uma atividade na fábrica de dados.
 
 ```JSON
 {
@@ -211,9 +210,9 @@ A definição "external": "true" e especificando externalData informações da p
 }
 ```
 
-**Conjunto de dados de saída do Blob do Azure:**
+**Conjunto de dados de Blobs do Azure:**
 
-Dados são copiados para um blob de novo a cada hora com o caminho para o blob ao refletir o datetime específico com granularidade de hora.
+Dados são copiados para um blob novo a cada hora, com o caminho para o blob que reflete a datetime específica com granularidade de hora.
 
 ```JSON
 {
@@ -236,7 +235,7 @@ Dados são copiados para um blob de novo a cada hora com o caminho para o blob a
   }
 }
 ```
-Documento JSON de exemplo na coleção de pessoa numa base de dados do Cosmos DB:
+Documento de JSON de exemplo da coleção de pessoa num banco de dados do Cosmos DB:
 
 ```JSON
 {
@@ -248,7 +247,7 @@ Documento JSON de exemplo na coleção de pessoa numa base de dados do Cosmos DB
   }
 }
 ```
-BD do cosmos suporta a consulta de documentos utilizando um SQL Server como a sintaxe por hierárquicos documentos JSON.
+O cosmos DB suporta a consulta de documentos usando uma sintaxe de SQL sobre hierárquicos de documentos JSON.
 
 Exemplo: 
 
@@ -256,7 +255,7 @@ Exemplo:
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-O pipeline seguinte copia dados da coleção na base de dados de base de dados do Azure Cosmos pessoa para um blob do Azure. Como parte da atividade de cópia de entrada e saída conjuntos de dados tem sido especificados.  
+O pipeline seguinte copia dados da coleção pessoa na base de dados do Azure Cosmos DB para um blob do Azure. Como parte da atividade copiar a entrada e saída, conjuntos de dados tem sido especificados.  
 
 ```JSON
 {
@@ -299,16 +298,16 @@ O pipeline seguinte copia dados da coleção na base de dados de base de dados d
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exemplo: Copiar dados de Blobs do Azure à base de dados do Azure Cosmos 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exemplo: Copiar dados de Blobs do Azure para o Azure Cosmos DB 
 O exemplo abaixo mostra:
 
 1. Um serviço ligado do tipo [DocumentDb](#azure-documentdb-linked-service-properties).
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Uma entrada [dataset](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Uma saída [dataset](data-factory-create-datasets.md) do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) com atividade de cópia que utiliza [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
+5. R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
-O exemplo copia dados a partir do Azure blob BD do Cosmos do Azure. As propriedades JSON utilizadas nestes exemplos são descritas nas secções seguintes exemplos.
+O exemplo copia dados do Azure blob para o Azure Cosmos DB. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 
 **Serviço ligado do armazenamento de Blobs do Azure:**
 
@@ -323,7 +322,7 @@ O exemplo copia dados a partir do Azure blob BD do Cosmos do Azure. As proprieda
   }
 }
 ```
-**BD do Azure do Cosmos serviço ligado:**
+**Serviço ligado do Azure Cosmos DB:**
 
 ```JSON
 {
@@ -336,7 +335,7 @@ O exemplo copia dados a partir do Azure blob BD do Cosmos do Azure. As proprieda
   }
 }
 ```
-**Conjunto de dados de entrada Blob do Azure:**
+**Conjunto de dados de entrada BLOBs do Azure:**
 
 ```JSON
 {
@@ -379,9 +378,9 @@ O exemplo copia dados a partir do Azure blob BD do Cosmos do Azure. As proprieda
   }
 }
 ```
-**BD do Azure do Cosmos o conjunto de dados de saída:**
+**Conjunto de dados do Azure Cosmos DB:**
 
-O exemplo copia dados para uma coleção designada "Pessoa".
+O exemplo copia dados para uma coleção designada "Person".
 
 ```JSON
 {
@@ -417,7 +416,7 @@ O exemplo copia dados para uma coleção designada "Pessoa".
   }
 }
 ```
-O pipeline seguinte copia dados de Blob do Azure para a coleção de pessoa na base de dados do Cosmos. Como parte da atividade de cópia de entrada e saída conjuntos de dados tem sido especificados.
+O pipeline seguinte copia dados de Blobs do Azure para a coleção de pessoa no Cosmos DB. Como parte da atividade copiar a entrada e saída, conjuntos de dados tem sido especificados.
 
 ```JSON
 {
@@ -467,7 +466,7 @@ Se a entrada de BLOBs de exemplo é como
 ```
 1,John,,Doe
 ```
-Em seguida, a saída JSON na base de dados do Cosmos será como:
+Em seguida, a saída JSON no Cosmos DB será como:
 
 ```JSON
 {
@@ -480,21 +479,21 @@ Em seguida, a saída JSON na base de dados do Cosmos será como:
   "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
 }
 ```
-BD do Cosmos do Azure é um arquivo de NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. O Azure Data Factory permite que o utilizador denota hierarquia através de **nestingSeparator**, que é "." Neste exemplo. Com o separador, a atividade de cópia irá gerar o objeto "Name" com elementos três subordinados em primeiro lugar, média e o último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela.
+O Azure Cosmos DB é um arquivo de NoSQL para documentos JSON, onde as estruturas aninhadas são permitidas. O Azure Data Factory permite que o utilizador denotar hierarquia através de **nestingSeparator**, que é "." Neste exemplo. Com o separador, a atividade de cópia irá gerar o objeto "Nome" com elementos de três filhos em primeiro lugar, média e por último, a fim de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela.
 
 ## <a name="appendix"></a>Anexo
-1. **Pergunta:** a atualização de suporte de atividade de cópia de registos existentes?
+1. **Pergunta:** O suporte de atividade de cópia é atualizada de registos existentes?
 
-    **Resposta:** não.
-2. **Pergunta:** como funciona uma repetição de uma cópia para o grau de base de dados do Azure Cosmos com já copiados registos?
+    **Resposta:** Não.
+2. **Pergunta:** Como uma nova tentativa de uma cópia ao Azure Cosmos DB lidar com registos já copiados?
 
-    **Resposta:** se registos tem um campo de "ID" e a operação de cópia tenta inserir um registo com o mesmo ID, a operação de cópia emite um erro.  
-3. **Pergunta:** suporta Data Factory [intervalo ou criação de partições de dados com base em hash](../../cosmos-db/sql-api-partition-data.md)?
+    **Resposta:** Se registos têm um campo "ID" e a operação de cópia tenta inserir um registo com o mesmo ID, a operação de cópia emite um erro.  
+3. **Pergunta:** O Data Factory suporta [intervalo ou a criação de partições de dados com base em hash](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Resposta:** não.
-4. **Pergunta:** posso especificar mais do que uma coleção de BD do Cosmos do Azure para uma tabela?
+    **Resposta:** Não.
+4. **Pergunta:** Pode especificar mais do que uma coleção do Azure Cosmos DB para uma tabela?
 
-    **Resposta:** não. Apenas uma coleção pode ser especificada neste momento.
+    **Resposta:** Não. Apenas uma coleção pode ser especificada neste momento.
 
-## <a name="performance-and-tuning"></a>Desempenho e a otimização
-Consulte [desempenho de atividade de cópia & otimização guia](data-factory-copy-activity-performance.md) para saber mais sobre fatores determinantes esse desempenho impacto de movimento de dados (atividade de cópia) no Azure Data Factory e várias formas para otimizar o mesmo.
+## <a name="performance-and-tuning"></a>Desempenho e Otimização
+Ver [desempenho de atividade de cópia e guia de ajuste](data-factory-copy-activity-performance.md) para saber mais sobre os fatores chave a que um impacto no desempenho de movimento de dados (atividade de cópia) no Azure Data Factory e diversas maneiras para otimizá-lo.

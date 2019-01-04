@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706726"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025084"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Database Managed Instance com o Azure Data Factory
 
@@ -50,7 +49,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **SqlServer** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **SqlServer** | Sim |
 | connectionString |Especifique as informações de connectionString necessárias para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Consulte o exemplo a seguir. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | userName |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
@@ -59,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
 
-**Exemplo 1: Utilizar a autenticação de SQL**
+**Exemplo 1: Utilizando a autenticação SQL**
 
 ```json
 {
@@ -114,7 +113,7 @@ Para copiar dados de/para a instância gerida da base de dados SQL do Azure, def
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **SqlServerTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
 | tableName |Nome da tabela ou vista na instância da base de dados pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
 
 **Exemplo**

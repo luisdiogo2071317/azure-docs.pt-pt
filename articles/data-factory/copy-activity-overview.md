@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082651"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014136"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -55,7 +54,7 @@ Atividade de cópia executa as seguintes fases para copiar dados de uma origem p
 
 Pode usar a atividade de cópia para **copiar ficheiros como-é** entre dois arquivos de dados de ficheiros, na qual os caso os dados é copiado com eficiência sem qualquer serialização/desserialização.
 
-Atividade de cópia também suporta a leitura e gravação de arquivos em formatos especificados: **texto, JSON, Avro, ORC e no Parquet**e o codec de compressão **GZip, Deflate, BZip2 e ZipDeflate** são suportados. Ver [formatos de ficheiro e de compressão suportados](supported-file-formats-and-compression-codecs.md) com detalhes.
+Atividade de cópia também suporta a leitura e gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e no Parquet**e o codec de compressão **GZip, Deflate, BZip2 e ZipDeflate** são suportados. Ver [formatos de ficheiro e de compressão suportados](supported-file-formats-and-compression-codecs.md) com detalhes.
 
 Por exemplo, pode efetuar as seguintes atividades de cópia:
 
@@ -130,7 +129,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de uma atividade de cópia tem de ser definida como: **cópia** | Sim |
+| tipo | A propriedade de tipo de uma atividade de cópia tem de ser definida: **cópia** | Sim |
 | entradas | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
 | saídas | Especifique o conjunto de dados que criou que aponta para os dados de sink. Atividade de cópia suporta apenas uma única saída. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |

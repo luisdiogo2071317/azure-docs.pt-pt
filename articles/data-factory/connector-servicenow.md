@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1e91bcdf3980b0f03967c09b0b7a75aa3d3a520a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095283"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014629"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados do ServiceNow com o Azure Data Factory
 
@@ -42,9 +41,9 @@ As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **ServiceNow** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **ServiceNow** | Sim |
 | endpoint | O ponto final do servidor do ServiceNow (`http://<instance>.service-now.com`).  | Sim |
-| authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são: **básica**, **OAuth2** | Sim |
+| authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são: **Básica**, **OAuth2** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor do ServiceNow para a autenticação básica e OAuth2.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome de usuário para autenticação básica e OAuth2. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | clientId | O ID de cliente para a autenticação OAuth2.  | Não |
@@ -81,7 +80,7 @@ Para copiar dados do ServiceNow, defina a propriedade de tipo de conjunto de dad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ServiceNowObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ServiceNowObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -118,8 +117,8 @@ Tenha em atenção o seguinte ao especificar o esquema e na coluna do ServiceNow
 - **Esquema:** especifique o esquema `Actual` ou `Display` da consulta de ServiceNow, o que pode analisá-los como parâmetro da `sysparm_display_value` como VERDADEIRO ou falso quando chamar [APIs restful do ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Coluna:** o nome da coluna para o valor real sob `Actual` esquema é `[columne name]_value`, enquanto para o valor de apresentação sob `Display` esquema é `[columne name]_display_value`. Tenha em atenção o nome da coluna tem de mapear para o esquema a ser utilizado na consulta.
 
-**Consulta de exemplo:** 
- `SELECT col_value FROM Actual.alm_asset` ou 
+**Consulta de exemplo:**
+`SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exemplo:**

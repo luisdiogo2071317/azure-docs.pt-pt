@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944673"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016653"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de Store no Azure Key Vault
 
@@ -47,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure Key Va
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **AzureKeyVault**. | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **AzureKeyVault**. | Sim |
 | baseUrl | Especifique o URL do Cofre de chaves do Azure. | Sim |
 
 **Usando a interface do Usuário de criação:**

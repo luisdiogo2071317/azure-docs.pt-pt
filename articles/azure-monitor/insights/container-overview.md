@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5fad6b29f250c94166e7023b65ea0ca4a4c6bd8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 310a528dc41632b3864033305177d074231cef4f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974646"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998375"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Descrição geral da monitorização de contentores no Azure
 Com o Azure, pode efetivamente de monitorizar e gerir as suas cargas de trabalho implementadas em contentores do Azure com o Docker ou o Kubernetes. É importante compreender o desempenho de contentores com várias aplicações de microsserviços para fornecer um serviço fiável em escala e suporta o seu plano de monitoramento. Este artigo fornece uma breve descrição geral da gestão e capacidades de monitorização no Azure para ajudar a compreendê-los e que são adequadas com base nos seus requisitos.
@@ -27,6 +27,6 @@ Usando [Monitor do Azure para contentores](container-insights-overview.md), pode
 
 Para os contentores em execução fora o serviço alojado do Kubernetes do Azure, o Log Analytics [solução Windows e o contentor do Docker](../../azure-monitor/insights/containers.md) ajuda-o ver e gerir os anfitriões de contentor do Windows e a Docker. Na área de trabalho do Log Analytics, pode ver detalhes de inventário, desempenho e eventos a partir de nós e os contentores no ambiente. Pode ver informações detalhadas de auditoria que mostra os comandos utilizados com contentores e pode resolver contentores ao visualizar e procurar registos centralizados sem ter de aceder remotamente a anfitriões do Docker ou do Windows.
 
-Para alcançar holística ou de monitorização do aplicativo ponto a ponto, qualquer dependência se é do Azure ou recurso, no local deve ser monitorizada com o Azure Monitor ou o Log Analytics.  A camada de aplicativo deve ser incluída para poder adicionar uma camada adicional de reconhecimento de estado de funcionamento, tanto no nível de plataforma e da aplicação com o Application Insights. No nível da plataforma, existem SDKs do Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), e [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para aplicações de microsserviços, há suporte para [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), bem como várias outras [idiomas/estruturas](../../application-insights/app-insights-platforms.md). 
+Para alcançar holística ou de monitorização do aplicativo ponto a ponto, qualquer dependência se é do Azure ou recurso, no local deve ser monitorizada com o Azure Monitor ou o Log Analytics.  A camada de aplicativo deve ser incluída para poder adicionar uma camada adicional de reconhecimento de estado de funcionamento, tanto no nível de plataforma e da aplicação com o Application Insights. No nível da plataforma, existem SDKs do Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), e [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para aplicações de microsserviços, há suporte para [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), bem como várias outras [idiomas/estruturas](../../azure-monitor/app/platforms.md). 
 
 Caso contrário, os problemas serão enviadas não identificados que podem afetar a disponibilidade da aplicação e destinos de nível de serviço não serão atendidos.  

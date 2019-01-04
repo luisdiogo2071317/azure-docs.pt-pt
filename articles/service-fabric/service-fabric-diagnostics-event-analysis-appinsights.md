@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753100"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001775"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com o Application Insights
 
@@ -120,7 +120,7 @@ Se estiver a desenvolver no .NET e irá, provavelmente, utilizar alguns dos mode
 
 Assim que tiver configurado o Application Insights como uma saída para seus eventos e registos, informações devem começar a aparecer no seu recurso do Application Insights dentro de alguns minutos. Navegue para o recurso do Application Insights, que o irá redirecionar para o dashboard de recursos do Application Insights. Clique em **pesquisa** na barra de tarefas Application Insights para ver os rastreios mais recente é recebida e ser capaz de filtrar por eles.
 
-*Explorador de métricas* é uma ferramenta útil para criar dashboards personalizados com base nas métricas que seus aplicativos, serviços e cluster podem ser enviar relatórios. Ver [explorar métricas no Application Insights](../application-insights/app-insights-metrics-explorer.md) configurar alguns gráficos para si próprio com base nos dados que está a recolher.
+*Explorador de métricas* é uma ferramenta útil para criar dashboards personalizados com base nas métricas que seus aplicativos, serviços e cluster podem ser enviar relatórios. Ver [explorar métricas no Application Insights](../azure-monitor/app/metrics-explorer.md) configurar alguns gráficos para si próprio com base nos dados que está a recolher.
 
 Clicar **Analytics** leva-o para o portal do Application Insights Analytics, onde pode consultar os eventos e rastreios com maior âmbito e optionality. Saiba mais sobre isso em [análise no Application Insights](../azure-monitor/app/analytics.md).
 

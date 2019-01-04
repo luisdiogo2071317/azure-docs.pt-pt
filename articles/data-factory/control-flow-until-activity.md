@@ -1,6 +1,6 @@
 ---
-title: Até que a atividade no Azure Data Factory | Microsoft Docs
-description: A atividade de Until executa um conjunto de atividades num ciclo até que a condição associada com a atividade avalia como VERDADEIRO ou tempo limite for excedido.
+title: Até a atividade no Azure Data Factory | Documentos da Microsoft
+description: A atividade do Until executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como true ou exceder o tempo limite.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052312"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020970"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Até que a atividade no Azure Data Factory
-A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo estrutura fornece linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
+# <a name="until-activity-in-azure-data-factory"></a>Até a atividade no Azure Data Factory
+A atividade do Until fornece a mesma funcionalidade que um fazer-até que a estrutura de ciclo fornece nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -56,18 +55,18 @@ A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo est
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome do `Until` atividade. | Cadeia | Sim
-tipo | Tem de ser definido como **até**. | Cadeia | Sim
+tipo | Tem de ser definido como **até que**. | Cadeia | Sim
 expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão.  | Sim
-tempo limite | Ao não-até ciclo tempos limite após o período de tempo especificado aqui. | cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que são executadas até que a expressão é avaliada para `true`. | Matriz de atividades. |  Sim
+tempo limite | A fazer-até que o loop expire após o período de tempo especificado aqui. | cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não
+Atividades | Conjunto de atividades que são executadas até que a expressão é avaliada como `true`. | Matriz de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1
 
 > [!NOTE]
-> Esta secção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados utilizando as definições do Azure PowerShell e JSON, consulte [tutorial: criar uma fábrica de dados utilizando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta seção fornece definições de JSON e comandos de exemplo de PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados com as definições do Azure PowerShell e JSON, veja [tutorial: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-until-activity"></a>Pipeline com até que a atividade
-Neste exemplo, o pipeline com duas atividades: **até** e **aguarde**. A atividade de espera aguarda que o período de tempo antes de executar a atividade de Web no ciclo especificado. Para saber mais sobre as expressões e funções no Data Factory, consulte [funções e de idioma de expressão](control-flow-expression-language-functions.md). 
+### <a name="pipeline-with-until-activity"></a>Pipeline com atividade Until
+Neste exemplo, o pipeline tem duas atividades: **Até** e **aguarde**. A atividade de espera aguarda o período de tempo antes de executar a atividade Web no loop especificado. Para saber mais sobre expressões e funções no Data Factory, veja [linguagem de expressão e funções](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -118,9 +117,9 @@ Neste exemplo, o pipeline com duas atividades: **até** e **aguarde**. A ativida
 ```
 
 ## <a name="example-2"></a>Exemplo 2 
-O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma pasta de saída em ciclo. O ciclo termina quando o valor para o parâmetro de repetições está definido como false ou atingir o tempo limite após um minuto.   
+O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma pasta de saída num loop. O loop termina quando o valor para o parâmetro de repetições está definido como false ou atingir o tempo limite depois de um minuto.   
 
-### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline com até atividade (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline com até a atividade (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -193,7 +192,7 @@ O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma p
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado do Storage do Azure (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado do armazenamento do Azure (azurestoragelinkedservice. JSON)
 
 ```json
 {
@@ -210,8 +209,8 @@ O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma p
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizada conjunto de dados de Blobs do Azure (BlobDataset.json)
-Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **outputPath2** parâmetro do pipeline. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizado conjunto de dados de Blobs do Azure (blobdataset. JSON)
+Os conjuntos de pipeline os **folderPath** para o valor **outputPath1** ou **outputPath2** parâmetro do pipeline. 
 
 ```json
 {
@@ -237,7 +236,7 @@ Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (pipelineparameters. JSON)
 
 ```json
 {
@@ -248,7 +247,7 @@ Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **
 ```
 
 ### <a name="powershell-commands"></a>Comandos do PowerShell
-Estes comandos pressupõem que guardou os ficheiros JSON para a pasta: C:\ADF. 
+Estes comandos partem do princípio de que guardou os ficheiros JSON para a pasta: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount
@@ -288,11 +287,11 @@ while ($True) {
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade de Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

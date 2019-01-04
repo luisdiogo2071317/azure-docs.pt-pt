@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 77291029dd15b887ea9d2fd3f0e3a31e71a2f537
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.date: 01/02/2019
+ms.openlocfilehash: 2f7f317f11bba96e17791ed751c60099457a299a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384365"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002591"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
@@ -131,7 +131,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [PowerShell do SQL Server](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não, consulte [eventos expandidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim - [instância gerida de replicação de base de dados SQL](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim (pré-visualização pública) - [replicação com a instância de gerida de base de dados do SQL](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) |
 | [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sim | Sim |
 | [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

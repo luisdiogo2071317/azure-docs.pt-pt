@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: db3142837c5bb2c5758e47ddf017da284b2e0f0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723011"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017740"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar Application Insights Profiler
 
@@ -43,7 +43,7 @@ Dependendo de como o seu ASE é configurado, a chamada para verificar o estado d
 Profiler pode ser acionada manualmente com o clique de um botão. Suponha que está executando um teste de desempenho da web. Precisará rastreios para ajudar a compreender sobre a execução da sua aplicação web sob carga. É crucial ter controlo sobre o quando os rastreios são capturados, uma vez que sabe quando executará o teste de carga, mas o intervalo de amostragem aleatória pode perdê-lo.
 Os passos seguintes mostram como funciona este cenário:
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Opcional) Passo 1: Gerar o tráfego para a sua aplicação web ao iniciar um teste de desempenho da web
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Opcional) Passo 1: Gerar tráfego para a sua aplicação web ao iniciar um teste de desempenho da web
 
 Se a sua aplicação web já tiver o tráfego de entrada ou se quiser gerar tráfego manualmente, ignore esta secção e continue no passo 2.
 
@@ -67,7 +67,7 @@ Assim que estiver a executar o teste de carga, podemos começar a profiler para 
 Navegue até ao painel Configurar Profiler:
 
 
-### <a name="step-3-view-traces"></a>Passo 3: Rastreios de vista
+### <a name="step-3-view-traces"></a>Passo 3: Ver rastreios
 
 Assim que o criador de perfil termina a execução, siga as instruções na notificação para aceder à rastreios de página e vista de desempenho.
 
@@ -86,7 +86,7 @@ Pode haver dois motivos por que vir este erro:
 Siga estes passos para verificar e instalar o Profiler mais recente:
 
 1. Aceda às definições de aplicação de serviços de aplicação e verificar se as seguintes definições estão configuradas:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: substitua a chave de instrumentação adequada para o Application Insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua a chave de instrumentação adequada para o Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 se qualquer uma destas definições não se encontram definidos, vá para o painel de ativação do Application Insights para instalar a extensão de site mais recente.
 
@@ -103,7 +103,7 @@ Siga estes passos para verificar e instalar o Profiler mais recente:
     ![Alterar e salvar o app insights][change-and-save-appinsights]
 
 1. Volte ao **as definições da aplicação** separador para o serviço de aplicações para verificar novamente os seguintes itens de definições de aplicação estão definidos:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: substitua a chave de instrumentação adequada para o application insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua a chave de instrumentação adequada para o application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
@@ -116,15 +116,15 @@ Siga estes passos para verificar e instalar o Profiler mais recente:
 ## <a name="next-steps"></a>Próximos Passos
 [Ative Profiler e ver rastreios](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
+[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png

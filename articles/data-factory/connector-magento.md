@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 03757aaf13d48730a3061f07ae3138f0aadbdf00
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a3fcff530077a08414b343a775e7ae694b29bc75
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077856"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021004"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copiar dados do Magento com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Magento ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Magento** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Magento** | Sim |
 | anfitrião | O URL da instância do Magento. (ou seja, 192.168.222.110/magento3)  | Sim |
 | accessToken | O token de acesso do Magento. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -81,7 +80,7 @@ Para copiar dados do Magento, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **MagentoObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **MagentoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

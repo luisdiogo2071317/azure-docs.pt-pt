@@ -1,22 +1,22 @@
 ---
-title: Início Rápido - Definir e obter um segredo do Azure Key Vault com uma aplicação Web do node | Microsoft Docs
-description: 'Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do .NET'
+title: 'Início rápido: Definir e obter um segredo no Azure Key Vault ao utilizar uma aplicação web do node - Azure Key Vault | Documentos da Microsoft'
+description: 'Início rápido: Definir e obter um segredo no Azure Key Vault ao utilizar uma aplicação web .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686675"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002608"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início rápido: Definir e obter um segredo no Azure Key Vault ao utilizar uma aplicação web .NET
 
 Neste início rápido, siga os passos necessários para que uma aplicação Web do Azure leia as informações do Azure Key Vault com identidades geridas para os recursos do Azure. Saiba como:
 
@@ -77,7 +77,7 @@ O grupo de recursos que acabou de criar é utilizado ao longo deste artigo.
 
 A seguir, vai criar um cofre de chaves no grupo de recursos criado no passo anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: O nome tem de ser uma cadeia de carateres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
+* Nome do Cofre de chaves: O nome tem de ser uma cadeia de caracteres de 3 a 24 carateres e tem de conter apenas (0 a 9, a-z, A-Z e -).
 * Nome do grupo de recursos.
 * Localização: **E.U.A. Leste**.
 

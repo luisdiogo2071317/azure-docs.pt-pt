@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015527"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
 
@@ -31,7 +31,7 @@ Os filtros de out-of-the-box incluem:
 
 > [!NOTE]
 > Filtros distorcer as métricas da sua aplicação. Por exemplo, poderá decidir que, para diagnosticar repostas lentas, defina um filtro para descartar os tempos de resposta rápidos. Mas deve estar ciente de que os tempos de resposta médio comunicados pelo Application Insights, em seguida, será mais lentos que a velocidade verdadeira e a contagem de pedidos irá ser menor do que a contagem real.
-> Se isso for uma preocupação, utilize [amostragem](../../application-insights/app-insights-sampling.md) em vez disso.
+> Se isso for uma preocupação, utilize [amostragem](../../azure-monitor/app/sampling.md) em vez disso.
 
 ## <a name="setting-filters"></a>Filtros de definição
 
@@ -262,4 +262,4 @@ No applicationinsights. XML:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Amostragem](../../application-insights/app-insights-sampling.md) -considere amostragem como uma alternativa que não distorcer as suas métricas.
+* [Amostragem](../../azure-monitor/app/sampling.md) -considere amostragem como uma alternativa que não distorcer as suas métricas.

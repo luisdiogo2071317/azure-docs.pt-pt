@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744244"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023106"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -261,6 +261,15 @@ Para resolver este problema, ajustar a **DirectoryCacheEntrySizeMax** valor de r
  
 Por exemplo, pode defini-lo como 0x100000 e ver se o desempenho se tornar melhor.
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>AadDsTenantNotFound de erro na ativação da autenticação do Azure Active Directory para ficheiros do Azure "Não é possível localizar o Active Directory inquilinos com Id aad-tenant-id de inquilino"
+
+### <a name="cause"></a>Causa
+
+Erro AadDsTenantNotFound acontece quando tentar [ativar a autenticação do Azure Active Directory (AAD) para ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) numa conta de armazenamento onde [AAD domínio Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) não é criado sobre o AAD inquilino da subscrição associada.  
+
+### <a name="solution"></a>Solução
+
+Ative DS do AAD no inquilino do AAD da subscrição que a sua conta de armazenamento está implementada. São necessários privilégios de administrador de inquilino do AAD para criar um domínio gerido. Se não o administrador de inquilino do Azure AD, contacte o administrador e siga as orientações passo a passo para [ativar o Azure Active Directory Domain Services no portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para seu problema resolvido rapidamente.

@@ -1,5 +1,5 @@
 ---
-title: O que fazer em caso de um Azure service interrupção que afeta o Azure Key Vault | Documentos da Microsoft
+title: O que fazer em caso de um Azure service interrupção que afeta o Azure Key Vault, Azure Key Vault | Documentos da Microsoft
 description: Saiba o que fazer em caso de interrupção de serviço do Azure que afeta o Azure Key Vault.
 services: key-vault
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0479e5f7e51d02a08f6d542515212c88b3a43df5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465848"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999242"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de chaves do Azure
+
 O Azure Key Vault apresenta várias camadas de redundância para se certificar de que as suas chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se falharam de componentes individuais do serviço.
 
 O conteúdo do seu Cofre de chaves é replicado dentro da região e para uma região secundária, pelo menos, 150 quilómetros de distância, mas dentro da mesma geografia. Isso mantém uma elevada durabilidade das chaves e segredos. Consulte a [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
@@ -41,11 +42,11 @@ Existem algumas limitações a ter em consideração:
   * Listar chaves
   * Obter chaves de (propriedades de)
   * Encriptar
-  * Desencriptar
+  * desencriptar
   * Encapsular
   * Anular a moldagem
   * Verificar
-  * Assinar
+  * Início de sessão
   * Cópia de segurança
 * Após uma ativação pós-falha é realizarão a reativação, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

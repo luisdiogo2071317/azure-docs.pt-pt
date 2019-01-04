@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eae0dc1d38b06a451091d79946bc95ed722ac861
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994834"
+ms.locfileid: "53999225"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -31,9 +31,9 @@ Plataforma de métrica mais recente do Monitor do Azure irá agora power monitor
 
 O novo monitorização unificada e alertas para o Application Insights irão abranger:
 
-- **Métricas do Application Insights plataforma** – que fornece métricas pré-criados populares do produto do Application Insights. Para obter mais informações, consulte este artigo sobre como usar [métricas de plataforma para o Application Insights no novo Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
+- **Métricas do Application Insights plataforma** – que fornece métricas pré-criados populares do produto do Application Insights. Para obter mais informações, consulte este artigo sobre como usar [métricas de plataforma para o Application Insights no novo Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Teste de disponibilidade de informações de aplicações e Web** -que fornece a capacidade de avaliar a capacidade de resposta e a disponibilidade da sua aplicação web ou servidor. Para obter mais informações, consulte este artigo sobre como usar [testes de disponibilidade e alertas para o Application Insights no novo Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
-- **Métricas do Application Insights personalizado** – que lhe permite definir e emitir as suas próprias métricas de monitorização e alertas. Para obter mais informações, consulte este artigo sobre como usar [métrica personalizada para o Application Insights no novo Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- **Métricas do Application Insights personalizado** – que lhe permite definir e emitir as suas próprias métricas de monitorização e alertas. Para obter mais informações, consulte este artigo sobre como usar [métrica personalizada para o Application Insights no novo Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Anomalias de falha do Application Insights (parte de deteção inteligente)** – que notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos HTTP falhados ou as chamadas de dependência. Application Insights de anomalias de falha (parte de deteção inteligente) como parte do novo Monitor do Azure, estará disponível em breve e iremos atualizar este documento com links na próxima iteração como ela é revertida-out nos próximos meses.
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Unificada métricas e alertas para outros recursos do Azure

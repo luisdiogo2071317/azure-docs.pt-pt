@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0f16f61e99e059c8cf21ec4ffa85eef0a04702bc
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017060"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -41,7 +41,7 @@ Abra o painel de regras de alerta e, em seguida, utilize o botão Adicionar.
 * Defina o recurso antes das outras propriedades. **Escolha o recurso de "(componentes)"** se pretender definir alertas em métricas de desempenho ou na utilização.
 * O nome que irá fornecer ao alerta tem de ser exclusivo no grupo de recursos (não apenas a sua aplicação).
 * Cuidado-se de que tenha em atenção as unidades em que lhe for pedido para introduzir o valor de limiar.
-* Se selecionar a caixa "Proprietários de E-Mail...", os alertas são enviados por e-mail para todos os utilizadores quem tem acesso a este grupo de recursos. Para expandir este conjunto de pessoas, adicioná-los para o [grupo de recursos ou subscrição](../../application-insights/app-insights-resources-roles-access-control.md) (não o recurso).
+* Se selecionar a caixa "Proprietários de E-Mail...", os alertas são enviados por e-mail para todos os utilizadores quem tem acesso a este grupo de recursos. Para expandir este conjunto de pessoas, adicioná-los para o [grupo de recursos ou subscrição](../../azure-monitor/app/resources-roles-access-control.md) (não o recurso).
 * Se especificar "E-mails adicionais", os alertas são enviados para esses indivíduos ou grupos (ou não tiver selecionado a caixa "... os proprietários de e-mail"). 
 * Definir um [webhook endereço](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado uma aplicação web que responde a alertas. Ele é chamado quando o alerta está ativado e quando este estiver resolvido. (Mas observe que, neste momento, parâmetros de consulta não são submetidos como propriedades de webhook.)
 * Pode desativar ou ativar o alerta: consulte os botões na parte superior do painel.
@@ -51,7 +51,7 @@ Abra o painel de regras de alerta e, em seguida, utilize o botão Adicionar.
 * Está a utilizar uma conta da organização? Pode definir alertas se tiver de proprietário ou Contribuidor aceder a este recurso de aplicação. Dar uma olhada no painel de controlo de acesso. [Saiba mais sobre o controlo de acesso][roles].
 
 > [!NOTE]
-> No painel de alertas, verá que já existe um conjunto de alerta: [Diagnósticos proativos](../../application-insights/app-insights-proactive-failure-diagnostics.md). O alerta automática monitoriza uma determinada métrica, pedido taxa de falhas. A menos que se optar por desativar o alerta proativo, não precisa definir sua própria alerta na taxa de falhas de pedido. 
+> No painel de alertas, verá que já existe um conjunto de alerta: [Diagnósticos proativos](../../azure-monitor/app/proactive-failure-diagnostics.md). O alerta automática monitoriza uma determinada métrica, pedido taxa de falhas. A menos que se optar por desativar o alerta proativo, não precisa definir sua própria alerta na taxa de falhas de pedido. 
 > 
 > 
 
@@ -89,10 +89,10 @@ Alertas populares incluem:
 * **Tempo de resposta do servidor** no lado do servidor de aplicativos web. Bem como a configuração de alertas, manter a par esta métrica para ver se desproporcional varia com taxas de pedidos de alta: variação pode indicar que a aplicação está a ficar sem recursos. 
 * **Exceções de servidor** - para vê-los, precisa fazer algumas [programa de configuração adicional](../../azure-monitor/app/asp-net-exceptions.md).
 
-Não se esqueça de que [diagnóstico de taxa de falha proativos](../../application-insights/app-insights-proactive-failure-diagnostics.md) monitorizar automaticamente a taxa a que a aplicação responde a solicitações com códigos de falha. 
+Não se esqueça de que [diagnóstico de taxa de falha proativos](../../azure-monitor/app/proactive-failure-diagnostics.md) monitorizar automaticamente a taxa a que a aplicação responde a solicitações com códigos de falha. 
 
 ## <a name="automation"></a>Automatização
-* [Utilize o PowerShell para automatizar a configuração de alertas](../../application-insights/app-insights-powershell-alerts.md)
+* [Utilize o PowerShell para automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
 * [Utilizar webhooks para automatizar a responder a alertas](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Vídeo
@@ -101,14 +101,14 @@ Não se esqueça de que [diagnóstico de taxa de falha proativos](../../applicat
 
 ## <a name="see-also"></a>Consulte também
 * [Testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Automatizar a configuração de alertas](../../application-insights/app-insights-powershell-alerts.md)
+* [Automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
 * [Diagnósticos proativos](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[platforms]: ../../azure-monitor/app/platforms.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

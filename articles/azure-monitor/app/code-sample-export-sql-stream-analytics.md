@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: f9b1096f2d409f46e3b9e48a2d59420930150c1a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974561"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001891"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Descrição Passo a Passo: Exportar para o SQL a partir do Application Insights com o Stream Analytics
 Este artigo mostra como mover os dados de telemetria dos [do Azure Application Insights] [ start] numa base de dados SQL do Azure utilizando [exportação contínua] [ export] e [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -70,7 +70,7 @@ A exportação contínua sempre produz dados para uma conta de armazenamento do 
     ![Escolha os tipos de eventos](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Permitir que alguns dados a acumularem. Relaxe e permitir que as pessoas utilizam a sua aplicação durante algum tempo. Telemetria chegarão e verá a gráficos de estatísticos [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) e eventos individuais no [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
+1. Permitir que alguns dados a acumularem. Relaxe e permitir que as pessoas utilizam a sua aplicação durante algum tempo. Telemetria chegarão e verá a gráficos de estatísticos [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) e eventos individuais no [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
    
     E, além disso, os dados vão exportar para o armazenamento. 
 2. Inspecionar os dados exportados, no portal - escolher **navegue**, selecione a sua conta de armazenamento e, em seguida **contentores** - ou no Visual Studio. No Visual Studio, escolha **ver / na Cloud Explorer**e abra o Azure / armazenamento. (Se não tiver esta opção de menu, tem de instalar o SDK do Azure: Abra a caixa de diálogo novo projeto e abra o elemento Visual C# / na Cloud / obter o Microsoft Azure SDK para .NET.)
@@ -258,7 +258,7 @@ Após alguns minutos, volte a ferramentas de gestão do SQL Server e ver os flux
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
 [start]: ../../application-insights/app-insights-overview.md
 

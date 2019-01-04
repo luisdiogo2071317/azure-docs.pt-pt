@@ -9,17 +9,16 @@ ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2498fbef8d13fe9c61fd474dbbb678aa0b133e8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3fec0952f4b164327942d5dee108f89b17613042
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728417"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015544"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados para e de geração 1 de armazenamento do Data Lake com o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,9 +52,9 @@ Recomendamos que utilize autenticação do principal de serviço, especialmente 
 ## <a name="get-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados de/para um Store do Azure Data Lake ao utilizar ferramentas/APIs diferentes.
 
-A maneira mais fácil para criar um pipeline para copiar dados está a utilizar o **Assistente para copiar**. Para obter um tutorial sobre como criar um pipeline com o Assistente de cópia, veja [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
+A maneira mais fácil para criar um pipeline para copiar dados está a utilizar o **Assistente para copiar**. Para obter um tutorial sobre como criar um pipeline com o Assistente de cópia, veja [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -150,7 +149,7 @@ Em alternativa, pode utilizar a autenticação de credenciais de utilizador para
 #### <a name="token-expiration"></a>Expiração do token
 O código de autorização que irá gerar utilizando o **autorizar** botão expira após um determinado período de tempo. A seguinte mensagem de erro significa que o token de autenticação expirou:
 
-Erro de operação de credenciais: invalid_grant - Error":"invalid_grant","error_description":"aadsts70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecido está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12 e 15 21-09-31Z.
+Erro de operação de credenciais: invalid_grant - Error":"invalid_grant","error_description":"aadsts70002: Credenciais de validação de erro. AADSTS70008: A concessão de acesso fornecido está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12 E 15 21-09-31Z.
 
 A tabela seguinte mostra as horas de expiração de diferentes tipos de contas de utilizador:
 
@@ -192,13 +191,13 @@ Para obter detalhes sobre as classes de fábrica de dados usadas no código, con
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
-**Sintoma:** quando se copiam dados **em** do Azure Data Lake Store, se a sua atividade de cópia falhar com o erro seguinte:
+**Sintoma:** Quando se copiam dados **em** do Azure Data Lake Store, se a sua atividade de cópia falhar com o erro seguinte:
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**Causa raiz:** existem 2 motivos possíveis:
+**Causa de raiz:** Existem 2 motivos possíveis:
 
 1. O `resourceGroupName` e/ou `subscriptionId` especificado no Azure Data Lake Store ligado serviço está incorreto;
 2. O utilizador ou o principal de serviço não tem a permissão necessária.
@@ -243,7 +242,7 @@ O **typeProperties** secção para um conjunto de dados do tipo **AzureDataLakeS
 | **folderPath** |Caminho para o contentor e a pasta no Data Lake Store. |Sim |
 | **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificada, cópia inclui todos os ficheiros na **folderPath** do conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
 | **partitionedBy** |O **partitionedBy** propriedade é opcional. Pode usá-lo para especificar um caminho dinâmico e o nome de ficheiro para dados de séries temporais. Por exemplo, **folderPath** podem ser parametrizados por cada hora de dados. Para obter detalhes e exemplos, consulte [a propriedade partitionedBy](#using-partitionedby-property). |Não |
-| **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e  **ParquetFormat**. Definir o **tipo** propriedade sob **formato** para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções o [formatos de ficheiro e de compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (binário cópia), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Definir o **tipo** propriedade sob **formato** para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções o [formatos de ficheiro e de compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (binário cópia), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | **Compressão** | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis de suporte são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e de compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
@@ -291,7 +290,7 @@ As propriedades disponíveis no **typeProperties** secção de uma atividade var
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **copyBehavior** |Especifica o comportamento de cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com nomes de geradas automaticamente.<br/><br/><b>MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, o nome de ficheiro é gerado automaticamente. |Não |
+| **copyBehavior** |Especifica o comportamento de cópia. |<b>PreserveHierarchy</b>: Preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: Todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com nomes de geradas automaticamente.<br/><br/><b>MergeFiles</b>: Une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, o nome de ficheiro é gerado automaticamente. |Não |
 
 ### <a name="recursive-and-copybehavior-examples"></a>Exemplos de recursiva e copyBehavior
 Esta secção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursiva e copyBehavior.
@@ -311,7 +310,7 @@ Para obter detalhes, consulte a [formatos de ficheiro e a compactação no Azure
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Exemplos JSON para copiar dados de e para o Data Lake Store
 Os exemplos seguintes fornecem definições de JSON de exemplo. Pode utilizar estas definições de exemplo para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados para e do armazenamento do Data Lake Store e BLOBs do Azure. No entanto, os dados podem ser copiados _diretamente_ Coletores de partir de qualquer uma das origens qualquer suportadas. Para obter mais informações, consulte a secção "arquivos de dados suportados e formatos" no [mover dados com a atividade de cópia](data-factory-data-movement-activities.md) artigo.  
 
-### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: Copiar dados do armazenamento de Blobs do Azure para o Azure Data Lake Store
+### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: Copiar dados de armazenamento de Blobs do Azure para o Azure Data Lake Store
 Mostra o código de exemplo nesta secção:
 
 * Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

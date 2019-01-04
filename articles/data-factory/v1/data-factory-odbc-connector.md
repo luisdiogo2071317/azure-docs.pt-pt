@@ -9,17 +9,16 @@ ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 20a769736efb1232e9605e322bfda6136687cec4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023588"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de ODBC os arquivos de dados com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +46,9 @@ Para além dos Data Management Gateway, também tem de instalar o controlador OD
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados ODBC ao utilizar ferramentas/APIs diferentes.
 
-A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
 
@@ -57,7 +56,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
 3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do ODBC, veja [exemplo de JSON: arquivo de dados de cópia de dados ODBC para Blob do Azure](#json-example-copy-data-from-odbc-data-store-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do ODBC, consulte [exemplo de JSON: Copiar dados de arquivo de dados ODBC para Blob do Azure](#json-example-copy-data-from-odbc-data-store-to-azure-blob) seção deste artigo. 
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas ao arquivo de dados do ODBC:
 
@@ -66,10 +65,10 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao OD
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **OnPremisesOdbc** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesOdbc** |Sim |
 | connectionString |A credencial de acesso de leitura não parte de cadeia de ligação e uma credencial encriptada opcional. Veja exemplos nas seções a seguir. <br/><br/>Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou usar o sistema de DSN (nome da origem de dados), configurado no computador gateway com `"DSN=<name of the DSN>;"` (precisa ainda especificar a parte da credencial no serviço ligado em conformidade). |Sim |
 | credencial |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: anônimos e básico. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: Anónimo e básico. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao arquivo de dados ODBC. |Sim |
@@ -153,7 +152,7 @@ Na atividade de cópia, quando a origem é do tipo **RelationalSource** (que inc
 | consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Sim |
 
 
-## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo de JSON: arquivo de dados de cópia de dados ODBC para Blob do Azure
+## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo JSON: Copiar dados de arquivo de dados ODBC para Blob do Azure
 Este exemplo fornece definições de JSON que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma fonte de ODBC para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 O exemplo possui as seguintes entidades do data factory:

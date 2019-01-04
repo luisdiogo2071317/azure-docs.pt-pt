@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965552"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014545"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -172,7 +171,7 @@ END
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.

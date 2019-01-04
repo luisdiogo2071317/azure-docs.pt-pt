@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 87df752f62956cffd455358059a3ab7b275b6a5d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 9704002a30556c76c65ddcad1cb576fbf4502b55
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090501"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014306"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,7 +112,7 @@ Para obter mais informações sobre os conceitos do Data Factory, veja os artigo
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.
+Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.
 
 O Azure Data Factory propriamente dito não armazena quaisquer dados. Permite-lhe criar fluxos de trabalho orientados por dados para orquestrar o movimento dos dados entre arquivos de dados suportados e o processamento de dados com serviços de computação noutras regiões ou num ambiente no local. Também lhe permite utilizar mecanismos programáticos e de IU para monitorizar e gerir os fluxos de trabalho.
 
@@ -128,7 +127,7 @@ A experiência de utilizador do Data Factory no portal do Azure está acessível
 ## <a name="compare-with-version-1"></a>Comparar com a versão 1
 Para obter uma lista das diferenças entre a versão 1 e a versão atual do serviço Data Factory, veja [Comparar com a versão 1](compare-versions.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Introdução à criação de um pipeline do Data Factory utilizando uma das ferramentas/SDKs seguintes: 
 
 - [IU do Data Factory no portal do Azure](quickstart-create-data-factory-portal.md)

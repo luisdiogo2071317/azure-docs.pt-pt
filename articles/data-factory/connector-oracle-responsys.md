@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a2bbc75c3802d6eea86e6d552330adde4bdc5f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9510b26b56d1602787e35006379a40ce1cbd21d9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015174"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados de Responsys Oracle com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Responsys Oracle li
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Responsys** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Responsys** | Sim |
 | endpoint | O ponto final do servidor Respopnsys  | Sim |
 | clientId | O ID de cliente associado à aplicação Responsys.  | Sim |
 | clientSecret | O segredo do cliente associado à aplicação Responsys. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar acitivty pull a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -84,7 +83,7 @@ Para copiar dados do Oracle Responsys, defina a propriedade de tipo de conjunto 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ResponsysObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ResponsysObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057354"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019627"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,10 +61,10 @@ As seguintes propriedades são suportadas para o serviço de DB2 ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Db2** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Db2** | Sim |
 | servidor |Nome do servidor DB2. Pode especificar o número da porta após o nome de servidor delimitado por vírgula, por exemplo, `server:port`. |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>Permitido é de valor: **básica**. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
@@ -103,7 +102,7 @@ Para copiar dados de DB2, defina a propriedade de tipo de conjunto de dados para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados DB2. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -182,8 +181,8 @@ Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de 
 | Date |Datetime |
 | DB2DynArray |Cadeia |
 | DbClob |Cadeia |
-| decimal |decimal |
-| DecimalFloat |decimal |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
 | Valor de duplo |Valor de duplo |
 | Flutuante |Valor de duplo |
 | Gráfico |Cadeia |
@@ -191,7 +190,7 @@ Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de 
 | LongVarBinary |Byte[] |
 | LongVarChar |Cadeia |
 | LongVarGraphic |Cadeia |
-| Numérico |decimal |
+| Numérico |Decimal |
 | Real |Único |
 | SmallInt |Int16 |
 | Hora |Período de tempo |

@@ -13,12 +13,12 @@ ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 47d04f6e73d95a7cb1ba63c437b97468041af57f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0450feb82e539ebd73c3013e066104b29916238d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189868"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018777"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento no Azure Active Directory com base em grupo?
 
@@ -36,7 +36,7 @@ Tem de ter uma das seguintes licenças para utilizar o licenciamento baseado no 
 - Edição paga ou de avaliação do Office 365 Enterprise E3 ou do Office 365 A3 e superior
 
 ### <a name="required-number-of-licenses"></a>Número necessário de licenças
-Para todos os grupos atribuídos uma licença, também tem de ter uma licença para cada membro exclusivo. Embora não tem de atribuir cada membro do grupo uma licença, tem de ter pelo menos o suficiente licenças para incluir todos os membros. Para o exemplo, se tem 1.000 membros exclusivos que fazem parte de grupos licenciados no seu inquilino, tem de ter 1.000, pelo menos, licenças de acordo com o contrato de licenciamento.
+Para todos os grupos atribuídos uma licença, também tem de ter uma licença para cada membro exclusivo. Embora não tem de atribuir cada membro do grupo uma licença, tem de ter pelo menos o suficiente licenças para incluir todos os membros. Por exemplo, se tiver a 1000 membros exclusivos que fazem parte de grupos licenciados no seu inquilino, tem de ter 1.000, pelo menos, licenças de acordo com o contrato de licenciamento.
 
 ## <a name="features"></a>Funcionalidades
 

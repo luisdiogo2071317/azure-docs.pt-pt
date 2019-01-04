@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868230"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016635"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
 Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
@@ -67,7 +66,7 @@ Pode criar uma **acionador de agenda** para agendar um pipeline para executar pe
     ![Monitorizar execuções acionadas](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e monitorizar um acionador de agenda. Para ver este trabalho de exemplo, em primeiro lugar os [início rápido: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
+Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e monitorizar um acionador de agenda. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
 
 1. Crie um ficheiro JSON com o nome **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
@@ -143,7 +142,7 @@ Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e 
 
 
 ## <a name="net-sdk"></a>SDK .NET
-Esta secção mostra-lhe como utilizar o SDK do .NET para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar os [início rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
+Esta secção mostra-lhe como utilizar o SDK do .NET para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
 
 Para criar e iniciar um acionador de agenda é executada a cada 15 minutos, adicione o seguinte código ao método principal:
 
@@ -223,7 +222,7 @@ Para monitorizar o acionador é executado e o pipeline é executado no portal do
 
 
 ## <a name="python-sdk"></a>SDK Python
-Esta secção mostra-lhe como utilizar o SDK de Python para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar os [início rápido: criar uma fábrica de dados com o SDK de Python](quickstart-create-data-factory-python.md). Em seguida, adicione o seguinte bloco de código depois do bloco de código "monitorizar a execução do pipeline" o script de Python. Este código cria um acionador de agenda é executada a cada 15 minutos entre o início especificado e horas de fim. Atualização do **start_time** variável para a hora UTC atual e o **end_time** variável para uma hora posterior à hora UTC atual.
+Esta secção mostra-lhe como utilizar o SDK de Python para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o SDK de Python](quickstart-create-data-factory-python.md). Em seguida, adicione o seguinte bloco de código depois do bloco de código "monitorizar a execução do pipeline" o script de Python. Este código cria um acionador de agenda é executada a cada 15 minutos entre o início especificado e horas de fim. Atualização do **start_time** variável para a hora UTC atual e o **end_time** variável para uma hora posterior à hora UTC atual.
 
 ```python
     # Create a trigger
@@ -246,7 +245,7 @@ Para monitorizar o acionador é executado e o pipeline é executado no portal do
 Pode utilizar um modelo Azure Resource Manager para criar um acionador. Para obter instruções passo a passo, consulte [criar uma fábrica de dados do Azure com um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passar a hora de início de Acionador para um pipeline
-O Azure Data Factory versão 1 oferece suporte a ler ou escrever dados particionados utilizando as variáveis do sistema: **SliceStart**, **SliceEnd**, **WindowStart**e **WindowEnd**. Na versão atual do Azure Data Factory, pode conseguir este comportamento ao utilizar um parâmetro de pipeline. A hora de início e a hora agendada para o acionador estiverem definidos como o valor para o parâmetro de pipeline. No exemplo a seguir, o horário agendado para o acionador é transmitido como um valor para o pipeline **scheduledRunTime** parâmetro:
+O Azure Data Factory versão 1 oferece suporte a ler ou escrever dados particionados utilizando as variáveis do sistema: **SliceStart**, **SliceEnd**, **WindowStart**, e **WindowEnd**. Na versão atual do Azure Data Factory, pode conseguir este comportamento ao utilizar um parâmetro de pipeline. A hora de início e a hora agendada para o acionador estiverem definidos como o valor para o parâmetro de pipeline. No exemplo a seguir, o horário agendado para o acionador é transmitido como um valor para o pipeline **scheduledRunTime** parâmetro:
 
 ```json
 "parameters": {

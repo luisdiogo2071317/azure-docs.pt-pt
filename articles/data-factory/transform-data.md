@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390141"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014357"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -87,8 +86,8 @@ Pode criar uma atividade personalizada para executar scripts R no seu cluster do
 ## <a name="compute-environments"></a>Ambientes de computação
 Criar um serviço ligado para o ambiente de computação e, em seguida, utilizar o serviço ligado ao definir uma atividade de transformação. Existem dois tipos de ambientes de computação suportados pelo Data Factory. 
 
-- **Sob demanda**: neste caso, o ambiente de computação é totalmente gerido pela fábrica de dados. Ele é criado automaticamente pelo serviço Data Factory antes de uma tarefa é submetida para processar dados e removida quando a tarefa estiver concluída. Pode configurar e controlar as definições do granulares do ambiente de computação a pedido para execução da tarefa, gerenciamento de cluster e ações de inicialização. 
-- **Bring Your Own**: neste caso, pode registrar seu próprio ambiente de computação (por exemplo o cluster de HDInsight) como um serviço ligado no Data Factory. O ambiente de computação é gerenciado por si e o serviço Data Factory utiliza para executar as atividades. 
+- **Sob demanda**:  Neste caso, o ambiente de computação totalmente gerido pela fábrica de dados. Ele é criado automaticamente pelo serviço Data Factory antes de uma tarefa é submetida para processar dados e removida quando a tarefa estiver concluída. Pode configurar e controlar as definições do granulares do ambiente de computação a pedido para execução da tarefa, gerenciamento de cluster e ações de inicialização. 
+- **Traga a sua própria**: Neste caso, pode registrar seu próprio ambiente de computação (por exemplo o cluster de HDInsight) como um serviço ligado no Data Factory. O ambiente de computação é gerenciado por si e o serviço Data Factory utiliza para executar as atividades. 
 
 Ver [serviços ligados de computação](compute-linked-services.md) artigo para saber mais sobre os serviços de computação suportados pelo Data Factory. 
 

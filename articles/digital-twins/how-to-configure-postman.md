@@ -1,53 +1,55 @@
 ---
 title: Como configurar o Postman duplos Digital do Azure | Documentos da Microsoft
-description: Como configurar o Postman duplos Digital do Azure
+description: Como configurar o Postman duplos Digital do Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 32c56a2ac3df9f386300a6ee8207a76c8031ab10
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975020"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016720"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
 
-Este artigo descreve como configurar uma aplicação do Azure Active Directory (Azure AD) para utilizar o fluxo de concessão implícita OAuth 2.0. Em seguida, ele aborda como configurar o cliente de REST do Postman para fazer pedidos HTTP do efeito de token para as suas APIs de gestão.
+Este artigo descreve como configurar o cliente de REST do Postman para interagir com e testar as APIs de gestão de duplos Digital do Azure.
+
+O artigo mostra como configurar uma aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0. Também descreve como configurar o cliente de REST do Postman para fazer pedidos HTTP do efeito de token para as suas APIs de gestão.
 
 ## <a name="postman-summary"></a>Resumo do postman
 
 Começar a duplos Digital do Azure, utilizando uma ferramenta de cliente REST como [Postman](https://www.getpostman.com/) para preparar o ambiente de teste local. O cliente do Postman ajuda a criar rapidamente complexos pedidos HTTP. Baixe a versão de área de trabalho do cliente do Postman ao aceder [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) é uma REST ferramenta de teste que localiza as principais funcionalidades de pedido HTTP num ambiente de trabalho útil e baseada em Plug-in GUI. Por meio do cliente do Postman, os desenvolvedores de soluções podem especificar o tipo de pedido HTTP (POST, GET, ATUALIZAÇÃO, PATCH e DELETE), ponto final de API para a chamada e a utilização do SSL. Postman também oferece suporte a adicionar cabeçalhos de pedido HTTP, parâmetros, dados do formulário e órgãos de desenvolvimento.
+[Postman](https://www.getpostman.com/) é uma REST ferramenta de teste que localiza as principais funcionalidades de pedido HTTP num ambiente de trabalho útil e baseada em Plug-in GUI. Por meio do cliente do Postman, os desenvolvedores de soluções podem especificar o tipo de pedido HTTP (*POST*, *obter*, *ATUALIZAÇÃO*, *PATCH*e o  *ELIMINAR*), ponto final de API para chamar e a utilização do SSL. Postman também oferece suporte a adicionar cabeçalhos de pedido HTTP, parâmetros, dados do formulário e órgãos de desenvolvimento.
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurar o Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0
 
-Configure a sua aplicação do Azure AD para utilizar o fluxo de concessão implícita OAuth 2.0.
+Configure a sua aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0.
 
 1. Siga os passos em [este guia de introdução](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD do tipo nativo. Ou pode reutilizar um registo de aplicação nativa existente.
 
 1. Sob **permissões obrigatórias**, selecione **Add** e introduza **duplos Digital do Azure** sob **adicionar acesso à API**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa. Em seguida, selecione **conceder permissões > permissões delegadas** e **feito**.
 
-    ![Api de adicionar registos de aplicações do Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    ![Api de adicionar registos de aplicações do Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
 1. Clique em **manifesto** para abrir o manifesto do aplicativo para a sua aplicação. Definir *oauth2AllowImplicitFlow* para `true`.
 
-      ![Fluxo implícito de AD do Azure][1]
+      ![Fluxo implícito de Active Directory do Azure][1]
 
-1. Configurar uma **URL de resposta** ao [ `https://www.getpostman.com/oauth2/callback` ](https://www.getpostman.com/oauth2/callback).
+1. Configurar uma **URL de resposta** para `https://www.getpostman.com/oauth2/callback`.
 
-      ![URL de resposta do Azure AD][2]
+      ![URL de resposta do Azure Active Directory][2]
 
-1. Copie o e mantenha os **ID da aplicação** da sua aplicação do Azure AD. Ele é usado abaixo.
+1. Copie o e mantenha os **ID da aplicação** da sua aplicação do Azure Active Directory. Ele é usado abaixo.
 
-## <a name="configure-the-postman-client"></a>Configurar o cliente do Postman
+### <a name="configure-the-postman-client"></a>Configurar o cliente do Postman
 
-Em seguida, definir e configurar o Postman para obter um token do Azure AD. Em seguida, efetue um pedido HTTP autenticado no duplos Digital do Azure com o token obtido:
+Em seguida, definir e configurar o Postman para obter um token do Azure Active Directory. Em seguida, efetue um pedido HTTP autenticado no duplos Digital do Azure com o token obtido:
 
 1. Aceda a [www.getpostman.com]([https://www.getpostman.com/) para transferir a aplicação.
 1. Certifique-se de que sua **URL de autorização** está correto. Deve demorar o formato:
@@ -67,7 +69,7 @@ Em seguida, definir e configurar o Postman para obter um token do Azure AD. Em s
     | Tipo de Concessão | `Implicit` |
     | Url de chamada de retorno | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Utilize o **URL de autorização** do passo 2 acima |
-    | ID de Cliente | Utilize o **ID da aplicação** para a aplicação do Azure AD que tenha sido criada ou reobjetivada da seção anterior |
+    | ID de Cliente | Utilize o **ID da aplicação** para a aplicação do Azure Active Directory que foi criada ou reobjetivada da seção anterior |
     | Âmbito | Deixar em branco |
     | Estado | Deixar em branco |
     | Autenticação de Cliente | `Send as Basic Auth header` |

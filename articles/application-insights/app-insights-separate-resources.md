@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 58ccfefa0a0d76334734c67688ef50230881e945
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973806"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018809"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>A separação de telemetria de desenvolvimento, teste e produção
 
@@ -78,15 +78,15 @@ Na [portal.azure.com](https://portal.azure.com), adicionar um recurso do Applica
 
 ![Clicar em Novo, Application Insights](./media/app-insights-separate-resources/01-new.png)
 
-* **Tipo de aplicação** afeta o que vê no painel de descrição geral e as propriedades disponíveis no [Explorador de métricas](app-insights-metrics-explorer.md). Se não vir o seu tipo de aplicação, escolha um dos tipos de web para páginas da web.
-* **Grupo de recursos** é uma conveniência para gerir as propriedades como [controlo de acesso](app-insights-resources-roles-access-control.md). Poderia usar grupos de recursos separados para desenvolvimento, teste e produção.
+* **Tipo de aplicação** afeta o que vê no painel de descrição geral e as propriedades disponíveis no [Explorador de métricas](../azure-monitor/app/metrics-explorer.md). Se não vir o seu tipo de aplicação, escolha um dos tipos de web para páginas da web.
+* **Grupo de recursos** é uma conveniência para gerir as propriedades como [controlo de acesso](../azure-monitor/app/resources-roles-access-control.md). Poderia usar grupos de recursos separados para desenvolvimento, teste e produção.
 * **Subscrição** é a sua conta de pagamento no Azure.
 * **Localização** é onde manter os seus dados. Atualmente não pode ser alterado. 
 * **Adicionar ao dashboard** coloca um mosaico de acesso rápido para o seu recurso na sua página inicial do Azure. 
 
 Criar o recurso demora alguns segundos. Verá um alerta quando tiver terminado.
 
-(Pode escrever um [script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso automaticamente.)
+(Pode escrever um [script do PowerShell](../azure-monitor/app/powershell-script-create-resource.md) para criar um recurso automaticamente.)
 
 ### <a name="getting-the-instrumentation-key"></a>Obtendo a chave de instrumentação
 A chave de instrumentação identifica o recurso que criou. 
@@ -98,7 +98,7 @@ Terá das chaves de instrumentação de todos os recursos para o qual irá envia
 ## <a name="filter-on-build-number"></a>Filtre por número de compilação
 Quando publica uma nova versão da sua aplicação, vai querer ser capaz de separar a telemetria de compilações diferentes.
 
-Pode definir a propriedade de versão da aplicação para que pode filtrar [pesquisa](../azure-monitor/app/diagnostic-search.md) e [Explorador de métricas](app-insights-metrics-explorer.md) resultados.
+Pode definir a propriedade de versão da aplicação para que pode filtrar [pesquisa](../azure-monitor/app/diagnostic-search.md) e [Explorador de métricas](../azure-monitor/app/metrics-explorer.md) resultados.
 
 ![Filtrar numa propriedade](./media/app-insights-separate-resources/050-filter.png)
 
@@ -148,7 +148,7 @@ Para controlar a versão da aplicação, certifique-se de que `buildinfo.config`
     </PropertyGroup>
 ```
 
-Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](app-insights-metrics-explorer.md).
+Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](../azure-monitor/app/metrics-explorer.md).
 
 No entanto, tenha em atenção que o número de versão da compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação do programador no Visual Studio.
 

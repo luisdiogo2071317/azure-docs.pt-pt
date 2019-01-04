@@ -1,5 +1,5 @@
 ---
-title: Configurar o Azure Key Vault com auditoria e rotação de ponto-a-ponto | Documentos da Microsoft
+title: Configurar o Azure Key Vault com a rotação de chaves-a-ponto e auditoria - Azure Key Vault | Documentos da Microsoft
 description: Utilize este procedimentos para ajudá-lo mãos à obra com monitorização de Cofre de chaves de registos e a rotação de chaves.
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 39ae2108c327f38dbf41981ec6aabe7722b77685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11506f63089564b5187ebd6177f7187f1faf6655
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717386"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999599"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com auditoria e rotação de chaves
 

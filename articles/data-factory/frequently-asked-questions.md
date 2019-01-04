@@ -1,5 +1,5 @@
 ---
-title: 'O Azure Data Factory: Perguntas mais frequentes | Documentos da Microsoft'
+title: 'Fábrica de dados do Azure: Perguntas mais frequentes | Documentos da Microsoft'
 description: Obtenha respostas para perguntas mais frequentes sobre o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249592"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024098"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes sobre o Azure Data Factory.  
@@ -50,7 +49,7 @@ Data Factory fornece a liberdade de poder modelar qualquer estilo de fluxo que �
 - Fluxos delta:
     - Utilize parâmetros e defina o limite máximo para as cópias delta medida que move tabelas de dimensão ou de referência de um arquivo relacional, no local ou na cloud, para carregar os dados para o lake. 
 
-Para obter mais informações, consulte [Tutorial: controlar fluxos](tutorial-control-flow.md).
+Para obter mais informações, consulte [Tutorial: Controlar fluxos](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transforme os seus dados em escala com pipelines gratuito de código
 A nova experiência de ferramentas baseadas no browser fornece pipeline sem código de criação e implementação com uma experiência de baseada na web moderna e interativa.
@@ -92,9 +91,9 @@ Desde a primeira versão de pré-visualização pública em 2017, o Data Factory
 ## <a name="what-is-integration-runtime"></a>O que é o runtime de integração?
 Runtime de integração é a infraestrutura de computação que é utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados em vários ambientes de rede:
 
-- **Movimento de dados**: para movimento de dados, o Integration Runtime move os dados entre arquivos de dados de origem e destino, oferecendo suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e de elevado desempenho e transferência de dados dimensionável.
-- **Atividades de expedição**: para transformação, o Integration Runtime oferece capacidade de executar nativamente pacotes do SSIS.
-- **Executar pacotes SSIS**: executa nativamente pacotes do SSIS num ambiente de computação gerida do Azure. O IR também suporta a distribuição e monitorização das atividades de monitorização em execução em vários serviços de computação, com o Azure HDInsight, Azure Machine Learning, Base de Dados SQL do Azure, SQL Server, e mais.
+- **Movimento de dados**: Para movimento de dados, o IR move os dados entre os arquivos de origem e destino dos dados, fornecendo suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados eficiente e dimensionável.
+- **Atividades de expedição**: Para transformação, o IR fornece a capacidade de executar pacotes SSIS de forma nativa.
+- **Executar pacotes SSIS**: Executa nativamente pacotes do SSIS num ambiente de computação gerida do Azure. O IR também suporta a distribuição e monitorização das atividades de monitorização em execução em vários serviços de computação, com o Azure HDInsight, Azure Machine Learning, Base de Dados SQL do Azure, SQL Server, e mais.
 
 Pode implementar uma ou mais instâncias do runtime de integração conforme necessário, para mover e transformar dados. Runtime de integração pode ser executado numa rede pública do Azure ou numa rede privada (no local, rede Virtual do Azure ou cloud privada virtual Amazon Web Services [VPC]). 
 

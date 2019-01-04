@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343558"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021089"
 ---
 # <a name="border-connectivity"></a>Conectividade de limite 
 Planeamento de integração de rede é um pré-requisito importante para a implementação de sistemas integrados do Azure Stack, operação e gerenciamento com êxito. O planejamento de conectividade de limite começa escolhendo se deve ou não utilizam o encaminhamento dinâmico com o protocolo BGP (BGP). Isso requer a atribuição de um número de sistema autónomo de BGP 16 bits (público ou privado) ou utilizar o encaminhamento estático, onde uma rota predefinida estático é atribuída para os dispositivos de limite.
@@ -29,9 +29,9 @@ Planeamento de integração de rede é um pré-requisito importante para a imple
 > Parte superior do comutadores (TOR rack) requerem uplinks de camada 3 com IPs de ponto a ponto (/ 30 redes) configurado nas interfaces físicas. Não é suportado para utilizar a camada 2 uplinks com comutadores TOR suporte a operações do Azure Stack. 
 
 ## <a name="bgp-routing"></a>O encaminhamento de BGP
-Utilizar um protocolo de encaminhamento dinâmico com BGP garante que seu sistema estará sempre ciente das alterações de rede e facilita a administração. 
+Utilizar um protocolo de encaminhamento dinâmico com BGP garante que seu sistema estará sempre ciente das alterações de rede e facilita a administração. Para segurança enhaced, uma palavra-passe pode ser definida no BGP peering entre o TOR e a borda. 
 
-Conforme mostrado no diagrama seguinte, de publicidade de IP privado espaço no comutador TOR é limitado por uma lista de prefixos. A lista de prefixo define as sub-redes IP privadas e aplicá-lo como um mapa de rota na ligação entre o TOR e a borda.
+Conforme mostrado no diagrama seguinte, de publicidade de IP privado espaço no comutador TOR for bloqueado com uma lista de prefixos. A lista de prefixo nega o anúncio da rede privada e é aplicado como um mapa de rota na ligação entre o TOR e a borda.
 
 O Balanceador de carga de Software (SLB) em execução dentro da solução do Azure Stack elementos para os dispositivos de TOR, para que ele dinamicamente pode anunciar os endereços VIP.
 

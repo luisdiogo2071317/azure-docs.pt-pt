@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e5e1a415ce5c5bd14a8afef41e506259555d79f6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b5cc0004edf105d8875ff83240b659e210b18e41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019950"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do .NET no Application Insights
 Se usar o NLog, log4Net ou Trace para rastreamento de diagnóstico no seu aplicativo ASP.NET, pode ter os registos enviados para o [do Azure Application Insights][start], onde pode explorar e procurar -los. Os registos serão intercalados com a outra telemetria provenientes de seu aplicativo, para que possa identificar os rastreios associados com cada pedido de utilizador de manutenção e correlacioná-los com outros eventos e os relatórios de exceções.
@@ -160,7 +160,7 @@ Pode, por exemplo:
 * Guardar a configuração desta página como um favorito
 
 > [!NOTE]
-> **Amostragem.** Se a aplicação enviar uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para o ASP.NET versão 2.0.0-beta3 ou posterior, a funcionalidade de amostragem adaptável pode operar e enviar apenas uma percentagem da sua telemetria. [Saiba mais sobre a amostragem.](../../application-insights/app-insights-sampling.md)
+> **Amostragem.** Se a aplicação enviar uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para o ASP.NET versão 2.0.0-beta3 ou posterior, a funcionalidade de amostragem adaptável pode operar e enviar apenas uma percentagem da sua telemetria. [Saiba mais sobre a amostragem.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,7 +194,7 @@ Por vezes, pode demorar algum tempo para todos os eventos e os pedidos para obte
 Vários fatores afetam a quantidade de dados retidos. Consulte a [limites](../../azure-monitor/app/api-custom-events-metrics.md#limits) secção da página de métricas de eventos de cliente para obter mais informações. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Não estou a ver algumas das entradas de registo que esperava
-Se a aplicação enviar uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para o ASP.NET versão 2.0.0-beta3 ou posterior, a funcionalidade de amostragem adaptável pode operar e enviar apenas uma percentagem da sua telemetria. [Saiba mais sobre a amostragem.](../../application-insights/app-insights-sampling.md)
+Se a aplicação enviar uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para o ASP.NET versão 2.0.0-beta3 ou posterior, a funcionalidade de amostragem adaptável pode operar e enviar apenas uma percentagem da sua telemetria. [Saiba mais sobre a amostragem.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Passos seguintes
 * [Configurar a disponibilidade e testes de capacidade de resposta][availability]

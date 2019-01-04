@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b777928295d37b0824287d2b9e08526eae29e0f9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a80c96891f3d91a920519db2915932742bd84d72
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976499"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002302"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreio: Modelo de dados do Application Insights
 
@@ -43,4 +43,4 @@ Nível de gravidade de rastreio. O valor pode ser `Verbose`, `Information`, `War
 - [Explore Java registos de rastreio no Application Insights](../../azure-monitor/app/java-trace-logs.md).
 - Ver [modelo de dados](data-model.md) para o modelo de tipos e dados do Application Insights.
 - [Escrever telemetria de rastreio personalizada](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Confira [plataformas](../../application-insights/app-insights-platforms.md) suportada pelo Application Insights.
+- Confira [plataformas](../../azure-monitor/app/platforms.md) suportada pelo Application Insights.

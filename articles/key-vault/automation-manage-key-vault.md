@@ -1,5 +1,5 @@
 ---
-title: Gerir o Azure Key Vault com a automatização do Azure | Documentos da Microsoft
+title: Gerir o Azure Key Vault com a automatização do Azure - Azure Key Vault | Documentos da Microsoft
 description: Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir o Azure Key Vault.
 services: Key-Vault, automation
 documentationcenter: ''
@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/29/2016
+ms.date: 01/02/2019
 ms.author: magoedte
-ms.openlocfilehash: be7829c35f299381a5e82621412feb13cc2e8bb2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e95e7dac0c6668078a9399342617c041eee6fd7d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299241"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998613"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Azure Key Vault com a automatização do Azure
+
 Este guia apresenta-lhe para o serviço de automatização do Azure e como ele pode ser usado para simplificar a gestão das chaves e segredos no Azure Key Vault.
 
 ## <a name="what-is-azure-automation"></a>O que é a Automatização do Azure?
+
 [A automatização do Azure](../automation/automation-intro.md) é um serviço do Azure para simplificar a gestão da cloud através de automatização de processos e configuração do estado pretendido. Utilizar a automatização do Azure, manual, repetido, tarefas de execução demorada e propensa a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e a hora de valor para a sua organização.
 
 A automatização do Azure fornece um motor de execução do fluxo de trabalho altamente confiável de elevada disponibilidade que se dimensiona para atender às suas necessidades. Na automatização do Azure, processos podem ser iniciados manualmente, por sistemas de terceiros 3rd ou em intervalos agendados, de modo a que tarefas acontecem exatamente quando necessário.
@@ -32,6 +34,7 @@ A automatização do Azure fornece um motor de execução do fluxo de trabalho a
 Reduzir o overhead operacional e liberar IT e a equipa do DevOps para se dedicar ao trabalho que acrescenta valor ao negócio, movendo as tarefas de gestão na cloud a ser executada automaticamente pela automatização do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como pode automatização do Azure ajudar a gerir o Azure Key Vault?
+
 Key Vault pode ser gerido na automatização do Azure utilizando o [cmdlets do AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e [cmdlets do Cofre de chaves do Azure clássico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerir o Cofre de chave clássico está disponível automaticamente na automatização do Azure e pode importar os [módulo do AzureRM KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a automatização do Azure, para que possam realizar muitas de suas tarefas de gestão do Cofre de chaves no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e 3º sistemas de terceiros.
 
 Com os cmdlets do Azure Key Vault pode realizar estas tarefas, entre outras: 
@@ -49,6 +52,7 @@ Aqui estão alguns exemplos de utilização do PowerShell para gerir o Cofre de 
 * [Definir e configurar um cofre de chave do Azure](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que aprendeu as noções básicas da automatização do Azure e como ele pode ser usado para gerir o Azure Key Vault, siga estas ligações para saber mais sobre a automatização do Azure.
 
 * Consulte a automatização do Azure [Tutorial de introdução](../automation/automation-first-runbook-graphical.md).

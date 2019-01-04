@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: adf055983ad4247101401b907024328607a19bfe
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972078"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017145"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes de NuGet de informações da aplicação
 
@@ -82,5 +82,5 @@ Esses pacotes constituem a parte da funcionalidade principal da monitorização 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Monitor [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
-- Perfil ASP.NET Core [aplicações web do Linux do Azure](app-insights-profiler-aspnetcore-linux.md).
-- Depurar ASP.NET [instantâneos](app-insights-snapshot-debugger.md).
+- Perfil ASP.NET Core [aplicações web do Linux do Azure](../azure-monitor/app/profiler-aspnetcore-linux.md).
+- Depurar ASP.NET [instantâneos](../azure-monitor/app/snapshot-debugger.md).

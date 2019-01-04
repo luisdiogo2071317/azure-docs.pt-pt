@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c321d96efc7af387fb30b6ed608eb871cb7de5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43e7425890d8799272aa782ceef3d3b89fd6ce78
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230500"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025492"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +50,7 @@ As seguintes propriedades são suportadas para o serviço PostgreSQL ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **PostgreSql** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **PostgreSql** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -117,7 +116,7 @@ Para copiar dados do PostgreSQL, defina a propriedade de tipo de conjunto de dad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados PostgreSQL. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

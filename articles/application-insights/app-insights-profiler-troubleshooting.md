@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fc30dc928afbee0de2cd0d11a147c08b9f47cef1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720444"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024625"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -94,7 +94,7 @@ Quando configura o Profiler, as atualizações são efetuadas às definições d
 
 Atualmente, pode ativar Profiler, no máximo, quatro de web do Azure de aplicações e ranhuras de implementação que estão em execução no mesmo plano de serviço. Se tiver mais aplicações web do que isso em execução num plano do serviço de aplicações, poderá ver um Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException emitida pelo criador de perfil. O criador de perfil é executado em separado para cada aplicação web e tenta iniciar uma sessão do ETW para cada aplicação. Mas há um número limitado de sessões do ETW que podem estar ativas em simultâneo. Se a tarefa de web do Profiler está a comunicar demasiadas sessões ativas de criação de perfis, mova algumas aplicações web para um plano de serviço diferentes.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implementação: diretório não vazio "D:\\doméstica\\site\\wwwroot\\App_Data\\das tarefas
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implementação: Diretório não vazio "D:\\doméstica\\site\\wwwroot\\App_Data\\das tarefas
 
 Se estiver a Reimplementar a aplicação web a um recurso de aplicações Web com o Profiler ativado, poderá ver a mensagem seguinte:
 
@@ -128,12 +128,12 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Verifique se a ikey na linha de comandos de criador de perfil está correta. 
 
-Em terceiro lugar, a utilizar o caminho encontrado no arquivo config acima, verifique o ficheiro de registo do criador de perfil. Ela mostrará as informações de depuração que indica as mensagens de estado e o erro do criador de perfil e configurações que é usando o criador de perfil. Se o criador de perfil está em execução enquanto seu aplicativo está recebendo solicitações, verá esta mensagem: detetada atividade a partir iKey. Quando o rastreio está a ser carregado, verá esta mensagem: iniciar o rastreio de carregamento. 
+Em terceiro lugar, a utilizar o caminho encontrado no arquivo config acima, verifique o ficheiro de registo do criador de perfil. Ela mostrará as informações de depuração que indica as mensagens de estado e o erro do criador de perfil e configurações que é usando o criador de perfil. Se o criador de perfil está em execução enquanto seu aplicativo está recebendo solicitações, verá esta mensagem: Atividade detetada em iKey. Quando o rastreio está a ser carregado, verá esta mensagem: Inicie o rastreio de carregamento. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png
-[Criador de perfil do webjob]:./media/app-insights-profiler/Profiler-webjob.png
-[registo de criador de perfil de trabalho Web]:./media/app-insights-profiler/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
+[Criador de perfil do webjob]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
+[registo de criador de perfil de trabalho Web]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723147"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015632"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -124,7 +123,7 @@ Ou pode definir as rotas definidas pelo utilizador (UDRs) para forçar o tráfeg
 
 Em ambos os casos, aplicar uma rota de 0.0.0.0/0 com o tipo de próximo salto como **Internet** na sub-rede que aloja o IR Azure-SSIS, para que a comunicação entre o serviço Data Factory e o IR do Azure-SSIS é pode ter êxito. 
 
-![Adicione uma rota](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Adicionar uma rota](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 Se estiver preocupado com perder a capacidade de inspecionar o tráfego de Internet de saída do que a sub-rede, também pode adicionar uma regra de NSG da sub-rede para restringir os destinos de saída para [endereços IP do Centro de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 

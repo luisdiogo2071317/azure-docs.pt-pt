@@ -1,6 +1,6 @@
 ---
-title: Copiar dados para o índice de pesquisa através do Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre como push ou copiar dados para um índice da Azure search utilizando a atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados para o índice de pesquisa com o Azure Data Factory | Documentos da Microsoft
+description: Saiba mais sobre como enviar por push ou copiar dados para um índice de pesquisa do Azure com a atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d31859a2af0402789b03447510d510a9658961de
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051013"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023350"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice da Azure Search utilizando o Azure Data Factory
 
@@ -26,31 +25,31 @@ ms.locfileid: "37051013"
 > * [Versão 1](v1/data-factory-azure-search-connector.md)
 > * [Versão atual](connector-azure-search.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados para o índice da Azure Search. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados para o índice da Azure Search. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para o índice da Azure Search. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de qualquer arquivo de dados de origem suportada para o índice da Azure Search. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de pesquisa do Azure.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Azure Search.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço da Azure Search ligada:
+As seguintes propriedades são suportadas para o serviço ligado do Azure Search:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **azuresearch, uma vez** | Sim |
-| url | URL para o serviço de pesquisa do Azure. | Sim |
-| key | Chave de administrador para o serviço de pesquisa do Azure. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| tipo | A propriedade de tipo tem de ser definida como: **AzureSearch** | Sim |
+| url | URL para o serviço Azure Search. | Sim |
+| key | Chave de administrador para o serviço Azure Search. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 > [!IMPORTANT]
-> Quando copiar dados a partir de um arquivo de dados na nuvem para o índice de pesquisa do Azure, na Azure Search serviço ligado, tem de referir-se de um tempo de execução de integração do Azure com a região explícito no connactVia. Defina a região que reside a pesquisa do Azure. Saiba mais de [Runtime de integração do Azure](concepts-integration-runtime.md#azure-integration-runtime).
+> Ao copiar dados a partir de um arquivo de dados na cloud para o índice da Azure Search, no Azure Search, serviço é ligado, precisa fazer referência um Runtime de integração do Azure com uma região explícita em connactVia. Defina a região que a pesquisa do Azure reside. Saiba mais a partir da [Runtime de integração do Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemplo:**
 
@@ -76,14 +75,14 @@ As seguintes propriedades são suportadas para o serviço da Azure Search ligada
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados de pesquisa do Azure.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Azure Search.
 
-Para copiar dados na Azure Search, defina a propriedade de tipo do conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados para o Azure Search, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **AzureSearchIndex** | Sim |
-| indexName | Nome do índice da Azure Search. Fábrica de dados não crie o índice. O índice tem de existir na Azure Search. | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
+| indexName | Nome do índice da Azure Search. Fábrica de dados não cria o índice. O índice tem de existir no Azure Search. | Sim |
 
 **Exemplo:**
 
@@ -105,32 +104,32 @@ Para copiar dados na Azure Search, defina a propriedade de tipo do conjunto de d
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de pesquisa do Azure.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem de Azure Search.
 
-### <a name="azure-search-as-sink"></a>Pesquisa do Azure como sink
+### <a name="azure-search-as-sink"></a>O Azure Search como sink
 
-Para copiar dados na Azure Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar dados para o Azure Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **AzureSearchIndexSink** | Sim |
-| WriteBehavior | Especifica se deve intercalar ou substituir quando já existe um documento no índice. Consulte o [WriteBehavior propriedade](#writebehavior-property).<br/><br/>Valores permitidos são: **intercalar** (predefinição), e **carregar**. | Não |
-| writeBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho da memória intermédia atinge writeBatchSize. Consulte o [WriteBatchSize propriedade](#writebatchsize-property) para obter mais detalhes.<br/><br/>Valores permitidos são: número inteiro de 1 a 1000; predefinição é 1000. | Não |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureSearchIndexSink** | Sim |
+| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).<br/><br/>Valores permitidos são: **Intercalar** (predefinição), e **carregar**. | Não |
+| writeBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho do buffer atinge writeBatchSize. Consulte a [WriteBatchSize propriedade](#writebatchsize-property) para obter detalhes.<br/><br/>Valores permitidos são: número inteiro de 1 a 1000; a predefinição é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade de WriteBehavior
 
-AzureSearchSink upserts ao escrever dados. Por outras palavras, ao escrever um documento, se a chave do documento já existe no índice da Azure Search, pesquisa do Azure atualiza o documento existente, em vez de gerar uma exceção de conflito.
+AzureSearchSink upserts ao gravar dados. Em outras palavras, ao escrever um documento, se a chave do documento já existe no índice de pesquisa do Azure, o Azure Search atualiza o documento existente, em vez de gerar uma exceção de conflito.
 
-O AzureSearchSink fornece seguintes comportamentos upsert dois (utilizando o SDK azuresearch, uma vez):
+O AzureSearchSink fornece os seguintes dois comportamentos de upsert (ao utilizar o SDK do AzureSearch):
 
-- **Intercalar**: combine todas as colunas no novo documento com a já existente. Para colunas com um valor nulo no documento novo, o valor no existentes é preservado.
-- **Carregar**: novo documento substitui a já existente. Para colunas não especificadas no documento novo, o valor é definido como nulo se não há um valor não null no documento existente ou não.
+- **Intercalar**: combinar todas as colunas no novo documento com a já existente. Para colunas com um valor nulo no documento novo, o valor a já existente é preservado.
+- **Carregar**: O novo documento substitui a já existente. Para colunas não especificadas no novo documento, o valor é definido como nulo se existe um valor não nulo no documento existente ou não.
 
 O comportamento predefinido é **intercalar**.
 
 ### <a name="writebatchsize-property"></a>Propriedade de WriteBatchSize
 
-Serviço de pesquisa do Azure suporta documentos de escrita como um lote. Um lote pode conter ações de 1 a 1000. Uma ação processa um documento para efetuar a operação de carregamento/intercalação.
+O serviço de pesquisa do Azure suporta a escrita de documentos como um lote. Um batch pode conter ações de 1 a 1000. Uma ação processa um documento para executar a operação de carregamento/intercalação.
 
 **Exemplo:**
 
@@ -164,11 +163,11 @@ Serviço de pesquisa do Azure suporta documentos de escrita como um lote. Um lot
 ]
 ```
 
-### <a name="data-type-support"></a>Suporte de tipo de dados
+### <a name="data-type-support"></a>Tipo de dados de suporte
 
-A seguinte tabela especifica se um tipo de dados de pesquisa do Azure é suportado ou não.
+A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou não.
 
-| Tipo de dados de pesquisa do Azure | Suportado no receptor de pesquisa do Azure |
+| Tipo de dados do Azure Search | Suportado no Sink do Azure Search |
 | ---------------------- | ------------------------------ |
 | Cadeia | S |
 | Int32 | S |
@@ -176,8 +175,8 @@ A seguinte tabela especifica se um tipo de dados de pesquisa do Azure é suporta
 | Valor de duplo | S |
 | Booleano | S |
 | DataTimeOffset | S |
-| Matriz de cadeia | N |
+| Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

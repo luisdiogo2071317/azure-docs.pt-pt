@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24b737b8403c185bc118b18473cadb3535ad1c34
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808728"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002081"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos de métricas no Application Insights
 
-Anotações no [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) gráficos mostram onde implementou uma nova compilação ou outro evento significativo. Eles facilitam ver se as suas alterações tinham qualquer impacto no desempenho da sua aplicação. Eles podem ser criados automaticamente pelos [sistema de compilação de serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Também pode criar anotações para sinalizar a qualquer evento desejar [criá-los a partir do PowerShell](#create-annotations-from-powershell).
+Anotações no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) gráficos mostram onde implementou uma nova compilação ou outro evento significativo. Eles facilitam ver se as suas alterações tinham qualquer impacto no desempenho da sua aplicação. Eles podem ser criados automaticamente pelos [sistema de compilação de serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Também pode criar anotações para sinalizar a qualquer evento desejar [criá-los a partir do PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
 > Este artigo reflete o preterido **experiência de métricas clássicas**. Anotações só estão atualmente disponíveis na experiência do clássica e no  **[livros](../../application-insights/app-insights-usage-workbooks.md)**. Para saber mais sobre o currrent experiência de métricas, consulte [este artigo](../../azure-monitor/platform/metrics-charts.md).
@@ -107,4 +107,4 @@ Também pode criar anotações a partir de qualquer processo que quiser (sem uti
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar itens de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automação com PowerShell](../../application-insights/app-insights-powershell.md)
+* [Automação com PowerShell](../../azure-monitor/app/powershell.md)

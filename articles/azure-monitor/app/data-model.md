@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6920e1878a8d31072480a6b604e404bb9913f634
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812237"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025152"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados de telemetria do Application Insights
 
@@ -55,5 +55,5 @@ Para reportar problemas de modelo ou o esquema de dados e sugestões utilizá-lo
 
 - [Escrever telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
 - Saiba como [estender e filtrar telemetria](../../azure-monitor/app/api-filtering-sampling.md).
-- Uso [amostragem](../../application-insights/app-insights-sampling.md) para minimizar a quantidade de telemetria com base no modelo de dados.
-- Confira [plataformas](../../application-insights/app-insights-platforms.md) suportada pelo Application Insights.
+- Uso [amostragem](../../azure-monitor/app/sampling.md) para minimizar a quantidade de telemetria com base no modelo de dados.
+- Confira [plataformas](../../azure-monitor/app/platforms.md) suportada pelo Application Insights.

@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c61612bad181eb600f449fea7eb22ca2abc17a12
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629502"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020460"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -106,7 +105,7 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
 | tempo limite |Período de tempo |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
 | atraso |Período de tempo |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
-| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repita: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01: 00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
 | longRetryInterval |Período de tempo |00:00:00 |O atraso entre tentativas de repetição longa |
 
 ### <a name="typeproperties-section"></a>secção typeProperties
@@ -168,7 +167,7 @@ Tenha em atenção os seguintes pontos:
 
 Ver [ARQUIVOS de dados](#data-stores) secção neste artigo para exemplos JSON que mostram como usar um dados armazenam como uma origem de e/ou o sink.    
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Para obter instruções completas de criar este pipeline, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ### <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplos
 No pipeline de exemplo seguinte, existe uma atividade do tipo **HDInsightHive** na secção **activities**. Neste exemplo, a [atividade Hive do HDInsight](data-factory-hive-activity.md) transforma dados de um armazenamento de Blobs do Azure mediante a execução de um ficheiro de script de Hive num cluster do Hadoop para o Azure HDInsight. 
@@ -226,7 +225,7 @@ Tenha em atenção os seguintes pontos:
 
 Ver [atividades de transformação de dados](#data-transformation-activities) secção deste artigo para exemplos JSON que definem as atividades de transformação num pipeline.
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: criar o seu primeiro pipeline para processar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md). 
+Para obter instruções completas de criar este pipeline, veja [Tutorial: Crie seu primeiro pipeline para processar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="linked-service"></a>Serviço ligado
 A estrutura de alto nível para uma definição de serviço ligado é o seguinte:
@@ -247,7 +246,7 @@ Seguinte tabela descreve as propriedades na definição JSON da atividade:
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- | 
 | nome | Nome do serviço ligado. | Sim | 
-| Propriedades - tipo | Tipo de serviço ligado. Por exemplo: armazenamento do Azure, base de dados do Azure SQL. |
+| Propriedades - tipo | Tipo de serviço ligado. Por exemplo: O armazenamento do Azure, base de dados SQL do Azure. |
 | typeProperties | A secção typeProperties tem elementos que são diferentes para cada arquivo de dados ou ambiente de computação. Ver [arquivos de dados](#datastores) secção para todos os dados de serviços ligados de arquivo e [ambientes de computação](#compute-environments) para todos os a computação de serviços ligados |   
 
 ## <a name="dataset"></a>Conjunto de dados 
@@ -302,7 +301,7 @@ Cada coluna no **estrutura** seção contém as seguintes propriedades:
 | cultura |.NET com base em cultura a ser utilizado quando o tipo especificado e é o tipo de .NET `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
 | Formato |Formatar a cadeia de caracteres a ser utilizado quando o tipo especificado e é o tipo de .NET `Datetime` ou `Datetimeoffset`. |Não |
 
-No exemplo seguinte, o conjunto de dados tem três colunas `slicetimestamp`, `projectname`, e `pageviews` e são do tipo: cadeia, cadeia de caracteres e Decimal, respetivamente.
+No exemplo seguinte, o conjunto de dados tem três colunas `slicetimestamp`, `projectname`, e `pageviews` e são do tipo: Cadeia, cadeia de caracteres e Decimal, respetivamente.
 
 ```json
 structure:  
@@ -317,11 +316,11 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: minuto, hora, dia, semana, mês |Sim |ND |
-| intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido.<br/><br/>Se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Tenha em atenção</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não menos do que 15 |Sim |ND |
+| frequência |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
+| intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido.<br/><br/>Se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não menos do que 15 |Sim |ND |
 | Estilo |Especifica se o setor deve ser gerado no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo é definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência está definida como o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência está definida como hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor durante o período de 1 PM – 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo utilizado pelo agendador para computar os limites de setor de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, em seguida, o <b>minutos e segundos</b> partes do AnchorDateTime são ignorados. |Não |01/01/0001 |
-| deslocamento |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/><b>Tenha em atenção</b>: se anchorDateTime e deslocamento são especificados, o resultado é a mudança de combinada. |Não |ND |
+| anchorDateTime |Define a posição absoluta no tempo utilizado pelo agendador para computar os limites de setor de conjunto de dados. <br/><br/><b>Nota</b>: Se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b> , em seguida, o <b>minutos e segundos</b> partes do AnchorDateTime são ignorados. |Não |01/01/0001 |
+| deslocamento |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/><b>Nota</b>: Se forem especificados anchorDateTime e desvio, o resultado é a mudança combinada. |Não |ND |
 
 A secção de disponibilidade seguinte especifica que o conjunto de dados de saída é produzidos por hora (ou) entrada do conjunto de dados está disponível uma vez por hora:
 
@@ -407,7 +406,7 @@ Clique na ligação para o arquivo que estiver interessado em ver os esquemas JS
 ## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 ### <a name="linked-service"></a>Serviço ligado
-Existem dois tipos de serviços ligados: serviço ligado do armazenamento do Azure e serviço ligado do armazenamento Azure SAS.
+Existem dois tipos de serviços ligados: O serviço ligado do armazenamento do Azure e serviço de SAS de armazenamento do Azure ligado.
 
 #### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 Para ligar a sua conta de armazenamento do Azure para uma fábrica de dados utilizando o **chave de conta**, criar um serviço ligado do armazenamento do Azure. Para definir um armazenamento do Azure de serviço ligado, defina o **tipo** do serviço ligado para **AzureStorage**. Em seguida, pode especificar seguindo as propriedades no **typeProperties** secção:  
@@ -459,10 +458,10 @@ Para definir um conjunto de dados de Blobs do Azure, defina o **tipo** do conjun
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Caminho para o contentor e a pasta no armazenamento de Blobs. Exemplo: myblobcontainer\myblobfolder\ |Sim |
-| fileName |Nome do blob. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no Blob específico.<br/><br/>Quando o nome de ficheiro não for especificada, a cópia inclui todos os Blobs no folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Data. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do blob. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no Blob específico.<br/><br/>Quando o nome de ficheiro não for especificada, a cópia inclui todos os Blobs no folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -591,7 +590,7 @@ Para definir um Store do Azure Data Lake serviço ligado, defina o tipo do servi
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **AzureDataLakeStore** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **AzureDataLakeStore** | Sim |
 | dataLakeStoreUri | Especifique informações sobre a conta do Azure Data Lake Store. É no seguinte formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
 | subscriptionId | Id de subscrição do Azure à qual pertence a Data Lake Store. | Necessário para o sink |
 | resourceGroupName | Nome do grupo de recursos do Azure à qual pertence a Data Lake Store. | Necessário para o sink |
@@ -642,10 +641,10 @@ Para definir um conjunto de dados do Azure Data Lake Store, defina o **tipo** do
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | folderPath |Caminho para o contentor e a pasta no Azure Data Lake armazenar. |Sim |
-| fileName |Nome do ficheiro no armazenamento do Azure Data Lake. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando o nome de ficheiro não for especificada, cópia inclui todos os ficheiros em folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Data. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do ficheiro no armazenamento do Azure Data Lake. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando o nome de ficheiro não for especificada, cópia inclui todos os ficheiros em folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -737,7 +736,7 @@ Se estiver a copiar dados para um Store do Azure Data Lake, definir o **tipo de 
 | --- | --- | --- | --- |
 | copyBehavior |Especifica o comportamento de cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com o nome gerado automaticamente.<br/><br/><b>MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro/Blob for especificado, o nome de ficheiro intercalada seria o nome especificado; caso contrário, seria o nome de ficheiro gerado automaticamente. |Não |
 
-#### <a name="example-azuredatalakestoresink"></a>Exemplo: um AzureDataLakeStoreSink
+#### <a name="example-azuredatalakestoresink"></a>Exemplo: AzureDataLakeStoreSink
 ```json
 {
     "name": "SamplePipeline",
@@ -884,8 +883,8 @@ Se estiver a copiar dados para o Azure Cosmos DB, definir o **tipo de sink** da 
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nestingSeparator |É necessário um caráter especial no nome da coluna de origem para indicar esse documento aninhado. <br/><br/>Por exemplo acima: `Name.First` na saída da tabela produz a seguinte estrutura JSON no documento do Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto). |
-| writeBatchSize |Número de pedidos paralelos para o serviço do Azure Cosmos DB para criar documentos.<br/><br/>Pode ajustar o desempenho ao copiar dados de/para Azure Cosmos DB ao utilizar esta propriedade. Pode esperar um melhor desempenho quando aumenta writeBatchSize porque são enviados os pedidos paralelos mais ao Azure Cosmos DB. No entanto, terá de evitar a limitação que pode jogar a mensagem de erro: "Pedir a taxa é grande".<br/><br/>A limitação é decidida por um número de fatores, incluindo o tamanho de documentos, o número de termos em documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção de melhor (por exemplo, S3) que tenha o máximo débito disponível (pedido de 2500 unidades por segundo). |Número inteiro |Não (predefinição: 5) |
+| nestingSeparator |É necessário um caráter especial no nome da coluna de origem para indicar esse documento aninhado. <br/><br/>Por exemplo acima: `Name.First` na saída da tabela produz a seguinte estrutura JSON no documento do Cosmos DB:<br/><br/>"Name": {<br/>    "Primeiro": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto). |
+| writeBatchSize |Número de pedidos paralelos para o serviço do Azure Cosmos DB para criar documentos.<br/><br/>Pode ajustar o desempenho ao copiar dados de/para Azure Cosmos DB ao utilizar esta propriedade. Pode esperar um melhor desempenho quando aumenta writeBatchSize porque são enviados os pedidos paralelos mais ao Azure Cosmos DB. No entanto, terá de evitar a limitação que pode gerar a mensagem de erro: "Taxa de pedidos é grande".<br/><br/>A limitação é decidida por um número de fatores, incluindo o tamanho de documentos, o número de termos em documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção de melhor (por exemplo, S3) que tenha o máximo débito disponível (pedido de 2500 unidades por segundo). |Número inteiro |Não (predefinição: 5) |
 | writeBatchTimeout |Tempo para a operação seja concluída antes de atingir o tempo limite de espera. |Período de tempo<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
@@ -1392,14 +1391,14 @@ Para obter mais informações, consulte [conector do Azure Search](data-factory-
 ## <a name="azure-table-storage"></a>Table Storage do Azure
 
 ### <a name="linked-service"></a>Serviço ligado
-Existem dois tipos de serviços ligados: serviço ligado do armazenamento do Azure e serviço ligado do armazenamento Azure SAS.
+Existem dois tipos de serviços ligados: O serviço ligado do armazenamento do Azure e serviço de SAS de armazenamento do Azure ligado.
 
 #### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 Para ligar a sua conta de armazenamento do Azure para uma fábrica de dados utilizando o **chave de conta**, criar um serviço ligado do armazenamento do Azure. Para definir um armazenamento do Azure de serviço ligado, defina o **tipo** do serviço ligado para **AzureStorage**. Em seguida, pode especificar seguindo as propriedades no **typeProperties** secção:  
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo deve ser definida como: **AzureStorage** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **AzureStorage** |Sim |
 | connectionString |Especifica as informações necessárias para ligar ao armazenamento do Azure para a propriedade connectionString. |Sim |
 
 **Exemplo:**  
@@ -1421,7 +1420,7 @@ O serviço de SAS de armazenamento do Azure ligada permite-lhe ligar uma conta d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo deve ser definida como: **AzureStorageSas** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **AzureStorageSas** |Sim |
 | sasUri |Especifique o URI de assinatura de acesso partilhado para os recursos de armazenamento do Azure, como BLOBs, contentores ou tabela. |Sim |
 
 **Exemplo:**
@@ -1594,7 +1593,7 @@ Para definir um Amazon Redshift serviço ligado, defina o **tipo** do serviço l
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | servidor |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
-| porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Valor predefinido não,: 5439 |
+| porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, o valor predefinido: 5439 |
 | base de dados |Nome da base de dados do Amazon Redshift. |Sim |
 | o nome de utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
 | palavra-passe |Palavra-passe da conta de utilizador. |Sim |
@@ -1708,7 +1707,7 @@ Para definir o IBM DB2 serviço ligado, defina o **tipo** do serviço ligado par
 | servidor |Nome do servidor DB2. |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
 | esquema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2. Os valores possíveis são: anónimo, básico e Windows. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados de DB2 no local. |Sim |
@@ -2115,7 +2114,7 @@ Para definir um PostgreSQL serviço ligado, defina o **tipo** do serviço ligado
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
 | esquema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
@@ -2235,7 +2234,7 @@ servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Si
 systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
 o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
-palavra-passe | Palavra-passe do utilizador. | cadeia | Sim
+palavra-passe | A palavra-passe do utilizador. | cadeia | Sim
 gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
 encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
@@ -2344,7 +2343,7 @@ Propriedade | Descrição | Valores permitidos | Necessário
 servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
 o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
-palavra-passe | Palavra-passe do utilizador. | cadeia | Sim
+palavra-passe | A palavra-passe do utilizador. | cadeia | Sim
 gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
 encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
@@ -2673,7 +2672,7 @@ Para definir um Sybase serviço ligado, defina o **tipo** do serviço ligado par
 | servidor |Nome do servidor Sybase. |Sim |
 | base de dados |Nome da base de dados Sybase. |Sim |
 | esquema |Nome do esquema na base de dados. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados Sybase. Os valores possíveis são: anónimo, básico e Windows. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados de Sybase no local. |Sim |
@@ -2791,7 +2790,7 @@ Para definir um Teradata serviço ligado, defina o **tipo** do serviço ligado p
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | servidor |Nome do servidor de Teradata. |Sim |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados Teradata. Os valores possíveis são: anónimo, básico e Windows. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do Teradata no local. |Sim |
@@ -2905,7 +2904,7 @@ Para definir um serviço ligado do Cassandra, defina o **tipo** do serviço liga
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | anfitrião |Um ou mais endereços IP ou nomes de anfitrião dos servidores de Cassandra.<br/><br/>Especifica uma lista separada por vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores em simultâneo. |Sim |
-| porta |A porta TCP que o servidor Cassandra utiliza para escutar ligações de cliente. |Valor predefinido não,: 9042 |
+| porta |A porta TCP que o servidor Cassandra utiliza para escutar ligações de cliente. |Não, o valor predefinido: 9042 |
 | authenticationType |Básico ou anónimo |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para a conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador. |Sim, se authenticationType está definido para básico. |
@@ -3032,10 +3031,10 @@ Para definir uma MongoDB de serviço ligado, defina o **tipo** do serviço ligad
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | servidor |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
-| porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor de predefinição: 27017 |
+| porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor de predefinido: 27017 |
 | authenticationType |Básico ou anónimo. |Sim |
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
-| palavra-passe |Palavra-passe do utilizador. |Sim (se for utilizada autenticação básica). |
+| palavra-passe |A palavra-passe do utilizador. |Sim (se for utilizada autenticação básica). |
 | authSource |Nome da base de dados do MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada, utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados do MongoDB que pretende aceder. |Sim |
 | gatewayName |Nome do gateway que acessa o arquivo de dados. |Sim |
@@ -3180,8 +3179,8 @@ Para definir um conjunto de dados do Amazon S3, defina o **tipo** do conjunto de
 | key |A chave de objeto de S3. |Cadeia |Não |
 | prefixo |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |Cadeia |Não |
 | versão |A versão do objeto de S3 se o controlo de versões de S3 está ativado. |Cadeia |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não | |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não | |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
 
 > [!NOTE]
@@ -3235,7 +3234,7 @@ Para definir um conjunto de dados do Amazon S3, defina o **tipo** do conjunto de
 }
 ```
 
-#### <a name="example-dynamic-paths-for-s3"></a>Exemplo: Caminhos dinâmicos para S3
+#### <a name="example-dynamic-paths-for-s3"></a>Exemplo: Caminhos de dinâmicos para S3
 No exemplo, utilizamos valores fixos para propriedades de chave e bucketName do conjunto de dados do Amazon S3.
 
 ```json
@@ -3330,7 +3329,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 | Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\MyServer\\\\partilhar |. \\ \\ ou pasta\\\\subpasta |
 
 
-#### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Utilizar o nome de utilizador e palavra-passe em texto simples
+#### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Usando o nome de utilizador e palavra-passe em texto simples
 
 ```json
 {
@@ -3371,11 +3370,11 @@ Para definir um conjunto de dados do sistema de ficheiros, defina o **tipo** do 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
-| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. <br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: "fileFilter": "*. log"<br/>Exemplo 2: "fileFilter": 2016 - 1-?. txt"<br/><br/>Tenha em atenção que fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. |Não |
 | partitionedBy |Pode usar partitionedBy para especificar um folderPath/nome de ficheiro dinâmica para dados de séries temporais. Um exemplo é folderPath parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**; e os níveis de suportados são: **Optimal** e **mais rápida**. ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**; e os níveis de suportados são: **Ideal** e **mais rápida**. ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > Não é possível utilizar nome de ficheiro e fileFilter em simultâneo.
@@ -3494,7 +3493,7 @@ Se estiver a copiar dados para o sistema de ficheiros, defina o **tipo de sink**
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou sistema de ficheiros. |**PreserveHierarchy:** preserva a hierarquia de ficheiros na pasta de destino. Ou seja, o caminho relativo do ficheiro de origem para a pasta de origem é o mesmo que o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles:** une todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de blob/nome de ficheiro, o nome de ficheiro mesclada é o nome especificado. Caso contrário, ele é um nome de ficheiro gerado automaticamente. |Não |
+| copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou sistema de ficheiros. |**PreserveHierarchy:** Preserva a hierarquia de ficheiros na pasta de destino. Ou seja, o caminho relativo do ficheiro de origem para a pasta de origem é o mesmo que o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** Todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles:** Une todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de blob/nome de ficheiro, o nome de ficheiro mesclada é o nome especificado. Caso contrário, ele é um nome de ficheiro gerado automaticamente. |Não |
 auto-
 
 #### <a name="example"></a>Exemplo
@@ -3574,7 +3573,7 @@ Para definir um FTP serviço ligado, defina o **tipo** do serviço ligado para *
 }
 ```
 
-#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Exemplo: Utilizar o nome de utilizador e palavra-passe em texto simples para a autenticação básica
+#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Exemplo: Usando o nome de utilizador e palavra-passe em texto simples para a autenticação básica
 
 ```json
 {
@@ -3639,9 +3638,9 @@ Para definir um conjunto de dados FTP, defina o **tipo** do conjunto de dados pa
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Por exemplo, folderPath parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**; e os níveis de suportados são: **Optimal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
-| useBinaryTransfer |Especifique se utilizar o modo de transferência do binário. Verdadeiro para o modo de binário e ASCII FALSO. Valor predefinido: True. Esta propriedade só pode ser utilizada quando o tipo de serviço ligado associado é do tipo: FtpServer. |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**; e os níveis de suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| useBinaryTransfer |Especifique se utilizar o modo de transferência do binário. Verdadeiro para o modo de binário e ASCII FALSO. Valor predefinido: VERDADEIRO. Esta propriedade só pode ser utilizada quando o tipo de serviço ligado associado é do tipo: FtpServer. |Não |
 
 > [!NOTE]
 > nome de ficheiro e fileFilter não podem ser utilizadas em simultâneo.
@@ -3727,7 +3726,7 @@ Para definir um HDFS serviço ligado, defina o **tipo** do serviço ligado para 
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **Hdfs** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **Hdfs** |Sim |
 | Url |URL para o HDFS |Sim |
 | authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
 | userName |Autenticação de nome de utilizador para Windows. |Sim (para autenticação do Windows) |
@@ -3780,8 +3779,8 @@ Para definir um conjunto de dados do HDFS, defina o **tipo** do conjunto de dado
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Exemplo: folderPath parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > nome de ficheiro e fileFilter não podem ser utilizadas em simultâneo.
@@ -3865,7 +3864,7 @@ Para definir um SFTP serviço ligado, defina o **tipo** do serviço ligado para 
 | --- | --- | --- | --- |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
 | porta |Porta em que o servidor SFTP está a escutar. O valor predefinido é: 21 |Não |
-| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **básica**, **SshPublicKey**. <br><br> Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
+| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Básica**, **SshPublicKey**. <br><br> Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
 | skipHostKeyValidation | Especifique se pretende ignorar a validação da chave de anfitrião. | Não. O valor predefinido: Falso |
 | hostKeyFingerprint | Especifique a impressão digital da chave de anfitrião. | Sim se o `skipHostKeyValidation` é definido como false.  |
 | gatewayName |Nome do Gateway de gestão de dados para ligar a um servidor SFTP no local. | Sim se copiam dados a partir de um servidor SFTP no local. |
@@ -3899,7 +3898,7 @@ Para utilizar a autenticação básica, defina `authenticationType` como `Basic`
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemplo: **autenticação básica com a credencial encriptada**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemplo: **Autenticação básica com a credencial encriptada**
 
 ```json
 {
@@ -3950,7 +3949,7 @@ Para utilizar a autenticação básica, defina `authenticationType` como `SshPub
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemplo: **SshPublicKey a autenticação com o conteúdo da chave privado**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemplo: **Autenticação de SshPublicKey com o conteúdo da chave privado**
 
 ```json
 {
@@ -3981,9 +3980,9 @@ Para definir um conjunto de dados do SFTP, defina o **tipo** do conjunto de dado
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Por exemplo, folderPath parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
-| useBinaryTransfer |Especifique se utilizar o modo de transferência do binário. Verdadeiro para o modo de binário e ASCII FALSO. Valor predefinido: True. Esta propriedade só pode ser utilizada quando o tipo de serviço ligado associado é do tipo: FtpServer. |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| useBinaryTransfer |Especifique se utilizar o modo de transferência do binário. Verdadeiro para o modo de binário e ASCII FALSO. Valor predefinido: VERDADEIRO. Esta propriedade só pode ser utilizada quando o tipo de serviço ligado associado é do tipo: FtpServer. |Não |
 
 > [!NOTE]
 > nome de ficheiro e fileFilter não podem ser utilizadas em simultâneo.
@@ -4071,7 +4070,7 @@ Para definir um pedido HTTP de serviço ligado, defina o **tipo** do serviço li
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | url | URL de base para o servidor Web | Sim |
-| authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básica**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela em mais propriedades e exemplos JSON para esses tipos de autenticação, respetivamente. | Sim |
+| authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **Anónimo**, **básica**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela em mais propriedades e exemplos JSON para esses tipos de autenticação, respetivamente. | Sim |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação de certificado SSL do servidor, se a origem é o servidor de Web de HTTPS | Não, a predefinição é verdadeiro |
 | gatewayName | Nome do Gateway de gestão de dados para ligar a uma origem HTTP no local. | Sim, se copiar dados a partir de uma origem HTTP no local. |
 | encryptedCredential | Credencial encriptada para aceder ao ponto final HTTP. Gerado automaticamente quando configura as informações de autenticação no Assistente de cópia ou a caixa de diálogo de pop-up do ClickOnce. | Não. Aplicam-se apenas quando se copiam dados a partir de um servidor HTTP no local. |
@@ -4116,7 +4115,7 @@ Se usar `certThumbprint` para autenticação e o certificado está instalado no 
 3. O certificado do arquivo pessoal com o botão direito e selecione **todas as tarefas**->**gerir chaves privadas...**
 3. Sobre o **segurança** separador, adicione a conta de utilizador sob a qual o serviço de anfitrião do Data Management Gateway está em execução com o acesso de leitura para o certificado.  
 
-**Exemplo: utilizar o certificado de cliente:** este serviço ligado liga a sua fábrica de dados para um servidor de web HTTP no local. Ele usa um certificado de cliente é instalado na máquina com o Data Management Gateway instalado.
+**Exemplo: utilizar o certificado de cliente:** Este serviço ligado liga a fábrica de dados para um servidor de web HTTP no local. Ele usa um certificado de cliente é instalado na máquina com o Data Management Gateway instalado.
 
 ```json
 {
@@ -4162,8 +4161,8 @@ Para definir um conjunto de dados HTTP, defina o **tipo** do conjunto de dados p
 | requestMethod | Método HTTP. Valores permitidos são **Obtenha** ou **POST**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
 | RequestBody | Corpo de pedido HTTP. | Não |
-| Formato | Se quiser simplesmente **recuperar os dados do ponto de extremidade HTTP como-é** sem analisá-lo, ignorar esta definição de formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, ** OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | Se quiser simplesmente **recuperar os dados do ponto de extremidade HTTP como-é** sem analisá-lo, ignorar esta definição de formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 #### <a name="example-using-the-get-default-method"></a>Exemplo: usando o método GET (predefinição)
 
@@ -4214,7 +4213,7 @@ Se estiver a copiar dados de uma origem HTTP, definir o **tipo de origem** da at
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | O tempo limite (intervalo de tempo) para o pedido HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não. Valor predefinido: 00:01:40 |
+| httpRequestTimeout | O tempo limite (intervalo de tempo) para o pedido HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não. Valor predefinido: 01:00:40 |
 
 
 #### <a name="example"></a>Exemplo
@@ -4440,7 +4439,7 @@ Para definir um ODBC serviço ligado, defina o **tipo** do serviço ligado para 
 | --- | --- | --- |
 | connectionString |A credencial de acesso de leitura não parte de cadeia de ligação e uma credencial encriptada opcional. Veja exemplos nas seções a seguir. |Sim |
 | credencial |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: "Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>; ". |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: anônimos e básico. |Sim |
+| authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: Anónimo e básico. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao arquivo de dados ODBC. |Sim |
@@ -4841,7 +4840,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | versão |Versão do cluster do HDInsight. Para obter detalhes, consulte [suportadas versões do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
 | linkedServiceName |Serviço ligado do armazenamento do Azure a ser utilizado pelo cluster sob demanda para armazenar e processar dados. <p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Store do Azure Data Lake como o armazenamento. Se pretende armazenar os dados de resultado do processamento num Store do Azure Data Lake do HDInsight, utilize uma atividade de cópia para copiar os dados do armazenamento de Blobs do Azure para o Store do Azure Data Lake.</p>  | Sim |
 | additionalLinkedServiceNames |Especifica o serviço de ligado de contas de armazenamento adicional para o HDInsight, para que o serviço Data Factory pode registá-los em seu nome. |Não |
-| osType |Tipo de sistema operativo. Valores permitidos são: (predefinição) do Windows e Linux |Não |
+| osType |Tipo de sistema operativo. Valores permitidos são: (Predefinição) do Windows e Linux |Não |
 | hcatalogLinkedServiceName |O nome de SQL do Azure vinculada serviço que apontam para a base de dados do HCatalog. O cluster de HDInsight a pedido é criado ao utilizar a base de dados SQL do Azure como o metastore. |Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
@@ -4931,7 +4930,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Criar um serviço ligado do Azure Machine Learning para registar um ponto final com uma fábrica de dados de classificação de lote do Machine Learning. Atividades de transformação de dados de dois que podem ser executados neste serviço de ligado: [atividade de execução de lote do Machine Learning](#machine-learning-batch-execution-activity), [atividade de recursos de atualização do Machine Learning](#machine-learning-update-resource-activity). 
+Criar um serviço ligado do Azure Machine Learning para registar um ponto final com uma fábrica de dados de classificação de lote do Machine Learning. Atividades de transformação de dados de dois que podem ser executados neste serviço ligado: [Atividade de execução de lote do Machine Learning](#machine-learning-batch-execution-activity), [atividade de recursos de atualização de Machine Learning](#machine-learning-update-resource-activity). 
 
 ### <a name="linked-service"></a>Serviço ligado
 A tabela seguinte fornece descrições para as propriedades utilizadas na definição de JSON do Azure de um serviço ligado do Azure Machine Learning.
@@ -5352,7 +5351,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | argumentos | Uma lista de argumentos da linha de comandos para o programa Spark. | Não | 
 | proxyUser | A conta de utilizador para representar a execução do programa Spark | Não | 
 | sparkConfig | Propriedades de configuração de Spark. | Não | 
-| getDebugInfo | Especifica quando os ficheiros de registo do Spark são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos: nenhum, sempre ou falha. Valor predefinido: nenhum. | Não | 
+| getDebugInfo | Especifica quando os ficheiros de registo do Spark são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não | 
 | sparkJobLinkedService | Serviço que contém o Spark, o ficheiro de tarefa, dependências e registos de ligado de armazenamento do Azure.  Se não especificar um valor para esta propriedade, o armazenamento associado com o cluster do HDInsight é utilizado. | Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
@@ -5447,7 +5446,7 @@ Neste exemplo, a atividade possui o conjunto de dados **MLSqlInput** como entrad
 }
 ```
 
-O exemplo de JSON, o serviço Azure Machine Learning Web implementado utiliza um leitor e um módulo de escritor de dados de/para uma base de dados do SQL do Azure de leitura/escrita. Esse Web service expõe os seguintes quatro parâmetros: nome do servidor, o nome de base de dados, o nome de conta de utilizador do servidor e o senha de conta de utilizador do servidor de base de dados.
+O exemplo de JSON, o serviço Azure Machine Learning Web implementado utiliza um leitor e um módulo de escritor de dados de/para uma base de dados do SQL do Azure de leitura/escrita. Esse Web service expõe os seguintes quatro parâmetros:  Nome do servidor de base de dados, nome de base de dados, nome de conta de utilizador do servidor e palavra-passe de conta de utilizador Server.
 
 > [!NOTE]
 > Apenas entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no fragmento JSON acima, MLSqlInput for uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web via parâmetro webServiceInput.
@@ -5526,7 +5525,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 |:--- |:--- |:--- |
 | scriptPath |Caminho para a pasta que contém o script de U-SQL. Nome do ficheiro diferencia maiúsculas de minúsculas. |Não (se usar o script) |
 | scriptLinkedService |Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados |Não (se usar o script) |
-| script |Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: "script": "Test criar base de dados". |Não (se usar scriptPath e scriptLinkedService) |
+| script |Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: "script": "Teste de criar o banco de dados". |Não (se usar scriptPath e scriptLinkedService) |
 | degreeOfParallelism |O número máximo de nós em simultâneo utilizada para executar a tarefa. |Não |
 | prioridade |Determina quais os trabalhos em fila de espera devem ser selecionados para executar primeiro. Menor o número, maior será a prioridade. |Não |
 | parâmetros |Parâmetros para o script de U-SQL |Não |
@@ -5637,8 +5636,8 @@ Pode especificar as seguintes propriedades numa atividade personalizada .NET de 
  
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| AssemblyName | Nome do assembly. No exemplo, é: **mydotnetactivity. dll**. | Sim |
-| EntryPoint |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **mydotnetactivityns. Mydotnetactivity** onde MyDotNetActivityNS é o espaço de nomes e MyDotNetActivity é a classe.  | Sim | 
+| AssemblyName | Nome do assembly. No exemplo, é: **Mydotnetactivity. dll**. | Sim |
+| EntryPoint |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **Mydotnetactivityns. Mydotnetactivity** onde MyDotNetActivityNS é o espaço de nomes e MyDotNetActivity é a classe.  | Sim | 
 | PackageLinkedService | Nome do serviço ligado do armazenamento do Azure que aponta para o armazenamento de BLOBs que contém o ficheiro de zip da atividade personalizada. No exemplo, é: **AzureStorageLinkedService**.| Sim |
 | PackageFile | Nome do ficheiro zip. No exemplo, é: **customactivitycontainer**. | Sim |
 | ExtendedProperties | Propriedades expandidas, que pode definir e transmitir para o código .NET. Neste exemplo, o **SliceStart** variável é definida como um valor com base na variável do sistema do SliceStart. | Não | 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5cc5e0e9bf1d05bde273d1c26c03165a38e02122
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ea2e0513ef2674fdbe6d28f77c4f709848a0d2eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976652"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016380"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -78,7 +78,7 @@ Parece não haver nenhum sinal de limitação de recursos, pelo que é possível
 ## <a name="set-alerts-to-meet-goals"></a>Definir alertas para atingir objetivos
 Contudo, a Marcela quer manter os tempos de resposta debaixo de olho. Se subirem demasiado, quer saber imediatamente.
 
-Por isso, define um [alerta](../../application-insights/app-insights-metrics-explorer.md) para tempos de resposta superiores a um limiar comum. Assim, está segura de que terá conhecimento caso os tempos de resposta sejam lentos.
+Por isso, define um [alerta](../../azure-monitor/app/metrics-explorer.md) para tempos de resposta superiores a um limiar comum. Assim, está segura de que terá conhecimento caso os tempos de resposta sejam lentos.
 
 ![Painel Adicionar alerta](./media/detect-triage-diagnose/07-alerts.png)
 
@@ -184,7 +184,7 @@ Os diagnósticos não são exatamente o mesmo que a depuração. Antes de inicia
 
 Alguns problemas de dependência lenta são problemas de geolocalização. O Fabrikam Bank utiliza as Máquinas Virtuais do Azure e descobriu que pôs, inadvertidamente, o servidor Web e o servidor de contas em diferentes países. A migração de um destes resultou numa melhoria drástica.
 
-**O que é que fizemos?** Se o problema parecer não estar relacionado com uma dependência e se nunca tiver ocorrido, é provavelmente provocado por uma alteração recente. A perspetiva histórica que os gráficos de métricas e eventos disponibilizam permitem correlacionar facilmente todas as alterações repentinas com as implementações. Desta forma, restringe-se o âmbito da procura do problema. Para identificar que linhas do código da aplicação abrandaram o desempenho, ative o Application Insights Profiler. Veja [Profiling live Azure web apps with Application Insights](./../../application-insights/app-insights-profiler.md) (Criar perfis de aplicações Web do Azure com o Application Insights). Depois de ativado o Profiler, verá um rastreio semelhante ao seguinte. Neste exemplo, é fácil ver que o método *GetStorageTableData* causou o problema.  
+**O que é que fizemos?** Se o problema parecer não estar relacionado com uma dependência e se nunca tiver ocorrido, é provavelmente provocado por uma alteração recente. A perspetiva histórica que os gráficos de métricas e eventos disponibilizam permitem correlacionar facilmente todas as alterações repentinas com as implementações. Desta forma, restringe-se o âmbito da procura do problema. Para identificar que linhas do código da aplicação abrandaram o desempenho, ative o Application Insights Profiler. Veja [Profiling live Azure web apps with Application Insights](./../../azure-monitor/app/profiler.md) (Criar perfis de aplicações Web do Azure com o Application Insights). Depois de ativado o Profiler, verá um rastreio semelhante ao seguinte. Neste exemplo, é fácil ver que o método *GetStorageTableData* causou o problema.  
 
 ![Rastreio do App Insights Profiler](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -229,7 +229,7 @@ Pode começar de várias formas, consoante as características da sua aplicaçã
 
 * [Aplicação Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Aplicação Web Java](../../azure-monitor/app/java-get-started.md)
-* [Aplicação Web Node.js](../../application-insights/app-insights-nodejs.md)
+* [Aplicação Web Node.js](../../azure-monitor/app/nodejs.md)
 * Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), no [J2EE](../../azure-monitor/app/java-live.md) ou no [Azure](../../application-insights/app-insights-overview.md).
 * [Páginas Web](../../azure-monitor/app/javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.

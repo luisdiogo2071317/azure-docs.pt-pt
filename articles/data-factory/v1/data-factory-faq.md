@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781918"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024047"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -55,7 +54,7 @@ Pode autor/criar fábricas de dados através de uma das ferramentas/SDKs seguint
 * **O Azure PowerShell** veja [criar e monitor do Azure Data Factory com o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para um tutorial/passo a passo para criar uma fábrica de dados com o PowerShell. Ver [referência de Cmdlet do Data Factory] [ adf-powershell-reference] conteúdo na biblioteca MSDN para obter uma documentação completa de cmdlets do Data Factory.
 * **Biblioteca de classes .NET** pode criar fábricas de dados programaticamente ao utilizar o SDK .NET do Data Factory. Ver [criar, monitorizar e gerir fábricas de dados com o .NET SDK](data-factory-create-data-factories-programmatically.md) para obter instruções sobre a criação de uma fábrica de dados com o .NET SDK. Ver [dados de referência da biblioteca de classe de fábrica] [ msdn-class-library-reference] para obter uma documentação completa do SDK .NET do Data Factory.
 * **REST API** também pode utilizar a API REST exposta pelo serviço do Azure Data Factory para criar e implementar as fábricas de dados. Ver [referência de API de REST do Data Factory] [ msdn-rest-api-reference] para uma documentação abrangente de API de REST do Data Factory.
-* **Modelo Azure Resource Manager** veja [Tutorial: criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) detalhes fo.
+* **Modelo Azure Resource Manager** consulte [Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) detalhes fo.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear uma fábrica de dados?
 Não. Como os outros recursos do Azure, não é possível alterar o nome de uma fábrica de dados do Azure.
@@ -72,7 +71,7 @@ A tabela seguinte fornece uma lista dos ambientes de computação suportados pel
 | --- | --- |
 | [Cluster de HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [O Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades do Machine Learning: Execução de lotes e atualizar recurso](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [SQL do Azure](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [do SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 

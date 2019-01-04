@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590335"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022296"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,12 +60,12 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **SapBw** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **SapBw** | Sim |
 | servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | Palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| palavra-passe | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
@@ -170,9 +169,9 @@ Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utiliza
 | ACCP | Int |
 | CHAR | Cadeia |
 | CLNT | Cadeia |
-| MÊS | decimal |
+| MÊS | Decimal |
 | CUKY | Cadeia |
-| DEZEMBRO | decimal |
+| DEZEMBRO | Decimal |
 | FLTP | Valor de duplo |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -181,7 +180,7 @@ Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utiliza
 | LCHR | Cadeia |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | decimal |
+| QUAN | Decimal |
 | NÃO PROCESSADOS | Byte[] |
 | RAWSTRING | Byte[] |
 | CADEIA DE CARACTERES | Cadeia |

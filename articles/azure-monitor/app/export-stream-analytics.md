@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: a6e9df1b5be0565e859c866b6ceb8ef44e6b271a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812343"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001843"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilizar o Stream Analytics para processar os dados exportados do Application Insights
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de origens. Pode transformar e filtrar os dados e, em seguida, encaminhar para uma variedade de sinks.
@@ -64,7 +64,7 @@ A exportação contínua sempre produz dados para uma conta de armazenamento do 
 
     ![Escolha os tipos de eventos](./media/export-stream-analytics/080.png)
 
-1. Permitir que alguns dados a acumularem. Relaxe e permitir que as pessoas utilizam a sua aplicação durante algum tempo. Telemetria chegarão e verá a gráficos de estatísticos [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) e eventos individuais no [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
+1. Permitir que alguns dados a acumularem. Relaxe e permitir que as pessoas utilizam a sua aplicação durante algum tempo. Telemetria chegarão e verá a gráficos de estatísticos [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) e eventos individuais no [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
    
     E, além disso, os dados vão exportar para o armazenamento. 
 2. Inspecione os dados exportados. No Visual Studio, escolha **ver / na Cloud Explorer**e abra o Azure / armazenamento. (Se não tiver esta opção de menu, tem de instalar o SDK do Azure: Abra a caixa de diálogo novo projeto e abra o elemento Visual C# / na Cloud / obter o Microsoft Azure SDK para .NET.)

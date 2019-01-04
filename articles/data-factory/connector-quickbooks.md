@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6e9557503933dfc5271868692cf8546c785bc03
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076110"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021855"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online com o Azure Data Factory (pré-visualização)
 
@@ -47,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço ligado de QuickBooks:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **QuickBooks** | Sim |
 | endpoint | O ponto final do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
 | companyId | O ID de empresa da empresa para autorizar o QuickBooks. Para informações sobre como localizar o ID da empresa, veja [como posso encontrar minha ID da empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
 | consumerKey | A chave de consumidor para a autenticação OAuth 1.0. | Sim |
@@ -93,7 +92,7 @@ Para copiar dados do QuickBooks Online, defina a propriedade de tipo de conjunto
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **QuickBooksObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 **Exemplo**
 

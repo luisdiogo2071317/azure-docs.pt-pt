@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096607"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022789"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
-No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas respetivas [associações de funções](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e na respetiva propriedade dos objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado.
+No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. Acesso de um utilizador consiste o tipo de utilizador, seus [associações das funções](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal)e a propriedade de objetos individual. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado.
 
 ## <a name="member-and-guest-users"></a>Utilizadores membros e convidados
-O conjunto de permissões predefinidas recebido depende se o utilizador é um membro nativo do inquilino (utilizador membro) ou se o utilizador é um convidado de colaboração B2B (utilizador convidado). Para obter mais informações sobre a colaboração B2B, veja [O que é a colaboração B2B do Azure AD?](../b2b/what-is-b2b.md) para obter mais informações sobre os utilizadores convidados. 
+O conjunto de permissões predefinidas recebido depende se o utilizador é um membro nativo do inquilino (utilizador membro) ou se o utilizador é um convidado de colaboração B2B (utilizador convidado). Para obter mais informações sobre a colaboração B2B, consulte [o que é a colaboração B2B do Azure AD?](../b2b/what-is-b2b.md) para obter mais informações sobre os utilizadores convidados. 
 * Os utilizadores membros podem registar aplicações, gerir a fotografia de perfil e o número de telemóvel, alterar a palavra-passe e convidar convidados B2B. Além disso, os utilizadores podem ler todas as informações de diretório (com algumas exceções). 
 * Os utilizadores convidados B2B do Azure AD têm a permissões de diretório restringidas. Por exemplo, os utilizadores convidados não podem procurar informações do inquilino além das suas próprias informações de perfil. No entanto, um utilizador convidado pode obter informações sobre outro utilizador, fornecendo o Nome Principal de Utilizador ou o objectId. Um convidado não consegue ver as informações sobre outros objetos de inquilino, como grupos e aplicações.
 

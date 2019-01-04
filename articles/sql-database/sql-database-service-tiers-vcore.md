@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: de77dfc40306f014a10e1ab11f2581392d3c160b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993748"
+ms.locfileid: "54001605"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
 O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
 
 - Gen 4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
-- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, o rápido eNVM SSD
+- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. GB por núcleo, o rápido eNVM SSD
 
 modelo de vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.
 
@@ -42,7 +42,7 @@ A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 |Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
 |Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
 |Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo|
-|Armazenamento|Utiliza [o armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 1 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|Armazenamento|Utiliza [o armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
 |Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápidos e não um tamanho de operação de dados (a demorar minutos em vez de horas ou dias).|

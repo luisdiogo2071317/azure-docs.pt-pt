@@ -10,17 +10,16 @@ ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 596a9e4e3e1d24bdcab561a7238548d418ac0581
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0a46a5707d1901c18d850ff9cfd8d4b09b72c646
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021276"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL com o Data Factory
 > [!div class="op_single_selector"]
@@ -65,7 +64,7 @@ Precisa do nome da conta e chave de conta da sua conta de armazenamento do Azure
 5. Clique em **cópia** botão (imagem), junto a **nome da conta de armazenamento** texto caixa e save/colá-lo em algum lugar (por exemplo: num ficheiro de texto).
 6. Repita o passo anterior para copiar ou tome nota da **chave1**.
 
-    ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Chave de acesso ao armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Fechar todos os painéis clicando **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Recolher do SQL server, base de dados, os nomes de utilizador
@@ -127,6 +126,6 @@ Concluiu os pré-requisitos. Pode criar uma fábrica de dados através de uma da
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Não transforma dados de entrada para produzir dados de saída. Para ver um tutorial sobre como transformar dados através do Azure Data Factory, consulte [Tutorial: Build your first pipeline to transform data using Hadoop cluster (Tutorial: Criar o seu primeiro pipeline para transformar dados com o cluster do Hadoop)](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Não transforma dados de entrada para produzir dados de saída. Para obter um tutorial sobre como transformar dados com o Azure Data Factory, veja [Tutorial: Crie seu primeiro pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > Pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Consulte [Scheduling and execution in Data Factory (Agendamento e execução no Data Factory)](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 

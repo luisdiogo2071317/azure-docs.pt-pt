@@ -10,16 +10,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/02/2017
+ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 5a224d7a78e35776b36b162228f6ba4c72677069
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 29e76338b8d19ce70dedea971d26a49544e9f152
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636208"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018148"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar o contexto de utilizador IDs para permitir experiências de utilização no Azure Application Insights
 
@@ -34,10 +34,11 @@ O Application Insights permite-lhe monitorizar e controlar os seus utilizadores 
 
 Para poder controlar o que faz um utilizador ao longo do tempo, o Application Insights tem um ID para cada utilizador ou a sessão. Inclua os seguintes IDs de em cada vista de evento ou página personalizada.
 
-- Os utilizadores, funis, retenção e coortes: incluem o ID de utilizador.
-- Sessões: Incluem o ID de sessão.
+- Os utilizadores, funis, retenção e coortes: Incluir o ID de utilizador.
+- Sessões: Incluir o ID de sessão.
 
-Se a sua aplicação está integrada com o [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), utilizador ID é controlado automaticamente.
+> [!NOTE]
+> Este é um artigo avançado que descreva os passos manuais para controlar a atividade do utilizador com o Application Insights. Com muitos aplicativos web **estes passos podem não ser necessários**, como o servidor de predefinição SDKs em conjunto com o [SDK de JavaScript do lado do cliente/Browser](app-insights-website-monitoring.md), costumam ser suficiente para monitorizar automaticamente atividade do utilizador. Se ainda não configurado [monitorização do lado do cliente](app-insights-website-monitoring.md) além do SDK do lado do servidor, faça-o primeiro e testar para ver se as ferramentas de análise de comportamento do utilizador são executadas conforme esperado.
 
 ## <a name="choosing-user-ids"></a>Escolher os IDs de utilizador
 
@@ -51,7 +52,7 @@ O ID deve ser um Guid ou outra cadeia suficientemente complexa para identificar 
 
 Se o ID contém informações de identificação pessoal sobre o utilizador, não é um valor adequado para enviar para o Application Insights como um ID de utilizador. Pode enviar esse um ID como um [autenticado o ID de utilizador](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas não cumpre o requisito de ID de utilizador para cenários de utilização.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicações do ASP.NET: definir o contexto de usuário num ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicações do ASP.NET: Definir o contexto de usuário num ITelemetryInitializer
 
 Criar um inicializador de telemetria, conforme descrito em detalhe [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Passar o ID de sessão através de telemetria de pedido e definir o Context.User.Id e o Context.Session.Id.
 
@@ -138,7 +139,7 @@ namespace MvcWebRole.Telemetry
 - Para permitir experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se já tiver enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o seu serviço.
     - [Descrição geral da utilização](app-insights-usage-overview.md)
-    - [Os utilizadores, sessões e eventos](app-insights-usage-segmentation.md)
+    - [Users, Sessions, and Events](app-insights-usage-segmentation.md) (Utilizadores, Sessões e Eventos)
     - [Funis](usage-funnels.md)
     - [Retenção](app-insights-usage-retention.md)
     - [Livros](app-insights-usage-workbooks.md)

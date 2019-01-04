@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: ddd5bc574dcef548a62fbe7d3a0300a71ce73cf3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558843"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002761"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -306,6 +306,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ApplicationUpgradeTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(360)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para a atualização da aplicação. Se o tempo limite é menor do que o implementador de "ActivationTimeout" irá falhar. |
 |ContainerServiceArguments|cadeia de caracteres, a predefinição é "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
 |ContainerServiceLogFileMaxSizeInKb|int, a predefinição é 32768|Estático|Tamanho máximo do ficheiro de registo gerado pelo contentores do docker.  Windows.|
+|ContainerImageDownloadTimeout|int, número de segundos, a predefinição é 1200 (20 minutos)|Dinâmica|Número de segundos antes de download da imagem exceder o tempo limite.|
 |ContainerImagesToSkip|cadeia de caracteres, nomes de imagem separados pelo caractere de linha vertical, a predefinição é ""|Estático|Nome de um ou mais imagens de contentor que não devem ser eliminados.  Utilizado com o parâmetro de PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|cadeia de caracteres, predefinido é "sfcontainerlogs"|Estático|Prefixo do nome de ficheiro para os ficheiros de registo gerado pelo contentores do docker.  Windows.|
 |ContainerServiceLogFileRetentionCount|Int, a predefinição é 10|Estático|Número de ficheiros de registo gerado pelo contentores do docker antes de ficheiros de registo é substituído.  Windows.|

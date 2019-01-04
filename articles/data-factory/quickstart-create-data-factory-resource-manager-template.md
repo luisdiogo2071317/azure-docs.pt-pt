@@ -9,23 +9,22 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 385a2890159d99b2aa91b7227895dfd830056a06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620494"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021956"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md) 
 
-Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md). 
+Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -440,11 +439,11 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o aci
     ![Monitorizar execução do pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > Só vai ver as execuções do pipeline à hora certa (por exemplo, 4:00, 5:00, 6:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte. 
+    > Ver execuções de pipeline apenas à hora certa (por exemplo: 4 AM, 5 AM, 6 da Manhã, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte. 
 5. Clique na ligação na coluna **Ações**. 
 
     ![Ligação de ações do pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline só tem uma atividade do tipo Cópia. Por conseguinte, verá uma execução dessa atividade. 
+6. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline tem apenas uma atividade do tipo: Copie. Por conseguinte, verá uma execução dessa atividade. 
 
     ![Execuções de atividade](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. Clique na ligação na coluna **Saída**. Verá a saída da operação de cópia numa janela de **Saída**. Clique no botão de maximizar para ver a saída completa. Pode fechar a janela de saída maximizada ou fechar a saída. 

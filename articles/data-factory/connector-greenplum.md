@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 463e358816d665bd0ecc0ca8853b7feb5a18f3e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe9153958fa46f4be6aaa346713c002905316902
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077788"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024693"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar dados de Greenplum com o Azure Data Factory 
 
@@ -42,7 +41,7 @@ As seguintes propriedades são suportadas para o serviço de Greenplum ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Greenplum** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Greenplum** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação ao Greenplum. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -75,7 +74,7 @@ Para copiar dados de Greenplum, defina a propriedade de tipo de conjunto de dado
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **GreenplumTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **GreenplumTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

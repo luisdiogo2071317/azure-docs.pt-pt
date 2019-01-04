@@ -9,17 +9,16 @@ ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495910"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019085"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>O Azure Data Factory - casos práticos de clientes
 Data Factory é um serviço de gestão de informações com base na cloud que automatiza o movimento e transformação de dados. Os clientes vários setores utilizar o Data Factory e outros serviços do Azure para criar seus pipelines de análise e resolver problemas das suas empresas.  Saiba diretamente a partir de nossos clientes como e por que está a utilizar o Data Factory.

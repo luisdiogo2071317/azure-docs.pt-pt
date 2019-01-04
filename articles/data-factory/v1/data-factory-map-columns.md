@@ -1,5 +1,5 @@
 ---
-title: Mapeamento de colunas do conjunto de dados no Azure Data Factory | Microsoft Docs
+title: Mapeamento de colunas do conjunto de dados no Azure Data Factory | Documentos da Microsoft
 description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
@@ -8,40 +8,39 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045889"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017468"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino
 > [!NOTE]
-> Este artigo aplica-se a versão 1 do Data Factory. 
+> Este artigo aplica-se à versão 1 do Data Factory. 
 
-Mapeamento de colunas pode ser utilizado para especificar a forma como as colunas especificadas na "estrutura de" do mapa da tabela de origem para colunas especificada na "estrutura de" da tabela do sink. O **columnMapping** propriedade está disponível no **typeProperties** secção a atividade de cópia.
+Mapeamento de colunas pode ser utilizado para especificar a forma como as colunas especificadas na "estrutura" do mapa de tabela de origem para colunas especificada na "estrutura" da tabela do sink. O **columnMapping** propriedade está disponível na **typeProperties** secção da atividade de cópia.
 
 Mapeamento de colunas suporta os seguintes cenários:
 
 * Todas as colunas na estrutura do conjunto de dados de origem estão mapeadas para todas as colunas na estrutura do conjunto de dados de sink.
-* Um subconjunto de colunas na estrutura do conjunto de dados de origem está mapeado para todas as colunas na estrutura do conjunto de dados de sink.
+* Um subconjunto das colunas na estrutura do conjunto de dados de origem é mapeado para todas as colunas na estrutura do conjunto de dados de sink.
 
 Seguem-se as condições de erro que resultam numa exceção:
 
-* Menos colunas ou mais colunas na "estrutura de" da tabela do sink ao especificado no mapeamento.
-* Mapeamento duplicado.
+* Menos colunas ou mais colunas na "estrutura" da tabela do sink que especificado no mapeamento.
+* Mapeamento de duplicados.
 * Resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
 > [!NOTE]
-> Os exemplos seguintes são para o SQL do Azure e BLOBs do Azure, mas são aplicáveis a qualquer arquivo de dados que suporta conjuntos de dados retangular. Ajuste o conjunto de dados e definições de serviço ligado nos exemplos para apontar para dados da origem de dados relevantes.
+> Os exemplos seguintes são para o SQL do Azure e BLOBs do Azure, mas são aplicáveis a qualquer arquivo de dados que suporta conjuntos de dados retangulares. Ajuste o conjunto de dados e definições de serviço ligado nos exemplos para apontar para dados na origem de dados relevantes.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemplo 1 – coluna mapeamento de SQL do Azure para BLOBs do Azure
-Neste exemplo, a tabela de entrada tem uma estrutura e aponta para uma tabela SQL na base de dados do SQL do Azure.
+## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemplo 1 – a coluna de mapeamento de SQL do Azure para BLOBs do Azure
+Neste exemplo, a tabela de entrada tem uma estrutura e aponta para uma tabela SQL na base de dados SQL do Azure.
 
 ```json
 {
@@ -74,7 +73,7 @@ Neste exemplo, a tabela de entrada tem uma estrutura e aponta para uma tabela SQ
 }
 ```
 
-Neste exemplo, a tabela de saída tem uma estrutura e aponta para um blob no armazenamento de Blobs do Azure.
+Neste exemplo, a tabela de saída tem uma estrutura e aponta para um blob num armazenamento de Blobs do Azure.
 
 ```json
 {
@@ -107,7 +106,7 @@ Neste exemplo, a tabela de saída tem uma estrutura e aponta para um blob no arm
 }
 ```
 
-O JSON seguinte define uma atividade de cópia num pipeline. As colunas a partir da origem mapeado para colunas no sink (**columnMappings**) utilizando o **tradutor** propriedade.
+O JSON seguinte define uma atividade de cópia num pipeline. As colunas de origem mapeado para colunas no sink (**columnMappings**), utilizando o **Translator** propriedade.
 
 ```json
 {
@@ -137,12 +136,12 @@ O JSON seguinte define uma atividade de cópia num pipeline. As colunas a partir
         }
 }
 ```
-**Fluxo de mapeamento de colunas:**
+**Fluxo de mapeamento de coluna:**
 
 ![Fluxo de mapeamento de coluna](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemplo 2 – coluna mapeamento de consulta SQL do Azure SQL ao blob do Azure
-Neste exemplo, uma consulta SQL é utilizada para extrair dados do SQL do Azure em vez de apenas especificar o nome da tabela e os nomes das colunas na secção "estrutura". 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemplo 2 – coluna mapeamento com consulta SQL da SQL do Azure para BLOBs do Azure
+Neste exemplo, uma consulta SQL é utilizada para extrair dados do SQL do Azure em vez de simplesmente especificar o nome da tabela e os nomes das colunas na seção de "estrutura". 
 
 ```json
 {
@@ -174,13 +173,13 @@ Neste exemplo, uma consulta SQL é utilizada para extrair dados do SQL do Azure 
         }
 }
 ```
-Neste caso, os resultados da consulta primeiro estão mapeados para colunas especificadas na "estrutura" de origem. Em seguida, as colunas a partir da origem "estrutura" são mapeadas para colunas no sink "estrutura" com regras que especificado em columnMappings.  Suponha que a consulta devolve 5 colunas, dois mais colunas do que as especificadas em "estrutura" de origem.
+Neste caso, os resultados da consulta são mapeados para colunas especificadas na "estrutura" da origem. Em seguida, as colunas da origem de "estrutura" são mapeadas para colunas no sink "estrutura" com as regras especificadas em columnMappings.  Suponha que a consulta retorna 5 colunas, dois mais colunas do que as especificadas na "estrutura" da origem.
 
 **Fluxo de mapeamento de coluna**
 
 ![Mapeamento de coluna fluxo-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte o artigo para um tutorial sobre como utilizar a atividade de cópia: 
+Consulte o artigo para obter um tutorial sobre como utilizar a atividade de cópia: 
 
 - [Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

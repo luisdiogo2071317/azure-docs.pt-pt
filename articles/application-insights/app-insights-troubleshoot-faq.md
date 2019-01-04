@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5cd720225144a34163f8d4802b63aca6a439e2c7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017672"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
@@ -39,20 +39,20 @@ ms.locfileid: "53975258"
 
 * [Aplicações Web num servidor IIS - no local ou numa VM](../azure-monitor/app/asp-net.md)
 * [Aplicações web Java](../azure-monitor/app/java-get-started.md)
-* [Aplicações Node.js](app-insights-nodejs.md)
+* [Aplicações Node.js](../azure-monitor/app/nodejs.md)
 * [Aplicações Web no Azure](../azure-monitor/app/azure-web-apps.md)
 * [Serviços cloud no Azure](../azure-monitor/app/cloudservices.md)
 * [Servidores de aplicações em execução no Docker](../azure-monitor/app/docker.md)
 * [Aplicações web de página única](../azure-monitor/app/javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Aplicação de ambiente de trabalho do Windows](app-insights-windows-desktop.md)
-* [Outras plataformas](app-insights-platforms.md)
+* [Outras plataformas](../azure-monitor/app/platforms.md)
 
 ## <a name="is-it-free"></a>É gratuito?
 
 Sim, para utilização experimental. O plano de preços básico, a aplicação pode enviar um determinado montante de dados por mês sem encargos. A concessão gratuita é suficiente grande para o desenvolvimento de capa e publicar uma aplicação para um pequeno número de utilizadores. Pode definir um limite para impedir que mais do que uma determinada quantidade de dados a ser processado.
 
-Maiores volumes de telemetria são cobrados pelos Gb. Fornecemos algumas dicas sobre como [limitar as cobranças](app-insights-pricing.md).
+Maiores volumes de telemetria são cobrados pelos Gb. Fornecemos algumas dicas sobre como [limitar as cobranças](../azure-monitor/app/pricing.md).
 
 O plano Enterprise incorre um encargo para cada dia em que cada nó do servidor web envia telemetria. É adequado se pretender utilizar a exportação contínua de mensagens em fila em grande escala.
 
@@ -86,7 +86,7 @@ Os detalhes dependem do tipo de projeto. Para uma aplicação web:
 * (Novo projetos apenas - se [adicionar o Application Insights para um projeto existente][start], terá de fazer isso manualmente.) Insere trechos de código o código de cliente e servidor para inicializá-los com o ID de recurso do Application Insights. Por exemplo, numa aplicação MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como posso atualizar de versões mais antigas do SDK?
-Consulte a [notas de versão](app-insights-release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
+Consulte a [notas de versão](../azure-monitor/app/release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
 
 ## <a name="update"></a>Como posso alterar qual meu projeto envia os dados para o recurso do Azure?
 No Solution Explorer, clique com botão direito `ApplicationInsights.config` e escolha **atualização Application Insights**. Pode enviar os dados a um recurso novo ou existente no Azure. O Assistente de atualização altera a chave de instrumentação no applicationinsights. config, que determina onde o servidor SDK envia os dados. A menos que desmarcar "Atualizar tudo", a chave de onde aparece nas suas páginas web também serão alterados.
@@ -104,7 +104,7 @@ A partir de aplicações do servidor web:
 * Pedidos HTTP
 * [Dependências](../azure-monitor/app/asp-net-dependencies.md). Chamadas para: Bases de dados do SQL; Chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de BLOBs e filas. 
 * [Exceções](../azure-monitor/app/asp-net-exceptions.md) e rastreios de pilha.
-* [Contadores de desempenho](app-insights-performance-counters.md) - se de que utiliza [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md), [monitorização do Azure](../azure-monitor/app/azure-web-apps.md), ou o [escritor do Application Insights recolhidos](../azure-monitor/app/java-collectd.md).
+* [Contadores de desempenho](../azure-monitor/app/performance-counters.md) - se de que utiliza [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md), [monitorização do Azure](../azure-monitor/app/azure-web-apps.md), ou o [escritor do Application Insights recolhidos](../azure-monitor/app/java-collectd.md).
 * [Métricas e eventos personalizados](../azure-monitor/app/api-custom-events-metrics.md) que o código.
 * [Registos de rastreio](../azure-monitor/app/asp-net-trace-logs.md) se configurar o recoletor apropriado.
 
@@ -201,7 +201,7 @@ Utilize um único recurso para todos os componentes ou funções num sistema ún
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Por que as contagens em gráficos de métricas e pesquisa são desiguais?
 
-[Amostragem](app-insights-sampling.md) reduz o número de itens de telemetria (pedidos, eventos personalizados e assim por diante) que, na verdade, são enviados da sua aplicação para o portal. Na pesquisa, pode ver o número de itens, na verdade, recebidos. Gráficos de métricas que mostra uma contagem de eventos, verá o número de eventos originais que ocorreram. 
+[Amostragem](../azure-monitor/app/sampling.md) reduz o número de itens de telemetria (pedidos, eventos personalizados e assim por diante) que, na verdade, são enviados da sua aplicação para o portal. Na pesquisa, pode ver o número de itens, na verdade, recebidos. Gráficos de métricas que mostra uma contagem de eventos, verá o número de eventos originais que ocorreram. 
 
 Cada item que é transmitida executa um `itemCount` propriedade que mostra o número de eventos original esse item representa. Para observar a amostragem em operação, pode executar esta consulta do Analytics:
 
@@ -214,7 +214,7 @@ Cada item que é transmitida executa um `itemCount` propriedade que mostra o nú
 
 ### <a name="configuring-application-insights"></a>Configuração do Application Insights
 
-Pode [escrever PowerShell scripts](app-insights-powershell.md) usando o Monitor de recursos do Azure para:
+Pode [escrever PowerShell scripts](../azure-monitor/app/powershell.md) usando o Monitor de recursos do Azure para:
 
 * Criar e atualizar recursos do Application Insights.
 * Defina o plano de preços.
@@ -241,7 +241,7 @@ Isso não depende de onde está alojado o recurso do Application Insights. Depen
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Pode enviar telemetria ao portal do Application Insights?
 
-Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](../azure-monitor/app/api-custom-events-metrics.md). Há variantes do SDK para várias [plataformas](app-insights-platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, repetições e assim por diante. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo do ponto de extremidade](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sejam públicos.
+Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](../azure-monitor/app/api-custom-events-metrics.md). Há variantes do SDK para várias [plataformas](../azure-monitor/app/platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, repetições e assim por diante. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo do ponto de extremidade](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sejam públicos.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Pode monitorizar um servidor de web da intranet?
 
@@ -299,6 +299,6 @@ A maioria dos dados do Application Insights tem uma latência de menos de 5 minu
 <!--Link references-->
 
 [data]: ../azure-monitor/app/data-retention-privacy.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

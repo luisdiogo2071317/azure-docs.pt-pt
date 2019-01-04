@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b7af9650e52a4cac74939bf55b15982be674df8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e1fe752a15fddffe8bd87954d3230e8e780fc819
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604240"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025067"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Conjunto de aplicações de web de perfil em execução numa máquina virtual do Azure ou o dimensionamento de máquinas virtuais com o Application Insights Profiler
 Também pode implementar o criador de perfil do Application Insights estes serviços:
-* [Serviço de Aplicações do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços Cloud](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

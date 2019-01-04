@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a4c683f6f3a1b321b786569999edac67cfb41892
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4e1975409f73804448f844d1bcb84c2b0d0d2afc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083500"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013728"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar dados da Couchbase com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de ligado a Couchbase:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Couchbase** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Couchbase** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para ligar a Couchbase. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -78,7 +77,7 @@ Para copiar dados da Couchbase, defina a propriedade de tipo de conjunto de dado
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **CouchbaseTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **CouchbaseTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b97b8e145e2a770a00c77eefc9ce6d323fd6222e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3cf59db2e6f8fcffd9eefc38fcd22c25ba646456
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101849"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018641"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiar dados de Cloud de serviço do Oracle com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço Oracle Cloud de servi�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **OracleServiceCloud** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **OracleServiceCloud** | Sim |
 | anfitrião | O URL da instância de Oracle serviço Cloud.  | Sim |
 | o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor Oracle serviço Cloud.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário fornecida na chave do nome de utilizador. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar acitivty pull a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -84,7 +83,7 @@ Para copiar dados de Cloud de serviço do Oracle, defina a propriedade de tipo d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **OracleServiceCloudObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **OracleServiceCloudObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

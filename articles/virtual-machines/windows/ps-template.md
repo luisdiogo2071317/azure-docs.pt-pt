@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7be724a93eb951a3f9e35048a3c70571e43e79cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d7a1a83cf0fbbb9bd68f2b008077ed7b6a0fc216
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184751"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013286"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
@@ -33,7 +33,7 @@ Deve demorar cerca de cinco minutos para realizar os passos neste artigo.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.3 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.3 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver executando o PowerShell localmente, terá também de executar `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -209,4 +209,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 
 - Se ocorreram problemas com a implementação, pode dar uma olhada [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Saiba como criar e gerir uma máquina virtual no [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Para saber mais sobre a criação de modelos, veja a sintaxe JSON e propriedades para os tipos de recursos que implementou:
+
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Network/virtualnetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346716"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025696"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -63,8 +62,8 @@ Estas propriedades são suportadas para um serviço de base de dados do SQL do A
 Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
 
 - [Autenticação do SQL](#sql-authentication)
-- [Autenticação de token do Azure AD application: principal de serviço](#service-principal-authentication)
-- [Autenticação de token do Azure AD application: geridos identidades para recursos do Azure](#managed-identity)
+- [Autenticação do Azure AD application token: Principal de serviço](#service-principal-authentication)
+- [Autenticação do Azure AD application token: identidades geridas para recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.

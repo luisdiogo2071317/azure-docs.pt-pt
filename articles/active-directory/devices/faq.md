@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309183"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016159"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
-**P: Recentemente eu registado o dispositivo. Por que motivo não vejo o dispositivo em minhas informações de utilizador no portal do Azure? Ou, por que é proprietário do dispositivo marcado como n/d para dispositivos associados ao Azure AD de híbrida?**
+**P: Recentemente eu registado o dispositivo. Por que motivo não vejo o dispositivo em minhas informações de utilizador no portal do Azure? Ou, por que é proprietário do dispositivo marcado como n/d para dispositivos associados ao Azure AD de híbrida? ** 
  **R:** Dispositivos Windows 10 que estão associados ao Azure AD híbrido não aparecem em dispositivos de utilizador.
 Tem de utilizar a vista de todos os dispositivos no portal do Azure. Também pode utilizar o PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -107,14 +107,14 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 
 ---
 
-**P: Podem os meus utilizadores iniciar sessão em dispositivos associados ao Azure AD que foi eliminados ou desativados no Azure AD?**
+**P: Podem os meus utilizadores iniciar sessão em dispositivos associados ao Azure AD que foi eliminados ou desativados no Azure AD? ** 
  **R:** Sim. Windows tem em cache capacidade de início de sessão para permitir que anteriormente registadas em que os utilizadores acedam a área de trabalho rapidamente, mesmo sem conectividade de rede. Quando um dispositivo é eliminado ou desativado no Azure AD, não é conhecido no dispositivo do Windows. Então, anteriormente registado nos utilizadores podem continuar a aceder a área de trabalho com o início de sessão em cache. No entanto, à medida que o dispositivo é eliminado ou desativado, os utilizadores não podem aceder a quaisquer recursos protegidos pelo acesso condicional com base no dispositivo. 
 
 Os utilizadores que ainda não tiver sessão iniciada não é possível aceder ao dispositivo, porque não existe nenhum início de sessão em cache ativado para os mesmos. 
 
 ---
 
-**P: Podem desativados ou eliminados utilizadores iniciar sessão em dispositivos associados ao Azure AD?**
+**P: Podem desativados ou eliminados utilizadores iniciar sessão em dispositivos associados ao Azure AD? ** 
  **R:** Sim, mas apenas por um período limitado. Quando um utilizador é eliminado ou desativado no Azure AD, ele não é imediatamente conhecido para o dispositivo do Windows. Então, anteriormente registado nos usuários podem acessar a área de trabalho com o início de sessão em cache. Depois do dispositivo estiver ciente de que o estado do utilizador (normalmente em menos de 4 horas), o Windows bloqueia os utilizadores acedam ao ambiente de trabalho. À medida que o utilizador é eliminado ou desativado no Azure AD, todos os seus tokens vão ser revogados, pelo que não é possível aceder a quaisquer recursos. 
 
 Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anteriormente não é possível aceder um dispositivo porque não existe nenhum início de sessão em cache ativado para os mesmos. 
@@ -127,7 +127,7 @@ Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anter
 
 ---
 
-**P: Como posso ligar a um remoto do Azure AD associado ao dispositivo?**
+**P: Como posso ligar a um remoto do Azure AD associado ao dispositivo? ** 
  **R:** Veja o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter detalhes.
 
 ---
@@ -180,6 +180,9 @@ Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anter
 
 - [Resolução de problemas do registo automático de domínio associados a computadores ao Azure AD para clientes de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
  
+**P: Por que razão vejo um duplicado do Azure AD registado registo para meu Azure AD híbrido de Windows 10 associados a um dispositivo na lista de dispositivos do Azure AD?**
+
+**R:** Quando os utilizadores adiciona a respetiva conta para aplicações num dispositivo associado ao domínio, pode ser solicitados a "Adicionar conta para o Windows?". Clicar em "Sim" na linha de comandos levaria para o dispositivo ser registado com o Azure AD e o tipo de fidedignidade marcado como o Azure AD registado. Depois de ativar a associação ao Azure AD híbrido na sua organização, o dispositivo também irá obter associados ao Azure AD híbrido. Como resultado, haverá dois Estados de dispositivo a aparecer para o mesmo dispositivo. No entanto, a associação do híbrida do Azure AD tem precedência sobre o estado do Azure AD registado. Portanto, o dispositivo será considerado associação do Azure AD híbrido para qualquer autenticação e a avaliação de acesso condicional. Dessa forma, pode eliminar em segurança ao registo do dispositivo do Azure AD registado no portal do Azure AD. Reveja [esta secção](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) a híbrida do Azure AD associar artigo para compreender como evitar ou limpeza neste estado duplo na máquina do Windows 10. 
 
 ---
 

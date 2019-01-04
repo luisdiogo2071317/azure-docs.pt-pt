@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c7eaecf74f56035c39267407e6a965c57897b1ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853834"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015445"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -88,7 +88,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 | Simultaneidade de Acionador | 50 | O limite predefinido é 20. Este limite descreve o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [simultaneidade de Acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
 | Máximo de espera de execuções | 100 | O limite predefinido é 10. Este limite descreve o número máximo de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido para um valor entre 0 e 100, inclusivamente, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
 | Itens foreach | 100 000 | Este limite descreve o número máximo de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
-| Iterações de foreach | 50 | O limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar "for each" simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Simultaneidade de foreach | 50 | O limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar "for each" simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Itens SplitOn | 100 000 | | 
 | Iterações until | 5.000 | | 
 |||| 
@@ -102,10 +102,10 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Ação: Execuções por 5 minutos | 300,000 | O limite predefinido é 100 000. Para alterar o limite predefinido, consulte [executar a aplicação lógica no modo de "débitos"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está em pré-visualização. Em alternativa, pode distribuir a carga de trabalho em mais do que uma aplicação de lógica, conforme necessário. | 
-| Ação: Chamadas de saída simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
-| Ponto final de tempo de execução: chamadas simultâneas de entrada | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
-| Ponto final de tempo de execução: ler chamadas por 5 minutos  | 60,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
-| Ponto final de tempo de execução: invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
+| Ação: Chamadas simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Ponto final de tempo de execução: Chamadas de entrada em simultâneo | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Ponto final de tempo de execução: Chamadas de leitura por 5 minutos  | 60,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
+| Ponto final de tempo de execução: Invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
 | Taxa de transferência de conteúdo por 5 minutos | 600 MB | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
 |||| 
 
@@ -238,10 +238,10 @@ Utilize o escalão gratuito apenas para cenários de exploratórios, não os cen
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize o [URI de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mapa (ficheiro XSLT) | 2 MB | | 
-| Ponto final de tempo de execução: ler chamadas por 5 minutos | 60,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: controlo de chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: bloquear chamadas simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Ponto final de tempo de execução: Chamadas de leitura por 5 minutos | 60,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Ponto final de tempo de execução: Invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Ponto final de tempo de execução: Chamadas de controlo por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Ponto final de tempo de execução: Bloquear chamadas simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

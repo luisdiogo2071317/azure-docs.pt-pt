@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423733"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020783"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controlo de repetição no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
@@ -86,7 +85,7 @@ Se **isSequential** é definido como FALSO, a atividade itera em paralelo com um
 Na atividade ForEach, fornecer uma matriz para ser iterado para a propriedade **itens**. " Utilize `@item()` para iterar sobre uma enumeração única na atividade ForEach. Por exemplo, se **itens** é uma matriz: [1, 2, 3], `@item()` devolve 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração.
 
 ## <a name="iterating-over-a-single-activity"></a>Fazendo a iteração através de uma única atividade
-**Cenário:** cópia do mesmo ficheiro de origem no Blob do Azure para vários ficheiros de destino no Blob do Azure.
+**Cenário:** Copiar a partir do mesmo ficheiro de origem no Blob do Azure para vários ficheiros de destino no Blob do Azure.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -237,7 +236,7 @@ Na atividade ForEach, fornecer uma matriz para ser iterado para a propriedade **
 
 ```
 ### <a name="example"></a>Exemplo
-**Cenário:** Iterate ao longo de um InnerPipeline dentro de uma atividade ForEach com a atividade executar Pipeline. Copia o pipeline interno com definições de esquema parametrizadas.
+**Cenário:** Itere sobre uma InnerPipeline dentro de uma atividade ForEach com a atividade executar Pipeline. Copia o pipeline interno com definições de esquema parametrizadas.
 
 #### <a name="master-pipeline-definition"></a>Definição de Pipeline mestre
 

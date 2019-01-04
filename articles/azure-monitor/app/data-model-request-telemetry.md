@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 45289a972854237d0b6848e796d40305d9321113
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812253"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001911"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados do Application Insights
 
@@ -84,4 +84,4 @@ Pode ler mais resultado do pedido no código e o código de estado no [mensagem 
 - [Escrever telemetria personalizada do pedido](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - Ver [modelo de dados](data-model.md) para o modelo de tipos e dados do Application Insights.
 - Saiba como [configurar o ASP.NET Core](../../azure-monitor/app/asp-net.md) aplicação com o Application Insights.
-- Confira [plataformas](../../application-insights/app-insights-platforms.md) suportada pelo Application Insights.
+- Confira [plataformas](../../azure-monitor/app/platforms.md) suportada pelo Application Insights.

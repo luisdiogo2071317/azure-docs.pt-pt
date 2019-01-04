@@ -1,6 +1,6 @@
 ---
-title: Executar a atividade de Pipeline na fábrica de dados do Azure | Microsoft Docs
-description: Saiba como pode utilizar a atividade para executar o Pipeline para invocar um pipeline de fábrica de dados de outro pipeline do Data Factory.
+title: Atividade execute Pipeline na fábrica de dados do Azure | Documentos da Microsoft
+description: Saiba como pode utilizar a atividade de Pipeline de execução para invocar um pipeline de fábrica de dados de outro pipeline da fábrica de dados.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,19 +9,18 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051768"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019440"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar a atividade de Pipeline no Azure Data Factory
-A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o pipeline de outro.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade execute Pipeline na fábrica de dados do Azure
+A atividade executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -62,17 +61,17 @@ A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o
 ## <a name="type-properties"></a>Propriedades do tipo
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do pipeline de execução. | Cadeia | Sim
-tipo | Tem de ser definido como: **ExecutePipeline**. | Cadeia | Sim
-pipeline | Pipeline de referência para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se execução da atividade tem de aguardar durante a execução de pipeline dependentes concluir. | A predefinição é falso. | Booleano | Não
+nome | Nome da atividade execute pipeline. | Cadeia | Sim
+tipo | Deve ser definida como: **ExecutePipeline**. | Cadeia | Sim
+pipeline | Referência do pipeline para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
+parâmetros | Parâmetros a ser transmitidos para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
+waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. | A predefinição é falso. | Booleano | Não
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois pipelines:
 
-- **Pipeline mestre** -este pipeline com uma atividade de executar o Pipeline que chama o pipeline invocado. O pipeline mestre demora dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Pipeline invocada** -este pipeline com uma atividade de cópia copia dados a partir de uma origem de Blob do Azure para sink de Blob do Azure. O pipeline invocado demora dois parâmetros: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Pipeline mestre** -este pipeline tem uma atividade Execute Pipeline que chama o pipeline invocado. O pipeline principal aceita dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
+- **Pipeline invocado** -este pipeline tem uma atividade de cópia que copia dados a partir de uma origem de Blobs do Azure para o sink de Blobs do Azure. O pipeline invocado usa dois parâmetros: `sourceBlobContainer`, `sinkBlobContainer`.
 
 ### <a name="master-pipeline-definition"></a>Definição de pipeline principal
 
@@ -93,7 +92,7 @@ Este cenário tem dois pipelines:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -116,7 +115,7 @@ Este cenário tem dois pipelines:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Definição de pipeline invocada
+### <a name="invoked-pipeline-definition"></a>Definição de pipeline invocado
 
 ```json
 {
@@ -199,7 +198,7 @@ Este cenário tem dois pipelines:
 }
 ```
 
-**Sink do conjunto de dados**
+**Conjunto de dados de sink**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -221,7 +220,7 @@ Este cenário tem dois pipelines:
 
 ### <a name="running-the-pipeline"></a>Executar o pipeline
 
-Para executar o pipeline mestre neste exemplo, os seguintes valores são transmitidos para os parâmetros masterSourceBlobContainer e masterSinkBlobContainer: 
+Para executar o pipeline principal neste exemplo, os seguintes valores são transmitidos para os parâmetros masterSourceBlobContainer e masterSinkBlobContainer: 
 
 ```json
 {
@@ -230,7 +229,7 @@ Para executar o pipeline mestre neste exemplo, os seguintes valores são transmi
 }
 ```
 
-O pipeline mestre reencaminha estes valores para o pipeline invocado, conforme mostrado no exemplo seguinte: 
+O pipeline mestre encaminha estes valores para o pipeline invocado, conforme mostrado no exemplo a seguir: 
 
 ```json
 {
@@ -245,7 +244,7 @@ O pipeline mestre reencaminha estes valores para o pipeline invocado, conforme m
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }
@@ -256,9 +255,9 @@ O pipeline mestre reencaminha estes valores para o pipeline invocado, conforme m
 
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade de Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

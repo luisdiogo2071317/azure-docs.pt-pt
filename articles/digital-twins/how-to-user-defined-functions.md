@@ -1,20 +1,20 @@
 ---
 title: Como criar funções definidas pelo utilizador no duplos Digital do Azure | Documentos da Microsoft
-description: Orientação sobre como criar funções definidas pelo utilizador e as atribuições de funções matchers duplos Digital do Azure.
+description: Como criar funções definidas pelo utilizador, matchers e atribuições de funções no duplos Digital do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993410"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019933"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -73,19 +73,13 @@ Com o corpo JSON:
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
-Depois dos matchers são criados, carregar o trecho de código de função com o seguinte autenticado HTTP **POST** pedido:
+Depois dos matchers são criados, carregar o trecho de código de função com o seguinte pedido HTTP POST autenticado com várias partes:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Certifique-se de que os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - O corpo fornecido é com várias partes:
->   - A primeira parte contém os metadados UDF necessários.
->   - A segunda parte contém a lógica de computação do JavaScript.
-> - Na **USER_DEFINED_BOUNDARY** secção, substitua a **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers**(`YOUR_MATCHER_IDENTIFIER`) valores.
-> - Tenha em atenção a UDF do JavaScript fornecido como `Content-Type: text/javascript`.
 
 Utilize o corpo JSON seguinte:
 
@@ -116,6 +110,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Um nome de limites com várias partes de conteúdo |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
 | YOUR_MATCHER_IDENTIFIER | O ID da na ferramenta de correspondência que pretende utilizar |
+
+1. Certifique-se de que os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Certifique-se de que o corpo é com várias partes:
+
+   - A primeira parte contém os metadados necessários função definida pelo utilizador.
+   - A segunda parte contém a lógica de computação do JavaScript.
+
+1. Na **USER_DEFINED_BOUNDARY** secção, substitua a **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers** (`YOUR_MATCHER_IDENTIFIER`) valores.
+1. Certifique-se de que a função definida pelo utilizador do JavaScript é fornecida como `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Funções de exemplo
 
@@ -192,14 +195,14 @@ Para obter um exemplo de código de função definida pelo utilizador mais compl
 
 Crie uma atribuição de função para a função definida pelo utilizador ser executado sob. Se nenhuma atribuição de função para a função definida pelo usuário, ele não terá as permissões adequadas para interagir com a API de gestão ou ter acesso para efetuar ações em objetos de gráfico. Ações que pode executar uma função definida pelo utilizador são especificadas e definidas por meio de controlo de acesso baseado em funções dentro das APIs de gestão de duplos Digital do Azure. Por exemplo, funções definidas pelo usuário podem ter escopo limitadas ao especificar determinadas funções ou determinados caminhos de controle de acesso. Para obter mais informações, consulte a [controlo de acesso baseado em funções](./security-role-based-access-control.md) documentação.
 
-1. [Consultar a API de sistema](./security-create-manage-role-assignments.md#all) para todas as funções obter o ID de função que pretende atribuir ao seu UDF. Fazê-lo ao fazer um pedido HTTP GET autenticado para:
+1. [Consultar a API de sistema](./security-create-manage-role-assignments.md#all) para todas as funções obter o ID de função que pretende atribuir à sua função definida pelo utilizador. Fazê-lo ao fazer um pedido HTTP GET autenticado para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Manter o ID de função desejada. Ela será transmitida como o atributo de corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será o ID de UDF criado anteriormente.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será o ID de função definida pelo utilizador que foi criado anteriormente.
 1. Encontrar o valor de **caminho** (`YOUR_ACCESS_CONTROL_PATH`) ao consultar seus espaços com `fullpath`.
 1. Copiar retornado `spacePaths` valor. Usará que abaixo. Fazer um pedido de HTTP GET autenticado para:
 
@@ -211,7 +214,7 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço de que pretende utilizar |
 
-1. Cole retornado `spacePaths` valor para **caminho** para criar uma atribuição de função UDF, fazendo uma solicitação de HTTP POST autenticada para:
+1. Cole retornado `spacePaths` valor para **caminho** para criar uma atribuição de função da função definida pelo utilizador ao fazer um pedido de HTTP POST autenticado para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +233,12 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
     | Valor | Substituir |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
-    | YOUR_USER_DEFINED_FUNCTION_ID | O ID para o UDF que pretende utilizar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | O ID de especificar o tipo UDF |
+    | YOUR_USER_DEFINED_FUNCTION_ID | O ID para a função definida pelo utilizador que pretende utilizar |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | O ID de especificar o tipo de função definida pelo utilizador |
     | YOUR_ACCESS_CONTROL_PATH | O caminho de controlo de acesso |
 
 >[!TIP]
-> Leia o artigo [como criar e gerir atribuições de funções](./security-create-manage-role-assignments.md) para obter mais informações sobre pontos finais e as operações de API de gestão relacionados com a UDF.
+> Leia o artigo [como criar e gerir atribuições de funções](./security-create-manage-role-assignments.md) para obter mais informações sobre pontos finais e as operações de API de gestão da função definida pelo utilizador.
 
 ## <a name="send-telemetry-to-be-processed"></a>Enviar telemetria para serem processados
 

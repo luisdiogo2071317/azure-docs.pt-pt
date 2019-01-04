@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974524"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017571"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
 
@@ -28,23 +28,7 @@ Duplos Digital do Azure suporta anexar blobs para dispositivos, espaços e os ut
 
 Pode usar várias partes pedidos para carregar blobs para os pontos finais e suas respectivas funcionalidades.
 
-> [!IMPORTANT]
-> Pedidos de várias partes necessitam de três partes de informações:
-> * R **Content-Type** cabeçalho:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * R **Content-Disposition**: `form-data; name="metadata"`
-> * O conteúdo do ficheiro a carregar
->
-> O **Content-Type** e **Content-Disposition** informações podem variar dependendo do cenário de utilização.
-
-Com várias partes pedidos feitos para as APIs de gestão de duplos Digital do Azure tem duas partes:
-
-* Os metadados do blob como um tipo de MIME associado, como mostra a **Content-Type** e **Content-Disposition** informações
-
-* Conteúdo do blob (o conteúdo do arquivo de dados não estruturado)  
-
-Nenhuma das duas partes é necessária para **aplicar o PATCH** pedidos. Ambas são necessárias para **POST** ou operações de criação.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Metadados do blob
 
@@ -158,7 +142,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | O ID de blob pretendido |
 
-Efetuar uma **aplicar o PATCH** pedido para o mesmo ponto final permite-lhe uma descrição de metadados da atualização e criar uma nova versão do blob. A solicitação HTTP é feita através da **aplicar o PATCH** método, juntamente com todos os metadados necessários e os dados de formulário com várias partes.
+Efetuar uma **aplicar o PATCH** pedido para o mesmo ponto final permite-lhe uma descrição de metadados da atualização e criar uma nova versão do blob. A solicitação HTTP é feita através da **aplicar o PATCH** método, juntamente com todos os metadados necessários e dados de formulário com várias partes.
 
 Operações bem-sucedidas retornam uma **SpaceBlob** objeto que está em conformidade com o esquema abaixo. Pode usá-lo para consumir dados retornados.
 

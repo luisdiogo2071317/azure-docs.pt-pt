@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973269"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025271"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -71,14 +71,14 @@ Para parar a exportação permanentemente, eliminá-lo. Se o fizer, não elimina
 ## <a name="analyze"></a> Que eventos consegue?
 Os dados exportados são a telemetria não processada que recebemos a partir da sua aplicação, exceto que podemos adicionar dados de localização que Calculamos do endereço IP do cliente.
 
-Dados que foi ignorados pelo [amostragem](../../application-insights/app-insights-sampling.md) não está incluído nos dados exportados.
+Dados que foi ignorados pelo [amostragem](../../azure-monitor/app/sampling.md) não está incluído nos dados exportados.
 
 Outras métricas calculadas não são incluídas. Por exemplo, podemos não exportar a utilização média da CPU, mas podemos exportar a telemetria não processados a partir do qual é calculada a média.
 
 Os dados também incluem os resultados de qualquer [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) que configurou.
 
 > [!NOTE]
-> **Amostragem.** Se a sua aplicação envia uma grande quantidade de dados, a funcionalidade de amostragem pode operar e enviar apenas uma fração de telemetria gerada. [Saiba mais sobre a amostragem.](../../application-insights/app-insights-sampling.md)
+> **Amostragem.** Se a sua aplicação envia uma grande quantidade de dados, a funcionalidade de amostragem pode operar e enviar apenas uma fração de telemetria gerada. [Saiba mais sobre a amostragem.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Nas escalas maiores, considere [HDInsight](https://azure.microsoft.com/services/
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

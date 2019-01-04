@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620341"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017162"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM com o Azure Data Factory
 
@@ -278,7 +277,7 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **DynamicsSink**. | Sim |
 | WriteBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor **"Upsert"**. | Sim |
 | writeBatchSize | A contagem de linhas de dados escritos para o Dynamics em cada lote. | Não (a predefinição é 10) |
-| ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: deixe os dados no objeto de destino inalterados quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: atualizar os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
+| ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
 
 >[!NOTE]
 >O valor predefinido do coletor "**writeBatchSize**"e a atividade de cópia"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos ao Dynamics e ao mesmo tempo.
@@ -333,14 +332,14 @@ Configure o tipo de dados de fábrica de dados correspondente numa estrutura de 
 | AttributeTypeCode.Boolean | Booleano | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
-| AttributeType.Decimal | decimal | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Valor de duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (com o único destino associado) |
 | AttributeType.ManagedProperty | Booleano | ✓ | |
 | AttributeType.Memo | Cadeia | ✓ | ✓ |
-| AttributeType.Money | decimal | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |

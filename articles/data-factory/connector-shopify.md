@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e9271081b36681c4011d96b329de5058aeaf8472
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090623"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019610"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar dados de Shopify com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Shopify ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Shopify** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Shopify** | Sim |
 | anfitrião | O ponto final do servidor Shopify. (ou seja, mystore.myshopify.com)  | Sim |
 | accessToken | O token de acesso de API que pode ser utilizado para aceder aos dados da Shopify. O token não expira se se trata de modo offline. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -78,7 +77,7 @@ Para copiar dados de Shopify, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ShopifyObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ShopifyObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

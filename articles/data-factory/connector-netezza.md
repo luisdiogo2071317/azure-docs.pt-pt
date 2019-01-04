@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078011"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025662"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza com o Azure Data Factory 
 
@@ -50,7 +49,7 @@ As seguintes propriedades são suportadas para o serviço de Netezza ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas desprotegido** (**onlyUnSecured**): O controlador não utiliza SSL.<br/>- **Preferencial não segura (preferredUnSecured) (predefinição)**: se o servidor fornece uma opção, o driver não utiliza SSL. <br/>- **Preferencial segura (preferredSecured)**: se o servidor fornece uma opção, o driver utiliza SSL. <br/>- **Protegido (onlySecured) apenas**: O controlador não ligar, a menos que uma conexão SSL está disponível. | Não |
+| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas desprotegido** (**onlyUnSecured**): O controlador não utiliza SSL.<br/>- **Preferencial não segura (preferredUnSecured) (predefinição)**: Se o servidor fornece uma opção, o driver não utiliza SSL. <br/>- **Preferencial segura (preferredSecured)**: Se o servidor fornece uma opção, o driver utiliza SSL. <br/>- **Protegido (onlySecured) apenas**: O controlador não ligar, a menos que uma conexão SSL está disponível. | Não |
 | CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL esteja ativado |
 
 **Exemplo**
@@ -84,7 +83,7 @@ Para copiar dados de Netezza, defina o **tipo** propriedade do conjunto de dados
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **NetezzaTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **NetezzaTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

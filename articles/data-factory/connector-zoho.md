@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020069"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiar dados de Zoho com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Zoho ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Zoho** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Zoho** | Sim |
 | endpoint | O ponto final do servidor Zoho (`crm.zoho.com/crm/private`). | Sim |
 | accessToken | O token de acesso para a autenticação de Zoho. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -78,7 +77,7 @@ Para copiar dados de Zoho, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ZohoObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ZohoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

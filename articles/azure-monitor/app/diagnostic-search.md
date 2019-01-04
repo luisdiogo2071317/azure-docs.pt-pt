@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b7f49571aa78a262a464f9626b7b98a85f8187f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973337"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022959"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
 A pesquisa é uma funcionalidade do [Application Insights](../../application-insights/app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
@@ -129,7 +129,7 @@ Aqui estão as expressões de pesquisa que pode utilizar:
 ## <a name="sampling"></a>Amostragem
 Se a sua aplicação gerar uma grande quantidade de telemetria (e estiver usando o ASP.NET SDK versão 2.0.0-Beta3 ou posterior), o módulo de amostragem adaptável automaticamente reduz o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. No entanto, os eventos relacionados com o mesmo pedido são selecionados ou desmarcados como um grupo, para que pode navegar entre os eventos relacionados. 
 
-[Saiba mais sobre a amostragem](../../application-insights/app-insights-sampling.md).
+[Saiba mais sobre a amostragem](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Criar item de trabalho
 Pode criar um bug no GitHub ou do Azure DevOps com os detalhes de qualquer item de telemetria. 
@@ -153,7 +153,7 @@ Além da telemetria de out-of-the-box enviada pelo SDK do Application Insights, 
 ## <a name="questions"></a>AS PERGUNTAS E RESPOSTAS
 ### <a name="limits"></a>A quantidade de dados é retido?
 
-Consulte a [resumo de limites](../../application-insights/app-insights-pricing.md#limits-summary).
+Consulte a [resumo de limites](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Como posso ver dados de POSTAGEM nos meus pedidos de servidor?
 Nós não iniciar sessão automaticamente os dados de POSTAGEM, mas pode usar [chamadas TrackTrace ou registo](../../azure-monitor/app/asp-net-trace-logs.md). Coloca os dados POST no parâmetro de mensagem. É possível filtrar a mensagem da mesma forma, que pode filtrar nas propriedades, mas o limite de tamanho é maior.

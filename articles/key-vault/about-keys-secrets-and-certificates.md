@@ -1,5 +1,5 @@
 ---
-title: Sobre o Azure Key Vault chaves, segredos e certificados
+title: Sobre o Azure Key Vault chaves, segredos e certificados - Azure Key Vault
 description: Descrição geral dos detalhes de interface e desenvolvedor de REST do Azure Key Vault para chaves, segredos e certificados.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384790"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002625"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -36,7 +36,7 @@ Para obter mais informações sobre o Key Vault, consulte [o que é o Azure Key 
 
 As seções a seguir oferecem informações gerais aplicável em toda a implementação do serviço Cofre de chaves.
 
-###  <a name="supporting-standards"></a>Oferecer suporte aos padrões
+### <a name="supporting-standards"></a>Oferecer suporte aos padrões
 
 O JavaScript Object Notation (JSON) e especificações de assinatura de objeto de JavaScript e a encriptação (JOSE) são informações gerais importantes.  
 
@@ -60,7 +60,7 @@ Consulte as especificações de JOSE para tipos de dados relevantes para chaves 
 -   **Identidade** – um identidade do Azure Active Directory (AAD).  
 -   **IntDate** – um valor decimal de JSON que representa o número de segundos de 1970-01-01T0:0:0Z UTC até a data/hora especificada UTC. Ver RFC3339 para obter detalhes sobre date/times, em geral e a UTC em particular.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e controle de versão
+### <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e controle de versão
 
 Objetos armazenados no Cofre de chaves têm versões sempre que uma nova instância de um objeto é criada. Cada versão é atribuído um identificador exclusivo e um URL. Quando um objeto é criado pela primeira vez, é fornecido um identificador de versão exclusivo e marcada como a versão atual do objeto. Criação de uma nova instância com o mesmo nome de objeto dá-o novo objeto de um identificador de versão exclusivo, fazendo com que ele se tornar a versão atual.  
 
@@ -85,7 +85,7 @@ Em que:
 
 ## <a name="key-vault-keys"></a>Chaves do Cofre de chaves
 
-###  <a name="keys-and-key-types"></a>As chaves e os tipos de chaves
+### <a name="keys-and-key-types"></a>As chaves e os tipos de chaves
 
 As chaves criptográficas no Cofre de chaves são representadas como objetos de chave do JSON Web [JWK]. As especificações de JWK/JWA bases também são expandidas para permitir que os tipos de chave de exclusivos para a implementação de Cofre de chaves. Por exemplo, a importar chaves com o empacotamento de específicas do fornecedor do HSM, possibilita o transporte seguro de chaves que só podem ser utilizadas nos HSMs do Cofre de chave.  
 
@@ -206,14 +206,14 @@ Controlo de acesso para as chaves geridas pelo Cofre de chaves é fornecido no n
 As seguintes permissões podem ser concedidas, num por utilizador / serviço principal base, em que a entrada de controle de acesso de chaves no cofre. Estas permissões espelham de perto as operações permitidas num objeto de chave:  
 
 - Permissões para operações de gestão de chaves
-  - *obter*: Ler a parte pública de uma chave, juntamente com seus atributos
-  - *lista*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
+  - *Obter*: Ler a parte pública de uma chave, juntamente com seus atributos
+  - *Lista*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
   - *Atualização*: Atualize os atributos de uma chave
-  - *criar*: Criar chaves novas
+  - *Criar*: Criar chaves novas
   - *Importar*: Importar uma chave para um cofre de chaves
   - *Eliminar*: Eliminar o objeto de chave
   - *recuperar*: Recuperar uma chave eliminada
-  - *cópia de segurança*: Fazer cópias de segurança de uma chave no Cofre de chaves
+  - *Cópia de segurança*: Fazer cópias de segurança de uma chave no Cofre de chaves
   - *Restaurar*: Restaurar uma cópia de segurança da chave para um cofre de chaves
 
 - Permissões para operações de criptografia
@@ -265,12 +265,12 @@ Controlo de acesso para segredos geridos no Cofre de chaves, é fornecido no ní
 As seguintes permissões podem ser utilizadas, numa base por principal, na entrada de controle de acesso a segredos no cofre e espelham de perto as operações permitidas num objeto secreto:  
 
 - Permissões para operações de gestão de segredos
-  - *obter*: Ler um segredo  
-  - *lista*: Listar os segredos ou versões de um segredo armazenados num cofre de chave  
+  - *Obter*: Ler um segredo  
+  - *Lista*: Listar os segredos ou versões de um segredo armazenados num cofre de chave  
   - *definir*: Criar um segredo  
   - *Eliminar*: Eliminar um segredo  
   - *recuperar*: Recuperar um segredo eliminado
-  - *cópia de segurança*: Criar cópias de segurança um segredo no Cofre de chaves
+  - *Cópia de segurança*: Criar cópias de segurança um segredo no Cofre de chaves
   - *Restaurar*: Restaurar uma cópia de segurança segredo para um cofre de chaves
 
 - Permissões para operações privilegiadas
@@ -422,14 +422,14 @@ Se a política de um certificado estiver definida para renovação automática, 
  As seguintes permissões podem ser utilizadas numa base por principal, na entrada de controle de acesso a segredos num cofre de chaves e estreitamente espelhos as operações permitidas num objeto secreto:  
 
 - Permissões para operações de gestão de certificado
-  - *obter*: Obter a versão atual do certificado ou qualquer versão de um certificado 
-  - *lista*: Listar os certificados atuais ou versões de um certificado  
+  - *Obter*: Obter a versão atual do certificado ou qualquer versão de um certificado 
+  - *Lista*: Listar os certificados atuais ou versões de um certificado  
   - *Atualização*: Atualizar um certificado
-  - *criar*: Criar um certificado do Key Vault
+  - *Criar*: Criar um certificado do Key Vault
   - *Importar*: Importar o material de certificado para um certificado do Key Vault
   - *Eliminar*: Eliminar um certificado, a política e todas as suas versões  
   - *recuperar*: Recuperar um certificado eliminado
-  - *cópia de segurança*: Fazer cópias de segurança de um certificado num cofre de chaves
+  - *Cópia de segurança*: Fazer cópias de segurança de um certificado num cofre de chaves
   - *Restaurar*: Restaurar um certificado de uma cópia de segurança para um cofre de chaves
   - *managecontacts*: Gerir contactos de certificado do Key Vault  
   - *manageissuers*: Gerir o Cofre de chaves autoridades/emissores de certificados
@@ -459,12 +459,12 @@ Para obter mais informações, consulte [chaves de conta de armazenamento do Azu
 As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou aplicação principal para efetuar operações numa conta de armazenamento gerido:  
 
 - Permissões para a conta de armazenamento gerida e operações de definição de SaS
-  - *obter*: Obtém informações sobre uma conta de armazenamento 
-  - *lista*: Contas de armazenamento de lista geridas por um Key Vault
+  - *Obter*: Obtém informações sobre uma conta de armazenamento 
+  - *Lista*: Contas de armazenamento de lista geridas por um Key Vault
   - *Atualização*: Atualizar uma conta de armazenamento
   - *Eliminar*: Eliminar uma conta do Storage  
   - *recuperar*: Recuperar uma conta de armazenamento eliminada
-  - *cópia de segurança*: Criar uma conta de armazenamento de cópias de segurança
+  - *Cópia de segurança*: Criar uma conta de armazenamento de cópias de segurança
   - *Restaurar*: Restaurar uma conta de armazenamento de cópia de segurança para um cofre de chaves
   - *definir*: Criar ou atualizar uma conta de armazenamento
   - *regeneratekey*: Voltar a gerar um valor de chave especificado para uma conta de armazenamento

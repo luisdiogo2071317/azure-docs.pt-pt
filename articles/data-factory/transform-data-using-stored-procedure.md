@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444033"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025730"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados com a atividade Stored Procedure do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +35,9 @@ Pode usar a atividade de procedimento armazenado para invocar um procedimento ar
 - Base de dados do SQL Server.  Se estiver a utilizar o SQL Server, instale o integration runtime autoalojado no mesmo computador que aloja a base de dados ou num computador separado que tenha acesso à base de dados. Runtime de integração Autoalojado é um componente que liga os dados de origens no local/na VM do Azure com os serviços cloud de forma segura e gerida. Ver [integration runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
 
 > [!IMPORTANT]
-> Quando se copiam dados na base de dados do Azure SQL ou SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando o **sqlWriterStoredProcedureName** propriedade. Para obter detalhes sobre a propriedade, consulte o seguinte artigos de conector: [Azure SQL Database](connector-azure-sql-database.md), [do SQL Server](connector-sql-server.md). Invocar um procedimento armazenado ao copiar dados para um Azure SQL Data Warehouse, utilizando uma atividade de cópia não é suportada. No entanto, pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado num SQL Data Warehouse. 
+> Quando se copiam dados na base de dados do Azure SQL ou SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando o **sqlWriterStoredProcedureName** propriedade. Para obter detalhes sobre a propriedade, veja a seguir os artigos de conector: [Base de dados SQL do Azure](connector-azure-sql-database.md), [do SQL Server](connector-sql-server.md). Invocar um procedimento armazenado ao copiar dados para um Azure SQL Data Warehouse, utilizando uma atividade de cópia não é suportada. No entanto, pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado num SQL Data Warehouse. 
 >
-> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Azure SQL Database](connector-azure-sql-database.md), [do SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](connector-azure-sql-database.md), [do SQL Server](connector-sql-server.md), [armazém de dados SQL do Azure](connector-azure-sql-data-warehouse.md)          
 
  
 

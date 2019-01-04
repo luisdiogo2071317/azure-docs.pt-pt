@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987701"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023843"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
 
@@ -260,7 +260,7 @@ A maioria dos recursos dependem de outros recursos funcione corretamente. Máqui
 ],
 ```
 
-Resource Manager os implemente em paralelo quaisquer recursos que não sejam dependentes de outro recurso que está sendo implantado. Tenha cuidado ao definir as dependências porque inadvertidamente pode abrandar a sua implementação ao especificar dependências desnecessárias. Dependências podem encadear através de vários recursos. Por exemplo, a interface de rede depende do endereço IP público e os recursos de rede virtual.
+Resource Manager os implemente em paralelo todos os recursos que não dependentes de outro recurso que está sendo implantado. Tenha cuidado ao definir as dependências porque inadvertidamente pode abrandar a sua implementação ao especificar dependências desnecessárias. Dependências podem encadear através de vários recursos. Por exemplo, a interface de rede depende do endereço IP público e os recursos de rede virtual.
 
 Como sabe se uma dependência é necessária? Ver os valores definidos no modelo. Se um elemento nos pontos de definição do recurso de máquina virtual para outro recurso que é implementado no mesmo modelo, terá uma dependência. Por exemplo, sua máquina de virtual de exemplo define um perfil de rede:
 
@@ -374,7 +374,7 @@ Opcionalmente, pode adicionar discos de dados para as VMs. O [número de discos]
 
 ## <a name="extensions"></a>Extensões
 
-Embora [extensões](extensions-features.md) são um recurso separado, estão intimamente ligados às VMs. As extensões podem ser adicionadas como um recurso de subordinados da VM ou como um recurso separado. O exemplo mostra a [extensão de diagnóstico](extensions-diagnostics-template.md) a ser adicionado às VMs:
+Embora [extensões](extensions-features.md) são um recurso separado, eles estivessem diretamente ligados às VMs. As extensões podem ser adicionadas como um recurso de subordinados da VM ou como um recurso separado. O exemplo mostra a [extensão de diagnóstico](extensions-diagnostics-template.md) a ser adicionado às VMs:
 
 ```
 { 
@@ -448,7 +448,7 @@ Também pode obter informações de extensão, utilizando o **Get-AzureRmVMExten
 
 Quando implementa um modelo, o Azure controla os recursos que implementou como um grupo e atribui automaticamente um nome para este grupo implementado. O nome da implementação é igual ao nome do modelo.
 
-Se estiver curioso sobre o status de recursos na implementação, pode utilizar o painel do grupo de recursos no portal do Azure:
+Se estiver curioso sobre o estado dos recursos na implementação, ver o grupo de recursos no portal do Azure:
 
 ![Obtenha informações de implementação](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ Não é um problema ao utilizar o mesmo modelo para criar recursos ou para atual
 - Criar seu próprio modelo usando [modelos Authoring Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implementar o modelo que criou utilizando [criar uma máquina virtual do Windows com um modelo do Resource Manager](ps-template.md).
 - Saiba como gerir as VMs que criar ao rever [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Para a sintaxe JSON e propriedades de tipos de recursos em modelos, consulte [referência de modelo do Azure Resource Manager](/azure/templates/).

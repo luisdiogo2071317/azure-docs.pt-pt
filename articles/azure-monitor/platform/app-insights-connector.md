@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e6d750d62ccd31a85cbf47e13c12be078bcb2c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726233"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023129"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
@@ -142,7 +142,7 @@ Para dinamizar, clique nas reticências (**...** ) que aparece no final de cada 
 
 ### <a name="sample-corrected-data"></a>Foi corrigido o exemplo de dados
 
-O Application Insights fornece *[correção de amostragem](../../application-insights/app-insights-sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao ativar a amostragem no seu aplicativo do Application Insights, obtém uma redução do número de entradas armazenados no Application Insights e no Log Analytics. Embora a consistência dos dados é preservada na **conector do Application Insights** página e perspectivas, deve corrigir manualmente amostras de dados para as suas consultas personalizadas.
+O Application Insights fornece *[correção de amostragem](../../azure-monitor/app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao ativar a amostragem no seu aplicativo do Application Insights, obtém uma redução do número de entradas armazenados no Application Insights e no Log Analytics. Embora a consistência dos dados é preservada na **conector do Application Insights** página e perspectivas, deve corrigir manualmente amostras de dados para as suas consultas personalizadas.
 
 Eis um exemplo de correção de amostragem numa consulta de pesquisa de registo:
 

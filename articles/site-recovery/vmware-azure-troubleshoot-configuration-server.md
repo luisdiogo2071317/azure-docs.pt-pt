@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 6c8f4fa1fdfdb18d57f001308a6b2105acf9a08d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f5c8241907459a06f0a6206ae6865cdf3fe9ab89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788859"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998970"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -33,13 +33,13 @@ Regista a máquina de origem com o servidor de configuração durante a instala�
     - Depois de resolver os problemas, siga as diretrizes dado [aqui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para repetir o registo manualmente.
 4. Se não for encontrada a cadeia acima, vá para a máquina de origem e verifique o registo C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData pode ser uma pasta oculta. Se não conseguir localizar, tente anular ocultar a pasta. As falhas podem ser devido a vários problemas. Procure a cadeia de caracteres "publicar pedido: (7) - não foi possível ligar ao servidor". Se encontrar,
     - Resolva os problemas de rede entre o servidor de configuração e de máquina de origem. Certifique-se de que esse servidor de configuração está acessível a partir do computador de origem com as ferramentas de rede, como o ping, traceroute, navegador da web etc., certifique-se de que essa máquina de origem é capaz de alcançar o servidor de configuração através da porta 443.
-    - Verifique se existem quaisquer regras de firewall na máquina de origem estiver a bloquear a ligação entre o servidor de configuração e de máquina de origem. Trabalhar com os seus administradores de rede para desbloquear os problemas de ligação.
+    - Verifique se existem quaisquer regras de firewall na máquina de origem estiver a bloquear a ligação entre o servidor de configuração e de máquina de origem. Trabalhar com o seu administrador de rede para a desbloquear os problemas de ligação.
     - Certifique-se as pastas mencionadas [aqui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) não inclui o software antivírus.
     - Depois de resolver os problemas de rede, e repita o registo seguintes diretrizes dadas [aqui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 5. Se não for encontrado, em que a mesma aparência de registo para a cadeia "pedido: (60) - certificado de ponto a ponto não pode ser autenticado com fornecido certificados de AC. ". Se encontrar, 
     - Este erro pode ser porque o certificado de servidor de configuração expirou ou computador de origem não suporta o TLS 1.0 e acima SSL protocolos ou existe uma firewall que está a bloquear a comunicação SSL entre o servidor de configuração e de máquina de origem.
     - Para resolver, ligue ao endereço IP de servidor de configuração usando um navegador da web na máquina de origem com a ajuda de URI https://<CSIPADDRESS>: 443 /. Certifique-se de que essa máquina de origem é capaz de alcançar o servidor de configuração através da porta 443.
-    - Verifique se existem quaisquer regras de firewall no computador de origem a ser adicionadas/removidas da máquina de origem comunicar com o CS. Uma vez que poderia haver muitos software de firewall diferente, não é possível listar as configurações necessárias, trabalhe em conjunto com os administradores de rede do cliente.
+    - Verifique se existem quaisquer regras de firewall na máquina de origem estiver a bloquear a ligação entre o servidor de configuração e de máquina de origem. Trabalhar com o seu administrador de rede para a desbloquear os problemas de ligação.
     - Certifique-se as pastas mencionadas [aqui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) não inclui o software antivírus.  
     - Depois de resolver os problemas, e repita o registo seguintes diretrizes dadas [aqui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 6. No Linux, se o valor de plataforma a partir de < INSTALLATION_DIR > /etc/drscout.conf está danificado, em seguida, registo falhará. Para identificar, vá para o registo /var/log/ua_install.log. Encontrará a cadeia de caracteres "Abortar a configuração como valor VM_PLATFORM é nulo ou não é VmWare/Azure". A plataforma deve ser definida como "VmWare" ou "Azure". Como o drscout Conf está danificado, é recomendado [desinstalar](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) o agente de mobilidade e, em seguida, instalar novamente. Se a desinstalação falhar, siga os passos abaixo:

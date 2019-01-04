@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 02699e5072801dbb8f4a8f97c88db006d31e6e0f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993295"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022041"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
@@ -111,6 +111,11 @@ Se sua organização precisar de acesso à Internet através de um proxy de saí
 
 
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
+
+Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser associação híbrida do Azure Ad e do Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
+ - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido. 
+ - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001
+
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Rever como controlar a associação do Azure AD híbrido dos seus dispositivos
 

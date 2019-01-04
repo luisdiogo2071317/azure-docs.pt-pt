@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224657"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022075"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados através da execução de um bloco de notas do Databricks
 
-A atividade do Azure Databricks Notebook numa [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Databricks notebook na sua área de trabalho do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
+A atividade do Azure Databricks Notebook numa [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Databricks notebook na sua área de trabalho do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definição de atividade do Databricks Notebook
 
@@ -63,7 +62,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Notebook, o tipo de atividade é DatabricksNotebook.|Sim|
-|linkedServiceName|Nome do serviço ligado do Databricks em que é executado o bloco de notas do Databricks. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
+|linkedServiceName|Nome do serviço ligado do Databricks em que é executado o bloco de notas do Databricks. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |notebookPath|O caminho absoluto do bloco de notas para ser executado na área de trabalho do Databricks. Este caminho tem de começar com uma barra.|Sim|
 |baseParameters|Uma matriz de pares chave-valor. Parâmetros bases podem ser utilizados para cada execução de atividade. Se o bloco de notas assume um parâmetro que não for especificado, será utilizado o valor predefinido do bloco de notas. Encontrar mais informações sobre parâmetros na [blocos de notas do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|
 |Bibliotecas|Uma lista de bibliotecas seja instalado no cluster que executará a tarefa. Pode ser uma matriz de \<de cadeias de caracteres, de objeto >.|Não|

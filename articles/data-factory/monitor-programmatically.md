@@ -1,6 +1,6 @@
 ---
-title: Através de programação monitorizar um Azure data factory | Microsoft Docs
-description: Saiba como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs).
+title: Por meio de programação monitorizar uma fábrica de dados do Azure | Documentos da Microsoft
+description: Saiba como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs).
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,30 +9,29 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045787"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022806"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Através de programação monitorizar um Azure data factory
-Este artigo descreve como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs). 
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Por meio de programação monitorizar uma fábrica de dados do Azure
+Este artigo descreve como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs). 
 
 ## <a name="data-range"></a>Intervalo de dados
 
-Fábrica de dados só armazena pipeline executar dados nos últimos 45 dias. Quando a consulta através de programação para dados sobre a execução de pipeline de fábrica de dados - por exemplo, com o comando do PowerShell `Get-AzureRmDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se a consulta de dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de dados de execução dos últimos 45 dias.
+Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Quando consulta por meio de programação para dados sobre execuções de pipeline do Data Factory - por exemplo, com o comando do PowerShell `Get-AzureRmDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar os dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de execução de dados dos últimos 45 dias.
 
-Se pretender manter o pipeline executar dados mais de 45 dias, configurar o seu próprio registo de diagnóstico com [Azure Monitor](monitor-using-azure-monitor.md).
+Se pretender manter os dados por mais de 45 dias de execução do pipeline, configurar o seu próprio log de diagnóstico com [do Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-Para instruções completas de criação e monitorização de um pipeline com o .NET SDK, consulte [criar uma fábrica de dados e pipeline através do .NET](quickstart-create-data-factory-dot-net.md).
+Para obter instruções completas de criar e monitorizar um pipeline com o SDK de .NET, consulte [criar uma fábrica de dados e um pipeline com o .NET](quickstart-create-data-factory-dot-net.md).
 
-1. Adicione o seguinte código para verificar continuamente o estado do pipeline executado até concluir a cópia dos dados.
+1. Adicione o seguinte código para verificar continuamente o estado do pipeline executar até terminar de copiar os dados.
 
     ```csharp
     // Monitor the pipeline run
@@ -49,7 +48,7 @@ Para instruções completas de criação e monitorização de um pipeline com o 
     }
     ```
 
-2. Adicione o seguinte código que obtém cópia de execução da atividade obter mais detalhes, por exemplo, tamanho dos dados de leitura/escrita.
+2. Adicione o seguinte código para esse obtém cópia da execução da atividade obter detalhes, por exemplo, o tamanho dos dados lidos/escritos.
 
     ```csharp
     // Check the copy activity run details
@@ -65,10 +64,10 @@ Para instruções completas de criação e monitorização de um pipeline com o 
     Console.ReadKey();
     ```
 
-Para obter documentação completa sobre o .NET SDK, consulte [referência do SDK de .NET do Data Factory](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Para obter documentação completa sobre o SDK de .NET, consulte [referência SDK .NET do Data Factory](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-Para instruções completas de criação e monitorização de um pipeline com o Python SDK, consulte [criar uma fábrica de dados e pipeline com o Python](quickstart-create-data-factory-python.md).
+Para obter instruções completas de criar e monitorizar um pipeline com o SDK de Python, veja [criar uma fábrica de dados e um pipeline com o Python](quickstart-create-data-factory-python.md).
 
 Para monitorizar a execução de pipeline, adicione o seguinte código:
 
@@ -81,10 +80,10 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Para obter documentação completa sobre Python SDK, consulte [referência do SDK do Data Factory Python](/python/api/overview/azure/datafactory?view=azure-python).
+Para obter documentação completa sobre o SDK de Python, veja [referência SDK de Python de fábrica de dados](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>API REST
-Para instruções completas de criação e monitorização de um pipeline com a REST API, consulte [criar uma fábrica de dados e utilizar a API de REST de pipeline](quickstart-create-data-factory-rest-api.md).
+Para obter instruções completas de criar e monitorizar um pipeline com a REST API, consulte [criar uma fábrica de dados e um pipeline com a REST API](quickstart-create-data-factory-rest-api.md).
  
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -111,10 +110,10 @@ Para instruções completas de criação e monitorização de um pipeline com a 
     $response | ConvertTo-Json
     ```
 
-Para obter documentação completa sobre REST API, consulte [referência da API de REST do Data Factory](/rest/api/datafactory/).
+Para obter documentação completa sobre a REST API, consulte [referência de API de REST do Data Factory](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Para instruções completas de criação e monitorização de um pipeline com o PowerShell, consulte [criar uma fábrica de dados e pipeline com o PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter instruções completas de criar e monitorizar um pipeline com o PowerShell, consulte [criar uma fábrica de dados e um pipeline com o PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -148,8 +147,8 @@ Para instruções completas de criação e monitorização de um pipeline com o 
     $result.Error -join "`r`n"
     ```
 
-Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets PowerShell da fábrica de dados](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets do PowerShell da fábrica de dados](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte [Monitor pipelines utilizando o Monitor de Azure](monitor-using-azure-monitor.md) artigo para saber mais sobre como utilizar o Monitor do Azure para monitorizar os pipelines de fábrica de dados. 
+Ver [monitorizar pipelines com o Azure Monitor](monitor-using-azure-monitor.md) artigo para saber como utilizar o Azure Monitor para monitorizar os pipelines do Data Factory. 
 

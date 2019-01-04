@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c3d715fbab082355f702101762a8fde671347de1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981025"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997933"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
 
@@ -110,4 +110,4 @@ Para procurar instâncias individuais de dependência, a exceção e o método d
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 036daad8898d12874c86b22429627cbebfcfce37
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974731"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018760"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -102,14 +102,14 @@ No portal, clique em qualquer gráfico ou mosaico para ver mais detalhes.
 [Saiba mais sobre como utilizar o Application Insights no portal do Azure](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a aplicação
-Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../application-insights/app-insights-metrics-explorer.md#live-metrics-stream) para garantir que não existem problemas.
+Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para garantir que não existem problemas.
 
 A telemetria acumula-se no portal do Application Insights, onde pode monitorizar métricas, pesquisar a sua telemetria e configurar [dashboards](../../azure-monitor/app/app-insights-dashboards.md). Também pode utilizar a avançada [Linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage) para analisar a utilização e o desempenho ou para encontrar eventos específicos.
 
 Também pode continuar a analisar a sua telemetria no [Visual Studio](../../application-insights/app-insights-visual-studio.md) com ferramentas como a pesquisa de diagnóstico e as [tendências](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
-> Se a sua aplicação enviar telemetria suficiente para se aproximar dos [limites de monitorização](../../application-insights/app-insights-pricing.md#limits-summary), é ativada a [amostragem](../../application-insights/app-insights-sampling.md) automática. A amostragem reduz a quantidade de telemetria enviada pela sua aplicação, conservando os dados correlacionados para efeitos de diagnóstico.
+> Se a sua aplicação enviar telemetria suficiente para se aproximar dos [limites de monitorização](../../azure-monitor/app/pricing.md#limits-summary), é ativada a [amostragem](../../azure-monitor/app/sampling.md) automática. A amostragem reduz a quantidade de telemetria enviada pela sua aplicação, conservando os dados correlacionados para efeitos de diagnóstico.
 >
 >
 
@@ -159,4 +159,4 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 
 ### <a name="automation"></a>Automatização
 
-* [Automatizar a criação de um recurso do Application Insights](../../application-insights/app-insights-powershell.md)
+* [Automatizar a criação de um recurso do Application Insights](../../azure-monitor/app/powershell.md)

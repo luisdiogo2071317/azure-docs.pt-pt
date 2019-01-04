@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f9b2d1a227a210b09e64db8a61d99b216b9b362a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653157"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015561"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 
@@ -269,3 +269,14 @@ Na programação e operações, repetibilidade e previsibilidade são chaves par
 * [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Resolver problemas de implementações do grupo de recursos no Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
+## <a name="next-steps"></a>Passos Seguintes
+
+Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos implementadas neste artigo, consulte:
+
+* [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
+* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+* [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
+* [Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

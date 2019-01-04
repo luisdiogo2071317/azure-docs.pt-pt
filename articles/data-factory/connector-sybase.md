@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 349fd1f129d93a2893e2585267d17661e141ad0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242216"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025781"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados de Sybase com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +54,10 @@ As seguintes propriedades são suportadas para o serviço de Sybase ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Sybase** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Sybase** | Sim |
 | servidor | Nome do servidor Sybase. |Sim |
 | base de dados | Nome da base de dados Sybase. |Sim |
-| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Sybase.<br/>Valores permitidos são: **básica**, e **Windows**. |Sim |
+| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Sybase.<br/>Valores permitidos são: **Básica**, e **Windows**. |Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados Sybase. |Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -96,7 +95,7 @@ Para copiar dados de Sybase, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados Sybase. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

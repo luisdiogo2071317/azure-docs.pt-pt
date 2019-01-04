@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e1b06328f02ebad77f98acc480c146793f124c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020477"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
 *No Application Insights, vejo apenas uma fração dos eventos que estão a ser gerados pelo meu aplicativo.*
 
-* Se vir consistentemente a fração do mesmo, é provavelmente devido a adaptável [amostragem](../../application-insights/app-insights-sampling.md). Para confirmar isso, abra a pesquisa (a partir do painel de descrição geral) e observe uma instância de um pedido ou outro evento. Na parte inferior da secção de propriedades clique "..." para obter detalhes de propriedade completa. Se pedir contagem > 1, em seguida, a amostragem é numa operação. 
-* Caso contrário, é possível que estiver a obter um [limite de taxa de dados](../../application-insights/app-insights-pricing.md#limits-summary) para o plano de preços. Estes limites são aplicados por minuto.
+* Se vir consistentemente a fração do mesmo, é provavelmente devido a adaptável [amostragem](../../azure-monitor/app/sampling.md). Para confirmar isso, abra a pesquisa (a partir do painel de descrição geral) e observe uma instância de um pedido ou outro evento. Na parte inferior da secção de propriedades clique "..." para obter detalhes de propriedade completa. Se pedir contagem > 1, em seguida, a amostragem é numa operação. 
+* Caso contrário, é possível que estiver a obter um [limite de taxa de dados](../../azure-monitor/app/pricing.md#limits-summary) para o plano de preços. Estes limites são aplicados por minuto.
 
 ## <a name="no-data-from-my-server"></a>Não existem dados a partir do meu servidor
 *Eu Instalei a minha aplicação no meu servidor web e, agora eu não vejo qualquer telemetria do mesmo. Ele trabalhou OK no computador de desenvolvimento.*
@@ -51,7 +51,7 @@ Causas prováveis:
 
 * Falha na comunicação com o portal do Application Insights; ou
 * Existe algum problema com a sua conta do Azure;
-* Tem apenas [acesso de leitura para a subscrição ou grupo em que estava a tentar criar o novo recurso](../../application-insights/app-insights-resources-roles-access-control.md).
+* Tem apenas [acesso de leitura para a subscrição ou grupo em que estava a tentar criar o novo recurso](../../azure-monitor/app/resources-roles-access-control.md).
 
 CORREÇÃO:
 
@@ -95,7 +95,7 @@ O Microsoft início de sessão que foi utilizado pela última vez no seu browser
 * Tem mais do que uma conta Microsoft - talvez um trabalho e uma conta Microsoft pessoal? O início de sessão que foi utilizado pela última vez no seu browser predefinido foi para uma conta diferente daquela que tem acesso ao [adicionar o Application Insights ao projeto](../../azure-monitor/app/asp-net.md). 
   
   * CORREÇÃO: Clique no seu nome no canto superior direito da janela do navegador e terminar sessão. Em seguida, inicie sessão com a conta que tem acesso. Em seguida, na barra de navegação esquerdo, clique em Application Insights e selecione a sua aplicação.
-* Alguém adicionou o Application Insights ao projeto, e eles se esqueceu de dar-lhe [acesso ao grupo de recursos](../../application-insights/app-insights-resources-roles-access-control.md) no qual ele foi criado. 
+* Alguém adicionou o Application Insights ao projeto, e eles se esqueceu de dar-lhe [acesso ao grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md) no qual ele foi criado. 
   
   * CORREÇÃO: Se usaram uma conta institucional, eles podem adicioná-lo para a equipe; ou eles podem conceder-lhe acesso individual para o grupo de recursos.
 
@@ -167,7 +167,7 @@ Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível pa
 * Ter atingido a quota mensal de pontos de dados? Abra o preço e definições/Quota para descobrir. Nesse caso, pode atualizar o seu plano ou pagar por capacidade adicional. Consulte a [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu estou esperando
-Se a sua aplicação envia uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para ASP.NET versão 2.0.0-Beta3 ou posterior, o [amostragem adaptável](../../application-insights/app-insights-sampling.md) funcionalidade pode operar e enviar apenas uma percentagem da sua telemetria. 
+Se a sua aplicação envia uma grande quantidade de dados e estiver a utilizar o Application Insights SDK para ASP.NET versão 2.0.0-Beta3 ou posterior, o [amostragem adaptável](../../azure-monitor/app/sampling.md) funcionalidade pode operar e enviar apenas uma percentagem da sua telemetria. 
 
 Pode desativá-lo, mas isso não é recomendável. Amostragem foi concebida para que a telemetria relacionada corretamente é transmitida, para fins de diagnóstico. 
 

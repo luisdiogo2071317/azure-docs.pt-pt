@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259382"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002676"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início Rápido: Enviar e receber mensagens com o portal do Azure e o .NET
+# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início rápido: Enviar e receber mensagens com o portal do Azure e o .NET
 
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.  
 
@@ -59,7 +59,7 @@ A criação de um espaço de nomes gera automaticamente uma regra inicial de Ass
 1.  Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
 2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
 3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** junto a **Cadeia de Ligação Primária** para copiar a cadeia de ligação para a sua área de transferência e utilizá-la mais tarde. Cole este valor no Bloco de Notas ou noutra localização temporária. 
+4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária. 
 
     ![connection-string][connection-string]
 5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
@@ -77,7 +77,7 @@ Para criar uma fila do Service Bus, especifique o espaço de nomes abaixo da fil
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
+Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 Para executar o código, faça o seguinte:
 
@@ -246,7 +246,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, avance para o tutorial seguinte do Service Bus:
 

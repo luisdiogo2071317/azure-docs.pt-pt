@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: b8c7abacbf99bfbf68b7dd76a01011c8220bf9f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608465"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001282"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -105,13 +105,19 @@ Quando migra a base de dados de um escalão de serviço baseado em DTU com o per
 Pode alterar o período de retenção de cópia de segurança de PITR predefinido a utilizar o Portal do Azure, PowerShell ou a API REST. Os valores suportados são: 7, 14, 21, 28 ou 35 dias. Os exemplos seguintes mostram como alterar a retenção PITR 28 dias.
 
 > [!NOTE]
-> APIs de Thes só terá impacto sobre o período de retenção PITR. Se tiver configurado LTR da base de dados, não será afetada. Para obter mais informações sobre como alterar o period(s) de retenção LTR, consulte [retenção a longo prazo](sql-database-long-term-retention.md).
+> Essas APIs só terá impacto sobre o período de retenção PITR. Se tiver configurado LTR da base de dados, não será afetada. Para obter mais informações sobre como alterar o period(s) de retenção LTR, consulte [retenção a longo prazo](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Alterar o período de retenção de cópia de segurança de PITR no portal do Azure
 
-Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para a base de dados cujo período de retenção que deseja alterar e clique em **descrição geral**.
+Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no Portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando. 
 
-![Portal do PITR Azure de alteração](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Alteração PITR para um servidor lógico
+
+![Portal do PITR Azure de alteração](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Alteração PITR para uma instância gerida
+
+![Portal do PITR Azure de alteração](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Alterar o período de retenção de cópia de segurança de PITR com o PowerShell
 

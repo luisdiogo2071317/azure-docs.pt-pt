@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605641"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001520"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluções de armazenamento do Azure para serviços de ML no Azure HDInsight
 
 Serviços de ML no HDInsight pode utilizar uma variedade de soluções de armazenamento para manter os dados, código ou objetos que contêm os resultados da análise. Estas incluem as seguintes opções:
 
 - [BLOBs do Azure](https://azure.microsoft.com/services/storage/blobs/)
-- [Armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)
+- [Armazenamento do Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Armazenamento de ficheiros do Azure](https://azure.microsoft.com/services/storage/files/)
 
 Tem também a opção de aceder a várias contas de armazenamento do Azure ou contentores com o seu cluster do HDInsight. Armazenamento de ficheiros do Azure é uma opção de armazenamento de dados conveniente para utilização no nó de extremidade que lhe permite montar uma partilha de ficheiros de armazenamento do Azure para, por exemplo, o sistema de ficheiros do Linux. Mas, partilhas de ficheiros do Azure podem ser montadas e utilizadas por qualquer sistema que tenha um sistema operativo suportado como Windows ou Linux. 

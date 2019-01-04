@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084078"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020895"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -265,7 +264,7 @@ Se a sua atividade de cópia é executada num Runtime de integração autoalojad
 
 **Configuração**: Recomendamos que utilize uma máquina dedicada para o anfitrião do Integration Runtime. Ver [considerações sobre como utilizar o Runtime de integração autoalojado](concepts-integration-runtime.md).
 
-**Aumentar horizontalmente**: um único Runtime de integração de autoalojado lógica com um ou mais nós possa servir várias execuções de atividade de cópia ao mesmo tempo em simultâneo. Caso precise pesada no movimento de dados híbrido com grande número de execuções de atividade de cópia em simultâneo ou com grande volume de dados para copiar, considere [aumentar horizontalmente o Runtime de integração autoalojado](create-self-hosted-integration-runtime.md#high-availability-and-scalability) de modo a aprovisionar mais recursos para aumentar a produtividade de cópia.
+**Aumentar horizontalmente**: Um único Runtime de integração de autoalojado lógica com um ou mais nós possa servir várias execuções de atividade de cópia ao mesmo tempo em simultâneo. Caso precise pesada no movimento de dados híbrido com grande número de execuções de atividade de cópia em simultâneo ou com grande volume de dados para copiar, considere [aumentar horizontalmente o Runtime de integração autoalojado](create-self-hosted-integration-runtime.md#high-availability-and-scalability) de modo a aprovisionar mais recursos para aumentar a produtividade de cópia.
 
 ## <a name="considerations-for-the-source"></a>Considerações para a origem
 
@@ -281,13 +280,13 @@ Para arquivos de dados da Microsoft, consulte [monitoramento e ajuste tópicos](
 
 ### <a name="file-based-data-stores"></a>Arquivos de dados baseados em ficheiros
 
-* **Média de tamanho de ficheiro e a contagem de ficheiros**: atividade de cópia transfere um ficheiro de dados cada vez. Com a mesma quantidade de dados para ser movida, o débito global é inferior se os dados consistam em muitos arquivos pequenos em vez de poucos arquivos grandes devido a fase de arranque de configuração para cada ficheiro. Por conseguinte, se possível, combine o arquivos pequenos em arquivos maiores para obter um débito mais elevado.
-* **Formato e compressão de ficheiros**: para obter mais formas de melhorar o desempenho, consulte a [considerações de serialização e desserialização](#considerations-for-serialization-and-deserialization) e [considerações sobre a compactação](#considerations-for-compression) secções.
+* **Média de tamanho de ficheiro e a contagem de ficheiros**: Atividade de cópia transfere um ficheiro de dados cada vez. Com a mesma quantidade de dados para ser movida, o débito global é inferior se os dados consistam em muitos arquivos pequenos em vez de poucos arquivos grandes devido a fase de arranque de configuração para cada ficheiro. Por conseguinte, se possível, combine o arquivos pequenos em arquivos maiores para obter um débito mais elevado.
+* **Ficheiro de formato e compressão**: Para obter mais formas de melhorar o desempenho, consulte a [considerações sobre a serialização e desserialização](#considerations-for-serialization-and-deserialization) e [considerações sobre a compactação](#considerations-for-compression) secções.
 
 ### <a name="relational-data-stores"></a>Arquivos de dados relacionais
 
-* **Padrão de dados**: seu esquema de tabela afeta o débito de cópia. Um tamanho de linha grandes dá-lhe um desempenho melhor do que o tamanho de linha de pequenos, para copiar a mesma quantidade de dados. O motivo é que a base de dados com mais eficiência pode obter menos lotes de dados que contêm menos linhas.
-* **Consulta ou procedimento armazenado**: otimizar a lógica da consulta ou procedimento armazenado que especificar na origem de atividade de cópia para obter os dados de forma mais eficiente.
+* **Padrão de dados**: A esquema da tabela afeta o débito de cópia. Um tamanho de linha grandes dá-lhe um desempenho melhor do que o tamanho de linha de pequenos, para copiar a mesma quantidade de dados. O motivo é que a base de dados com mais eficiência pode obter menos lotes de dados que contêm menos linhas.
+* **Consulta ou procedimento armazenado**: Otimize a lógica da consulta ou procedimento armazenado que especificar na origem de atividade de cópia para obter os dados de forma mais eficiente.
 
 ## <a name="considerations-for-the-sink"></a>Considerações para o sink
 
@@ -303,12 +302,12 @@ Para arquivos de dados da Microsoft, consulte [monitoramento e ajuste tópicos](
 
 ### <a name="file-based-data-stores"></a>Arquivos de dados baseados em ficheiros
 
-* **Copie o comportamento**: Se copiar dados de um arquivo de dados diferentes baseados em ficheiros, a atividade de cópia tem três opções por meio do **copyBehavior** propriedade. Preserva a hierarquia, nivela hierarquia ou intercala ficheiros. A preservação ou mesclar a hierarquia tem pouca ou nenhuma sobrecarga de desempenho, mas mesclar arquivos faz com que a sobrecarga de desempenho aumentar.
-* **Formato e compressão de ficheiros**: consulte as [considerações de serialização e desserialização](#considerations-for-serialization-and-deserialization) e [considerações sobre a compactação](#considerations-for-compression) secções para obter mais maneiras de melhorar o desempenho.
+* **Copie o comportamento**: Se copiar dados de um arquivo de dados diferentes baseados em ficheiros, a atividade de cópia tem três opções através da **copyBehavior** propriedade. Preserva a hierarquia, nivela hierarquia ou intercala ficheiros. A preservação ou mesclar a hierarquia tem pouca ou nenhuma sobrecarga de desempenho, mas mesclar arquivos faz com que a sobrecarga de desempenho aumentar.
+* **Ficheiro de formato e compressão**: Consulte a [considerações sobre a serialização e desserialização](#considerations-for-serialization-and-deserialization) e [considerações sobre a compactação](#considerations-for-compression) secções para obter mais maneiras de melhorar o desempenho.
 
 ### <a name="relational-data-stores"></a>Arquivos de dados relacionais
 
-* **Copie o comportamento**: consoante as propriedades que tiver definido para **sqlSink**, atividade de cópia escreve dados na base de dados de destino de formas diferentes.
+* **Copie o comportamento**: Consoante as propriedades que tiver definido para **sqlSink**, atividade de cópia escreve dados na base de dados de destino de formas diferentes.
   * Por predefinição, as utilizações de serviço de movimento de dados a API de cópia em massa para inserir dados em acréscimo modo, que fornece o melhor desempenho.
   * Se configurar um procedimento armazenado no coletor, a base de dados aplica-se a uma linha de dados cada vez, em vez de como um carregamento em massa. Desempenho cai significativamente. Se o seu conjunto de dados é grande, quando aplicável, considere mudar para utilizar o **preCopyScript** propriedade.
   * Se configurar o **preCopyScript** executar de propriedade para cada atividade de cópia, o serviço aciona o script e, em seguida, utilize a API de cópia em massa para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, pode especificar um script para eliminar primeiro todos os registos antes dos novos dados da origem de carregamento em massa.
@@ -319,7 +318,7 @@ Para arquivos de dados da Microsoft, consulte [monitoramento e ajuste tópicos](
 ### <a name="nosql-stores"></a>Arquivos NoSQL
 
 * Para **armazenamento de tabelas**:
-  * **Partição**: escrever dados para partições intercaladas drasticamente degrada o desempenho. Ordenar os dados de origem por chave de partição para que os dados são inseridos com eficiência numa partição após a outra ou ajustar a lógica para escrever os dados para uma única partição.
+  * **partição**: Escrita de dados para partições intercaladas drasticamente degrada o desempenho. Ordenar os dados de origem por chave de partição para que os dados são inseridos com eficiência numa partição após a outra ou ajustar a lógica para escrever os dados para uma única partição.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Considerações sobre a serialização e desserialização
 
@@ -339,11 +338,11 @@ Serialização e desserialização podem ocorrer quando o seu conjunto de dados 
 
 Quando o seu conjunto de dados de entrada ou de saída é um arquivo, pode definir a atividade de cópia para efetuar a compressão ou descompressão à medida que escreve dados para o destino. Ao escolher compressão, faça uma compensação entre (e/s) de entrada/saída e CPU. Comprimir os custos de dados Extras em recursos de computação. Mas, em troca, reduz e/s de rede e armazenamento. Dependendo dos dados, poderá ver um aumento na produtividade geral da cópia.
 
-**Codec**: cada codec de compressão tem vantagens. Por exemplo, bzip2 tem a menor taxa de transferência de cópia, mas obtém o melhor desempenho das consultas do Hive com bzip2 como pode dividir a para processamento. GZip é a opção mais equilibrada e é utilizado mais frequentemente. Escolha o codec que melhor se adequa aos seu cenário de ponto-a-ponto.
+**Codec**: Cada codec de compressão tem vantagens. Por exemplo, bzip2 tem a menor taxa de transferência de cópia, mas obtém o melhor desempenho das consultas do Hive com bzip2 como pode dividir a para processamento. GZip é a opção mais equilibrada e é utilizado mais frequentemente. Escolha o codec que melhor se adequa aos seu cenário de ponto-a-ponto.
 
-**Nível**: pode escolher entre duas opções para cada codec de compressão: mais rápida comprimido e comprimido ideal. A opção mais rápida comprimida comprime os dados mais rapidamente possível, mesmo que o ficheiro resultante não será compactado ideal. A opção ideal comprimida gasta mais tempo a compactação e gera uma quantidade mínima de dados. Pode testar as duas opções para ver o que fornece um melhor desempenho geral no seu caso.
+**Nível**: Pode escolher entre duas opções para cada codec de compressão: mais rápida comprimido e comprimido ideal. A opção mais rápida comprimida comprime os dados mais rapidamente possível, mesmo que o ficheiro resultante não será compactado ideal. A opção ideal comprimida gasta mais tempo a compactação e gera uma quantidade mínima de dados. Pode testar as duas opções para ver o que fornece um melhor desempenho geral no seu caso.
 
-**Uma consideração**: para copiar uma grande quantidade de dados entre um arquivo no local e na cloud, considere a utilização [cópia faseada](#staged-copy) com compressão ativada. Utilizar o armazenamento provisório é útil quando a largura de banda de rede da sua empresa e seus serviços do Azure é o fator restritivo e quiser que o conjunto de dados de entrada e o conjunto de dados de saída ambos os ter formato não comprimido.
+**Uma consideração**: Para copiar uma grande quantidade de dados entre um arquivo no local e na cloud, considere usar [cópia faseada](#staged-copy) com compressão ativada. Utilizar o armazenamento provisório é útil quando a largura de banda de rede da sua empresa e seus serviços do Azure é o fator restritivo e quiser que o conjunto de dados de entrada e o conjunto de dados de saída ambos os ter formato não comprimido.
 
 ## <a name="considerations-for-column-mapping"></a>Considerações para mapeamento de colunas
 
@@ -359,17 +358,17 @@ Se o tamanho dos dados que pretende copiar for grande, pode ajustar a sua lógic
 
 Tenha cuidado sobre o número de conjuntos de dados e atividades de cópia que requerem o Data Factory se ligue para o mesmo arquivo de dados ao mesmo tempo. Muitas tarefas de cópia em simultâneo poderão limitar um arquivo de dados e levar a degradação do desempenho, repetições internas do trabalho de cópia e em alguns casos, as falhas de execução.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Cenário de exemplo: cópia de um servidor de SQL no local para o armazenamento de BLOBs
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Cenário de exemplo: Copiar de um servidor de SQL no local para o armazenamento de BLOBs
 
-**Cenário**: baseia-se um pipeline para copiar dados de um servidor de SQL no local para o armazenamento de BLOBs no formato CSV. Para tornar a tarefa de cópia com mais rapidez, os arquivos CSV devem ser comprimidos no formato de bzip2.
+**Cenário**: Baseia-se um pipeline para copiar dados de um servidor de SQL no local para o armazenamento de BLOBs no formato CSV. Para tornar a tarefa de cópia com mais rapidez, os arquivos CSV devem ser comprimidos no formato de bzip2.
 
 **Análise e teste**: O débito de atividade de cópia é inferior a 2 MBps, que é muito mais lenta do que o parâmetro de comparação do desempenho.
 
-**Análise de desempenho e otimização**: para resolver o problema de desempenho, vamos dar uma olhada em como os dados são processados e movidos.
+**Análise de desempenho e otimização**: Para resolver o problema de desempenho, vamos examinar como os dados são processados e movidos.
 
-1. **Ler dados**: o runtime de integração abre uma ligação ao SQL Server e envia a consulta. SQL Server responde ao enviar o fluxo de dados para o runtime de integração através da intranet.
-2. **Serializar e comprimir os dados**: o runtime de integração serializa o fluxo de dados em formato CSV e comprimir os dados num fluxo de bzip2.
-3. **Escrever dados**: runtime de integração carrega o fluxo de bzip2 para o armazenamento de BLOBs através da Internet.
+1. **Ler dados**: Runtime de integração abre uma ligação ao SQL Server e envia a consulta. SQL Server responde ao enviar o fluxo de dados para o runtime de integração através da intranet.
+2. **Serializar e comprimir os dados**: Runtime de integração serializa o fluxo de dados em formato CSV e comprime os dados num fluxo de bzip2.
+3. **Escrever dados**: Runtime de integração carrega o fluxo de bzip2 para o armazenamento de BLOBs através da Internet.
 
 Como pode ver, os dados estão a ser processados e movidos de forma seqüencial transmissão em fluxo: SQL Server > LAN > runtime de integração > WAN > armazenamento de Blobs. **O desempenho geral é protegido pelo débito mínimo entre o pipeline**.
 
@@ -377,14 +376,14 @@ Como pode ver, os dados estão a ser processados e movidos de forma seqüencial 
 
 Um ou mais dos seguintes fatores podem fazer com que o afunilamento do desempenho:
 
-* **Origem**: próprio SQL Server tem baixo débito devido a cargas pesadas.
+* **origem**: Devido a cargas pesadas, o SQL Server em si tem baixo débito.
 * **Runtime de integração autoalojado**:
-  * **LAN**: o runtime de integração está localizado longe de ser máquina do SQL Server e tem uma ligação de largura de banda baixa.
-  * **Runtime de integração**: o runtime de integração atingiu suas limitações de carga para realizar as seguintes operações:
-    * **Serialização**: serializar o fluxo de dados em formato CSV tem o débito lento.
-    * **Compressão**: escolher um codec de compressão lenta (por exemplo, bzip2, que é 2,8 MBps com Core i7).
+  * **LAN**: Runtime de integração está localizado longe de ser máquina do SQL Server e tem uma ligação de largura de banda baixa.
+  * **Runtime de integração**: Runtime de integração atingiu suas limitações de carga para realizar as seguintes operações:
+    * **Serialização**: Serializar o fluxo de dados em formato CSV tem o débito lento.
+    * **Compressão**: Optou por um codec de compressão lenta (por exemplo, bzip2, que é 2,8 MBps com Core i7).
   * **WAN**: A largura de banda entre a rede empresarial e seus serviços do Azure é baixa (por exemplo, T1 = 1,544 kbps; T2 = 6,312 kbps).
-* **Sink**: armazenamento de BLOBs tem baixo débito. (Este cenário é pouco provável que uma vez que o SLA garante um mínimo de 60 MBps.)
+* **Sink**: Armazenamento de BLOBs tem baixo débito. (Este cenário é pouco provável que uma vez que o SLA garante um mínimo de 60 MBps.)
 
 Neste caso, bzip2 compressão de dados pode ser mais lento todo o pipeline. Mudar para um codec de compressão de gzip poderá facilitar este congestionamento.
 
@@ -392,12 +391,12 @@ Neste caso, bzip2 compressão de dados pode ser mais lento todo o pipeline. Muda
 
 Aqui está o desempenho de monitorização e otimização de referências para alguns dos arquivos de dados suportados:
 
-* O armazenamento do Azure (incluindo o armazenamento de BLOBs e armazenamento de tabelas): [metas de escalabilidade do armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de armazenamento do Azure, desempenho e escalabilidade](../storage/common/storage-performance-checklist.md)
+* Armazenamento do Azure (incluindo o armazenamento de BLOBs e armazenamento de tabelas): [Destinos de escalabilidade do armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de armazenamento do Azure, desempenho e escalabilidade](../storage/common/storage-performance-checklist.md)
 * Base de dados SQL do Azure: Pode [monitorizar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
-* O Azure SQL Data Warehouse: O seu recurso é medido em unidades do data warehouse (DWUs); consulte [gerir computação power no Azure SQL Data Warehouse (descrição geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* SQL Server no local: [monitorizar e otimizar desempenho](https://msdn.microsoft.com/library/ms189081.aspx)
-* Servidor de ficheiros no local: [otimização de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx)
+* Armazém de dados SQL do Azure: Sua capacidade é medida em unidades do data warehouse (DWUs); consulte [gerir computação power no Azure SQL Data Warehouse (descrição geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* o Azure Cosmos DB: [Níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md)
+* SQL Server no local: [Monitorizar e otimizar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx)
+* Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os outros artigos de atividade de cópia:

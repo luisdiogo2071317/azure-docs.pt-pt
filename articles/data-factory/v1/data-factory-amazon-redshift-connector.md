@@ -9,17 +9,16 @@ ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968788"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022024"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +42,7 @@ Atualmente, o Data Factory suporta apenas mover dados do Amazon Redshift para um
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia para mover dados de uma origem do Amazon Redshift através de APIs e ferramentas diferentes.
 
-A maneira mais fácil para criar um pipeline é usar o Assistente de cópia de fábrica de dados do Azure. Para uma passo a passo rápido sobre como criar um pipeline com o Assistente de cópia, consulte a [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
+A maneira mais fácil para criar um pipeline é usar o Assistente de cópia de fábrica de dados do Azure. Para uma passo a passo rápido sobre como criar um pipeline com o Assistente de cópia, consulte o [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
 
 Também pode criar um pipeline com o portal do Azure, o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos Azure Resource Manager, a API .NET ou a API de REST também pode ser utilizada para criar o pipeline. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
@@ -53,7 +52,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie conjuntos de dados para representar os dados de entrada e saídos da operação de cópia. 
 3. Crie um pipeline com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o Assistente para copiar, definições de JSON para estas entidades do Data Factory são criadas automaticamente. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O [exemplo de JSON: copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados do Amazon Redshift.
+Quando utiliza o Assistente para copiar, definições de JSON para estas entidades do Data Factory são criadas automaticamente. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O [exemplo de JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados do Amazon Redshift.
 
 As secções seguintes descrevem as propriedades JSON utilizadas para definir as entidades do Data Factory para o Amazon Redshift.
 
@@ -139,7 +138,7 @@ Para este caso de utilização de exemplo, atividade de cópia primeiro descarre
 }
 ```
 
-## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemplo de JSON: copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure
+## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure
 Este exemplo mostra como copiar dados de uma base de dados do Amazon Redshift para o armazenamento de Blobs do Azure. Dados podem ser copiados diretamente a qualquer [suportado sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia.  
 
 O exemplo possui as seguintes entidades do data factory:
@@ -334,7 +333,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | SMALLINT |Int16 |
 | NÚMERO INTEIRO |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |decimal |
+| DECIMAL |Decimal |
 | REAL |Único |
 | PRECISÃO DUPLA |Valor de duplo |
 | VALOR BOOLEANO |Cadeia |

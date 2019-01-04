@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c7266d840a8d60275a40cf31291d3a8f524131f9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726904"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016753"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção do perfil no Azure com o Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Ative Profiler para a sua aplicação
@@ -26,7 +26,7 @@ Application Insights Profiler fornece rastreios de desempenho para aplicativos e
 
 O criador de perfil funciona com aplicações de .net implementadas nos seguintes serviços do Azure. Instruções específicas para habilitar o criador de perfil para cada tipo de serviço estão nos links a seguir.
 
-* [Serviços Aplicacionais](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Aplicacionais](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços Cloud](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicações do Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais e Scalesets VM](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -49,10 +49,10 @@ Selecione um exemplo para exibir uma divisão de nível de código de tempo gast
 
 O Explorador de rastreio apresenta as seguintes informações:
 
-* **Mostrar caminho mais utilizado**: abre o maior folha nó ou, pelo menos algo fechar. Na maioria dos casos, este nó está perto de um estrangulamento do desempenho.
+* **Mostrar caminho mais utilizado**: É aberto o maior folha nó, ou, pelo menos, algo fechar. Na maioria dos casos, este nó está perto de um estrangulamento do desempenho.
 * **Etiqueta**: O nome da função ou eventos. A árvore apresenta uma combinação de código e eventos que ocorreram (como eventos SQL e HTTP). O evento superior representa a duração do pedido geral.
 * **Decorrido**: O intervalo de tempo entre o início da operação e o final da operação.
-* **Quando**: tempo quando a função ou o evento foi executado em relação a outras funções.
+* **Quando**: A hora quando a função ou o evento estava em execução em relação a outras funções.
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 
@@ -124,11 +124,11 @@ Profiler aleatoriamente executa dois minutos por hora em cada máquina virtual q
 
 ## <a name="next-steps"></a>Próximos Passos
 Ativar o Application Insights Profiler para a sua aplicação do Azure
-* [Serviços Aplicacionais](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Aplicacionais](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços Cloud](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicações do Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais e Scalesets VM](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
+[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png

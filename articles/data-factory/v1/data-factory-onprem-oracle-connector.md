@@ -9,17 +9,16 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024914"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
@@ -56,7 +55,7 @@ O gateway é necessário, mesmo que o Oracle está hospedado numa infraestrutura
 
 Este conector Oracle suporta duas versões de controladores:
 
-- **Microsoft driver para Oracle (recomendado)**: a partir do Data Management Gateway versão 2.7, um driver da Microsoft para Oracle é instalado automaticamente com o gateway. Não precisa de instalar ou atualizar o driver para estabelecer conectividade a Oracle. Também pode assistir a melhor desempenho de cópia utilizando este controlador. Estas versões de bases de dados do Oracle são suportados:
+- **Microsoft driver para Oracle (recomendado)**: A partir Data Management Gateway versão 2.7, um controlador de Microsoft para Oracle é instalado automaticamente com o gateway. Não precisa de instalar ou atualizar o driver para estabelecer conectividade a Oracle. Também pode assistir a melhor desempenho de cópia utilizando este controlador. Estas versões de bases de dados do Oracle são suportados:
     - R1 Oracle 12c (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -70,7 +69,7 @@ Este conector Oracle suporta duas versões de controladores:
     > Atualmente, o Microsoft driver para Oracle suporta apenas cópia de dados do Oracle. O controlador não suporta escrita a Oracle. O recurso de ligação de teste sobre o Data Management Gateway **diagnóstico** separador não suporta este controlador. Em alternativa, pode utilizar o Assistente para copiar para validar a conectividade.
     >
 
-- **Fornecedor de dados do Oracle para .NET**: pode usar o provedor de dados Oracle para copiar dados de ou para Oracle. Este componente está incluído no [Oracle Data Access componentes para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão relevante (32 bits ou 64 bits) na máquina onde o gateway está instalado. [Fornecedor de dados Oracle .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode aceder à base de dados do Oracle 10g versão 2 e versões posteriores.
+- **Fornecedor de dados do Oracle para .NET**: Pode utilizar o fornecedor de dados Oracle para copiar dados de ou para Oracle. Este componente está incluído no [Oracle Data Access componentes para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão relevante (32 bits ou 64 bits) na máquina onde o gateway está instalado. [Fornecedor de dados Oracle .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode aceder à base de dados do Oracle 10g versão 2 e versões posteriores.
 
     Se selecionou **instalação XCopy**, conclua os passos descritos no arquivo Readme htm. Recomendamos que selecione o instalador com a interface do Usuário (não o instalador de XCopy).
 
@@ -82,7 +81,7 @@ Se utilizar o Assistente para copiar para criar o pipeline da cópia, o tipo de 
 
 Pode criar um pipeline com uma atividade de cópia. O pipeline que move os dados de ou para uma base de dados do Oracle no local através de APIs ou ferramentas diferentes.
 
-A maneira mais fácil para criar um pipeline é usar o Assistente para copiar. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente de cópia de dados.
+A maneira mais fácil para criar um pipeline é usar o Assistente para copiar. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente de cópia de dados.
 
 Também pode utilizar uma das seguintes ferramentas para criar um pipeline: o **portal do Azure**, **Visual Studio**, **Azure PowerShell**, um **do Azure Resource Manager modelo**, o **API de .NET**, ou a **REST API**. Consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline com uma atividade de cópia.
 
@@ -108,10 +107,10 @@ A tabela seguinte descreve os elementos JSON que são específicos para o servi�
 | connectionString | Especifique as informações necessárias para ligar à instância de base de dados do Oracle para o **connectionString** propriedade. | Sim |
 | gatewayName | O nome do gateway que é utilizado para ligar ao servidor Oracle no local. |Sim |
 
-**Exemplo: Com o controlador de Microsoft**
+**Exemplo: Com o controlador da Microsoft**
 
 > [!TIP]
-> Se vir um erro que diz "ORA 01025: parâmetro UPI fora do intervalo" e o Oracle versões 8i, adicionar `WireProtocolMode=1` para sua cadeia de ligação e tente novamente:
+> Se vir um erro que diz "ORA 01025: Parâmetro de UPI fora do intervalo"e o Oracle versões 8i, adicionar `WireProtocolMode=1` para sua cadeia de ligação e tente novamente:
 
 ```json
 {
@@ -575,7 +574,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
 * Copie esta entrada para o arquivo Machine config na seguinte pasta .NET 4.0: < disco do sistema\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, altere a versão para 4.xxx.x.x.
 * Instalar < caminho de instalação ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll no cache de global assembly (GAC) executando **gacutil /i [provider path]**.
 
-### <a name="problem-2-datetime-formatting"></a>Problema 2: Data/hora de formatação
+### <a name="problem-2-datetime-formatting"></a>Problema 2: Formatação de data/hora
 
 **Mensagem de erro**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 188c6148e169da62dec342e1695bf20ca57e3256
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974884"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999686"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um e-mail quando...
@@ -54,7 +54,7 @@ Como os alertas têm dois Estados, terá de enviar um valor baixo, quando consid
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Criar um gráfico no [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) para ver o alarme:
+Criar um gráfico no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) para ver o alarme:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -77,7 +77,7 @@ Alguns pontos a considerar:
 [Utilize o PowerShell para criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Utilize o PowerShell para gerir o Application Insights
-* [Criar novos recursos](../../application-insights/app-insights-powershell-script-create-resource.md)
+* [Criar novos recursos](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separado de diferentes versões
@@ -91,7 +91,7 @@ Alguns pontos a considerar:
 
 ## <a name="visualize-data"></a>Visualizar os dados
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Dashboard com métricas de várias aplicações
-* Na [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md), personalizar o gráfico e guarde-o como um favorito. Afixá-la ao dashboard do Azure.
+* Na [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md), personalizar o gráfico e guarde-o como um favorito. Afixá-la ao dashboard do Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard com dados de outras origens e o Application Insights
 * [Exportar a telemetria para o Power BI](../../application-insights/app-insights-export-power-bi.md).
@@ -132,7 +132,7 @@ Se pretender que uma lista de utilizadores com os dados, como quais são as pág
 * Nas suas páginas da web, limite o número de chamadas Ajax comunicado para cada vista de página. No fragmento de script após `instrumentationKey:...` , insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
 * Se estiver a utilizar [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), a agregação de lotes de valores de métrica de computação antes de enviar o resultado. Há uma sobrecarga de trackmetric () que fornece para isso.
 
-Saiba mais sobre [preços e quotas](../../application-insights/app-insights-pricing.md).
+Saiba mais sobre [preços e quotas](../../azure-monitor/app/pricing.md).
 
 ## <a name="disable-telemetry"></a>Desativar a telemetria
 Para **dinamicamente parar e iniciar** a recolha e a transmissão de telemetria do servidor:
@@ -159,5 +159,5 @@ Entre as métricas que podem mostrar no Explorador de métricas é um conjunto d
 * **Servidor UNIX** - [instale collectd](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para apresentar mais contadores de desempenho
-* Primeiro, [adicione um novo gráfico](../../application-insights/app-insights-metrics-explorer.md) e ver se o contador está no conjunto básico que oferecemos.
-* Caso contrário, [adicionar o contador para o conjunto recolhido pelo módulo de contador de desempenho](../../application-insights/app-insights-performance-counters.md).
+* Primeiro, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e ver se o contador está no conjunto básico que oferecemos.
+* Caso contrário, [adicionar o contador para o conjunto recolhido pelo módulo de contador de desempenho](../../azure-monitor/app/performance-counters.md).

@@ -155,7 +155,7 @@ items:
       - name: Áreas de Trabalho
         href: platform/manage-access.md
       - name: Aplicações
-        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+        href: app/resources-roles-access-control.md
       - name: Endereços IP
         href: app/ip-addresses.md
     - name: Monitorizar aplicações
@@ -273,7 +273,7 @@ items:
           - name: Descrição geral
             href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
           - name: Ativar o Profiler para um Serviço de Aplicações
-            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler.md
           - name: Ativar o Profiler para um Serviço Cloud
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
           - name: Ativar o Profiler para uma Aplicação do Service Fabric
@@ -304,7 +304,7 @@ items:
           href: app/asp-net-core.md
           items:
           - name: Gerador de perfis para os serviços de Aplicação do Linux
-            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-aspnetcore-linux.md
         - name: Consola
           href: app/console.md
         - name: Dashboard de aplicações
@@ -324,7 +324,7 @@ items:
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
         - name: Depurador de Instantâneos
-          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: app/snapshot-debugger.md
       - name: Aplicações Java
         items:
         - name: Web Apps
@@ -366,22 +366,22 @@ items:
         - name: Sites do SharePoint
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
-          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+          href: app/sample-mscrm.md
       - name: Deteção Inteligente
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
         - name: Anomalias de falhas
-          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-failure-diagnostics.md
         - name: Anomalias de desempenho
-          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-performance-diagnostics.md
         - name: Degradação de rastreio
-          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-trace-severity.md
         - name: Volume de exceção
-          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-exception-volume.md
         - name: Fuga de memória
-          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-potential-memory-leak.md
         - name: Utilização de recursos
-          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-low-utilization-cloud-resources.md
         - name: Deteção de segurança
           href: app/proactive-application-security-detection-pack.md
         - name: Cloud Services do Azure
@@ -433,7 +433,7 @@ items:
       - name: Configuration Manager
         href: platform/collect-sccm.md
       - name: Monitorização de desempenho da aplicação com o SCOM
-        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+        href: app/scom.md
     - name: Encaminhar dados
       items:
       - name: Arquivar registo de atividades
@@ -478,7 +478,7 @@ items:
         - name: Mapeamento de Aplicações
           href: app/app-map.md
         - name: Diagnóstico da transação
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/transaction-diagnostics.md
         - name: Dados do HockeyApp
           href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
@@ -880,7 +880,7 @@ items:
       - name: Filtragem e processamento prévio de telemetria
         href: app/api-filtering-sampling.md
       - name: Amostragem
-        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/sampling.md
     - name: Soluções de monitorização
       items:
       - name: Estrutura e compilação
@@ -989,9 +989,9 @@ items:
     - name: Atualizações de serviço do Log Analytics
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: Notas de versão do SDK
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: Notas de Versão das Ferramentas de Análise de Programador
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Análise do Windows
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Disponibilidade regional
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 89f30238656021e02fe36fe3e0fede0bc0988cae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002132"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016118"

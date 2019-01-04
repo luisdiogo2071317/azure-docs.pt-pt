@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 79d9ab603b8548269647b7922c6eb01dcc228c4c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019593"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -48,22 +48,23 @@ Alguns clientes talvez queira bloquear suas VMs do RHEL para uma versão de dete
 > Isto aplica-se apenas de RHEL 7.2 7.5
 
 1. Desative repositórios não EUS:
-    ```
+    ```bash
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
 
 1. Adicione repositórios EUS:
-    ```
+    ```bash
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
 
 1. Bloquear a variável releasever:
-    ```
+    ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
     > A instrução acima bloqueará a versão secundária do RHEL para a versão atual de pequenas. Introduza uma versão secundária específica, se estiver à procura a atualização e de bloqueio para a posterior pequenas versão que não é a versão mais recente. Por exemplo, `echo 7.5 > /etc/yum/vars/releasever` bloqueará a sua versão RHEL para RHEL 7.5
+
 1. Atualizar a sua VM do RHEL
     ```bash
     sudo yum update

@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f8eacf11f2333abc348efaa82c92ecbe05136ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966182"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024234"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
 
-- **Movimento de dados**: mover dados entre arquivos de dados na rede pública e arquivos de dados em redes privadas (no local ou redes privadas virtuais). Oferece suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados dimensionável e de desempenho elevado.
-- **Distribuição de atividades**: distribuir e monitorizar atividades de transformação em execução numa panóplia de serviços de computação, como o Azure HDInsight, o Azure Machine Learning, a Base de Dados SQL do Azure, o SQL Server, entre outros.
-- **Execução de pacotes do SSIS**: executar, nativamente, pacotes do SQL Server Integration Services (SSIS) num ambiente de computação gerida do Azure.
+- **Movimento de dados**: Mova dados entre arquivos de dados nos arquivos de dados e de rede públicos numa rede privada (no local ou rede privada virtual). Oferece suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados dimensionável e de desempenho elevado.
+- **Distribuição de atividades**:  Distribuir e monitorizar atividades de transformação em execução num vasto leque de serviços de computação, como o Azure HDInsight, Azure Machine Learning, base de dados do Azure SQL, SQL Server e muito mais.
+- **Execução de pacotes do SSIS**: Execute nativamente pacotes do SQL Server Integration Services (SSIS) num ambiente de computação gerida do Azure.
 
 No Data Factory, as atividades definem as ações que vão ser realizadas. Os serviços ligados definem um arquivo de dados ou um serviço de computação de destino. Os runtimes de integração estabelecem a ponte entre a atividade e os serviços ligados.  São referenciados pelo serviço ligado e fornecem o ambiente de computação em que a atividade é executada ou a partir do qual é distribuída.  Desta forma, a atividade pode ser realizada na região mais perto possível do arquivo de dados ou do serviço de computação de destino com o melhor desempenho possível, satisfazendo as necessidades de segurança e conformidade.
 
@@ -52,7 +51,7 @@ O diagrama seguinte mostra como os diferentes runtimes de integração podem ser
 Os runtimes de integração do Azure podem:
 
 - Executar atividades de cópia entre arquivos de dados na cloud
-- Distribuir as atividades de transformação seguintes na rede pública: atividade Hive do HDInsight, atividade Pig do HDInsight, atividade MapReduce do HDInsight, atividade Spark do HDInsight, atividade Streaming do HDInsight, atividade Execução de Batch do Machine Learning, atividades Recursos de Atualização do Machine Learning, atividade Procedimento Armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .Net, atividade Web, atividade de Pesquisa e atividade Obter Metadados.
+- Expedir as atividades de transformação seguintes na rede pública: Atividade do Hive do HDInsight, atividade Pig do HDInsight, atividade MapReduce do HDInsight, atividade Spark do HDInsight, atividade Streaming do HDInsight, atividade execução de Batch do Machine Learning, atividades recursos de atualização do Machine Learning, atividade de procedimento armazenado, Atividade do Data Lake Analytics U-SQL, atividade personalizada .net, atividade Web, atividade de pesquisa e atividade obter metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede de IR do Azure
 O Azure Integration Runtime suporta a ligação a arquivos de dados e a serviços de computação na rede pública com pontos finais públicos acessíveis. Utilize um runtime de integração autoalojado para o ambiente Rede Virtual do Azure.
@@ -70,7 +69,7 @@ Para obter informações sobre como criar e configurar um runtime de integraçã
 Os runtimes de integração autoalojados podem:
 
 - Executar a atividade de cópia entre arquivos de dados na cloud e um arquivo de dados numa rede privada.
-- Distribuir as atividades de transformação seguintes para recursos de computação numa rede no local ou numa Rede Virtual do Azure: atividade Hive do HDInsight (BYOC), atividade Pig do HDInsight (BYOC), atividade MapReduce do HDInsight (BYOC), atividade Spark do HDInsight (BYOC), atividade Streaming do HDInsight (BYOC), atividade Execução de Batch do Machine Learning, atividades Recursos de Atualização do Machine Learning, atividade Procedimento Armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .Net, atividade de Pesquisa e atividade Obter Dados.
+- Expedir as seguintes atividades de transformação relativamente aos recursos de computação no local ou de rede Virtual do Azure: Atividade de Hive do HDInsight (BYOC), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade do Spark do HDInsight (BYOC), transmissão em fluxo do HDInsight atividade (BYOC), atividade execução de lote do Machine Learning, recursos de atualização do Machine Learning Atividades, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .net, atividade de pesquisa e atividade obter metadados.
 
 > [!NOTE] 
 > Utilize o runtime de integração autoalojado para suportar arquivos de dados que requeiram que utilize o seu próprio controlador, como SAP Hana, MySQL, etc.  Para obter mais informações, veja [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Arquivos de dados suportados).
@@ -97,7 +96,7 @@ Para obter mais informações, veja o artigo “how to create and configure Azur
 Para obter mais informações sobre o runtime Azure-SSIS, veja os artigos seguintes: 
 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e fornece instruções sobre como utilizar a instância gerida da base de dados SQL do Azure e associar o IR a uma rede virtual. 
+- [Como: Criar um runtime de integração Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo é uma continuação do tutorial e fornece instruções sobre como utilizar a instância gerida da base de dados SQL do Azure e associar o IR a uma rede virtual. 
 - [Monitorizar um Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como obter informações sobre um IR Azure-SSIS e descrições dos estados nas informações devolvidas. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
 - [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também descreve os passos para utilizar o portal do Azure para configurar uma rede virtual, de modo a que o IR Azure-SSIS se possa associar à mesma. 

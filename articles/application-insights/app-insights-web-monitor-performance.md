@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9af2dd3a17eb150d44bf69cda86e480a083a3164
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6731b19984c0b2e0a663e93b2a6ef00c530a4d48
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971210"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014646"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
@@ -116,7 +116,7 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontre e corrija estrangulamentos de desempenho com experiência de investigação de desempenho
 
-Pode utilizar a experiência de investigação de desempenho para rever o desempenho de operações lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [Profiler](app-insights-profiler.md) raiz com que as operações lentas em código. Utilizando a distribuição de duração novo apresentada para a operação selecionada, que pode rapidamente avaliar rapidamente a experiência ruim como é para os seus clientes. Pode ver a quantidade de suas interações do utilizador foram afetados para cada operação lenta. No exemplo a seguir, decidimos de dar uma olhada mais de perto a experiência para a operação GET Customers/Details. Da distribuição de duração, podemos ver que existem três picos. Pico mais à esquerda é cerca de 400 ms e representa a excelente experiência responsiva. Pico intermediária é em torno de 1,2 s e representa uma experiência mediocre. Por fim, o 3.6 s temos outro pequeno pico, que representa a experiência de percentil 99, que pode fazer com que os nossos clientes deixar insatisfeito. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
+Pode utilizar a experiência de investigação de desempenho para rever o desempenho de operações lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [Profiler](../azure-monitor/app/profiler.md) raiz com que as operações lentas em código. Utilizando a distribuição de duração novo apresentada para a operação selecionada, que pode rapidamente avaliar rapidamente a experiência ruim como é para os seus clientes. Pode ver a quantidade de suas interações do utilizador foram afetados para cada operação lenta. No exemplo a seguir, decidimos de dar uma olhada mais de perto a experiência para a operação GET Customers/Details. Da distribuição de duração, podemos ver que existem três picos. Pico mais à esquerda é cerca de 400 ms e representa a excelente experiência responsiva. Pico intermediária é em torno de 1,2 s e representa uma experiência mediocre. Por fim, o 3.6 s temos outro pequeno pico, que representa a experiência de percentil 99, que pode fazer com que os nossos clientes deixar insatisfeito. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
 
 ![Picos de duração de três do GET Customers/Details](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -159,8 +159,8 @@ A experiência de investigação de desempenho mostra as informações relevante
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
-[snapshot]: app-insights-snapshot-debugger.md
+[livestream]: ../azure-monitor/app/live-stream.md
+[snapshot]: ../azure-monitor/app/snapshot-debugger.md
 
 
 

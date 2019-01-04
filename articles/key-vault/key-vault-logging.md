@@ -1,5 +1,5 @@
 ---
-title: Registo do Cofre de Chaves do Azure | Microsoft Docs
+title: Registo do Cofre de chaves do Azure - Cofre de chaves do Azure | Documentos da Microsoft
 description: Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure.
 services: key-vault
 documentationcenter: ''
@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426949"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000415"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Cofre de Chaves do Azure
+
 O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introdução
+
 Depois de ter criado um ou mais cofres de chaves, é provável que queira controlar como e quando são acedidos os seus cofres de chaves, e por quem. Esta ação é possível ao ativar o registo do Cofre de Chaves, que guarda as informações numa conta de armazenamento do Azure que indicar. É automaticamente criado um novo contentor designado **insights-logs-auditevent** na sua conta de armazenamento especificada, sendo que também pode utilizar essa mesma conta de armazenamento para recolher registos para vários cofres de chaves.
 
 Pode aceder às suas informações de registo, no máximo, 10 minutos depois da operação do cofre de chaves. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os seus registos na sua conta de armazenamento:
@@ -44,6 +46,7 @@ Utilize este tutorial para o ajudar a começar com o registo do Cofre de Chaves 
 Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte o artigo [O que é o Cofre de Chaves do Azure?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este tutorial, deve ter o seguinte:
 
 * Um cofre de chaves que tiver utilizado.  
@@ -51,19 +54,26 @@ Para concluir este tutorial, deve ter o seguinte:
 * Armazenamento suficiente no Azure para os seus registos do Cofre de Chaves.
 
 ## <a id="connect"></a>Ligar às suas subscrições
+
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
-    Connect-AzureRmAccount
+```PowerShell
+Connect-AzureRmAccount
+```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell irá obter todas as subscrições associadas a esta conta e, por defeito, irá utilizar a primeira.
 
 Se tiver várias subscrições, poderá ter de especificar uma subscrição utilizada para criar o seu Cofre de Chaves do Azure. Escreva o seguinte para ver as subscrições da sua conta:
 
+```PowerShell
     Get-AzureRmSubscription
+```
 
 Em seguida, para especificar a subscrição associada ao seu cofre de chaves que irá registar, introduza:
 
-    Set-AzureRmContext -SubscriptionId <subscription ID>
+```PowerShell
+Set-AzureRmContext -SubscriptionId <subscription ID>
+```
 
 > [!NOTE]
 > Isto é um passo importante e especialmente útil se tiver várias subscrições associadas à sua conta. Poderá ser apresentado um erro ao registar o Microsoft.Insights se este passo for ignorado.
@@ -73,12 +83,14 @@ Em seguida, para especificar a subscrição associada ao seu cofre de chaves que
 Para mais informações sobre como configurar o PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Criar uma nova conta de armazenamento para os seus registos
+
 Apesar de poder utilizar uma conta de armazenamento existente para os seus registos, iremos criar uma nova conta de armazenamento dedicada aos registos do seu Cofre de Chaves. Para sua comodidade, e já que poderemos ter de especificar estas informações mais tarde, iremos guardar os detalhes numa variável designada **sa**.
 
 Para facilitar ainda mais a gestão, também iremos utilizar o mesmo grupo de recursos que contém o nosso cofre de chaves. A partir do [tutorial de introdução](key-vault-get-started.md), este grupo de recursos será designado **ContosoResourceGroup** e continuaremos a utilizar a Ásia Oriental como localização. Substitua estes valores pelos seus próprios valores, conforme aplicável:
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
-
+```PowerShell
+ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+```
 
 > [!NOTE]
 > Se optar por utilizar uma conta de armazenamento existente, terá de utilizar a mesma subscrição do que o seu Cofre de Chaves e terá de utilizar o modelo de implementação do Resource Manager em vez do modelo de implementação Clássico.
@@ -86,15 +98,20 @@ Para facilitar ainda mais a gestão, também iremos utilizar o mesmo grupo de re
 >
 
 ## <a id="identify"></a>Identifique o cofre de chaves para os seus registos
+
 No nosso tutorial de introdução, o nome do nosso cofre de chaves era **ContosoKeyVault**. Por isso, continuaremos a utilizar esse nome e a guardar os detalhes numa variável designada **kv**:
 
-    $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
-
+```PowerShell
+$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+```
 
 ## <a id="enable"></a>Ativar registo
-Para ativar o registo para o Cofre de Chaves, iremos utilizar o cmdlet Set-AzureRmDiagnosticSetting, juntamente com as variáveis criadas para a nossa conta de armazenamento e o nosso cofre de chaves. Também vamos definir o sinalizador **-Enabled** para **$true** e definir a categoria para AuditEvent (a única categoria para o registo do Cofre de Chaves):
 
-    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+Para ativar o registo para o Cofre de Chaves, iremos utilizar o cmdlet Set-AzureRmDiagnosticSetting, juntamente com as variáveis criadas para a nossa conta de armazenamento e o nosso cofre de chaves. Também vamos definir o **-ativado** sinalizador para **$true** e definir a categoria para AuditEvent (a única categoria para o registo do Cofre de chaves):
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+```
 
 O resultado inclui:
 
@@ -108,12 +125,13 @@ O resultado inclui:
         Enabled : False
         Days    : 0
 
-
 Isto confirma que o registo está agora ativado para o seu cofre de chaves e que as informações serão guardadas na sua conta de armazenamento.
 
 Opcionalmente, pode também definir a política de retenção dos seus registos de forma a que os registos mais antigos sejam eliminados automaticamente. Por exemplo, defina a política de retenção utilizando o sinalizador **- RetentionEnabled** para **$true** e defina o parâmetro **- RetentionInDays** **90** para que os registos com mais de 90 dias sejam eliminados automaticamente.
 
-    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+```
 
 O que é registado:
 
@@ -123,15 +141,21 @@ O que é registado:
 * Pedidos não autenticados que resultam numa resposta 401. Por exemplo, pedidos que não têm um token de portador ou pedidos incorretamente formulados ou expirados ou com um token inválido.  
 
 ## <a id="access"></a>Aceder aos seus registos
+
 Os registos do cofre de chaves são guardados no contentor **insights-logs-auditevent** na conta de armazenamento que indicou. Para listar todos os blobs neste contentor, escreva:
 
-Primeiro, crie uma variável para o nome do contentor. Isto irá ser utilizado no resto da explicação.
+Primeiro, crie uma variável para o nome do contentor. Isso será usado em todo o resto da passagem.
 
-    $container = 'insights-logs-auditevent'
+```PowerShell
+$container = 'insights-logs-auditevent'
+```
 
 Para listar todos os blobs neste contentor, escreva:
 
-    Get-AzureStorageBlob -Container $container -Context $sa.Context
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
+
 O resultado será algo parecido com isto:
 
 **URI do Contentor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
@@ -149,19 +173,25 @@ Como pode neste resultado, os blobs seguem uma convenção de nomenclatura: **re
 
 Os valores data e hora utilizam o UTC.
 
-Uma vez que a mesma conta de armazenamento pode ser utilizada para recolher registos para vários recursos, o ID do recurso completo no nome do blob é muito útil para aceder ou transferir os blobs de que precisa. Mas antes de podermos fazer isso, teremos primeiro de saber como transferir todos os blobs.
+Uma vez que a mesma conta de armazenamento pode ser utilizada para recolher registos para vários recursos, o ID do recurso completo no nome do blob é útil para aceder ou transferir os blobs de que precisa. Mas antes de podermos fazer isso, teremos primeiro de saber como transferir todos os blobs.
 
 Primeiro, crie uma pasta para transferir os blobs. Por exemplo:
 
-    New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```PowerShell 
+New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```
 
 Em seguida, obtenha uma lista de todos os blobs:  
 
-    $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```PowerShell
+$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
 
 Encaminhe esta lista através de 'Get-AzureStorageBlobContent' para transferir os blobs para a nossa pasta de destino:
 
-    $blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
+```PowerShell
+$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+```
 
 Quando executar este segundo comando, o delimitador **/** dos nomes blob cria uma estrutura de pasta completa sob a pasta de destino, sendo essa estrutura utilizada para transferir e armazenar os blobs como ficheiros.
 
@@ -169,13 +199,21 @@ Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 
 * Se tiver vários cofres de chaves e pretender transferir registos apenas para um cofre de chaves designado CONTOSOKEYVAULT3:
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+```
+
 * Se tiver vários grupos de recursos e pretender transferir os registos para apenas um grupo de recursos, utilize `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+```
+
 * Se pretende transferir todos os registos do mês de janeiro de 2016, utilize `-Blob '*/year=2016/m=01/*'`:
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+```
 
 Agora, está pronto para começar a procurar o conteúdo dos registos. No entanto, antes dessa ação, terá de conhecer dois parâmetros adicionais para o Get-AzureRmDiagnosticSetting:
 
@@ -183,7 +221,14 @@ Agora, está pronto para começar a procurar o conteúdo dos registos. No entant
 * Para desativar o registo do seu cofre de chaves: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 ## <a id="interpret"></a>Interpretar os registos do seu Cofre de Chaves
-Os blobs individuais são armazenadas como texto, formatados como um blob JSON. Esta é uma entrada de registo de exemplo em execução `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
+
+Os blobs individuais são armazenadas como texto, formatados como um blob JSON. A executar
+
+```PowerShell
+Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+```
+
+irá devolver uma entrada de registo semelhante ao mostrado abaixo:
 
     {
         "records":
@@ -206,7 +251,6 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
         ]
     }
 
-
 A tabela seguinte lista os nomes dos campos e descrições.
 
 | Nome do campo | Descrição |
@@ -223,7 +267,7 @@ A tabela seguinte lista os nomes dos campos e descrições.
 | callerIpAddress |Endereço IP do cliente que efetuou o pedido. |
 | correlationId |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
 | identidade |Identidade do token apresentado aquando do pedido de API REST. Trata-se geralmente de um "utilizador", um "principal de serviço" ou uma combinação "utilizador + appId", como no caso de um pedido resultante de um cmdlet do Azure PowerShell. |
-| propriedades |Este campo irá conter diversas informações com base na operação (oeprationName). Na maioria dos casos, contém informações sobre o cliente (a cadeia useragent transmitida pelo cliente) o URI exato do pedido de API REST e o código do estado HTTP. Além disso, quando um objeto é devolvido como resultado de um pedido (por exemplo, KeyCreate ou VaultGet), também irá conter a Chave do URI (como "id"), o Cofre do URI ou o Segredo do URI. |
+| propriedades |Este campo irá conter diversas informações com base na operação (oeprationName). Na maioria dos casos, contém informações de cliente (cadeia agente transmitida pelo cliente), o URI de pedido de REST API exata e o código de estado HTTP. Além disso, quando um objeto é devolvido como resultado de um pedido (por exemplo, KeyCreate ou VaultGet), também irá conter a Chave do URI (como "id"), o Cofre do URI ou o Segredo do URI. |
 
 Os valores do campo **operationName** encontram-se no formato ObjectVerb. Por exemplo:
 
@@ -268,6 +312,7 @@ A tabela seguinte lista o operationName e o comando API REST correspondente.
 Pode utilizar a solução do Azure Key Vault no Log Analytics para rever os registos AuditEvent do Azure Key Vault. Para obter mais informações, incluindo informação sobre configuração, veja [Azure Key Vault solution in Log Analytics (Solução Cofre de Chaves do Azure no Log Analytics)](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções caso precise de migrar a partir da solução Key Vault antiga que foi oferecida durante a pré-visualização do Log Analytics, onde primeiro encaminhou os registos para uma conta de Armazenamento do Azure e configurou o Log Analytics para ler a partir daí.
 
 ## <a id="next"></a>Passos seguintes
+
 Para um tutorial que utiliza o Cofre de Chaves do Azure numa aplicação Web, consulte o artigo [Utilizar o Cofre de Chaves do Azure a partir de uma Aplicação Web](key-vault-use-from-web-application.md).
 
 Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](key-vault-developers-guide.md).

@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 48432b4a415c0c544c4a64444c89cf818fa00e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0e5d25d92b6b90ae95d639d6deef55730f9060f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972433"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999259"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -28,7 +28,7 @@ Quais recursos da sua aplicação móvel ou web são mais populares? Os seus uti
 
 A melhor experiência é obtida pela instalação do Application Insights no seu código de servidor de aplicação e nas suas páginas web. Os componentes de cliente e servidor da sua aplicação enviam telemetria para o portal do Azure para análise.
 
-1. **Código de servidor:** Instalar o módulo apropriado para sua [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [node. js](app-insights-nodejs.md), ou [outros](app-insights-platforms.md) aplicação.
+1. **Código de servidor:** Instalar o módulo apropriado para sua [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [node. js](../azure-monitor/app/nodejs.md), ou [outros](../azure-monitor/app/platforms.md) aplicação.
 
     * *Não pretende instalar o código de servidor? Basta [criar um recurso do Azure Application Insights](app-insights-create-new-resource.md).*
 

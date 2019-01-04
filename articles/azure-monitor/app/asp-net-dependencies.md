@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: de260560f141691fc1a7c0dd3bfad262d2d79598
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025577"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configure o Application Insights: Rastreamento de dependências
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](../../application-insights/app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -121,7 +121,7 @@ Parece haver uma grande lacuna depois de chamar a primeira dependência, portant
 
 ### <a name="profile-your-live-site"></a>Perfil de seu site em direto
 
-Não sabe onde o tempo passa? O [criador de perfil do Application Insights](../../application-insights/app-insights-profiler.md) rastreios HTTP chama-se ao seu site em direto e mostra quais as funções em seu código demorou muito tempo.
+Não sabe onde o tempo passa? O [criador de perfil do Application Insights](../../azure-monitor/app/profiler.md) rastreios HTTP chama-se ao seu site em direto e mostra quais as funções em seu código demorou muito tempo.
 
 ## <a name="failed-requests"></a>Pedidos falhados
 Também podem ser associados a chamadas falhadas para dependências de pedidos falhados. Novamente, podemos clicar por meio de rastrear o problema.

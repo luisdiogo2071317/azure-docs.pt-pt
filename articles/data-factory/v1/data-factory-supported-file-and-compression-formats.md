@@ -8,20 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b9a034db7e039a0974dc61448bbf50f5ccde9b4c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cd17347b3218715fbf18053878d396fc5061f4a9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880170"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025526"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de ficheiro e de compressão suportados pelo Azure Data Factory
-*Este tópico aplica-se para os conectores seguintes: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOBs do Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [sistema de ficheiros](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), e [SFTP](data-factory-sftp-connector.md).*
+*Este tópico aplica-se para os conectores seguintes: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOBs do Azure](data-factory-azure-blob-connector.md), [do Azure Data Lake Store](data-factory-azure-datalake-connector.md), [sistema de ficheiros](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), e [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [suportados e codecs de compressão de formatos de ficheiros no Data Factory](../supported-file-formats-and-compression-codecs.md).
@@ -41,7 +40,7 @@ Se quiser ler um arquivo de texto ou escrever num ficheiro de texto, defina o `t
 | --- | --- | --- | --- |
 | columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar para utilizar um caractere não imprimíveis raro que provavelmente não pode existir nos seus dados. Por exemplo, especifica "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caráter Unicode, veja [caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
 | rowDelimiter |O caráter utilizado para separar linhas num ficheiro. |Só é permitido um caráter. O valor **predefinido** é um dos seguintes valores: **["\r\n", "\r", "\n"]** na leitura e **"\r\n"** na escrita. |Não |
-| escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir “$” como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
+| escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: Se utilizar a vírgula (",") como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir "$" como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
 | nullValue |Um ou mais carateres utilizados para representar um valor nulo. |Um ou mais carateres. Os valores **predefinidos** são **"\N" e "NULL"** na leitura e **"\N"** na escrita. |Não |
 | encodingName |Especifique o nome de codificação. |Um nome de codificação válido. Veja [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
@@ -78,7 +77,7 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 ```
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Cenários para utilizar firstRowAsHeader e skipLineCount
-* Está a copiar de uma origem de não ficheiro para um ficheiro de texto e quer adicionar uma linha de cabeçalho com os metadados de esquema (por exemplo: esquema SQL). Especifique `firstRowAsHeader` como verdadeiro no conjunto de dados de saída deste cenário.
+* Está a copiar de uma origem de não ficheiro para um arquivo de texto e gostaria de adicionar uma linha de cabeçalho que contém os metadados de esquema (por exemplo: Esquema SQL). Especifique `firstRowAsHeader` como verdadeiro no conjunto de dados de saída deste cenário.
 * Está a copiar de um ficheiro de texto que contém uma linha de cabeçalho para um sink de não ficheiro e quer remover essa linha. Especifique `firstRowAsHeader` como verdadeiro no conjunto de dados de entrada.
 * Está a copiar de um ficheiro de texto e quer ignorar algumas linhas no início que não contêm dados nem informações de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a ignorar. Se o resto do ficheiro contiver uma linha de cabeçalho, também pode especificar `firstRowAsHeader`. Se as propriedades `skipLineCount` e `firstRowAsHeader` forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada
 
@@ -92,7 +91,7 @@ Se quiser analisar os ficheiros JSON ou escrever os dados no formato JSON, defin
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
 | jsonNodeReference | Se quiser iterar e extrair dados dos objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON dessa matriz. Esta propriedade só é suportada quando se copiam dados a partir de ficheiros JSON. | Não |
 | jsonPathDefinition | Especifique a expressão de caminho do JSON para cada mapeamento de colunas com um nome de coluna personalizado (começar com letra minúscula). Esta propriedade só é suportada quando se copiam dados a partir de ficheiros JSON, sendo que pode extrair dados de objetos ou matrizes. <br/><br/> Para os campos no objeto raiz, comece com a raiz $; para os campos dentro da matriz escolhida pela propriedade `jsonNodeReference`, comece a partir do elemento de matriz. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar. | Não |
-| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, veja Propriedade [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
+| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Encodingname](https://msdn.microsoft.com/library/system.text.encoding.aspx) propriedade. Exemplo: windows-1250 ou shift_jis. O **predefinição** valor é: **UTF-8**. |Não |
 | nestingSeparator |Caráter utilizado para separar níveis de aninhamento. O valor predefinido é “.” (ponto). |Não |
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
@@ -347,7 +346,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 * Se existirem nomes duplicados ao mesmo nível, a Atividade de Cópia escolhe o último.
 * Os nomes das propriedades são sensíveis às maiúsculas e minúsculas. Duas propriedades que tenham o mesmo nome, mas maiúsculas/minúsculas diferentes, são tratadas como duas propriedades separadas.
 
-**Caso 2: Escrever dados no ficheiro JSON**
+**Caso 2: Escrever os dados no ficheiro JSON**
 
 Se tiver a tabela seguinte na base de dados SQL:
 
@@ -434,7 +433,7 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (ESTRUTURA, MAPA, LISTA, UNIÃO)
-* O ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
+* Ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
 ## <a name="parquet-format"></a>Formato parquet
 Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
@@ -453,7 +452,7 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (MAPA, LISTA)
-* O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
+* Ficheiro parquet tem as seguintes opções relacionadas com a compressão: Nenhum, SNAPPY, GZIP e LZO. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
 
 ## <a name="compression-support"></a>Suporte de compressão
 Processar grandes conjuntos de dados pode provocar afunilamentos de e/s e rede. Por conseguinte, dados compactados nos arquivos podem não apenas acelerar a transferência de dados através da rede e poupar espaço em disco, mas também trazer melhorias de desempenho significativas no processamento de macrodados. Atualmente, a compressão é suportada para arquivos baseados em ficheiros de dados como BLOBs do Azure ou o sistema de ficheiros no local.  
@@ -492,8 +491,8 @@ O **compressão** secção tem duas propriedades:
 * **Tipo:** o codec de compressão, que pode ser **GZIP**, **Deflate**, **BZIP2**, ou **ZipDeflate**.  
 * **Nível:** taxa de compressão, que pode ser **Optimal** ou **Fastest**.
 
-  * **O mais rápido:** a operação de compactação deve ser concluído mais rápido possível, mesmo que o ficheiro resultante não será compactado ideal.
-  * **Ideal**: A operação de compactação deve ser ideal compactada, mesmo que a operação demora mais tempo a concluir.
+  * **Mais rápida:** A operação de compactação deve concluir mais depressa que possível, mesmo que o ficheiro resultante não será compactado ideal.
+  * **Ideal**: A operação de compactação deve ser comprimida ideal, mesmo que a operação demora mais tempo a concluir.
 
     Para obter mais informações, consulte [nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) tópico.
 

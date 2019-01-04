@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954947"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020086"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>A atualizar os modelos do Azure Machine Learning com a atividade de recursos de atualização
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954947"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [atualizar modelos de machine learning no Data Factory](../update-machine-learning-models.md).
 
-Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo. 
+Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo. 
 
 ## <a name="overview"></a>Descrição geral
 Ao longo do tempo, os modelos preditivos no Azure ML experimentações de classificação necessário reestruturar utilizando conjuntos de dados de entrada novo. Depois de terminar com reparametrização, pretende atualizar o serviço web de pontuação com o modelo de ML retrained. As etapas típicas para ativar a reparametrização e com atualização modelos do Azure ML por meio de serviços da web são:

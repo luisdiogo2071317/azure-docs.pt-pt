@@ -1,13 +1,10 @@
 ---
-title: Tipos de endereços IP no Azure (clássico) | Documentos da Microsoft
+title: Tipos de endereços IP no Azure (clássico)
+titlesuffix: Azure Virtual Network
 description: Saiba mais sobre endereços públicos e privados IP (clássico) no Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011705"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024574"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure (clássicos)
 Pode atribuir endereços IP a recursos do Azure para comunicar com outros recursos do Azure, a rede no local e a Internet. Existem dois tipos de endereços IP, pode utilizar no Azure: públicas e privadas.
@@ -30,7 +27,7 @@ Endereços IP públicos são utilizados para comunicação com a Internet, inclu
 Endereços IP privados são utilizados para comunicação dentro de uma rede virtual do Azure (VNet), um serviço em nuvem e a sua rede no local ao utilizar um gateway de VPN ou circuito ExpressRoute para expandir a sua rede para o Azure.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md).  Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o Resource Manager. Saiba mais sobre endereços IP no Resource Manager lendo os [endereços IP](virtual-network-ip-addresses-overview-arm.md) artigo.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../resource-manager-deployment-model.md).  Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o Resource Manager. Saiba mais sobre endereços IP no Resource Manager lendo os [endereços IP](virtual-network-ip-addresses-overview-arm.md) artigo.
 
 ## <a name="public-ip-addresses"></a>Endereços IP públicos
 Endereços IP públicos permitem que os recursos do Azure comunicar com os serviços destinados ao público de Internet e o Azure, tal como [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/), [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/), [bases de dados do SQL](../sql-database/sql-database-technical-overview.md), e [armazenamento do Azure](../storage/common/storage-introduction.md).
@@ -44,7 +41,7 @@ Um endereço IP público é associado com os seguintes tipos de recurso:
 * Gateways de aplicação
 
 ### <a name="allocation-method"></a>Método de alocação
-Quando um endereço IP público tem de ser atribuídos a um recurso do Azure, é *dinamicamente* alocados a partir de um conjunto de endereço IP público disponível na localização do recurso é criado. Este endereço IP é libertado quando o recurso está parado. No caso de um serviço cloud, isto acontece quando todas as instâncias de função estão paradas, que pode ser evitado, utilizando um *estático* endereço IP (reservado) (consulte [serviços Cloud](#Cloud-services)).
+Quando um endereço IP público tem de ser atribuídos a um recurso do Azure, é *dinamicamente* alocados a partir de um conjunto de endereço IP público disponível na localização do recurso é criado. Este endereço IP é libertado quando o recurso está parado. Com o serviço em nuvem, isto acontece quando todas as instâncias de função são paradas, o que pode ser evitada, utilizando um *estático* endereço IP (reservado) (consulte [serviços Cloud](#Cloud-services)).
 
 > [!NOTE]
 > A lista de intervalos de IP a partir do qual os endereços IP públicos são alocados a recursos do Azure está publicada em [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -52,7 +49,7 @@ Quando um endereço IP público tem de ser atribuídos a um recurso do Azure, é
 > 
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nomes de anfitrião DNS
-Quando cria um serviço cloud ou uma VM de IaaS, terá de fornecer um nome DNS do serviço de cloud que é exclusivo em todos os recursos no Azure. Esta ação cria um mapeamento nos servidores DNS geridos pelo Azure para *dnsname*. cloudapp.net para o endereço IP público do recurso. Por exemplo, quando cria um serviço em nuvem com um nome DNS do serviço de nuvem do **contoso**, o nome de domínio completamente qualificado (FQDN) **contoso.cloudapp.net** será resolvido para um endereço IP público (VIP) das serviço em nuvem. Pode utilizar este FQDN para criar um registo CNAME de domínio personalizado que aponte para o endereço IP público no Azure.
+Quando cria um serviço cloud ou uma VM de IaaS, terá de fornecer um nome DNS do serviço de cloud que seja exclusivo em todos os recursos no Azure. Esta ação cria um mapeamento nos servidores DNS geridos pelo Azure para *dnsname*. cloudapp.net para o endereço IP público do recurso. Por exemplo, quando cria um serviço em nuvem com um nome DNS do serviço de nuvem do **contoso**, o nome de domínio completamente qualificado (FQDN) **contoso.cloudapp.net** será resolvido para um endereço IP público (VIP) da cloud serviço. Pode utilizar este FQDN para criar um registo CNAME de domínio personalizado que aponte para o endereço IP público no Azure.
 
 ### <a name="cloud-services"></a>Serviços em nuvem
 Um serviço em nuvem tem sempre um endereço IP público, conhecido como um endereço IP virtual (VIP). Pode criar pontos finais num serviço cloud para associar portas diferentes no VIP se nas portas internas em VMs e instâncias de função no serviço cloud. 
@@ -107,7 +104,7 @@ No modelo de implementação clássica do Azure, pode ser atribuído um endereç
 * Gateway de aplicação
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>Instâncias de função de VMs de IaaS e PaaS
-Máquinas virtuais (VMs) criadas com o modelo de implementação clássica sempre são colocadas num serviço cloud, semelhante às instâncias de função de PaaS. O comportamento de endereços IP privados, portanto, são semelhantes para estes recursos.
+Máquinas virtuais (VMs) criadas com o modelo de implementação clássica sempre são colocadas num serviço cloud, semelhante às instâncias de função de PaaS. O comportamento de endereços IP privados, portanto, é semelhante para estes recursos.
 
 É importante observar que um serviço em nuvem pode ser implementado de duas formas:
 
@@ -130,7 +127,7 @@ Geralmente, os endereços IP privados estáticos são utilizados para:
 #### <a name="internal-dns-hostname-resolution"></a>Resolução de nome de anfitrião DNS internos
 Todas as instâncias de função de PaaS e VMs do Azure estão configuradas com [servidores DNS geridos pelo Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) por predefinição, a menos que configure explicitamente servidores DNS personalizados. Estes servidores DNS fornecem resolução de nomes internos para VMs e instâncias de função que residem no mesmo serviço de VNet ou na cloud.
 
-Quando cria uma VM, é adicionado aos servidores DNS geridos pelo Azure um mapeamento do nome de anfitrião para o respetivo endereço IP privado. Em caso de uma VM multi-NIC, o nome do anfitrião é mapeado para o endereço IP privado da NIC principal. No entanto, estas informações de mapeamento são restritas para recursos dentro do mesmo serviço cloud ou a VNet.
+Quando cria uma VM, é adicionado aos servidores DNS geridos pelo Azure um mapeamento do nome de anfitrião para o respetivo endereço IP privado. Com uma VM multi-NIC, o nome do anfitrião é mapeado para o endereço IP privado da NIC principal. No entanto, estas informações de mapeamento são restritas para recursos dentro do mesmo serviço cloud ou a VNet.
 
 No caso de um *autónomo* serviço em nuvem; será capaz de resolver os nomes de anfitrião de todas as instâncias de VMs/função dentro do mesmo serviço cloud apenas. Em caso de um serviço em nuvem numa VNet, será capaz de resolver os nomes de anfitrião de todas as instâncias de VMs/função dentro da VNet.
 

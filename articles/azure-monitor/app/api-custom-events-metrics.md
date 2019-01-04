@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0a31f5450ad5847951393e18e8af648060eb2e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2fa7c4c7dc3af28dcc49371a086c2e7555278b99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015224"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -51,7 +51,7 @@ Se ainda não tem uma referência no SDK do Application Insights:
 
   * [Projeto ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Projeto de Java](../../azure-monitor/app/java-get-started.md)
-  * [Projeto de node. js](../../application-insights/app-insights-nodejs.md)
+  * [Projeto de node. js](../../azure-monitor/app/nodejs.md)
   * [JavaScript em cada página da Web](../../azure-monitor/app/javascript.md) 
 * No código do seu dispositivo ou servidor Web, inclua:
 
@@ -113,7 +113,7 @@ Em projetos de node. js, pode usar `new applicationInsights.TelemetryClient(inst
 
 ## <a name="trackevent"></a>TrackEvent
 
-No Application Insights, um *evento personalizado* é um ponto de dados que pode apresentar num [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) como uma contagem agregada e, na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md) como individuais ocorrências. (Ele não está relacionado MVC ou outra estrutura "eventos".)
+No Application Insights, um *evento personalizado* é um ponto de dados que pode apresentar num [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) como uma contagem agregada e, na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md) como individuais ocorrências. (Ele não está relacionado MVC ou outra estrutura "eventos".)
 
 Inserir `TrackEvent` chama em seu código para a contagem de vários eventos. A frequência com que os usuários escolhem um determinado recurso, a frequência com que eles obtenham objetivos específicos ou talvez a frequência com que eles tornam a determinados tipos de erros.
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 A telemetria está disponível na `customEvents` de tabela no [Application Insights Analytics](analytics.md). Cada linha representa uma chamada para `trackEvent(..)` na sua aplicação.
 
-Se [amostragem](../../application-insights/app-insights-sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas de trackevent (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de eventos personalizados, deve usar, por isso, use um código como `customEvents | summarize sum(itemCount)`.
+Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas de trackevent (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de eventos personalizados, deve usar, por isso, use um código como `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ Ver [controlar operações personalizadas com o .NET SDK do Application Insights
 
 Na [Application Insights Analytics](analytics.md), os pedidos show se o `requests` tabela.
 
-Se [amostragem](../../application-insights/app-insights-sampling.md) está em operação, a propriedade itemCount irá mostrar um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackRequest(), o processo de amostragem apenas transmitida uma delas. Para obter uma contagem correta de pedidos e duração média segmentados por nomes de pedido, utilize o código como:
+Se [amostragem](../../azure-monitor/app/sampling.md) está em operação, a propriedade itemCount irá mostrar um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackRequest(), o processo de amostragem apenas transmitida uma delas. Para obter uma contagem correta de pedidos e duração média segmentados por nomes de pedido, utilize o código como:
 
 ```kusto
 requests
@@ -451,7 +451,7 @@ requests
 
 Envie exceções para o Application Insights:
 
-* Para [contá-las](../../application-insights/app-insights-metrics-explorer.md), como uma indicação de que a frequência de um problema.
+* Para [contá-las](../../azure-monitor/app/metrics-explorer.md), como uma indicação de que a frequência de um problema.
 * Para [examinar ocorrências individuais](../../azure-monitor/app/diagnostic-search.md).
 
 Os relatórios incluem os rastreamentos de pilha.
@@ -522,7 +522,7 @@ Os SDKs capturam muitas exceções automaticamente, nem sempre tem que chamar Tr
 
 Na [Application Insights Analytics](analytics.md), exceções de aparecem no `exceptions` tabela.
 
-Se [amostragem](../../application-insights/app-insights-sampling.md) estar em funcionamento, o `itemCount` propriedade mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackexception (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de exceções segmentados por tipo de exceção, utilize o código como:
+Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, o `itemCount` propriedade mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackexception (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de exceções segmentados por tipo de exceção, utilize o código como:
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ Na [pesquisa](../../azure-monitor/app/diagnostic-search.md), pode então filtrar
 
 Na [Application Insights Analytics](analytics.md), chamadas para TrackTrace aparecem no `traces` tabela.
 
-Se [amostragem](../../application-insights/app-insights-sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para `trackTrace()`, o processo de amostragem transmitidos apenas um deles. Para obter uma contagem correta de chamadas de rastreio, deve usar, por conseguinte, código como `traces | summarize sum(itemCount)`.
+Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para `trackTrace()`, o processo de amostragem transmitidos apenas um deles. Para obter uma contagem correta de chamadas de rastreio, deve usar, por conseguinte, código como `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ Para desativar o módulo de controlo de dependência padrão em c#, edite [appli
 
 Na [Application Insights Analytics](analytics.md), trackDependency chama show cópia de segurança no `dependencies` tabela.
 
-Se [amostragem](../../application-insights/app-insights-sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackDependency(), o processo de amostragem apenas transmitida uma delas. Para obter uma contagem correta das dependências segmentados por componente de destino, utilize o código como:
+Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas para trackDependency(), o processo de amostragem apenas transmitida uma delas. Para obter uma contagem correta das dependências segmentados por componente de destino, utilize o código como:
 
 ```kusto
 dependencies
@@ -764,7 +764,7 @@ Se a sua aplicação agrupa os utilizadores em contas, também pode passar um id
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-Na [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md), pode criar um gráfico que conte **utilizadores, autenticado**, e **contas de utilizador**.
+Na [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md), pode criar um gráfico que conte **utilizadores, autenticado**, e **contas de utilizador**.
 
 Também pode [pesquisa](../../azure-monitor/app/diagnostic-search.md) para pontos de dados de cliente com contas e nomes de utilizador específico.
 
@@ -897,7 +897,7 @@ requests
 Tenha em atenção que:
 
 * Quando extrair um valor do customDimensions ou customMeasurements JSON, ele tem o tipo dinâmico e, por isso, tem convertê-lo `tostring` ou `todouble`.
-* Levar em conta a possibilidade de [amostragem](../../application-insights/app-insights-sampling.md), deve usar `sum(itemCount)`, e não `count()`.
+* Levar em conta a possibilidade de [amostragem](../../azure-monitor/app/sampling.md), deve usar `sum(itemCount)`, e não `count()`.
 
 ## <a name="timed"></a> Eventos de tempo
 
@@ -1141,7 +1141,7 @@ Se definir qualquer um destes valores por conta própria, considere remover a li
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Para evitar atingir o limite de taxa de dados, utilize [amostragem](../../application-insights/app-insights-sampling.md).
+Para evitar atingir o limite de taxa de dados, utilize [amostragem](../../azure-monitor/app/sampling.md).
 
 Para determinar o tempo que os dados são mantidos, consulte [retenção de dados e privacidade](../../azure-monitor/app/data-retention-privacy.md).
 

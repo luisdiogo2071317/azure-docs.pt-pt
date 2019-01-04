@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991694"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998698"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -124,7 +124,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Gráficos de métricas de servidor](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Para saber mais sobre a monitorização de Node.js, veja a [Documentação adicional de Node.js do App Insights](app-insights-nodejs.md).
+Para saber mais sobre a monitorização de Node.js, veja a [Documentação adicional de Node.js do App Insights](../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -133,7 +133,7 @@ Se quiser continuar a trabalhar com inícios rápidos subsequentes ou com os tut
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

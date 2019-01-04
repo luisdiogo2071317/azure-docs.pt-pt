@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b712b576e1dd47698de66889d4edf9dda026a16c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077822"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017995"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copiar dados de Google AdWords com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Google AdWor
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **GoogleAdWords** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **GoogleAdWords** | Sim |
 | clientCustomerID | O ID de cliente de cliente da conta AdWords que pretende obter os dados de relatório para.  | Sim |
 | developerToken | O token de desenvolvedor associado à conta de gestor que utiliza para conceder acesso à API do AdWords.  Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar acitivty pull a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication só pode ser utilizado em Ir autoalojado. <br/>Valores permitidos são: **ServiceAuthentication**, **UserAuthentication** | Sim |
@@ -101,7 +100,7 @@ Para copiar dados do Google AdWords, defina a propriedade de tipo de conjunto de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **GoogleAdWordsObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **GoogleAdWordsObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

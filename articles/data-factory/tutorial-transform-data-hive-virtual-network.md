@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 94269056a7bf0a89c3d1b2f4968ad9ff90abbc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: e062495b9a16474cef70e9a19bdd62b6e9e13752
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013904"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Data Factory que transforma os dados com a Atividade do Hive num cluster HDInsight que se encontra numa Rede Virtual do Azure (VNet). Vai executar os seguintes passos neste tutorial:
@@ -38,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 - **Rede Virtual do Azure.** Se não tiver uma rede virtual do Azure, crie-a seguindo [estas instruções](../virtual-network/quick-create-portal.md). Neste exemplo, o HDInsight está numa Rede Virtual do Azure. Eis um exemplo de configuração da Rede Virtual do Azure. 
 
     ![Criar a rede virtual](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
-- **Cluster HDInsight.** Crie um cluster HDInsight e associe-o à rede virtual que criou no passo anterior, seguindo este artigo: [Extend Azure HDInsight using an Azure Virtual Network (Expandir o Azure HDInsight com uma Rede Virtual do Azure)](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
+- **Cluster HDInsight.** Criar um cluster do HDInsight e associe-o para a rede virtual que criou no passo anterior ao seguir este artigo: [Expandir HDInsight do Azure com uma rede Virtual do Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
 
     ![HDInsight numa rede virtual](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
 - **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
@@ -89,7 +88,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente. Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
         
@@ -391,7 +390,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

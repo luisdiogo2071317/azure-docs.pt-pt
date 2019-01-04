@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 42a15e7513fb0aa84734f0965ad8e305cabc0b28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 21b72a6999b58e7896a79766073ba5a8fa35a734
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971846"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023011"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -87,7 +87,7 @@ Pontos de dados não processados (ou seja, os itens que pode consultar no Analyt
 
 Dados agregados (ou seja, contagens, médias e outros dados de estatísticos que vê no Explorador de métricas) são mantidos de acordo com um intervalo de agregação de 1 minuto durante 90 dias.
 
-[Instantâneos de depuração](../../application-insights/app-insights-snapshot-debugger.md) são armazenados durante sete dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
+[Instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados durante sete dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados são visíveis para si e, se tiver uma conta de organização, os membros da equipe. 
@@ -294,7 +294,7 @@ Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponível a partir
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md

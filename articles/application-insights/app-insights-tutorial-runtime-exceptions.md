@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 2b9542f9f67b3d26609f35cf8b8705b11b3a4b72
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742835"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023532"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -66,7 +66,7 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
 
     ![Amostras dos pedidos com falhas](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md). Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
+6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência](../azure-monitor/app/transaction-diagnostics.md). Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
 
     ![Detalhes dos pedidos com falhas](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
 

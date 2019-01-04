@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053572"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016499"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +129,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | prioridade            | Determina quais os trabalhos em fila de espera devem ser selecionados para executar primeiro. Menor o número, maior será a prioridade. | Não       |
 | parâmetros          | Parâmetros a transmitir para o script de U-SQL.    | Não       |
 | runtimeVersion      | Versão de tempo de execução do mecanismo de U-SQL para utilizar. | Não       |
-| compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores: **Semantic:** executar apenas verificações semânticas e verificações de sanidade necessários, **completo:** executar a compilação completa, incluindo a verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com a definição de TargetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
+| compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores: **Semântica:** Executar apenas verificações semânticas e verificações de sanidade necessários, **completa:** Executar a compilação completa, incluindo a verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** Execute a compilação completa, com a definição de TargetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
 
 Data Factory submete o, veja [definição de Script SearchLogProcessing.txt](#sample-u-sql-script) para a definição de script. 
 

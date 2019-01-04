@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c58b956a0fc1899b12050daf0fbf61514ca24407
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095142"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021055"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Copiar dados do serviço Web do Amazon Marketplace com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço do serviço Web do Ama
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **AmazonMWS** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **AmazonMWS** | Sim |
 | endpoint | O ponto final do servidor Amazon MWS, (ou seja, mws.amazonservices.com)  | Sim |
 | marketplaceID | O ID de Marketplace Amazon para obter dados a partir de. Para recuperar dados de vários IDs de Marketplace, separá-los com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
 | sellerID | O ID do vendedor Amazon.  | Sim |
@@ -89,7 +88,7 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AmazonMWSObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AmazonMWSObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

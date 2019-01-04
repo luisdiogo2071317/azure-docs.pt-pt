@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021123"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -155,7 +154,7 @@ Para obter uma introdução de doze minutos e demonstração desta funcionalidad
 
 ### <a name="terminology"></a>Terminologia
 
-- **Partilhado IR**: original autoalojado que está em execução numa infraestrutura física.  
+- **Partilhado IR**: O IR autoalojado original que está em execução numa infraestrutura física.  
 - **Runtime de integração de ligado**: O runtime de integração que faz referência a outro partilhado IR. Este é um runtime de integração lógico e utiliza a infraestrutura de outro Runtime de integração autoalojado (compartilhado).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Passos de alto nível para criar um runtime de integração autoalojado ligado
@@ -258,8 +257,8 @@ O runtime de integração autoalojado utiliza o servidor proxy para ligar ao ser
 Existem três opções de configuração:
 
 - **Não utilizar o proxy**: O runtime de integração autoalojado não utiliza explicitamente qualquer proxy para ligar a serviços cloud.
-- **Utilizar o proxy do sistema**: O runtime de integração autoalojado utiliza a definição, ou seja, configurado no diahost.exe.config e diawp.exe.config de proxy. Se nenhum proxy está configurado no diahost.exe.config e diawp.exe.config, o runtime de integração autoalojado liga-se ao serviço cloud diretamente sem passar por um proxy.
-- **Utilizar proxy personalizado**: configurar a definição a utilizar para o runtime de integração autoalojado, em vez de usar configurações no diahost.exe.config e diawp.exe.config de proxy HTTP. **Endereço** e **porta** são necessários. **Nome de utilizador** e **palavra-passe** são opcionais, consoante a definição de autenticação de seu proxy. Todas as definições são encriptadas com a DPAPI do Windows, o tempo de execução de integração autoalojado e armazenadas localmente na máquina.
+- **Utilizar o proxy do sistema**: O runtime de integração autoalojado utiliza a definição de proxy que está configurado no diahost.exe.config e diawp.exe.config. Se nenhum proxy está configurado no diahost.exe.config e diawp.exe.config, o runtime de integração autoalojado liga-se ao serviço cloud diretamente sem passar por um proxy.
+- **Utilizar proxy personalizado**: Configure a definição a utilizar para o runtime de integração autoalojado, em vez de usar configurações no diahost.exe.config e diawp.exe.config de proxy HTTP. **Endereço** e **porta** são necessários. **Nome de utilizador** e **palavra-passe** são opcionais, consoante a definição de autenticação de seu proxy. Todas as definições são encriptadas com a DPAPI do Windows, o tempo de execução de integração autoalojado e armazenadas localmente na máquina.
 
 O serviço de anfitrião do integration runtime é reiniciado automaticamente depois de guardar as definições de proxy atualizadas.
 
@@ -318,7 +317,7 @@ Terá também de certificar-se de que o Microsoft Azure está na lista de permis
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Sintomas possíveis problemas relacionados a servidores de proxy e firewall
 Se encontrar erros semelhantes aos seguintes, é provável devido a uma configuração incorreta do servidor proxy ou firewall, que bloqueia o runtime de integração autoalojado se a fábrica de dados para se autenticar. Para garantir que o seu servidor proxy e firewall estão configurados corretamente, consulte a secção anterior.
 
-* Ao tentar registar o runtime de integração autoalojado, receberá o seguinte erro: "Falha ao registar este nó do Integration Runtime! Confirme que a chave de autenticação é válida e o serviço de integração de serviço de anfitrião está em execução nesta máquina."
+* Ao tentar registar o runtime de integração autoalojado, receberá o erro seguinte: "Falha ao registar este nó do Integration Runtime! Confirme que a chave de autenticação é válida e o serviço de integração de serviço de anfitrião está em execução nesta máquina."
 * Quando abre o Gestor de configuração do Runtime de integração, ver o estado **desligado** ou **Connecting**. Quando estiver a ver registos de eventos do Windows, em **Visualizador de eventos** > **registos de serviços e aplicações** > **Microsoft Integration Runtime**, ver mensagens de erro como este:
 
     ```
@@ -345,4 +344,4 @@ Se optar por não abrir a porta 8060 na máquina de runtime de integração auto
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Veja o tutorial seguinte para obter instruções passo a passo: [Tutorial: copiar dados no local para a cloud](tutorial-hybrid-copy-powershell.md).
+Veja o tutorial seguinte para obter instruções passo a passo: [Tutorial: Copiar dados no local para a cloud](tutorial-hybrid-copy-powershell.md).

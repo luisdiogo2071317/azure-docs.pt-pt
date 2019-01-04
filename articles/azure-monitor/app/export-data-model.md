@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: a3cab6af86a18e23199437c91b6d07102e783cd1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971278"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016124"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviada pela [Application Insights](../../application-insights/app-insights-overview.md) SDKs para o portal.
 Verá essas propriedades na saída de dados do [exportação contínua](export-telemetry.md).
-Eles também aparecem em filtros de propriedade no [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md) e [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md).
+Eles também aparecem em filtros de propriedade no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) e [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md).
 
 Pontos a serem observados:
 
@@ -158,7 +158,7 @@ Eventos personalizados gerados pelo [trackevent ()](../../azure-monitor/app/api-
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de eventos [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de eventos [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | nome do evento [0] |cadeia |Nome do evento.  Comprimento máximo de 250. |
 | url de eventos [0] |cadeia | |
 | o evento [0] urlData.base |cadeia | |
@@ -170,7 +170,7 @@ Relatórios [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servi
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | assembly de basicException [0] |cadeia | |
-| Contagem de basicException [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de basicException [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | exceptionGroup basicException [0] |cadeia | |
 | exceptionType basicException [0] |cadeia | |
 | failedUserCodeMethod basicException [0] |cadeia | |
@@ -211,7 +211,7 @@ Enviado pela TrackDependency. Utilizado para o desempenho do relatório e a util
 | async remoteDependency [0] |boolean | |
 | Nome_de_base remoteDependency [0] |cadeia | |
 | commandName remoteDependency [0] |cadeia |Por exemplo "home/index" |
-| Contagem de remoteDependency [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de remoteDependency [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | dependencyTypeName remoteDependency [0] |cadeia |HTTP, SQL,... |
 | durationMetric.value remoteDependency [0] |número |Tempo da chamada para a conclusão da resposta pela dependência |
 | id de remoteDependency [0] |cadeia | |
@@ -229,7 +229,7 @@ Enviado pela [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de pedidos [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo: 4 =&gt; 25%. |
+| Contagem de pedidos [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo: 4 =&gt; 25%. |
 | o pedido [0] durationMetric.value |número |Tempo do pedido que chegam à resposta. 1e7 = = 1s |
 | id do pedido [0] |cadeia |ID da operação |
 | nome do pedido [0] |cadeia |GET/pós + url base.  Comprimento máximo de 250 |
@@ -264,7 +264,7 @@ Enviado pelo trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-cust
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de visualizações [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de visualizações [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | Ver durationMetric.value [0] |inteiro |Valor se desejar, defina no trackPageView() ou ao startTrackPage() - stopTrackPage(). Não são as mesmas como clientPerformance valores. |
 | nome da vista [0] |cadeia |Título da página.  Comprimento máximo de 250 |
 | Ver url [0] |cadeia | |
@@ -279,7 +279,7 @@ Relatórios [testes web de disponibilidade](../../azure-monitor/app/monitor-web-
 | --- | --- | --- |
 | availabilityMetric.name disponibilidade [0] |cadeia |disponibilidade |
 | availabilityMetric.value disponibilidade [0] |número |1.0 ou 0,0 |
-| Contagem de disponibilidade [0] |inteiro |100 / ([amostragem](../../application-insights/app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de disponibilidade [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | dataSizeMetric.name disponibilidade [0] |cadeia | |
 | dataSizeMetric.value disponibilidade [0] |inteiro | |
 | durationMetric.name disponibilidade [0] |cadeia | |
@@ -341,7 +341,7 @@ A finalidade dos outros campos é permitir que as métricas para ser agregados n
 
 Nas tabelas acima, omitimos a contagem de campos raramente utilizada, min, max, stdDev e sampledValue.
 
-Em vez de pré-agregar métricas, pode usar [amostragem](../../application-insights/app-insights-sampling.md) se precisar de reduzir o volume de telemetria.
+Em vez de pré-agregar métricas, pode usar [amostragem](../../azure-monitor/app/sampling.md) se precisar de reduzir o volume de telemetria.
 
 ### <a name="durations"></a>Durações
 Exceto onde indicado caso contrário, durações são representadas no décimas de um microssegundo, para que 10000000.0 significa 1 segundo.

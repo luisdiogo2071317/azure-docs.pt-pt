@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0f9d0bb8b1a10182702e3d7dceb2812838326c2b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c105c64b65d50b9d6bf6477e47d08f415b3a9a31
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081052"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018726"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar dados da base de dados do Azure para PostgreSQL com o Azure Data Factory 
 
@@ -42,7 +41,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **AzurePostgreSql** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **AzurePostgreSql** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -78,7 +77,7 @@ Para copiar dados da base de dados do Azure para PostgreSQL, defina a propriedad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AzurePostgreSqlTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AzurePostgreSqlTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

@@ -1,12 +1,11 @@
 ---
-title: Aplicação de exemplo do Azure para utilizar com DMZs | Documentos da Microsoft
+title: Aplicação de exemplo do Azure para utilizar com DMZs
+titlesuffix: Azure Virtual Network
 description: Implementar esta aplicação web simples depois de criar uma rede de Perímetro para testar cenários de fluxo de tráfego
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f299665168e1dfca223c5cab7ba0e0f2767a50ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866855"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021429"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemplo de aplicação para utilização com DMZs
 [Regressar à página de práticas recomendada de segurança limites][HOME]
@@ -156,7 +155,7 @@ Este script configura o back-end para esta aplicação simple. Este script irá:
 5. Desativar a segurança avançada do IE para permitir a navegação mais fácil partir deste servidor 
 
 > [!IMPORTANT]
-> **Melhor prática**: nunca desativar a segurança avançada do IE num servidor de produção, mais geralmente é uma boa idéia para navegar na web a partir de um servidor de produção. Além disso, abrindo as partilhas de ficheiros para acesso anónimo é uma boa idéia, mas done aqui para manter a simplicidade.
+> **Melhor prática**: Nunca desativar a segurança avançada do IE num servidor de produção, além disso, geralmente é uma boa idéia para navegar na web a partir de um servidor de produção. Além disso, abrindo as partilhas de ficheiros para acesso anónimo é uma boa idéia, mas done aqui para manter a simplicidade.
 > 
 > 
 

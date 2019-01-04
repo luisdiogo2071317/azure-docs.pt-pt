@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um pipeline com o Assistente de Cópia | Microsoft Docs'
+title: 'Tutorial: Criar um pipeline com o Assistente de cópia | Documentos da Microsoft'
 description: Neste tutorial, irá criar um pipeline do Azure Data Factory com uma Atividade de Cópia com o Assistente de Cópia suportado pelo Data Factory
 services: data-factory
 documentationcenter: ''
@@ -9,19 +9,18 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095379"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025764"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com Atividade de Cópia com o Assistente de Cópia do Data Factory
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a atividade de cópia com o Assistente de cópia do Data Factory
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -64,7 +63,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
       - Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
       - Selecione **Criar novo** para introduzir um nome para um grupo de recursos.
           
-        Alguns dos passos deste tutorial pressupõe que utiliza o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../../azure-resource-manager/resource-group-overview.md).
+        Alguns dos passos neste tutorial partem do princípio que utiliza o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../../azure-resource-manager/resource-group-overview.md).
    4. Selecione uma **localização** para a fábrica de dados.
    5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
    6. Clique em **Criar**.
@@ -152,7 +151,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
 
     Para obter mais informações sobre como utilizar esta aplicação, veja o artigo [Monitorizar e gerir o pipeline com a Aplicação de Monitorização](data-factory-monitor-manage-app.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

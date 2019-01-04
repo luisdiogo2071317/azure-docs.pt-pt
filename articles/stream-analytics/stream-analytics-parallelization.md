@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091048"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000551"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido de paralelização de consultas no Azure Stream Analytics
 Este artigo mostra-lhe como tirar partido da paralelização no Azure Stream Analytics. Saiba como dimensionar tarefas do Stream Analytics ao configurar partições de entrada e a definição de consulta de análise de otimização.
@@ -41,12 +41,13 @@ Quando trabalha com o Stream Analytics, pode aproveitar as saídas de criação 
 -   Funções do Azure
 -   Tabela do Azure
 -   Armazenamento de BLOBs (pode definir a chave de partição explicitamente)
--   O cosmos dB (é necessário definir explicitamente a chave de partição)
--   EventHub (é necessário definir explicitamente a chave de partição)
+-   Cosmos DB (é necessário definir explicitamente a chave de partição)
+-   Hubs de eventos (é necessário definir explicitamente a chave de partição)
 -   IoT Hub (é necessário definir explicitamente a chave de partição)
 -   Service Bus
+- SQL e SQL Data Warehouse com o particionamento opcional: obter mais informações sobre o [de saída para a página de base de dados do Azure SQL](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Saídas de Power BI, SQL e SQL Data Warehouse não suportam a criação de partições. No entanto pode ainda particionar a entrada conforme descrito em [nesta secção](#multi-step-query-with-different-partition-by-values) 
+O Power BI não suporta a criação de partições. No entanto pode ainda particionar a entrada conforme descrito em [nesta secção](#multi-step-query-with-different-partition-by-values) 
 
 Para obter mais informações sobre as partições, consulte os artigos seguintes:
 
@@ -91,7 +92,7 @@ Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocu
 ### <a name="query-with-a-grouping-key"></a>Consultar com uma chave de agrupamento
 
 * Entrada: Hub de eventos com 8 partições
-* Saída: Armazenamento de BLOBs
+* Saída: Armazenamento de blobs
 
 Consulta:
 

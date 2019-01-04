@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um pipeline com a Atividade de Cópia através da API .NET | Microsoft Docs'
+title: 'Tutorial: Criar um pipeline com atividade de cópia com a .NET API | Documentos da Microsoft'
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory com uma Atividade de Cópia através da API .NET.
 services: data-factory
 documentationcenter: ''
@@ -9,19 +9,18 @@ ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c875793bf558013d5052f99c24d3a04a3525af5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9a536efd59008572459b8736e2a6ada669c00519
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253045"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015190"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com a API .NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com atividade de cópia com a .NET API
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -37,14 +36,14 @@ ms.locfileid: "51253045"
 
 Neste artigo, vai aprender a utilizar a [API .NET](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de blobs do Azure para uma base de dados do SQL Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
-Neste tutorial, vai criar um pipeline com uma atividade no mesmo: a Atividade de Cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
+Neste tutorial, vai criar um pipeline com uma atividade no mesmo: Atividade de cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
 
 Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [Multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Várias atividades num pipeline). 
 
 > [!NOTE] 
 > Para obter toda a documentação sobre a API .NET do Data Factory, veja [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) (Referência da API .NET do Data Factory).
 > 
-> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para ver um tutorial sobre como transformar dados através do Azure Data Factory, consulte [Tutorial: Build a pipeline to transform data using Hadoop cluster (Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop)](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como transformar dados com o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Leia a [Descrição Geral e Pré-requisitos do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter uma descrição geral do tutorial e concluir os passos de **pré-requisitos**.
@@ -132,7 +131,7 @@ Deve obter os quatro valores seguintes destes passos:
 3. Na **Consola do Gestor de Pacotes**, realize os seguintes passos:
    1. Execute o seguinte comando para instalar o pacote do Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (utilize a API do Azure Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Adicione a secção **appSetttings** seguinte ao ficheiro **App.config**. Estas definições são utilizadas pelo método de ajuda: **GetAuthorizationHeader**.
+4. Adicione a secção **appSetttings** seguinte ao ficheiro **App.config**. Estas definições são utilizadas pelo método auxiliar: **GetAuthorizationHeader**.
 
     Substitua os valores de **&lt;ID da aplicação&gt;**, **&lt;Palavra-passe&gt;**, **&lt;ID da subscrição&gt;** e **&lt;ID de inquilino&gt;** pelos seus próprios valores.
 
@@ -518,7 +517,7 @@ Deve obter os quatro valores seguintes destes passos:
    * Pipeline: **PipelineBlobSample**
 20. Verifique se os registos dos dois colaboradores são criados na tabela **emp** na base de dados SQL do Azure especificada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter toda a documentação sobre a API .NET do Data Factory, veja [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) (Referência da API .NET do Data Factory).
 
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 

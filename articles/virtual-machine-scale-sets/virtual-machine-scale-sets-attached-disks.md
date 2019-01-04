@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 2a1f79656fa70b4fa895235aff177ca47dc29664
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8d086a159b8014873beb53bec433798b0cc0c8c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413647"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000211"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjunto de dimensionamento de máquinas virtuais do Azure e discos de dados anexados
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.
@@ -97,7 +97,7 @@ Os discos de dados especificados no modelo de conjunto de dimensionamento estão
 
 
 ## <a name="additional-notes"></a>Notas adicionais
-O suporte para o Azure Managed Disks e para discos de dados anexados a conjuntos de dimensionamento está disponível na versão da API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) ou posterior da API Microsoft.Compute.
+O suporte para o Azure Managed Disks e para discos de dados anexados a conjuntos de dimensionamento está disponível na versão da API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) ou posterior da API Microsoft.Compute.
 
 O suporte do portal do Azure para discos de dados anexados em conjuntos de dimensionamento é limitado inicialmente. Dependendo das suas necessidades, pode utilizar modelos do Azure, a CLI, o PowerShell, SDKs e a API REST para gerir discos anexados.
 

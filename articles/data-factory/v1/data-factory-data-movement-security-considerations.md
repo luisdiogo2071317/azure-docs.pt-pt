@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015751"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para movimento de dados
 
@@ -181,14 +180,14 @@ Os seguintes arquivos de dados de nuvem necessitam de listas de permissões do e
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**Pergunta:** o Gateway de pode ser partilhado entre as fábricas de dados diferentes?
-**Resposta:** não suportamos a esta funcionalidade ainda. Estamos a trabalhar ativamente no mesmo.
+**Pergunta:** O Gateway pode ser compartilhado entre as fábricas de dados diferentes?
+**Resposta:** Podemos ainda não suporta esta funcionalidade. Estamos a trabalhar ativamente no mesmo.
 
-**Pergunta:** quais são os requisitos de porta para o gateway funcionar?
+**Pergunta:** Quais são os requisitos de porta para o gateway funcionar?
 **Resposta:** Gateway faz conexões baseadas em HTTP para a internet aberta. O **portas de saída 443 e 80** tem de ser aberto para o gateway de fazer essa conexão. Open **8050 de porta de entrada** apenas ao nível da máquina (não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como origem / destino, em seguida, precisa abrir **1433** porta também. Para obter mais informações, consulte [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of gateway) secção. 
 
-**Pergunta:** quais são os requisitos de certificado para o Gateway?
-**Resposta:** gateway atual requer um certificado que é utilizado pela aplicação do Gestor de credenciais para a definição de forma segura as credenciais do arquivo de dados. Este certificado é um certificado autoassinado criado e configurado, o programa de configuração do gateway. Pode utilizar o seu próprio TLS / SSL de certificado em vez disso. Para obter mais informações, consulte [clique-uma vez a aplicação do Gestor de credenciais](#click-once-credentials-manager-app) secção. 
+**Pergunta:** Quais são os requisitos de certificado para o Gateway?
+**Resposta:** Gateway atual requer um certificado que é utilizado pela aplicação do Gestor de credenciais para a definição de forma segura as credenciais do arquivo de dados. Este certificado é um certificado autoassinado criado e configurado, o programa de configuração do gateway. Pode utilizar o seu próprio TLS / SSL de certificado em vez disso. Para obter mais informações, consulte [clique-uma vez a aplicação do Gestor de credenciais](#click-once-credentials-manager-app) secção. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre o desempenho de atividade de cópia, consulte [copie o guia de sintonização de desempenho de atividade e](data-factory-copy-activity-performance.md).

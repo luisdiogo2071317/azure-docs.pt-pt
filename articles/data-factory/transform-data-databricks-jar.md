@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a271359f09ca63e1a0c3a143994739ee7db8aab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526305"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014187"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Jar no Azure Databricks
 
-O Azure Databricks Jar atividade num [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Jar do Spark no seu cluster do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
+O Azure Databricks Jar atividade num [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Jar do Spark no seu cluster do Azure Databricks. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark.
 
 Para uma introdução e demonstração de onze minutos desta funcionalidade, veja o seguinte vídeo:
 
@@ -62,7 +61,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
-|linkedServiceName|Nome do serviço ligado Databricks no qual a atividade de Jar é executada. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
+|linkedServiceName|Nome do serviço ligado Databricks no qual a atividade de Jar é executada. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |mainClassName|O nome completo da classe que contém o método principal a ser executado. Essa classe tem de estar contida num POTE fornecido como uma biblioteca.|Sim|
 |parâmetros|Parâmetros que serão passados para o método principal.  Esta é uma matriz de cadeias de caracteres.|Não|
 |Bibliotecas|Uma lista de bibliotecas seja instalado no cluster que executará a tarefa. Pode ser uma matriz de < string, objeto >|Sim (pelo menos um que contém o método mainClassName)|

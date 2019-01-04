@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736415"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015819"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas do Spark no Azure Data Factory pipelines
 
@@ -46,7 +45,7 @@ A atividade do Spark é um da [atividades de transformação de dados](data-fact
 > - A atividade do Spark não suporta clusters do Spark do HDInsight que utilizam o Azure Data Lake Store como armazenamento primário.
 > - A atividade do Spark suporta apenas utilizadores existentes (seus próprio) os clusters do Spark do HDInsight. Ele não dá suporte um serviço de ligado de HDInsight a pedido.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Instruções: Criar um pipeline com uma atividade do Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Descrição Passo a Passo: Criar um pipeline com uma atividade Spark
 Aqui estão as etapas típicas para criar um pipeline de fábrica de dados com uma atividade do Spark: 
 
 * Criar uma fábrica de dados.
@@ -74,7 +73,7 @@ Para criar uma fábrica de dados, siga estes passos:
 1. Sobre o **nova fábrica de dados** painel, em **nome**, introduza **SparkDF**.
 
    > [!IMPORTANT]
-   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro "o nome da fábrica de dados SparkDF não está disponível", altere o nome da fábrica de dados. Por exemplo, utilize yournameSparkDFdate e volte a criar a fábrica de dados. Para obter mais informações sobre regras de nomenclatura, veja [Data Factory: regras de nomenclatura](data-factory-naming-rules.md).
+   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro "o nome da fábrica de dados SparkDF não está disponível", altere o nome da fábrica de dados. Por exemplo, utilize yournameSparkDFdate e volte a criar a fábrica de dados. Para obter mais informações sobre regras de nomenclatura, consulte [fábrica de dados: Regras de nomenclatura](data-factory-naming-rules.md).
 
 1. Em **Subscrição**, selecione a subscrição do Azure onde pretende que seja criada a fábrica de dados.
 
@@ -338,7 +337,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 | className | Classe de principal de Java/Spark do aplicativo. | Não |
 | argumentos | Uma lista de argumentos da linha de comandos para o programa Spark. | Não |
 | proxyUser | A conta de utilizador para representar a execução do programa Spark. | Não |
-| sparkConfig | Especifique valores para as propriedades de configuração de Spark listadas na [configuração do Spark: propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
+| sparkConfig | Especifique valores para as propriedades de configuração de Spark listadas na [configuração de Spark: Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica quando os ficheiros de registo do Spark são copiados para o armazenamento utilizado pelo cluster do HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos são nenhum, sempre ou falha. O valor predefinido é nenhum. | Não |
 | sparkJobLinkedService | O armazenamento ligado do serviço que detém o Spark, o ficheiro de tarefa, dependências e registos. Se não especificar um valor para esta propriedade, o armazenamento associado ao cluster do HDInsight é utilizado. | Não |
 

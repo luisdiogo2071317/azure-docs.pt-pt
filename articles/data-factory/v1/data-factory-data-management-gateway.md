@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698762"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022313"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -51,7 +50,7 @@ Gateway de gestão de dados fornece as seguintes capacidades:
 ### <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
 Quando utiliza uma atividade de cópia para copiar dados entre aplicações no local e na cloud, a atividade utiliza um gateway para transferir dados de origem de dados no local para a cloud e vice-versa.
 
-Eis o fluxo de dados de alto nível para e o resumo das etapas de cópia com o gateway de dados: ![fluxo de dados com o gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Eis o fluxo de dados de alto nível para e resumo das etapas de cópia com o gateway de dados: ![Fluxo de dados com o gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Programadores de dados cria um gateway para uma fábrica de dados do Azure através da [portal do Azure](https://portal.azure.com) ou [Cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. Programadores de dados cria um serviço ligado para um arquivo de dados no local, especificando o gateway. Como parte da configuração de serviço ligado, o desenvolvedor de dados utiliza a aplicação de credenciais de definição para especificar os tipos de autenticação e credenciais.  A caixa de diálogo do aplicativo de definição de credenciais se comunica com o arquivo de dados para testar a ligação e o gateway para guardar as credenciais.
@@ -152,7 +151,7 @@ No nível de firewall do Windows, estas portas de saída normalmente estão ativ
 
 > [!NOTE]
 > 1. Com base na sua origem / sinks, poderá ter de domínios adicionais da lista de permissões e portas de saída na firewall empresarial/Windows.
-> 2. Para algumas bases de dados na Cloud (por exemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), poderá ter de endereço IP da lista de permissões da máquina de Gateway em suas configurações de firewall.
+> 2. Para algumas bases de dados na Cloud (por exemplo: [Base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), poderá ter de endereço IP da lista de permissões da máquina de Gateway em suas configurações de firewall.
 >
 >
 
@@ -183,8 +182,8 @@ Gateway utiliza o servidor proxy para ligar ao serviço cloud. Clique em **alter
 Existem três opções de configuração:
 
 * **Não utilizar o proxy**: Gateway não utiliza explicitamente qualquer proxy para ligar a serviços cloud.
-* **Utilizar o proxy do sistema**: Gateway utiliza a definição, ou seja, configurado no diahost.exe.config e diawp.exe.config de proxy.  Se nenhum proxy estiver configurado no diahost.exe.config e diawp.exe.config, o gateway liga ao serviço em nuvem diretamente sem passar pelo proxy.
-* **Utilizar proxy personalizado**: configurar a definição a utilizar para o gateway, em vez de usar configurações no diahost.exe.config e diawp.exe.config de proxy HTTP.  O endereço e porta são necessários.  Nome de utilizador e palavra-passe são opcionais, consoante a definição de autenticação de seu proxy.  Todas as definições são encriptadas com o certificado da credencial do gateway e armazenadas localmente no computador do anfitrião de gateway.
+* **Utilizar o proxy do sistema**: O gateway utiliza a definição de proxy que está configurado no diahost.exe.config e diawp.exe.config.  Se nenhum proxy estiver configurado no diahost.exe.config e diawp.exe.config, o gateway liga ao serviço em nuvem diretamente sem passar pelo proxy.
+* **Utilizar proxy personalizado**: Configure a definição a utilizar para o gateway, em vez de usar configurações no diahost.exe.config e diawp.exe.config de proxy HTTP.  O endereço e porta são necessários.  Nome de utilizador e palavra-passe são opcionais, consoante a definição de autenticação de seu proxy.  Todas as definições são encriptadas com o certificado da credencial do gateway e armazenadas localmente no computador do anfitrião de gateway.
 
 O serviço de anfitrião do data management gateway é reiniciado automaticamente depois de guardar as definições de proxy atualizadas.
 
@@ -236,7 +235,7 @@ Além desses pontos, terá também de certificar-se de que o Microsoft Azure est
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Sintomas possíveis problemas relacionados a servidores de proxy e firewall
 Se encontrar erros semelhantes aos seguintes, é provável devido a uma configuração incorreta do servidor proxy ou firewall, que bloqueia o gateway se ligar ao Data Factory para se autenticar. Consulte a secção anterior para garantir que a firewall e servidor proxy estão configuradas corretamente.
 
-1. Ao tentar registar o gateway, receberá o seguinte erro: "Falha ao registar a chave de gateway. Antes de tentar registar novamente a chave de gateway, confirme que o data management gateway está num estado ligado e o serviço de anfitrião de Gateway de gestão de dados é iniciado."
+1. Ao tentar registar o gateway, receberá o erro seguinte: "Falha ao registar a chave de gateway. Antes de tentar registar novamente a chave de gateway, confirme que o data management gateway está num estado ligado e o serviço de anfitrião de Gateway de gestão de dados é iniciado."
 2. Quando abre o Gestor de configuração, consulte o estado como "Desligado" ou "Ligar". Ao visualizar registos de eventos do Windows, sob "Visualizador de eventos" > "Application e registos de serviços" > "Gateway de gestão de dados", verá mensagens de erro, como o seguinte erro: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 

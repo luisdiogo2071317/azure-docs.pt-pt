@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809901"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017519"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicações .NET
 
@@ -138,7 +138,7 @@ Veja [este item de Resolução de Problemas](../azure-monitor/app/asp-net-troubl
 
 > [!NOTE]
 > Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. No entanto, os eventos relacionados com o mesmo pedido serão selecionados ou desmarcados como um grupo, para que possa navegar entre os eventos relacionados. 
-> [Saiba mais sobre a amostragem](app-insights-sampling.md).
+> [Saiba mais sobre a amostragem](../azure-monitor/app/sampling.md).
 > 
 > 
 

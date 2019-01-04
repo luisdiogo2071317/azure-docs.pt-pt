@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: a993e35282c0c49ae4e3f2ff9f2314f12d779438
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8de7ed00114a11b4c765bfa9f9ae42529ef53f7f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981058"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024030"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicações Web no tempo de execução com o Application Insights
 
@@ -38,7 +38,7 @@ Segue-se um resumo do que pode usufruir:
 | Pedidos e exceções |Sim |Sim |
 | [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependências](../../azure-monitor/app/asp-net-dependencies.md) |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../application-insights/app-insights-performance-counters.md) |Sim |Sim |
+| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
 | [API para telemetria personalizada][api] |Sim |Não |
 | [Integração de registos de rastreio](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
 | [Dados de utilizador e vista de página](../../azure-monitor/app/javascript.md) |Sim |Não |
@@ -256,7 +256,7 @@ Para aplicações já instrumentadas no momento da compilação:
 
 Ver a telemetria:
 
-* [Explore as métricas](../../application-insights/app-insights-metrics-explorer.md) para monitorizar o desempenho e a utilização
+* [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e a utilização
 * [Pesquise eventos e registos][diagnostic] para diagnosticar problemas
 * [Análise](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas
 * [Criar dashboards](../../azure-monitor/app/app-insights-dashboards.md)
@@ -275,5 +275,5 @@ Adicionar mais telemetria:
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

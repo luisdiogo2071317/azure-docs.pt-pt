@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 76ce5f0c44dd1985fbf47d493b4566634f4894d0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6f534858194719a0d3059808073ae057f150b599
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976686"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021021"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são enviadas pelos [Application Insights](../../application-insights/app-insights-overview.md). Pode correlacionar pedidos com falhas com exceções e outros eventos no cliente e servidor, para que pode rapidamente a diagnosticar as causas.
@@ -90,7 +90,7 @@ Para ver estes eventos, abra [pesquisa](../../azure-monitor/app/diagnostic-searc
 ![Explorar](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que pode navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../application-insights/app-insights-sampling.md)
+> Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que pode navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -489,4 +489,4 @@ Isto é diferente da contagem de "Exceções" calculada ao portal do Application
 ## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar o REST, SQL e outras chamadas para dependências](../../azure-monitor/app/asp-net-dependencies.md)
 * [Monitorizar os tempos de carregamento de página, exceções do browser e chamadas AJAX](../../azure-monitor/app/javascript.md)
-* [Contadores do Monitor de desempenho](../../application-insights/app-insights-performance-counters.md)
+* [Contadores do Monitor de desempenho](../../azure-monitor/app/performance-counters.md)

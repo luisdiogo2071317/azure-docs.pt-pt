@@ -1,31 +1,34 @@
 ---
-title: 'Início rápido: pipeline de pesquisa cognitiva no portal do Azure - Azure Search'
+title: Criar um pipeline de pesquisa cognitiva para com tecnologia de IA indexação no portal do Azure - Azure Search
 description: Exemplo de extração de dados, linguagem natural e competências de processamento de imagens no portal do Azure com dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/01/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386269"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015277"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início rápido: Criar um pipeline de pesquisa cognitiva com habilidades e dados de exemplo
 
-A pesquisa cognitiva (pré-visualização) adiciona a extração de dados, o processamento de linguagem natural (NLP) e as competências de processamento de imagens a um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. As informações criadas por uma competência, como o reconhecimento de entidades ou a análise de imagens, são adicionadas a um índice no Azure Search.
+A pesquisa cognitiva (pré-visualização) adiciona a extração de dados, o processamento de linguagem natural (NLP) e as competências de processamento de imagens a um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
 
-Neste início rápido, experimente o pipeline de melhoramento no [portal do Azure](https://portal.azure.com) antes de escrever qualquer linha de código:
+Integra-se de um pipeline de pesquisa cognitiva [recursos dos serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/) – tal como [OCR](cognitive-search-skill-ocr.md), [deteção de idioma](cognitive-search-skill-language-detection.md), [reconhecimento de entidades](cognitive-search-skill-entity-recognition.md)– num processo de indexação. Os algoritmos de IA dos serviços cognitivos são usados para encontrar padrões, funcionalidades e características na origem de dados, retornando estruturas e conteúdo textual que pode ser utilizado em soluções de pesquisa em texto completo com base no Azure Search.
 
-* Comece com dados de exemplo no armazenamento de Blobs do Azure
-* Configure o [Assistente para importar dados](search-import-data-portal.md) para indexação e melhoramento 
-* Execute o assistente (uma capacidade de entidades deteta as pessoas, a localização e as organizações)
-* Utilize o [Explorador de procura](search-explorer.md) para consultar os dados melhorados.
+Neste início rápido, crie seu primeiro pipeline de melhoria na [portal do Azure](https://portal.azure.com) antes de escrever uma única linha de código:
+
+> [!div class="checklist"]
+> * Comece com dados de exemplo no armazenamento de Blobs do Azure
+> * Configurar o [ **importar dados** ](search-import-data-portal.md) Assistente para a indexação cognitivos e enriquecimento 
+> * Execute o assistente (uma capacidade de entidades deteta as pessoas, a localização e as organizações)
+> * Uso [ **Explorador de pesquisa** ](search-explorer.md) para consultar os dados plena
 
 ## <a name="supported-regions"></a> Regiões suportadas
 
@@ -58,8 +61,9 @@ A página [“O que é a pesquisa cognitiva?”](cognitive-search-concept-intro.
 
 Os serviços do Azure são utilizados exclusivamente neste cenário. A criação dos serviços de que precisa faz parte da preparação.
 
-+ O armazenamento de Blobs do Azure fornece a origem de dados.
-+ O Azure Search processa a ingestão e a indexação de dados, o melhoramento da pesquisa cognitiva e as consultas de pesquisa de texto completo.
++ [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) fornece a origem de dados
++ [Os serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/) fornece a IA (pode criar esses recursos em linha, quando especificar o pipeline)
++ [O Azure Search](https://azure.microsoft.com/services/search/) fornece o pipeline de indexação plena e uma experiência de pesquisa de texto avançado livres para utilização em aplicações personalizadas
 
 ### <a name="set-up-azure-search"></a>Configurar o Azure Search
 
@@ -69,9 +73,9 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Clique em **Criar um recurso**, procure o Azure Search e clique em **Criar**. Veja [Criar um serviço do Azure Search no portal](search-create-service-portal.md) se estiver a configurar um serviço de pesquisa pela primeira vez e precisar de mais ajuda.
 
-  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar serviço do Azure Search no portal")
+  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar o serviço do Azure Search no portal")
 
-1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste início rápido. Tal torna mais fácil limpar os recursos depois de concluir o início rápido.
+1. Grupo de recursos, crie um novo grupo de recursos para conter todos os recursos que criou neste início rápido. Tal torna mais fácil limpar os recursos depois de concluir o início rápido.
 
 1. Para a localização, escolha uma da [regiões suportadas](#supported-regions) para pesquisa cognitiva.
 
@@ -79,8 +83,8 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
 
-  ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "página de definição de serviço no portal")
-  ![página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "página de definição de serviço no o portal")
+  ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definições do serviço no portal")
+
   > [!NOTE]
   > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Será capaz de executar um número limitado de possível sem associar um recurso dos serviços cognitivos pago. Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
@@ -94,79 +98,88 @@ O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelo
 
 1. A [transferência de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) é constituída por um pequeno conjunto de ficheiros de diferentes tipos. 
 
-1. Inscreva-se no armazenamento de Blobs do Azure, crie uma conta de armazenamento, inicie sessão no Explorador de Armazenamento e crie um contentor. Veja [Início Rápido do Explorador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para obter instruções sobre todos os passos.
+1. Inscreva-se para o armazenamento de Blobs do Azure, criar uma conta de armazenamento, abra as páginas de serviços de Blob e criar um contentor. No contentor, definiu o acesso público ao nível para **contentor**. Para obter mais informações, consulte [secção "Criar um contentor de"](../storage/blobs/storage-unstructured-search.md#create-a-container) no *procurar dados não estruturados* tutorial.
 
-1. Com o Explorador de Armazenamento do Azure, no contentor que criou, clique em **Carregar** para carregar os ficheiros de exemplo.
+1. O contentor que criou, clique em **carregar** para carregar os ficheiros de exemplo que transferiu no passo anterior.
 
   ![Ficheiros de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>Criar o pipeline de melhoramento
 
-Volte à página do dashboard do serviço do Azure Search e clique em **Importar dados** na barra de comandos para configurar o melhoramento em quatro passos.
+Voltar à página de dashboard de serviço de Azure Search e clique em **importar dados** na barra de comandos para configurar a melhoria cognitiva em quatro passos.
+
+  ![Comando de importação de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 
-Em **Ligar aos seus dados** > **Armazenamento de Blobs do Azure**, selecione a conta e o contentor que criou. Dê um nome à origem de dados e utilize os valores predefinidos para o resto. 
+Na **ligar aos seus dados**, escolha **armazenamento de Blobs do Azure**, selecione a conta e contentor que criou. Dê um nome à origem de dados e utilize os valores predefinidos para o resto. 
 
-   ![Configuração de blobs do Azure](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
+  ![Configuração de blobs do Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
+Continue para a página seguinte.
 
-Clique em **OK** para criar a origem de dados.
-
-Uma vantagem da utilização do assistente para **Importar dados** é que também pode criar o índice. Com a criação da origem de dados, o assistente cria em simultâneo um esquema de índice. A criação do índice pode demorar alguns segundos.
+  ![Botão seguinte da página de pesquisa cognitiva](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
 ### <a name="step-2-add-cognitive-skills"></a>Passo 2: Adicionar capacidades cognitivas
 
-Em seguida, adicione passos de melhoramento ao pipeline de indexação. O portal fornece-lhe competências cognitivas predefinidas para a análise de imagens e a análise de texto. No portal, um conjunto de competências funciona através de um campo de origem exclusivo. Tal poderá parecer como um destino pequeno, mas, para os blobs do Azure, o campo `content` contém a maior parte do documento de blobs (por exemplo, um documento Word ou uma apresentação do PowerPoint). Como tal, este campo é uma entrada ideal uma vez que contém todo o conteúdo de um blob.
+Em seguida, adicione passos de melhoramento ao pipeline de indexação. Se não tiver um recurso dos serviços cognitivos, pode inscrever-se para uma versão gratuita, que lhe dá 20 transações diariamente. Os dados de exemplo consiste em 14 de arquivos, para que sua alocação diária será principalmente utilizada cópia de segurança depois de executar este assistente.
 
-Por vezes, quer extrair a representação textual dos ficheiros que são compostos principalmente por imagens digitalizadas, como um PDF que é gerado por um scanner. O Azure Search pode extrair automaticamente o conteúdo das imagens incorporadas no documento. Para tal, selecione a opção **Ativar OCR e intercalar todo o texto no campo merged_content**. Esta ação criará automaticamente um campo `merged_content`, que contém o texto extraído do documento e a representação textual das imagens incorporadas no documento. Quando seleciona esta opção, o `Source data field` será definido como `merged_content`.
+1. Expanda **anexar serviços cognitivos** para ver as opções para resourcing as APIs serviços cognitivos. Para efeitos deste tutorial, pode utilizar o **gratuito** recursos.
 
-Em **Adicionar competências cognitivas**, escolha as competências que realizam o processamento de linguagem natural. Para este início rápido, escolha o reconhecimento de entidades de pessoas, organizações e localizações.
+  ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-Clique em **OK** para aceitar a definição.
-   
-  ![Definição do conjunto de competências](./media/cognitive-search-quickstart-blob/skillset.png)
+2. Expanda **possível adicionar** e selecione as competências que realizam o processamento de linguagem natural. Para este início rápido, escolha o reconhecimento de entidades de pessoas, organizações e localizações.
 
-As competências de processamento de linguagem natural funcionam através de conteúdo de texto no conjunto de dados de exemplo. Uma vez que não foram selecionadas quaisquer opções de processamento de imagens, os ficheiros JPEG presentes no conjunto de dados de exemplo não serão processados neste início rápido. 
+  ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/skillset.png)
+
+  O portal oferece capacidades incorporadas para análise de texto e de processamento de OCR. No portal, um conjunto de competências funciona através de um campo de origem exclusivo. Tal poderá parecer como um destino pequeno, mas, para os blobs do Azure, o campo `content` contém a maior parte do documento de blobs (por exemplo, um documento Word ou uma apresentação do PowerPoint). Como tal, este campo é uma entrada ideal uma vez que contém todo o conteúdo de um blob.
+
+3. Continue para a página seguinte.
+
+  ![Próxima página Personalizar o índice](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+
+> [!NOTE]
+> As competências de processamento de linguagem natural funcionam através de conteúdo de texto no conjunto de dados de exemplo. Uma vez que não selecionarmos a opção de OCR, os arquivos JPEG e PNG encontrados no conjunto de dados de exemplo não processados neste início rápido. 
 
 ### <a name="step-3-configure-the-index"></a>Passo 3: Configurar o índice
 
-Lembra-se do índice que foi criado com a origem de dados? Neste passo, pode ver o esquema dele e possivelmente rever as definições. 
+O assistente, normalmente, pode inferir um índice predefinido. Neste passo, pode ver o esquema de índice gerado e potencialmente revisar quaisquer definições. Abaixo é o índice predefinido criado para o conjunto de dados de Blob de demonstração.
 
 Para este início rápido, o assistente é muito útil, pois define predefinições razoáveis: 
 
-+ Todos os índices devem ter um nome. Para este tipo de origem de dados, o nome predefinido é *azureblob-index*.
++ Nome predefinido é *azureblob-índice*.
++ É a chave predefinida *metadata_storage_path* (Este campo contém valores exclusivos).
++ Tipos de dados padrão e os atributos são válidos para cenários de pesquisa de texto completo.
 
-+ Cada documento tem de ter uma chave. O assistente escolhe um campo com valores exclusivos. Neste início rápido, a chave é *metadata_storage_path*.
+Considere a limpeza **recuperável** partir o `content` campo. Blobs, pode executar este campo em milhares de linhas. Pode imaginar como difícil seria ver os ficheiros de conteúdo intensiva, como documentos do Word ou apresentações de PowerPoint como JSON numa lista de resultados de pesquisa. 
 
-+ Cada coleção de campos tem de ter campos com um tipo de dados que descreva os seus valores e, por sua vez, cada campo deve ter atributos de índice que descrevam como este é utilizado num cenário de pesquisa. 
+Uma vez que tiver definido um conjunto de capacidades, o Assistente de parte do princípio de que pretende que o campo de dados de origem original, bem como os campos de saída criados pelo pipeline cognitivo. Por este motivo, o portal adiciona campos de índice para `content`, `people`, `organizations` e `locations`. Tenha em atenção que o assistente ativa automaticamente **recuperável** e **pesquisável** para estes campos. **Pesquisável** indica um campo pode ser pesquisado. **Recuperável** significa que pode ser devolvido nos resultados. 
 
-Uma vez que definiu um conjunto de competências, o assistente parte do princípio que pretende o campo de dados de origem, assim como os campos de saída criados pelas competências. Por este motivo, o portal adiciona campos de índice para `content`, `people`, `organizations` e `locations`. Tenha em atenção que o assistente ativa automaticamente as opções Recuperável e Pesquisável para estes campos.
+  ![Campos de índice](media/cognitive-search-quickstart-blob/index-fields.png)
+  
+Continue para a página seguinte.
 
-Em **Personalizar índice**, analise os atributos nos campos para ver como são utilizados num índice. Pesquisável indica que um campo pode ser pesquisado. Recuperável significa que pode ser devolvido nos resultados. 
-
-Considere limpar Recuperável no campo `content`. Nos blobs, este campo pode ser executado em milhares de linhas, tornando-se difícil de ler numa ferramenta como o **Explorador de procura**.
-
-Clique em **OK** para aceitar a definição do índice.
-
-  ![Campos de índice](./media/cognitive-search-quickstart-blob/index-fields.png)
-
-> [!NOTE]
-> Os campos não utilizados foram recortados da captura de ecrã por uma questão de brevidade. Se estiver a acompanhar o processo no portal, a lista mostrará campos adicionais.
+  ![Próxima página Criar indexador](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
 ### <a name="step-4-configure-the-indexer"></a>Passo 4: Configurar o indexador
 
-O indexador é um recurso de alto nível que impulsiona o processo de indexação. Especifica o nome da origem de dados, o índice e a frequência de execução. O resultado final do assistente para **Importar dados** é sempre um indexador que pode executar repetidamente.
+O indexador é um recurso de alto nível que impulsiona o processo de indexação. Especifica o nome da origem de dados, um índice de destino e a frequência de execução. O resultado final do assistente para **Importar dados** é sempre um indexador que pode executar repetidamente.
 
-Na página **Indexador**, dê um nome ao indexador e utilize a opção “executar uma vez” predefinida para o executar de imediato. 
+Na **indexador** página, pode aceitar o nome predefinido e utilizar o **executada uma vez** agendar a opção para executá-lo imediatamente. 
 
-  ![Definição do indexador](./media/cognitive-search-quickstart-blob/indexer-def.png)
+  ![Definição do indexador](media/cognitive-search-quickstart-blob/indexer-def.png)
 
-Clique em **OK** para importar, melhorar e indexar os dados.
+Clique em **submeter** para criar e executar simultaneamente o indexador.
+
+## <a name="monitor-indexing"></a>Monitor de indexação
+
+Passos de enriquecimento demoram mais tempo a concluir do que típico baseado em texto de indexação. O assistente deve abrir a lista de indexador na página de descrição geral, para que pode controlar o progresso. Para uma navegação automática, vá para a descrição geral da página e clique em **indexadores**.
+
+O aviso ocorre porque os arquivos JPG e PNG são arquivos de imagem e omitíssemos a habilidade de OCR partir este pipeline. Também encontrará notificações de truncamento. O Azure Search limita a extração de 32.000 caracteres no escalão gratuito.
 
   ![Notificação do Azure Search](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-A indexação e o melhoramento podem demorar algum tempo, motivo pelo qual os conjuntos de dados mais pequenos são recomendados para uma exploração antecipada. Pode monitorizar a indexação na página Notificações do portal do Azure. 
+A indexação e o melhoramento podem demorar algum tempo, motivo pelo qual os conjuntos de dados mais pequenos são recomendados para uma exploração antecipada. 
 
 ## <a name="query-in-search-explorer"></a>Consultar no Explorador de procura
 
@@ -176,19 +189,17 @@ Depois de criar um índice, pode submeter consultas para devolver documentos do 
 
 1. Selecione **Alterar Índice**, na parte superior, para selecionar o índice que criou.
 
-1. Introduza uma cadeia de pesquisa para consultar o índice, por exemplo, “John F. Kennedy”.
+1. Introduza uma cadeia de procura para consultar o índice, tais como `search=Microsoft&searchFields=organizations`.
 
-Os resultados são devolvidos em JSON, que podem ser verbosos e difíceis de ler, especialmente em documentos grandes provenientes de blobs do Azure. 
+Os resultados são devolvidos em JSON, que podem ser verbosos e difíceis de ler, especialmente em documentos grandes provenientes de blobs do Azure. Se não conseguir analisar os resultados facilmente, utilize CTRL-F para procurar nos documentos. Para esta consulta, pode pesquisar dentro de JSON para termos específicos. 
 
-Se não conseguir analisar os resultados facilmente, utilize CTRL-F para procurar nos documentos. Para esta consulta, pode pesquisar no JSON por “John F. Kennedy” para ver as instâncias desse termo de pesquisa. 
-
-CTRL-F pode igualmente ajudá-lo a determinar o número de documentos num determinado conjunto de resultados. Para os blobs do Azure, o portal escolhe “metadata_storage_path” como a chave, porque cada valor é exclusivo para o documento. Com CTRL-F, pesquise “metadata_storage_path” para obter uma contagem de documentos. Para esta consulta, dois documentos no conjunto de resultados contêm o termo “John F. Kennedy”.
+CTRL-F pode igualmente ajudá-lo a determinar o número de documentos num determinado conjunto de resultados. Para os blobs do Azure, o portal escolhe “metadata_storage_path” como a chave, porque cada valor é exclusivo para o documento. Com CTRL-F, pesquise “metadata_storage_path” para obter uma contagem de documentos. 
 
   ![Exemplo do explorador de procura](./media/cognitive-search-quickstart-blob/search-explorer.png)
 
 ## <a name="takeaways"></a>Conclusões
 
-Concluiu o primeiro exercício de indexação melhorada. Este início rápido tinha como objetivo introduzir conceitos importantes e orientá-lo através do assistente para que possa criar rapidamente um protótipo de uma solução de pesquisa cognitiva com os seus próprios dados.
+Agora que concluiu seu exercício de indexação enriquecida cognitivos primeiro. Este início rápido tinha como objetivo introduzir conceitos importantes e orientá-lo através do assistente para que possa criar rapidamente um protótipo de uma solução de pesquisa cognitiva com os seus próprios dados.
 
 Alguns dos conceitos-chave que esperamos que tenha assimilado incluem a dependência das origens de dados do Azure. O melhoramento da pesquisa cognitiva está vinculado aos indexadores e, por sua vez, os indexadores são específicos do Azure e da origem. Embora este início rápida utilize o armazenamento de Blobs do Azure, pode utilizar outras origens de dados do Azure. Para obter mais informações, veja [Indexadores no Azure Search](search-indexer-overview.md).
 
@@ -206,7 +217,7 @@ Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recur
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode experimentar a indexação e o melhoramento ao executar novamente o assistente com competências e campos de dados de origem diferentes. Para repetir os passos, elimine o índice e o indexador e, em seguida, recrie o indexador com uma nova combinação de seleções.
+Dependendo de como tiver aprovisionado o recurso dos serviços cognitivos, pode experimentar com indexação e enriquecimento executando novamente o assistente com diferentes habilidades e campos de dados de origem. Para repetir os passos, elimine o índice e o indexador e, em seguida, recrie o indexador com uma nova combinação de seleções.
 
 + Em **Descrição geral** > **Índices**, selecione o índice criado e clique em **Eliminar**.
 

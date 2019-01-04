@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281698"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025390"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -47,7 +46,7 @@ Criação visual com a integração de Git de repositórios do Azure suporta o c
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Configurar um repositório de Git de repositórios do Azure com o Azure Data Factory
 Pode configurar um repositório de Git de repositórios do Azure com uma fábrica de dados por meio de dois métodos.
 
-#### <a name="method1"></a> Método de configuração 1 (repositório de Git de repositórios do Azure): página Vamos começar
+#### <a name="method1"></a> Método de configuração 1 (repositório de Git de repositórios do Azure): Página Vamos começar
 
 No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
@@ -61,7 +60,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 
 | Definição | Descrição | Valor |
 |:--- |:--- |:--- |
-| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Tenha em atenção**: GitHub não é atualmente suportado. | Azure repositórios Git |
+| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Nota**: GitHub não é atualmente suportado. | Azure repositórios Git |
 | **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
 | **Organização de repositórios do Azure** | O nome de organização de repositórios do Azure. Pode localizar o nome de organização de repositórios do Azure em `https://{organization name}.visualstudio.com`. Pode [iniciar sessão na sua organização de repositórios de Azure](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | <your organization name> |
 | **ProjectName** | O nome do projeto de Repos do Azure. Pode localizar o nome do projeto de Repos de Azure no `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,7 +69,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Pasta raiz** | A pasta de raiz no seu ramo de colaboração de repositórios do Azure. | <your root folder name> |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório de Git de repositórios do Azure. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
-#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git de repositórios do Azure): UX tela de criação
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git de repositórios do Azure): Experiência do Usuário baseada em telas de criação
 Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
 É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições <a href="#method1">método de configuração 1</a>.
@@ -164,7 +163,7 @@ Para obter uma introdução de nove minutos e demonstração desta funcionalidad
 
 Pode configurar um repositório do GitHub com uma fábrica de dados por meio de dois métodos.
 
-**Método de configuração 1 (repositório público): página Vamos começar**
+**Método de configuração 1 (repositório público): Página Vamos começar**
 
 No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
@@ -186,7 +185,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 | **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório público): UX tela de criação
+#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório público): Experiência do Usuário baseada em telas de criação
 
 Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
@@ -196,7 +195,7 @@ Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica 
 
 Pode configurar um repositório de GitHub Enterprise com uma fábrica de dados por meio de dois métodos.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório de Enterprise): página Vamos começar
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório de Enterprise): Página Vamos começar
 
 No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
@@ -220,7 +219,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 | **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Enterprise): UX tela de criação
+#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Enterprise): Experiência do Usuário baseada em telas de criação
 
 Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 

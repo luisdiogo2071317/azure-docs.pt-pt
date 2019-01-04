@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 61b331c330da5e2083a7a029e3f3137e6d4a1aab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8a2e8b3cb841c18d337a610284bfb31862b0c63f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077839"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015870"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar dados de Jira com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Jira ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Jira** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Jira** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
 | porta | A porta TCP que o servidor de Jira utiliza para escutar ligações de cliente. O valor predefinido é 443 se ligar através de HTTPS ou 8080 se ligar através de HTTP.  | Não |
 | o nome de utilizador | O nome de utilizador que utiliza para aceder ao serviço do Jira.  | Sim |
@@ -82,7 +81,7 @@ Para copiar dados do Jira, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **JiraObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **JiraObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

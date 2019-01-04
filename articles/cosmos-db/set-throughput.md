@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543007"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999430"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 
@@ -27,9 +27,9 @@ A definição de débito aprovisionado num contentor é a opção amplamente usa
 
 Recomenda-se que configure o débito com a granularidade de contentor quando pretender que o desempenho garantido para o contentor.
 
-Débito aprovisionado num contentor do Azure Cosmos é distribuído uniformemente por todas as partições lógicas do contentor. Uma vez que um ou mais partições lógicas de um contentor são alojadas por uma partição de recursos, as partições físicas pertencem exclusivamente para o contentor e o débito aprovisionado no contentor de suporte. A imagem seguinte mostra como uma partição de recursos hospeda um ou mais partições lógicas de um contentor:
+Débito aprovisionado num contentor do Azure Cosmos é distribuído uniformemente por todas as partições lógicas do contentor. Uma vez que um ou mais partições lógicas de um contentor são alojadas por uma partição física, as partições físicas pertencem exclusivamente para o contentor e o débito aprovisionado no contentor de suporte. A imagem seguinte mostra como uma partição física hospeda um ou mais partições lógicas de um contentor:
 
-![Partição de recursos](./media/set-throughput/resource-partition.png)
+![Partição física](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Débito de definição numa base de dados
 
@@ -49,9 +49,9 @@ Recomenda-se que configure o débito numa base de dados quando pretende partilha
 
 Todos os contentores criados dentro de uma base de dados com débito aprovisionado tem de ser criados com uma chave de partição. Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando tiver o débito aprovisionado num banco de dados de partilha de contentores, não pode aplicar seletivamente a taxa de transferência para um contentor específico ou de uma partição lógica. Se a carga de trabalho numa partição lógica consome mais do que a taxa de transferência que é atribuída a uma partição lógica específica, suas operações será limitado de taxa. Quando ocorre a limitação de velocidade, pode aumentar o débito para o contêiner inteiro ou repita a operação. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
-Várias partições lógicas partilha o débito aprovisionado para um banco de dados podem ser hospedadas numa partição de recursos único. Enquanto uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição de recursos, partições lógicas do "L" em contentores de "C" partilha o débito aprovisionado das bases de dados podem ser mapeadas e alojadas em partições físicas de 'R'. A imagem seguinte mostra como uma partição de recursos pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
+Várias partições lógicas partilha o débito aprovisionado para um banco de dados podem ser hospedadas numa única partição física. Enquanto uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição física, partições lógicas do "L" em contentores de "C" partilha o débito aprovisionado das bases de dados podem ser mapeadas e alojadas em partições físicas de 'R'. A imagem seguinte mostra como uma partição física pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
 
-![Partição de recursos](./media/set-throughput/resource-partition2.png)
+![Partição física](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Definir débito de uma base de dados e um contentor
 

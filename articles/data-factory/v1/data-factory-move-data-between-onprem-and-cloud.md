@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242845"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015836"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -63,7 +62,7 @@ Neste passo, vai utilizar o portal do Azure para criar uma instância do Azure D
     ![Adicionar ao Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **nome da fábrica de dados "ADFTutorialOnPremDF" não está disponível**, altere o nome da fábrica de dados (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Utilize este nome em vez de ADFTutorialOnPremDF ao realizar os passos restantes neste tutorial.
+   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **Nome da fábrica de dados "ADFTutorialOnPremDF" não está disponível**, altere o nome da fábrica de dados (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Utilize este nome em vez de ADFTutorialOnPremDF ao realizar os passos restantes neste tutorial.
    >
    > O nome da fábrica de dados pode ser registado como um **DNS** nome no futuro e, por conseguinte, ficar publicamente visível.
    >
@@ -281,7 +280,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
    * **folderPath** está definido como **adftutorial/outfromonpremdf** onde outfromonpremdf é a pasta no contentor adftutorial. Criar a **adftutorial** contentor se ainda não exista.
    * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço Data Factory gera um setor de dados de saída de cada hora na **emp** tabela na base de dados SQL do Azure.
 
-   Se não especificar um **fileName** para um **tabela de saída**, o ficheiros gerados no **folderPath** são denominados no seguinte formato: Data.<Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
 
    Para definir **folderPath** e **fileName** dinamicamente com base no **SliceStart** tempo, utilize a propriedade partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
 

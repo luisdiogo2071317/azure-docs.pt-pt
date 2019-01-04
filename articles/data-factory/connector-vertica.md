@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4e13050715927fb0b158c32393b56b32290cf175
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d48c046fbbb363e0c8409e43ebd0ac0b1480d87b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078094"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019410"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copiar dados do Vertica com o Azure Data Factory 
 
@@ -42,7 +41,7 @@ As seguintes propriedades são suportadas para o serviço de Vertica ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Vertica** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Vertica** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação ao Vertica. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -75,7 +74,7 @@ Para copiar dados do Vertica, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **VerticaTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **VerticaTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019270"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados de Presto com o Azure Data Factory (pré-visualização)
 
@@ -45,12 +44,12 @@ As seguintes propriedades são suportadas para o serviço ligado Presto:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Presto** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Presto** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor Presto. (ou seja, 192.168.222.160)  | Sim |
 | serverVersion | A versão do servidor Presto. (ou seja, 0.148-t)  | Sim |
 | catálogo | O contexto de catálogo para todos os pedidos no servidor.  | Sim |
 | porta | A porta TCP que o servidor Presto utiliza para escutar ligações de cliente. O valor predefinido é 8080.  | Não |
-| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Valores permitidos são: **anónimo**, **LDAP** | Sim |
+| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Valores permitidos são: **Anónimo**, **LDAP** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor Presto.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
@@ -92,7 +91,7 @@ Para copiar dados de Presto, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **PrestoObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **PrestoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

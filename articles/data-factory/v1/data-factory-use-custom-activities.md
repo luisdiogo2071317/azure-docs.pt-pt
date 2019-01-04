@@ -9,17 +9,16 @@ ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b2d9bdd8a7faee81794beef7cf6a764aeea666ae
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276011"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020120"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +80,7 @@ Seguem-se os dois passos de alto nível que deve executar como parte destas inst
 2. Crie uma fábrica de dados do Azure com um pipeline que utiliza a atividade personalizada.
 
 ### <a name="create-a-custom-activity"></a>Criar uma atividade personalizada
-Para criar uma atividade personalizada .NET, crie uma **biblioteca de classes .NET** projeto com uma classe que implementa que **IDotNetActivity** interface. Essa interface possui apenas um método: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) e sua assinatura é:
+Para criar uma atividade personalizada .NET, crie uma **biblioteca de classes .NET** projeto com uma classe que implementa que **IDotNetActivity** interface. Essa interface possui apenas um método: [Executar](https://msdn.microsoft.com/library/azure/mt603945.aspx) e sua assinatura é:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -426,7 +425,7 @@ Eis os passos que efetuar nesta secção:
    3. Clique em **Data Factory** no painel **Análise de dados**.
    
     ![Menu novo do Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. Na **nova fábrica de dados** painel, introduza **CustomActivityFactory** para o nome. O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **nome da fábrica de dados "CustomActivityFactory" não está disponível**, altere o nome da fábrica de dados (por exemplo, **yournameCustomActivityFactory**) e tente criar novamente.
+2. Na **nova fábrica de dados** painel, introduza **CustomActivityFactory** para o nome. O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **Nome da fábrica de dados "CustomActivityFactory" não está disponível**, altere o nome da fábrica de dados (por exemplo, **yournameCustomActivityFactory**) e tente criar novamente.
 
     ![Novo painel do Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Clique em **nome do grupo de recursos**e selecione um grupo de recursos existente ou crie um grupo de recursos.
@@ -618,7 +617,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
    * **Simultaneidade** está definido como **2** para que dois setores são processados em paralelo por 2 VMs num conjunto do Batch do Azure.
    * Existe uma atividade na secção Atividades, e é do tipo: **DotNetActivity**.
-   * **AssemblyName** está definido como o nome da DLL: **mydotnetactivity. dll**.
+   * **AssemblyName** está definido como o nome da DLL: **Mydotnetactivity. dll**.
    * **Ponto de entrada** está definido como **mydotnetactivityns. Mydotnetactivity**.
    * **PackageLinkedService** está definido como **AzureStorageLinkedService** que aponta para o armazenamento de BLOBs que contém o ficheiro de zip da atividade personalizada. Se estiver a utilizar diferentes contas de armazenamento do Azure para ficheiros de entrada/saída e o ficheiro de zip da atividade personalizada, criar outro serviço ligado do armazenamento do Azure. Este artigo pressupõe que está a utilizar a mesma conta de armazenamento do Azure.
    * **PackageFile** está definido como **customactivitycontainer**. Ele está no formato: containerforthezip/nameofthezip.zip.
@@ -729,7 +728,7 @@ Resolução de problemas consiste em algumas técnicas básicas:
 Se atualizar o código para a atividade personalizada, criar e carregar o ficheiro zip que contém os novos binários para o armazenamento de Blobs.
 
 ## <a name="appdomain-isolation"></a>Isolamento de AppDomain
-Ver [exemplo de AppDomain Cross](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) que mostra como criar uma atividade personalizada que não está restrito à versões do assembly utilizadas pelo iniciador do Data Factory (exemplo: verze 4.3.0 de windowsazure. Storage, newtonsoft v6.0.x, etc.).
+Ver [exemplo de AppDomain Cross](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) que mostra como criar uma atividade personalizada que não está restrito à versões do assembly utilizadas pelo iniciador do Data Factory (exemplo: Verze 4.3.0 de windowsazure. Storage, newtonsoft v6.0.x, etc.).
 
 ## <a name="access-extended-properties"></a>Acesso a Propriedades estendidas
 Pode declarar propriedades expandidas da atividade JSON, conforme mostrado no exemplo a seguir:
@@ -769,7 +768,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Azure Batch
 Também pode criar um conjunto do Azure Batch com **dimensionamento automático** funcionalidade. Por exemplo, pode criar um conjunto do batch do azure com VMs dedicadas 0 e uma fórmula de dimensionamento automático com base no número de tarefas pendentes. 
 
-A fórmula de exemplo aqui alcança o comportamento seguinte: quando o conjunto for criado inicialmente, ele começa com 1 VM. Métrica de $PendingTasks define o número de tarefas em execução + Active Directory (em fila) Estado.  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated em conformidade. Ele garante que TargetDedicated nunca vai além de 25 VMs. Então, como novas tarefas submetidas, agrupamento automaticamente cresce e como tarefas são concluídas, as VMs se tornar um gratuito por um e o dimensionamento automático diminui essas VMs. startingNumberOfVMs e maxNumberofVMs pode ser ajustado às suas necessidades.
+A fórmula de exemplo aqui alcança o seguinte comportamento: Quando o conjunto for criado inicialmente, ele começa com 1 VM. Métrica de $PendingTasks define o número de tarefas em execução + Active Directory (em fila) Estado.  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated em conformidade. Ele garante que TargetDedicated nunca vai além de 25 VMs. Então, como novas tarefas submetidas, agrupamento automaticamente cresce e como tarefas são concluídas, as VMs se tornar um gratuito por um e o dimensionamento automático diminui essas VMs. startingNumberOfVMs e maxNumberofVMs pode ser ajustado às suas necessidades.
 
 Fórmula de dimensionamento automático:
 

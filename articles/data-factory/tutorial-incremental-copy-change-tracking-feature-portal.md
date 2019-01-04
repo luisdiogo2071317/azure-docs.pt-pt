@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957270"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025543"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -171,7 +170,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -453,7 +452,7 @@ O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação: U = atualizar, I = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = atualizar, eu = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

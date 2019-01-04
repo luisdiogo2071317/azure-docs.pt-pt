@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958363"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999174"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualizar a sua aplicação Java do Service Fabric anterior para obter as bibliotecas do Java a partir do Maven
 Recentemente, movemos os binários Java do Service Fabric do Java SDK do Service Fabric para o alojamento Maven. Agora, pode utilizar **mavencentral** para obter as mais recentes dependências de Java do Service Fabric. Este início rápido ajuda-o a atualizar as suas aplicações Java existentes, que criou anteriormente para serem utilizadas com o Java SDK do Service Fabric, através de um modelo do Yeoman ou do Eclipse, para compatibilidade com a compilação baseada no Maven.
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-De um modo geral, para ter uma ideia genérica do aspeto do script de compilação para um serviço Java sem Estado do Service Fabric, pode ver qualquer um dos exemplos da introdução. Eis o [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) do exemplo EchoServer.
+De um modo geral, para ter uma ideia genérica do aspeto do script de compilação para um serviço Java sem Estado do Service Fabric, pode ver qualquer um dos exemplos da introdução. Eis o [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) do exemplo EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Migrar o Serviço Actor do Service Fabric
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808389"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015071"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
@@ -119,7 +119,7 @@ Se reduzir o conjunto de dados provenientes da consulta de análise não cumpre 
  ```
 
 ## <a name="about-sampling"></a>Sobre a amostragem
-Dependendo da quantidade de dados enviados pela sua aplicação, pode querer utilizar a funcionalidade de amostragem adaptável, que envia apenas uma percentagem da sua telemetria. O mesmo se aplica se tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](app-insights-sampling.md).
+Dependendo da quantidade de dados enviados pela sua aplicação, pode querer utilizar a funcionalidade de amostragem adaptável, que envia apenas uma percentagem da sua telemetria. O mesmo se aplica se tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adaptador do Power BI (preterido)
 Este método cria um dashboard completo de telemetria para. O conjunto de dados inicial está predefinido, mas pode adicionar mais dados a ele.

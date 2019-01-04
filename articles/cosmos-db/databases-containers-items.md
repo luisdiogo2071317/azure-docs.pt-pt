@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7f4c03c4335f9936d78890ad2e3903d0986f86d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807691"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025679"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -77,10 +77,10 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades do sistema defin
 
 | **Propriedade de sistema definido** | **Sistema gerado ou utilizador definível** | **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Gerada pelo sistema | Identificador exclusivo do contentor | Sim | Não | Não | Não | Não |
-|__etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|__ts | Gerada pelo sistema | Última timestamp atualizado do contentor | Sim | Não | Não | Não | Não |
-|__self | Gerada pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
+|_rid | Gerada pelo sistema | Identificador exclusivo do contentor | Sim | Não | Não | Não | Não |
+|_etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|_ts | Gerada pelo sistema | Última timestamp atualizado do contentor | Sim | Não | Não | Não | Não |
+|_self | Gerada pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
 |ID | Utilizador configurável | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Utilizador configurável | Fornece a capacidade de alterar o caminho de índice, sua precisão e o modelo de consistência. | Sim | Não | Não | Não | Sim |
 |TimeToLive | Utilizador configurável | Fornece a capacidade de excluir itens automaticamente a partir de um contentor após um determinado período de tempo. Para obter mais detalhes, consulte a [Time To Live](time-to-live.md) artigo. | Sim | Não | Não | Não | Sim |
@@ -113,10 +113,10 @@ Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema defin
 
 |**Propriedade de sistema definido** | **Sistema gerado ou utilizador definível**| **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
-|__etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|__ts | Gerada pelo sistema | Última timestamp atualizado do item | Sim | Não | Não | Não | Não |
-|__self | Gerada pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
+|ID | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
+|_etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|_ts | Gerada pelo sistema | Última timestamp atualizado do item | Sim | Não | Não | Não | Não |
+|_self | Gerada pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
 |ID | Qualquer um dos | Definido pelo utilizador nome exclusivo dentro de uma partição lógica. Se o utilizador não especifica o id, o sistema irá gerar automaticamente um. | Sim | Sim | Sim | Sim | Sim |
 |Arbitrárias propriedades definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo utilizador representadas na representação de API nativa (JSON, BSON, CQL, etc.) | Sim | Sim | Sim | Sim | Sim |
 

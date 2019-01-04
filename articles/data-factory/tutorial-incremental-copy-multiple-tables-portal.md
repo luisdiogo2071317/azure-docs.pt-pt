@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 65dae64a43fb145f34c6933f0b74f8e798f5e373
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969794"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016329"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -248,7 +247,7 @@ END
 1. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 1. Selecione **Afixar ao dashboard**.     
 1. Clique em **Criar**.      
-1. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+1. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -271,13 +270,13 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Na janela **Configuração do Runtime de Integração**, selecione **Realizar movimento de dados e enviar atividades para computações externas** e clique em **Seguinte**. 
 
    ![Selecionar o tipo de runtime de integração](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selecione ** Rede Privada** e clique em **Seguinte**. 
+1. Selecione **Rede Privada** e clique em **Seguinte**. 
 
    ![Selecionar rede privada](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Introduza **MySelfHostedIR** em **Nome** e clique em **Seguinte**. 
 
    ![Nome do IR autoalojado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Clique em **Clique aqui para iniciar a configuração rápida neste computador**, na secção **Opção 1: Configuração Rápida**. 
+1. Clique em **clique aqui para iniciar a configuração rápida neste computador** no **opção 1: Configuração rápida** secção. 
 
    ![Clicar na ligação de Configuração Rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)**, clique em **Fechar**. 

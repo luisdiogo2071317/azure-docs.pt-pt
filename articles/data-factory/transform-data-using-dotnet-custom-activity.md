@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58afbdf3488850a643e7d4b8979bf860f93141df
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422887"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014119"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -104,10 +103,12 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | tipo                  | Para a atividade personalizada, é o tipo de atividade **personalizado**. | Sim      |
 | linkedServiceName     | Serviço ligado para o Azure Batch. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.  | Sim      |
 | command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já está disponível no nó no conjunto do Azure Batch, podem ser ignorados o resourceLinkedService e folderPath. Por exemplo, pode especificar o comando para ser `cmd /c dir`, que é suportado nativamente por nó no conjunto de Batch do Windows. | Sim      |
-| resourceLinkedService | Serviço ligado do armazenamento do Azure para a conta de armazenamento onde está armazenado o aplicativo personalizado | Não       |
-| folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - ou seja, numa estrutura de hierarquia de pastas sob *folderPath* -a estrutura de pastas atualmente é aplanada quando os ficheiros são copiados para o Azure Batch. Ou seja, todos os ficheiros são copiados para uma única pasta com sem subpastas. Para contornar este comportamento, considere a comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, descomprimi-la com código personalizado no local desejado. | Não       |
+| resourceLinkedService | Serviço ligado do armazenamento do Azure para a conta de armazenamento onde está armazenado o aplicativo personalizado | Não&#42;       |
+| folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - ou seja, numa estrutura de hierarquia de pastas sob *folderPath* -a estrutura de pastas atualmente é aplanada quando os ficheiros são copiados para o Azure Batch. Ou seja, todos os ficheiros são copiados para uma única pasta com sem subpastas. Para contornar este comportamento, considere a comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, descomprimi-la com código personalizado no local desejado. | Não&#42;       |
 | referenceObjects      | Uma matriz de serviços ligados e conjuntos de dados existentes. Os serviços ligados e conjuntos de dados referenciada são transmitidos para o aplicativo personalizado no formato JSON para que seu código personalizado, pode referenciar recursos do Data Factory | Não       |
 | ExtendedProperties    | Propriedades definidas pelo utilizador, que podem ser transmitidas para o aplicativo personalizado no formato JSON, para que seu código personalizado, pode referenciar propriedades adicionais | Não       |
+
+&#42;As propriedades `resourceLinkedService` e `folderPath` tem de ser especificados, ou ambos ser omitido.
 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
@@ -353,7 +354,7 @@ Para obter um exemplo completo de como o exemplo de pipeline e a DLL de ponto-a-
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Azure Batch
 Também pode criar um conjunto do Azure Batch com **dimensionamento automático** funcionalidade. Por exemplo, pode criar um conjunto do batch do azure com VMs dedicadas 0 e uma fórmula de dimensionamento automático com base no número de tarefas pendentes. 
 
-A fórmula de exemplo aqui alcança o comportamento seguinte: quando o conjunto for criado inicialmente, ele começa com 1 VM. Métrica de $PendingTasks define o número de tarefas em execução + Active Directory (em fila) Estado.  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated em conformidade. Ele garante que TargetDedicated nunca vai além de 25 VMs. Então, como novas tarefas submetidas, agrupamento automaticamente cresce e como tarefas são concluídas, as VMs se tornar um gratuito por um e o dimensionamento automático diminui essas VMs. startingNumberOfVMs e maxNumberofVMs pode ser ajustado às suas necessidades.
+A fórmula de exemplo aqui alcança o seguinte comportamento: Quando o conjunto for criado inicialmente, ele começa com 1 VM. Métrica de $PendingTasks define o número de tarefas em execução + Active Directory (em fila) Estado.  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated em conformidade. Ele garante que TargetDedicated nunca vai além de 25 VMs. Então, como novas tarefas submetidas, agrupamento automaticamente cresce e como tarefas são concluídas, as VMs se tornar um gratuito por um e o dimensionamento automático diminui essas VMs. startingNumberOfVMs e maxNumberofVMs pode ser ajustado às suas necessidades.
 
 Fórmula de dimensionamento automático:
 

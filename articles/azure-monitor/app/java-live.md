@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: ab101802aa881d4f4c6377299164c4408c673e7c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4510c66dc0a64f65de9f9ee57563b847e20e25de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981067"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000483"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicações de web de Java que já estão em direto
 
@@ -128,7 +128,7 @@ E, ao visualizar as propriedades de um pedido, pode ver os eventos de telemetria
 
 ![](./media/java-live/7-instance.png)
 
-[Saiba mais sobre métricas.](../../application-insights/app-insights-metrics-explorer.md)
+[Saiba mais sobre métricas.](../../azure-monitor/app/metrics-explorer.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Adicione a telemetria às suas páginas da web](javascript.md) para monitorizar vistas de página e métricas de utilizador.

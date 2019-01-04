@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 856ffe050fce204d52d6666025a7284788bb0893
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420375"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022245"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -117,7 +117,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/app-insights-website-monitoring/analytics-query.png)
 
-3. Volte à página **Descrição geral**. Clique em **Browser** no cabeçalho **Investigar** e, em seguida, selecione **Desempenho**. Aqui, pode encontrar as métricas relacionadas com o desempenho do seu site. Também existe uma vista correspondente para a análise de falhas e exceções no seu site. Pode clicar em **Exemplos** para explorar os detalhes de transação individual. A partir daqui, pode aceder à experiência de [detalhes de transação ponto a ponto](app-insights-transaction-diagnostics.md).
+3. Volte à página **Descrição geral**. Clique em **Browser** no cabeçalho **Investigar** e, em seguida, selecione **Desempenho**. Aqui, pode encontrar as métricas relacionadas com o desempenho do seu site. Também existe uma vista correspondente para a análise de falhas e exceções no seu site. Pode clicar em **Exemplos** para explorar os detalhes de transação individual. A partir daqui, pode aceder à experiência de [detalhes de transação ponto a ponto](../azure-monitor/app/transaction-diagnostics.md).
 
    ![Gráficos de métricas de servidor](./media/app-insights-website-monitoring/browser-performance.png)
 
@@ -138,7 +138,7 @@ Se pretender continuar a trabalhar com guias de introdução subsequentes ou com
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

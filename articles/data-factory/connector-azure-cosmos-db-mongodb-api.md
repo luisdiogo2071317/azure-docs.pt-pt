@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 2cffc99eade88d50e3de212b5680b640c14fa7a7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 3f60ffcde43bd1ee43b5dd7d1e86da3a8bf2c521
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812376"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002115"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-mongodb-api-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB (API do MongoDB) com o Azure Data Factory
 
@@ -172,7 +172,7 @@ As seguintes propriedades são suportadas na atividade de cópia **sink** secç�
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSink**. |Sim |
 | WriteBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Fábrica de dados gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
-| writeBatchSize | O **writeBatchSize** propriedade controla o tamanho de documentos para escrever em cada lote. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o tamanho do documento a ser grande. |Não<br />(a predefinição é **5**) |
+| writeBatchSize | O **writeBatchSize** propriedade controla o tamanho de documentos para escrever em cada lote. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o tamanho do documento a ser grande. |Não<br />(a predefinição é **10.000**) |
 | writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. O valor permitido é o período de tempo. | Não<br/>(a predefinição é **00:00 30:** - 30 minutos) |
 
 **Exemplo**

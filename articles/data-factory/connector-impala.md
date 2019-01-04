@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 81d4fc3032b7b69bb438d28e97b62f483e36018b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5d0c887587028fe877cb7b5afd65968bde038d03
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078077"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014374"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados do Impala com o Azure Data Factory (pré-visualização)
 
@@ -91,7 +90,7 @@ Para copiar dados de Impala, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ImpalaObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ImpalaObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
