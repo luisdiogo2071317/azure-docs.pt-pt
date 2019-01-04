@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: rayne
-ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/27/2018
+ms.author: raynew
+ms.openlocfilehash: c93f80ba93e84c93ddf58b46b4bbcf98c53478d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849807"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794231"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar a ligação a um site secundário no local após a ativação pós-falha de endereçamento IP
 
@@ -23,8 +23,8 @@ Depois de efetuar a ativação pós-falha de VMs de Hyper-V em clouds do System 
 
 Após a ativação pós-falha, existem duas formas de lidar com endereçamento IP para VMs de réplica: 
 
-- **Manter o mesmo endereço IP após a ativação pós-falha**: neste cenário, a VM replicada tem o mesmo endereço IP da VM principal. Isso simplifica a rede relacionado com problemas após a ativação pós-falha, mas requer algum trabalho de infraestrutura.
-- **Utilizar um endereço IP diferente após a ativação pós-falha**: neste cenário a VM obtém um novo endereço IP após a ativação pós-falha. 
+- **Manter o mesmo endereço IP após a ativação pós-falha**: Neste cenário, a VM replicada tem o mesmo endereço IP da VM principal. Isso simplifica a rede relacionado com problemas após a ativação pós-falha, mas requer algum trabalho de infraestrutura.
+- **Utilizar um endereço IP diferente após a ativação pós-falha**: Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha. 
  
 
 ## <a name="retain-the-ip-address"></a>Manter o endereço IP

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278139"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608005"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Informações inteligentes com ia para monitorizar e resolver problemas de desempenho de base de dados
 
@@ -57,7 +57,7 @@ Identificado a base de dados SQL degradações de desempenho são registradas no
 | Valor de impacto | Valor de uma métrica medido. |
 | As consultas afetadas e códigos de erro | Código de erro ou de hash de consulta. Estes podem ser utilizados para correlacionar facilmente para consultas afetadas. As métricas que consistem de aumento de duração de consulta, tempo de espera, contagens de tempo limite ou códigos de erro são fornecidas. |
 | Deteções | Deteção identificada na base de dados durante o tempo de um evento. Há 15 padrões de deteção. Para obter mais informações, consulte [resolver problemas de desempenho de base de dados com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Análise de causa raiz | Analisar o problema identificado num formato legível por humanos a causa raiz. Algumas informações podem conter uma recomendação de melhoria do desempenho, sempre que possível. |
+| Análise da origem do problema | Analisar o problema identificado num formato legível por humanos a causa raiz. Algumas informações podem conter uma recomendação de melhoria do desempenho, sempre que possível. |
 |||
 
 Para obter uma descrição geral prática sobre a utilização de informações inteligentes com a análise de SQL do Azure e para cenários de uso típico, veja o vídeo incorporado:
@@ -97,7 +97,7 @@ O exemplo seguinte mostra que um informações inteligentes exibida por meio de 
 
 ### <a name="set-up-with-event-hubs"></a>Configurar com os Hubs de eventos
 
-Para utilizar informações inteligentes com os Hubs de eventos, configurar dados de registo de informações inteligentes para ser transmitido para os Hubs de eventos, consulte [registos de diagnóstico do Stream Azure para os Hubs de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+Para utilizar informações inteligentes com os Hubs de eventos, configurar dados de registo de informações inteligentes para ser transmitido para os Hubs de eventos, consulte [registos de diagnóstico do Stream Azure para os Hubs de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Para utilizar os Hubs de eventos para configurar a monitorização personalizada e os alertas, consulte o artigo [o que fazer com métricas e diagnósticos registos nos Hubs de eventos](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -180,4 +180,4 @@ Se qualquer uma das exceções críticas monitorizadas cruzar os limiares absolu
 - Saiba como [resolver problemas de desempenho de base de dados SQL com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Utilize o [registo de diagnóstico de desempenho de base de dados de SQL Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Saiba como [monitorizar base de dados SQL com a análise de SQL](../azure-monitor/insights/azure-sql.md).
-- Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).

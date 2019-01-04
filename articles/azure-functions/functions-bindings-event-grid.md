@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995037"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810939"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -48,7 +48,7 @@ Veja o exemplo de idioma específico para um acionador do Event Grid:
 
 * [C#](#c-example)
 * [Script do c# (.csx)](#c-script-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
@@ -221,9 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-example"></a>Acionador - exemplo de Java
+### <a name="trigger---java-examples"></a>Acionador - exemplos de Java
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace e imprime um evento.
+Esta secção contém os exemplos seguintes:
+
+* [Acionador do Event Grid, parâmetro de cadeia de caracteres](#event-grid-trigger-string-parameter-java)
+* [Acionador do Event Grid, parâmetro POJO](#event-grid-trigger-pojo-parameter-java)
+
+Os exemplos seguintes mostram a ligação de Acionador num *Function* ficheiro e [das funções do Java](functions-reference-java.md) que usar a ligação e imprimir um evento, em primeiro lugar recebe o evento como ```String``` e o segundo como um POJO.
 
 ```json
 {
@@ -237,16 +242,60 @@ O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e u
 }
 ```
 
-Eis o código Java:
+#### <a name="event-grid-trigger-string-parameter-java"></a>Acionador do Event Grid, parâmetro de cadeia de caracteres (Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) {
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
+```
+
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Acionador do Event Grid, parâmetro POJO (Java)
+
+Este exemplo utiliza o POJO seguinte, que representa as propriedades de nível superior de um evento do Event Grid:
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+Quando chega, ao payload JSON do evento é desserializada no ```EventSchema``` POJO para utilização pela função. Isso permite que a função para aceder às propriedades do evento de forma orientada a objeto.
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
 ```
 
 Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `EventGridTrigger` anotação em parâmetros cujo valor deve ser proveniente de EventGrid. Parâmetros com essas anotações fazer com que a função ser executada quando um evento é recebido.  Esta anotação pode ser utilizada com tipos nativos de Java, POJOs ou valores anuláveis usando `Optional<T>`.

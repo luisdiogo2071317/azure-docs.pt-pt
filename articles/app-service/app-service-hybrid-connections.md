@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258020"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653395"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações híbridas do serviço de aplicações do Azure #
 
@@ -177,7 +177,7 @@ Há atualizações periódicas para o Gestor de ligações do híbridas para cor
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Adicionar uma ligação híbrida à sua aplicação através de programação ##
 
-As APIs indicadas abaixo, pode ser utilizadas diretamente para gerir as ligações híbridas ligados às suas aplicações web. 
+As APIs indicadas abaixo, pode ser utilizadas diretamente para gerir as ligações híbridas ligados às suas aplicações. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ O objeto JSON associado com uma ligação híbrida é semelhante a:
       }
     }
 
-Uma forma de utilizar esta informação é com armclient, que pode ser obtido a partir da [ARMClient] [ armclient] projetos do GitHub. Eis um exemplo ao ligar uma ligação híbrida já existente na sua aplicação web. Crie um ficheiro JSON pelo esquema acima, como:
+Uma forma de utilizar esta informação é com armclient, que pode ser obtido a partir da [ARMClient] [ armclient] projetos do GitHub. Eis um exemplo ao ligar uma ligação híbrida já existente para a sua aplicação. Crie um ficheiro JSON pelo esquema acima, como:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ No serviço de aplicações, a ferramenta de tcpping pode ser invocada a partir 
 
 ## <a name="biztalk-hybrid-connections"></a>Ligações Híbridas do BizTalk ##
 
-O formulário de início desse recurso era chamado de ligações híbridas do BizTalk. Esta capacidade passou a fim de vida de 31 de Maio de 2018 e deixou de operações. Ligações híbridas do BizTalk foram removidas do todas as aplicações web e não estão acessíveis através do portal ou a API. Se ainda terá essas conexões mais antigos configurados no Gestor de ligações híbridas, irá ver o estado Discontinued e apresentar uma instrução de fim da vida na parte inferior.
+O formulário de início desse recurso era chamado de ligações híbridas do BizTalk. Esta capacidade passou a fim de vida de 31 de Maio de 2018 e deixou de operações. Ligações híbridas BizTalk foram removidas do todas as aplicações e não estão acessíveis através do portal ou a API. Se ainda terá essas conexões mais antigos configurados no Gestor de ligações híbridas, irá ver o estado Discontinued e apresentar uma instrução de fim da vida na parte inferior.
 
 ![Ligações híbridas do BizTalk no HCM][12]
 

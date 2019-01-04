@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258904"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714479"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar o escalão PremiumV2 para serviço de aplicações do Azure
 
@@ -29,7 +29,7 @@ A nova **PremiumV2** escalão de preço fornece processadores mais rápidos, arm
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma aplicação web para aumentar verticalmente **PremiumV2**, tem de ter uma aplicação Web no serviço de aplicações do Azure que é executado num escalão de preço mais baixo do que **PremiumV2**, e tem de executar a aplicação Web numa implantação de serviço de aplicações que suporte PremiumV2.
+Uma aplicação para aumentar verticalmente **PremiumV2**, tem de ter uma aplicação de serviço de aplicações do Azure que é executado num escalão de preço inferior **PremiumV2**, e a aplicação tem de executar uma implementação de serviço de aplicações que suporte a PremiumV2.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Criar uma aplicação num escalão PremiumV2
 
-O escalão de preço de uma aplicação de serviço de aplicações está definido no [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) que é executado. Pode criar um plano do serviço de aplicações por si só ou como parte da criação de aplicações Web.
+O escalão de preço de uma aplicação de serviço de aplicações está definido no [plano do App Service](overview-hosting-plans.md) que é executado. Pode criar um plano do serviço de aplicações por si só ou como parte da criação de aplicações.
 
 Quando configurar o plano do serviço de aplicações na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, selecione **escalão de preço**. 
 
@@ -88,7 +88,7 @@ Alguns planos de serviço de aplicações não é possível aumentar verticalmen
 
 Se o aplicativo é executado numa implantação de serviço de aplicações em que **PremiumV2** não estiver disponível, ou se a sua aplicação for executada numa região que, atualmente não suporta **PremiumV2**, terá de voltar a implementar a aplicação para tirar aproveitar **PremiumV2**.  Tem duas opções:
 
-- Criar uma **novos** recursos de grupo e, em seguida, criar um **novo** plano de aplicação web e o serviço de aplicações no **novo** grupo de recursos, escolher a região do Azure pretendida durante a criação processo.  **Tem** selecione a **PremiumV2** plano no momento, o novo plano do serviço de aplicação é criado.  Isto garante que a combinação do grupo de recursos, o plano do serviço de aplicações, e a região do Azure irá resultar no plano do serviço de aplicações a ser criado numa implantação de serviço de aplicações suporta **PremiumV2**.  Em seguida, volte a implementar o código da aplicação para a aplicação criada recentemente e o plano do serviço de aplicações. Se assim o desejar, em seguida, pode dimensionar o plano do serviço de aplicações para baixo desde **PremiumV2** para guardar os custos e ainda será possível com êxito verticalmente back novamente no futuro usando **PremiumV2**.
+- Criar uma **novos** recursos de grupo e, em seguida, criar um **novo** plano de aplicação e serviço de aplicações no **novo** grupo de recursos, escolher a região do Azure pretendida durante o processo de criação.  **Tem** selecione a **PremiumV2** plano no momento, o novo plano do serviço de aplicação é criado.  Isto garante que a combinação do grupo de recursos, o plano do serviço de aplicações, e a região do Azure irá resultar no plano do serviço de aplicações a ser criado numa implantação de serviço de aplicações suporta **PremiumV2**.  Em seguida, volte a implementar o código da aplicação para a aplicação criada recentemente e o plano do serviço de aplicações. Se assim o desejar, em seguida, pode dimensionar o plano do serviço de aplicações para baixo desde **PremiumV2** para guardar os custos e ainda será possível com êxito verticalmente back novamente no futuro usando **PremiumV2**.
 - Se a sua aplicação já é executado num existente **Premium** escalão, em seguida, pode clonar a aplicação com todas as definições da aplicação, as cadeias de ligação e configuração de implementação para um novo plano do serviço de aplicações que utiliza **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

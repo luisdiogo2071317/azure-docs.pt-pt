@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839913"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810700"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -81,8 +81,24 @@ Execute o ficheiro de configuração do Fornecedor (AzureSiteRecoveryProvider.ex
 5. Em **Definições de Proxy**, selecione **Ligar diretamente ao Azure Site Recovery sem um proxy**.
 6. Em **Registo**, após registar o servidor no cofre, clique em **Concluir**.
 
-Os metadados do servidor Hyper-V são obtidos pelo Azure Site Recovery e o servidor é apresentado em **Infraestrutura do Site Recovery** > **Anfitriões Hyper-V**. Este processo pode demorar até 30 minutos a concluir.
+Os metadados do servidor Hyper-V são obtidos pelo Azure Site Recovery e o servidor é apresentado em **Infraestrutura do Site Recovery** > **Anfitriões Hyper-V**. Este processo pode demorar até 30 minutos a concluir.        
 
+No caso de estiver usando um server core do Hyper-V, siga os passos depois de baixar as credenciais do cofre e fornecedor conforme mencionado abaixo [aqui](#set-up-the-source-environment)
+
+1. Extraia os ficheiros do AzureSiteRecoveryProvider.exe através da execução
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Isto irá extrair os ficheiros no diretório local.
+ 
+2.  Execute ``.\setupdr.exe /i ``
+
+    Os resultados serão registados para %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Registre-se o servidor com o comando:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 

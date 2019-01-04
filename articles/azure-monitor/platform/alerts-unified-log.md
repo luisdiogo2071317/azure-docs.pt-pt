@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b3949fefac1cc230a98687b3b5ff9c7a01c6a0e9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386218"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789581"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
 
-Alerta de registo é composta por regras de pesquisa de registos, criadas para [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Para saber mais sobre a utilização, consulte [criar alertas de registo no Azure](../../azure-monitor/platform/alerts-log.md)
+Alerta de registo é composta por regras de pesquisa de registos, criadas para [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events). Para saber mais sobre a utilização, consulte [criar alertas de registo no Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
 > Dados de registos populares [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -38,7 +38,7 @@ Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 - **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor que o período de tempo.  Se o valor for maior do que o período de tempo, em seguida, corre o risco de registos a ser omitidos.<br>*Por exemplo, considere um período de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta é executada às 9:00 com 1, ele devolve registos entre 12:30 e 1 21 horas.  Da próxima vez que a consulta executaria é 2:00 quando ele retornaria registos entre 1:30 e 2:00.  Quaisquer registos criados entre 1:00 e 1:30 nunca seriam avaliados.*
 - **Limiar**.  Os resultados da pesquisa de registos são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alerta de pesquisa de registo.
 
-Regras de pesquisa de registo, sê-lo para [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), podem ter dois tipos. Cada um desses tipos é descrita detalhadamente nas seções a seguir.
+Regras de pesquisa de registo, sê-lo para [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events), podem ter dois tipos. Cada um desses tipos é descrita detalhadamente nas seções a seguir.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Único alerta criada quando um número especificado de excedem o número de registos devolvido pela pesquisa de registo.
 - **[Medida da métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedam o limiar especificado.
@@ -121,5 +121,5 @@ Preços aplicáveis para alertas de registo é mencionado no [preços do Azure M
 * Saiba mais sobre [criar nos alertas de registo no Azure](../../azure-monitor/platform/alerts-log.md).
 * Compreender [webhooks em alertas de registo no Azure](alerts-log-webhook.md).
 * Saiba mais sobre [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
-* Saiba mais sobre [Application Insights](../../application-insights/app-insights-analytics.md).
+* Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md).
 * Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

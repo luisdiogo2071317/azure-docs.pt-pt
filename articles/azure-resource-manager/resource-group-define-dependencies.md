@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295568"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727807"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager
 Para um determinado recurso, pode haver outros recursos que tem de existir antes do recurso está implementado. Por exemplo, um SQL server tem de existir antes de tentar implementar uma base de dados SQL. Define esta relação, marcando um recurso como dependente do recurso de outro. Define uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
@@ -145,16 +145,7 @@ Pode utilizar este elemento ou o elemento de dependsOn para especificar as depen
 
 Para obter mais informações, consulte [fazem referência função](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Recomendações para a definição de dependências
-
-Ao decidir quais são as dependências para definir, utilize as seguintes diretrizes:
-
-* Defina como algumas dependências possível.
-* Defina um recurso de subordinado como dependente de seu recurso principal.
-* Utilize o **referência** de função e transmita o nome de recurso para definir as dependências implícitas entre os recursos que precisam de partilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando que já definiu uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias. 
-* Definir uma dependência quando um recurso não pode ser **criado** sem a funcionalidade de outro recurso. Não defina uma dependência, se os recursos só interagem após a implementação.
-* Permitir que as dependências cascata sem definir explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e endereços IP públicos. Por conseguinte, a máquina virtual está implementados Afinal de contas três recursos, mas não for definida explicitamente a máquina virtual como dependentes em todos os recursos de três. Esta abordagem esclarece a ordem de dependência e torna mais fácil de alterar o modelo mais tarde.
-* Se um valor pode ser determinado antes da implantação, experimente a implementar o recurso sem uma dependência. Por exemplo, se um valor de configuração tem o nome do recurso de outro, não poderá ter uma dependência. Esta orientação nem sempre funciona porque alguns recursos verificar a existência do outro recurso. Se receber um erro, adicione uma dependência. 
+## <a name="circular-dependencies"></a>Dependências circulares
 
 Gestor de recursos identifica dependências circulares durante a validação do modelo. Se receber um erro a indicar que existe uma dependência circular, avalie o seu modelo para ver se todas as dependências não são necessários e podem ser removidas. Se remover as dependências não funcionar, pode evitar dependências circulares ao mover algumas operações de implementação para os recursos subordinados que são implementados depois dos recursos que têm a dependência circular. Por exemplo, suponha que estiver implantando duas máquinas virtuais, mas tem de definir as propriedades em cada um que se referem a outra. Pode implementá-las na seguinte ordem:
 
@@ -168,6 +159,7 @@ Para obter informações sobre como avaliar a ordem de implementação e resolu�
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para seguir um tutorial, veja [Tutorial: criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Para obter recomendações ao definir as dependências, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
 * Para saber mais sobre as dependências de resolução de problemas durante a implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre a criação de modelos Azure Resource Manager, veja [criação de modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](resource-group-template-functions.md).

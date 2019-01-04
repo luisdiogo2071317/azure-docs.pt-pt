@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: de77dfc40306f014a10e1ab11f2581392d3c160b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437073"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993748"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
@@ -33,9 +33,9 @@ modelo de vCore também permite que use [benefício híbrido do SQL Server](http
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos de armazenamento e o intervalo de e/s. O cliente tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. Tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. No portal do Azure, aceda ao servidor (não a base de dados) > cópias de segurança gerida > configurar a política > ponto no tempo restaurar configuração > 7-35 dias.
+O modelo de vCore oferece três escalões de serviço para fins gerais, de Hiperescala e críticas para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos e tamanho de armazenamento e o intervalo de e/s. Tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. No portal do Azure, aceda ao servidor (não a base de dados) > cópias de segurança gerida > configurar a política > ponto no tempo restaurar configuração > 7-35 dias.
 
-A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalões:
+A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 
 ||**Fins gerais**|**Crítico para a empresa**|**Hiperescala (pré-visualização)**|
 |---|---|---|---|
@@ -63,7 +63,7 @@ Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a pe
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
+No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 

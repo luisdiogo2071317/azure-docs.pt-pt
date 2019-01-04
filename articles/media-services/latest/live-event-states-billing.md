@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: 1a49f62d7b5e21fe9d6483f71b729a9100aff1a3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585551"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719426"
 ---
 # <a name="liveevent-states-and-billing"></a>Estados de LiveEvent e faturação
 
 Nos serviços de multimédia do Azure, um LiveEvent começa assim que o seu estado faz a transição para de faturação **em execução**. Para parar o LiveEvent de faturação, terá de parar o LiveEvent.
 
-Quando **LiveEventEncodingType** no seu [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard (básico), serviços de multimédia automática seja fechado desativar qualquer LiveEvent que ainda está na **executar** 12 horas de estado Depois do feed de entrada é perdido e existem sem **LiveOutput**em execução. No entanto, será serão cobrados a hora a LiveEvent estava a ser o **em execução** estado.
+Quando **LiveEventEncodingType** no seu [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard, os serviços de multimédia automática seja fechado desativar qualquer LiveEvent que ainda está na **em execução** estado 12 horas após o feed de entrada é perdido e há nenhuma **LiveOutput**em execução. No entanto, será serão cobrados a hora a LiveEvent estava a ser o **em execução** estado.
 
 ## <a name="states"></a>Estados
 

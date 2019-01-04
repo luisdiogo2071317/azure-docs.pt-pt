@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308993"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555256"
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento nas quais componentes de sistema e watchdogs pode relatório local condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se as entidades estão em bom estadas.
@@ -46,7 +46,7 @@ Para demonstrar essas opções, vamos utilizar um cluster local com cinco nós e
 Service Fabric Explorer proporciona uma vista visual do cluster. Na imagem abaixo, pode ver que:
 
 * O aplicativo **fabric: / WordCount** é vermelho (em erro), porque tem um evento de erro comunicado pelo **MyWatchdog** para a propriedade **disponibilidade**.
-* Um dos seus serviços, **fabric: / WordCount/WordCountService** for amarelo (num aviso). O serviço está configurado com sete réplicas e o cluster com cinco nós, pelo que não é possível colocar duas repicas. Apesar de não é apresentado aqui, a partição de serviço for amarela, devido a um relatório do sistema do `System.FM` dizendo que `Partition is below target replica or instance count`. A partição amarela aciona o serviço amarelo.
+* Um dos seus serviços, **fabric: / WordCount/WordCountService** for amarelo (num aviso). O serviço está configurado com sete réplicas e o cluster com cinco nós, pelo que não não possível colocar duas réplicas. Apesar de não é apresentado aqui, a partição de serviço for amarela, devido a um relatório do sistema do `System.FM` dizendo que `Partition is below target replica or instance count`. A partição amarela aciona o serviço amarelo.
 * O cluster é vermelho devido a aplicação de vermelha.
 
 A avaliação utiliza políticas predefinidas do manifesto do cluster e o manifesto do aplicativo. Eles são diretivas rígidas e não tolerar qualquer falha.
@@ -464,7 +464,7 @@ Para obter o estado de funcionamento do serviço por meio da API, crie uma `Fabr
 
 O exemplo seguinte obtém o estado de funcionamento de um serviço com o nome de serviço especificado (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,25 +1030,25 @@ Se as consultas gerais retornam um Estado de funcionamento desconhecido para uma
 
 As consultas que contêm **HealthState** para entidades são:
 
-* Lista de nós: devolve os nós de lista do cluster (paginada).
+* Lista de nós: Devolve os nós de lista do cluster (paginada).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lista de aplicações: devolve a lista de aplicações no cluster (paginado).
+* Lista de aplicativos: Devolve a lista de aplicações no cluster (paginado).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Lista de serviço: devolve a lista de serviços num aplicativo (paginado).
+* Lista de serviço: Devolve a lista de serviços num aplicativo (paginado).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lista de partição: devolve a lista de partições num serviço (paginado).
+* Lista de partição: Devolve a lista de partições num serviço (paginado).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lista de réplica: devolve a lista de réplicas numa partição (paginada).
+* Lista de réplica: Devolve a lista de réplicas numa partição (paginada).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Implementado a lista de aplicações: devolve a lista de aplicações implementadas num nó.
+* Lista de aplicação implementada: Devolve a lista de aplicações implementadas num nó.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Implementado a lista de pacotes de serviço: devolve a lista de pacotes de serviço num aplicativo implantado.
+* Lista de pacotes de serviço implementado: Devolve a lista de pacotes de serviço num aplicativo implantado.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 

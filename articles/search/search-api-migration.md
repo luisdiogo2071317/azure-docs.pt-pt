@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312192"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633049"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Atualizar para a versão mais recente do API de REST do serviço de pesquisa do Azure
 Se estiver a utilizar uma versão anterior dos [API de REST do serviço do Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão mais recente versão de API em disponibilidade geral, 2017-11-11.
@@ -59,7 +59,7 @@ Se o seu código Use esses recursos, não será capaz de atualizar para 2017-11-
 ## <a name="conclusion"></a>Conclusão
 Se precisar de obter mais detalhes sobre como utilizar a API de REST do serviço de pesquisa do Azure, veja recém-atualizado [referência da API](https://docs.microsoft.com/rest/api/searchservice/) no MSDN.
 
-Apreciamos os seus comentários sobre o Azure Search. Se tiver problemas, fique à vontade contacte-nos para obter ajuda sobre o [fórum MSDN do Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) ou [StackOverflow](http://stackoverflow.com/). Se está pedindo uma pergunta sobre o Azure Search no Stack Overflow, certifique-se para marcá-la com `azure-search`.
+Apreciamos os seus comentários sobre o Azure Search. Se tiver problemas, fique à vontade contacte-nos para obter ajuda sobre o [fórum MSDN do Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) ou [StackOverflow](https://stackoverflow.com/). Se está pedindo uma pergunta sobre o Azure Search no Stack Overflow, certifique-se para marcá-la com `azure-search`.
 
 Obrigado por utilizar o Azure Search!
 

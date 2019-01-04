@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383940"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742478"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorizar o desempenho do cluster
 
@@ -77,11 +77,11 @@ Afunilamento de desempenho de um cluster pode acontecer ao nível do armazenamen
 
 Se estiver a utilizar o armazenamento do Azure, para obter informações sobre problemas relacionados com o armazenamento de monitorização, incluindo limitação, consulte [monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Se o armazenamento de backup do seu cluster do Azure Data Lake Store (ADLS), a limitação é mais provável devido a limites de largura de banda. Limitação nesse caso foi identificada por erros de limitação a observar nos registos de tarefas. Para ADLS, consulte a secção de limitação para o serviço apropriado nestes artigos:
+Se o armazenamento de backup do seu cluster do Azure Data Lake Storage (ADLS), a limitação é mais provável devido a limites de largura de banda. Limitação nesse caso foi identificada por erros de limitação a observar nos registos de tarefas. Para ADLS, consulte a secção de limitação para o serviço apropriado nestes artigos:
 
-* [Guia para o Apache Hive no HDInsight e Azure Data Lake Store de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Guia de sintonização de desempenho para o MapReduce no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Guia para Apache Storm no HDInsight e Azure Data Lake Store de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Guia para o Apache Hive no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Guia para o MapReduce no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Guia para Apache Storm no HDInsight e o armazenamento do Azure Data Lake de sintonização de desempenho](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 39525c7e25e247504429ea36210986a5e3300cc1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384654"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537181"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
 
@@ -157,7 +157,7 @@ Relatórios de mitigação de ataque usa os dados de protocolo de Netflow que s�
 6. Selecione **ativar os diagnósticos para recolher o registo de DDoSMitigationReports** e, em seguida, selecione o máximo das seguintes opções que forem necessárias:
 
     - **Arquivo para uma conta de armazenamento**: Dados são gravados para uma conta de armazenamento do Azure. Para saber mais sobre esta opção, veja [arquivar os registos de diagnóstico](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Log Analytics. Para saber mais sobre esta opção, veja [recolher registos para utilização no Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Os relatórios de atenuação de incremental e posteriores do ataque incluem os seguintes campos
@@ -179,7 +179,7 @@ Registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado
 6. Selecione **ativar os diagnósticos para recolher o registo de DDoSMitigationFlowLogs** e, em seguida, selecione o máximo das seguintes opções que forem necessárias:
 
     - **Arquivo para uma conta de armazenamento**: Dados são gravados para uma conta de armazenamento do Azure. Para saber mais sobre esta opção, veja [arquivar os registos de diagnóstico](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Log Analytics. Para saber mais sobre esta opção, veja [recolher registos para utilização no Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Para ver os dados de registos de fluxo no dashboard de análise do Azure, pode importar o dashboard de exemplo do https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 

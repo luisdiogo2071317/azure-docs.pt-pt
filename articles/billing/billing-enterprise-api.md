@@ -15,18 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: e2f59771d7ae2c818fe2f4c93441bf27f8e312ae
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274109"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579435"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs de relatórios permitem que os clientes do Azure do Enterprise programaticamente extrair dados de faturas e de consumo para ferramentas de análise de dados preferencial. Os clientes empresariais iniciaram uma [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para tornar negociados compromissos monetários e obter acesso aos preços personalizados para recursos do Azure.
-
-> [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="enabling-data-access-to-the-api"></a>Ativar o acesso de dados para a API
 * **Gerar ou obter a chave de API** -inicie sessão no portal da empresa e navegue até aos relatórios > Transferir utilização > chave de acesso de API para gerar ou obter a chave de API.

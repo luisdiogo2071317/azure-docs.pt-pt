@@ -7,12 +7,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c93b53a78891eaf46e5455bd13198f7b9bd90903
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079182"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808018"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de utilização comuns para o Azure Cosmos DB.  As recomendações neste artigo, servem como ponto de partida, como desenvolver a sua aplicação com Cosmos DB.   
@@ -27,7 +27,7 @@ Depois de ler este artigo, será capaz de responder às seguintes perguntas:
 ## <a name="introduction"></a>Introdução
 [O Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço de base de dados distribuída globalmente da Microsoft. O serviço foi concebido para permitir que os clientes de forma elástica (e independente) dimensionar o débito e armazenamento em qualquer número de regiões geográficas. Azure Cosmos DB é o primeiro serviço de base de dados globalmente distribuída no mercado hoje mesmo para oferecer abrangente [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrange o débito, latência, disponibilidade e consistência. 
 
-O Azure Cosmos DB é um de vários modelo distribuída base de dados global que é utilizado numa ampla variedade de aplicativos e de casos de utilização. É uma boa opção para qualquer [sem servidor](https://azure.com/serverless) aplicativo que precisa de tempos de resposta de ordem de milissegundos baixa e tem de dimensionar rapidamente e globalmente. Ele oferece suporte a vários modelos de dados (chave-valor, documentos, gráficos e colunas) e aceder a várias APIs para dados incluindo [API do MongoDB](mongodb-introduction.md), [API de SQL](documentdb-introduction.md), [Gremlin API](graph-introduction.md)e [ API de tabelas](table-introduction.md) nativamente e de forma extensível. 
+O Azure Cosmos DB é um de vários modelo distribuída base de dados global que é utilizado numa ampla variedade de aplicativos e de casos de utilização. É uma boa opção para qualquer [sem servidor](https://azure.com/serverless) aplicativo que precisa de tempos de resposta de ordem de milissegundos baixa e tem de dimensionar rapidamente e globalmente. Ele oferece suporte a vários modelos de dados (chave-valor, documentos, gráficos e colunas) e aceder a várias APIs para dados incluindo [API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md), [API de SQL](documentdb-introduction.md), [Gremlin API](graph-introduction.md), e [API de tabelas](table-introduction.md) nativamente e de forma extensível. 
 
 Seguem-se alguns atributos do Azure Cosmos DB que o tornam adequado para aplicativos de alto desempenho com ambição global.
 
@@ -69,7 +69,7 @@ Além disso, os dados armazenados no Azure Cosmos DB podem ser integrados com o 
 ## <a name="gaming"></a>Jogos
 O escalão de base de dados é um componente essencial das aplicações de jogos. Os jogos modernos executam processamento gráfico em clientes móveis/consola, mas confiam na cloud para fornecer conteúdo personalizado e personalizado, como estatísticas nos jogos, integração com redes sociais e classificações de pontuações. Jogos requerem frequentemente latências de milissegundos únicas para leituras e escritas para fornecer um envolvimento no jogo experiência. Uma base de dados de jogo precisa ser rápido e conseguir gerir picos massivos nas velocidades de pedidos durante novos lançamentos de jogos e atualizações de funcionalidades.
 
-O Azure Cosmos DB é utilizado pelos jogos como [The Walking Dead: terra não Man](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) por [Next Games](https://www.nextgames.com/), e [Halo 5: Guardiões](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). O Azure Cosmos DB fornece as seguintes vantagens para os desenvolvedores de jogos:
+O Azure Cosmos DB é utilizado pelos jogos como [The Walking Dead: Man s Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) pela [Next Games](https://www.nextgames.com/), e [Halo 5: Guardiões](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). O Azure Cosmos DB fornece as seguintes vantagens para os desenvolvedores de jogos:
 
 * O Azure Cosmos DB permite que o desempenho de ser dimensionada ou reduz verticalmente de forma elástica. Isso permite que os jogos lidar com o perfil de atualização e estatísticas de dezenas de milhões de jogadores simultâneos, fazendo uma única chamada à API.
 * O Azure Cosmos DB suporta milissegundo leituras e escritas para o ajudar a evitar qualquer lags durante o jogo.
@@ -115,7 +115,7 @@ Ou, se quiser ler mais sobre os clientes com o Cosmos DB, estão disponíveis as
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha utiliza o Azure Cosmos DB para ligar os clientes e as empresas na Índia.
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit demora voo com o Azure Cosmos DB.
 * [A Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). A Affinio muda do AWS para o Azure Cosmos DB para dados de redes sociais em escala.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: Man s Land jogos voa para #1 suportado pelo Azure Cosmos DB.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). A movimentação inutilizado: Man s Land jogos voa para #1 suportado pelo Azure Cosmos DB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como o Halo 5 implementou a jogabilidade social com o Azure Cosmos DB.
 * [Galeria do Cortana Analytics](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Galeria - um site de Comunidade escalável, criado no Azure Cosmos DB.
 * [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Levando o integrador de dá informações Global de empresas multinacionais em minutos com as tecnologias de nuvem flexível.

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013821"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970277"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contentores
+# <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
 O contentor de compreensão de idiomas (LUIS) carrega o modelo de compreensão de idiomas treinado ou publicado, também conhecido como um [aplicação LUIS](https://www.luis.ai), para um contentor de docker e fornece acesso para as previsões de consulta da API do contentor pontos de extremidade. Pode recolher registos de consulta do contêiner e carregar esses back para o modelo de compreensão de idiomas do Azure para melhorar a exatidão da previsão da aplicação.
 
@@ -34,7 +34,7 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 
 |Necessário|Objetivo|
 |--|--|
-|Motor do docker| Para concluir esta pré-visualização, precisa de motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
+|Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
 |Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
 |Recurso da compreensão (LUIS) de idioma e a aplicação associada |Para utilizar o contentor, tem de ter:<br><br>* A [ _compreensão de idiomas_ recursos do Azure](luis-how-to-azure-subscription.md), juntamente com a chave de ponto de extremidade associado e o ponto final do URI (utilizada como o ponto final de faturação).<br>* Uma aplicação publicada ou preparada empacotada como uma entrada montada no contentor com o seu ID de aplicação associada.<br>* A chave de criação de conteúdos para transferir o pacote de aplicação, se estiver fazendo isso da API.<br><br>Estes requisitos são utilizados para transmitir os argumentos da linha de comandos para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : Esta chave é utilizada para obter a aplicação em pacote de serviço do LUIS na cloud e carregar os registos de consulta de volta para a cloud. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Este ID é utilizado para selecionar a aplicação. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Esta chave é utilizada para iniciar o contentor. Pode encontrar a chave de ponto final em dois locais. A primeira é o portal do Azure dentro de _compreensão de idiomas_ lista de chaves do recurso. Chave do ponto final também está disponível no portal do LUIS nas chaves e ponto final de página de definições. Não utilize a chave de arranque.<br><br>**{BILLING_ENDPOINT}** : O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure. Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>O [chave e a chave de ponto final de criação](luis-boundaries.md#key-limits) com objetivos diferentes. Não utilize-os alternadamente. |
 
@@ -42,9 +42,9 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 
 O **anfitrião** é o computador que executa o contentor do docker. Pode ser um computador no local ou um docker a alojar o serviço no Azure incluindo:
 
-* [Serviço Kubernetes do Azure](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* [Kubernetes](https://kubernetes.io/) cluster implementado [do Azure Stack](/azure/azure-stack/). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Serviço Kubernetes do Azure](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) cluster implementado [do Azure Stack](../../azure-stack/index.yml). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
@@ -113,7 +113,7 @@ O diretório de montagem de entrada pode conter os **produção**, **teste**, e 
 |Testes|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
 |Produção|GET, Post|Azure e contentores|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Importante:** não mude o nome, alterar ou descomprimir os ficheiros de pacote do LUIS.
+>**Importante:** Não mude o nome, alterar ou descomprimir os ficheiros de pacote do LUIS.
 
 ### <a name="packaging-prerequisites"></a>Pré-requisitos de empacotamento
 

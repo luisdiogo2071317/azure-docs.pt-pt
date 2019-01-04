@@ -1,7 +1,7 @@
 ---
 title: Detetar rostos - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a deteção de rostos com a API de imagem digitalizada.
+description: Conceitos relacionados com a funcionalidade de deteção de face da API de visão do computador.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342318"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580544"
 ---
-# <a name="detecting-faces"></a>Detetar rostos
+# <a name="face-detection-with-computer-vision"></a>Deteção de rostos com imagem digitalizada
 
 Imagem digitalizada Deteta rostos humanos em imagens e gera a idade, sexo e retângulo para cada rosto detetado. A Imagem Digitalizada fornece um subconjunto das funcionalidades que podem ser encontradas na [Face](/azure/cognitive-services/face/) e pode utilizar o serviço Face para uma análise mais detalhada, como identificação facial e deteção de poses.  
 
@@ -25,7 +26,7 @@ Imagem digitalizada Deteta rostos humanos em imagens e gera a idade, sexo e ret�
 
 O primeiro exemplo demonstra a resposta JSON devolvida pela visão do computador para uma imagem que contém um único face humana.
 
-![Visão analisar mulher teto Face](./Images/woman_roof_face.png)
+![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png)
 
 ```json
 {

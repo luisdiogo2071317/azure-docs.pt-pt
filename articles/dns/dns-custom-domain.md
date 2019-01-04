@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
 ms.author: victorh
-ms.openlocfilehash: 9c0ccb7c5ccb3eced32ea5bcd9f1961c5ccd2110
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173848"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727153"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilizar o DNS do Azure para fornecer definições de domínio personalizado para um serviço do Azure
 
@@ -116,7 +116,7 @@ Depois do processo estiver concluído, execute **nslookup** validar a resoluçã
 
 Para saber mais sobre o mapeamento de um domínio personalizado no serviço de aplicações, visite [mapear um nome DNS existente personalizado para aplicações Web do Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Se precisar de comprar um domínio personalizado, visite [comprar um nome de domínio personalizado para aplicações Web do Azure](../app-service/custom-dns-web-site-buydomains-web-app.md) para saber mais sobre os domínios do serviço de aplicações.
+Se precisar de comprar um domínio personalizado, visite [comprar um nome de domínio personalizado para aplicações Web do Azure](../app-service/manage-custom-dns-buy-domain.md) para saber mais sobre os domínios do serviço de aplicações.
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
 

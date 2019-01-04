@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251062"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727484"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente uma aplicação no Azure
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como dimensionar a sua aplicação no serviço de aplica�
 * [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de instâncias de VMS que executam a aplicação.
   Pode aumentar horizontalmente até 20 instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada de ainda mais aumenta sua contagem de escalamento horizontal a 100 instâncias. Para obter mais informações sobre como ampliar, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Aí, encontrará informações sobre como utilizar o dimensionamento automático, que é Dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
 
-As definições de dimensionamento levam apenas alguns segundos para aplicar e afetam todas as aplicações no seu [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+As definições de dimensionamento levam apenas alguns segundos para aplicar e afetam todas as aplicações no seu [plano do App Service](../app-service/overview-hosting-plans.md).
 Eles não exigem que altere o código ou voltar a implementar a sua aplicação.
 
 Para obter informações sobre preços e funcionalidades dos planos do serviço de aplicações individuais, consulte [detalhes de preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/web-sites/).  

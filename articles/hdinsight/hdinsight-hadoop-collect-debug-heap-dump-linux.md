@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498688"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722048"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "52498688"
 
 Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento funcionam apenas com clusters do HDInsight que utilizam o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="whichServices"></a>Serviços
@@ -48,7 +48,7 @@ Mapa e redução processos são ligeiramente diferentes, como essas operações 
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [!NOTE]
+> [!NOTE]  
 > Recomendamos que utilize [Apache Ambari](https://ambari.apache.org/) para modificar os scripts e de definições de site mapred, como Ambari lidar com a replicação de alterações em todos os nós do cluster. Consulte a [utilizando o Apache Ambari](#using-apache-ambari) secção para obter passos específicos.
 
 ### <a name="enable-heap-dumps"></a>Ativar capturas de área dinâmica para dados
@@ -59,7 +59,7 @@ A seguinte opção permite que os registos da área dinâmica quando ocorre um O
 
 O **+** indica que esta opção está ativada. A predefinição é Desativado.
 
-> [!WARNING]
+> [!WARNING]  
 > Capturas de área dinâmica para dados não estão ativadas para serviços do Hadoop no HDInsight por predefinição, como os ficheiros de informação podem ser grandes. Se habilitá-los para resolução de problemas, lembre-se de desabilitá-los depois reproduzida o problema e recolha de ficheiros de informação.
 
 ### <a name="dump-location"></a>Localização de cópia de segurança
@@ -76,7 +76,7 @@ Também pode acionar um script quando uma **OutOfMemoryError** ocorre. Por exemp
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [!NOTE]
+> [!NOTE]  
 > Como o Apache Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós do cluster que o serviço é executado no.
 > 
 > O script deve também estar numa localização acessível pela conta de serviço é executado como e tem de fornecer permissões de execução. Por exemplo, pode desejar armazenar scripts no `/usr/local/bin` e utilize `chmod go+rx /usr/local/bin/filename.sh` para conceder a leitura e permissões de execução.
@@ -89,8 +89,8 @@ Para modificar a configuração para um serviço, utilize os seguintes passos:
 
     Quando lhe for pedido, autenticar para o site com o nome da conta HTTP (predefinição: administrador) e palavra-passe para o seu cluster.
 
-   > [!NOTE]
-   > Pode solicitar-lhe que uma segunda vez Ambari para o nome de utilizador e palavra-passe. Se assim for, introduza o mesmo nome de conta e palavra-passe
+   > [!NOTE]  
+   > Pode solicitar-lhe que uma segunda vez Ambari para o nome de utilizador e palavra-passe. Se assim for, introduza o mesmo nome de conta e palavra-passe.
 
 2. Utilizando a lista de no lado esquerdo, selecione a área de serviço que pretende modificar. Por exemplo, **HDFS**. Na área central, selecione o **configurações** separador.
 
@@ -104,7 +104,7 @@ Para modificar a configuração para um serviço, utilize os seguintes passos:
 
     ![HADOOP_NAMENODE_OPTS com - XX: + HeapDumpOnOutOfMemoryError - XX: HeapDumpPath = / tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Quando ativar a área dinâmica para dados informações do Estado para o mapa ou reduzir o processo filho, procure para os campos com o nome **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
     Utilize o **guardar** botão para guardar as alterações. Pode inserir uma nota curta que descreve as alterações.
@@ -121,7 +121,7 @@ Para modificar a configuração para um serviço, utilize os seguintes passos:
 
     ![Reinicie a entrada de todos os afetados](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > as entradas para o **reiniciar** botão pode ser diferente de outros serviços.
 
 8. Assim que os serviços foram reiniciados, utilize o **ações de serviço** botão **Ativar desativar modo de manutenção**. Este Ambari para retomar a monitorização para os alertas para o serviço.

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912276"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545302"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local
 
@@ -27,14 +27,14 @@ Este início rápido demonstra como ligar a uma instância gerida da base de dad
 
 Este guia de início rápido:
 
-- Utiliza como ponto de partida os recursos criados neste guia de início rápido: [Criar uma Instância Gerida](sql-database-managed-instance-get-started.md).
-- Requer o PowerShell 5.1 e o Azure PowerShell 5.4.2 ou superior seu computador de cliente no local.
-- Requer a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) no seu computador de cliente no local
+- Utiliza os recursos criados [criar uma instância gerida](sql-database-managed-instance-get-started.md) como ponto de partida.
+- Requer o PowerShell 5.1 e o Azure PowerShell 5.4.2 ou superior no seu computador de cliente no local. Se necessário, veja as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Requer a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) no seu computador de cliente no local.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Anexar um gateway de VPN à sua rede virtual de instância gerida
 
 1. Abra o Powershell no computador cliente no local.
-2. Copie e cole este script do PowerShell. Este script anexa um Gateway de VPN para a rede virtual de instância gerida que criou no [criar uma instância gerida](sql-database-managed-instance-get-started.md) início rápido. Este script executa os seguintes três passos:
+2. Copie este script do PowerShell. Este script anexa um Gateway de VPN para a rede virtual de instância gerida que criou no [criar uma instância gerida](sql-database-managed-instance-get-started.md) início rápido. Este script faz o seguinte:
 
    - Cria e instalar certificados no computador cliente
    - Calcula o intervalo de IP de sub-rede de Gateway de VPN futuro
@@ -54,7 +54,7 @@ Este guia de início rápido:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Forneça os parâmetros de pedido no script do PowerShell. Os valores para `<subscriptionId>`, `<resourceGroup>` e `<virtualNetworkName>` devem corresponder aos perfis que são utilizados no [criar instância gerida](sql-database-managed-instance-get-started.md) início rápido. O valor para `<certificateNamePrefix>` pode ser uma cadeia de caracteres da sua preferência.
+3. Cole o script na janela do PowerShell e forneça os parâmetros necessários. Os valores para `<subscriptionId>`, `<resourceGroup>`, e `<virtualNetworkName>` devem corresponder aos perfis que utilizou para o [criar instância gerida](sql-database-managed-instance-get-started.md) início rápido. O valor para `<certificateNamePrefix>` pode ser uma cadeia de caracteres da sua preferência.
 
 4. Execute o script do PowerShell.
 
@@ -62,47 +62,46 @@ Este guia de início rápido:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o grupo de recursos no qual criou o gateway de rede virtual e, em seguida, abra o recurso de gateway de rede virtual.
-
-    ![recurso de gateway de rede virtual](./media/sql-database-managed-instance-configure-p2s/vnet-gateway.png)  
-
-3. Clique em **configuraçãopontoasiteda** e, em seguida, clique em **transferir cliente VPN**.
+3. Selecione **configuraçãopontoasiteda** e, em seguida, selecione **transferir cliente VPN**.
 
     ![Transferir cliente VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Extraia os ficheiros a partir do ficheiro zip e, em seguida, abra a pasta extraída.
-5. Navegue para a pasta de WindowsAmd64 e abra o **VpnClientSetupAmd64.exe** ficheiro.
-6. Se receber um **Windows protegidos seu PC** da mensagem, clique em **obter mais informações** e, em seguida, clique em **executar mesmo assim**.
+4. No computador cliente no local, extraia os ficheiros a partir do ficheiro zip e, em seguida, abra a pasta extraída.
+5. Abra a pasta de WindowsAmd64 e abra o **VpnClientSetupAmd64.exe** ficheiro.
+6. Se receber um **Windows protegidos seu PC** mensagem, selecione **obter mais informações** e, em seguida, escolha **executar mesmo assim**.
 
     ![Instalar o cliente VPN](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Clique em **Sim** na caixa de diálogo de controle de conta de utilizador para continuar.
-8. Na caixa de diálogo MyNewVNet, clique em **Sim** para instalar um cliente de Vpn para MyNewVNet.
+7. Selecione **Sim** na caixa de diálogo de controle de conta de utilizador para continuar.
+8. Na caixa de diálogo que referencia a rede virtual, selecione **Sim** para instalar o cliente de VPN.
 
 ## <a name="connect-to-the-vpn-connection"></a>Ligue-se para a ligação VPN
 
-1. Aceda às ligações VPN no computador cliente e clique em **MyNewVNet** para estabelecer uma ligação para esta VNet.
+1. Vá para ligações VPN no computador cliente no local e selecione a rede virtual de instância gerida para estabelecer uma ligação para esta VNet. Na imagem seguinte, é com o nome da VNet **MyNewVNet**.
 
     ![Ligação VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. Clique em **Ligar**.
-3. Na caixa de diálogo MyNewVNet, clique em **Connect**.
+2. Selecione **Ligar**.
+3. Na caixa de diálogo, selecione **Connect**.
 
     ![Ligação VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. Quando lhe for pedido esse privilégio elevado de necessidades de Gerenciador de conexões para atualizar a sua tabela de rotas, clique em **continuar**.
-5. Clique em **Sim** na caixa de diálogo de controle de conta de utilizador para continuar.
+4. Quando lhe for pedido que o Gerenciador de conexões necessita de privilégio elevado para atualizar a tabela de rotas, escolha **continuar**.
+5. Selecione **Sim** na caixa de diálogo de controle de conta de utilizador para continuar.
+
+   Estabeleceu uma ligação VPN à sua VNet de instância gerida.
 
     ![Ligação VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-   Estabelecer uma ligação VPN à sua VNet de instância gerida.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Utilizar o SSMS para ligar à instância gerida
 
 1. No computador de cliente no local, abra o SQL Server Management Studio (SSMS).
-2. Na **ligar ao servidor** caixa de diálogo, introduza o completamente qualificado **nome do anfitrião** da sua instância gerida no **nome do servidor** caixa, selecione **do SQL Server Autenticação**, forneça o seu início de sessão e palavra-passe e, em seguida, clique em **Connect**.
+2. Na **ligar ao servidor** caixa de diálogo, introduza o completamente qualificado **nome de anfitrião** da sua instância gerida no **nome do servidor** caixa. 
+1. Selecione **autenticação do SQL Server**, forneça o seu nome de utilizador e palavra-passe e, em seguida, selecione **Connect**.
 
     ![ligação SSMS](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
-Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó de bases de dados e vários objetos em nós de Segurança, Objetos de Servidor, Replicação, Gestão, SQL Server Agent e Gerador de Perfis de XEvent.
+Depois de ligar, pode ver as bases de dados do sistema e do usuário no nó de bases de dados. Também pode ver vários objetos em nós de segurança, objetos de servidor, replicação, gestão, SQL Server Agent e Profiler de XEvent.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para um início rápido que mostra como ligar a partir de uma máquina virtual do Azure, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md)
+- Para um início rápido que mostra como ligar a partir de uma máquina virtual do Azure, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para uma descrição geral das opções de ligação para aplicações, veja [Ligar as suas aplicações à Instância Gerida](sql-database-managed-instance-connect-app.md).
-- Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.
+- Para restaurar uma base de dados existente do SQL Server no local para uma instância gerida, pode utilizar o [do Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.

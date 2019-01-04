@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887513"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787635"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação do Service Fabric Mesh em execução no cluster de desenvolvimento local
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação de malha de recursos de infraestrutura do serviço de mensagens em fila em execução no cluster de desenvolvimento local
 
 Este tutorial é a segunda parte de uma série e mostra-lhe como criar e depurar uma aplicação do Azure Service Fabric Mesh no cluster de desenvolvimento local.
 
@@ -93,8 +93,8 @@ Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que sã
 ### <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
 
 Ao depurar uma aplicação de malha do Service Fabric no Visual Studio, está a utilizar um cluster de desenvolvimento do Service Fabric local. Para ver como os itens de tarefas são obtidos do serviço de back-end, faça a depuração para o método OnGet().
-1. No projeto **WebFrontEnd**, abra **Pages** > **Index.cshtml** > **Index.cshtml.cs** e defina um ponto de interrupção no método **Get** (linha 17).
-2. No projeto **ToDoService**, abra **TodoController.cs** e defina um ponto de interrupção no método **OnGet** (linha 15).
+1. Na **WebFrontEnd** projeto aberto **páginas** > **Index. cshtml** > **Index.cshtml.cs** e defina um ponto de interrupção no **OnGet** método (linha 17).
+2. Na **ToDoService** projeto aberto **TodoController.cs** e defina um ponto de interrupção no **obter** método (linha 15).
 3. Regresse ao seu browser e atualize a página. Atingiu o ponto de interrupção no método de front-end da Web `OnGet()`. Pode inspecionar a variável `backendUrl` para ver como as variáveis de ambiente que definiu no ficheiro **service.yaml** são combinadas para o URL utilizado para contactar o serviço de back-end.
 4. Ignore (F10) a chamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` e irá atingir o ponto de interrupção do controlador `Get()`. Neste método, pode ver como é obtida a lista de itens de tarefas a partir da lista na memória.
 5. Quando tiver terminado, pare a depuração de seu projeto no Visual Studio ao premir **SHIFT+F5**.

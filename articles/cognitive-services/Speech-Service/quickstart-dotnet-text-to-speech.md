@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Converter voz, .NET Core - Serviços de voz'
+title: 'Início rápido: Converter a voz, .NET Core - Serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como converter voz com a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089875"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791450"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converta texto para voz com o .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converter texto para voz com o .NET Core
 
 Neste início rápido, irá aprender como converter texto para voz com .NET Core e a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), que permite-lhe escolher a voz e o idioma da resposta.
 
@@ -27,7 +27,7 @@ Este início rápido requer uma [conta dos serviços cognitivos do Azure](https:
 
 Este início rápido requer:
 
-* [SDK do .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [SDK .NET Core](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
 * Uma chave de subscrição do Azure para o serviço de voz
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Para obter mais informações sobre autenticação, consulte [como obter um token de acesso](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Para obter mais informações sobre autenticação, consulte [autenticar com um token de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Obter um token de acesso e definir o URL de anfitrião
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> Este exemplo utiliza o `ZiraRUS` tipo de voz. Para uma lista completa de Microsoft fornecidas vozes/idiomas, consulte [suporte de idiomas](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Se estiver interessado em criar uma voz exclusiva, reconhecível para sua marca, veja [criar tipos de voz personalizada](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> Este exemplo utiliza o `ZiraRUS` tipo de voz. Para uma lista completa de Microsoft fornecidas vozes/idiomas, consulte [suporte de idiomas](language-support.md). Se estiver interessado em criar uma voz exclusiva, reconhecível para sua marca, veja [criar tipos de voz personalizada](how-to-customize-voice-font.md).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Criar uma instância do cliente, fazer um pedido e salvar áudio sintetizado num arquivo
 

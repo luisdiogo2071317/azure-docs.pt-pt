@@ -11,24 +11,24 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098656"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969425"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de objetivos e entidades
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON.
 
-Os dados mais difícil para extrair são os dados aprendidas por máquina, porque não é uma correspondência exata de texto. Extração de dados do aprendidas de máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até que tiver a certeza de que recebe os dados esperados.
+Os dados mais difícil para extrair são os dados aprendidas por máquina, porque não é uma correspondência exata de texto. Extração de dados do aprendidas de máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até estar seguro de receber os dados esperados.
 
 ## <a name="data-location-and-key-usage"></a>Utilização de localização e a chave de dados
 LUIS fornece os dados a partir do publicados [ponto final](luis-glossary.md#endpoint). O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, como ambientes de teste ou produção.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-O `appID` está disponível na **definições** página da sua aplicação LUIS, assim como parte do URL (após `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora seja possível usar a chave de criação gratuita/starter. enquanto está a aprender o LUIS, é importante alterar a chave de ponto final para uma chave que oferece suporte a seus [LUIS utilização esperada](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
+O `appID` está disponível na **definições** página da sua aplicação LUIS, assim como parte do URL (após `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora seja possível usar a chave de criação gratuita/starter. enquanto estiver aprendendo LUIS, é importante alterar a chave de ponto final para uma chave que oferece suporte a seus [LUIS utilização esperada](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
 
 O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar com base no modelo publicado atual do ponto final de transição ou produção. O ponto final do URL encontra-se no [LUIS](luis-reference-regions.md) Web site, na **gerir** na secção o **chaves e os pontos finais** página.
 
@@ -174,7 +174,7 @@ Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto 
 
 ## <a name="hierarchical-entity-data"></a>Dados de entidades hierárquicas
 
-[Hierárquica](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Filhos são identificados por contexto. Se estiver procurando por uma relação principal-subordinado com correspondência exata de texto, utilize um [lista](#list-entity-data) entidade.
+[Hierárquica](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Filhos são identificados por contexto. Se estiver procurando uma relação principal-subordinado com correspondência exata de texto, utilize um [lista](#list-entity-data) entidade.
 
 `book 2 tickets to paris`
 
@@ -260,7 +260,7 @@ Entidades compostas são retornadas numa `compositeEntities` matriz e todas as e
 
 ## <a name="list-entity-data"></a>Dados de entidades de lista
 
-R [lista](luis-concept-entity-types.md) entidade não será adquirida máquina. É uma correspondência exata de texto. Uma lista representa os itens na lista, juntamente com os sinónimos para esses itens. LUIS marca qualquer correspondência com um item em qualquer lista como uma entidade na resposta. Um sinónimo pode estar em mais de uma lista.
+R [lista](luis-concept-entity-types.md) entidade não é aprendidas por máquina. É uma correspondência exata de texto. Uma lista representa os itens na lista, juntamente com os sinónimos para esses itens. LUIS marca qualquer correspondência com um item em qualquer lista como uma entidade na resposta. Um sinónimo pode estar em mais de uma lista.
 
 Suponha que a aplicação tem uma lista, com o nome `Cities`, o que possibilita para variações de nomes de cidade, incluindo a cidade do aeroporto (mar-tac), código do aeroporto (SEA), código postal de zip (98101) e o código de área de telefone (206).
 
@@ -425,7 +425,11 @@ Outra expressão de exemplo, com um sinónimo para Paris:
 ```
 
 ## <a name="extracting-names"></a>Extrair nomes
-Obtendo nomes de uma expressão é difícil porque um nome pode ser praticamente qualquer combinação de letras e palavras. Consoante o tipo de nome está a extrair, tem várias opções. Essas não são regras, mas mais diretrizes.
+Obtendo nomes de uma expressão é difícil porque um nome pode ser praticamente qualquer combinação de letras e palavras. Consoante o tipo de nome está a extrair, tem várias opções. As sugestões seguintes não são regras, mas mais diretrizes.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Adicionar entidades de PersonName e GeographyV2 pré-criados
+
+[PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) entidades estão disponíveis em algumas [culturas de idioma](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. Utilizar uma entidade de hierárquica com primeiros e últimos nomes como filhos ou utilizar uma entidade com funções de nome próprio e apelido. Certifique-se de que dê exemplos que utilizam o nome próprio e apelido em diferentes partes da expressão, em expressões com extensões diferentes e expressões com em todos os objetivos, incluindo o None intenção. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
@@ -434,7 +438,7 @@ Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. 
 Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países. Se a sua aplicação utiliza um conjunto de saber de localizações, considere uma entidade de lista. Se precisar de encontrar a que colocar todos os nomes, crie uma entidade e fornecem uma variedade de exemplos. Adicione uma lista de frase de nomes de locais para reforçar que aspeto de nomes local como na sua aplicação. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
 
 ### <a name="new-and-emerging-names"></a>Nomes de novos e emergentes
-Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Este é o tipo mais difíceis de extração de dados. Começar com uma entidade e adicionar uma lista de frase. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
+Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Esses tipos de nomes é o tipo mais difíceis de extração de dados. Começar com uma entidade e adicionar uma lista de frase. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções padrão
 As funções são as diferenças contextuais das entidades.
@@ -603,6 +607,7 @@ A entidade de extração de expressões-chave devolve expressões-chave na expre
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Correspondência de várias entidades de dados
+
 LUIS devolve todas as entidades detetadas na expressão. Como resultado, o seu chatbot poderá ter de tomar a decisão com base nos resultados. Uma expressão pode ter muitas entidades numa expressão:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ O ponto de extremidade do LUIS pode detetar os mesmos dados em entidades diferen
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Várias entidades de lista de correspondência de dados
+
+Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta de ponto final devolve cada entidade de lista.
+
+Para a consulta `when is the best time to go to red rock?`, e a aplicação com a palavra `red` em mais de uma lista, LUIS reconhece todas as entidades e retorna uma matriz de entidades como parte da resposta do ponto final JSON: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

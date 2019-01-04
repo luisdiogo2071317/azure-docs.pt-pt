@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8417b342dc032f46fddd6c57b82c402cc6c1a10d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 35868545c46acb65ba487c546b66d8834bcb81a7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967730"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543194"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerir os dados de utilizador no Centro de segurança do Azure
 Este artigo fornece informações sobre como pode gerir os dados de utilizador no Centro de segurança do Azure. Gestão de dados de utilizador inclui a capacidade de aceder, eliminar ou exportar dados.
@@ -98,7 +98,7 @@ Um utilizador do Centro de segurança pode optar por optar ativamente por partic
 [Dados de alerta](security-center-managing-and-responding-alerts.md) são considerados dados de segurança e é mantido durante um período de dois anos.
 
 ## <a name="auditing-and-reporting"></a>Auditoria e relatórios
-Registos de contacto de segurança, de auditoria just-in-time e alertá-atualizações são mantidas na [registos de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Registos de contacto de segurança, de auditoria just-in-time e alertá-atualizações são mantidas na [registos de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de dados do utilizador, consulte [gerir os dados de utilizador encontrados numa investigação do Centro de segurança do Azure](security-center-investigation-user-data.md).

@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864949"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631979"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Após a configuração de regras de firewall, pode ligar ao Azure [base de dados
 > Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md). Este tutorial não se aplica aos **instância gerida da base de dados SQL do Azure**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas sem restrições
-Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal do Azure e navegue para as propriedades do servidor SQL.
+Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o servidor SQL, abra o portal do Azure e navegue para o separador de propriedades do seu SQL server ou a base de dados SQL.
 
-![Administradores do SQL Server](./media/sql-database-manage-logins/sql-admins.png)
+![Administradores do SQL Server](media/sql-database-manage-logins/sql-admins.png)
 
 - **Administrador de servidor**   
 Quando cria um servidor SQL do Azure, tem de designar um **Início de sessão de administrador do servidor**. O servidor SQL cria essa conta como um início de sessão na base de dados mestra. Liga-se através da autenticação do SQL Server (nome de utilizador e palavra-passe). Só pode existir uma destas contas.   
@@ -78,7 +78,7 @@ Para além das funções administrativas ao nível do servidor abordadas anterio
 Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar uma base de dados, o utilizador tem de ser um utilizador baseado num início de sessão do SQL Server na base de dados mestra ou um utilizador de base de dados contida baseado num utilizador do Azure Active Directory.
 
 1. Ao utilizar uma conta de administrador, ligue à base de dados mestra.
-2. Passo opcional: crie um início de sessão da autenticação do SQL Server, utilizando a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Instrução de exemplo:
+2. Passo opcional: Criar um início de sessão de autenticação do SQL Server, utilizando o [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instrução. Instrução de exemplo:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -184,7 +184,7 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 * Ao executar a `CREATE USER` com a opção `FOR/FROM LOGIN`, tem de ser a única instrução num batch do Transact-SQL.
 * Ao executar a `ALTER USER` com a opção `WITH LOGIN`, tem de ser a única instrução num batch do Transact-SQL.
 * Para `CREATE/ALTER/DROP`, um utilizador necessita da permissão `ALTER ANY USER` na base de dados.
-* Quando o proprietário de uma função de base de dados tenta adicionar ou remover outro utilizador de base de dados de ou para essa função de base de dados, pode ocorrer o seguinte erro: **o utilizador ou a função "Nome" não existe nesta base de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
+* Quando o proprietário de uma função de base de dados tenta adicionar ou remover outro utilizador de base de dados de ou para essa função de base de dados, pode ocorrer o erro seguinte: **O utilizador ou função "Name" não existe nesta base de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

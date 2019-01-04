@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409025"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718519"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -102,17 +102,17 @@ Os dados é o trânsito de fora e entre os componentes do Azure protegidos utili
 
 #### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
-Aplicações Web do Azure fornece um ambiente para o aplicativo web desenvolvido no Java, PHP, node. js Python, HTML e c#, sem ter de gerir a infraestrutura de alojamento na web completamente gerida. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite automatizada implementações a partir [do Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou de qualquer repositório baseada no Git.
+Serviço de aplicações do Azure fornece um ambiente para o aplicativo web desenvolvido no Java, PHP, node. js Python, HTML de alojamento na web completamente gerida e C# sem ter de gerir infraestrutura. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite automatizada implementações a partir [do Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou de qualquer repositório baseada no Git.
 
 Serviço de aplicações é [ISO, SOC e PCI em conformidade](https://www.microsoft.com/TrustCenter/) e pode autenticar utilizadores com [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) ou com início de sessão social ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), e [autenticação da Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
-Básico, Standard, e os planos Premium são para cargas de trabalho de produção e executados em instâncias de Máquina Virtual dedicadas. Cada instância pode suportar várias aplicações e domínios. Aplicação também dos serviços de suporte [restrições de endereço IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) para proteger o tráfego para endereços IP fidedignos se for necessário e também [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para uma ligação segura a outros serviços PaaS Por exemplo, [Cofre de chaves](https://azure.microsoft.com/services/key-vault/) e [base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). Sempre que for necessário segurança adicional o nosso plano isolado aloja as suas aplicações num ambiente privado e dedicado do Azure e é ideal para aplicações que exigem ligações seguras com sua rede no local, ou o desempenho adicional e o dimensionamento.
+Básico, Standard, e os planos Premium são para cargas de trabalho de produção e executados em instâncias de Máquina Virtual dedicadas. Cada instância pode suportar várias aplicações e domínios. Aplicação também dos serviços de suporte [restrições de endereço IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) para proteger o tráfego para endereços IP fidedignos se for necessário e também [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) para uma ligação segura a outros serviços PaaS Por exemplo, [Cofre de chaves](https://azure.microsoft.com/services/key-vault/) e [base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). Sempre que for necessário segurança adicional o nosso plano isolado aloja as suas aplicações num ambiente privado e dedicado do Azure e é ideal para aplicações que exigem ligações seguras com sua rede no local, ou o desempenho adicional e o dimensionamento.
 
 Este modelo implementa as seguintes funcionalidades do serviço de aplicações:
 
-- [Padrão](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) escalão do plano de serviço de aplicações
-- Aplicação de Web várias [blocos de implementação](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Desenvolvimento, pré-visualização, controle de qualidade, UAT e certamente produção (bloco padrão).
-- [Gerido identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para ligar ao [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Isto também pode ser utilizado para fornecer acesso a [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) 
+- [Padrão](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) escalão do plano de serviço de aplicações
+- Serviço de aplicações de várias [blocos de implementação](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Desenvolvimento, pré-visualização, controle de qualidade, UAT e certamente produção (bloco padrão).
+- [Gerido identidades para recursos do Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) para ligar ao [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Isto também pode ser utilizado para fornecer acesso a [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integração com o [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) para monitorizar o desempenho
 - [Registos de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Métrica [alertas](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -163,7 +163,7 @@ Informações detalhadas sobre como proteger o armazenamento do Azure podem ser 
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>O Azure Key Vault neste esquema
 
-- Contém a chave de acesso de armazenamento, com acesso de leitura concedido para o [identidade gerida](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) da aplicação web com acesso ao cliente
+- Contém a chave de acesso de armazenamento, com acesso de leitura concedido para o [identidade gerida](https://docs.microsoft.com/azure/app-service/overview-managed-identity) da aplicação web com acesso ao cliente
 - Contém a palavra-passe do SQL Server DBA (no cofre separado)
 - Registo de diagnósticos
 

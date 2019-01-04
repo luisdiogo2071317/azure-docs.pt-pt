@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338784"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556565"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: Integrar trocas de afirmações de REST API no seu percurso do utilizador do Azure AD B2C, como um passo de orquestração
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Descrição Passo a Passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como um passo de orquestração
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ O IEF envia os dados em afirmações e recebe dados de volta nas afirmações. A
 
 Pode utilizar as afirmações recebidas mais tarde para alterar o fluxo de execução.
 
-Também é possível projetar a interação como um perfil de validação. Para obter mais informações, consulte [passo a passo: API de REST de integrar afirmações trocas no seu percurso do utilizador do Azure AD B2C, como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
+Também é possível projetar a interação como um perfil de validação. Para obter mais informações, consulte [passo a passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
 
 O cenário é que quando um utilizador executa uma edição de perfil, queremos:
 
@@ -45,7 +45,7 @@ O cenário é que quando um utilizador executa uma edição de perfil, queremos:
 
 - Um inquilino de B2C do Azure AD configurado para concluir uma conta local sessão-inscrição/início de sessão, conforme descrito em [introdução ao](active-directory-b2c-get-started-custom.md).
 - Um ponto final da REST API para interagir com. Estas instruções utilizam um webhook da aplicação de função do Azure simples como exemplo.
-- *Recomendado*: concluir o [exchange passo a passo como uma etapa de validação de afirmações de REST API](active-directory-b2c-rest-api-validation-custom.md).
+- *Recomendado*: Concluir o [exchange passo a passo como uma etapa de validação de afirmações de REST API](active-directory-b2c-rest-api-validation-custom.md).
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>Passo 1: Preparar a função de REST API
 
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Uma aplicação de função do Azure torna mais fácil obter o URL de função, que inclui o identificador da função específica. Neste caso, o URL é: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Pode usá-lo para fins de teste.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Passo 2: Configurar a troca de afirmações de RESTful API, como um perfil técnico em seu arquivo TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Passo 2: Configurar a troca de afirmações de RESTful API como um perfil técnico em seu arquivo TrustFrameworExtensions.xml
 
 Um perfil técnico é a configuração completa do exchange pretendido com o serviço RESTful. Abra o ficheiro de TrustFrameworkExtensions.xml e adicione o seguinte fragmento XML dentro do `<ClaimsProvider>` elemento.
 
@@ -97,6 +97,7 @@ Um perfil técnico é a configuração completa do exchange pretendido com o ser
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ O `<InputClaims>` elemento define as afirmações que serão enviadas o IEF para
 
 O `<OutputClaims>` elemento define as afirmações que o IEF espera do serviço REST. Independentemente do número de declarações recebidas, o IEF irá utilizar apenas os identificados aqui. Neste exemplo, uma afirmação recebidos como `city` será mapeada para um IEF declaração chamada `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Passo 3: Adicionar a nova afirmação `city` ao esquema de seu arquivo TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Passo 3: Adicionar nova afirmação `city` ao esquema de seu arquivo TrustFrameworkExtensions.xml
 
 A afirmação `city` ainda não foi definido em qualquer lugar no nosso esquema. Por isso, adicione uma definição de dentro do elemento `<BuildingBlocks>`. Pode encontrar este elemento no início do ficheiro TrustFrameworkExtensions.xml.
 

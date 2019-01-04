@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: f1c42a3e091bc4b3804edfe835e521a99fcee880
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975068"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792894"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início rápido: Configurar clusters no HDInsight
 
@@ -30,7 +30,7 @@ Uma conta de armazenamento com recursos de geração 2 de armazenamento do Data 
 
 A tabela seguinte mostra os diferentes métodos que pode utilizar para configurar um cluster do HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de comandos | API REST | SDK | 
+| Clusters criados com | Browser | Linha de comandos | API REST | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Portal do Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -39,7 +39,7 @@ A tabela seguinte mostra os diferentes métodos que pode utilizar para configura
 | [cURL](../../hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Modelos Azure Resource Manager](../../hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>Criação rápida: configuração de cluster básico
+## <a name="quick-create-basic-cluster-setup"></a>Criação rápida: Configuração de cluster básico
 
 Este artigo explica-lhe a configuração no [portal do Azure](https://portal.azure.com), onde pode criar um cluster do HDInsight com *criação rápida* ou *Custom*.
 
@@ -87,7 +87,7 @@ Para obter mais informações sobre a criação de HDInsight associado a um dom�
 Com os clusters do HDInsight, pode configurar duas contas de usuário durante a criação do cluster:
 
 * Utilizador HTTP: O nome de utilizador predefinido é *administrador*. Ele usa a configuração básica no portal do Azure. Às vezes, isso é chamado de "Usuário do Cluster".
-* Utilizador SSH (clusters do Linux): utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utilizador SSH (clusters do Linux): Utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="location"></a>Localização (regiões) para armazenamento e os clusters
 
@@ -102,7 +102,7 @@ Embora uma instalação local do Hadoop utiliza o Hadoop Distributed File System
 
 Durante a configuração, para o ponto de final de armazenamento predefinido, especificar armazenamento do Data Lake. O armazenamento predefinido contém o aplicativo e sistema de registos. Opcionalmente, pode especificar contas de armazenamento ligadas adicionais que têm de geração 2 de armazenamento do Data Lake ativada que pode aceder ao cluster. O cluster do HDInsight e as contas de armazenamento dependente tem de ser na mesma localização do Azure.
 
-![As definições de armazenamento de cluster: pontos finais de armazenamento compatível com HDFS](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
+![Definições de armazenamento de cluster: Pontos finais de armazenamento compatível com HDFS](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Não se esqueça **desativar o acesso do Data Lake Store**. Esta definição refere-se para o antigo *Data Lake Store* funcionalidade e precisa de ser desativada para que *armazenamento do Data Lake* funcionalidades funcione corretamente.
@@ -172,8 +172,8 @@ Quando utiliza o portal do Azure para configurar o cluster, o tamanho do nó est
 
 Quando implementa clusters, escolha os recursos de computação com base na solução que pretende implementar. As VMs seguintes são utilizadas para clusters do HDInsight:
 
-* A e VMs de série de D1-4: [tamanhos de VM do Linux General-purpose](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* VM da série de D11 14: [tamanhos de VM do Linux com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* A e VMs de série de D1-4: [Tamanhos de VM do Linux para fins gerais](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* VM da série D11 14: [Tamanhos de VM do Linux com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Para saber o que valor que deve utilizar para especificar um tamanho de VM ao criar um cluster com os SDKs diferentes ou ao utilizar o Azure PowerShell, consulte [tamanhos de VM a utilizar para clusters do HDInsight](../../cloud-services/cloud-services-sizes-specs.md#size-tables). A partir deste artigo ligado, utilize o valor na **tamanho** coluna das tabelas.
 
@@ -198,7 +198,7 @@ Uma aplicação HDInsight é uma aplicação que os utilizadores podem instalar 
 
 A maioria dos aplicativos HDInsight é instalada num nó de extremidade em branco.  Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como no nó principal. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. Para obter mais informações, consulte [utilizar nós de extremidade vazios no HDInsight](../../hdinsight/hdinsight-apps-use-edge-node.md).
 
-## <a name="advanced-settings-script-actions"></a>Definições avançadas: ações de Script
+## <a name="advanced-settings-script-actions"></a>Definições avançadas: Ações do script
 
 Pode instalar componentes adicionais ou personalizar a configuração de cluster através de scripts durante a criação. Esses scripts são invocados por meio **ação de Script**, que é uma opção de configuração que pode ser utilizada a partir do portal do Azure, cmdlets do PowerShell do Windows HDInsight ou o SDK de .NET do HDInsight. Para obter mais informações, consulte [cluster de HDInsight personalizar com ação de Script](../../hdinsight/hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -239,12 +239,12 @@ Para obter um exemplo do uso de dois tipos de cluster dentro de uma rede virtual
 
 ## <a name="troubleshoot-access-control-issues"></a>Resolver problemas de controlo de acesso
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Driver de sistema de ficheiros do ABFS Hadoop para a geração 2 de armazenamento do Azure Data Lake](data-lake-storage-abfs-driver.md)
-- [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+- [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure](data-lake-storage-tutorial-extract-transform-load-hive.md)
 - [O que são o HDInsight, o ecossistema do Hadoop, e clusters do Hadoop?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Introdução à utilização do Hadoop no HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Trabalhar no Hadoop no HDInsight a partir de um PC do Windows](../../hdinsight/hdinsight-hadoop-windows-tools.md)

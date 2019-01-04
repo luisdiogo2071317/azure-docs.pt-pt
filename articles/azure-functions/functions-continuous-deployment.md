@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301553"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548600"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
 As funções do Azure torna mais fácil de implementar a sua aplicação de função a utilizar a integração contínua do serviço de aplicações. Funções integra-se com o BitBucket, Dropbox, GitHub e do Azure DevOps. Isto permite que um fluxo de trabalho que onde o código de função atualizações feito através de um desses implantação de Acionador de serviços integrados no Azure. Se estiver familiarizado com as funções do Azure, comece com [descrição geral das funções do Azure](functions-overview.md).
@@ -26,7 +26,7 @@ A implementação contínua é uma excelente opção para projetos em que vária
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Repositório externo (Git ou Mercurial)
-* [Repositório de Git local](../app-service/app-service-deploy-local-git.md)
+* [Repositório de Git local](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Serviços de DevOps do Azure](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Utilize este procedimento para configurar a implementação contínua para uma a
  
     ![Configurar a implementação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Na **origem de implementação** painel, clique em **Escolher origem**, em seguida, preencha as informações para a sua origem de implementação escolhido e clique em **OK**.
+3. Na **origem de implementação** painel, clique em **Escolher origem**, em seguida, preencha as informações para a sua origem de implementação escolhido e clique em **OK**.
    
     ![Escolher origem de implementação](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,12 +93,12 @@ Quando tem funções existentes que foi criado e mantido no portal, tem de trans
 > [!NOTE]
 > Depois de configurar a integração contínua, já não será capaz de editar os arquivos de origem no portal de funções.
 
-- [Como: configurar as credenciais de implementação](#credentials)
-- [Como: transferir os ficheiros com FTP](#downftp)
-- [Como: transferir arquivos usando o repositório de Git local](#downgit)
+- [Como: Configurar as credenciais de implementação](#credentials)
+- [Como: Transferir os ficheiros com FTP](#downftp)
+- [Como: Baixar os arquivos usando o repositório de Git local](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Como: configurar as credenciais de implementação
+#### <a name="how-to-configure-deployment-credentials"></a>Como: Configurar as credenciais de implementação
 Pode transferir ficheiros da sua aplicação de função com o FTP ou o repositório de Git local, tem de configurar as suas credenciais para aceder ao site. As credenciais são definidas ao nível da aplicação de função. Utilize os seguintes passos para definir as credenciais de implementação no portal do Azure:
 
 1. Na sua aplicação de função no [portal do Azure](https://portal.azure.com), clique em **recursos da plataforma** e **credenciais de implementação**.
@@ -108,7 +108,7 @@ Pode transferir ficheiros da sua aplicação de função com o FTP ou o reposit�
 2. Escreva um nome de utilizador e palavra-passe, em seguida, clique em **guardar**. Agora, pode utilizar estas credenciais para aceder à sua aplicação de função de FTP ou o repositório de Git incorporado.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Como: transferir os ficheiros com FTP
+#### <a name="how-to-download-files-using-ftp"></a>Como: Transferir os ficheiros com FTP
 
 1. Na sua aplicação de função no [portal do Azure](https://portal.azure.com), clique em **recursos da plataforma** e **propriedades**, em seguida, copie os valores de **utilizador de FTP/implementação**, **Nome de anfitrião FTP**, e **nome de anfitrião FTPS**.  
 
@@ -119,7 +119,7 @@ Pode transferir ficheiros da sua aplicação de função com o FTP ou o reposit�
 2. A partir do seu cliente FTP, utilize as informações de ligação que recolheu para ligar à sua aplicação e transfira os ficheiros de origem para as suas funções.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: transferir ficheiros através de um repositório de Git local
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: Transferir ficheiros através de um repositório de Git local
 
 1. Na sua aplicação de função no [portal do Azure](https://portal.azure.com), clique em **recursos da plataforma** e **opções de implementação**. 
    

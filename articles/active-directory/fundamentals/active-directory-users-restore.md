@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080508"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556786"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaure ou remover um utilizador eliminado recentemente com o Azure Active Directory
 Depois de eliminar um utilizador, a conta permanece num estado suspenso durante 30 dias. Durante esse período de 30 dias, pode ser restaurada a conta de utilizador, juntamente com as respetivas propriedades. Depois de passa essa janela de 30 dias, o utilizador é automaticamente e permanentemente, eliminado.
@@ -59,6 +59,9 @@ Enquanto a conta de um utilizador estiver suspenso, todas as informações de di
 2. Selecione **utilizador de restauro**.
 
     ![Utilizadores - página de utilizadores eliminados, com a opção de utilizador de restauro realçada](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>Anteriormente quando um utilizador foi removido do âmbito de sincronização no local e eliminado na cloud, o estado de DirSyncEnabled da conta foi incorretamente definido como "False". Se, posteriormente, esse utilizador manualmente foi restaurado da Reciclagem do Azure AD, este era um Estado incorreto da conta de "Apenas na Cloud". Isso agora foi corrigido e o valor do Estado DirSyncEnabled é sempre mantido "True" quando um utilizador é removido do âmbito de sincronização, em seguida, eliminados de forma recuperável e manualmente restaurada da Reciclagem do Azure AD.
 
 ## <a name="permanently-delete-a-user"></a>Eliminar permanentemente um utilizador
 Pode eliminar permanentemente um utilizador do diretório sem esperar que os 30 dias para eliminação automática. Não é possível restaurar um utilizador permanentemente eliminado pelo administrador de outro, nem por suporte técnico da Microsoft.

@@ -1,20 +1,17 @@
 ---
 title: Como restaurar um servidor na base de dados do Azure para MySQL
 description: Este artigo descreve como restaurar um servidor na base de dados do Azure para MySQL com o portal do Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138484"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548872"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL com o portal do Azure
 
@@ -65,10 +62,10 @@ Os passos seguintes restauram o servidor de exemplo para um ponto anterior no te
 3. Preencha o formulário de restauro com as informações necessárias:
 
    ![Base de dados do Azure para MySQL - informações de restauro ](./media/howto-restore-server-portal/3-restore.png)
-   - **Ponto de restauro**: selecione o ponto anterior no tempo que pretende restaurar para.
-   - **Servidor de destino**: forneça um nome para o novo servidor.
-   - **Localização**: não é possível selecionar a região. Por predefinição é igual ao servidor de origem.
-   - **Escalão de preço**: não é possível alterar estes parâmetros ao efetuar um restauro de ponto no tempo. É igual ao servidor de origem. 
+   - **Ponto de restauro**: Selecione o ponto anterior no tempo que pretende restaurar para.
+   - **Servidor de destino**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por predefinição é igual ao servidor de origem.
+   - **Escalão de preço**: Não é possível alterar estes parâmetros ao efetuar um restauro de ponto no tempo. É igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor para restaurar para um ponto anterior no tempo. 
 
@@ -85,7 +82,7 @@ Se tiver configurado o seu servidor para cópias de segurança georredundante, u
    ![A opção "MySQL do Azure da base de dados para"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. O formato **selecionar origem** menu pendente, escolha **cópia de segurança**. Esta ação carrega uma lista de servidores que tenham geo redundante as cópias de segurança ativadas. Selecione um destas cópias de segurança para ser a origem do seu novo servidor.
-   ![Selecionar origem: Cópia de segurança e a lista de cópias de segurança com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Selecione a origem: Cópia de segurança e a lista de cópias de segurança com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando é criado um servidor pode não estar imediatamente disponível para o restauro geográfico. Poderá demorar algumas horas para os metadados necessários ser preenchido.

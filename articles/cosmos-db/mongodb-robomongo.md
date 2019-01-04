@@ -1,31 +1,32 @@
 ---
-title: Utilizar Robomongo para o Azure Cosmos DB
-description: 'Saiba como utilizar o Robomongo com um Azure Cosmos DB: API para a conta do MongoDB'
+title: Utilizar Robo 3T para ligar ao Azure Cosmos DB
+description: Saiba como ligar ao Azure Cosmos DB com Robo 3T e a API do Azure Cosmos DB do MongoDB
 keywords: robomongo
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: sngun
-ms.openlocfilehash: 78f0158c9a80a60717b81b4788531c7efd979111
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: af601075b8cc774654a9f2dbf83193bf9701166b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863810"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789454"
 ---
-# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Utilizar Robomongo com um Azure Cosmos DB: API para a conta do MongoDB
-Para ligar ao Azure Cosmos DB: API para utilizar o Robomongo de conta de MongoDB, tem:
+# <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar Robo 3T com a API do Azure Cosmos DB para o MongoDB
 
-* Transferir e instalar [Robomongo](https://robomongo.org/)
-* Ter o Azure Cosmos DB: API para a conta do MongoDB [cadeia de ligação](connect-mongodb-account.md) informações
+Para ligar à conta do Cosmos com Robo 3T, faça o seguinte:
 
-## <a name="connect-using-robomongo"></a>Ligar com o Robomongo
-Para adicionar o Azure Cosmos DB: API para a conta do MongoDB para ligações de MongoDB Robomongo, execute os seguintes passos.
+* Transferir e instalar [Robo 3T](https://robomongo.org/)
+* Ter seu Cosmos DB [cadeia de ligação](connect-mongodb-account.md) informações
 
-1. Obter o Azure Cosmos DB: API para MongoDB informações de ligação de conta com as instruções [aqui](connect-mongodb-account.md).
+## <a name="connect-using-robo-3t"></a>Ligar com Robo 3T
+Para adicionar a sua conta do Cosmos para o Gerenciador de conexões de 3T Robo, execute os seguintes passos:
+
+1. Obter as informações de ligação para a sua conta do Cosmos configurada com o MongoDB de API do Azure Cosmos DB ao seguir as instruções [aqui](connect-mongodb-account.md).
 
     ![Captura de ecrã do painel de cadeia de ligação](./media/mongodb-robomongo/connectionstringblade.png)
 2. Executar *Robomongo.exe*
@@ -45,4 +46,6 @@ Ambos **nome de utilizador** e **palavra-passe** podem ser encontrados nas infor
 7. Por fim, clique em **teste** para verificar a capacidade de ligar, em seguida, **guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Explore o Azure Cosmos DB: API para MongoDB [amostras](mongodb-samples.md).
+
+- Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para o MongoDB.
+- Explorar o MongoDB [amostras](mongodb-samples.md) com a API do Azure Cosmos DB para o MongoDB.

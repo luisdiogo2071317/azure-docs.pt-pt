@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de ou para o Azure Cosmos DB (API de SQL) com o Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de arquivos de dados de origem suportada para ou do Azure Cosmos DB para lojas de sink suportado com o Data Factory.
+description: Saiba como copiar dados de arquivos de dados de origem suportada para ou do Azure Cosmos DB (SQL API) para lojas de sink suportado com o Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16c02f1f47f556f550519feec78e7dd26b302e18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d927842dfc15c089225531c9718145ab20e329dc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103800"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808864"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB (API de SQL) com o Azure Data Factory
 
@@ -28,20 +28,20 @@ ms.locfileid: "53103800"
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para o Azure Cosmos DB (SQL API). O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
+>[!NOTE]
+>Esse suporte apenas do conector copiar dados de/para Cosmos DB SQL API. Para a API de MongoDB, consulte [conector de API do Cosmos DB MongoDB](connector-azure-cosmos-db-mongodb-api.md). Outros tipos de API não são agora suportados.
+
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados do Azure Cosmos DB para qualquer arquivo de dados de sink suportados ou copiar dados de qualquer arquivo de dados de origem suportada para o Azure Cosmos DB. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Pode copiar dados do Azure Cosmos DB (SQL API) para qualquer arquivo de dados de sink suportados ou copiar dados de qualquer arquivo de dados de origem suportada para o Azure Cosmos DB (SQL API). Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Pode utilizar o conector do Azure Cosmos DB para:
+Pode utilizar o conector do Azure Cosmos DB (SQL API) para:
 
 - Copiar dados de e para o Azure Cosmos DB [API do SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Escrever para o Azure Cosmos DB como **inserir** ou **upsert**.
 - Importar e exportar documentos JSON como-é ou copiar dados de ou para um conjunto de dados em tabela. Os exemplos incluem uma base de dados SQL e um ficheiro CSV. Para copiar documentos como-é de JSON ou para os ficheiros ou para ou a partir de outra coleção do Azure Cosmos DB, consulte [importação ou exportação de documentos JSON](#importexport-json-documents).
 
 Fábrica de dados se integra com o [biblioteca de executor do Azure Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar o melhor desempenho quando escreve para o Azure Cosmos DB.
-
->[!NOTE]
->Esse suporte apenas do conector copiar dados de/para Cosmos DB SQL API.
 
 > [!TIP]
 > O [vídeo de migração de dados](https://youtu.be/5-SRNiC_qOU) explica-lhe os passos para copiar dados do armazenamento de Blobs do Azure para o Azure Cosmos DB. O vídeo também descreve considerações de ajuste de desempenho para a ingestão de dados para o Azure Cosmos DB em geral.
@@ -50,23 +50,23 @@ Fábrica de dados se integra com o [biblioteca de executor do Azure Cosmos DB em
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o Azure Cosmos DB.
+As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o Azure Cosmos DB (SQL API).
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço ligado do Azure Cosmos DB:
+As seguintes propriedades são suportadas para o serviço do Azure Cosmos DB (API de SQL) ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade tem de ser definida como **CosmosDb**. | Sim |
-| connectionString |Especifique as informações necessárias para ligar à base de dados do Azure Cosmos DB.<br /><br />**Tenha em atenção**: tem de especificar informações de base de dados na cadeia de ligação conforme mostrado nos exemplos que se seguem. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectionString |Especifique as informações necessárias para ligar à base de dados do Azure Cosmos DB.<br /><br />**Nota**: Tem de especificar informações de base de dados na cadeia de ligação, conforme mostrado nos exemplos que se seguem. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou um runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se esta propriedade não for especificada, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo**
 
 ```json
 {
-    "name": "CosmosDbLinkedService",
+    "name": "CosmosDbSQLAPILinkedService",
     "properties": {
         "type": "CosmosDb",
         "typeProperties": {
@@ -85,11 +85,11 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure Cosmos
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista de propriedades que suporta o conjunto de dados do Azure Cosmos DB. 
+Esta seção fornece uma lista de propriedades que suporta o conjunto de dados do Azure Cosmos DB (SQL API). 
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). 
 
-Para copiar dados de ou para o Azure Cosmos DB, defina o **tipo** propriedade do conjunto de dados para **DocumentDbCollection**. São suportadas as seguintes propriedades:
+Para copiar dados de ou para o Azure Cosmos DB (SQL API), defina o **tipo** propriedade do conjunto de dados para **DocumentDbCollection**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -100,7 +100,7 @@ Para copiar dados de ou para o Azure Cosmos DB, defina o **tipo** propriedade do
 
 ```json
 {
-    "name": "CosmosDbDataset",
+    "name": "CosmosDbSQLAPIDataset",
     "properties": {
         "type": "DocumentDbCollection",
         "linkedServiceName":{
@@ -127,13 +127,13 @@ Para arquivos de dados sem esquema, como o Azure Cosmos DB, a atividade de cópi
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Esta seção fornece uma lista de propriedades que suportam o Azure Cosmos DB origem e sink.
+Esta seção fornece uma lista de propriedades que suportam o Azure Cosmos DB (API de SQL) origem e sink.
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md).
 
-### <a name="azure-cosmos-db-as-source"></a>O Azure Cosmos DB, como origem
+### <a name="azure-cosmos-db-sql-api-as-source"></a>O Azure Cosmos DB (SQL API) como origem
 
-Para copiar dados do Azure Cosmos DB, defina o **origem** tipo de atividade de cópia para **DocumentDbCollectionSource**. 
+Para copiar dados do Azure Cosmos DB (SQL API), defina o **origem** tipo de atividade de cópia para **DocumentDbCollectionSource**. 
 
 As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
@@ -148,11 +148,11 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ```json
 "activities":[
     {
-        "name": "CopyFromCosmosDB",
+        "name": "CopyFromCosmosDBSQLAPI",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Document DB input dataset name>",
+                "referenceName": "<Cosmos DB SQL API input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -175,17 +175,17 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ]
 ```
 
-### <a name="azure-cosmos-db-as-sink"></a>O Azure Cosmos DB, como sink
+### <a name="azure-cosmos-db-sql-api-as-sink"></a>O Azure Cosmos DB (SQL API) como sink
 
-Para copiar dados para o Azure Cosmos DB, defina o **sink** tipo de atividade de cópia para **DocumentDbCollectionSink**. 
+Para copiar dados para o Azure Cosmos DB (SQL API), defina o **sink** tipo de atividade de cópia para **DocumentDbCollectionSink**. 
 
 As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **DocumentDbCollectionSink**. |Sim |
-| WriteBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Tenha em atenção**: Data Factory gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
-| writeBatchSize | O Data Factory utiliza a [biblioteca de executor do Azure Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados do Azure Cosmos DB. O **writeBatchSize** propriedade controla o tamanho de documentos que fornecemos na biblioteca. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o documento ser grandes de tamanho - veja abaixo dicas. |Não<br />(a predefinição é **10.000**) |
+| WriteBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Fábrica de dados gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
+| writeBatchSize | O Data Factory utiliza a [biblioteca de executor do Azure Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados do Azure Cosmos DB. O **writeBatchSize** propriedade controla o tamanho de documentos que fornecem do ADF para a biblioteca. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o documento ser grandes de tamanho - veja abaixo dicas. |Não<br />(a predefinição é **10.000**) |
 | nestingSeparator |Um caráter especial no **origem** nome da coluna que indica que um documento aninhado é necessária. <br/><br/>Por exemplo, `Name.First` do conjunto de dados de saída a estrutura gera a seguinte estrutura JSON no Azure Cosmos DB documentar quando o **nestedSeparator** é **.** (ponto): `"Name": {"First": "[value maps to this column from source]"}`  |Não<br />(a predefinição é **.** (ponto)) |
 
 >[!TIP]
@@ -196,7 +196,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ```json
 "activities":[
     {
-        "name": "CopyToCosmosDB",
+        "name": "CopyToCosmosDBSQLAPI",
         "type": "Copy",
         "inputs": [
             {
@@ -225,7 +225,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 
 ## <a name="import-or-export-json-documents"></a>Importar ou exportar documentos JSON
 
-Pode utilizar este conector do Azure Cosmos DB para facilmente:
+Pode utilizar este conector do Azure Cosmos DB (SQL API) para facilmente:
 
 * Importe documentos JSON de várias origens para o Azure Cosmos DB, incluindo a partir do armazenamento de Blobs do Azure, Azure Data Lake Store e outros arquivos baseados em ficheiros que suporte o Azure Data Factory.
 * Exporte documentos JSON de uma coleção do Azure Cosmos DB para vários arquivos baseados em ficheiros.

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238529"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973966"
 ---
 # <a name="part-of-speech-tagging"></a>Identificação de parte da voz
 
 > [!IMPORTANT]
-> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
+> A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 ## <a name="background-and-motivation"></a>Em segundo plano e motivação
 
@@ -46,7 +46,7 @@ Estes incluem categorias, como *substantivo* (etc. em geral, que representa as p
 | DT | determiner |um a um todos os dois nenhum|
 | POR EXEMPLO | existencial daí | daí |
 | FIREWALL | word externa | enfant terrible hoi polloi je ne sais quoi |
-| ÍNDIA | preposition ou subordinating conjunto| no interior se após se |
+| IN | preposition ou subordinating conjunto| no interior se após se |
 | JJ | adjetivo ou romano, ordinal | nono multimodal bastante execrável |
 | JJR | adjetivo, comparativa | melhor com mais rapidez mais barato |
 | JJS | adjetivo, importantes | melhor mais rápida mais barato |
@@ -80,4 +80,4 @@ Estes incluem categorias, como *substantivo* (etc. em geral, que representa as p
 
 ## <a name="specification"></a>Especificação
 
-Como para atomização, Contamos com a especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Como para atomização, Contamos com a especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

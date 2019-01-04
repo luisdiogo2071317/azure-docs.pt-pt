@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105160"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973728"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -27,14 +27,14 @@ Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de map
 A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual Basic para funções de Applications (VBA).
 
 * Toda a expressão tem de ser definida em termos de funções, que são compostas por um nome, seguido de argumentos parênteses: <br>
-  *FunctionName (<< argumento 1 >>, <<argument N>>)*
-* Pode aninhar funções dentro de uns dos outros. Por exemplo: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
+* Pode aninhar funções dentro de uns dos outros. Por exemplo: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * Pode passar três tipos de argumentos diferentes em funções:
   
   1. Atributos, que devem estar entre parênteses Retos. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "United States"
-  3. Outras funções. Por exemplo: FunctionOne (<<argument1>>, FunctionTwo (<<argument2>>))
-* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "nome da empresa: \"Contoso\""
+  3. Outras funções. Por exemplo: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
 [Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch)
@@ -243,7 +243,7 @@ Terá de gerar um utilizador alias ao colocar os primeiros 3 letras do nome pró
 
 * **ENTRADA** (givenName): "João"
 * **ENTRADA** (sobrenome): "Doe"
-* **SAÍDA**: "JohDoe"
+* **SAÍDA**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Remover Diacríticos de uma cadeia de caracteres
 É necessário substituir caracteres que contém marcas de acento sem com caracteres equivalentes que não contenham marcas de acento sem.
@@ -254,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Exemplo de entrada/saída:** <br>
 
 * **ENTRADA** (givenName): "Zoë"
-* **SAÍDA**: "Zoe"
+* **SAÍDA**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
 
@@ -268,7 +268,7 @@ Por exemplo, que pretende formatar datas do ServiceNow.
 **Exemplo de entrada/saída:**
 
 * **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **SAÍDA**: "2015-01-23"
+* **SAÍDA**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base num conjunto predefinido de opções
 

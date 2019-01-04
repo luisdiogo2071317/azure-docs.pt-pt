@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409546"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807691"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -24,7 +24,7 @@ Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua subsc
 
 Pode criar um ou mais bases de dados do Cosmos do Azure na sua conta. Uma base de dados é semelhante a um espaço de nomes, é a unidade de gestão para um conjunto de contentores do Azure Cosmos. A tabela seguinte mostra como uma base de dados do Cosmos do Azure está mapeada para várias entidades de API específicas:
 
-| **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
 |Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | ND |
 
@@ -35,7 +35,7 @@ Pode criar um ou mais bases de dados do Cosmos do Azure na sua conta. Uma base d
 
 Pode interagir com uma base de dados do Cosmos do Azure com as APIs do Cosmos do Azure seguintes:
 
-| **Operação** | **CLI do Azure**|**API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Operação** | **CLI do Azure**|**API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
 |Enumerar todos os bancos de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
 |Base de dados de leitura| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
@@ -67,7 +67,7 @@ Pode especificar uma chave exclusiva no seu contentor do Cosmos do Azure. Ao cri
 
 Um contentor do Cosmos do Azure é especializado em entidades de API específicas da seguinte forma:
 
-| **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Entidades do Cosmos do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
 |Contentor do Cosmos do Azure | Coleção | Tabela | Coleção | Graph | Tabela |
 
@@ -75,7 +75,7 @@ Um contentor do Cosmos do Azure é especializado em entidades de API específica
 
 Um contentor do Cosmos do Azure tem um conjunto de propriedades do sistema definido. Consoante a opção da API, alguns deles podem não ser exposto diretamente. A tabela seguinte descreve a lista de propriedades do sistema com suporte definido:
 
-| **Propriedade de sistema definido** | **Sistema gerado ou utilizador definível** | **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Propriedade de sistema definido** | **Sistema gerado ou utilizador definível** | **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | Gerada pelo sistema | Identificador exclusivo do contentor | Sim | Não | Não | Não | Não |
 |__etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
@@ -91,7 +91,7 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades do sistema defin
 
 Um contentor do Cosmos do Azure suporta as seguintes operações através de qualquer uma das APIs do Cosmos do Azure.
 
-| **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Enumerar contentores numa base de dados | Sim* | Sim | Sim | Sim | ND | ND |
 | Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
@@ -103,7 +103,7 @@ Um contentor do Cosmos do Azure suporta as seguintes operações através de qua
 
 Consoante a opção da API, um item do Cosmos do Azure pode representar qualquer um de um documento numa coleção, uma linha numa tabela ou uma nó de extremidade num gráfico. A tabela seguinte mostra o mapeamento entre entidades de API específica para um item do Cosmos do Azure:
 
-| **Entidade de cosmos** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Entidade de cosmos** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
 |Item do Cosmos do Azure | Documento | Linha | Documento | Nó ou de extremidade | Item |
 
@@ -111,7 +111,7 @@ Consoante a opção da API, um item do Cosmos do Azure pode representar qualquer
 
 Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema definido. Consoante a opção da API, alguns deles podem não ser exposto diretamente.
 
-|**Propriedade de sistema definido** | **Sistema gerado ou utilizador definível**| **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+|**Propriedade de sistema definido** | **Sistema gerado ou utilizador definível**| **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__id | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
 |__etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
@@ -124,7 +124,7 @@ Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema defin
 
 Item do Cosmos do Azure suporta as seguintes operações que podem ser efetuadas através de qualquer uma das APIs do Cosmos do Azure.
 
-| **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
+| **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Inserir, substituir, eliminar, Upsert, leitura | Não | Sim | Sim | Sim | Sim | Sim |
 

@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90d920a501d27ca21b1c2b7b7f5491cebb2c2822
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233723"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754565"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ligar VMs do Azure para instâncias grandes do HANA
 
-Como já foi mencionado no [descrição geral do SAP HANA (instâncias grandes) e a arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), a implementação mínima de instâncias grandes do HANA com a camada de aplicação SAP no Azure é semelhante ao seguinte:
+O artigo [o que é o SAP HANA no Azure (instâncias grandes)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) menciona que a implementação mínima de instâncias grandes do HANA com a camada de aplicação SAP no Azure é semelhante ao seguinte:
 
 ![VNet do Azure ligado ao SAP HANA no Azure (instâncias grandes) e no local](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
@@ -52,31 +52,29 @@ No exemplo anterior, com 10.16.0.0/16, a rede virtual do Azure foi indicada um i
 
 Vamos examinar uma rede virtual com uma sub-rede VM primeiro (denominada "predefinido") e uma sub-rede denominada "GatewaySubnet".
 
-Na secção seguinte, para o intervalo de endereços IP da sub-rede, que foi chamado de "predefinição" em gráficos, como nos Referimos **intervalo de endereços IP de sub-rede de VM do Azure**. Faremos referência para o intervalo de endereços IP da sub-rede do gateway, como o **intervalo de endereços IP de sub-rede de gateway de rede virtual**. 
+Nos dois gráficos anteriores, o **espaço de endereços de rede virtual** abrange ambos os **o intervalo de endereços IP de sub-rede da VM do Azure** e que o gateway de rede virtual.
 
-Nos dois gráficos anteriores, o **espaço de endereços de rede virtual** abrange ambos os **intervalo de endereços IP de sub-rede de VM do Azure** e o **intervalo de endereços do IP de sub-rede de gateway de rede virtual**. 
-
-Para conservar ou ser específico com os intervalos de endereços IP, pode restringir os **espaço de endereços de rede virtual** de uma rede virtual para os intervalos específicos utilizados por cada sub-rede. Pode definir o **espaço de endereços de rede virtual** de virtual de rede como vários intervalos específicos, como mostrado aqui:
+Pode restringir os **espaço de endereços de rede virtual** para os intervalos específicos utilizados por cada sub-rede. Também pode definir o **espaço de endereços de rede virtual** de virtual de rede como vários intervalos específicos, como mostrado aqui:
 
 ![Espaço de endereços de rede virtual do Azure com dois espaços](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
-Neste caso, o **espaço de endereços de rede virtual** tem dois espaços definidos. Eles são os mesmos que os intervalos de endereços IP que estão definidos para o **intervalo de endereços IP de sub-rede de VM do Azure** e o **intervalo de endereços IP de sub-rede de gateway de rede virtual.**
+Neste caso, o **espaço de endereços de rede virtual** tem dois espaços definidos. Eles são os mesmos que os intervalos de endereços IP que estão definidos para o intervalo de endereços IP de sub-rede de VM do Azure e o gateway de rede virtual. 
 
 Pode usar qualquer padrão de nomenclatura que quiser para estas sub-redes de inquilino (sub-redes VM). No entanto, **deve sempre haver um e apenas uma sub-rede do gateway para cada rede virtual** que liga-se para o SAP HANA no circuito do ExpressRoute do Azure (instâncias grandes). E **esta sub-rede de gateway tem de ter o nome "GatewaySubnet"** para se certificar de que o gateway do ExpressRoute corretamente é colocado.
 
 > [!WARNING] 
 > É essencial que a sub-rede do gateway sempre ter o nome "GatewaySubnet".
 
-Pode usar várias sub-redes VM e intervalos de endereços não contínuos. Estes intervalos de endereço devem ser cobertos pela **espaço de endereços de rede virtual** da rede virtual. Eles podem ser de forma agregada ou numa lista dos intervalos exatos de sub-redes VM e a sub-rede do gateway.
+Pode usar várias sub-redes VM e intervalos de endereços não contínuos. Estes intervalos de endereço devem ser cobertos pela **espaço de endereços de rede virtual** da rede virtual. Podem estar em forma agregada. Também podem estar numa lista dos intervalos exatos de sub-redes VM e a sub-rede do gateway.
 
 Segue-se um resumo dos fatos importantes sobre uma rede virtual do Azure que se liga a instâncias grandes do HANA:
 
 - Tem de submeter o **espaço de endereços de rede virtual** à Microsoft quando está fazendo uma implementação inicial de instâncias grandes do HANA. 
-- O **espaço de endereços de rede virtual** pode ser um intervalo maior que abrange o intervalo para o intervalo de endereços os intervalos de endereços IP de sub-rede de VM do Azure e o IP de sub-rede de gateway de rede virtual.
+- O **espaço de endereços de rede virtual** pode ser um intervalo maior que abrange os intervalos para ambas as sub-rede intervalo de endereços IP da VM do Azure e o gateway de rede virtual.
 - Ou pode enviar a intervalos de intervalos de endereços IP de sub-rede VM e o intervalo de endereços IP de gateway de rede virtual de endereços de vários intervalos que abrangem o IP diferente.
 - O definido **espaço de endereços de rede virtual** é utilizado para a propagação de encaminhamento de BGP.
 - O nome da sub-rede do gateway tem de ser: **"GatewaySubnet"**.
-- O espaço de endereço é utilizado como um filtro no lado do instância grande do HANA para permitir ou não o tráfego para as unidades de instância grande do HANA a partir do Azure. Certifique-se de que o BGP encaminhamento informações do Azure virtual de rede e o IP de intervalos de endereços que estão configurados para filtragem na correspondência de lado instância grande do HANA. Caso contrário, podem ocorrer problemas de conectividade.
+- O espaço de endereço é utilizado como um filtro no lado do instância grande do HANA para permitir ou não o tráfego para as unidades de instância grande do HANA a partir do Azure. As informações de encaminhamento de BGP de rede virtual do Azure e os intervalos de endereços IP que estão configurados para filtragem do lado de instância grande do HANA devem corresponder. Caso contrário, podem ocorrer problemas de conectividade.
 - Existem alguns detalhes sobre a sub-rede do gateway que são abordadas mais tarde, na secção **ligar uma rede virtual ao ExpressRoute de instância grande do HANA.**
 
 
@@ -85,32 +83,34 @@ Segue-se um resumo dos fatos importantes sobre uma rede virtual do Azure que se 
 
 Introduzimos já alguns dos intervalos de endereços IP que são necessários para implementar instâncias grandes do HANA. Mas há mais intervalos de endereços IP que também são importantes. Vamos percorrer algumas mais detalhes. Os seguintes endereços IP não precisam ser submetidas à Microsoft. No entanto, tem de defini-los antes de enviar um pedido para a implementação inicial:
 
-- **Espaço de endereços de rede virtual**: conforme apresentado anteriormente, o **espaço de endereços de rede virtual** é o intervalo de endereços IP (ou intervalos) que atribuiu (ou pretende atribuir) para o parâmetro de espaço de endereço no virtuais do Azure rede ou redes que ligam ao ambiente de instância grande do SAP HANA.
+- **Espaço de endereços de rede virtual**: O **espaço de endereços de rede virtual** é os intervalos de endereços IP que é atribuída ao seu parâmetro de espaço de endereço nas redes virtuais do Azure. Ligar estas redes para o ambiente de instância grande do SAP HANA.
 
- Recomendamos que este parâmetro de espaço de endereço é um valor de com várias linha composto de intervalos de sub-rede VM do Azure e o intervalo de sub-rede de gateway do Azure, como mostra o gráfico anterior. Este intervalo não pode coincidir com a sua no local ou o conjunto IP do servidor ou a intervalos de endereços de ER P2P. 
+ Recomendamos que este parâmetro de espaço de endereço é um valor de com várias linha. Ele deve consistir o intervalo de sub-rede da VM do Azure e os intervalos de sub-rede do gateway do Azure. Este intervalo de sub-rede foi mostra os elementos de gráficos anteriores. Ele não pode sobrepor com a sua no local ou o conjunto IP do servidor ou a intervalos de endereços de ER P2P. 
  
 Como obtém esses intervalos de endereços IP? 
 
-O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um ou vários endereços IP, intervalos que não são utilizadas no interior da rede. Por exemplo, se a sub-rede de VM do Azure for 10.0.1.0/24, e a sub-rede de gateway do Azure for 10.0.2.0/28, em seguida, recomendamos que o seu espaço de endereços de rede virtual do Azure é duas linhas: 10.0.1.0/24 e 10.0.2.0/28. 
+O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um ou vários endereços IP, intervalos que não são utilizadas no interior da rede. Por exemplo, vamos supor que a sub-rede da sua VM do Azure é 10.0.1.0/24, e a sub-rede da sua sub-rede de gateway do Azure é 10.0.2.0/28.  Recomendamos que o seu espaço de endereços de rede virtual do Azure é as duas linhas seguintes: 10.0.1.0/24 e 10.0.2.0/28. 
 
-Embora os valores de espaço de endereço podem ser agregados, recomendamos correspondentes-los para os intervalos de sub-rede. Ao fazer isso, a evitar reutilizar, acidentalmente, intervalos de endereços IP não utilizados no maior espaços de endereços no futuro em outro lugar na sua rede. **O espaço de endereços de rede virtual é um intervalo de endereços IP, que tem de ser submetidas à Microsoft quando procura uma implementação inicial**.
+Embora os valores de espaço de endereço podem ser agregados, recomendamos correspondentes-los para os intervalos de sub-rede. Desta forma pode acidentalmente evitar reutilizar os intervalos de endereços IP não utilizados dentro de espaços de endereços maiores em outro lugar na sua rede. **O espaço de endereços de rede virtual é um intervalo de endereços IP. Ele precisa ser submetidas à Microsoft quando procura uma implementação inicial**.
 
-- **Intervalo do endereço IP de sub-rede do Azure VM:** IP este intervalo de endereços, como discutido anteriormente, é aquele que atribuiu (ou se pretende atribuir) para o parâmetro de sub-rede de rede virtual do Azure na sua rede virtual do Azure que se liga a instância grande do SAP HANA ambiente. Este intervalo de endereços IP é utilizado para atribuir endereços IP às VMs do Azure. Os endereços IP fora deste intervalo têm permissão para ligar ao seu servidor de instância grande do SAP HANA (es). Se for necessário, pode utilizar várias sub-redes VM do Azure. Recomendamos um /24 bloco CIDR para cada sub-rede VM do Azure. Este intervalo de endereços tem de ser uma parte dos valores que são utilizados no espaço de endereços de rede virtual do Azure. 
+- **Azure VM sub-rede intervalo de endereços IP:** Este intervalo de endereços IP é a que atribuir para o parâmetro de sub-rede de rede virtual do Azure. Este parâmetro é na sua rede virtual do Azure e liga-se para o ambiente de instância grande do SAP HANA. Este intervalo de endereços IP é utilizado para atribuir endereços IP às VMs do Azure. Os endereços IP fora deste intervalo têm permissão para ligar ao seu servidor de instância grande do SAP HANA (es). Se for necessário, pode utilizar várias sub-redes VM do Azure. Recomendamos um /24 bloco CIDR para cada sub-rede VM do Azure. Este intervalo de endereços tem de ser uma parte dos valores que são utilizados no espaço de endereços de rede virtual do Azure. 
 
 Como obtém este intervalo de endereços IP? 
 
 O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que não está a ser utilizado no interior da rede.
 
-- **Intervalo de endereços IP de sub-rede de gateway de rede virtual:** dependendo dos recursos que planeia utilizar, o tamanho recomendado é:
+- **Intervalo de endereços do rede virtual gateway sub-rede IP:** Dependendo dos recursos que planeia utilizar, o tamanho recomendado é:
    - Gateway ExpressRoute de ultra desempenho: / 26 bloco de endereços – necessários para a classe de tipo II dos SKUs.
    - Coexistência com o ExpressRoute através de um gateway de rede virtual do ExpressRoute de elevado desempenho e de VPN (ou menor): / 27 bloco de endereços.
    - Todas as outras situações: / 28 bloco de endereços. Este intervalo de endereços tem de ser uma parte dos valores utilizados os valores de "Espaço de endereços da VNet". Este intervalo de endereços tem de ser uma parte dos valores que são utilizados os valores de espaço de endereço de rede virtual do Azure que submeter para a Microsoft. Como obtém este intervalo de endereços IP? O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que atualmente não está a ser utilizado no interior da rede. 
 
-- **Intervalo para a conectividade de ER P2P de endereços:** esse intervalo é o intervalo IP para a sua ligação de SAP HANA grandes instância ExpressRoute (ER) P2P. Este intervalo de endereços IP tem de ser/29 intervalo de endereços IP de CIDR. Este intervalo não pode sobrepor com no local ou outro IP Azure intervalos de endereços. Este intervalo de endereços IP é utilizado para configurar a conectividade de ER do seu gateway de virtual do ExpressRoute para os servidores de instância grande do SAP HANA. Como obtém este intervalo de endereços IP? O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que atualmente não está a ser utilizado no interior da rede. **Esse intervalo é um intervalo de endereços IP, que tem de ser submetidas à Microsoft quando pedir para uma implementação inicial**.
+- **Intervalo de endereços para conectividade de ER P2P:** Esse intervalo é o intervalo IP para a sua ligação de SAP HANA grandes instância ExpressRoute (ER) P2P. Este intervalo de endereços IP tem de ser/29 intervalo de endereços IP de CIDR. Este intervalo não pode sobrepor com no local ou outro IP Azure intervalos de endereços. Este intervalo de endereços IP é utilizado para configurar a conectividade de ER do seu gateway de virtual do ExpressRoute para os servidores de instância grande do SAP HANA. Como obtém este intervalo de endereços IP? O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que atualmente não está a ser utilizado no interior da rede. **Esse intervalo é um intervalo de endereços IP. Ele precisa ser submetidas à Microsoft quando procura uma implementação inicial**.
   
-- **Intervalo de endereços do conjunto IP do servidor:** intervalo de endereços IP neste é usado para atribuir o endereço IP individual para servidores de instâncias grandes do HANA. O tamanho da sub-rede recomendada é um /24 bloco CIDR. Se for necessário, pode ser menor, com um mínimo de 64 endereços IP. Deste intervalo, os 30 primeiros endereços IP estão reservados para utilização pela Microsoft. Certifique-se de que tem em conta este facto ao escolher o tamanho do intervalo. Este intervalo não pode sobrepor com no local ou outro IP Azure endereços. Como obtém este intervalo de endereços IP? O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que atualmente não está a ser utilizado no interior da rede. Bloco CIDR para ser utilizado para atribuir os endereços IP específicos um /24 (recomendado) exclusivo é necessária para o SAP HANA no Azure (instâncias grandes). **Esse intervalo é um intervalo de endereços IP, que tem de ser submetidas à Microsoft quando pedir para uma implementação inicial**.
+- **Intervalo de endereços do conjunto IP do servidor:** Este intervalo de endereços IP é utilizado para atribuir o endereço IP individual para servidores de instâncias grandes do HANA. O tamanho da sub-rede recomendada é um /24 bloco CIDR. Se for necessário, pode ser menor, com um mínimo de 64 endereços IP. Deste intervalo, os 30 primeiros endereços IP estão reservados para utilização pela Microsoft. Certifique-se de que tem em conta este facto ao escolher o tamanho do intervalo. Este intervalo não pode sobrepor com no local ou outro IP Azure endereços. Como obtém este intervalo de endereços IP? O fornecedor de equipa ou o serviço de rede empresarial deve fornecer um intervalo de endereços IP que atualmente não está a ser utilizado no interior da rede. 
+
+ **Esse intervalo é um intervalo de endereços IP, que tem de ser submetidas à Microsoft quando pedir para uma implementação inicial**.
  
-Embora tem de definir e planear os intervalos de endereços IP que foram descritos anteriormente, não precisa de transmitir todos eles para a Microsoft. Os intervalos de endereços IP que é necessário o nome para a Microsoft são:
+Tem de definir e planear os intervalos de endereços IP que foram descritos anteriormente. No entanto, não precisa de transmitir todos eles para a Microsoft. Os intervalos de endereços IP que é necessário o nome para a Microsoft são:
 
 - Espaços de endereços de rede virtual do Azure
 - Intervalo de endereços para conectividade de ER P2P
@@ -118,7 +118,7 @@ Embora tem de definir e planear os intervalos de endereços IP que foram descrit
 
 Se adicionar as redes virtuais adicionais que precisam de ligar a instâncias grandes do HANA, tem de submeter o novo espaço de endereços da rede virtual do Azure que estiver a adicionar à Microsoft. 
 
-Segue-se um exemplo de alguns intervalos de exemplo e os intervalos diferentes conforme necessário configurar e, eventualmente, de fornecê-los para a Microsoft. O valor para o espaço de endereços de rede virtual do Azure não é agregado no primeiro exemplo, mas é definido de intervalos de intervalo de endereços IP de sub-rede a primeira VM do Azure e o intervalo de endereços IP de sub-rede de gateway de rede virtual. 
+Segue-se um exemplo de alguns intervalos de exemplo e os intervalos diferentes conforme necessário configurar e, eventualmente, fornecer à Microsoft. O valor para o espaço de endereços de rede virtual do Azure não é agregado no primeiro exemplo. No entanto, ela é definida de intervalos de intervalo de endereços IP de sub-rede a primeira VM do Azure e o intervalo de endereços IP de sub-rede de gateway de rede virtual. 
 
 Pode usar várias sub-redes VM na rede virtual do Azure ao configurar e enviar os intervalos de endereços IP adicionais de sub-redes VM adicionais como parte do espaço de endereços de rede virtual do Azure.
 
@@ -128,7 +128,7 @@ Também pode agregar os dados que enviar à Microsoft. Nesse caso, o espaço de 
 
 ![Segundo possibilidade de intervalos de endereços IP necessários no SAP HANA na implementação básica do Azure (instâncias grandes)](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
 
-Como pode ver no exemplo, em vez de dois intervalos menores que definiu o espaço de endereços da rede virtual do Azure, temos um intervalo maior que abrange 4096 endereços IP. Uma definição grande do espaço de endereços deixa alguns bastante grandes intervalos não utilizados. Uma vez que os valores de espaço de endereço de rede virtual são utilizados para a propagação de rotas do BGP, a utilização de intervalos não utilizados no local ou em outro lugar na sua rede pode causar problemas de encaminhamento. 
+No exemplo, em vez de dois intervalos menores que definiu o espaço de endereços da rede virtual do Azure, temos um intervalo maior que abrange 4096 endereços IP. Uma definição grande do espaço de endereços deixa alguns bastante grandes intervalos não utilizados. Uma vez que os valores de espaço de endereço de rede virtual são utilizados para a propagação de rotas do BGP, a utilização de intervalos não utilizados no local ou em outro lugar na sua rede pode causar problemas de encaminhamento. 
 
 Assim, recomendamos que mantenha o espaço de endereços estreitamente alinhado com o espaço de endereços de sub-rede real que utilizar. Se for necessário, sem incorrer em períodos de indisponibilidade na rede virtual, pode sempre adicionar novos valores de espaço de endereço posteriormente.
  
@@ -142,7 +142,7 @@ Depois dos intervalos de endereços IP foram definidos, têm de ocorrer os segui
 2. Um circuito do ExpressRoute é criado pela Microsoft, entre a sua subscrição do Azure e o carimbo de data / instância grande do HANA.
 3. É criada uma rede de inquilino no carimbo a instância grande pela Microsoft.
 4. Microsoft configura o funcionamento em rede no SAP HANA na infraestrutura do Azure (instâncias grandes) para aceitar endereços IP do seu espaço de endereços de rede virtual do Azure que se comunique com instâncias grandes do HANA.
-5. Consoante o específico SAP HANA no Azure SKU (instâncias grandes) que comprou, a Microsoft atribui uma unidade de computação numa rede de inquilino, aloca e monta o armazenamento e instala o sistema operativo (SUSE ou Red Hat Linux). Endereços IP para estas unidades ficam fora do intervalo de endereços do conjunto de IP do servidor enviada à Microsoft.
+5. Consoante o específico SAP HANA no Azure SKU (instâncias grandes) que comprou, a Microsoft atribui-lhe uma unidade de computação numa rede de inquilino. Ele também aloca e monta o armazenamento e instala o sistema operativo (SUSE ou Red Hat Linux). Endereços IP para estas unidades ficam fora do intervalo de endereços do conjunto de IP do servidor enviada à Microsoft.
 
 No final do processo de implantação, a Microsoft fornece os seguintes dados para si:
 - Informações necessárias para ligar a sua rede ou redes virtuais do Azure para o circuito do ExpressRoute que se liga a redes virtuais do Azure para instâncias grandes do HANA:
@@ -152,6 +152,6 @@ No final do processo de implantação, a Microsoft fornece os seguintes dados pa
 
 Também pode encontrar a seqüência de conexão instâncias grandes do HANA no documento [SAP HANA no Azure (instâncias grandes) configuração](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Muitos dos passos seguintes são exibidos num exemplo de implementação contidas nesse documento. 
 
-**Passos seguintes?**
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a [ligar uma rede virtual ao ExpressRoute de instância grande do HANA](hana-connect-vnet-express-route.md).

@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015760"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714288"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 
 Saiba como utilizar as ações de script para adicionar contas de armazenamento do Azure adicionais ao HDInsight. Os passos neste documento adicionar uma conta de armazenamento a um cluster do HDInsight baseado em Linux existente.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As informações neste documento são sobre como adicionar armazenamento adicional a um cluster, depois de este ter sido criado. Para obter informações sobre como adicionar contas de armazenamento durante a criação do cluster, consulte [configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Como funciona
 
 Este script utiliza os seguintes parâmetros:
 
-* __Nome da conta de armazenamento do Azure__: O nome da conta de armazenamento para adicionar ao cluster do HDInsight. Depois de executar o script, o HDInsight pode ler e escrever dados armazenados nesta conta de armazenamento.
+* __Nome da conta de armazenamento do Azure__: O nome da conta de armazenamento para adicionar ao HDInsight cluster. Depois de executar o script, o HDInsight pode ler e escrever dados armazenados nesta conta de armazenamento.
 
-* __Chave de conta de armazenamento do Azure__: uma chave que conceda acesso à conta de armazenamento.
+* __Chave de conta de armazenamento do Azure__: Uma chave que conceda acesso à conta de armazenamento.
 
-* __-p__ (opcional): se for especificado, a chave não é encriptada e é armazenada no ficheiro core-site como texto simples.
+* __-p__ (opcional): Se for especificado, a chave não é encriptada e é armazenada no ficheiro core-site como texto simples.
 
 Durante o processamento, o script realiza as seguintes ações:
 
@@ -45,7 +45,7 @@ Durante o processamento, o script realiza as seguintes ações:
 
 * Para e reinicia o [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), e [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) serviços. Parar e iniciar estes serviços permitem-lhe utilizar a nova conta de armazenamento.
 
-> [!WARNING]
+> [!WARNING]  
 > Não é suportada a utilizar uma conta de armazenamento numa localização diferente do que o cluster do HDInsight.
 
 ## <a name="the-script"></a>O script
@@ -60,7 +60,7 @@ __Requisitos de__:
 
 Este script pode ser utilizado a partir do portal do Azure, Azure PowerShell ou a CLI clássica do Azure. Para obter mais informações, consulte a [HDInsight baseado em Linux personalizar clusters com ação de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) documento.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ao usar as etapas fornecidas no documento de personalização, utilize as seguintes informações para aplicar este script:
 >
 > * Substitua qualquer ação de script de exemplo URI com o URI para este script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Definir `$clusterName` para o nome do HDInsight cluster. Definir `$storageAccountName` para o nome da conta de armazenamento. Quando lhe for pedido, introduza o início de sessão do cluster (admin) e a palavra-passe.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Definir `$PASSWORD` para a palavra-passe da conta de início de sessão (admin) do cluster. Definir `$CLUSTERNAME` para o nome do HDInsight cluster. Definir `$STORAGEACCOUNTNAME` para o nome da conta de armazenamento.
 >
 > Este exemplo utiliza [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
@@ -132,14 +132,14 @@ Para contornar este problema, tem de remover a entrada existente para a conta de
 
 Se a conta de armazenamento numa região diferente do que o cluster do HDInsight, pode ter um mau desempenho. Aceder aos dados numa região diferente envia o tráfego de rede fora do Datacenter do Azure regional e na internet pública, que pode introduzir a latência.
 
-> [!WARNING]
+> [!WARNING]  
 > Não é suportada a utilizar uma conta de armazenamento numa região diferente do que o cluster do HDInsight.
 
 ### <a name="additional-charges"></a>Encargos adicionais
 
 Se a conta de armazenamento numa região diferente do que o cluster do HDInsight, pode observar os custos de saída adicionais sobre a faturação do Azure. É aplicada uma taxa de saída quando dados deixam um Datacenter regional. Esta cobrança é aplicada, mesmo que o tráfego é destinado para outro Datacenter do Azure numa região diferente.
 
-> [!WARNING]
+> [!WARNING]  
 > Não é suportada a utilizar uma conta de armazenamento numa região diferente do que o cluster do HDInsight.
 
 ## <a name="next-steps"></a>Passos Seguintes

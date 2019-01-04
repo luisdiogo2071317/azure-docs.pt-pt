@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886632"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741747"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemplos de utilização de informações do Bing
 
-Esta seção contém exemplos de como o Bing pode apresentar informações no Bing.com.
+Este artigo contém exemplos de como o Bing pode utilizar e apresentar informações de imagem no Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>Exemplo de informações de PagesIncluding
 
-A seguir mostra como o Bing pode exibir páginas da Web que incluem a imagem. O exemplo apresenta uma hiperligação para a primeira página da Web e permite que o utilizador expandir e recolher a lista de outras páginas da Web que incluem a imagem.
+A seguir apresenta uma hiperligação para a primeira página da Web e permite que o utilizador expandir e recolher a lista de outras páginas da Web que incluem a imagem.
 
 ![Páginas expandidas, incluindo](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Etiquetas predefinidas não incluem a caixa delimitadora que identifica a área 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte o JSON por trás desses exemplos, consulte [predefinido de insights](default-insights-tag.md) e [resposta JSON](overview.md#the-response).
-
-Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [c#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
+Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

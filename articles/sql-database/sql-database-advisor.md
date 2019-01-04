@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271050"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603442"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho para a base de dados SQL
 
 Base de dados SQL do Azure aprende e adapta-se com a sua aplicação. Fornece recomendações personalizadas que permitem-lhe maximizar o desempenho das bases de dados SQL. Base de dados SQL avalia de forma contínua e analisa o histórico de utilização de bases de dados SQL. As recomendações fornecidas se baseiam em padrões de carga de trabalho exclusivo para a base de dados e ajudar a melhorar o desempenho.
 
 > [!TIP]
-> [A otimização automática](sql-database-automatic-tuning.md) é o método recomendado para o ajuste de desempenho. [Informações inteligentes](sql-database-intelligent-insights.md) é o método recomendado para monitorização do desempenho. 
+> [A otimização automática](sql-database-automatic-tuning.md) é o método recomendado para ajuste automaticamente alguns dos problemas de desempenho de base de dados mais comuns. [Informações de desempenho de consulta](sql-database-query-performance.md) é o método recomendado para necessidades de monitorização do desempenho de base de dados do Azure SQL básico. [Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md) é o método recomendado para a monitorização de desempenho de base de dados em escala, com a inteligência incorporada para resolução de problemas de desempenho automatizado avançada.
 >
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice

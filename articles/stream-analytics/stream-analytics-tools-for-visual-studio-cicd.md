@@ -4,17 +4,16 @@ description: Este artigo descreve como utilizar ferramentas do Visual Studio par
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986837"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558401"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Integre e programe com as ferramentas do Stream Analytics continuamente
 Este artigo descreve como utilizar as ferramentas do Azure Stream Analytics para Visual Studio para configurar um processo contínuo de integração e implementação.
@@ -80,11 +79,11 @@ localrun -Project [ProjectFullPath]
 
 O *arm* comando demora o modelo de tarefa e os ficheiros de parâmetros de modelo de tarefa gerados por meio de compilação como entrada. Em seguida, combina-los para um ficheiro JSON de definição de tarefa que pode ser utilizado com a API de PowerShell do Stream Analytics.
 
-```
+```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
 Exemplo:
-```
+```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
 

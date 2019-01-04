@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237879"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972367"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separação e atomização
 
 > [!IMPORTANT]
-> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
+> A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 ## <a name="background-and-motivation"></a>Em segundo plano e motivação
 
@@ -75,4 +75,4 @@ Este atomização nos permite lidar com a palavra *não* e a frase *não* de for
 ## <a name="specification"></a>Especificação
 
 É importante tomar decisões consistentes sobre o que é composto por uma sentença e um token.
-Podemos contar com a especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html a maiúsculas e minúsculas).
+Podemos contar com a especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html a maiúsculas e minúsculas).

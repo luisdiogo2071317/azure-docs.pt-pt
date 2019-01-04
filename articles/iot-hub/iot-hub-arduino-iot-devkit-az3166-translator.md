@@ -7,89 +7,98 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 02/28/2018
+ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 87091cf3d128eecdbbf06a41d516f13e590338b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061038"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788417"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Utilizar o IoT DevKit AZ3166 com as funções do Azure e os serviços cognitivos para tornar um tradutor lingüístico
 
 Neste artigo, saiba como tornar a IoT DevKit como um tradutor lingüístico usando [serviços cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/). Regista a voz e traduz-se aparecem no ecrã DevKit de texto em inglês.
 
-O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma área de compatível de Arduino tudo-em-um com periféricos avançados e sensores. Pode desenvolver para ele usando [extensão do Visual Studio Code para Arduino](https://aka.ms/arduino). E ele vem com um crescimento [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) para orientá-lo através de soluções de Internet das coisas (IoT) de protótipo que tiram partido dos serviços do Microsoft Azure.
+O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma área de compatível de Arduino tudo-em-um com periféricos avançados e sensores. Pode desenvolver para ele usando [Bancada de trabalho de dispositivo do Azure IoT](https://aka.ms/iot-workbench) ou [ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) pacote de extensão no Visual Studio Code. O [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contém aplicativos de exemplo para ajudá-lo a soluções de IoT de protótipo.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="before-you-begin"></a>Antes de começar
 
-Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
+Para concluir os passos neste tutorial, primeiro faça as seguintes tarefas:
 
-* Sua DevKit tiver ligado ao Wi-Fi
-* Preparar o ambiente de desenvolvimento
+* Preparar seu DevKit ao seguir os passos em [ligar IoT DevKit AZ3166 hub do IoT do Azure na cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 
-Uma subscrição ativa do Azure. Se não tiver um, pode registrar-se através de um dos seguintes dois métodos:
+## <a name="create-azure-cognitive-service"></a>Criar serviço cognitivo do Azure
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/free/)
-* Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se for assinante do MSDN ou o Visual Studio
+1. No portal do Azure, clique em **criar um recurso** e procure **voz**. Preencha o formulário para criar o serviço de voz.
+  ![Serviço de voz](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
-## <a name="open-the-project-folder"></a>Abra a pasta de projeto
+1. Vá para o serviço de voz acabou de criar, clique **chaves** secção para copiar e tome nota do **chave1** para aceder ao DevKit ao mesmo.
+  ![Copie chaves](media/iot-hub-arduino-iot-devkit-az3166-translator/copy-keys.png)
 
-Em primeiro lugar, abra a pasta de projeto. 
+## <a name="open-sample-project"></a>Projeto de exemplo aberto
 
-### <a name="start-vs-code"></a>Inicie o VS Code
+1. Certificar-se de que é o IoT DevKit **não ligado** para o seu computador. Inicie o VS Code primeiro e, em seguida, ligue o DevKit para o seu computador.
 
-- Certifique-se de que sua DevKit está ligado ao seu PC.
+1. Clique em `F1` para abrir a paleta de comandos, escreva e selecione **Bancada de trabalho de dispositivo do Azure IoT: Abrir os exemplos...** . Em seguida, selecione **IoT DevKit** como quadro.
 
-- Inicie o VS Code.
+1. Na página de exemplos da bancada de trabalho de IoT, encontrar **DevKit Translator** e clique em **exemplo aberto**. Em seguida, seleciona o caminho predefinido para transferir o código de exemplo.
+  ![Exemplo aberto](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
 
-- Ligar o DevKit ao seu computador.
+## <a name="use-speech-service-with-azure-functions"></a>Utilizar o serviço de voz com as funções do Azure
 
-### <a name="open-the-arduino-examples-folder"></a>Abra a pasta de exemplos de Arduino
+1. No VS Code, clique em `F1`, introduza e selecione **Bancada de trabalho de dispositivo do Azure IoT: Aprovisionar serviços do Azure...** . ![Aprovisionar serviços do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
-Expanda o lado esquerdo **exemplos de ARDUINO > exemplos para MXCHIP AZ3166 > AzureIoT**e selecione **DevKitTranslator**. É aberta uma nova janela do VS Code, exibindo a pasta do projeto. Se não pode ver os exemplos para a secção de MXCHIP AZ3166, certifique-se de que o dispositivo está ligado corretamente e reinicie o VS Code.  
+1. Siga os passos para concluir o aprovisionamento do IoT Hub do Azure e as funções do Azure.
+  ![Passos de aprovisionamento](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
-![Exemplos de IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
+  Tome nota do nome de dispositivo do IoT Hub do Azure que criou.
 
-Também é possível abrir o exemplo da paleta de comandos. Uso `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
+1. Abra `Functions\DevKitTranslatorFunction.cs` e Atualize as seguintes linhas de código com o nome de devce e a chave de serviço de voz que anotou para baixo.
+  ```csharp
+  // Subscription Key of Speech Service
+  const string speechSubscriptionKey = "";
 
-## <a name="provision-azure-services"></a>Aprovisionar serviços do Azure
+  // Region of the speech service, see https://docs.microsoft.com/azure/cognitive-services/speech-service/regions for more details.
+  const string speechServiceRegion = "";
 
-Na janela da solução, escreva `Ctrl+P` (macOS: `Cmd+P`) e introduza `task cloud-provision`.
+  // Device ID
+  const string deviceName = "";
+  ```
 
-No código de VS terminal, uma linha de comandos interativa guiá-lo para aprovisionar todos os serviços do Azure necessários:
+1. Clique em `F1`, introduza e selecione **Bancada de trabalho de dispositivo do Azure IoT: Implemente no Azure...** . Se o código de VS solicita a confirmação para reimplantação, clique em **Sim**.
+  ![Implementar o aviso](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
-![Tarefa de aprovisionamento de cloud](media/iot-hub-arduino-iot-devkit-az3166-translator/cloud-provision.png)
+1. Certifique-se de que a implementação é efetuada com êxito.
+  ![Implementar com êxito](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
-## <a name="deploy-the-azure-function"></a>Implementar a função do Azure
+1. No portal do Azure, aceda a **aplicações de funções** secção, localize a aplicação de função do Azure que acabou de criar. Clique em `devkit_translator`, em seguida, clique em **<> / obter URL da função** para copiar o URL.
+  ![Copie o URL da função](media/iot-hub-arduino-iot-devkit-az3166-translator/get-function-url.png)
 
-Uso `Ctrl+P` (macOS: `Cmd+P`) para executar `task cloud-deploy` para implementar o código de funções do Azure. Este processo normalmente demora 2 a 5 minutos a concluir.
+1. Cole o URL em `azure_config.h` ficheiro.
+  ![Configuração do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-config.png)
 
-![Tarefa de implementação de nuvem](media/iot-hub-arduino-iot-devkit-az3166-translator/cloud-deploy.png)
+  > [!NOTE]
+  > Se a aplicação de funções não funcionar corretamente, verifique isso [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) secção para resolvê-lo.
 
-Depois da função do Azure, implementar com êxito, preencha o ficheiro de azure_config.h com o nome da aplicação. Pode navegar até [portal do Azure](https://portal.azure.com/) encontrá-lo:
+## <a name="build-and-upload-device-code"></a>Criar e carregar o código de dispositivo
 
-![Localizar o nome de aplicação de função do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-function.png)
+1. Mudar o DevKit ao **modo de configuração** por:
+  * Mantenha premida botão **A**.
+  * Prima e versão **repor** botão.
 
-> [!NOTE]
-> Verifique se a função do Azure não funcionar corretamente, o [página de "erro de complicação para a função do Azure" nas perguntas frequentes IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) para resolvê-lo.
+  Verá a tela exibe o ID de DevKit e **configuração**.
 
-## <a name="build-and-upload-the-device-code"></a>Criar e carregar o código de dispositivo
+  ![Modo de configuração de DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. Uso `Ctrl+P` (macOS: `Cmd+P`) para executar `task config-device-connection`.
+1. Clique em `F1`, introduza e selecione **Bancada de trabalho de dispositivo do Azure IoT: Configurar as definições de dispositivos... > cadeia de ligação do dispositivo de configuração**. Selecione **selecionar o IoT Hub dispositivo Connection String** para configurá-lo para o DevKit.
+  ![Configurar a cadeia de ligação](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
-2. Terminal irá pedir-lhe se pretende utilizar a cadeia de ligação que obtém de `task cloud-provision` passo. Também pode introduzir a sua própria cadeia de ligação do dispositivo ao selecionar **"Criar nova..."**
+1. Verá a notificação depois de estar concluído com êxito.
+  ![Configurar o sucesso da cadeia de ligação](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string-success.png)
 
-3. Terminal pede-lhe para introduzir o modo de configuração. Para fazer isso, premido o botão A, em seguida, push e largue o botão de reposição. A tela exibe a DevKit ID e a 'Configuração'.
-
-   ![Verificação e o carregamento do esboço de Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/config-device-connection.png)
-
-4. Após `task config-device-connection` terminado, clique `F1` para carregar os comandos de código VS e selecione `Arduino: Upload`, em seguida, o VS Code inicia a verificação e carregar o Arduino criar esboços.
-
-   ![Verificação e o carregamento do esboço de Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/arduino-upload.png)
-
-O DevKit reinicia e começa a execução do código.
+1. Clique em `F1` novamente, escreva e selecione **Bancada de trabalho de dispositivo do Azure IoT: Carregar o código de dispositivo**. Ele começa a compilação e carregar o código para DevKit.
+  ![Carregamento de dispositivo](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
 ## <a name="test-the-project"></a>Testar o projeto
 
@@ -121,7 +130,7 @@ No ecrã do resultado da conversão, pode:
 
 ![mini-Solution-Voice-to-tweet-Diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
-Os registos de esboço de Arduino sua voz, em seguida, publica um HTTP do pedido para acionar uma função do Azure. A função do Azure chama o tradutor de voz do serviço cognitivo API para fazer a tradução. Depois da função do Azure obtém o texto de tradução, envia uma mensagem de (cloud-para-dispositivo) C2D no dispositivo. Em seguida, a tradução é apresentada no ecrã.
+O IoT DevKit regista a voz, em seguida, publica uma solicitação HTTP para acionar as funções do Azure. As funções do Azure chama o tradutor de voz do serviço cognitivo API para fazer a tradução. Depois das funções do Azure obtém o texto de tradução, envia uma mensagem de C2D no dispositivo. Em seguida, a tradução é apresentada no ecrã.
 
 ## <a name="problems-and-feedback"></a>Problemas e comentários
 
@@ -130,7 +139,7 @@ Se tiver problemas, consulte a [IoT DevKit FAQ](https://microsoft.github.io/azur
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu como utilizar o IoT DevKit como um tradutor ao utilizar as funções do Azure e os serviços cognitivos. Este procedimento, ficou a saber como:
 

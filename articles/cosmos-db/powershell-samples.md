@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: ca3bf2ccb33dc1bd857cccb640fa602e365509d2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 480bccd73a049d2f181d5acf906882b2f9b6ccdb
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718522"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808405"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o Azure Cosmos DB
 
@@ -23,11 +23,11 @@ A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell 
 | |  |
 |---|---|
 |**Criar uma conta do Azure Cosmos DB**||
-|[Criar e configurar uma conta do Cosmos para a API de SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API SQL. |
-|[Criar e configurar uma conta do Cosmos para a MongoDB API](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para API do MongoDB. |
-|[Criar e configurar uma conta do Cosmos para a API do Gremlin ](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API Gremlin. |
+|[Criar e configurar uma conta do Cosmos com a API de SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API SQL. |
+|[Criar e configurar uma conta do Cosmos com a API do Azure Cosmos DB para o MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Cosmos com API do Azure Cosmos DB para o MongoDB. |
+|[Criar e configurar uma conta do Cosmos com a API do Gremlin ](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API Gremlin. |
 |[Criar e configurar uma conta do Cosmos com a API de Cassandra](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API para Cassandra. |
-|[Criar e configurar uma conta do Cosmos para a API de tabela](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API de Tabela. |
+|[Criar e configurar uma conta do Cosmos com a API de tabela](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API de Tabela. |
 |**Dimensionar o Azure Cosmos DB**||
 |[Replicar a conta do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de ativação pós-falha especificada.|
 |**Proteger o Azure Cosmos DB**||

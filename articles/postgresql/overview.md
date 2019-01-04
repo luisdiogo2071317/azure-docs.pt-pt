@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: 86ed701f9dd572d23fec74d194e3cc469469e638
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545965"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808983"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
@@ -46,7 +46,7 @@ Como decidir quando aumentar ou reduzir verticalmente? Utilize as funcionalidade
 O contrato de nível de serviço (SLA) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Em cada servidor de Base de Dados do Azure para PostgreSQL, pode tirar partido da segurança, da tolerância a falhas e da proteção de dados incorporadas, que, de outra forma, teria de comprar ou conceber, e criar e gerir. Com a Base de Dados do Azure para PostgreSQL, cada escalão de preço oferece um conjunto abrangente de funcionalidades e opções de continuidade de negócio que pode utilizar para assegurar o funcionamento operacional. Pode utilizar o [restauro para um ponto anterior no tempo](howto-restore-server-portal.md) para repor um estado anterior de uma base de dados, até 35 dias. Além disso, se o datacenter que aloja as suas bases de dados sofrer um período de indisponibilidade, pode restaurar as bases de dados a partir de cópias georredundantes de cópias de segurança recentes.
 
 ## <a name="secure-your-data"></a>Proteger os dados
-Por norma, os serviços de base de dados do Azure asseguram a segurança dos dados. O mesmo se aplica à Base de Dados do Azure para PostgreSQL ao dispor de funcionalidades que limitam o acesso, protegem dados inativos e em movimento, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
+Por norma, os serviços de base de dados do Azure asseguram a segurança dos dados. O mesmo se aplica à Base de Dados do Azure para PostgreSQL ao dispor de funcionalidades que limitam o acesso, protegem dados inativos e em movimento, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
 
 A Base de Dados do Azure para o serviço PostgreSQL utiliza a encriptação de armazenamento para dados inativos. Os dados, incluindo as cópias de segurança, estão encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 

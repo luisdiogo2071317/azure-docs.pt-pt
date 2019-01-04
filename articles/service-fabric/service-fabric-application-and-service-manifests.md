@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230289"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653554"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação do Service Fabric e manifestos de serviço
 Este artigo descreve como os serviços e aplicações do Service Fabric são definidos e com a versão usando os arquivos applicationmanifest. XML e servicemanifest. XML.  Para obter exemplos mais detalhados, consulte [exemplos de manifesto de aplicação e serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado no [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> O esquema do ficheiro de manifesto XML impõe ordem correta dos elementos filho.  Como solução parcial, abra "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" no Visual Studio ao mesmo tempo de criação ou modificação de qualquer um dos manifestos de Service Fabric. Isso permitirá que verifique a ordenação dos elementos subordinados e fornece intelli sentido.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Descrever um serviço no servicemanifest. XML
 Manifesto do serviço declarativamente define o tipo de serviço e a versão. Especifica os metadados de serviço, como o tipo de serviço, propriedades de estado de funcionamento, métricas de balanceamento de carga, os binários do serviço e ficheiros de configuração.  Em outras palavras, ele descreve os pacotes de código, configuração e dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Um manifesto de serviço pode conter vários código, configuração e pacotes de dados, o que podem ser atualizados de forma independente. Aqui está um manifesto de serviço para serviço de front-end da web ASP.NET Core do [exemplo de aplicação de voto](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e aqui estão alguns [obter exemplos mais detalhados](service-fabric-manifest-examples.md)):

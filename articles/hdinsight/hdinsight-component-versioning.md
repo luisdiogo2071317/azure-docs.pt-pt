@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321891"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971125"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -60,7 +60,7 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 
 Versões de componente do ecossistema do Hadoop associadas a versões de cluster do HDInsight, podem alterar com as atualizações para o HDInsight. Para verificar os componentes do Hadoop e para verificar as versões que estão a ser utilizadas para um cluster, utilize a API de REST do Ambari. O **GetComponentInformation** comando obtém informações sobre os componentes de serviço. Para obter detalhes, consulte a [documentação do Apache Ambari][ambari-docs].
 
-> [!IMPORTANT]  
+> [!IMPORTANT]    
 > Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [reforma do Windows no HDInsight](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Notas de versão
@@ -139,9 +139,9 @@ Atualmente, apenas os seguintes tipos de cluster suportam o Enterprise Security 
 - Spark
 - Interactive Query
 
-### <a name="support-for-azure-data-lake-store"></a>Suporte para o Data Lake Store do Azure
+### <a name="support-for-azure-data-lake-storage"></a>Suporte para o armazenamento do Azure Data Lake
 
-O suporte de Enterprise Security Package com o Azure Data Lake Store como armazenamento primário e o armazenamento do suplemento.
+O suporte de Enterprise Security Package usando o armazenamento do Azure Data Lake como armazenamento primário e o armazenamento do suplemento.
 
 ### <a name="pricing-and-sla"></a>Preços e SLA
 Para obter informações sobre preços e SLA para o Enterprise Security Package, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -149,7 +149,7 @@ Para obter informações sobre preços e SLA para o Enterprise Security Package,
 ## <a name="hdinsight-windows-retirement"></a>Reforma do Windows HDInsight
 Microsoft Azure HDInsight versão 3.3 foi a última versão do HDInsight no Windows. A data de retirada para HDInsight no Windows é 31 de Julho de 2018. Se tiver quaisquer clusters do HDInsight no Windows 3.3 ou anterior, tem de migrar para o HDInsight no Linux (HDInsight versão 3.5 ou posterior) antes de 31 de Julho de 2018. Migrar para o SO Linux permite-lhe manter a capacidade de criar ou redimensionar os seus clusters do HDInsight. Suporte para o HDInsight versão 3.3 no Windows expirou em 27 de Junho de 2016.
 
-A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Estes incluem [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), Interactive Query, [Apache Spark](https://spark.apache.org/), HDInsight aplicativos e do Azure Data Lake Store como o sistema de ficheiros primário. Versões futuras do HDInsight estão disponíveis apenas no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows. 
+A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Estes incluem [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), Interactive Query, [Apache Spark](https://spark.apache.org/), HDInsight aplicativos e armazenamento do Azure Data Lake como o sistema de ficheiros primário. Versões futuras do HDInsight estão disponíveis apenas no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows. 
 
 ## <a name="faqs"></a>FAQs
 
@@ -172,7 +172,7 @@ No portal do Azure, vá para a página de descrição geral do Cluster do HDInsi
 O cluster de HDInsight Windows é executado como-é, mas não é possível criar um novo cluster de HDInsight Windows, ou como redimensionar um cluster de HDInsight Windows existente. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Meu cluster tem uma dependência de .NET. Como posso resolver esta dependência no Linux?
-Pode resolver a dependência de cluster do Linux ao utilizar o [projeto Mono](http://www.mono-project.com/). Esta implementação de código-fonte aberto do .NET está disponível para clusters do Linux de HDInsight. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
+Pode resolver a dependência de cluster do Linux ao utilizar o [projeto Mono](https://www.mono-project.com/). Esta implementação de código-fonte aberto do .NET está disponível para clusters do Linux de HDInsight. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Sou um novo cliente para o HDInsight no Windows. Como posso criar um cluster do HDInsight Windows?
 A partir de 3 de Julho de 2017, os clientes existentes do Windows HDInsight só podem criar novos Windows de HDInsight clusters. Novos clientes não é possível criar um cluster do HDInsight Windows no portal do Azure com o PowerShell ou o SDK. Recomendamos que novos clientes, crie um cluster do HDInsight do Linux. Os clientes existentes podem criar as novas Windows de HDInsight clusters até que o HDInsight no Windows data de retirada. 
@@ -186,7 +186,7 @@ Não, o preço é o mesmo para o HDInsight em qualquer sistema operacional.
 * Capacidade para exercitar o desenvolvimento de Active Directory pela Comunidade de código-fonte aberto para o Hadoop e outras tecnologias de macrodados
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>O HDInsight no Linux fornece funcionalidades adicionais para além das disponível no HDInsight no Windows?
-A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Isso inclui o Apache Ranger, Kafka, Interactive Query, Spark, aplicações do HDInsight e o Azure Data Lake Store como o sistema de ficheiros primário. 
+A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Isso inclui o Apache Ranger, Kafka, Interactive Query, Spark, aplicações do HDInsight e o armazenamento do Azure Data Lake como o sistema de ficheiros primário. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nível de serviço para versões de cluster do HDInsight
 O contrato de nível de serviço (SLA) é definido em termos de um _janela de suporte_. A janela de suporte é o período de tempo que uma versão de cluster do HDInsight é suportada pelo suporte ao cliente da Microsoft. Se a versão tem um _suportam a data de expiração_ que tiver passado, o cluster do HDInsight está fora da janela de suporte. Para obter mais informações sobre as versões suportadas, consulte a lista de [versões de cluster do HDInsight suportadas](hdinsight-migrate-from-windows-to-linux.md). A data de expiração de suporte para uma versão X (depois de uma versão mais recente de X + 1 estiver disponível) de HDInsight especificado é calculada como o posterior de:  
@@ -203,10 +203,10 @@ O _data de retirada_ é a data após o qual não é possível criar a versão do
 
 A secção fornece ligações para notas de versão das distribuições de Hortonworks Data Platform e os componentes do Apache que são utilizadas com o HDInsight.
 * Clusters do HDInsight versão 4.0 utiliza uma distribuição do Hadoop que se baseia em [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)
-* Clusters do HDInsight versão 3.6 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
-* Versão de cluster do HDInsight 3.5 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). Versão do cluster do HDInsight 3.5 é o _predefinição_ cluster de Hadoop, que é criado no portal do Azure.
-* Clusters do HDInsight versão 3.4 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
-* Clusters do HDInsight versão 3.3 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
+* Clusters do HDInsight versão 3.6 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
+* Versão de cluster do HDInsight 3.5 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.5](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). Versão do cluster do HDInsight 3.5 é o _predefinição_ cluster de Hadoop, que é criado no portal do Azure.
+* Clusters do HDInsight versão 3.4 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.4](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+* Clusters do HDInsight versão 3.3 utiliza uma distribuição do Hadoop que se baseia [Hortonworks Data Platform 2.3](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 
   * [Notas de versão do Apache Storm](https://storm.apache.org/2015/11/05/storm0100-released.html) estão disponíveis no site do Apache.
   * [Notas de versão do Apache Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) estão disponíveis no site do Apache.
@@ -230,11 +230,11 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
   | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark  | Servidor de ML |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Cabeça: tamanho VM predefinido |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
   | HEAD: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | Função de trabalho: tamanho VM predefinido |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Função de trabalho: tamanho VM predefinido |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
   | Função de trabalho: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: tamanho da VM predefinida | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper: tamanho da VM predefinida | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
   | ZooKeeper: recomendado tamanhos de VM | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
   | Edge: tamanho da VM predefinida | | | | | |D4 v2 |
   | Edge: tamanho VM de recomendado | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
@@ -242,11 +242,11 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
   | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviços ML |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | Cabeça: tamanho VM predefinido |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Função de trabalho: tamanho VM predefinido |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Função de trabalho: tamanho VM predefinido |D4 |D4  |  D14 |D3 |D13 |D4 |
   | Função de trabalho: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: tamanho da VM predefinida | |A2 | | A2 | | |
+  | ZooKeeper: tamanho da VM predefinida | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: recomendado tamanhos de VM | |A2,<br/> A3<br/> A4 | |A2,<br/> A3<br/> A4 | | |
   | Edge: tamanhos de VM predefinido | | | | | |D4 |
   | Edge: recomendado tamanhos de VM | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
@@ -270,16 +270,16 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
-[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
+[hdp-2-1-7]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
-[hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
+[hdp-2-1-1]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 
-[hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
+[hdp-2-0-8]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
-[hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+[hdp-1-3-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
 [hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

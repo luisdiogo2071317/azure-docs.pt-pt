@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438647"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578857"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Linux no gerenciamento de atualizações
 
 Podem existir muitos motivos pelos quais sua máquina não estiver visível **pronto** na gestão de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo descreve como executar a resolução de problemas para as máquinas do Azure a partir do portal do Azure e máquinas não Azure no [cenário offline](#troubleshoot-offline).
+
+A lista a seguir são os Estados de preparação de três uma máquina pode estar em:
+
+* **Pronto** -o agente de atualização é implementado e foi-visto pela última vez há menos de 1 hora.
+* **Desligado** -o agente de atualização é implementado e foi-visto pela última vez há mais de 1 hora.
+* **Não configurado** -o agente de atualização não for encontrado ou não foi concluída de integração.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
 
@@ -45,7 +51,7 @@ A verificação do sistema operacional, verifica se a função de trabalho de Ru
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. Com base na classificação de aplicação de patches requer "yum" para devolver dados de segurança que CentOS não tem de imediato.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. Com base na classificação de aplicação de patches requer "yum" para devolver dados de segurança que não têm a CentOS prontos a utilizar.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS e 16.04 LTS e 18.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |

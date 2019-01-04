@@ -3,24 +3,22 @@ title: Criar utilizadores na base de dados do Azure para MariaDB server
 description: Este artigo descreve como pode criar novas contas de usuário para interagir com uma base de dados do Azure para MariaDB server.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50154a7fee63eb3ff9e08155123f9e5962bbfcf0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946121"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542132"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores na base de dados do Azure para MariaDB 
 Este artigo descreve como pode criar os utilizadores na base de dados do Azure para MariaDB.
 
 Ao criar a base de dados do Azure para MariaDB, que forneceu um nome de utilizador de início de sessão de administrador do servidor e a palavra-passe. Para obter mais informações, pode seguir a [guia de introdução](quickstart-create-mariadb-server-database-using-azure-portal.md). Pode localizar o seu nome de utilizador do início de sessão do administrador do servidor do portal do Azure.
 
-O utilizador de administrador de servidor obtém determinados privilégios para o seu servidor, conforme listado: SELECIONAR, inserir, ATUALIZAR, eliminar, criar, remover, recarregar, processo, referências, INDEX, ALTER, Mostrar bases de dados, criar tabelas temporárias, tabelas de bloqueio, EXECUTE, SUBORDINADO de replicação, replicação CLIENTE, CRIAR VISTA, MOSTRAR EXIBIÇÃO, CRIAR ROTINA, ALTER ROTINA, CRIAR ACIONADOR DE UTILIZADOR, EVENTO,
+O utilizador de administrador de servidor obtém determinados privilégios para o seu servidor, conforme listado: SELECIONAR, INSERIR, ATUALIZAR, ELIMINAR, CRIAR, REMOVER, RECARREGUE, PROCESSAR, REFERÊNCIAS, INDEX, ALTER, VEJA AS BASES DE DADOS, CRIAR TABELAS TEMPORÁRIAS, BLOQUEAR TABELAS, EXECUTAR, CRIAR SUBORDINADO DE REPLICAÇÃO, O CLIENTE DE REPLICAÇÃO, VISUALIZAR, MOSTRAR EXIBIÇÃO, CRIAR ROTINA, ALTER ROTINA, CRIAR UTILIZADOR , EVENTO, O ACIONADOR
 
 Depois de criar a base de dados do Azure para MariaDB server, pode utilizar a conta de utilizador de administrador do servidor primeiro para criar mais utilizadores e conceder acesso de administrador aos mesmos. Além disso, pode servir-se a conta de administrador do servidor para criar com menos privilégios de utilizadores que têm acesso aos esquemas de banco de dados individuais.
 
@@ -85,6 +83,6 @@ Depois de criar a base de dados do Azure para MariaDB server, pode utilizar a co
 Para obter mais informações sobre a gestão de conta de utilizador, consulte documentação MariaDB [gestão de contas de utilizador](https://mariadb.com/kb/en/library/user-account-management/), [sintaxe de concessão](https://mariadb.com/kb/en/library/grant/), e [privilégios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Abrir a firewall para os endereços IP de máquinas de novos utilizadores para que estes possam ligar-se: [criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure](howto-manage-firewall-portal.md)  
+Abra a firewall para os endereços IP de máquinas de novos utilizadores para que estes possam ligar-se: [Criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

@@ -1,20 +1,17 @@
 ---
 title: Importar e exportar na base de dados do Azure para MySQL
 description: Este artigo explica as formas comuns de importar e exportar bases de dados na base de dados do Azure para MySQL, utilizando ferramentas como o MySQL Workbench.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
-ms.openlocfilehash: ee291f24a1ad77f84e7cdb8cf4c687af7dfa3f17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986224"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545523"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar a sua base de dados MySQL através de importar e exportar
 Este artigo explica as duas abordagens comuns para importar e exportar dados para uma base de dados do Azure para o servidor MySQL com o MySQL Workbench. 
@@ -93,7 +90,7 @@ O exemplo seguinte importa a tabela a partir de um ficheiro CSV:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Dados do SQL, exportar e importar assistentes a partir do painel do navegador
 Utilize um Assistente para exportar ou importar SQL gerado a partir do MySQL Workbench ou gerado do comando mysqldump. Aceder a estes assistentes a partir do **navegador** painel ou ao selecionar **servidor** no menu principal. Em seguida, selecione **exportar dados** ou **importação de dados**. 
 
-#### <a name="data-export"></a>Exportação de dados
+#### <a name="data-export"></a>Exportação de Dados
 ![Dados do MySQL Workbench exportar com o painel do navegador](./media/concepts-migrate-import-export/p2.png)
 
 Pode utilizar o **exportar dados** separador para exportar os dados do MySQL. 

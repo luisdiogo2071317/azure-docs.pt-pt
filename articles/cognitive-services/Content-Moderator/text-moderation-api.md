@@ -9,18 +9,18 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226573"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535808"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
 Utilize a moderação de texto de assistida do Content Moderator e [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) capacidades moderar conteúdo de texto.
 
-O bloquear, aprova ou rever o conteúdo com base nas suas políticas e limiares. Usá-lo para incrementar humana moderação de ambientes em que os funcionários, parceiros e os consumidores geram conteúdo de texto. Estes incluem salas de chat, quadros de discussão, chatbots, catálogos de comércio eletrónico e documentos. 
+O bloquear, aprova ou rever o conteúdo com base nas suas políticas e limiares. Usá-lo para incrementar humana moderação de ambientes em que os funcionários, parceiros e os consumidores geram conteúdo de texto. Estes incluem salas de chat, quadros de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
 
 A resposta do serviço inclui as seguintes informações:
 
@@ -149,7 +149,7 @@ Se solicitar a correção automática, a resposta contém a versão corrigida do
 Embora o padrão, a lista global de termos funciona muito bem para a maioria dos casos, pode querer ecrã contra termos que são específicos para suas necessidades empresariais. Por exemplo, pode querer filtrar qualquer competitivos os nomes de postagens por utilizadores.
 
 > [!NOTE]
-> Existe um limite máximo de **apresenta uma lista de 5 termo** cada lista para **não pode exceder 10 000 termos**.
+> Existe um limite máximo de **5 listas de termos**, sendo que cada lista **não pode exceder 10 000 termos**.
 >
 
 O exemplo seguinte mostra o ID de lista correspondente:

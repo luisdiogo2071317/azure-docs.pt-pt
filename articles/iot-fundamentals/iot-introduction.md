@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582433"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792531"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das coisas (IoT)?
 
@@ -26,7 +26,7 @@ As partes principais de uma solução de IoT são os seguintes: dispositivos, se
 
 ### <a name="iot-devices"></a>Dispositivos IoT
 
-Dispositivos são geralmente constituídos por um quadro do circuito com censuradores anexados que se ligam à internet. Número de dispositivos a comunicar através de um chip de Wi-Fi. Aqui estão alguns exemplos de dispositivos IoT:
+Dispositivos são geralmente constituídos por um quadro do circuito com sensores ligados que se ligam à internet. Número de dispositivos a comunicar através de um chip de Wi-Fi. Aqui estão alguns exemplos de dispositivos IoT:
 
 * sensores de pressão uma bomba de petróleo remoto
 * sensores de temperatura e humidade numa unidade de ar condicionado
@@ -103,21 +103,21 @@ Implementar esta solução de IoT possibilitado da empresa para verificar e trat
 
 Existem vários serviços relacionados com a IoT no Azure e pode ser confuso descobrir qual deles que pretende utilizar. Alguns, como o IoT Central e os Aceleradores de solução de IoT, fornecem modelos para ajudar a criar sua própria solução e começar a trabalhar rapidamente. Pode também totalmente a desenvolver suas próprias soluções com outros serviços disponíveis – tudo isso depende em quanto ajuda que pretende e quanto controle. Aqui está uma lista dos serviços disponíveis, bem como o que pode usá-los para.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md): Esta é uma solução de SaaS que lhe permite ligar, monitorizar e gerir os seus dispositivos ioT. Para começar, selecione um modelo para o seu tipo de dispositivo e criar e testar uma aplicação básica do Centro de IoT que irão utilizar os operadores do dispositivo. A aplicação do Centro de IoT também permitirá que monitorizar os dispositivos e aprovisionar novos dispositivos. Este serviço destina-se a soluções simples que não necessitam de personalização avançada do serviço. 
+1. [**Centro de IoT**](../iot-central/overview-iot-central.md): Esta é uma solução de SaaS que lhe permite ligar, monitorizar e gerir os seus dispositivos IoT. Para começar, selecione um modelo para o seu tipo de dispositivo e criar e testar uma aplicação básica do Centro de IoT que irão utilizar os operadores do dispositivo. A aplicação do Centro de IoT também permitirá que monitorizar os dispositivos e aprovisionar novos dispositivos. Este serviço destina-se a soluções simples que não necessitam de personalização avançada do serviço. 
 
-2. [**Aceleradores de solução de IoT**](/azure/iot-suite): Esta é uma coleção de soluções de PaaS, pode utilizar para acelerar o desenvolvimento de uma solução de IoT. Começar com uma solução de IoT fornecida e, em seguida, personalizar totalmente essa solução aos seus requisitos. Precisa de competências em Java ou .NET para personalizar o back-end e habilidades em JavaScript para personalizar a visualização. 
+2. [**Aceleradores de solução de IoT**](/azure/iot-suite): Esta é uma coleção de soluções de PaaS, que pode utilizar para acelerar o desenvolvimento de uma solução de IoT. Começar com uma solução de IoT fornecida e, em seguida, personalizar totalmente essa solução aos seus requisitos. Precisa de competências em Java ou .NET para personalizar o back-end e habilidades em JavaScript para personalizar a visualização. 
 
-3. [**IoT Hub**](/azure/iot-hub/): este serviço permite-lhe ligar-se dos seus dispositivos para um hub IoT e monitorize e controle milhares de milhões de dispositivos IoT. Isso é especialmente útil se precisar de comunicação bidirecional entre os dispositivos de IoT e o seu back-end. Este é o serviço subjacente para o IoT Central e os Aceleradores de solução de IoT. 
+3. [**IoT Hub**](/azure/iot-hub/): Este serviço permite-lhe ligar a partir dos seus dispositivos para um hub IoT e monitor e controle milhares de milhões de dispositivos IoT. Isso é especialmente útil se precisar de comunicação bidirecional entre os dispositivos de IoT e o seu back-end. Este é o serviço subjacente para o IoT Central e os Aceleradores de solução de IoT. 
 
-4. [**Serviço de aprovisionamento de dispositivo IoT Hub**](/azure/iot-dps/): Este é um serviço auxiliar para o IoT Hub que pode utilizar para aprovisionar dispositivos ao seu hub IoT com segurança. Com este serviço, pode aprovisionar facilmente milhões de dispositivos rapidamente, em vez de aprovisionamento-los individualmente. 
+4. [**Serviço aprovisionamento de dispositivos do IoT Hub**](/azure/iot-dps/): Este é um serviço auxiliar para o IoT Hub que pode utilizar para aprovisionar dispositivos ao seu hub IoT com segurança. Com este serviço, pode aprovisionar facilmente milhões de dispositivos rapidamente, em vez de aprovisionamento-los individualmente. 
 
-5. [**IoT Edge**](/azure/iot-edge/): este serviço baseia-se sobre o IoT Hub. Ele pode ser usado para analisar os dados nos dispositivos IoT, em vez de na cloud. Ao mover as partes da sua carga de trabalho no Edge, mensagens menos precisam de ser enviados para a cloud. 
+5. [**IoT Edge**](/azure/iot-edge/): Este serviço baseia-se sobre o IoT Hub. Ele pode ser usado para analisar os dados nos dispositivos IoT, em vez de na cloud. Ao mover as partes da sua carga de trabalho no Edge, mensagens menos precisam de ser enviados para a cloud. 
 
-6. [**Os gémeos Digital do Azure**](../digital-twins/index.yml): este serviço permite-lhe criar modelos abrangentes do ambiente físico. Pode modelar as relações e interações entre pessoas, espaços e dispositivos. Por exemplo, pode prever uma manutenção precisa de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar a utilização de espaço disponível para um office.
+6. [**Os gémeos Digital do Azure**](../digital-twins/index.yml): Este serviço permite-lhe criar modelos abrangentes do ambiente físico. Pode modelar as relações e interações entre pessoas, espaços e dispositivos. Por exemplo, pode prever uma manutenção precisa de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar a utilização de espaço disponível para um office.
 
-7. [**Time Series Insights**](/azure/time-series-insights): este serviço permite-lhe armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo geradas pelos dispositivos de IoT. Pode utilizar este serviço com o IoT Hub. 
+7. [**Time Series Insights**](/azure/time-series-insights): Este serviço permite-lhe armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo geradas pelos dispositivos de IoT. Pode utilizar este serviço com o IoT Hub. 
 
-8. [**O Azure Maps**](/azure/azure-maps): este serviço fornece informações geográficas para aplicações web e móveis. Existe um conjunto completo de REST APIs, bem como um controlo de JavaScript baseado na web que pode ser utilizado para criar aplicações flexíveis que funcionam em aplicações de ambiente de trabalho ou móveis para dispositivos Apple e Windows.
+8. [**O Azure Maps**](/azure/azure-maps): Este serviço fornece informações geográficas para aplicações web e móveis. Existe um conjunto completo de REST APIs, bem como um controlo de JavaScript baseado na web que pode ser utilizado para criar aplicações flexíveis que funcionam em aplicações de ambiente de trabalho ou móveis para dispositivos Apple e Windows.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

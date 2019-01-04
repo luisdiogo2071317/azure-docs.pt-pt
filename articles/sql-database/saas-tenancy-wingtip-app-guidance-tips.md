@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054409"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606032"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientações gerais para trabalhar com Wingtip Tickets aplicações SaaS de exemplo
 
@@ -57,7 +57,7 @@ Definir esses valores aqui simplesmente evita que tenha que atualizar estes valo
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Executar scripts ao premir F5
 
-Vários scripts utilizam *$PSScriptRoot* para navegar de pastas, e *$PSScriptRoot* é avaliada apenas quando os scripts são executados, premindo **F5**.  Destacar e executar uma seleção (**F8**) pode resultar em erros, por isso, prima **F5** ao executar scripts.
+Vários scripts utilizam *$PSScriptRoot* para navegar de pastas, e *$PSScriptRoot* é avaliada apenas quando os scripts são executados, premindo **F5**.  Destacar e executar uma seleção (**F8**) pode resultar em erros, por isso, prima **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Analisar os scripts para examinar a implementação
 
@@ -94,7 +94,7 @@ Para garantir uma ligação de demonstração com êxito, todos os servidores t�
 
    ![servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: Início de sessão = *developer*, Palavra-passe = *P@ssword1*
+3. As credenciais de demonstração são: Início de sessão = *desenvolvedor*, palavra-passe = *P@ssword1*
 
     A imagem abaixo demonstra o início de sessão para o *base de dados por inquilino* padrão. 
     ![ligação](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

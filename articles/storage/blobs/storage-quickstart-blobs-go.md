@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711162"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754820"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: carregar, transferir e listar blobs através de Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, transferir e listar blobs através de Go
 
 Neste início rápido, vai aprender a utilizar a linguagem de programação Go para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
 
@@ -51,14 +51,14 @@ Este comando clona o repositório para a sua pasta local do git. Para abrir o ex
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 Esta solução requer o nome e a chave da conta de armazenamento para ser armazenada em segurança nas variáveis de ambiente locais do computador que executa o exemplo. Siga um dos exemplos abaixo, consoante o sistema operativo, para criar as variáveis de ambiente.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -148,7 +148,7 @@ handleErrors(err)
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, pode carregar o ficheiro para o caminho especificado com um das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, pode carregar o ficheiro para o caminho especificado com uma das REST APIs: Carregamento (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Em alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de baixo nível. Por exemplo, a função ***UploadFileToBlockBlob*** utiliza operações StageBlock (PutBlock) para carregar simultaneamente um ficheiro em segmentos para otimizar o débito. Se o ficheiro tiver menos de 256 MB, utiliza a operação Upload (PutBlob) para concluir a transferência numa única transação.
 

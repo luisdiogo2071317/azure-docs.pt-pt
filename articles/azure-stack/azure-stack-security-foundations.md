@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901486"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727094"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Considerações de segurança e os regulamentos de conformidade estão entre os controladores de principais para a utilização de clouds híbridas. O Azure Stack foi concebido para estes cenários. Este artigo explica os controlos de segurança no local para o Azure Stack.
 
@@ -40,7 +40,7 @@ Uma vez que a infraestrutura é executado em hardware bem definido e software, A
 Porque o Azure Stack é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure Stack é definida pela Microsoft. Assim como no Azure, os inquilinos são responsáveis por definir a postura de segurança das suas cargas de trabalho de inquilino. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura do Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dados de encriptação de Inativos
-Todos os dados de inquilino e de infraestrutura de Azure Stack são encriptados em descanso ao utilizar o Bitlocker. Esta encriptação protege contra perda física ou o roubo de componentes de armazenamento do Azure Stack. 
+Todos os dados de inquilino e de infraestrutura de Azure Stack são encriptados em descanso ao utilizar o Bitlocker. Esta encriptação protege contra perda física ou o roubo de componentes de armazenamento do Azure Stack. Para obter mais informações, consulte [dados de encriptação de Inativos no Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Dados de encriptação de trânsito
 Os componentes de infraestrutura do Azure Stack comunicam através de canais encriptados com TLS 1.2. Certificados de encriptação automática são geridos pela infraestrutura. 

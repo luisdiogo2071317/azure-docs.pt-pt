@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496911"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579962"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de serviços de ML no Azure HDInsight
 
@@ -22,13 +22,13 @@ Depois de ter usado o cluster de serviços de ML no HDInsight para concluir a su
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster de serviços de ML no HDInsight**: para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
+* **Um cluster de serviços de ML no HDInsight**: Para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
 
-* **Um cliente Secure Shell (SSH)**: é utilizado um cliente SSH para ligar remotamente ao cluster do HDInsight e executar comandos diretamente no mesmo. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)**: Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster de serviços de ML com configuração one box
 
-> [!NOTE]
+> [!NOTE]  
 > Os passos abaixo se aplicam ao R Server 9.0 e ML Server 9.1. Para 9.3 do ML Server, consulte [utilizar a ferramenta de administração para gerir a configuração da operacionalização](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. Aceda através de SSH ao nó de extremidade.
@@ -137,7 +137,7 @@ Quando a sessão SSH estiver ativa, o tráfego da porta 12800 do computador loca
 
 Para dimensionar os nós de computação, primeiro desativar os nós de trabalho e, em seguida, configurar nós de computação em nós de trabalho desativado.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Passo 1: Desativar os nós de trabalho
+### <a name="step-1-decommission-the-worker-nodes"></a>Passo 1: Descontinuar os nós de trabalho
 
 Cluster de serviços de ML não é gerido através de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se os nós de trabalho não estiverem desativados, o YARN Resource Manager não funciona conforme esperado, porque não tem conhecimento dos recursos de, que está a ser tomados pelo servidor. Para evitar esta situação, recomendamos a desativação dos nós de trabalho antes de aumentar horizontalmente os nós de computação.
 
@@ -159,7 +159,7 @@ Siga estes passos para desativar nós de trabalho:
 * Desmarque os nós de trabalho e selecione os nós principais.
 * Selecione **ações** > **Selected Hosts** > "**anfitriões** > **reiniciar todos os componentes**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passo 2: Configurar computação nós em cada nó de trabalho desativado
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passo 2: Configurar os nós de computação em cada nó de trabalho desativado
 
 1. Aceda através de SSH a cada nó de trabalho desativado.
 
@@ -173,7 +173,7 @@ Siga estes passos para desativar nós de trabalho:
 
 1. Saia do Utilitário de Administração.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Passo 3: Adicionar detalhes de nós no nó da web de computação
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Passo 3: Adicionar detalhes de nós de computação no nó da web
 
 Depois de todos os nós de trabalho desativados estiverem configurados para executar o nó de computação, regresse ao nó de extremidade e adicione endereços IP de nós de trabalho desativado na configuração do nó do servidor de ML web:
 

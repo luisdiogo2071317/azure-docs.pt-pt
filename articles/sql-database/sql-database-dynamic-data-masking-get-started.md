@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165556"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536377"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 
@@ -31,7 +31,7 @@ Por exemplo, um representante do serviço num call center pode identificar os au
 Configurar um máscara de política no portal do Azure ao selecionar os operação no seu painel de configuração de base de dados SQL ou o painel de definições de máscara de dados dinâmicos de dados dinâmicos.
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de máscara de dados dinâmicos
-Máscara de dados dinâmica pode ser configurada por funções de diretor de segurança, administrador de servidor ou o administrador de banco de dados do Azure.
+Máscara de dados dinâmica pode ser configurada pelo administrador de banco de dados do Azure, o administrador do servidor, ou [Gestor de segurança de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) funções.
 
 ### <a name="dynamic-data-masking-policy"></a>Política de máscara de dados dinâmicos
 * **Utilizadores SQL excluídos da máscara** – um conjunto de utilizadores do SQL ou resultados de consulta de identidades do AAD que obtêm dados sem máscara no SQL. Os utilizadores com privilégios de administrador são sempre excluídos da máscara e ver os dados originais sem qualquer máscara.

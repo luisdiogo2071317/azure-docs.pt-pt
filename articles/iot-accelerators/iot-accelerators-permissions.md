@@ -1,106 +1,72 @@
 ---
-title: Aceleradores de solução de IoT do Azure e Azure Active Directory | Documentos da Microsoft
-description: Descreve como aceleradores de solução de IoT do Azure utiliza o Azure Active Directory para gerir as permissões.
+title: Utilize o site de soluções de IoT do Azure - Azure | Documentos da Microsoft
+description: Descreve como utilizar o site de AzureIoTSolutions.com para implementar o acelerador de soluções.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713855"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601088"
 ---
-# <a name="permissions-on-the-azureiotsolutionscom-site"></a>Permissões no azureiotsolutions.com site
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilizar o site de azureiotsolutions.com para implementar o acelerador de soluções
 
-## <a name="what-happens-when-you-sign-in"></a>O que acontece quando inicia sessão
+Pode implementar os Aceleradores de solução de IoT do Azure à sua subscrição do Azure partir [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hospeda o código aberto da Microsoft e os Aceleradores de solução de parceiro. Estes aceleradores de solução que se alinham com o [arquitetura de referência do Azure IoT](https://aka.ms/iotrefarchitecture). Pode utilizar o site para implementar rapidamente um acelerador de solução como um ambiente de demonstração ou de produção.
 
-Na primeira vez que iniciar sessão no [azureiotsuite.com][lnk-azureiotsolutions], o site determina os níveis de permissão com base no inquilino do Azure Active Directory (AAD) selecionada atualmente e subscrição do Azure.
+![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
-1. Em primeiro lugar, para preencher a lista de inquilinos junto ao seu nome de utilizador, o site, descobre do Azure inquilinos do AAD pertencem a. Atualmente, o site apenas pode obter tokens de utilizador para um inquilino ao mesmo tempo. Por conseguinte, quando mudar inquilinos através da lista pendente no canto superior direito, o site iniciar a sua sessão nesse inquilino para obter os tokens nesse inquilino.
+> [!TIP]
+> Se precisar de mais controlo sobre o processo de implementação, pode utilizar o [CLI para implementar um acelerador de solução](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-2. Em seguida, através do Azure, o site localiza as subscrições às quais o inquilino selecionado está associado. Ver as subscrições disponíveis quando cria um novo solution accelerator.
+Pode implantar Aceleradores de soluções nas seguintes configurações:
 
-3. Por fim, o site obtém todos os recursos nas subscrições e grupos de recursos marcados como aceleradores de solução e preenche os mosaicos na home page.
+* **Padrão**: Uma implementação de infraestrutura expandida para o desenvolvimento de um ambiente de produção. O Azure Container Service implementa os microsserviços em várias máquinas virtuais do Azure. O Kubernetes orquestra os contentores do Docker que alojam os microsserviços individuais.
+* **Básico**: Uma versão de custo reduzido para demonstração ou para testar uma implementação. Todos os microsserviços são implementados numa máquina virtual do Azure individual.
+* **Local**: Uma implementação de computador local para teste e desenvolvimento. Esta abordagem implementa os microsserviços para um contentor do Docker local e liga-se para o IoT Hub do Azure Cosmos DB e os serviços de armazenamento do Azure na cloud.
 
-As secções seguintes descrevem as funções que controlam o acesso aos Aceleradores.
+Cada um dos Aceleradores de solução utiliza uma combinação diferente de serviços do Azure, como o IoT Hub, o Azure Stream Analytics e o Cosmos DB. Para obter mais informações, visite [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) e selecione um acelerador de solução.
 
-## <a name="aad-roles"></a>Funções do AAD
+## <a name="sign-in-at-azureiotsolutionscom"></a>Inicie sessão em azureiotsolutions.com
 
-As funções do AAD controlam a capacidade de aprovisionar Aceleradores de soluções, para gerir utilizadores e de alguns serviços do Azure num acelerador de solução.
+Antes de poder implementar um acelerador de soluções, tem de iniciar sessão em AzureIoTSolutions.com utilizando credenciais associadas uma subscrição do Azure. Se a sua conta estiver associada a mais do que um inquilino do Microsoft Azure Active Directory (AD), pode utilizar o **lista pendente de seleção de conta** para escolher o diretório a utilizar.
 
-Pode encontrar mais informações sobre funções de administrador no AAD em [atribuir funções de administrador no Azure AD][lnk-aad-admin]. O artigo atual se concentra a **Administrador Global** e o **utilizador** funções de diretório como o usado pelo solution accelerators.
+As suas permissões Aceleradores de solução de implementar, gerir utilizadores e gerir serviços do Azure dependem de sua função no diretório selecionado. As funções do Azure AD comuns associadas com os Aceleradores de solução incluem:
 
-### <a name="global-administrator"></a>Administrador global
+* **Administrador global**: Podem existir muitas [os administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por inquilino do Azure AD:
 
-Podem existir vários administradores globais por inquilino do AAD:
+  * Quando cria um inquilino do Azure AD, é por predefinição o administrador global desse inquilino.
+  * O administrador global pode implementar os Aceleradores de solução de básico e standard.
 
-* Quando cria um inquilino do AAD, por predefinição, é o administrador global desse inquilino.
-* O administrador global pode aprovisionar um Aceleradores de solução de básico e standard (uma implementação básica utiliza uma única máquina de Virtual do Azure).
+* **Utilizador de domínio**: Podem existir vários usuários de domínio por inquilino do Azure AD. Um utilizador de domínio pode implementar um acelerador de solução básica.
 
-### <a name="domain-user"></a>Utilizador de domínio
+* **Utilizador convidado**: Podem existir vários utilizadores convidados por inquilino do Azure AD. Os utilizadores convidados não é possível implementar um acelerador de solução no inquilino do Azure AD.
 
-Podem existir vários usuários de domínio por inquilino do AAD:
+Para obter mais informações sobre utilizadores e funções no Azure AD, consulte os seguintes recursos:
 
-* Um utilizador de domínio pode aprovisionar um acelerador de solução básica através do [azureiotsolutions.com] [ lnk-azureiotsolutions] site.
-* Um utilizador de domínio pode criar um acelerador de solução básica com a CLI.
+* [Criar utilizadores no Azure Active Directory](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Atribuir utilizadores a aplicações](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="guest-user"></a>Utilizador convidado
+## <a name="choose-your-device"></a>Escolha o seu dispositivo
 
-Podem existir vários utilizadores convidados por inquilino do AAD. Os utilizadores convidados têm um conjunto limitado de direitos no inquilino do AAD. Como resultado, os utilizadores convidados não podem aprovisionar um acelerador de solução no inquilino do AAD.
+O site de AzureIoTSolutions.com contém ligações para o [certificação do Azure para o catálogo de dispositivos de IoT](https://catalog.azureiotsolutions.com/).
 
-Para obter mais informações sobre utilizadores e funções no AAD, consulte os seguintes recursos:
+O catálogo de lista centenas de dispositivos de hardware de IoT certificados que pode ligar a seus Aceleradores de solução para começar a criar a sua solução de IoT.
 
-* [Criar utilizadores no Azure AD][lnk-create-edit-users]
-* [Atribuir utilizadores a aplicações][lnk-assign-app-roles]
+![Catálogo de dispositivos](media/iot-accelerators-permissions/devicecatalog.png)
 
-## <a name="azure-subscription-administrator-roles"></a>Funções de administrador de subscrição do Azure
-
-As funções de administrador do Azure controlam a capacidade de mapear uma subscrição do Azure para um inquilino do AAD.
-
-Saiba mais sobre as funções de administrador do Azure no artigo [adicionar ou alterar os administradores de subscrição do Azure][lnk-admin-roles].
-
-## <a name="faq"></a>FAQ
-
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou administrador de serviço e gostaria de alterar o mapeamento de diretório entre a minha subscrição e um inquilino do AAD específico. Como posso concluir esta tarefa?
-
-Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
-
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um administrador de serviços ou Coadministrador, ao iniciar sessão com uma conta institucional
-
-Consulte o artigo de suporte [alterar o administrador de serviços e Coadministrador ao iniciar sessão com uma conta institucional][lnk-service-admins].
-
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Porque estou a ver este erro? "A sua conta não tem as permissões adequadas para criar uma solução. Consulte o seu administrador de conta ou tente com uma conta diferente."
-
-Observe o diagrama a seguir para obter orientações sobre:
-
-![][img-flowchart]
-
-> [!NOTE]
-> Se continuar a ver o erro depois de confirmar que são um administrador global do inquilino do AAD e coadministrador da subscrição, peça ao seu administrador de conta, remova o utilizador e reatribuir as permissões necessárias pela seguinte ordem. Primeiro, adicione o utilizador como administrador global e, em seguida, adicionar o utilizador como um coadministrador da subscrição do Azure. Se os problemas persistirem, contacte [ajuda e suporte][lnk-help-support].
-
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Porque estou a ver este erro quando tenho uma subscrição do Azure? "Uma subscrição do Azure é necessário para criar soluções pré-configuradas. Pode criar uma conta de avaliação gratuita em apenas alguns minutos."
-
-Se tem a certeza de que tem uma subscrição do Azure, valide o mapeamento do inquilino da sua subscrição e certifique-se de que o inquilino correto está selecionado na lista pendente. Se confirmou que o inquilino pretendido está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e este inquilino do AAD.
+Se for um fabricante de hardware, clique em **me tornar um parceiro** para saber mais sobre a nossa parceria com a Microsoft sobre o certificado para o programa de IoT.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre Aceleradores de solução de IoT, veja como é possível [personalizar um acelerador de soluções][lnk-customize].
 
-[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
+Para experimentar um dos aceleradores de soluções de IoT, veja os inícios rápidos:
 
-[lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
-[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
-[lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
-[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-accelerators-remote-monitoring-customize.md
+* [Try a remote monitoring solution](quickstart-remote-monitoring-deploy.md) (Experimentar uma solução de monitorização remota)
+* [Try a connected factory solution](quickstart-connected-factory-deploy.md) (Experimentar uma solução de fábrica ligada)
+* [Try a predictive maintenance solution](quickstart-predictive-maintenance-deploy.md) (Experimentar uma solução de manutenção preditiva)
+* [Try a device simulation solution](quickstart-device-simulation-deploy.md) (Testar uma solução de simulação de dispositivos)

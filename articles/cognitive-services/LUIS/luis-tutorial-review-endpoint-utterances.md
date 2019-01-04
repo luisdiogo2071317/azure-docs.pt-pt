@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 622aa49a8dffa933499c243bd723ce2d67a4c251
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714905"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755126"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir predições inseguras
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões não sabe por rever as expressões de ponto final
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
 
 Este processo de revisão é outra maneira de o LUIS saber qual é o domínio da aplicação. O LUIS selecionou as expressões apresentadas na lista de revisão. Esta lista é:
@@ -33,7 +33,7 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
+> * Aplicação de exemplo de importação
 > * Rever pronunciações de ponto final
 > * Atualizar a lista de expressões
 > * Preparar a aplicação
@@ -42,11 +42,11 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+Utilize os passos seguintes:
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583300"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787908"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir os recursos de cluster do Apache Spark no Azure HDInsight 
 
@@ -34,7 +34,7 @@ Servidor de histórico do Spark é a IU da web para aplicações do Spark em exe
 
 **Para abrir a interface do Usuário da Web de servidor de histórico de Spark**
 
-1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Partir **ligações rápidas**, clique em **Dashboard do Cluster**e, em seguida, clique em **servidor de histórico do Spark**
 
     ![Servidor de histórico do spark](./media/apache-spark-resource-manager/launch-history-server.png "Server do histórico do Spark")
@@ -54,15 +54,13 @@ A web do servidor de histórico do Spark a interface do Usuário é semelhante a
 ## <a name="open-the-yarn-ui"></a>Abra o IU do Yarn
 Pode utilizar a IU do YARN para monitorizar aplicações atualmente em execução no cluster do Spark.
 
-1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Partir **ligações rápidas**, clique em **Dashboard do Cluster**e, em seguida, clique em **YARN**.
 
     ![Iniciar a IU do YARN](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
-   > [!TIP]
+   > [!TIP]  
    > Em alternativa, também pode iniciar a IU do YARN do IU do Ambari. Para iniciar a IU do Ambari, clique em **Dashboard de clusters**e, em seguida, clique em **Dashboard de clusters do HDInsight**. A partir da IU do Ambari, clique em **YARN**, clique em **ligações rápidas**, clique em Gestor de recursos do Active Directory e, em seguida, clique em **da IU do Gestor de recursos**.
-   >
-   >
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Otimizar clusters para aplicações do Spark
 Os três parâmetros de chave que podem ser utilizados para a configuração de Spark dependendo dos requisitos de aplicação são `spark.executor.instances`, `spark.executor.cores`, e `spark.executor.memory`. Um Executor é um processo iniciado para uma aplicação de Spark. Ele é executado no nó de trabalho e é responsável para executar as tarefas para a aplicação. O número predefinido de executores e os tamanhos de executor para cada cluster é calculado com base no número de nós de trabalho e o tamanho de nó de trabalho. Essas informações são armazenadas no `spark-defaults.conf` sobre os nós principais do cluster.
@@ -158,8 +156,8 @@ Inicie a IU do Yarn, conforme mostrado no início do artigo. Na tabela de métri
 
 ### <a name="for-data-analysts"></a>Para analistas de dados
 
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise dados Application Insight telemetria com o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark](apache-spark-deep-learning-caffe.md)
@@ -167,7 +165,7 @@ Inicie a IU do Yarn, conforme mostrado no início do artigo. Na tabela de métri
 ### <a name="for-apache-spark-developers"></a>Para desenvolvedores do Apache Spark
 
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Apache Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](apache-spark-livy-rest-interface.md)
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317394"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971108"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -185,7 +185,7 @@ Siga estes passos para iniciar a tarefa de transmissão em fluxo:
 ## <a name="review-the-cosmosdb-output-data"></a>Reveja os dados de saída do cosmos DB
 1. Localize o grupo de recursos que contém os recursos de TollApp.
 
-2. Selecione a conta do Azure Cosmos DB com o padrão de nome **tollapp<random>-cosmos**.
+2. Selecione a conta do Azure Cosmos DB com o padrão de nome **tollapp\<aleatório\>-cosmos**.
 
 3. Selecione o **Data Explorer** cabeçalho para abrir a página de Explorador de dados.
 

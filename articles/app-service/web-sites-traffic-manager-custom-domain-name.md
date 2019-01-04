@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340063"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720465"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurar um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure utilizando o Gestor de tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Este artigo fornece instruções genéricas para utilizar um nome de domínio personalizado com uma [serviço de aplicações](app-service-web-overview.md) aplicação integrada com [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) para balanceamento de carga.
+Este artigo fornece instruções genéricas para utilizar um nome de domínio personalizado com uma [serviço de aplicações](overview.md) aplicação integrada com [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) para balanceamento de carga.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ Este artigo fornece instruções genéricas para utilizar um nome de domínio pe
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Adicionar um registo DNS para o seu domínio personalizado
 > [!NOTE]
-> Se tiver adquirido o domínio através de aplicações de Web do serviço de aplicações do Azure, em seguida, ignore os passos seguintes e consulte o passo final da [comprar o domínio para aplicações Web](custom-dns-web-site-buydomains-web-app.md) artigo.
+> Se tiver adquirido o domínio através de aplicações de Web do serviço de aplicações do Azure, em seguida, ignore os passos seguintes e consulte o passo final da [comprar o domínio para aplicações Web](manage-custom-dns-buy-domain.md) artigo.
 > 
 > 
 

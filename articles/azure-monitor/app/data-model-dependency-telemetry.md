@@ -1,0 +1,73 @@
+---
+title: Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de dependência | Documentos da Microsoft
+description: Modelo de dados do Application Insights para a telemetria de dependência
+services: application-insights
+documentationcenter: .net
+author: mrbullwinkle
+manager: carmonm
+ms.service: application-insights
+ms.workload: TBD
+ms.tgt_pltfrm: ibiza
+ms.topic: conceptual
+ms.date: 04/17/2017
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: b1e951ecdadd28dbce96e89dce428c375836ba35
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973810"
+---
+# <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: Modelo de dados do Application Insights
+
+Telemetria de dependência (no [Application Insights](../../application-insights/app-insights-overview.md)) representa uma interação do componente monitorizado com um componente remoto, como SQL ou um ponto final HTTP.
+
+## <a name="name"></a>Nome
+
+Nome do comando iniciado com chamada de dependência. Valor de cardinalidade baixa. Os exemplos são o nome do procedimento armazenado e o modelo de caminho de URL.
+
+## <a name="id"></a>ID
+
+Identificador de uma instância de chamada de dependência. Utilizar correlação com o item de telemetria de pedido correspondente a esta chamada de dependência. Para obter mais informações, consulte [correlação](../../azure-monitor/app/correlation.md) página.
+
+## <a name="data"></a>Dados
+
+Comandos iniciados por essa chamada de dependência. Os exemplos são a instrução SQL e o URL de HTTP com todos os parâmetros de consulta.
+
+## <a name="type"></a>Tipo
+
+Nome do tipo de dependência. Valor de cardinalidade baixa para um agrupamento lógico de dependências e a interpretação dos outros campos, como commandName e resultCode. Os exemplos são SQL, a tabela do Azure e o HTTP.
+
+## <a name="target"></a>Destino
+
+Site de destino de uma chamada de dependência. Os exemplos são o nome de servidor, o endereço do anfitrião. Para obter mais informações, consulte [correlação](../../azure-monitor/app/correlation.md) página.
+
+## <a name="duration"></a>Duração
+
+Duração no formato do pedido: `DD.HH:MM:SS.MMMMMM`. Tem de ser inferior a `1000` dias.
+
+## <a name="result-code"></a>Código de resultado
+
+Código de resultado de uma chamada de dependência. Os exemplos são o código de erro SQL e o código de estado HTTP.
+
+## <a name="success"></a>Êxito
+
+Indicação de chamada com êxito ou sem êxito.
+
+## <a name="custom-properties"></a>Propriedades personalizadas
+
+[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+
+## <a name="custom-measurements"></a>Medições personalizadas
+
+[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Configurar dependência de controlo para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
+- Configurar dependência de controlo para [Java](../../azure-monitor/app/java-agent.md).
+- [Escrever telemetria de dependência personalizadas](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Ver [modelo de dados](data-model.md) para o modelo de tipos e dados do Application Insights.
+- Confira [plataformas](../../application-insights/app-insights-platforms.md) suportada pelo Application Insights.

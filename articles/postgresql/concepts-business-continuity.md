@@ -1,20 +1,17 @@
 ---
 title: Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL
 description: Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717068"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559047"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL
 
@@ -49,7 +46,7 @@ Uma opção é aguardar que o servidor esteja novamente online quando a indispon
 A outra opção é usar a base de dados do Azure para a funcionalidade de restauro geográfico do PostgreSQL que restaura o servidor através de cópias de segurança georredundante. Estas cópias de segurança estão acessíveis, mesmo quando o região do que seu servidor esteja hospedado no está offline. Pode restaurar a partir destas cópias de segurança em qualquer outra região e trazer o seu servidor novamente online.
 
 > [!IMPORTANT]
-> O restauro geográfico só é possível se aprovisionou o servidor com armazenamento de cópia de segurança georredundante. Se quiser mudar do localmente redundante para cópias de segurança georredundante para um servidor existente, tem de fazer um despejo utilizar mysqldump do seu servidor existente e restaurá-lo para um criado recentemente configurado com as cópias de segurança georredundante.
+> O restauro geográfico só é possível se aprovisionou o servidor com armazenamento de cópia de segurança georredundante. Se quiser mudar do localmente redundante para cópias de segurança georredundante para um servidor existente, tem de fazer um despejo pg_dump do seu servidor existente a utilizar e restaurá-lo para um criado recentemente configurado com as cópias de segurança georredundante.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para saber mais sobre as cópias de segurança automáticas, veja [cópias de segurança na base de dados do Azure para PostgreSQL](concepts-backup.md). 

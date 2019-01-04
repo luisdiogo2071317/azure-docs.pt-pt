@@ -3,16 +3,17 @@ title: Planear a capacidade para recuperação após desastre de Hyper-V com o A
 description: Utilize este artigo para estimar a capacidade, ao configurar a recuperação após desastre com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844945"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976720"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para a recuperação de desastres da VM de Hyper-V 
 
@@ -33,8 +34,8 @@ Utilize o Site Recovery Capacity Planner para analisar o seu ambiente de origem 
 
 Pode executar a ferramenta em dois modos:
 
-* **Guia de planejamento**: fornece as projeções de rede e de servidores com base num número médio de VMs, discos, armazenamento e a taxa de alteração.
-* **Detalhadas de planeamento**: fornece detalhes de cada carga de trabalho no nível da VM. Analisar a compatibilidade VM e obter as projeções de rede e servidor.
+* **Guia de planejamento**: Fornece as projeções de rede e de servidores com base num número médio de VMs, discos, armazenamento e a taxa de alteração.
+* **Detalhadas de planeamento**: Fornece detalhes de cada carga de trabalho no nível da VM. Analisar a compatibilidade VM e obter as projeções de rede e servidor.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -65,17 +66,17 @@ Pode executar a ferramenta em dois modos:
 
 4. Depois de introduzir os valores para o ambiente de origem, a saída exibida inclui:
 
-   * **Largura de banda necessária para a replicação delta (em Megabits por segundo)**: largura de banda de rede para a replicação delta é calculada na taxa média de alteração de dados diário.
-   * **Largura de banda necessária para a replicação inicial (em Megabits por segundo)**: largura de banda de rede para a replicação inicial é calculada sobre os valores de replicação inicial que introduzir.
+   * **Largura de banda necessária para a replicação delta (em Megabits por segundo)**: A taxa média de alteração de dados diário é calculada largura de banda de rede para a replicação delta.
+   * **Largura de banda necessária para a replicação inicial (em Megabits por segundo)**: Largura de banda de rede para a replicação inicial é calculada sobre os valores de replicação inicial que introduzir.
    * **Armazenamento necessário (em GBs)**: O total de armazenamento do Azure necessário.
-   * **Total de IOPS no armazenamento Standard**: O número é calculado com base no tamanho de unidade IOPS 8 K nas contas de armazenamento standard total. Para o planeador de rápida, o número é calculado com base em todos os discos VM de origem e os dados diários de taxa de alteração. Para o planeamento detalhado, o número é calculado com base no número total de VMs que são mapeados para VMs padrão do Azure e os dados alterados taxa nessas VMS.
-   * **Número de contas de armazenamento Standard necessárias**: O número total de contas de armazenamento standard necessários para proteger as VMs. Uma conta de armazenamento standard pode conter até 20 000 IOPS por todas as VMs no armazenamento standard. É suportado um máximo de 500 IOPS por disco.
+   * **Total de IOPS no armazenamento Standard**: O número é calculado com base no tamanho de unidade IOPS 8K nas contas de armazenamento standard total. Para o planeador de rápida, o número é calculado com base em todos os discos VM de origem e os dados diários de taxa de alteração. Para o planeamento detalhado, o número é calculado com base no número total de VMs que são mapeados para VMs padrão do Azure e os dados alterados taxa nessas VMS.
+   * **Número de contas de armazenamento Standard necessárias**: O número total de contas de armazenamento standard é necessário para proteger as VMs. Uma conta de armazenamento standard pode conter até 20 000 IOPS por todas as VMs no armazenamento standard. É suportado um máximo de 500 IOPS por disco.
    * **Número de discos de Blob necessários**: O número de discos que são criadas no armazenamento do Azure.
-   * **Número de contas do premium necessárias**: O número total de contas de armazenamento premium necessários para proteger as VMs. Uma VM com IOPS elevado (mais de 20.000) de origem tem uma conta de armazenamento premium. Uma conta de armazenamento premium pode conter até 80 000 IOPS.
-   * **Total de IOPS no armazenamento Premium**: O número é calculado de acordo com o tamanho de unidade IOPS de 256 K nas contas de armazenamento total premium. Para o planeador de rápida, o número é calculado com base em todos os discos VM de origem e os dados diários de taxa de alteração. Para o planeamento detalhado, o número é calculado com base no número total de VMs que são mapeados para VMs do Azure premium (séries DS e GS) e os dados alterados taxa nessas VMS.
-   * **Número de servidores de configuração necessários**: mostra o número de servidores de configuração é necessário para a implementação.
-   * **Número de servidores de processos adicionais necessários**: mostra se os servidores de processos adicionais são necessários, além do servidor de processos que está em execução no servidor de configuração por predefinição.
-   * **100% armazenamento adicional na origem**: mostra se o armazenamento adicional é necessária no local de origem.
+   * **Número de contas do premium necessárias**: O número total de contas de armazenamento premium é necessário para proteger as VMs. Uma VM com IOPS elevado (mais de 20.000) de origem tem uma conta de armazenamento premium. Uma conta de armazenamento premium pode conter até 80 000 IOPS.
+   * **Total de IOPS no armazenamento Premium**: O número é calculado com base no tamanho de unidade IOPS de 256K nas contas de armazenamento total premium. Para o planeador de rápida, o número é calculado com base em todos os discos VM de origem e os dados diários de taxa de alteração. Para o planeamento detalhado, o número é calculado com base no número total de VMs que são mapeados para VMs do Azure premium (séries DS e GS) e os dados alterados taxa nessas VMS.
+   * **Número de servidores de configuração necessários**: Mostra o número de servidores de configuração é necessário para a implementação.
+   * **Número de servidores de processos adicionais necessários**: Mostra se os servidores de processos adicionais são necessários, além do servidor de processos que está em execução no servidor de configuração por predefinição.
+   * **100% armazenamento adicional na origem**: Mostra se o armazenamento adicional é necessária no local de origem.
 
       ![Saída](./media/site-recovery-capacity-planner/output.png)
 

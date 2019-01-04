@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036807"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602193"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de registos do Azure com o registo de diagnósticos do Azure e o reencaminhamento de eventos do Windows
 
@@ -151,7 +151,7 @@ Depois de concluir a configuração básica, está pronto para executar etapas p
 Neste passo, irá configurar a máquina que executa o serviço de integração de registos do Azure para ligar à conta de armazenamento que contém os ficheiros de registo.
 
 Para concluir este passo, precisa de algumas coisas:  
-* **FriendlyNameForSource**: um nome amigável que pode aplicar à conta de armazenamento que configurou para a máquina virtual armazenar informações de diagnóstico do Azure.
+* **FriendlyNameForSource**: Um nome amigável que pode aplicar à conta de armazenamento que configurou para a máquina virtual armazenar informações de diagnóstico do Azure.
 * **StorageAccountName**: O nome da conta de armazenamento que especificou quando configurou o diagnóstico do Azure.  
 * **StorageKey**: A chave de armazenamento para a conta de armazenamento onde as informações de diagnóstico do Azure são armazenadas para esta máquina virtual.  
 
@@ -198,7 +198,7 @@ O vídeo seguinte aborda os passos anteriores:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Se os dados não estão a aparecer na pasta eventos reencaminhados
 Se os dados não estão a aparecer na pasta eventos reencaminhados após uma hora, conclua estes passos:
 
-1. Verifique a máquina que está a executar o serviço de integração de registos do Azure. Certifique-se que ele pode aceder ao Azure. Para testar a conectividade, num browser, experimente ir para o [portal do Azure](http://portal.azure.com).
+1. Verifique a máquina que está a executar o serviço de integração de registos do Azure. Certifique-se que ele pode aceder ao Azure. Para testar a conectividade, num browser, experimente ir para o [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que a conta de utilizador Azlog tem permissão de escrita para a pasta users\Azlog.
   1. Abra o Explorador de Ficheiros.
   2. Vá para c:\Users.
@@ -243,7 +243,7 @@ Também pode abrir um [pedido de suporte](../azure-supportability/how-to-create-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a integração de registo do Azure, veja os artigos seguintes: antes de tentar os passos neste artigo, tem de rever o artigo de introdução de Get e conclua os passos aqui.
+Para saber mais sobre a integração de registo do Azure, veja os artigos seguintes: Antes de tentar os passos neste artigo, tem de rever o artigo de introdução de Get e conclua os passos aqui.
 
 * [Integração de registos do Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324). O Centro de Download inclui detalhes e instruções de instalação para o Azure Log Integration requisitos do sistema.
 * [Introdução à integração de registos do Azure](security-azure-log-integration-overview.md). Este artigo apresenta o Azure Log Integration, suas principais capacidades e como ele funciona.

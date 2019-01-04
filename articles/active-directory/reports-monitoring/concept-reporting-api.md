@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c85ee23f433e7b14278d8cc0ca3bff3e1ab4b94
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624629"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752576"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory reporting API
 
@@ -48,6 +48,11 @@ Para obter instruções detalhadas, consulte a [pré-requisitos para aceder ao A
 
 O ponto final de API do Microsoft Graph para registos de auditoria está `https://graph.microsoft.com/beta/auditLogs/directoryAudits` e o ponto de final de API do Microsoft Graph para inícios de sessão é `https://graph.microsoft.com/beta/auditLogs/signIns`. Para obter mais informações, consulte a [referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) e [início de sessão referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
+Além disso, pode utilizar o [eventos de risco do Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático aos deteções de segurança com o Microsoft Graph. Para obter mais informações, consulte [introdução ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+
+> [!NOTE]
+>  O **https:\/\/graph.windows.net\/\<nome do inquilino\>\/relatórios\/**  ponto final foi preterido. Utilize a nova API de pontos de extremidade descrito acima para acessar programaticamente os relatórios de atividade e segurança.
+  
 ## <a name="apis-with-graph-explorer"></a>APIs com API do Graph
 
 Pode utilizar o [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) para verificar seu início de sessão e dados da API de auditoria. Certifique-se de iniciar sessão na sua conta com ambos os botões de início de sessão na IU do Explorador do gráfico e defina **AuditLog.Read.All** e **Directory.Read.All** permissões para o seu inquilino, conforme mostrado.   

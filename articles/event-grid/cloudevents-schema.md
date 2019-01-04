@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287205"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755092"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
@@ -21,7 +21,7 @@ Além seu [esquema de eventos padrão](event-schema.md), Azure Event Grid os eve
 
 CloudEvents simplifica a interoperabilidade, fornecendo um esquema de evento comum para publicação e utilizam a nuvem com base em eventos. Esse esquema permite ferramentas uniforme, formas de roteamento e processamento de eventos e universais formas de anular a serialização do esquema de eventos externo. Com um esquema comum, pode integrar mais facilmente o trabalho entre plataformas.
 
-CloudEvents está a ser a compilação por várias [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através do [Foundation computação nativa da Cloud](https://www.cncf.io/). Está atualmente disponível como versão 0,1.
+CloudEvents está sendo criado por várias [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através do [Foundation computação nativa da Cloud](https://www.cncf.io/). Está atualmente disponível como versão 0,1.
 
 Este artigo descreve como utilizar o esquema do CloudEvents com o Event Grid.
 

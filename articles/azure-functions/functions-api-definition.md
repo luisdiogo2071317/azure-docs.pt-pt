@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999928"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606219"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados de OpenAPI 2.0 nas funções do Azure (pré-visualização)
 O OpenAPI 2.0 (anteriormente Swagger) suporte a metadados nas funções do Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição de OpenAPI 2.0 dentro de uma aplicação de funções. Em seguida, pode alojar esse ficheiro com a aplicação de função.
@@ -23,7 +23,7 @@ O OpenAPI 2.0 (anteriormente Swagger) suporte a metadados nas funções do Azure
 > [!IMPORTANT]
 > A funcionalidade de pré-visualização do OpenAPI está disponível atualmente apenas no runtime 1.x. [Pode encontrar aqui](./functions-versions.md#creating-1x-apps) informações sobre como criar uma aplicação de funções 1.x.
 
-[Metadados de OpenAPI](https://swagger.io/) permite que uma função que está a alojar uma API REST para serem consumidos por uma grande variedade de outros programas de software. Este software contém as ofertas da Microsoft, como o PowerApps e o [funcionalidade aplicações API do serviço de aplicações do Azure](../app-service/app-service-web-overview.md), como ferramentas de programação de terceiros [Postman](https://www.getpostman.com/docs/importing_swagger), e [muitos mais pacotes](https://swagger.io/tools/).
+[Metadados de OpenAPI](https://swagger.io/) permite que uma função que está a alojar uma API REST para serem consumidos por uma grande variedade de outros programas de software. Este software contém as ofertas da Microsoft, como o PowerApps e o [funcionalidade aplicações API do serviço de aplicações do Azure](../app-service/overview.md), como ferramentas de programação de terceiros [Postman](https://www.getpostman.com/docs/importing_swagger), e [muitos mais pacotes](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -56,8 +56,8 @@ A tabela seguinte representa as definições do portal do Azure e os dados corre
 |Swagger.json|IU do portal|Function.json|
 |:----|:-----|:-----|
 |[Anfitrião](https://swagger.io/specification/#fixed-fields-15)|**Definições da aplicação de função** > **definições do serviço de aplicações** > **descrição geral** > **URL**|*Não está presente*
-|[Caminhos](https://swagger.io/specification/#paths-object-29)|**Integre** > **métodos HTTP selecionados**|Enlaces: rota
-|[Item do caminho](https://swagger.io/specification/#path-item-object-32)|**Integre** > **modelo de rota**|Enlaces: métodos
+|[Caminhos](https://swagger.io/specification/#paths-object-29)|**Integre** > **métodos HTTP selecionados**|Ligações: Encaminhar
+|[Item do caminho](https://swagger.io/specification/#path-item-object-32)|**Integre** > **modelo de rota**|Ligações: Métodos
 |[Segurança](https://swagger.io/specification/#security-scheme-object-112)|**chaves**|*Não está presente*|
 |operationID *|**Rota + verbos permitidos**|Rota + verbos permitidos|
 

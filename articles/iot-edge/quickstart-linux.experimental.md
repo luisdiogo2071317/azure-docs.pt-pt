@@ -4,17 +4,17 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: dc9ad544bb974dded098a27855ff5f6b9885d879
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556582"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973507"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64
 
@@ -55,11 +55,13 @@ Recursos da cloud:
 
 Dispositivo IoT Edge
 
-* Um dispositivo ou máquina virtual do Linux que funcione como o seu dispositivo IoT Edge. É recomendado para utilizar o Microsoft fornecido [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) máquina virtual, que será pré-instalar o runtime do IoT Edge. Crie esta máquina virtual com o seguinte comando:
+* Um dispositivo ou máquina virtual do Linux que funcione como o seu dispositivo IoT Edge. É recomendado para utilizar o Microsoft fornecido [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) máquina virtual, que preinstalls tudo o que precisa para executar o IoT Edge num dispositivo. Crie esta máquina virtual com o seguinte comando:
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   Pode demorar alguns minutos para criar e iniciar a nova máquina virtual. 
 
    Quando cria uma nova máquina virtual, anote o **publicIpAddress**, que é fornecido como parte da saída do comando de criar. Utilizará este endereço IP público para ligar à máquina virtual mais tarde no início rápido.
 
@@ -86,9 +88,10 @@ O código seguinte cria um hub **F1** gratuito no grupo de recursos **IoTEdgeRes
 ## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
 
 Registe um dispositivo do IoT Edge no seu hub IoT recentemente criado.
+
 ![Diagrama - Registre-se um dispositivo com uma identidade do IoT Hub](./media/quickstart-linux/register-device.png)
 
-Crie uma identidade de dispositivo para o seu dispositivo simulado para que este consiga comunicar com o seu hub IoT. A identidade do dispositivo reside na cloud e verá uma cadeia de ligação do dispositivo única para associar um dispositivo físico a uma identidade do dispositivo. 
+Crie uma identidade de dispositivo para o seu dispositivo IoT Edge, de modo a que este possa comunicar com o seu hub IoT. A identidade do dispositivo reside na cloud e verá uma cadeia de ligação do dispositivo única para associar um dispositivo físico a uma identidade do dispositivo. 
 
 Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de forma diferente do que os dispositivos de IoT típicos, declarar esta identidade para um dispositivo IoT Edge com o `--edge-enabled` sinalizador. 
 
@@ -110,9 +113,10 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
 
    ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
-## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Ligar o dispositivo do IoT Edge ao IoT Hub
+## <a name="configure-your-iot-edge-device"></a>Configurar o seu dispositivo IoT Edge
 
-Instalar e iniciar o runtime do Azure IoT Edge no seu dispositivo IoT Edge. 
+Inicie o tempo de execução do Azure IoT Edge no seu dispositivo IoT Edge. 
+
 ![Diagrama - início o tempo de execução no dispositivo](./media/quickstart-linux/start-runtime.png)
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge arranca e arranca o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT. 
@@ -121,30 +125,26 @@ Durante a configuração do runtime, apresenta a cadeia de ligação do disposit
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Definir a cadeia de ligação no dispositivo IoT Edge
 
-* Se estiver a utilizar o Azure IoT Edge na máquina virtual do Ubuntu, utilize a cadeia de ligação do dispositivo que copiou anteriormente para configurar remotamente o seu dispositivo IoT Edge:
+Se estiver a utilizar o Azure IoT Edge na máquina virtual do Ubuntu que foi recomendada nos pré-requisitos, em seguida, o dispositivo já tem o runtime do IoT Edge instalado. Terá de configurar o seu dispositivo com a cadeia de ligação do dispositivo que obteve na secção anterior. Pode fazer isso remotamente sem ter de se ligar à máquina virtual. Execute o seguinte comando, substituindo **{device_connection_string}** com sua própria cadeia de caracteres. 
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-   Para obter os passos restantes, obter o endereço IP público que estava a saída do comando de criação. Também pode encontrar o endereço IP público na página de descrição geral da sua máquina virtual no portal do Azure. Utilize o seguinte comando para ligar à máquina virtual. Substitua **{publicIpAddress}** com o endereço da sua máquina. 
+Se estiver a executar o IoT Edge no seu computador local ou um dispositivo de ARM32, terá de instalar o runtime do IoT Edge e seus pré-requisitos no seu dispositivo. Siga as instruções em [instalar o runtime do Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md) ou [runtime de instalar o Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md), em seguida, volte neste início rápido. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
+
+O restante dos comandos neste guia de introdução ocorrem no seu dispositivo IoT Edge em si, para que pode ver o que está acontecendo no dispositivo. Se estiver a utilizar uma máquina virtual, ligue-se para essa máquina agora usando o endereço IP público que estava a saída do comando de criação. Também pode encontrar o endereço IP público na página de descrição geral da sua máquina virtual no portal do Azure. Utilize o seguinte comando para ligar à máquina virtual. Substitua **{azureuser}** se utilizou um nome de utilizador diferente daquela sugerido nos pré-requisitos. Substitua **{publicIpAddress}** com o endereço da sua máquina. 
 
    ```azurecli-interactive
    ssh azureuser@{publicIpAddress}
    ```
 
-* Se estiver a executar o IoT Edge no seu computador local ou um dispositivo de ARM32, abra o ficheiro de configuração localizado em /etc/iotedge/config.yaml e atualize o **device_connection_string** variável com o valor que copiou anteriormente, em seguida, reiniciar o daemon de segurança de IoT Edge para aplicar as alterações:
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
+Certifique-se de que o tempo de execução foi corretamente instalado e configurado no seu dispositivo IoT Edge. 
 
 >[!TIP]
 >Precisa de privilégios elevados para executar os comandos `iotedge`. Depois de terminar sessão do seu computador e iniciar sessão novamente pela primeira vez depois de instalar o runtime do IoT Edge, as suas permissões são atualizadas automaticamente. Até lá, utilize o **sudo** à frente dos comandos. 
-
-### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
-
-Verifique se o runtime foi instalado e configurado corretamente.
 
 1. Verifique se o Daemon de Segurança do Edge está em execução como serviço de sistema.
 
@@ -189,15 +189,18 @@ Abra a linha de comandos no seu dispositivo IoT Edge novamente ou utilize a liga
 
    ![Ver três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
-Veja as mensagens que estão a ser enviadas do módulo tempSensor:
+Ver as mensagens sendo enviadas pelo módulo do sensor de temperatura:
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![Ver os dados a partir do seu módulo](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >Comandos do IoT Edge diferenciam maiúsculas de minúsculas quando nos Referimos a nomes de módulos.
 
-O módulo do sensor de temperatura poderá estar a aguardar pela ligação ao Hub do Edge se a última linha vista no registo for `Using transport Mqtt_Tcp_Only`. Experimente terminar o módulo e permitir que o Agente do Edge o reinicie. Pode terminá-lo com o comando `sudo docker stop tempSensor`.
+   ![Ver os dados a partir do seu módulo](./media/quickstart-linux/iotedge-logs.png)
+
+O módulo do sensor de temperatura pode estar esperando para ligar ao Hub do Edge se a última linha vir no registo de for **usando o transporte Mqtt_Tcp_Only**. Tente parar o módulo e permitindo que o agente do Edge reiniciá-lo. Pode impedi-lo com o comando `sudo docker stop SimulatedTemperatureSensor`.
 
 Também pode ver as mensagens de chegar ao seu hub IoT utilizando o [extensão de Kit de ferramentas do Azure IoT Hub para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como extensão do Kit de ferramentas do Azure IoT). 
 
@@ -231,10 +234,10 @@ Quando o runtime do IoT Edge é removido, os contentores que ele criou são para
    sudo docker ps -a
    ```
 
-Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. Altere o nome do contentor tempSensor, se o tiver chamado de outra forma. 
+Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

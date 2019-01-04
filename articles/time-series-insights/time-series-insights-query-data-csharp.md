@@ -1,5 +1,5 @@
 ---
-title: O Azure Time Series Insights C# consulta - dados de consulta de um ambiente do Azure Time Series Insights com C# código | Documentos da Microsoft
+title: Consultar dados a partir de um ambiente do Azure Time Series Insights com o código c# | Documentos da Microsoft
 description: Este artigo descreve como consultar dados a partir de um ambiente do Azure Time Series Insights codificando uma aplicação personalizada escrita na linguagem c# (C-sharp) .NET.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 82a3d4527d241aba80eb471508c99c7781dd4a41
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 07d1b7f801639ca6b4e314f13fbf564c0d525345
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277954"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555358"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Consultar dados do ambiente do Azure Time Series Insights utilizando c#
 

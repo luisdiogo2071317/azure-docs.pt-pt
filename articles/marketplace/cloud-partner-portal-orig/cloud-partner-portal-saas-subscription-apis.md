@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212969"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790338"
 ---
 <a name="saas-sell-through-azure---apis"></a>Venda de SaaS através do Azure - APIs
 ==============================
@@ -62,13 +62,13 @@ Para registar uma nova aplicação com o portal do Azure, execute os seguintes p
     ![Registos de aplicações do AD de SaaS](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
 4.  Na página de criar, introduza o seu aplicativo\'informações de registo de s:
-    -   **Nome**: introduza um nome de aplicação com significado
+    -   **Nome**: Introduza um nome de aplicação com significado
     -   **Tipo de aplicação**: 
         - Selecione **Nativa** para [aplicações cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
         - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         A mesma aplicação também pode expor um cliente e um recurso/API.
-    -   **URL de início de sessão**: aplicativos de aplicação/API para a Web, indique o URL base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
-    -   **URI de redirecionamento**: aplicações para o nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
+    -   **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
+    -   **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
 
         ![Registos de aplicações do AD de SaaS](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) para obter exemplos específicos de aplicações web ou aplicações nativas, veja o guia de introdução orientada instalações que estão disponíveis na secção introdução do [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -136,7 +136,7 @@ Token de resposta de exemplo:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ Ação de publicação em resolver o ponto final permite aos utilizadores resolv
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | tipo de conteúdo       | Sim          | `application/json`                                        |
 | Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
-| x-ms-marketplace-token| Sim| O parâmetro de consulta token no URL quando o utilizador é redirecionado para o Web site de ISVS SaaS do Azure. **Nota:** URL descodificar o valor do token do navegador antes de o utilizar.|
+| x-ms-marketplace-token| Sim| O parâmetro de consulta token no URL quando o utilizador é redirecionado para o Web site de ISVS SaaS do Azure. **Nota:** Este token só é válido durante uma hora. Além disso, o URL descodificar o valor do token do navegador antes de o utilizar.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ Ação de publicação em resolver o ponto final permite aos utilizadores resolv
 | **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token está a ser resolvido com êxito.                                                            |
-| 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido especificado. Falha ao resolver o token, porque o token de qualquer um dos está incorretamente formulados ou expirados. |
+| 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido especificado. Falha ao resolver o token, porque o token de qualquer um dos está incorretamente formulados ou expirados (o token só é válido durante uma hora depois de gerada). |
 | 403                  | `Forbidden`          | O chamador não está autorizado a efetuar esta operação.                                 |
 | 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, tente novamente mais tarde.                                |
 | 503                  | `ServiceUnavailable` | Serviço para baixo temporariamente, tente novamente mais tarde.                                        |
@@ -513,7 +513,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 | offerId                | Cadeia        | ID de oferta que o utilizador inscrito.         |
 | planId                 | Cadeia        | ID do plano nos quais o utilizador inscrito.          |
 | saasSubscriptionName   | Cadeia        | Nome da subscrição SaaS.                |
-| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador crie o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Anulou a subscrição o utilizador.   <br/> - `Suspended`: O utilizador foi suspenso a subscrição.   <br/> - `Deactivated`: Subscrição o azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador criar o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Utilizador anulou a subscrição.   <br/> - `Suspended`: Utilizador tem de suspender a subscrição.   <br/> - `Deactivated`:  Subscrição do Azure está suspensa.  |
 | criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
 | lastModified           | DateTime      | Subscrição alterar timestamp valor em UTC. |
 |  |  |  |
@@ -587,7 +587,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 | offerId                | Cadeia        | ID de oferta que o utilizador inscrito.         |
 | planId                 | Cadeia        | ID do plano nos quais o utilizador inscrito.          |
 | saasSubscriptionName   | Cadeia        | Nome da subscrição SaaS.                |
-| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador crie o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Anulou a subscrição o utilizador.   <br/> - `Suspended`: O utilizador foi suspenso a subscrição.   <br/> - `Deactivated`: Subscrição o azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador criar o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Utilizador anulou a subscrição.   <br/> - `Suspended`: Utilizador tem de suspender a subscrição.   <br/> - `Deactivated`:  Subscrição do Azure está suspensa.  |
 | criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
 | lastModified           | DateTime      | Subscrição alterar timestamp valor em UTC. |
 |  |  |  |
@@ -612,4 +612,36 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 | x-ms-correlationid | Sim          | ID de correlação se transmitido pelo cliente, caso contrário, isso é o ID de correlação de servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations. |
 | Retry-After        | Não           | Intervalo com o cliente pode verificar o estado.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>Webhook de SaaS
+
+Um webhook de SaaS é utilizado para a notificação de alterações de forma pró-ativa para o serviço SaaS. Esta API de publicação é esperado que seja não autenticadas e será chamada pelo serviço da Microsoft. O serviço de SaaS é esperado para chamar as operações de API para validar e autorizar antes de efetuar a ação de notificação de webhook. 
+
+
+*Corpo*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
+|------------------------|---------------|-----------------------------------------------|
+| ID  | Cadeia       | ID exclusivo para a operação acionada.                |
+| ActivityId   | Cadeia        | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations.               |
+| subscriptionId                     | Cadeia        | Recursos de subscrição de ID de SaaS no Azure.    |
+| offerId                | Cadeia        | ID de oferta que o utilizador inscrito. É fornecido apenas com a ação "Update".        |
+| publisherId                | Cadeia        | ID de publicador da oferta SaaS         |
+| planId                 | Cadeia        | ID do plano nos quais o utilizador inscrito. É fornecido apenas com a ação "Update".          |
+| action                 | Cadeia        | A ação que está disparando esta notificação. Valores possíveis - ativar, eliminar, atualização de suspensão, o restabelecimento,          |
+| timeStamp                 | Cadeia        | Valor de TImestamp em UTC em que esta notificação foi acionada.          |
 |  |  |  |

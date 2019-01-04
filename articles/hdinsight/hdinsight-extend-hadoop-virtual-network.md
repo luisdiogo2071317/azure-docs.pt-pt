@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497774"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725971"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -27,10 +27,10 @@ Saiba como utilizar o HDInsight com um [rede Virtual do Azure](../virtual-networ
 
 * Acesse diretamente [Apache Hadoop](https://hadoop.apache.org/) serviços que não estão disponíveis publicamente na Internet. Por exemplo, [Apache Kafka](https://kafka.apache.org/) APIs ou o [Apache HBase](https://hbase.apache.org/) API de Java.
 
-> [!WARNING]
+> [!WARNING]  
 > As informações neste documento requerem uma compreensão das redes de TCP/IP. Se não estiver familiarizado com a rede de TCP/IP, deve de parceiros com alguém que é antes de efetuar as modificações a redes de produção.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se estiver procurando por orientações passo a passo sobre como ligar o HDInsight para o seu local de rede com uma rede Virtual do Azure, consulte a [ligar o HDInsight à sua rede no local](connect-on-premises-network.md) documento.
 
 ## <a name="planning"></a>Planeamento
@@ -53,7 +53,7 @@ Seguem-se as perguntas que tem de responder quando planear instalar HDInsight nu
 
 Utilize os passos nesta secção para saber como adicionar um novo HDInsight para uma rede Virtual do Azure existente.
 
-> [!NOTE]
+> [!NOTE]  
 > Não é possível adicionar um cluster do HDInsight existente numa rede virtual.
 
 1. Está a utilizar um clássico ou modelo de implementação do Resource Manager para a rede virtual?
@@ -88,7 +88,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
 
         Para obter mais informações, consulte a [resolver problemas dos grupos de segurança de rede](../virtual-network/diagnose-network-traffic-filter-problem.md) documento.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Regras do grupo de segurança de rede são aplicadas por ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada, e não existem outros são aplicados para que o tráfego. Regras de ordem do mais permissivo ao menos permissiva. Para obter mais informações, consulte a [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
     * Rotas definidas pelo utilizador
@@ -112,7 +112,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
     * [Criar o HDInsight com a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Criar o HDInsight com um modelo Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > A adição de HDInsight a uma rede virtual é um passo de configuração opcional. Certifique-se de que selecione a rede virtual, quando configurar o cluster.
 
 ## <a id="multinet"></a>Ligar a várias redes
@@ -132,7 +132,7 @@ O Azure fornece resolução de nomes para os serviços do Azure que estão insta
 
 A resolução de nomes padrão faz __não__ permitir que o HDInsight resolver os nomes de recursos em redes que estão associados à rede virtual. Por exemplo, é comum para associar a sua rede no local para a rede virtual. Com apenas a resolução de nome predefinido, HDInsight não é possível aceder a recursos na rede no local por nome. O oposto também se aplica, recursos na sua rede no local não é possível aceder a recursos na rede virtual por nome.
 
-> [!WARNING]
+> [!WARNING]  
 > Tem de criar o servidor DNS personalizado e configurar a rede virtual para utilizá-lo antes de criar o cluster do HDInsight.
 
 Para habilitar a resolução de nome entre a rede virtual e os recursos em redes associados a um, tem de efetuar as seguintes ações:
@@ -141,7 +141,7 @@ Para habilitar a resolução de nome entre a rede virtual e os recursos em redes
 
 2. Configure a rede virtual para utilizar o servidor DNS personalizado.
 
-3. Encontre que o Azure atribuído o sufixo DNS para a rede virtual. Este valor é semelhante ao `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Para obter informações sobre como encontrar o sufixo DNS, consulte a [exemplo: DNS personalizado](#example-dns) secção.
+3. Encontre que o Azure atribuído o sufixo DNS para a rede virtual. Este valor é semelhante ao `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Para obter informações sobre como encontrar o sufixo DNS, consulte o [exemplo: DNS personalizado](#example-dns) secção.
 
 4. Configure o reencaminhamento entre os servidores DNS. A configuração depende do tipo de rede remota.
 
@@ -153,7 +153,7 @@ Para habilitar a resolução de nome entre a rede virtual e os recursos em redes
 
             * Reencaminhe todos os outros pedidos para o servidor DNS no local. O DNS no local processa todos os outros pedidos de resolução de nomes, até mesmo solicitações de recursos de internet, tais como o Microsoft.com.
 
-        * __DNS locais__: reencaminhar pedidos para o sufixo DNS de rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha para o resolvedor recursivo do Azure.
+        * __DNS locais__: Encaminhar pedidos para o sufixo DNS de rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha para o resolvedor recursivo do Azure.
 
         Este solicitações de configuração de rotas para completamente qualificado do nomes de domínio que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todos os outros pedidos (mesmo para endereços públicos da internet) são processados pelo servidor DNS no local.
 
@@ -167,7 +167,7 @@ Para habilitar a resolução de nome entre a rede virtual e os recursos em redes
 
         O servidor DNS para cada rede reencaminha os pedidos para o outro, com base no sufixo DNS. Outras solicitações são resolvidas de utilizar o resolvedor recursivo do Azure.
 
-    Para obter um exemplo de cada configuração, consulte a [exemplo: DNS personalizado](#example-dns) secção.
+    Para obter um exemplo de cada configuração, consulte o [exemplo: DNS personalizado](#example-dns) secção.
 
 Para obter mais informações, consulte a [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) documento.
 
@@ -201,7 +201,7 @@ Para ligar ao Apache Ambari e outras páginas da web através da rede virtual, u
 
     Na lista de nós devolvido, localizar o FQDN para os nós principais e utilizar os FQDNs para ligar a Ambari e outros serviços da web. Por exemplo, utilizar `http://<headnode-fqdn>:8080` para acessar o Ambari.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Alguns serviços alojados nos nós principais são apenas o Active Directory num nó de cada vez. Se tentar acessar um serviço num nó principal e retorna um erro 404, mude para o outro nó principal.
 
 2. Para determinar o nó e a porta que um serviço está disponível em, veja a [portas utilizadas pelo serviços do Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) documento.
@@ -212,7 +212,7 @@ Tráfego de rede num redes virtuais do Azure pode ser controlado através dos se
 
 * **Grupos de segurança de rede** (NSG) permitem-lhe filtrar o tráfego de entrada e saído para a rede. Para obter mais informações, consulte a [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight não suporta a restringir o tráfego de saída. Todo o tráfego de saída deve ser permitido.
 
 * **Rotas definidas pelo utilizador** (UDR) definem a forma como o tráfego flui entre os recursos na rede. Para obter mais informações, consulte a [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md) documento.
@@ -234,7 +234,7 @@ Se pretender utilizar **grupos de segurança de rede** ou **rotas definidas pelo
 3. Criar ou modificar os grupos de segurança de rede ou rotas definidas pelo utilizador para a sub-rede que planeia instalar HDInsight numa.
 
     * __Grupos de segurança de rede__: permitir __entrada__ tráfego na porta __443__ de IP endereços. Isto irá garantir que os serviços de gestão de HDI contactar o cluster de VNET fora.
-    * __Rotas definidas pelo utilizador__: Se planeia utilizar UDRs, criar uma rota para cada endereço IP e defina a __tipo de próximo salto__ para __Internet__. Também deve permitir que qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, pode encaminhar todos os outros tráfegos para sua do Azure firwall ou rede virtual da aplicação (alojada no Azure) para efeitos de monitorização, mas o tráfego de saída não deve ser bloqueado.
+    * __Rotas definidas pelo utilizador__: Se planeia utilizar UDRs, criar uma rota para cada endereço IP e definir o __tipo de próximo salto__ ao __Internet__. Também deve permitir que qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, pode encaminhar todos os outros tráfegos para sua do Azure firwall ou rede virtual da aplicação (alojada no Azure) para efeitos de monitorização, mas o tráfego de saída não deve ser bloqueado.
 
 Para obter mais informações sobre grupos de segurança de rede ou rotas definidas pelo utilizador, consulte a seguinte documentação:
 
@@ -248,7 +248,7 @@ O túnel forçado é uma configuração de encaminhamento definido pelo utilizad
 
 ## <a id="hdinsight-ip"></a> Endereços IP necessários
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os serviços de estado de funcionamento e gestão do Azure tem de ser capazes de comunicar com o HDInsight. Se utilizar rotas definidas pelo utilizador ou grupos de segurança de rede, permita o tráfego dos endereços IP destes serviços alcançar o HDInsight.
 >
 > Se não utilizar rotas definidas pelo utilizador ou grupos de segurança de rede para controlar o tráfego, pode ignorar esta secção.
@@ -266,7 +266,7 @@ Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem
 
 2. Se o seu cluster do HDInsight está das seguintes regiões, tem de permitir tráfego a partir de endereços IP listados para a região:
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Se a região do Azure que está a utilizar não estiver listada, em seguida, apenas use os quatro endereços IP do passo 1.
 
     | País | Região | Endereços IP permitidos | Porta permitida | Direção |
@@ -330,14 +330,14 @@ O modelo de gestão de recursos seguinte cria uma rede virtual que restringe o t
 
 * [Implementar uma rede Virtual protegida do Azure e um cluster de Hadoop do HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Altere os endereços IP utilizados neste exemplo, de acordo com a região do Azure que está a utilizar. Pode encontrar estas informações no [HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador](#hdinsight-ip) secção.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Utilize o seguinte script do PowerShell para criar uma rede virtual que restringe o tráfego de entrada e permita o tráfego dos endereços IP para a região Europa do Norte.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Altere os endereços IP utilizados neste exemplo, de acordo com a região do Azure que está a utilizar. Pode encontrar estas informações no [HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador](#hdinsight-ip) secção.
 
 ```powershell
@@ -435,7 +435,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $vnet | Set-AzureRmVirtualNetwork
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Este exemplo demonstra como adicionar regras para permitir o tráfego de entrada nos endereços IP necessários. Não contém uma regra para restringir o acesso de entrada de outras origens.
 >
 > O exemplo seguinte demonstra como ativar o acesso SSH da Internet:
@@ -458,7 +458,7 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
 
 2. Utilize o seguinte para adicionar regras para o novo grupo de segurança de rede que permitem a comunicação de entrada na porta 443 do serviço de estado de funcionamento e gestão do Azure HDInsight. Substitua **RESOURCEGROUPNAME** com o nome do grupo de recursos que contém a rede Virtual do Azure.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Altere os endereços IP utilizados neste exemplo, de acordo com a região do Azure que está a utilizar. Pode encontrar estas informações no [HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador](#hdinsight-ip) secção.
 
     ```azurecli
@@ -490,7 +490,7 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
 
     Assim que este comando for concluído, pode instalar HDInsight numa rede Virtual.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Estes passos apenas abrir o acesso ao serviço de estado de funcionamento e gestão de HDInsight na cloud do Azure. Qualquer outro acesso para o cluster de HDInsight a partir de fora da rede Virtual está bloqueado. Para ativar o acesso a partir de fora da rede virtual, tem de adicionar regras de grupo de segurança de rede adicionais.
 >
 > O exemplo seguinte demonstra como ativar o acesso SSH da Internet:
@@ -499,7 +499,7 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a> Exemplo: Configuração de DNS
+## <a id="example-dns"></a> Exemplo: Configuração do DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Resolução de nomes entre uma rede virtual e uma rede no local ligado
 
@@ -580,7 +580,7 @@ No servidor DNS personalizado na rede virtual:
 
 4. Adicione um reencaminhador condicional para o servidor DNS no local. Configure o reencaminhador condicional para enviar pedidos para o sufixo DNS do passo 1 para o servidor DNS personalizado.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Consulte a documentação do seu software DNS para obter informações específicas sobre como adicionar um reencaminhador condicional.
 
 Depois de concluir estes passos, pode ligar a recursos em qualquer rede através de nomes de domínio completamente qualificado (FQDN). Agora, pode instalar HDInsight numa rede virtual.

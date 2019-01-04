@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d013f2cdd9f33f55d579638386355e5cbaccb7e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878338"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714955"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor com o Azure Cosmos DB e as funções do Azure
 
@@ -29,7 +29,7 @@ O Azure Cosmos DB e as funções do Azure permitem-lhe integrar as suas aplicaç
 * Ligar uma função a um contentor do Azure Cosmos DB com um **enlace de saída**. Enlaces de saída escrever dados para um contentor quando uma função é concluída.
 
 > [!NOTE]
-> Atualmente, o acionador do Azure Cosmos DB, enlaces de entrada e ligações de saída são suportadas para utilização com a API de SQL apenas. Para todas as outras APIs do Azure Cosmos DB, deve acessar a base de dados a partir da sua função com o cliente de estático para a sua API, incluindo a API do MongoDB, API de Cassandra, Gremlin API e API de tabela.
+> Atualmente, o acionador do Azure Cosmos DB, enlaces de entrada e ligações de saída são suportadas para utilização com a API de SQL apenas. Para todas as outras APIs do Azure Cosmos DB, deve acessar a base de dados a partir da sua função com o cliente de estático para a sua API.
 
 
 O diagrama seguinte ilustra cada uma destas três integrações: 
@@ -49,7 +49,7 @@ Os casos de utilização seguintes demonstram algumas maneiras que pode fazer o 
 
 Implementações do IoT, pode invocar uma função quando a luz de mecanismo de verificação é apresentada em carros ligados.
 
-**Implementação:** utilizar um acionador do Azure Cosmos DB e um enlace de saída
+**Implementação:** Utilizar um acionador do Azure Cosmos DB e um enlace de saída
 
 1. Uma **acionador do Azure Cosmos DB** é utilizado para acionar eventos relacionados com alertas de carro, por exemplo, a luz de mecanismo de verificação chegando carros ligados.
 2. Diz respeito a luz de mecanismo de verificação, os dados de sensor são enviados para o Azure Cosmos DB.
@@ -67,7 +67,7 @@ A imagem seguinte mostra o código escrito no portal do Azure para este acionado
 
 Em implementações financeiras, é possível invocar uma função quando atingir um saldo de conta bancária num determinado período.
 
-**Implementação:** enlace de entrada de um acionador de temporizador com um Azure Cosmos DB
+**Implementação:** Um acionador de temporizador com um enlace de entrada do Azure Cosmos DB
 
 1. Utilizar um [acionador de temporizador](../azure-functions/functions-bindings-timer.md), pode obter as informações de saldo de conta bancária armazenadas num contentor do Azure Cosmos DB de intervalos de tempo com um **enlace de entrada**.
 2. Se o saldo for inferior ao limiar de saldo baixo definido pelo utilizador, em seguida, acompanhe os uma ação da função do Azure.
@@ -83,7 +83,7 @@ As seguintes imagens mostram o código no portal do Azure para este cenário.
 
 Em jogos, quando é criado um novo utilizador pode procurar outros utilizadores que podem conhecê-los utilizando o [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, pode escrever os resultados para um [Azure Cosmos DB SQL da base de dados] para fácil obtenção.
 
-**Implementação:** utilizar um acionador do Azure Cosmos DB e um enlace de saída
+**Implementação:** Utilizar um acionador do Azure Cosmos DB e um enlace de saída
 
 1. Utilizar o Azure Cosmos DB [base de dados do gráfico](graph-introduction.md) para armazenar todos os utilizadores, pode criar uma nova função com um acionador do Azure Cosmos DB. 
 2. Sempre que um novo utilizador é inserido, a função é invocada e, em seguida, o resultado é armazenado com uma **enlace de saída**.
@@ -94,7 +94,7 @@ Em jogos, quando é criado um novo utilizador pode procurar outros utilizadores 
 
 Em implementações de varejo, quando um utilizador adiciona um item para seus cesto agora tem a flexibilidade para criar e invocar funções para componentes de pipeline de negócios opcional.
 
-**Implementação:** escuta para um contentor de acionadores de vários Azure Cosmos DB
+**Implementação:** Múltiplos acionadores do Azure Cosmos DB a escuta de um contentor
 
 1. Pode criar várias funções do Azure ao adicionar acionadores do Azure Cosmos DB a cada - todos os quais escutam ao mesmo alterar feed de dados do carrinho de compras. Tenha em atenção que, quando várias funções de ouvem o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre as coleções de concessão, consulte [Noções básicas sobre a biblioteca processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado a um carrinho de compras de utilizadores, cada função de forma independente é invocada pela mudança de feed o contêiner de carrinho de compras.
@@ -122,7 +122,7 @@ As funções do Azure fornece a capacidade de criar unidades escalonáveis de tr
 
 O Azure Cosmos DB é a base de dados recomendada para a sua arquitetura de computação sem servidor pelos seguintes motivos:
 
-* **Acesso imediato a todos os seus dados**: tem acesso granular a cada valor armazenado porque do Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por predefinição e disponibiliza imediatamente desses índices. Isso significa que pode constantemente a consultar, atualizar e a adicionar novos itens à sua base de dados e ter acesso instantâneo através das funções do Azure.
+* **Acesso imediato a todos os seus dados**: Tem acesso granular a cada valor armazenado porque do Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por predefinição e disponibiliza imediatamente desses índices. Isso significa que pode constantemente a consultar, atualizar e a adicionar novos itens à sua base de dados e ter acesso instantâneo através das funções do Azure.
 
 * **Sem esquemas**. O Azure Cosmos DB é sem esquemas - é exclusivamente capaz de lidar com qualquer saída de dados de uma função do Azure. Essa abordagem de "lidar com qualquer coisa" torna simples para criar uma variedade de funções que toda a saída para o Azure Cosmos DB.
 

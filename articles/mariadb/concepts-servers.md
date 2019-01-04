@@ -3,17 +3,15 @@ title: Conceitos de servidor na base de dados do Azure para MariaDB
 description: Este tópico fornece considerações e diretrizes para trabalhar com a base de dados do Azure para MariaDB servidores.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247776"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544571"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor na base de dados do Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com a base de dados do Azure para MariaDB servidores.
@@ -33,7 +31,7 @@ Uma base de dados do Azure para MariaDB server:
 - Fornece o âmbito para políticas de gestão que se aplicam às respetivas bases de dados: início de sessão, firewall, os utilizadores, funções, configurações, etc.
 - Está disponível na versão do motor MariaDB 10.2. Para obter mais informações, consulte [suportado base de dados para as versões de base de dados de MariaDB](./concepts-supported-versions.md).
 
-Dentro de uma base de dados do Azure para MariaDB server, pode criar uma ou várias bases de dados. Pode optar por criar uma base de dados por servidor para utilizar todos os recursos ou para criar várias bases de dados partilham os recursos. O preço é estruturado por servidor, com base na configuração do armazenamento (GB), vCores e escalão de preço. Para obter mais informações, consulte [escalões de preço](./concepts-pricing-tiers.md).
+Dentro de um Azure Database for MariaDB Server, pode criar uma ou múltiplas bases de dados. Pode optar por criar uma base de dados por servidor para utilizar todos os recursos ou para criar várias bases de dados partilham os recursos. O preço é estruturado por servidor, com base na configuração do armazenamento (GB), vCores e escalão de preço. Para obter mais informações, consulte [escalões de preço](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Como posso proteger uma base de dados do Azure para MariaDB server?
 

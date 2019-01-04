@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083416"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650846"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criar filtros com o API de REST dos serviços de multimédia
 
@@ -31,12 +31,13 @@ Este tópico mostra como definir um filtro para ver um vídeo num recurso a pedi
 Para concluir os passos descritos neste tópico, tem de:
 
 - Revisão [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
-- [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
 - [Configurar o Postman para chamar a API de REST de serviços de multimédia do Azure](media-rest-apis-with-postman.md).
+
+    Lembre-se de que siga o último passo no tópico [obter do Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 
-Segue-se a **corpo do pedido** exemplo que define as condições de seleção de controle que são adicionadas ao manifesto. Este filtro inclui qualquer faixas de áudio que estão em inglês, com EC 3 e nenhum Roteiro de vídeo com velocidade de transmissão no 0-1000000 intervalo.
+Segue-se a **corpo do pedido** exemplo que define as condições de seleção de controle que são adicionadas ao manifesto. Este filtro inclui qualquer faixas de áudio são EC 3 e nenhum Roteiro de vídeo com velocidade de transmissão no 0-1000000 intervalo.
 
 ```json
 {
@@ -50,14 +51,9 @@ Segue-se a **corpo do pedido** exemplo que define as condições de seleção de
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ Coleção do Postman que transferiu, selecione **filtros de conta**->**criar ou 
 
 O **colocar** método de pedido HTTP é semelhante a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Selecione o **corpo** separador e colar o json de código que [definidas anteriormente](#define-a-filter).
 
@@ -98,11 +96,13 @@ Para obter mais informações, consulte [criar ou atualizar](https://docs.micros
 
 ## <a name="create-asset-filters"></a>Criar filtros de elemento  
 
-No "Serviços de multimédia v3" coleção do Postman que transferiu, selecione **ativos**-> * * criar ou atualizar o filtro de elemento.
+No "Serviços de multimédia v3" coleção do Postman que transferiu, selecione **ativos**->**criar ou atualizar o filtro de elemento**.
 
 O **colocar** método de pedido HTTP é semelhante a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Selecione o **corpo** separador e colar o json de código que [definidas anteriormente](#define-a-filter).
 

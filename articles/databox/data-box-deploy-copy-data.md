@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/19/2018
 ms.author: alkohli
-ms.openlocfilehash: e5219a0ade610a41d316970aecda06d4020b37f2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546186"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790305"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -31,27 +31,28 @@ Neste tutorial, ficará a saber como:
 Antes de começar, certifique-se de que:
 
 1. Concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
-2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**.
+2. Que recebeu o Data Box e é o estado da encomenda no portal **entregues**.
 3. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
-    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
+    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, utilize uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
 
 ## <a name="connect-to-data-box"></a>Ligar ao Data Box
 
 Com base na conta de armazenamento selecionada, o Data Box cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
-- Uma partilha para uma conta de armazenamento de blobs ou premium. 
+- Uma partilha para uma conta de armazenamento de blobs ou premium.
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
 
-Considere o seguinte exemplo. 
+A tabela seguinte mostra o caminho UNC até as partilhas no seu URL de caminho Data Box e o armazenamento do Azure, onde os dados são carregados. O URL de caminho final do armazenamento do Azure pode derivar do caminho da partilha UNC.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Blobs de blocos do Azure | <li>Caminho UNC para partilhas: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Blobs de páginas do Azure  | <li>Caminho UNC para partilhas: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Ficheiros do Azure       |<li>Caminho UNC para partilhas: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-- Conta de armazenamento: *Mystoracct*
-- Partilha para o blob de bloco: *Mystoracct_BlockBlob/my-container/blob*
-- Partilha para o blob de página: *Mystoracct_PageBlob/my-container/blob*
-- Partilha de ficheiros: *Mystoracct_AzFile/my-partilhar*
-
-Se estiver a utilizar um computador anfitrião do Windows Server, execute os seguintes passos para ligar ao Data Box.
+Se utilizar um computador de anfitrião do Windows Server, siga estes passos para ligar para o Data Box.
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Aceda a **Ligar e copiar**. Clique em **Obter credenciais** para obter as credenciais de acesso para as partilhas associadas à sua conta de armazenamento. 
 
@@ -61,16 +62,16 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute os seg
     
     ![Obter credenciais de partilhas 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Aceda às partilhas associadas com a sua conta de armazenamento (Mystoracct no exemplo a seguir). Utilize o caminho `\\<IP of the device>\ShareName` para aceder às partilhas. Consoante o formato de dados, ligue às partilhas (utilize o nome da partilha) no seguinte endereço: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    Para ligar às partilhas a partir do computador anfitrião, abra uma janela de comando. Na linha de comandos, escreva:
+3. Para aceder às partilhas associadas à conta de armazenamento (*devicemanagertest1* no exemplo a seguir) a partir do seu computador anfitrião, abra uma janela de comando. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Introduza a palavra-passe da partilha quando lhe for pedido. O exemplo seguinte mostra a ligação a uma partilha através do comando anterior.
+    Os caminhos de partilha de acordo com seu formato de dados, são os seguintes:
+    - Blob de blocos do Azure- `\\10.126.76.172\devicemanagertest1_BlockBlob`
+    - BLOBs de página do Azure- `\\10.126.76.172\devicemanagertest1_PageBlob`
+    - Ficheiros do Azure- `\\10.126.76.172\devicemanagertest1_AzFile`
+    
+4. Introduza a palavra-passe da partilha quando lhe for pedido. O exemplo seguinte mostra a ligação a uma partilha através do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
@@ -78,26 +79,27 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute os seg
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. Esta ação abre o Explorador de Ficheiros. Agora deve conseguir ver as partilhas como pastas.
+4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. Ocasionalmente, as pastas podem mostrar uma cruz cinzenta. A cruz não denota uma condição de erro. As pastas são sinalizadas pela aplicação para controlar o estado.
+    Deverá ver agora as partilhas como pastas.
     
-    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
+    
+    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para o Data Box
 
-Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes da cópia de dados, certifique-se de que revê as seguintes considerações:
+Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar dados. Antes de iniciar a cópia de dados, reveja as seguintes considerações:
 
-- Certifique-se de que copia os dados para partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Se o formato de dados não corresponder à partilha apropriada (tipo de armazenamento), num passo posterior, o carregamento de dados para o Azure falhará.
--  Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box](data-box-limits.md). 
+- Certifique-se de que copia os dados para partilhas correspondentes para o formato de dados apropriados. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Se o formato de dados não corresponde ao tipo de partilha apropriadas, em seguida, num passo posterior, o carregamento de dados para o Azure irá falhar.
+-  Ao copiar dados, certifique-se de que o tamanho dos dados está em conformidade com os limites de tamanho descritos a [armazenamento do Azure e limites do Data Box](data-box-limits.md).
 - Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
-- Recomendamos que não utilize as opções SMB e NFS em simultâneo nem copie os mesmos dados para o mesmo destino final no Azure. Nesses casos, não é possível determinar o resultado final.
+- Recomendamos que não utilizar o SMB e NFS ao mesmo tempo ou copiar mesmo dados para o mesmo destino final no Azure. Nestes casos, não é possível determinar o resultado final.
+- Sempre crie uma pasta para os ficheiros que pretende copiar abaixo da partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
 
-Depois de ligar à partilha SMB, inicie uma cópia de dados. 
-
-Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
+Depois de se ligar à partilha de SMB, iniciar a cópia de dados. Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
     
     robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
@@ -109,8 +111,8 @@ Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, co
 |/r:     |Especifica o número de repetições nas cópias falhadas.         |
 |/w:     |Especifica o tempo de espera entre as repetições, em segundos.         |
 |/is     |Inclui os mesmos ficheiros.         |
-|/nfl     |Especifica que os nomes de ficheiro não se destinam a ser registados.         |
-|/ndl    |Especifica que os nomes de diretório não se destinam a ser registados.        |
+|/nfl     |Especifica que os nomes de ficheiro não tiver sessão iniciados.         |
+|/ndl    |Especifica que os nomes de diretório não tiver sessão iniciados.        |
 |/np     |Especifica que o progresso da operação de cópia (o número de ficheiros ou diretórios copiados até ao momento) não será apresentado. A apresentação do progresso reduz significativamente o desempenho.         |
 |/MT     | Utilize multithreading (são recomendados 32 ou 64 threads). Esta opção não é utilizada com ficheiros encriptados. Pode ter de separar os ficheiros encriptados e não encriptados. No entanto, uma cópia de thread único reduz significativamente o desempenho.           |
 |/fft     | Utilize para reduzir a granularidade de carimbo de data/hora para qualquer sistema de ficheiros.        |

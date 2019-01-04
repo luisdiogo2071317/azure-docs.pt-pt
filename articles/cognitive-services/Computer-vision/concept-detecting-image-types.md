@@ -1,7 +1,7 @@
 ---
 title: Detetar tipos de imagem - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a detetar tipos de imagem usando a API de imagem digitalizada.
+description: Conceitos relacionados com a funcionalidade de deteção do tipo de imagem da API de visão do computador.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342012"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583107"
 ---
-# <a name="detecting-image-types"></a>Detetar tipos de imagem
+# <a name="detecting-image-types-with-computer-vision"></a>Detetar tipos de imagem com imagem digitalizada
 
 Imagem digitalizada pode analisar o tipo de conteúdo de imagens ao indicar se uma imagem é clip-art, a probabilidade numa escala ou um desenho de linha de classificação.
 
@@ -27,7 +28,7 @@ Imagem digitalizada analisa uma imagem e classifica a probabilidade da imagem a 
 
 | Valor | Significado |
 |-------|---------|
-| 0 | Não-clip-arts |
+| 0 | Não é ClipArt |
 | 1 | Ambígua |
 | 2 | Normal – clip-arts |
 | 3 | Bom-clip-arts |
@@ -36,7 +37,7 @@ Imagem digitalizada analisa uma imagem e classifica a probabilidade da imagem a 
 
 As respostas JSON seguintes ilustra o que o de imagem digitalizada devolve quando a probabilidade das imagens de exemplo que está a ser clip-art de classificação.
 
-![Visão analisar queijo Clip-Art](./Images/cheese_clipart.png)
+![Uma imagem de arte do clip de um setor de queijo](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ As respostas JSON seguintes ilustra o que o de imagem digitalizada devolve quand
 }
 ```
 
-![Visão analisar Yard de casa](./Images/house_yard.png)
+![Uma casa azul e o front-yard](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Imagem digitalizada analisa uma imagem e retorna um valor booleano que indica se
 
 As respostas JSON seguintes ilustra o que o de imagem digitalizada devolve quando que indica se as imagens de exemplo são desenhos de linha.
 
-![Visão analisar Lion desenho](./Images/lion_drawing.png)
+![Uma imagem de desenho de linha de uma lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ As respostas JSON seguintes ilustra o que o de imagem digitalizada devolve quand
 }
 ```
 
-![Visão analisar flor](./Images/flower.png)
+![Uma flor branca com um plano de fundo verde](./Images/flower.png)
 
 ```json
 {

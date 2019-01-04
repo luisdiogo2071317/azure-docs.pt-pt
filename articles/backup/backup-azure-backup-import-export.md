@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955138"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974442"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -78,8 +78,8 @@ Esta secção descreve o fluxo de trabalho de cópia de segurança offline para 
     * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Localização de transição poderá ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifica o caminho de rede completa da localização de transição.
     * **Conta de armazenamento do Azure Resource Manager**: O nome da conta de armazenamento de tipo de Gestor de recursos de qualquer subscrição do Azure.
     * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de armazenamento do Azure em que os dados de cópia de segurança são importados antes de ser copiado para o Cofre dos serviços de recuperação.
-    * **ID de subscrição do Azure**: O ID da subscrição do Azure onde é criada a conta de armazenamento do Azure.
-    * **Nome de tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure. 
+    * **ID de subscrição do Azure**: O ID de subscrição do Azure onde é criada a conta de armazenamento do Azure.
+    * **Nome da tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure. 
   
   Fornecer as entradas no ecrã e clique em **seguinte**. Guardar fornecido *localização de transição* e o *nome da tarefa de importação do Azure*, como estas informações são necessárias para preparar os discos.
 

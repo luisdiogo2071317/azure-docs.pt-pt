@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094360"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556225"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -41,7 +41,7 @@ Os seguintes passos guiá-lo pelo processo de criação dos certificados e insta
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Um dispositivo Azure IoT Edge para configurar como um gateway. Pode utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo IoT Edge com os passos para os seguintes sistemas operativos:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [ARM32 do Linux](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,9 +60,9 @@ Instale o OpenSSL para o Windows na máquina que está a utilizar para gerar os 
    >[!NOTE]
    >Se já tiver OpenSSL instalada no seu dispositivo Windows, pode ignorar este passo, mas certifique-se de que openssl.exe está disponível na variável de ambiente do caminho.
 
-* **Mais fácil:** transferir e instalar qualquer [binários de OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, de [esse projeto no SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe a variável de ambiente PATH. 
+* **Mais fácil:** Transfira e instale qualquer [binários de OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, do [neste projeto no SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe a variável de ambiente PATH. 
    
-* **Recomendado:** transfira o código-fonte OpenSSL e crie os binários no seu computador, por si próprio ou por meio de [vcpkg](https://github.com/Microsoft/vcpkg). As instruções indicadas abaixo utilizam vcpkg para transferir o código-fonte, compilação e instalar o OpenSSL no seu computador Windows com passos simples.
+* **Recomendado:** Transferir o código-fonte OpenSSL e criar os binários no seu computador, por si próprio ou por meio [vcpkg](https://github.com/Microsoft/vcpkg). As instruções indicadas abaixo utilizam vcpkg para transferir o código-fonte, compilação e instalar o OpenSSL no seu computador Windows com passos simples.
 
    1. Navegue para um diretório onde pretende instalar vcpkg. Faremos referência a este diretório como  *\<VCPKGDIR >*. Siga as instruções para transferir e instalar [vcpkg](https://github.com/Microsoft/vcpkg).
    

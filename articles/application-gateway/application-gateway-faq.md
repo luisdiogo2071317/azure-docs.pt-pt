@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425732"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994863"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Os recursos que são atualmente suportados como parte do conjunto de back-end?
 
-Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, nomes de IPs interno, de domínio completamente qualificado (FQDN) e back-ends de multi-inquilino, como aplicações Web do Azure. Membros do conjunto de back-end de Gateway de aplicação não estão associados a um conjunto de disponibilidade. Membros dos agrupamentos de back-end podem ser em clusters, centros de dados, ou fora do Azure, desde que eles têm conectividade IP.
+Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, nomes de IPs interno, de domínio completamente qualificado (FQDN) e back-ends de multi-inquilino, como o serviço de aplicações do Azure. Membros do conjunto de back-end de Gateway de aplicação não estão associados a um conjunto de disponibilidade. Membros dos agrupamentos de back-end podem ser em clusters, centros de dados, ou fora do Azure, desde que eles têm conectividade IP.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Que regiões o serviço está disponível no?
 
@@ -88,9 +88,11 @@ Apenas um endereço IP público é suportado num gateway de aplicação.
 Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna.
 Por exemplo, se um gateway de aplicação está definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, / 29 sub-rede tamanho ou superior é necessária. Neste caso, o gateway de aplicação utiliza três endereços IP. Se tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, em seguida, / 28 sub-rede tamanho ou superior é necessário porque são necessários quatro endereços IP.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P. Pode implementar mais do que um recurso de Gateway de aplicação para uma única sub-rede? * *
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P. Pode implementar mais do que um recurso de Gateway de aplicação para uma única sub-rede?
 
 Sim, além de ter várias instâncias de uma determinada implantação de Gateway de aplicação, pode aprovisionar outro recurso de Gateway de aplicação exclusivo a uma sub-rede existente que contenha um recurso de Gateway de aplicação diferente.
+
+Misturar Standard_v2 e o padrão Gateway de aplicação na mesma sub-rede não é suportada. Além disso, se o dimensionamento automático está ativado, uma sub-rede pode ter apenas um gateway de aplicação.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Gateway de aplicação suporta cabeçalhos x-reencaminhados-para?
 
@@ -103,6 +105,8 @@ Gateway de aplicação também insere o cabeçalho X-Original-Host, que contém 
 Novas implementações de SKU de Gateway de aplicação v1 podem demorar até 20 minutos para aprovisionar. Alterações ao tamanho/contagem de instâncias não são disruptivas e o gateway permanece ativo durante este período.
 
 Implementações de v2 SKU podem demorar cerca de cinco a seis minutos a aprovisionar.
+
+O Gateway de aplicação suporta cabeçalhos x-reencaminhados-para?
 
 ## <a name="configuration"></a>Configuração
 
@@ -210,7 +214,7 @@ Sim. Pode configurar a ligação a ser drenado para alterar os membros dentro de
 
 ### <a name="what-are-application-gateway-sizes"></a>Quais são os tamanhos de gateway de aplicação?
 
-O Gateway de Aplicação é atualmente oferecido em três tamanhos: **Pequeno**, **Médio** e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+Gateway de aplicação é atualmente oferecido em três tamanhos: **Pequenas**, **médio**, e **grandes**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
 Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -316,9 +320,9 @@ WAF é monitorizada com o log de diagnóstico, obter mais informações sobre o 
 
 Não, modo de deteção apenas registos de tráfego, que é acionada uma regra de WAF.
 
-### <a name="how-do-i-customize-waf-rules"></a>Como posso personalizar regras WAF?
+### <a name="can-i-customize-waf-rules"></a>Pode personalizar regras WAF?
 
-Sim, as regras de WAF são personalizáveis, para obter mais informações sobre como pode personalizá-la consulte [grupos de regras WAF personalizar e regras](application-gateway-customize-waf-rules-portal.md)
+Sim, as regras de WAF são personalizáveis. Para obter mais informações, consulte [grupos de regras WAF personalizar e regras](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>As regras que estão atualmente disponíveis
 

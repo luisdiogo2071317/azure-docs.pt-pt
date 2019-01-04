@@ -1,22 +1,21 @@
 ---
 title: Store de consulta na base de dados do Azure para PostgreSQL
 description: Este artigo descreve a funcionalidade de Store de consulta na base de dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379166"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546917"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
-**Aplica-se a:** base de dados do Azure para PostgreSQL 9.6 e 10
+**Aplica-se a:** Base de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
 > A funcionalidade de consulta Store está em pré-visualização pública.
@@ -114,30 +113,30 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |runtime_stats_entry_id |bigint | | ID da tabela runtime_stats_entries|
 |USER_ID    |OID    |pg_authid.OID  |OID de utilizador que executou a instrução|
 |db_id  |OID    |pg_database.OID    |OID da base de dados em que a instrução foi executada|
-|query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
-|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
+|query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
+|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a esta consulta não está disponível ainda|
 |start_time |carimbo de data/hora  ||  Consultas são agregadas por buckets de tempo - o intervalo de tempo de um registo é de 15 minutos por predefinição. Esta é a hora de início correspondente para o registo de tempo para esta entrada.|
 |end_time   |carimbo de data/hora  ||  Hora de fim correspondente para o registo de tempo para esta entrada.|
-|chamadas  |bigint  || Número de vezes que a consulta executada|
-|total_time |precisão dupla   ||  Tempo de execução total da consulta, em milissegundos|
+|chamadas  |bigint  || Número de vezes que a consulta executada|
+|total_time |precisão dupla   ||  Tempo de execução total da consulta, em milissegundos|
 |min_time   |precisão dupla   ||  Tempo de execução da consulta mínimo, em milissegundos|
 |max_time   |precisão dupla   ||  Tempo de execução máxima de consulta, em milissegundos|
 |mean_time  |precisão dupla   ||  Significa que o tempo de execução da consulta, em milissegundos|
 |stddev_time|   precisão dupla    ||  Desvio-padrão do tempo de execução de consulta, em milissegundos |
-|linhas   |bigint ||  Número total de linhas obtido ou afetada pela instrução|
-|shared_blks_hit|   bigint  ||  Número total de acertos na cache de blocos partilhado pela instrução|
+|linhas   |bigint ||  Número total de linhas obtido ou afetada pela instrução|
+|shared_blks_hit|   bigint  ||  Número total de acertos na cache de blocos partilhado pela instrução|
 |shared_blks_read|  bigint  ||  Número total de blocos partilhados pela instrução de leitura|
-|shared_blks_dirtied|   bigint   || Número total de blocos partilhados dirtied pela instrução |
-|shared_blks_written|   bigint  ||  Número total de blocos partilhados escrito pela instrução|
+|shared_blks_dirtied|   bigint   || Número total de blocos partilhados dirtied pela instrução |
+|shared_blks_written|   bigint  ||  Número total de blocos partilhados escrito pela instrução|
 |local_blks_hit|    bigint ||   Número total de acertos na cache do bloco local pela instrução|
-|local_blks_read|   bigint   || Número total de blocos locais pela instrução de leitura|
-|local_blks_dirtied|    bigint  ||  Número total de blocos locais dirtied pela instrução|
-|local_blks_written|    bigint  ||  Número total de blocos locais escrito pela instrução|
-|temp_blks_read |bigint  || Número total de blocos temporários ler pela instrução|
-|temp_blks_written| bigint   || Número total de blocos temporários escrito pela instrução|
-|blk_read_time  |precisão dupla    || Total de tempo a instrução gasto blocos de leitura, em milissegundos (se track_io_timing estiver ativada, caso contrário, zero)|
-|blk_write_time |precisão dupla    || Total de tempo a instrução gasto blocos de escrita, em milissegundos (se track_io_timing estiver ativada, caso contrário, zero)|
+|local_blks_read|   bigint   || Número total de blocos locais pela instrução de leitura|
+|local_blks_dirtied|    bigint  ||  Número total de blocos locais dirtied pela instrução|
+|local_blks_written|    bigint  ||  Número total de blocos locais escrito pela instrução|
+|temp_blks_read |bigint  || Número total de blocos temporários ler pela instrução|
+|temp_blks_written| bigint   || Número total de blocos temporários escrito pela instrução|
+|blk_read_time  |precisão dupla    || Total de tempo a instrução gasto blocos de leitura, em milissegundos (se track_io_timing estiver ativada, caso contrário, zero)|
+|blk_write_time |precisão dupla    || Total de tempo a instrução gasto blocos de escrita, em milissegundos (se track_io_timing estiver ativada, caso contrário, zero)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Esta vista devolve os dados de texto de consulta no Query Store. Há uma linha para cada query_text distintos.
@@ -145,7 +144,7 @@ Esta vista devolve os dados de texto de consulta no Query Store. Há uma linha p
 |**Nome**|  **Tipo**|   **Descrição**|
 |---|---|---|
 |query_text_id  |bigint     |ID da tabela de query_texts|
-|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
+|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linha para cada ID de base de dados distintos, ID de utilizador, ID de consulta e eventos.
@@ -154,8 +153,8 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 |---|---|---|---|
 |USER_ID    |OID    |pg_authid.OID  |OID de utilizador que executou a instrução|
 |db_id  |OID    |pg_database.OID    |OID da base de dados em que a instrução foi executada|
-|query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
-|event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
+|query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
+|event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
 |event  |texto       ||O nome do evento espera se back-end está atualmente a aguardar|
 |chamadas  |Número inteiro        ||Número do mesmo evento capturado|
 
@@ -163,11 +162,11 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 ### <a name="functions"></a>Funções
 Query_store.qs_reset() retorna void
 
-`qs_reset` Elimina todas as estatísticas recolhidas até ao momento pelas Store de consulta. Esta função só pode ser executada pela função de administrador de servidor.
+`qs_reset` Elimina todas as estatísticas recolhidas até ao momento pelas Store de consulta. Esta função só pode ser executada pela função de administrador de servidor.
 
 Query_store.staging_data_reset() retorna void
 
-`staging_data_reset` Elimina todas as estatísticas recolhidas na memória pelas Query Store (ou seja, os dados na memória que não foram descarregada, mas para a base de dados). Esta função só pode ser executada pela função de administrador de servidor.
+`staging_data_reset` Elimina todas as estatísticas recolhidas na memória pelas Query Store (ou seja, os dados na memória que não foram descarregada, mas para a base de dados). Esta função só pode ser executada pela função de administrador de servidor.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se a um servidor PostgreSQL tiver o parâmetro default_transaction_read_only, Store de consulta não é possível capturar os dados.

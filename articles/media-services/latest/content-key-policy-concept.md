@@ -9,23 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/20/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141535"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742223"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
-Pode utilizar os serviços de multimédia do Azure para proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda dinamicamente encriptado com o Advanced Encryption Standard (AES-128) ou qualquer um dos sistemas de gestão (DRM) três direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados.
+Pode utilizar os serviços de multimédia do Azure para proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda dinamicamente encriptado com o Advanced Encryption Standard (AES-128) ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados.
 
-Em serviços de multimédia do Azure v3, políticas de chaves de conteúdo permitem que especifique a forma como a chave de conteúdo é entregue ao fim de clientes via o componente de entrega de chave de serviços de multimédia. Para obter mais informações, consulte [descrição geral da proteção de conteúdo](content-protection-overview.md).
+Em serviços de multimédia do Azure v3, um [política de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) permite-lhe especificar a forma como a chave de conteúdo é entregue ao fim de clientes via o componente de entrega de chave de serviços de multimédia. Para obter mais informações, consulte [descrição geral da proteção de conteúdo](content-protection-overview.md).
 
-## <a name="contentkeypolicies-definition"></a>Definição de ContentKeyPolicies
+Recomenda-se que reutilizar o mesmo ContentKeyPolicy para todos os seus recursos. ContentKeyPolicies são atualizáveis, portanto, se quiser fazer uma rotação de chaves, em seguida, pode adicionar um novo ContentKeyPolicyOption para o ContentKeyPolicy existente com uma restrição de token com as novas chaves. Em alternativa, pode atualizar a chave de verificação primária e a lista de chaves de verificação alternativo na política e a opção existente. Pode demorar até 15 minutos para os caches de entrega de chave atualizar e escolher a política atualizada.
+
+## <a name="contentkeypolicy-definition"></a>Definição de ContentKeyPolicy
 
 A tabela seguinte mostra as propriedades do ContentKeyPolicy e fornece as respetivas definições.
 
@@ -37,8 +39,8 @@ A tabela seguinte mostra as propriedades do ContentKeyPolicy e fornece as respet
 |Properties.Description |Uma descrição para a política.|
 |properties.lastModified|Data da última modificação da política|
 |Properties.Options |As opções de política de chave.|
-|properties.policyId    |O ID de política de legado.|
-|tipo   |O tipo de recurso.|
+|properties.policyId|O ID de política de legado.|
+|tipo|O tipo de recurso.|
 
 A definição completa, consulte [diretivas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -62,7 +64,7 @@ Descrição do operador:
 
 ### <a name="filteringordering"></a>Filtragem/ordenação
 
-A tabela seguinte mostra como essas opções podem ser aplicadas às propriedades StreamingPolicy: 
+A tabela seguinte mostra como essas opções podem ser aplicadas às propriedades ContentKeyPolicies: 
 
 |Nome|Filtro|Encomenda|
 |---|---|---|
@@ -70,10 +72,10 @@ A tabela seguinte mostra como essas opções podem ser aplicadas às propriedade
 |nome|Eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |Properties.created |Eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |Properties.Description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified    |Eq, ne, ge, le, gt, lt|Ascendente e descendente|
+|properties.lastModified|Eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |Properties.Options |||
-|properties.policyId    |Eq, ne||
-|tipo   |||
+|properties.policyId|Eq, ne||
+|tipo|||
 
 ### <a name="pagination"></a>Paginação
 
@@ -84,7 +86,7 @@ Paginação é suportada para cada uma das quatro ordens de classificação ativ
 
 Se uma resposta de consulta contém o número de itens, o serviço retornará um "\@OData. NextLink" propriedade para obter a próxima página de resultados. Isto pode ser utilizado para a página usando o conjunto de resultados inteiro. Não é possível configurar o tamanho da página. 
 
-Se estiver a StreamingPolicy criada ou eliminada enquanto a paginação por meio da coleção, as alterações são refletidas no resultados retornados (se essas alterações na parte da coleção que não foi transferida.) 
+Se estiver a ContentKeyPolicies criadas ou eliminadas enquanto a paginação por meio da coleção, as alterações são refletidas no resultados retornados (se essas alterações na parte da coleção que não foi transferida.) 
 
 O exemplo do c# seguinte mostra como a enumeração por meio de todos os ContentKeyPolicies na conta.
 

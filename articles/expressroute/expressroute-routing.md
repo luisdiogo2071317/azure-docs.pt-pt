@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406560"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994586"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -120,7 +120,7 @@ A troca do encaminhamento será feita através do protocolo eBGP. São estabelec
 ## <a name="autonomous-system-numbers"></a>Números de Sistema Autónomos
 A Microsoft utiliza AS 12076 para o peering público do Azure, o peering privado do Azure e o peering da Microsoft. Reservamos os ASNs do 65515 ao 65520 para utilização interna. São suportados números AS de 16 e de 32 bits.
 
-Não há requisitos quanto à simetria da transferência de dados. Os caminhos de reencaminhamento e do remetente podem atravessar pares de routers diferentes. As rotas idênticas têm de ser anunciadas nos dois lados nos vários pares de circuito que lhe pertençam. Não é necessário que a métrica das rotas seja idêntica.
+Não há requisitos quanto à simetria da transferência de dados. Os caminhos de reencaminhamento e do remetente podem atravessar pares de routers diferentes. As rotas idênticas têm de ser anunciadas nos dois lados entre vários pares de circuito que pertencem a. Não é necessário que a métrica das rotas seja idêntica.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agregação de rotas e limites de prefixo
 Suportamos até 4000 prefixos que nos sejam anunciados através do peering privado do Azure. Poderá ser aumentado até 10 000 prefixos se o suplemento premium do ExpressRoute estiver ativado. Aceitamos até 200 prefixos por sessão de BGP para o peering público do Azure e o peering da Microsoft. 
@@ -135,7 +135,7 @@ As rotas predefinidas só são permitidas em sessões do peering privado do Azur
 
  Para ativar a conectividade para outros serviços do Azure e outros serviços de infraestrutura, tem de se certificar de que implementou um dos seguintes itens:
 
-* O peering público Azure está ativado para encaminhar o tráfego para pontos finais públicos
+* Peering público do Azure está ativado para encaminhar o tráfego para pontos finais públicos.
 * Utiliza o encaminhamento definido pelo utilizador para permitir a ligação à Internet para cada sub-rede que necessite de ligação à Internet.
 
 > [!NOTE]
@@ -215,7 +215,7 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Serviços globais do Azure * | 12076:5050 |
 | Outros serviços do Office 365 Online | 12076:5100 |
 
-***Serviços globais do Azure inclui o Azure DevOps**\**
+***Serviços globais do Azure inclui o Azure DevOps**
 
 
 > [!NOTE]

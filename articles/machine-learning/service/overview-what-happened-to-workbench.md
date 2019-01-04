@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7b8cf102160a281b47419680a209c58a7ae60c9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: ff6b61874363bbc869bd509174e58640a2487f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582842"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811312"
 ---
 # <a name="whats-happening-to-machine-learning-workbench-in-azure-machine-learning-service"></a>O que acontece ao Machine Learning Workbench no serviço Azure Machine Learning?
 
@@ -68,9 +68,9 @@ Dashboard de área de trabalho do portal é suportado nos browsers Microsoft Edg
 
 Os ficheiros de preparação de dados já existentes não são portáteis na versão mais recente porque não temos Machine Learning Workbench mais. No entanto, pode continuar a preparar os seus dados de modelação.  
 
-Com conjuntos de dados mais pequenos, pode utilizar o <a href="https://aka.ms/aml-sdk" target="_blank">SDK de preparação de dados do Azure Machine Learning</a> para preparar rapidamente os seus dados antes de modelagem. 
+Com conjuntos de dados de qualquer tamanho, pode utilizar o [SDK do Azure Machine Learning Data Prep](http://aka.ms/data-prep-sdk) para preparar rapidamente os seus dados antes da modelagem, escrevendo o código de Python. 
 
-Pode utilizar esta mesma <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> para conjuntos de dados maiores. Ou utilizar o Azure Databricks para preparar a grandes conjuntos de dados. 
+Pode seguir [deste tutorial](tutorial-data-prep.md) para saber mais sobre como utilizar o SDK do Azure Machine Learning Data Prep.
 
 ## <a name="will-projects-persist"></a>Os projetos serão mantidos?
 
@@ -78,7 +78,7 @@ Não irá perder qualquer código ou trabalho. Na versão mais antiga, os projet
 
 Grande parte do conteúdo do projeto já foi no seu computador local. Então, só precisa criar um ficheiro de configuração nesse diretório e referenciá-lo em seu código para ligar à sua área de trabalho. Saiba como [migrar os projetos existentes](how-to-migrate.md#projects).
 
-Saiba como [começar a utilizar Python com o SDK principal](quickstart-get-started.md).
+Saiba como começar a utilizar [Python com o SDK principal](quickstart-create-workspace-with-python.md) ou a utilizar [portal do Azure](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>E o meu modelos registados e imagens?
  

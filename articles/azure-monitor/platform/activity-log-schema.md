@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389224"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714836"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
-O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
+O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativa
 Esta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
@@ -191,7 +191,7 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
   }
 }
 ```
-Consulte a [notificações de estado de funcionamento de serviço](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) artigo de documentação sobre os valores nas propriedades.
+Consulte a [notificações de estado de funcionamento de serviço](./../../azure-monitor/platform/service-notifications.md) artigo de documentação sobre os valores nas propriedades.
 
 ## <a name="resource-health"></a>Estado de funcionamento de recursos
 Esta categoria contém o registo de quaisquer eventos de estado de funcionamento do recurso que ocorreram aos recursos do Azure. Um exemplo do tipo de evento, que veria nesta categoria é o "Estado de funcionamento estado da Máquina Virtual foi alterado para indisponível." Eventos de estado de funcionamento de recursos podem representar um dos quatro Estados de estado de funcionamento: Disponível, indisponível, degradado e desconhecido. Além disso, os eventos de estado de funcionamento de recursos podem ser categorizados como sendo iniciado de plataforma ou utilizador.
@@ -676,5 +676,5 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [O registo de atividades do Azure para os Hubs de eventos do Stream](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](../../azure-monitor/platform/activity-logs-overview.md)
+* [O registo de atividades do Azure para os Hubs de eventos do Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae71fb9f509c39e871f4d1dfb29626be47bea4b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845493"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790984"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V para a arquitetura da recuperação após desastre do Azure
 
@@ -132,8 +132,8 @@ Após a sua infraestrutura no local novamente em funcionamento, pode efetuar a r
 
 1. Inicie uma ativação pós-falha planeada do Azure para o site no local:
     - **Minimizar o período de indisponibilidade**: Se utilizar esta opção de recuperação de Site sincroniza os dados antes da ativação pós-falha. Ele verifica a existência de blocos de dados alterados e transfere-os para o site no local, enquanto mantém a VM do Azure em execução, minimizando o tempo de inatividade. Quando especificar manualmente que a ativação pós-falha deverá ser concluída, a VM do Azure é encerrada, quaisquer alterações de final delta são copiadas e inicia a ativação pós-falha.
-    - **Transferência completa**: com esta opção, os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
-    - **Criar VM**: pode selecionar a falha de volta para a mesma VM ou a uma VM alternativa. Pode especificar que a recuperação de Site deve criar a VM, se ainda não exista.
+    - **Transferência completa**: Com esta opção os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
+    - **Criar VM**: Pode selecionar a falha de volta para a mesma VM ou a uma VM alternativa. Pode especificar que a recuperação de Site deve criar a VM, se ainda não exista.
 
 2. Depois de concluída a sincronização inicial, selecione para concluir a ativação pós-falha. Depois de terminar, pode iniciar sessão na VM no local para verificar que tudo está a funcionar conforme esperado. No portal do Azure, pode ver que as VMs do Azure foram paradas.
 3.  Em seguida, consolida a ativação pós-falha para concluir a cópia de segurança e começar a aceder à carga de trabalho da VM no local novamente.

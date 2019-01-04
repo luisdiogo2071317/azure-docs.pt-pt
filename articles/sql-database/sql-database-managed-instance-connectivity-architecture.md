@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343310"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536054"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure
 
@@ -100,7 +100,7 @@ Quando as ligações sejam iniciadas a partir de dentro da instância gerida (c�
 
 | Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
+|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |Qualquer        |Permitir |
 |health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
 
@@ -108,12 +108,15 @@ Quando as ligações sejam iniciadas a partir de dentro da instância gerida (c�
 
 | Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestão  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
+|móveis  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
 
   > [!Note]
   > Embora as regras de segurança de entrada obrigatório permitem tráfego a partir _qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 estas portas são protegidas pelo firewall interno. Isso [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como pode descobrir o endereço IP do ponto final de gestão e verifique se as regras de firewall. 
-
+  
+  > [!Note]
+  > Se estiver a utilizar replicação transacional na instância gerida e qualquer base de dados na instância gerida é utilizado como publicador ou distribuidor, porta 445 (saída de TCP) também tem de estar abertas nas regras de segurança da sub-rede para aceder à partilha de ficheiros do Azure.
+  
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral, consulte [o que é uma instância gerida](sql-database-managed-instance.md)

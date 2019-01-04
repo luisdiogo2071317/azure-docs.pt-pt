@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24776e2d14824c6d7b028a2cb9e2ba1e1aaa5c96
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342719"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789131"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -56,8 +56,9 @@ China | Leste da China, Norte da China, China North2, Leste 2 da China
 
 >[!NOTE]
 >
-> Para a região sul do Brasil, pode replicar e efetuar a ativação pós-falha para um dos seguintes: Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e e.u.a. Centro-Norte regiões.</br>
-> É importante observar que o Site Recovery só tenha ativada sul do Brasil ser utilizado como uma região de origem de onde as VMs podem ser protegidas. Não pode ser utilizado como uma região de DR de destino para qualquer uma das regiões do Azure, como o Centro-Sul. O motivo pelo qual a ser latência observado, devido à distância geográfica, que é recomendado que selecione a região de quaisquer outros América que não seja o sul do Brasil.  
+> Para a região sul do Brasil, pode replicar e efetuar a ativação pós-falha para um dos seguintes: Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e e.u.a. Centro-Norte regiões.
+>
+> É importante observar que o Site Recovery só tenha ativada sul do Brasil ser utilizado como uma região de origem de onde as VMs podem ser protegidas. Não pode ser utilizado como uma região de DR de destino para qualquer uma das regiões do Azure, como o Centro-Sul. O motivo pelo qual a ser latência observado, devido à distância geográfica, que é recomendado que selecione a região de quaisquer outros América que não seja o sul do Brasil.
 
 ## <a name="cache-storage"></a>Armazenamento em cache
 
@@ -127,10 +128,10 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 para 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.69-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>4.4.73-5-default SP3 para 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>4.4.73-5-default SP3 para 4.4.138-94.39-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.73-5-default SP3 para 4.4.126-94.22-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default<br/><br/>4.4.73-5-default SP3 para 4.4.162-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default<br/><br/>4.4.73-5-default SP3 para 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default<br/><br/>4.4.73-5-default SP3 para 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.88-default<br/><br/> SP2 4.4.21-69-default para 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default<br/><br/>4.4.73-5-default SP3 para 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replicar máquinas - armazenamento de convidado/sistema de ficheiros do Linux
 
@@ -145,7 +146,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Certifique-se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidade | Suportadas | Se ativar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade é criado automaticamente com base nas definições de região de origem. Pode modificar estas definições.
-Zonas de disponibilidade | Suportadas |  
+Zonas de disponibilidade | Suportadas |
 Benefício de utilização híbrida (HUB) | Suportadas | Se a VM de origem tem uma licença HUB ativada, uma ativação pós-falha de teste ou efetuar a ativação pós-falha VM utiliza também a licença HUB.
 Conjuntos de dimensionamento de VMs | Não suportado |
 Imagens da galeria do Azure - Microsoft publicado | Suportadas | Suportada se a VM é executado num sistema operativo suportado.
@@ -177,23 +178,23 @@ Número máximo de disco de dados | Acordo em até 64, com suporte para um taman
 Taxa de alteração de disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco de armazenamento Standard. | Se a taxa de alteração os dados média no disco é continuamente maior do que o máximo, replicação não acompanhar.<br/><br/>  No entanto, se o número máximo for excedido esporadicamente, pode acompanhar a replicação, mas pode ver pontos de recuperação um pouco atrasado.
 Disco de dados - conta de armazenamento standard | Suportadas |
 Disco de dados - conta de armazenamento premium | Suportadas | Se uma VM tem discos espalhadas em contas de armazenamento standard e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região de destino.
-Disco gerido - standard | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |  
+Disco gerido - standard | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
 Disco gerido - premium | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
 SSD Standard | Não suportado |
 Redundância | LRS e GRS são suportadas.<br/><br/> O ZRS não é suportado.
 Armazenamento de acesso esporádico e frequente | Não suportado | Discos de VM não são suportados no armazenamento de acesso esporádico e frequente
-Espaços de armazenamento | Suportadas |         
+Espaços de armazenamento | Suportadas |
 Encriptação em repouso (SSE) | Suportadas | O SSE é a predefinição nas contas de armazenamento.   
 Azure Disk Encryption (ADE) para o sistema operacional do Windows | As VMs ativadas para [encryption com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são suportados |
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
 Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
-Espaços de armazenamento direto  | Não suportado|
+Storage Spaces Direct  | Não suportado|
 Servidor de ficheiros de escalamento horizontal  | Não suportado|
 LRS | Suportadas |
 GRS | Suportadas |
 RA-GRS | Suportadas |
-ZRS | Não suportado |  
+ZRS | Não suportado |
 Armazenamento de acesso esporádico e frequente | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso esporádico e frequente
 Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que ["Permitir fidedigna serviços da Microsoft"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou esporádico) | Não | Aumento dos custos de transação substancialmente em comparação com fins gerais V1 contas de armazenamento
@@ -220,13 +221,13 @@ NIC | Número máximo suportado para um tamanho de VM do Azure específico | NIC
 Balanceador de Carga de Externo | Suportadas | Associe o Balanceador de carga pré-configurada com um script de automatização do Azure num plano de recuperação.
 Balanceador de carga interno | Suportadas | Associe o Balanceador de carga pré-configurada com um script de automatização do Azure num plano de recuperação.
 Endereço IP público | Suportadas | Associar um endereço IP público existente com a NIC. Em alternativa, crie um endereço IP público e associe-ao NIC com usando um script de automatização do Azure num plano de recuperação.
-NSG em NIC | Suportadas | Associe o NSG ao NIC com usando um script de automatização do Azure num plano de recuperação.  
+NSG em NIC | Suportadas | Associe o NSG ao NIC com usando um script de automatização do Azure num plano de recuperação.
 NSG na sub-rede | Suportadas | Associe o NSG da sub-rede a utilizar um script de automatização do Azure num plano de recuperação.
 Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tem um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, é atribuído para a VM ativação pós-falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede está reservado para a VM.<br/><br/> Também pode especificar um endereço IP fixo e uma sub-rede numa **itens replicados** > **definições** > **computação e rede**  >  **Interfaces de rede**.
 Endereço IP dinâmico | Suportadas | Se a NIC de origem tiver de endereçamento de IP dinâmico, a NIC na ativação pós-falha VM também é dinâmica por padrão.<br/><br/> Pode modificar esta para um endereço IP fixo se necessário.
 Gestor de Tráfego     | Suportadas | Pode pré-configurar o Gestor de tráfego, de modo a que o tráfego é encaminhado para o ponto final na região de origem em intervalos regulares e para o ponto final na região de destino em caso de ativação pós-falha.
 DNS do Azure | Suportadas |
-DNS Personalizado  | Suportadas |    
+DNS Personalizado  | Suportadas |
 Proxy não autenticados | Suportadas | Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)    
 Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não podem ser replicada com o Azure Site Recovery.    
 VPN site a Site no local (com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego de recuperação de Site não é encaminhado para o local. Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)  

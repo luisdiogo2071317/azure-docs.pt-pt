@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193914"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976023"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança do StorSimple
 
@@ -121,7 +121,7 @@ Para obter mais informações sobre o StorSimple Snapshot Manager, aceda a [o qu
 Recomendamos que utilize as seguintes diretrizes para ajudar a garantir que as palavras-passe do StorSimple são fortes e bem protegida:
 
 * Altere as palavras-passe a cada três meses. Alterar as palavras-passe é imposta anualmente.
-* Utilize palavras-passe seguras. Para obter mais informações, aceda a [criar palavras-passe mais fortes e protegê-los](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Utilize palavras-passe seguras. Para obter mais informações, aceda a [criar palavras-passe mais fortes e protegê-los](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Sempre utilizem senhas diferentes para mecanismos de acesso diferentes; cada uma das palavras-passe que especificar deve ser exclusiva.
 * Não partilhe as palavras-passe com qualquer pessoa que não está autorizado a aceder ao dispositivo StorSimple.
 * Não falar sobre uma palavra-passe à frente de outras pessoas ou sugestão em conta o formato de uma palavra-passe.

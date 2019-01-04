@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: f5bd0923c1edac06f952ff93e087505a76407b05
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444322"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53805736"
 ---
 Azure atualiza periodicamente uma plataforma para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais. Estes variam de atualizações de componentes de software no ambiente de alojamento, atualizando os componentes de rede, a desativação de hardware de aplicação de patches. A maioria destas atualizações não tiver nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto e Azure escolhe o método com menos impacto de atualizações:
 
@@ -27,7 +27,7 @@ Pode receber notificação de dentro da VM sobre manutenção futura, utilizando
 
 Para obter informações "procedimentos" sobre o gerenciamento de manutenção planeada, consulte "Manipulação planeado notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="non-rebootful-maintenance"></a>Manutenção de não-rebootful
+## <a name="memory-preserving-maintenance"></a>Memória preservação da manutenção
 
 O objetivo para a maior parte das atualizações não rebootful é inferior a 10 segundos colocar em pausa para a VM. Em determinadas memória casos preservação da manutenção mecanismos são utilizados, que interrompe a VM para até 30 segundos e preserva a memória RAM. A máquina virtual é retomada, em seguida, e o relógio da máquina virtual é sincronizado automaticamente. O Azure é cada vez mais usando tecnologias de migração em direto e melhorando a memória, preservando o mecanismo de manutenção para reduzir a duração de pausa.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184955"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540265"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
 ![Símbolo de registos de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-A solução Log Analytics da atividade ajuda a analisar e pesquisar os [registo de atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) todas as subscrições do Azure. O registo de atividades do Azure é um registo que disponibiliza informações aprofundadas sobre as operações executadas em recursos nas suas subscrições. O registo de atividades anteriormente era conhecido como *registos de auditoria* ou *registos operacionais* , uma vez que comunica eventos para as suas subscrições.
+A solução Log Analytics da atividade ajuda a analisar e pesquisar os [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) todas as subscrições do Azure. O registo de atividades do Azure é um registo que disponibiliza informações aprofundadas sobre as operações executadas em recursos nas suas subscrições. O registo de atividades anteriormente era conhecido como *registos de auditoria* ou *registos operacionais* , uma vez que comunica eventos para as suas subscrições.
 
 Utilizar o registo de atividades, pode determinar a *o que*, *quem*, e *quando* para quaisquer operações (PUT, POST, DELETE) efetuadas para os recursos na sua subscrição de escrita. Também é possível compreender o estado de operações e outras propriedades relevantes. O registo de Atividades não incluem operações de leitura (GET) nem operações para recursos que utilizam o modelo de implementação clássica.
 

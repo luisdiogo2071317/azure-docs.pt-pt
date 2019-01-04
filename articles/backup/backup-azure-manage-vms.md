@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465725"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635770"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
 
-Este artigo fornece orientações sobre como gerir cópias de segurança VM e explica as informações de alertas de cópia de segurança disponíveis no dashboard do portal. As orientações neste artigo aplica-se a utilização de VMs com os cofres dos serviços de recuperação. Este artigo não abrange a criação de máquinas virtuais, nem explica como proteger máquinas virtuais. Para obter um manual sobre a proteção de VMs implementadas no Azure Resource Manager no Azure com um cofre dos serviços de recuperação, consulte [primeiras impressões: efetuar cópias de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md).
+Este artigo fornece orientações sobre como gerir cópias de segurança VM e explica as informações de alertas de cópia de segurança disponíveis no dashboard do portal. As orientações neste artigo aplica-se a utilização de VMs com os cofres dos serviços de recuperação. Este artigo não abrange a criação de máquinas virtuais, nem explica como proteger máquinas virtuais. Para obter um manual sobre a proteção de VMs implementadas no Azure Resource Manager no Azure com um cofre dos serviços de recuperação, consulte [primeira impressão: Cópia de segurança de VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gerir cofres e máquinas virtuais protegidas
 No portal do Azure, o dashboard do Cofre de serviços de recuperação fornece acesso a informações sobre o cofre, incluindo:
@@ -77,7 +77,7 @@ No procedimento anterior tiver aberto o dashboard do cofre. Para abrir o dashboa
 
     ![Dashboard de itens de cópia de segurança com o painel de definições](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    No dashboard do item do cofre, pode realizar várias tarefas de gestão de chaves, como:
+    Do dashboard de item do cofre, pode fazer muitas das tarefas principais, tais como:
 
    * alterar as políticas ou crie uma nova política de cópia de segurança
    * ver pontos de restauro e ver o estado de consistência
@@ -85,7 +85,7 @@ No procedimento anterior tiver aberto o dashboard do cofre. Para abrir o dashboa
    * parar a proteção de máquinas virtuais
    * retomar a proteção de uma máquina virtual
    * eliminar um dados de cópia de segurança (ou um ponto de recuperação)
-   * [restaurar discos de cópia de segurança](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [restaurar discos de cópia de segurança](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Para obter os procedimentos seguintes, o ponto de partida é o dashboard de item de cofre.
 
@@ -114,7 +114,7 @@ Para obter os procedimentos seguintes, o ponto de partida é o dashboard de item
 >
 >
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>Cópia de segurança a pedido de uma máquina virtual
+## <a name="on-demand-backup-of-a-virtual-machine"></a>cópia de segurança a pedido de uma máquina virtual
 Pode demorar uma demanda cópia de segurança de uma máquina virtual, uma vez que é configurado para proteção. Se a cópia de segurança inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa da máquina virtual no cofre dos serviços de recuperação. Se a cópia de segurança inicial estiver concluída, uma cópia de segurança a pedido irá enviar apenas alterações de instantâneo anterior, para o Cofre dos serviços de recuperação. Ou seja, cópias de segurança subsequentes são sempre incrementais.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Para acionar uma cópia de segurança a pedido de uma máquina virtual:
 
     O trabalho de cópia de segurança cria um ponto de recuperação. O período de retenção do ponto de recuperação é o mesmo que o intervalo de retenção especificado na política de associados à máquina virtual. Para acompanhar o progresso para a tarefa, no dashboard do cofre, clique nas **tarefas de cópia de segurança** mosaico.  
 
-## <a name="stop-protecting-virtual-machines"></a>Parar a proteção de máquinas virtuais
+## <a name="stop-protecting-virtual-machines"></a>parar a proteção de máquinas virtuais
 Se optar por parar a proteção de uma máquina virtual, é-lhe perguntado se pretende manter os pontos de recuperação. Existem duas formas de parar a proteção de máquinas virtuais:
 
 * parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação, ou
@@ -166,7 +166,7 @@ Para parar a proteção para uma máquina virtual:
 
     ![Confirmar pare a proteção](./media/backup-azure-manage-vms/stop-message.png)
 
-## <a name="resume-protection-of-a-virtual-machine"></a>Retomar a proteção de uma máquina virtual
+## <a name="resume-protection-of-a-virtual-machine"></a>retomar a proteção de uma máquina virtual
 Se o **reter dados de cópia de segurança** opção foi escolhida quando a proteção da máquina virtual foi parada, em seguida, é possível retomar a proteção. Se o **eliminar dados de cópia de segurança** foi escolhida a opção, em seguida, não é possível retomar a proteção da máquina virtual.
 
 Para retomar a proteção da máquina virtual
@@ -214,4 +214,4 @@ Para eliminar dados de cópia de segurança numa máquina virtual com o *desativ
     Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, verifique [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre como proteger suas máquinas virtuais, veja [primeiras impressões: efetuar cópias de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas para cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).
+Para informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, verifique [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre como proteger suas máquinas virtuais, consulte o artigo [primeira impressão: Cópia de segurança de VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas para cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).

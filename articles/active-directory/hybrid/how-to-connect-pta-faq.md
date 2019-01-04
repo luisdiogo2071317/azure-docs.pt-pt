@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure AD Connect: A autenticação pass-through - perguntas mais frequentes | Documentos da Microsoft'
+title: 'Azure AD Connect: Autenticação pass-through - perguntas mais frequentes | Documentos da Microsoft'
 description: Respostas às perguntas mais frequentes sobre a autenticação de pass-through do Azure Active Directory
 services: active-directory
 keywords: Autenticação do Azure AD Connect pass-through, Active Directory, de instalação necessários componentes para o Azure AD, SSO, Single Sign-on
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619827"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789097"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>O Azure Active Directory autenticação pass-through: Perguntas mais frequentes
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Active Directory: Perguntas mais frequentes
 
 Este artigo aborda perguntas mais frequentes sobre a autenticação de pass-through do Azure Active Directory (Azure AD). Manter a verificação de volta para o conteúdo atualizado.
 
@@ -62,7 +62,7 @@ Para esta funcionalidade funcione, tem de versão 1.1.750.0 ou posterior para o 
 
 Se tiver configurado [repetição de escrita de palavra-passe](../authentication/concept-sspr-writeback.md) para um utilizador específico, e se o utilizador inicia sessão utilizando a autenticação pass-through, pode alterar ou repor as palavras-passe. As palavras-passe são escritas de volta para o Active Directory no local como esperado.
 
-Se não tiver configurado a repetição de escrita de palavra-passe para um utilizador específico, ou se o utilizador não tem um Azure AD válido licença atribuída, o utilizador não é possível atualizar a palavra-passe na cloud. Eles não é possível atualizar a palavra-passe, mesmo que a palavra-passe expirou. O utilizador em vez disso, vê esta mensagem: "sua organização não permite que atualizar a palavra-passe neste site. A atualização, de acordo com o método recomendado pela sua organização, ou peça ao seu administrador se precisar de ajuda". O utilizador ou o administrador terá de repor a palavra-passe no Active Directory no local.
+Se não tiver configurado a repetição de escrita de palavra-passe para um utilizador específico, ou se o utilizador não tem um Azure AD válido licença atribuída, o utilizador não é possível atualizar a palavra-passe na cloud. Eles não é possível atualizar a palavra-passe, mesmo que a palavra-passe expirou. O utilizador vê, em vez disso, esta mensagem: "Sua organização não permite que atualizar a palavra-passe neste site. A atualização, de acordo com o método recomendado pela sua organização, ou peça ao seu administrador se precisar de ajuda". O utilizador ou o administrador terá de repor a palavra-passe no Active Directory no local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Como autenticação pass-through protege contra ataques de força bruta a senhas?
 
@@ -74,7 +74,7 @@ Se não tiver configurado a repetição de escrita de palavra-passe para um util
 - Os agentes de autenticação de fazer solicitações HTTP através da porta 80 para transferir as listas de revogação de certificado SSL (CRL).
 
      >[!NOTE]
-     >Atualizações recentes reduzimos o número de portas de que a funcionalidade requer. Se tiver versões mais antigas do Azure AD Connect ou o agente de autenticação, mantém estas portas abertas também: 5671, 8080, 9090, 9091, 9350, 9352 e 10100 10120.
+     >Atualizações recentes reduzimos o número de portas de que a funcionalidade requer. Se tiver versões mais antigas do Azure AD Connect ou o agente de autenticação, mantém também estas portas abertas: 5671, 8080, 9090, 9091, 9350, 9352 e 10100 10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Os agentes de autenticação pass-through possam comunicar através de um servidor de proxy da web de saída?
 
@@ -83,7 +83,7 @@ Sim. Se a deteção automática de Proxy da Web (WPAD) estiver ativada no seu am
 Se não tiver o WPAD no seu ambiente, pode adicionar informações de proxy (como mostrado abaixo) para permitir que um agente de autenticação pass-through comunicar com o Azure AD:
 - Configure as informações de proxy no Internet Explorer antes de instalar o agente de autenticação pass-through no servidor. Isso permitirá que concluir a instalação do agente de autenticação, mas ainda será mostrado como **Inactive** no portal de administração.
 - No servidor, navegue para "C:\Program Files\Microsoft Azure AD Connect o agente de autenticação".
-- Edite o ficheiro de configuração de "AzureADConnectAuthenticationAgentService" e adicione as seguintes linhas (substitua "http://contosoproxy.com:8080" com o seu endereço de proxy real):
+- Edite o ficheiro de configuração de "AzureADConnectAuthenticationAgentService" e adicione as seguintes linhas (substitua "http\:/ / contosoproxy.com:8080" com o seu endereço de proxy real):
 
 ```
    <system.net>
@@ -156,7 +156,7 @@ Se desinstalar um agente de autenticação pass-through a partir de um servidor,
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Tenho um inquilino mais antigo que foi originalmente configurado com o AD FS.  Podemos migrou recentemente para o PTA, mas agora não está a ver as nossas alterações UPN sincronizar com o Azure AD.  Por que razão as nossas UPN muda não sincronizados?
 
-R: nas seguintes circunstâncias as alterações UPN no local podem não efetua a sincronização:
+R: Nas seguintes circunstâncias as alterações UPN no local podem não efetua a sincronização:
 
 - Inquilino do Azure AD tiver sido criado antes de 15 de Junho de 2015
 - Inicialmente foram federadas com o inquilino do Azure AD através do AD FS para autenticação
@@ -172,12 +172,12 @@ Os inquilinos criados após 15 de Junho de 2015 tem o comportamento padrão de s
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados e quais não são.
-- [Guia de introdução](how-to-connect-pta-quick-start.md): comece a utilizar na autenticação pass-through do Azure AD.
+- [Guia de introdução](how-to-connect-pta-quick-start.md): Começar a trabalhar na autenticação pass-through do Azure AD.
 - [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
-- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
+- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): Compreenda como funciona o recurso de autenticação pass-through.
 - [Resolver problemas de](tshoot-connect-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.
 - [Detalhada da segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas detalhadas sobre a funcionalidade de autenticação pass-through.
-- [O Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
+- [SSO totalmente integrado do Azure AD](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para pedidos de novas funcionalidades de ficheiros.
 

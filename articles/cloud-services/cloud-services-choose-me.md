@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857827"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603832"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Descrição geral dos serviços Cloud do Azure
-Serviços Cloud do Azure é um exemplo de um [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Como [App Service do Azure](../app-service/app-service-web-overview.md), esta tecnologia foi concebida para suportar aplicações que são escaláveis, fiáveis e de baixo custo operar. Da mesma forma que o serviço de aplicações é alojado em máquinas virtuais (VMs), portanto, é demasiado serviços Cloud do Azure. No entanto, tem mais controlo sobre as VMs. Pode instalar o seu próprio software nas VMs que utilizam serviços Cloud do Azure, e pode acessá-los remotamente.
+Serviços Cloud do Azure é um exemplo de um [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Como [App Service do Azure](../app-service/overview.md), esta tecnologia foi concebida para suportar aplicações que são escaláveis, fiáveis e de baixo custo operar. Da mesma forma que o serviço de aplicações é alojado em máquinas virtuais (VMs), portanto, é demasiado serviços Cloud do Azure. No entanto, tem mais controlo sobre as VMs. Pode instalar o seu próprio software nas VMs que utilizam serviços Cloud do Azure, e pode acessá-los remotamente.
 
 ![Diagrama de serviços Cloud do Azure](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,9 +29,9 @@ Mais controle também significa que menos facilidade de utilização. A menos qu
 
 Existem dois tipos de funções de serviços Cloud do Azure. A única diferença entre os dois é como a sua função está alojada nas VMs:
 
-* **Função da Web**: automaticamente implementa e aloja a aplicação por meio de IIS.
+* **Função da Web**: Automaticamente, implementa e aloja a aplicação por meio de IIS.
 
-* **Função de trabalho**: não utiliza o IIS e executa sua autónomo de aplicação.
+* **Função de trabalho**: Não utiliza o IIS e executa sua autónomo de aplicação.
 
 Por exemplo, um aplicativo simples poderá utilizar apenas uma única função da web, que serve um Web site. Uma aplicação mais complexa pode utilizar uma função da web para processar pedidos recebidos de utilizadores e, em seguida, passar esses pedidos para uma função de trabalho para processamento. (Esta comunicação poderá utilizar [do Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ou [armazenamento de filas do Azure](../storage/common/storage-introduction.md).)
 

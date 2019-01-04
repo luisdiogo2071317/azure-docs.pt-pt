@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 2ae11afe1ecbe500a4851aab6d56e612fbe79ee6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7cde3a8990a51e95a8ce9ad85bca524d5669e0c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975131"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721126"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utilizar o Azure Data Lake Storage Gen2 com o Apache Hadoop no HDInsight do Azure
 
@@ -21,15 +21,15 @@ Recursos de geração 1 de armazenamento do Azure Data Lake como um sistema de f
 
 ## <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Funcionalidade principal de geração 2 de armazenamento do Azure Data Lake
 
-- Acesso compatível do Hadoop: geração de armazenamento 2 do Azure Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um Hadoop Distributed File System (HDFS). O driver ABFS está disponível em todos os ambientes do Apache Hadoop, incluindo o Azure HDInsight e o Azure Databricks para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
+- Acesso compatível do Hadoop: Geração de armazenamento 2 do Azure Data Lake permite-lhe gerir e aceder a dados, tal como faria com um Hadoop Distributed File System (HDFS). O driver ABFS está disponível em todos os ambientes do Apache Hadoop, incluindo o Azure HDInsight e o Azure Databricks para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
 
 - Um conjunto mais amplo de permissões de POSIX: O modelo de segurança para a geração 2 do Data Lake suporta permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas por meio de ferramentas de administração ou estruturas como o Apache Hive e Apache Spark.
 
-- Custo-eficiência: geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Recursos como o ciclo de vida de armazenamento de Blobs do Azure ajudam a reduzir os custos ao ajustar as taxas de faturas, como os dados são movidos através de seu ciclo de vida.
+- Económico: Geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Recursos como o ciclo de vida de armazenamento de Blobs do Azure ajudam a reduzir os custos ao ajustar as taxas de faturas, como os dados são movidos através de seu ciclo de vida.
 
-- Funciona com aplicações, estruturas e ferramentas de armazenamento de BLOBs: geração 2 de armazenamento do Data Lake continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicativos que existem hoje mesmo para o armazenamento de Blobs.
+- Funciona com aplicações, estruturas e ferramentas de armazenamento de BLOBs: Geração 2 de armazenamento do Data Lake continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicativos que existem hoje mesmo para o armazenamento de Blobs.
 
-- Controlador otimizada: driver ABFS o está otimizado especificamente para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
+- Controlador otimizada: O driver ABFS está otimizado especificamente para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
 
 ## <a name="whats-new-about-azure-data-lake-storage-gen-2"></a>Quais são as novidades sobre o Azure Data Lake armazenamento Gen 2
 
@@ -45,7 +45,7 @@ Aplicações do Apache Hadoop nativamente esperam ler e gravar dados de armazena
 
 Anteriormente, o driver de sistema de ficheiros Hadoop seria converter todas as operações de sistema de ficheiros para chamadas de API de REST de armazenamento do Azure no lado do cliente e, em seguida, invocar a API REST. Este cliente conversão, no entanto, resultado na API de REST vários chama-se de uma operação de sistema de ficheiros único como mudar o nome de um ficheiro. ABFS foi movido parte da lógica de sistema de ficheiros de Hadoop do lado do cliente para o lado do servidor e a API de geração 2 do ADLS agora é executado em paralelo com a API de Blobs. Esta migração melhora o desempenho, porque agora podem ser executadas operações de sistema de ficheiros comuns do Hadoop com uma chamada à REST API.
 
-Para obter mais informações, consulte [driver de sistema de ficheiros de Blob do Azure (ABFS): um driver de armazenamento do Azure dedicado para o Hadoop](../storage/data-lake-storage/abfs-driver.md).
+Para obter mais informações, consulte [driver de sistema de ficheiros de Blob do Azure (ABFS): Um driver de armazenamento do Azure dedicado para o Apache Hadoop](../storage/data-lake-storage/abfs-driver.md).
 
 ### <a name="adls-gen-2-uri-scheme"></a>Esquema de URI do ADLS Gen 2
 
@@ -68,7 +68,7 @@ abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapr
 abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!Note]
+> [!NOTE]  
 > O nome de ficheiro é `hadoop-examples.jar` em clusters do HDInsight versões 2.1 e 1.6. Ao trabalhar com arquivos fora do HDInsight, a maioria dos utilitários não reconhece os ABFS formatar e em vez disso, esperar que um formato de caminho básico, tal como `example/jars/hadoop-mapreduce-examples.jar`.
 
 Para obter mais informações, consulte [utilizam o URI de geração 2 de armazenamento do Azure Data Lake](../storage/data-lake-storage/introduction-abfs-uri.md).

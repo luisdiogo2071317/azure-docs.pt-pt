@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238731"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631350"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Dispositivos associados ao como gerir o grupo de administradores locais no Azure AD
 
@@ -88,7 +88,7 @@ Por predefinição, o Azure AD adiciona o utilizador que executa a associação 
 
 Além de usar o processo de associação do Azure AD, pode elevar também manualmente um utilizador normal para se tornar um administrador local num dispositivo específico. Este passo requer que já seja um membro do grupo Administradores local. 
 
-Começando com o **Windows 10 1709** versão, pode realizar esta tarefa de **definições -> contas -> outros usuários** selecionando **adicionar um utilizador profissional ou escolar**.
+Começando com o **Windows 10 1709** versão, pode realizar esta tarefa de **definições -> contas -> outros utilizadores**. Selecione **adicionar um utilizador profissional ou escolar**, introduza o UPN do utilizador em **conta de utilizador** e selecione *administrador* em **tipo de conta**  
  
 Além disso, também pode adicionar utilizadores através da linha de comandos:
 

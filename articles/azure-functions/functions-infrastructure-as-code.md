@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 484cf0976ce10e80ca7eaf9b215329b81ed4bb13
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 428e1bed4e62b4fcbd7a4e03601cfc5c630b6583
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994648"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715533"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função nas funções do Azure
 
@@ -167,7 +167,7 @@ Além disso, o plano de consumo requer duas definições adicionais na configura
 
 ## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementar uma aplicação de funções no plano de serviço de aplicações
 
-No plano do serviço de aplicações, a aplicação function app é executada em VMs dedicadas no básico, Standard e Premium SKUs, semelhante aos aplicativos web. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+No plano do serviço de aplicações, a aplicação function app é executada em VMs dedicadas no básico, Standard e Premium SKUs, semelhante aos aplicativos web. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/overview-hosting-plans.md). 
 
 Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de funções num plano do serviço de aplicações do Azure].
 

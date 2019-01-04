@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387487"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558435"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -26,24 +26,24 @@ Aplicações na cloud são complexas com muitas partes móveis. A monitorizaçã
 O Azure Monitor proporciona registos e métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter detalhes, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados e frequentes sobre o funcionamento desse recurso. Fábrica de dados devolve registos de diagnóstico no Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Manter os dados de fábrica de dados
-Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Se pretender manter os dados por mais de 45 dias, de execução do pipeline através do Azure Monitor, pode não apenas encaminhar os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante o período de sua escolha.
+Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Se pretender manter os dados por mais de 45 dias de execução do pipeline, utilizar o Azure Monitor, apenas não é possível encaminhar os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante o período de sua escolha.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
 * Guarde-as para um **conta de armazenamento** para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias), utilizando as definições de diagnóstico.
-* Stream-lhes **os Hubs de eventos** para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
+* Stream-lhes **os Hubs de eventos** para ingestão por um serviço de terceiros ou de uma solução de análise personalizada como o Power BI.
 * Analisá-los com **do Log Analytics**
 
 Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja na mesma subscrição que o recurso que emite os registos. O utilizador que configura a definição tem de ter o acesso de controlo (RBAC) de acesso baseado em funções adequadas para ambas as subscrições.
 
-## <a name="set-up-diagnostic-logs"></a>Configurar registos de diagnóstico
+## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico
 
 ### <a name="diagnostic-settings"></a>Definições de diagnóstico
 Registos de diagnóstico para recursos de computação-não são configurados com definições de diagnóstico. Definições de diagnóstico para um controlo de recursos:
 
-* Em que os registos de diagnóstico são enviados (conta de armazenamento, os Hubs de eventos, e/ou do Log Analytics).
+* Onde os registos de diagnóstico são enviados (conta de armazenamento, os Hubs de eventos ou do Log Analytics).
 * As categorias de registo são enviadas.
-* O tempo em que cada categoria de registo deve ser mantida numa conta de armazenamento
+* O tempo em que cada categoria de registo deve ser mantida numa conta de armazenamento.
 * A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
 * Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativada (por exemplo, apenas os Hubs de eventos ou o Log Analytics opções estão selecionadas), as políticas de retenção não têm qualquer efeito.
 * Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Headers** (Cabeçalhos)
-* Substitua `{api-version}` com `2016-09-01`.
+* Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` com o ID de recurso do recurso para o qual quiser para editar as definições de diagnóstico. Para obter mais informações [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
 * Definir o `Content-Type` cabeçalho para `application/json`.
 * Defina o cabeçalho de autorização para um token web JSON que obtém do Azure Active Directory. Para obter mais informações, consulte [autenticar pedidos](../active-directory/develop/authentication-scenarios.md).
@@ -177,7 +177,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Headers** (Cabeçalhos)
-* Substitua `{api-version}` com `2016-09-01`.
+* Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` com o ID de recurso do recurso para o qual quiser para editar as definições de diagnóstico. Para obter mais informações utilizando grupos de recursos para gerir os recursos do Azure.
 * Definir o `Content-Type` cabeçalho para `application/json`.
 * Defina o cabeçalho de autorização para um JSON Web Token que obtém do Azure Active Directory. Para obter mais informações, consulte os pedidos de autenticação.
@@ -465,15 +465,7 @@ Pode visualizar as métricas acima, examinar as consultas por trás estas métri
 
 ## <a name="alerts"></a>Alertas
 
-Pode emitir alertas em métricas suportadas no Data Factory. Clique nas **alertas** botão na fábrica de dados **Monitor** página.
-
-![Opção de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Isto leva-o para o **alertas** página.
-
-![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; alertas** para chegar a **alertas** página diretamente.
+Inicie sessão no portal do Azure e clique em **Monitor -&gt; alertas** para criar alertas.
 
 ![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; aler
     ![Grupo de ação, o ecrã 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ver [monitorizar e gerir pipelines de forma programática](monitor-programmatically.md) artigo para saber como monitorizar e gerir pipelines através da execução.
+
+Ver [monitorizar e gerir pipelines de forma programática](monitor-programmatically.md) artigo para saber como monitorizar e gerir pipelines com o código.

@@ -5,19 +5,19 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: daa3a140e749700665427a011292f48ac8f163d2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389081"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741764"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
-Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que lhe permite desenhar gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar. 
+Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que lhe permite desenhar gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar.
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
@@ -28,11 +28,11 @@ As métricas no Microsoft Azure estão a série de valores de medida e contagens
 1. Abra o portal do Azure
 2. Navegue para a nova **Monitor** separador e, em seguida, selecione **métricas**.
 
-   ![Imagem de métricas](./media/metrics-charts/0001.png)
+   ![Imagem de métricas](./media/metrics-charts/00001.png)
 
 3. O **Seletor de métrica** será automaticamente aberta para. Escolha um recurso a partir da lista para ver o respetiva das métricas associadas. Apenas os recursos com as métricas são apresentados na lista.
 
-   ![Imagem de métricas](./media/metrics-charts/0002.png)
+   ![Imagem de métricas](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >Se tiver mais do que uma subscrição do Azure, o Explorador de métricas obtém os recursos em todas as subscrições selecionadas nas definições do Portal -> filtro por lista de subscrições. Para alterá-lo, clique no ícone de engrenagem de definições de Portal na parte superior do ecrã e selecione as subscrições que pretende utilizar.
@@ -41,15 +41,15 @@ As métricas no Microsoft Azure estão a série de valores de medida e contagens
 
    Por exemplo, cada armazenamento do Azure tem as métricas para subservices "Blobs", "Ficheiros", "Filas" e "Tabelas", que são todas as partes da conta de armazenamento. No entanto, a métrica "contagem de mensagens da fila" é naturalmente aplicável para o subservice "Fila" e não para quaisquer outros subservices de conta de armazenamento.
 
-   ![Imagem de métricas](./media/metrics-charts/0003.png)
+   ![Imagem de métricas](./media/metrics-charts/00003.png)
 
 5. Selecione uma métrica da lista. Se souber o nome parcial da métrica que pretende, pode começar escrevendo-o para ver uma lista filtrada de métricas disponíveis:
 
-   ![Imagem de métricas](./media/metrics-charts/0004.png)
+   ![Imagem de métricas](./media/metrics-charts/00004.png)
 
 6. Depois de selecionar uma métrica, o gráfico serão compostos com a agregação predefinida para a métrica selecionada. Neste momento só precisa clicar em distância, a partir da **Seletor de métricas** para fechá-lo. Opcionalmente, também pode mudar o gráfico para uma agregação diferente. Para algumas métricas, alternância de agregação permite-lhe escolher qual o valor que pretende ver no gráfico. Por exemplo, pode alternar entre os valores de média, mínimos e máximo. 
 
-7. Ao clicar no ícone de adicionar métrica ![ícone de métrica](./media/metrics-charts/icon001.png) e repetir os passos 3 a 6 pode adicionar mais métricas no mesmo gráfico.
+7. Ao clicar em **adicionar métrica** e repetir os passos 3 a 6, pode adicionar mais métricas no mesmo gráfico.
 
    > [!NOTE]
    > Geralmente não querem ter métricas com diferentes unidades de medida (ou seja, "milissegundos" e "quilobytes") ou com dimensionamento significativamente diferente num gráfico. Em vez disso, considere a utilização de vários gráficos. Clique no botão Adicionar gráfico para criar vários gráficos no Explorador de métricas.
@@ -60,19 +60,19 @@ Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. 
 
 ### <a name="to-add-a-filter"></a>Para adicionar um filtro
 
-1. Clique no ícone de adicionar filtro ![ícone de filtro](./media/metrics-charts/icon002.png) acima do gráfico
+1. Selecione **Adicionar filtro** acima do gráfico
 
 2. Selecione a dimensão (propriedade) que pretende filtrar
 
-   ![imagem de métrica](./media/metrics-charts/0006.png)
+   ![imagem de métrica](./media/metrics-charts/00006.png)
 
 3. Selecione os valores de dimensão que pretende incluir ao desenhar o gráfico (Este exemplo mostra a filtragem as transações de armazenamento com êxito):
 
-   ![imagem de métrica](./media/metrics-charts/0007.png)
+   ![imagem de métrica](./media/metrics-charts/00007.png)
 
 4. Depois de selecionar os valores de filtro, clique na direção oposta o Seletor de filtro para fechá-lo. Agora o gráfico mostra o número de transações de armazenamento tem falhado:
 
-   ![imagem de métrica](./media/metrics-charts/0008.png)
+   ![imagem de métrica](./media/metrics-charts/00008.png)
 
 5. Pode repetir os passos 1 a 4 para aplicar vários filtros para os mesmo gráficos.
 
@@ -82,23 +82,37 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
 
 ### <a name="to-segment-a-chart"></a>Para segmentar um gráfico
 
-1. Clique no ícone de adicionar agrupamento  ![imagem de métrica](./media/metrics-charts/icon003.png) acima do gráfico.
+1. Clique em **aplicam-se de que a divisão** acima do gráfico.
  
    > [!NOTE]
-   > Pode ter vários filtros, mas apenas um agrupamento em qualquer gráfico único.
+   > Pode ter vários filtros, mas o valor de apenas uma divisão/segmentação em qualquer gráfico único.
 
-2. Escolha uma dimensão no qual pretende segmentar o gráfico: 
+2. Escolha uma dimensão no qual pretende segmentar o gráfico:
 
-   ![imagem de métrica](./media/metrics-charts/0010.png)
+   ![imagem de métrica](./media/metrics-charts/00010.png)
 
    Agora o gráfico mostra agora várias linhas, uma para cada segmento da dimensão:
 
-   ![imagem de métrica](./media/metrics-charts/0012.png)
+   ![imagem de métrica](./media/metrics-charts/00012.png)
 
 3. Clique de distância, a partir da **Seletor de agrupamento** para fechá-lo.
 
    > [!NOTE]
-   > Utilize a filtragem e agrupamento na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e facilitam a leitura de gráficos.
+   > Utilize a filtragem e separação na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e facilitam a leitura de gráficos.
+
+### <a name="new-alert-rule"></a>Nova regra de alerta
+
+Também pode utilizar os critérios que definiu para visualizar as métricas, como a base para a lógica subjacente de uma métrica baseada a regra de alerta. 
+
+Se clicar em **regra de novo alerta**
+
+![Botão de nova regra de alerta realçada em vermelho](./media/metrics-charts/015.png)
+
+Será conduzido para o painel de criação de regra de alerta com as dimensões de métrica subjacentes do seu gráfico pré-preenchido, para que seja mais fácil gerar regras de alerta personalizadas.
+
+![Criar regra de alerta](./media/metrics-charts/016.png)
+
+Check-out isso [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métricas.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo y do gráfico
 
@@ -110,20 +124,20 @@ Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicame
 
 Para controlar o intervalo do eixo y, utilize o "..." menu do gráfico e selecione **editar gráfico** para gráfico definições avançado de acesso. Modificar os valores na secção de intervalo do eixo y ou utilize **automática** botão para reverter para predefinições.
 
-![imagem de métrica](./media/metrics-charts/0014-manually-set-granularity.png)
+![imagem de métrica](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y os que monitorizam vários gráficos de conta ou soma num período de tempo (e, portanto, contagem de uso, soma, agregações mínimas ou máxima), normalmente, necessita de especificar uma granularidade de tempo fixo, em vez de confiar nas predefinições do automática. Isso é necessário porque os valores em gráficos de alteram quando a granularidade de tempo automaticamente é modificada pelo utilizador redimensionar a janela do browser ou vai da resolução do ecrã. Resultante alterar os efeitos de granularidade de tempo a aparência do gráfico, invalidando a seleção atual de intervalo do eixo y.
 
 ## <a name="pin-charts-to-dashboards"></a>Gráficos de PIN para dashboards
 
-Depois de configurar os gráficos, pode querer adicioná-lo aos dashboards, para que possa vê-la novamente, possivelmente no contexto de outro telemetria de monitorização, ou partilhar com a sua equipa. 
+Depois de configurar os gráficos, pode querer adicioná-lo aos dashboards, para que possa vê-la novamente, possivelmente no contexto de outro telemetria de monitorização, ou partilhar com a sua equipa.
 
 Para afixar um gráfico configurado a um dashboard:
 
 Depois de configurar o seu gráfico, clique nas **ações do gráfico** menu no lado direito principais do gráfico e clique em **afixar ao dashboard**.
 
-![imagem de métrica](./media/metrics-charts/0013.png)
+![imagem de métrica](./media/metrics-charts/00013.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

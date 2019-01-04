@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725867"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582546"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -150,6 +150,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Devido a um problema no tempo de execução, certifique-se de que a duração da retenção na política de retenção está configurada para ser inferior a 24 dias caso contrário, ele iria resultar no serviço de restauração de cópia de segurança de mensagens em fila para entrar em ativação pós-falha de réplica do quórum perda post.
+
 ### <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
 Depois de definir a política de cópia de segurança para atender a requisitos de proteção de dados do aplicativo, a política de cópia de segurança deve ser associada à aplicação. Dependendo do requisito, a política de cópia de segurança pode ser associada a uma aplicação, serviço ou uma partição.
 
@@ -228,8 +231,10 @@ FailureError            :
 
 ## <a name="limitation-caveats"></a>Limitação / advertências
 - Não existem recursos de infraestrutura de serviço, criado nos cmdlets do PowerShell.
-- Não há suporte para a CLI do Service Fabric.
 - Não há suporte para o Service Fabric clusters no Linux.
+
+## <a name="known-issues"></a>Problemas Conhecidos
+- Certifique-se de que o período de retenção está configurado para ser inferior a 24 dias. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Configuração de cópia de segurança periódica compreensão](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

@@ -1,5 +1,5 @@
 ---
-title: Alterar e Reimplementar um microsserviço | Documentos da Microsoft
+title: Alterar e Reimplementar um microsserviço - Azure | Documentos da Microsoft
 description: Este tutorial mostra como alterar e Reimplementar um microsserviço na monitorização remota
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315762"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631908"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplementar um microsserviço
 
-Este tutorial mostra como editar uma da [microsserviços](http://azure.com/microservices) na solução de monitorização remota, crie uma imagem de sua microsserviços, implantar a imagem ao seu hub do docker e, em seguida, utilizá-lo na solução de monitorização remota. Para apresentar esse conceito, o tutorial utiliza um cenário básico em que chama um API de microsserviços e alterar a mensagem de estado de "Ativo e bem" para "New edita Made aqui!"
+Este tutorial mostra como editar uma da [microsserviços](https://azure.com/microservices) na solução de monitorização remota, crie uma imagem de sua microsserviços, implantar a imagem ao seu hub do docker e, em seguida, utilizá-lo na solução de monitorização remota. Para apresentar esse conceito, o tutorial utiliza um cenário básico em que chama um API de microsserviços e alterar a mensagem de estado de "Ativo e bem" para "New edita Made aqui!"
 
 Solução de monitorização remota utiliza microsserviços que são criados através de imagens do docker que são obtidas a partir de um hub do docker. 
 
@@ -77,7 +77,7 @@ Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas
     
     ou no Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

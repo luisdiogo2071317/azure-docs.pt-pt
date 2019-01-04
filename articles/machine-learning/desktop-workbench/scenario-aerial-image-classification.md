@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9dd4ca4b4f156823aff3b8a475e06ea63f98be6c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260555"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975306"
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagens aéreas
 
@@ -174,7 +174,7 @@ Nosso método recomendado para criar um cluster do HDInsight utiliza o HDInsight
 
 1. O modelo de cluster do Spark do HDInsight é o arquivo de "Template" na subpasta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" deste projeto. Por predefinição, o modelo cria um cluster do Spark com 40 nós de trabalho. Se deve ajustar esse número, abrir o modelo no seu editor de texto favorito e substituir quaisquer instâncias de "40" com o número de nós de trabalho da sua preferência.
     - Pode encontrar erros de insuficiência de memória mais tarde, se o número de nós de trabalho que escolher for menor. Para combater os erros de memória, poderá executar os scripts de treinamento e operacionalização num subconjunto de dados disponíveis conforme descrito posteriormente neste documento.
-2. Escolha um nome exclusivo e a palavra-passe para o HDInsight cluster e escrevê-los onde seja indicado no seguinte comando: em seguida, criar o cluster emitindo comandos:
+2. Escolha um nome exclusivo e a palavra-passe para o HDInsight cluster e escrevê-los onde seja indicado no seguinte comando: Em seguida, crie o cluster emitindo comandos:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -332,7 +332,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Aquisição e compreensão de dados
 
-Este cenário utiliza dados de imagens aéreas publicamente disponíveis dos [programa de imagens de agricultura nacional](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) uma resolução de medidor de 1. Podemos ter gerado conjuntos de 224 pixel x 224 pixel ficheiros PNG recortadas dos dados NAIP originais e classificados de acordo com as etiquetas de utilização de ' s land do [abrangem ' s Land de nacional o banco de dados](https://www.mrlc.gov/nlcd2011.php). Uma imagem de exemplo com a etiqueta "Developed" é apresentada com tamanho máximo:
+Este cenário utiliza dados de imagens aéreas publicamente disponíveis dos [programa de imagens de agricultura nacional](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) uma resolução de medidor de 1. Podemos ter gerado conjuntos de 224 pixel x 224 pixel ficheiros PNG recortadas dos dados NAIP originais e classificados de acordo com as etiquetas de utilização de ' s land do [abrangem ' s Land de nacional o banco de dados](https://www.mrlc.gov/data/references/national-land-cover-database-2011-nlcd2011). Uma imagem de exemplo com a etiqueta "Developed" é apresentada com tamanho máximo:
 
 ![Um mosaico de exemplo da terra desenvolvido](media/scenario-aerial-image-classification/sample-tile-developed.png)
 

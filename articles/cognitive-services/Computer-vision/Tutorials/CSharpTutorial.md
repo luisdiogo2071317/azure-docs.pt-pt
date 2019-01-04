@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Criar uma aplicação - c# de processamento de imagens'
+title: 'Tutorial: Criar uma aplicação de processamento de imagem-C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada nos serviços cognitivos da Microsoft. Executar OCR, criar miniaturas e trabalhar com recursos visuais numa imagem.
+description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada nos serviços cognitivos da Microsoft. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342658"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584450"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar uma aplicação - C de processamento de imagens&#35;
 
-Explore uma aplicação básica do Windows que utiliza o de imagem digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas de smart-recortada, além de detectar, categorizar, etiqueta e descreve recursos visual, incluindo as faces, numa imagem. A seguir o exemplo permite submeter um URL de imagem ou um ficheiro armazenado localmente. Pode utilizar este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação para o Windows usando a API de imagem digitalizada e o Windows Presentation Foundation (WPF), uma parte do .NET Framework.
+Explore uma aplicação básica do Windows que utiliza o de imagem digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas de smart-recortada, além de detectar, categorizar, etiqueta e descreve recursos visual, incluindo as faces, numa imagem. O exemplo abaixo permite submeter um URL de imagem ou um ficheiro armazenado localmente. Pode utilizar este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação para o Windows usando a API de imagem digitalizada e o Windows Presentation Foundation (WPF), uma parte do .NET Framework.
 
 > [!div class="checklist"]
 > * Obter a aplicação de exemplo do GitHub
@@ -31,8 +32,8 @@ Explore uma aplicação básica do Windows que utiliza o de imagem digitalizada 
 
 Antes de explorar a aplicação de exemplo, certifique-se de que cumpriu os pré-requisitos seguintes:
 
-* Tem de ter [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-* Tem de ter uma chave de subscrição para Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Tem de ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
+* Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="get-the-sample-app"></a>Obter a aplicação de exemplo
 
@@ -98,10 +99,10 @@ Pode executar a aplicação de exemplo, para ver como ele interage com e com a b
    |Obter miniatura | Utiliza a [obter miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) operação para gerar uma miniatura para ver uma imagem local ou remota. |
 
    > [!IMPORTANT]
-   > Microsoft recebe as imagens de carregar e pode utilizá-los para melhorar a API de imagem digitalizada e serviços relacionados. Ao enviar uma imagem, confirme que seguiu nosso [desenvolvedor código de conduta](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+   > Microsoft recebe as imagens de carregar e pode utilizá-los para melhorar a API de imagem digitalizada e serviços relacionados. Ao submeter uma imagem, certifique-se de que seguiu o nosso [Código de Conduta do Programador](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Captura de ecrã seguinte ilustra a página fornecida para o cenário de imagem de analisar, depois de analisar uma imagem de exemplo.
-   ![Analisar a página de cenário de imagem](../Images/Analyze_Image_Example.PNG)
+   ![Captura de ecrã da página de imagem analisar](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Explorar a aplicação de exemplo
 

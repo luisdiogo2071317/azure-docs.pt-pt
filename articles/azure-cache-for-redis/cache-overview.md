@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019254"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971329"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>O que é a Cache de Redis do Azure
 
-A Cache de Redis do Azure baseia-se o código aberto popular [a Cache de Redis do Azure](https://redis.io/). Normalmente, é utilizada como uma cache para melhorar o desempenho e a escalabilidade dos sistemas que dependem bastante de arquivos de dados de back-end. O desempenho é melhorado ao copiar temporariamente os dados acedidos com mais frequência para o armazenamento rápido localizado próximo da aplicação. Com o [a Cache de Redis do Azure](https://redis.io/), este armazenamento rápido é localizada dentro da memória com a Cache de Redis do Azure, em vez de que está a ser carregado do disco por um banco de dados.
+A Cache de Redis do Azure baseia-se o software popular [Redis](https://redis.io/). Normalmente, é utilizada como uma cache para melhorar o desempenho e a escalabilidade dos sistemas que dependem bastante de arquivos de dados de back-end. O desempenho é melhorado ao copiar temporariamente os dados acedidos com mais frequência para o armazenamento rápido localizado próximo da aplicação. Com o [a Cache de Redis do Azure](https://redis.io/), este armazenamento rápido é localizada dentro da memória com a Cache de Redis do Azure, em vez de que está a ser carregado do disco por um banco de dados.
 
 A Cache de Redis do Azure também pode ser utilizada como um arquivo de estrutura de dados na memória, distribuída da base de dados não relacionais e Mediador de mensagens. O desempenho da aplicação é melhorado ao tirar partido do desempenho da latência baixa e do alto débito do motor de Redis.
 

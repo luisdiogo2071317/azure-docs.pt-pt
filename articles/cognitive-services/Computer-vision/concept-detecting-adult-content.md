@@ -1,5 +1,5 @@
 ---
-title: Descrevendo o conteúdo para adultos, imagem digitalizada
+title: Descrever o conteúdo para adultos, imagem digitalizada
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados a detecção de conteúdos para adultos em imagens usando a APi de imagem digitalizada.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344936"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582172"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Detetar conteúdos adultos e indecorosos
 
-Entre as várias categorias de visual é o grupo para adultos, que permite a deteção de materiais para adultos e restringe a exibição de imagens que contêm conteúdo sexual. O filtro para a deteção de conteúdos para adultos pode ser definido numa escala móvel para acomodar a preferência do usuário.
+Entre as várias categorias visuais encontra-se o grupo para adultos e de profanidades, que permite a deteção de materiais para adultos e restringe a exibição de imagens com conteúdos sexuais. O filtro para a deteção de conteúdos para adultos ou profano pode ser definido numa escala móvel para se adaptar às preferências do utilizador.
 
 ## <a name="defining-adult-and-racy-content"></a>Definir o conteúdo para adultos
 

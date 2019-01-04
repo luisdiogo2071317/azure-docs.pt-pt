@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eba81e0d0a5b178aec6f712abaae2b566bc54316
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273226"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583454"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurar alertas de estado de funcionamento do serviço com PagerDuty
 
@@ -98,5 +98,5 @@ Este artigo mostra-lhe como configurar notificações de estado de funcionamento
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existentes do problema](service-health-alert-webhook-guide.md).
 - Reveja os [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [notificações de estado de funcionamento de serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre [notificações de estado de funcionamento de serviço](../azure-monitor/platform/service-notifications.md).
 - Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

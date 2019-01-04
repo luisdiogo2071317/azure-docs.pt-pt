@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082338"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971721"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detetar e utilizar blocos de notas de exemplo
 
@@ -37,11 +37,11 @@ Depois de identificar um bloco de notas que gostaria de explorar, aqui estão al
 - [Galeria de blocos de notas interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter o projeto no GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Física instrução do [departamento física na faculdade Imperial de Londres](https://notebooks.azure.com/cvanbreu/libraries)
-- [O Azure Machine Learning exemplos de introdução](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [O Azure Machine Learning exemplos de introdução](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

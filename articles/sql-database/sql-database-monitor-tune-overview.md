@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272869"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602351"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -91,7 +91,7 @@ O problema do parâmetro plano confidenciais (PSP) refere-se a um cenário em qu
 
 Existem várias soluções alternativas seguidas para atenuar problemas, cada qual com vantagens e desvantagens associadas e as desvantagens:
 
-- Utilize o [RECOMPILAR](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sugestão de consulta em cada execução de consulta. Esta solução negocia tempo de compilação de negócios e CPU maior para melhor qualidade de plano. Usando o `RECOMPILE` opção geralmente não é possível para cargas de trabalho que requerem um débito elevado.
+- Utilize o [RECOMPILAR](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sugestão de consulta em cada execução de consulta. Esta solução negocia tempo de compilação e CPU maior para melhor qualidade de plano. Usando o `RECOMPILE` opção geralmente não é possível para cargas de trabalho que requerem um débito elevado.
 - Utilize o [opção (OTIMIZAR para....) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sugestão de consulta para substituir o valor do parâmetro real com um valor de parâmetro típico que produz um plano de bom o suficiente para a maioria das possibilidades de valor de parâmetro.   Esta opção requer uma boa compreensão dos valores de parâmetro ideal e características de plano associados.
 - Uso [opção (OTIMIZAR para desconhecido)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sugestão de consulta para substituir o valor do parâmetro real em troca usando a média de vetor de densidade. Outra forma de fazer isso é capturar os valores de parâmetro de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro os predicados em vez de utilizar os parâmetros propriamente ditos. A densidade média tem de ser *bom o suficiente* com esta correção específica.
 - Desativar a detecção de parâmetro utilizando inteiramente os [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sugestão de consulta.
@@ -104,7 +104,7 @@ Para obter mais informações sobre como resolver estes tipos de problemas, cons
 
 - Isso [sente um cheiro um parâmetro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) mensagem de blogue
 - Isso [parâmetro, a detecção de problemas e soluções alternativas](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) mensagem de blogue
-- Isso [elefante e detecção de parâmetro de mouse](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) mensagem de blogue
+- Isso [elefante e detecção de parâmetro de mouse](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) mensagem de blogue
 - Isso [sql dinâmico em comparação com a qualidade de plano em consultas parametrizadas](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) mensagem de blogue
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Resolução de problemas de atividade de compilação devido a parametrização imprópria

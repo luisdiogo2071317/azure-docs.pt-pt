@@ -1,19 +1,17 @@
 ---
 title: Registos do servidor na base de dados do Azure para PostgreSQL
 description: Este artigo descreve como base de dados do Azure para PostgreSQL gera registos de consulta e o erro e, como retenção de registo está configurado.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845175"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538810"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registos do servidor na base de dados do Azure para PostgreSQL 
 Base de dados do Azure para PostgreSQL gera erro de consulta e registos. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. (O acesso aos logs de transação não está incluído.) 
@@ -30,7 +28,7 @@ Se ativou os registos, pode acessá-los da base de dados do Azure para PostgreSQ
 
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Base de dados do Azure para PostgreSQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos no servidor PostgreSQL, pode optar por fazê-los emitidos para [do Log Analytics](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos ou o armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte a seção de procedimentos do [documentação de registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+Base de dados do Azure para PostgreSQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos no servidor PostgreSQL, pode optar por fazê-los emitidos para [do Log Analytics](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos ou o armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte a seção de procedimentos do [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 
 A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem pode variar. 
@@ -49,10 +47,10 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | Recurso | Nome do servidor |
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| nível de erro | Nível de registo, por exemplo: LOG, erro, aviso |
+| nível de erro | Exemplo de nível de registo: AVISO DE LOG, ERRO, |
 | Mensagem | Mensagem do registo principal | 
 | Domain | Versão do servidor, por exemplo: postgres 10 |
-| Detalhes | Mensagem do registo secundário (se aplicável) |
+| Detalhe | Mensagem do registo secundário (se aplicável) |
 | columnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |

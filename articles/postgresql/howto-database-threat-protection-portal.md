@@ -1,19 +1,17 @@
 ---
-title: Proteção avançada contra ameaças - base de dados do Azure para PostgreSQL | Documentos da Microsoft
+title: Proteção avançada contra ameaças - base de dados do Azure para PostgreSQL
 description: Proteção contra ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados.
-services: postgresql
 author: bolzmj
-manager: kfile
-ms.service: postgresql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: ab32cc9a4aafd9fc716eff8104fb2b5117f233a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047829"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536156"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL
 
@@ -22,7 +20,7 @@ A Proteção Avançada Contra Ameaças para Base de Dados do Azure para PostgreS
 Proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para os recursos de segurança avançada. Proteção avançada contra ameaças podem ser acessada e gerenciada através da [portal do Azure](https://portal.azure.com) e está atualmente em pré-visualização.
 
 > [!NOTE]
-> A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD leste, US DoD Central, Alemanha Central, Alemanha Norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
+> A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 >
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças

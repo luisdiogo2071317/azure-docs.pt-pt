@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389105"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545320"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
-[Registos de diagnóstico do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) registos emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os registos de diagnóstico disponíveis através do Azure Monitor partilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
+[Registos de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md) registos emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os registos de diagnóstico disponíveis através do Azure Monitor partilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
 
 Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e o `category` identificar exclusivamente um esquema. Este artigo descreve o esquema de nível superior para os registos de diagnóstico e links para as esquemas para cada serviço.
 
@@ -205,7 +205,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* [Saiba mais sobre os registos de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Saiba mais sobre os registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310400"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716621"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -83,11 +83,11 @@ A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2
     * Sobreposições
     * Corte
     * Sprites em miniatura
-* LiveEvents com transcodificação atualmente não suportam stream médio de inserção de imagem fixa, configurações predefinidas personalizadas ou inserção de marcadores de publicidade através de uma chamada API. 
+* LiveEvents com transcodificação atualmente não suportam Slate inserção médio stream e o ad inserção de marcadores por meio de chamada de API. 
 
 > [!NOTE]
 > . Este artigo de marcador e manter a verificação de atualizações.
-
+ 
 ## <a name="code-differences"></a>Diferenças de código
 
 A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários comuns.
@@ -108,7 +108,7 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
     * Canais e programas criados com o v2 (que são mapeados para LiveEvents e LiveOutputs na v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para v3 LiveEvents e LiveOutputs num conveniente parar de canal.<br/>Atualmente, não é possível migrar canais continuamente em execução.  
 
 > [!NOTE]
-> . Este artigo de marcador e manter a verificação de atualizações.
+> Esta página será mantida à medida que a equipe de serviços de multimédia faz melhorias contínuas para as APIs v3 e aborda as lacunas entre as versões.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

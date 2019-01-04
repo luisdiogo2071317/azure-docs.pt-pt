@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583317"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581526"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -31,9 +31,6 @@ Transferi a sua subscrição para outro utilizador no Centro de contas para alte
 > [!IMPORTANT]
 > 
 > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino.
-
-> [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 

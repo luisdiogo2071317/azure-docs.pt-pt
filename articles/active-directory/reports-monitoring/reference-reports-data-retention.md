@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333586"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753137"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
 
@@ -53,17 +53,19 @@ Para sinais de segurança, o processo de coleta é iniciado quando participar pa
 
 **Relatórios de atividade**    
 
-| Relatório                 | Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Auditoria de Diretórios        | 7 dias        | 30 dias             | 30 dias             |
-| Atividade de Início de Sessão       | N/A           | 30 dias             | 30 dias             |
-| Utilização MFA do Azure        | 30 dias       | 30 dias             | 30 dias             |
+| Relatório                 | Azure AD Gratuito | Azure AD Básico | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Auditoria de Diretórios        | 7 dias        |  7 dias        | 30 dias             | 30 dias             |
+| Atividade de Início de Sessão       | N/A           |  N/A           | 30 dias             | 30 dias             |
+| Utilização MFA do Azure        | 30 dias       |  30 dias       | 30 dias             | 30 dias             |
+
+Pode manter os dados de atividade de auditoria e início de sessão por mais tempo do que o período de retenção predefinido descrito acima, o encaminhamento para uma conta de armazenamento do Azure com o Azure Monitor. Para obter mais informações, consulte [registos de arquivo do Azure AD para uma conta de armazenamento do Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Sinais de segurança**
 
-| Relatório         | Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Utilizadores em risco  | 7 dias        | 30 dias             | 90 dias             |
-| Inícios de sessão de risco | 7 dias        | 30 dias             | 90 dias             |
+| Relatório         | Azure AD Gratuito | Azure AD Básico | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Utilizadores em risco  | 7 dias        | 7 dias         | 30 dias             | 90 dias             |
+| Inícios de sessão de risco | 7 dias        | 7 dias         |  30 dias            | 90 dias             |
 
 ---

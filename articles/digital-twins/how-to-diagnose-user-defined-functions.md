@@ -1,23 +1,27 @@
 ---
 title: Como depurar UDFs no duplos Digital do Azure | Documentos da Microsoft
-description: Orientação sobre como depurar UDFs no duplos Digital do Azure
+description: Orientação sobre como depurar UDFs no duplos Digital do Azure.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413018"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974867"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Como depurar problemas com as funções definidas pelo utilizador no duplos Digital do Azure
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo utilizador no duplos Digital do Azure
 
-Este artigo resume como diagnosticar funções definidas pelo utilizador. Em seguida, ele identifica alguns dos cenários mais comuns encontrados ao trabalhar com eles.
+Este artigo resume como diagnosticar funções definidas pelo utilizador. Em seguida, ele identifica alguns dos cenários mais comuns podem ser encontrados ao trabalhar com eles.
+
+>[!TIP]
+> Leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md) para saber mais sobre como configurar as ferramentas no gémeos de Digital do Azure através de registos de atividades, registos de diagnóstico e o Azure Monitor de depuração.
 
 ## <a name="debug-issues"></a>Depurar problemas
 
@@ -28,9 +32,14 @@ Saber como diagnosticar quaisquer problemas que possam surgir dentro de sua inst
 Os registos e métricas para a sua instância de duplos Digital do Azure são expostas através do Azure Monitor. A seguinte documentação pressupõe que criou um [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio da [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), da funcionalidade [da CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou através de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Poderá haver um atraso de 5 minutos, ao enviar eventos para **do Log Analytics** pela primeira vez.
+> Poderá haver um atraso de 5 minutos, ao enviar eventos para o Azure Log Analytics pela primeira vez.
 
-Leia o artigo ["Recolher e consumir dados de registo dos seus recursos do Azure"](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para ativar as definições de diagnóstico para a sua instância de duplos Digital do Azure através do Portal, a CLI do Azure ou o PowerShell. Certifique-se selecionar todas as categorias de registo, métricas e sua área de trabalho do Log Analytics do Azure.
+Para configurar a monitorização e registo de recursos de duplos Digital do Azure, leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md).
+
+Leia o artigo [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para uma visão geral abrangente das definições de registo de diagnóstico para a sua instância de duplos Digital do Azure através do Portal do Azure, CLI do Azure ou do PowerShell.
+
+>[!IMPORTANT]
+> Certifique-se selecionar todas as categorias de registo, métricas e sua área de trabalho do Log Analytics do Azure.
 
 ### <a name="trace-sensor-telemetry"></a>Telemetria de sensores de rastreio
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Para obter mais informações sobre as operações de consulta poderosa, consulte [introdução às consultas](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Para obter mais informações sobre as operações de consulta poderosa, leia [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Identificar problemas comuns
 
-Diagnóstico e a identificação de problemas comuns são importantes quando a sua solução de resolução de problemas. Vários problemas comuns encontrados durante o desenvolvimento de funções definidas pelo utilizador são resumidas abaixo.
+Diagnóstico e a identificação de problemas comuns são importantes quando a sua solução de resolução de problemas. Vários problemas que normalmente são encontrados ao desenvolver funções definidas pelo utilizador são resumidos abaixo.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ Verificar se uma atribuição de função que existe para a função definida pe
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parâmetro | Substituir |
+| Valor do parâmetro | Substituir |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | O ID da função definida pelo utilizador a obter atribuições de funções para|
+| YOUR_USER_DEFINED_FUNCTION_ID | O ID da função definida pelo utilizador a obter atribuições de funções para|
 
-Se nenhuma atribuição de função é recuperada, siga este artigo no [como criar uma atribuição de função para a função definida pelo utilizador](./how-to-user-defined-functions.md).
+Saiba mais [como criar uma atribuição de função para a função definida pelo utilizador](./how-to-user-defined-functions.md), se existirem não existem atribuições de função.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Verifica se na ferramenta de correspondência irá funcionar para a telemetria de um sensor
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Este cenário surge porque o identificador utilizado refere-se a um sensor enquanto o tipo de objeto de topologia especificado é "Espaço".
+Este cenário surge porque o identificador utilizado refere-se a um sensor enquanto o tipo de objeto de topologia especificado é `Space`.
 
 **Correto** exemplo:
 
@@ -200,4 +209,4 @@ Se ativar as definições de diagnóstico, pode encontrar essas exceções comun
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprenda a ativar [registos e monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) no duplos Digital do Azure.
+Aprenda a ativar [registos e monitorização](../azure-monitor/platform/activity-logs-overview.md) no duplos Digital do Azure.

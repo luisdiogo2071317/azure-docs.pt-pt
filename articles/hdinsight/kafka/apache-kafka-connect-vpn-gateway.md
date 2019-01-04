@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307479"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605012"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ligar ao Apache Kafka no HDInsight através de uma rede Virtual do Azure
 
@@ -49,7 +49,7 @@ HDInsight não permite a ligação direta ao Kafka através da internet pública
 
     Para obter mais informações, consulte a [ligar ao Apache Kafka com um cliente VPN](#vpnclient) secção.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Esta configuração apenas é recomendada para fins de desenvolvimento devido às seguintes limitações:
     >
     > * Cada cliente tem de ligar a utilizar um cliente de software VPN.
@@ -61,7 +61,7 @@ Para obter mais informações sobre como utilizar o HDInsight numa rede virtual,
 
 Para criar um cluster de Kafka que comunica com a sua rede no local, siga os passos a [ligar o HDInsight à sua rede no local](./../connect-on-premises-network.md) documento.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ao criar o cluster do HDInsight, selecione o __Kafka__ tipo de cluster.
 
 Estes passos, crie a seguinte configuração:
@@ -71,7 +71,7 @@ Estes passos, crie a seguinte configuração:
 * Conta de armazenamento do Azure (utilizada pelo HDInsight)
 * Kafka no HDInsight
 
-Para verificar que um cliente de Kafka pode ligar ao cluster no local, utilize os passos no [exemplo: cliente Python](#python-client) secção.
+Para verificar que um cliente de Kafka pode ligar ao cluster no local, utilize os passos no [exemplo: Cliente Python](#python-client) secção.
 
 ## <a id="vpnclient"></a> Ligar ao Apache Kafka com um cliente VPN
 
@@ -186,7 +186,7 @@ Utilize os passos nesta secção para criar a seguinte configuração:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Pode demorar alguns minutos até que este processo ser concluído.
 
 5. Utilize o seguinte código para criar o contentor de BLOBs e de conta de armazenamento do Azure:
@@ -232,7 +232,7 @@ Utilize os passos nesta secção para criar a seguinte configuração:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Este processo demora cerca de 15 minutos a concluir.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Configurar o Kafka para fins de publicidade de IP
@@ -287,7 +287,7 @@ Por predefinição, o Apache Zookeeper devolve o nome de domínio de mediadores 
 
 Para ligar ao gateway de VPN, utilize o __ligar ao Azure__ secção a [configurar uma ligação ponto a Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) documento.
 
-## <a id="python-client"></a> Exemplo: Cliente de Python
+## <a id="python-client"></a> Exemplo: Cliente Python
 
 Para validar a conectividade ao Kafka, utilize os seguintes passos para criar e executar um Python produtor e consumidor:
 
@@ -317,7 +317,7 @@ Para validar a conectividade ao Kafka, utilize os seguintes passos para criar e 
 
     Guarde as informações retornadas para utilização nos passos seguintes.
 
-2. Utilize o seguinte para instalar o [kafka-python](http://kafka-python.readthedocs.io/) cliente:
+2. Utilize o seguinte para instalar o [kafka-python](https://kafka-python.readthedocs.io/) cliente:
 
         pip install kafka-python
 

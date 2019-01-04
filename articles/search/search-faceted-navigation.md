@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313943"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632438"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece navegação de Detalhamento auto-direcionada em aplicativos de pesquisa. O termo 'navegação por facetas' pode estar familiarizado, mas provavelmente usou antes. Como mostra o exemplo seguinte, a navegação por facetas é nada mais do que as categorias, utilizadas para filtrar os resultados.
@@ -34,7 +34,7 @@ No seu desenvolvimento de aplicativos, escrever um código que constrói as cons
 ## <a name="sample-code-and-demo"></a>Código de exemplo e demonstração
 Este artigo utiliza um portal de pesquisa de tarefa como exemplo. O exemplo é implementado como um aplicativo ASP.NET MVC.
 
--   Ver e testar a demonstração de trabalho online no [demonstração de Portal do Azure Search tarefa](http://azjobsdemo.azurewebsites.net/).
+-   Ver e testar a demonstração de trabalho online no [demonstração de Portal do Azure Search tarefa](https://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código a partir da [repositório de exemplos do Azure no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Pode encontrar exemplos de filtro [sintaxe da expressão OData (Azure Search)](h
 ## <a name="try-the-demo"></a>Experimentar a demonstração
 A demonstração de Portal do Azure Search tarefa contém exemplos referenciados neste artigo.
 
--   Ver e testar a demonstração de trabalho online no [demonstração de Portal do Azure Search tarefa](http://azjobsdemo.azurewebsites.net/).
+-   Ver e testar a demonstração de trabalho online no [demonstração de Portal do Azure Search tarefa](https://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código a partir da [repositório de exemplos do Azure no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ A demonstração de Portal do Azure Search tarefa contém exemplos referenciados
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Saiba mais
-Assista [aprofunde-se o Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). No 45:25, existe uma demonstração sobre como implementar facetas.
+Assista [aprofunde-se o Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). No 45:25, existe uma demonstração sobre como implementar facetas.
 
 Para obter mais informações sobre os princípios de design para navegação por facetas, recomendamos as seguintes ligações:
 
 * [Criação de uma pesquisa por facetas](http://www.uie.com/articles/faceted_search/)
-* [Padrões de design: Navegação por facetas](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Padrões de design: Navegação por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Para obter mais informações sobre os princípios de design para navegação po
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

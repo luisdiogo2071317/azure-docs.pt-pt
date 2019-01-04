@@ -1,6 +1,6 @@
 ---
 title: Os tipos de ficheiro no Azure Stack | Documentos da Microsoft
-description: Reveja os tipos de quota diferentes disponíveis para serviços e recursos no Azure Stack.
+description: Ver e editar os tipos de quota diferentes disponíveis para serviços e recursos no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c5b3be1d5b047e77b12d22fd5d24cbc42d88f783
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711536"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715660"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco VMs. Cada recurso pode ter seus próprios tipos de quotas.
 
 ## <a name="compute-quota-types"></a>Tipos de quota de computação 
+
 | **Tipo** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Número máximo de máquinas virtuais | 50 | O número máximo de máquinas virtuais que uma subscrição pode criar nesta localização. |
@@ -39,6 +40,7 @@ ms.locfileid: "51711536"
 | Capacidade máxima (em GB) de um disco gerido premium | 2048 | A capacidade máxima do premium geridos os discos que podem ser criados nesta localização. |
 
 ## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
+
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Capacidade máxima (GB) |2048 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
@@ -49,6 +51,7 @@ ms.locfileid: "51711536"
 
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
+
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | IPs públicos máximo |50 |O número máximo de IPs públicos que uma subscrição pode criar nesta localização. |
@@ -60,23 +63,51 @@ ms.locfileid: "51711536"
 | Grupos de segurança de rede máxima |50 |O número máximo de grupos de segurança de rede que uma subscrição pode criar nesta localização. |
 
 ## <a name="view-an-existing-quota"></a>Ver uma quota existente
+
+Existem duas formas diferentes para ver uma quota existente:
+
+### <a name="plans"></a>Planos
+
+1.  No painel de navegação esquerdo do portal do administrador, selecione **planos**.
+2.  Selecione o plano que gostaria de ver os detalhes para, ao clicar no respetivo nome.
+3.  No painel do que se abre, selecione **serviços e quotas**.
+4.  Selecione a quota de que pretende ver ao clicar no **nome** coluna.
+
+    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+### <a name="resource-providers"></a>Fornecedores de recursos
+
 1. Encontrar no dashboard do portal de administração do padrão, o **fornecedores de recursos** mosaico.
-2. Selecione o serviço com a quota de que pretende ver, assim **computação** ou **armazenamento**.
+2. Selecione o serviço com a quota de que pretende ver, assim **computação**, **rede**, ou **armazenamento**.
 3. Selecione **Quotas**e, em seguida, selecione a quota de que pretende visualizar.
 
+## <a name="edit-a-quota"></a>Editar uma quota
 
-## <a name="edit-a-quota"></a>Editar uma quota  
-Pode optar por editar a configuração original de uma quota em vez de [utilizar um plano de suplemento](create-add-on-plan.md). Ao editar uma quota, a nova configuração automaticamente aplica-se globalmente a todos os planos que utilizam esse quota e todas as assinaturas existentes que utilizam esses planos. A edição de uma quota é diferente de quando utiliza um plano de suplemento para fornecer uma quota modificada, o que um utilizador optar por subscrever. 
+Existem duas formas diferentes de editar uma quota:
 
-### <a name="to-edit-a-quota"></a>Para editar uma quota  
-1. Encontrar no dashboard do portal de administração do padrão, o **fornecedores de recursos** mosaico.
+### <a name="edit-a-plan"></a>Editar um plano
+
+1.  No painel de navegação esquerdo do portal do administrador, selecione **planos**.
+2.  Selecione o plano para o qual quiser para editar uma quota, ao clicar no respetivo nome.
+3.  No painel do que se abre, selecione **serviços e quotas**.
+4.  Selecione a quota de que pretende editar clicando-lo na **nome** coluna.
+    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+5.  No painel do que se abre, selecione **editar na computação**, **editar na rede**, ou **editar no armazenamento**.
+    ![Quotas](media/azure-stack-quota-types/quotas3.png "ver quotas")    
+
+Em alternativa, pode seguir este procedimento para editar uma quota:
+
+1. No dashboard do padrão do portal do administrador, encontrar o **fornecedores de recursos** mosaico.
 2. Selecione o serviço com a quota de que pretende modificar, como **computação**, **rede**, ou **armazenamento**.
 3. Em seguida, selecione **Quotas**e, em seguida, selecione a quota de que pretende alterar.
-4. Sobre o **definir as quotas** painel, edite os valores e, em seguida, selecione **guardar**. 
+4. Sobre o **quotas de armazenamento definida**, **computação definir quotas**, ou **quotas de rede de conjunto** painel (dependendo do tipo de quota que escolheu para editar), edite os valores e, em seguida, selecione **Guardar**.
+
+### <a name="edit-original-configuration"></a>Editar a configuração original
+  
+Pode optar por editar a configuração original de uma quota em vez de [utilizar um plano de suplemento](create-add-on-plan.md). Ao editar uma quota, a nova configuração automaticamente aplica-se globalmente a todos os planos que utilizam esse quota e todas as assinaturas existentes que utilizam esses planos. A edição de uma quota é diferente de quando utiliza um plano de suplemento para fornecer uma quota modificada, o que um utilizador optar por subscrever. 
 
 Os novos valores para a quota aplicam-se globalmente a todos os planos que utilizam a quota modificada e a todas as subscrições existentes que utilizam esses planos. 
-
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: adeb2d1f1268ed3f933a340c184a531510a7ff88
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 85a93746f3d10c5b4dae4f50cd539d515960bd54
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437457"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584331"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
 Este artigo descreve o dimensionamento automático do Microsoft Azure é, seus benefícios e como começar a usá-lo.  
@@ -97,7 +97,7 @@ Para obter mais informações, consulte [aumentar verticalmente a máquina virtu
 Pode configurar o dimensionamento automático através de
 
 * [Portal do Azure](../../azure-monitor/platform/autoscale-get-started.md)
-* [PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Interface de Linha de Comandos (CLI) de várias plataformas](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 

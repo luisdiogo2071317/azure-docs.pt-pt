@@ -4,93 +4,120 @@ description: Respostas a perguntas comuns sobre como funcionam as cópias de seg
 services: backup
 author: trinadhk
 manager: shreeshd
-keywords: cópia de segurança de vm do azure, restauro de vm do azure, política de cópias de segurança
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753972"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972197"
 ---
-# <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço Azure VM Backup
-Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure VM Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
 
-## <a name="configure-backup"></a>Configurar a cópia de segurança
-### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Os cofres dos Serviços de Recuperação suportam VMs clássicas ou VMs no Resource Manager? <br/>
-Os cofres dos Serviços de Recuperação suportam ambos os modelos.  Pode fazer backup de uma VM clássica ou uma VM do Resource Manager para um cofre dos serviços de recuperação.
+Este artigo responde a perguntas comuns sobre o [Azure Backup](backup-introduction-to-azure-backup.md) serviço.
 
-### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Que configurações não são suportadas pelo Azure VM backup?
-Leia o artigo [sistemas operativos suportados](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) e [cópia de segurança de limitações de VM](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+## <a name="general-questions"></a>Perguntas gerais
 
-### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Por que motivo não vejo a minha VM no assistente de configuração de cópias de segurança?
-No Assistente de cópia de segurança de configurar, cópia de segurança do Azure só apresenta VMs que são:
-  * Ainda não estejam protegidas pode verificar o estado de cópia de segurança de uma VM ao aceder ao painel da VM e a verificar o estado de cópia de segurança no Menu de definições. Saiba mais sobre como [Verificar o estado da cópia de segurança de uma VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
-  * Pertençam à mesma região que a VM
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais as VMs do Azure pode lhe fazer cópias de segurança utilizando o Azure Backup?
+[Revisão](backup-azure-arm-vms-prepare.md#before-you-start) sistemas operativos suportados e limitações.
+
+
 
 ## <a name="backup"></a>Cópia de segurança
-### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>As tarefas de cópias de segurança a pedido seguem a mesma agenda de retenção que as cópias de segurança agendadas?
-Não. Deve especificar o período de retenção para uma tarefa de cópia de segurança a pedido. Por predefinição, são retido durante 30 dias quando acionada a partir do portal.
+
+### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Uma tarefa de cópia de segurança a pedido utiliza a mesma agenda de retenção como cópias de segurança agendadas?
+Não. Deve especificar o período de retenção para uma tarefa de cópia de segurança a pedido. Por predefinição, são retido durante 30 dias quando acionado a partir do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
-Tem de dar permissões ao serviço Azure Backup para aceder ao Key Vault. Pode conceder estas permissões no PowerShell com os passos mencionados na secção *Enable Backup* (Ativar Cópia de Segurança) da documentação do [PowerShell](backup-azure-vms-automation.md).
+Tem de fornecer permissões para o Azure Backup aceder ao Key Vault. Especifique as permissões no PowerShell, conforme descrito no **ativar cópia de segurança** secção a [PowerShell de cópia de segurança do Azure](backup-azure-vms-automation.md) documentação.
 
-### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei discos de uma VM para discos geridos. As minhas cópias de segurança vão continuar a funcionar?
-Sim, as cópias de segurança funcionam sem problemas e sem a necessidade de reconfigurar a cópia de segurança.
+### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei discos VM para discos geridos. As minhas cópias de segurança vão continuar a funcionar?
+Sim, as cópias de segurança funcionam perfeitamente. Não é necessário reconfigurar a nada.
+
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Por que motivo não vejo a minha VM no Assistente para configurar a cópia de segurança?
+O assistente só apresenta VMs na mesma região que o Cofre e que não estão já a cópia de segurança.
+
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>A minha VM está a ser encerrado. Será uma demanda ou de um trabalho de cópia de segurança agendado?
-Sim. Mesmo quando uma máquina é encerrada cópias de segurança funcionam e o ponto de recuperação está marcado como falhas consistente. Para obter mais detalhes, consulte a secção de consistência de dados em [neste artigo](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Sim. Executam cópias de segurança quando uma máquina é encerrada. O ponto de recuperação é marcado como falhas consistente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Pode cancelar uma tarefa de cópia de segurança em curso?
-Sim. Pode cancelar a tarefa de cópia de segurança se ele está na fase de "Criar o instantâneo". **Não é possível cancelar uma tarefa, se a transferência de dados de instantâneos está em curso**.
+Sim. Pode cancelar a tarefa de cópia de segurança num **tirar instantâneo** estado. Não é possível cancelar uma tarefa, se a transferência de dados a partir do instantâneo está em curso.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio do grupo de recursos em minhas VMs com cópia de segurança de discos geridos. As minhas cópias de segurança vão continuar a funcionar?
-Se o usuário bloqueia o grupo de recursos, o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a isso novas cópias de segurança começam a falhar porque não existe um limite máximo 18 de pontos de restauro impostas a partir do back-end. Se as cópias de segurança estão a falhar com um erro interno após o bloqueio RG, siga estes [coleção de ponto de passos para remover o restauro](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
+Se bloquear o grupo de recursos, o serviço de cópia de segurança do Azure não é possível eliminar os pontos de restauro mais antigos.
+- Novas cópias de segurança vão começar a falhar, uma vez que existe um limite máximo de 18 pontos de restauro.
+- Se as cópias de segurança falharem com um erro interno, após o bloqueio [siga estes passos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de ponto de restauro.
 
-### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Política de cópia de segurança demora Time(DST) da guardar a hora de Verão em conta?
-Não. Lembre-se de que data e hora no seu computador local é apresentado na sua hora local e com a tendência atual do horário de Verão. Portanto, o tempo configurado para cópias de segurança agendadas pode ser diferente da sua hora local devido ao horário de Verão.
+### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>A política de cópia de segurança considerar o horário de Verão (horário de Verão)?
+Não. A data e hora no seu computador local é local com o atual Verão aplicada. O tempo definido para cópias de segurança agendadas pode diferir da hora local devido ao horário de Verão.
 
-### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Máximo de quantos discos de dados podem ligar a uma VM a cópia de segurança pelo Azure Backup?
-O Azure Backup suporta agora a cópia de segurança de máquinas virtuais com até 16 discos. Para obter suporte de disco 16, [atualização para a pilha de cópia de segurança do Azure VM V2](backup-upgrade-to-vm-backup-stack-v2.md). Haverá obter suporte para todas as VMs de ativar a proteção a partir de 24 de Setembro de 2018.
+### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quantos discos de dados pode anexar a uma VM de uma cópia de segurança do Azure Backup?
+Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com até 16 discos. Suporte para 16 discos é fornecido no [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da cópia de segurança de VM do Azure stack V2.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Suporte de cópia de segurança do Azure Standard SSD geridos pelo disco?
-O Azure Backup suporta [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), um novo tipo de armazenamento durável para máquinas virtuais do Microsoft Azure. É suportado para discos geridos num [pilha de cópia de segurança do Azure VM V2](backup-upgrade-to-vm-backup-stack-v2.md).
+### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Faz o suporte de cópia de segurança do Azure SSD discos geridos standard?
+O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD gerido os discos fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da cópia de segurança de VM do Azure stack V2.
+
+### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Vamos criar uma VM com um disco WA do acelerador de escrita ativado?
+Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos WA-ativada é suportada apenas para subscrições atualizadas para a pilha de cópia de segurança do Azure VM V2. Para atualizar para a pilha de cópia de segurança do Azure VM V2, consulte [artigo](backup-upgrade-to-vm-backup-stack-v2.md). Esta funcionalidade está atualmente disponível no Leste do Japão, Europa do Norte, Sudeste asiático, E.U.A. leste, E.u.a. oeste2, Europa Ocidental e e.u.a. Leste 2.
+
+
+### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?
+O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
+
+Temos uma pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado na pré-visualização privada, envie um e-mail para ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
+
 
 ## <a name="restore"></a>Restauro
-### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como posso decidir entre o restauro de discos e o restauro de VMs completo?
-Pense o restauro de VMS completo do Azure como uma opção de criação rápida. Restaure VM opção alterações os nomes dos discos, os contentores utilizados por esses discos, endereços IP públicos e os nomes de interface de rede. A alteração é necessária para manter a exclusividade de recursos criados durante a criação da VM. Mas não adicionará a VM ao conjunto de disponibilidade.
 
-Utilize os discos de restauro para:
-  * Personalizar a que é criada a partir do ponto na configuração de tempo, como alterar o tamanho da VM
-  * Adicionar configurações, que não estão presentes no momento da cópia de segurança
-  * Controlar a convenção de nomenclatura para os recursos que são criados
-  * Adicionar a VM ao conjunto de disponibilidade
-  * Para qualquer outra configuração que pode ser obtido utilizando apenas a definição de PowerShell ou uma modelo declarativo
+### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como posso decidir se pretende restaurar discos apenas ou uma VM completa?
+Considere um restauro de VM como uma opção de criação rápida para uma VM do Azure. Esta opção alterações de nomes de disco, contentores utilizados pelos discos, endereços IP públicos e os nomes de interface de rede. A alteração mantém recursos exclusivos, quando é criada uma VM. A VM não é adicionada a um conjunto de disponibilidade.
 
-### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Pode utilizar cópias de segurança de VM de disco não gerido para restaurar depois de atualizar meus discos para os managed disks?
-Sim, pode usar as cópias de segurança realizadas antes de migrar discos a partir de não gerido para gerido. Por predefinição, o trabalho de VM de restauração criará uma VM com discos não geridos. Pode utilizar a funcionalidade de discos de restauro restaurar discos e utilizá-los para criar uma VM em discos geridos.
+A opção de disco restauro, se quiser:
+  * Personalize as VMS que são criadas. Por exemplo, altere o tamanho.
+  * Adicionar definições de configuração que não estavam lá no momento da cópia de segurança
+  * Controle a Convenção de nomenclatura para recursos que são criados.
+  * Adicione a VM a um conjunto de disponibilidade.
+  * Adicione qualquer outra definição tem de ser configurada com o PowerShell ou um modelo.  W
 
-### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>O que é o procedimento para restaurar uma VM para um ponto de restauro colocado antes da conversão de não gerenciado para os managed disks era feita para uma VM?
-Neste cenário, por predefinição, tarefa de VM de restauro irá criar uma VM com discos não geridos. Para criar uma VM com discos geridos:
-1. [Restaurar para discos não geridos](tutorial-restore-disk.md#restore-a-vm-disk)
-2. [Converta os discos restaurados em discos geridos](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
-3. [Criar uma VM com discos geridos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
-Para cmdlets do PowerShell, consulte [aqui](backup-azure-vms-automation.md#restore-an-azure-vm).
+### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Pode restaurar cópias de segurança de discos VM não geridos depois de atualizar para o managed disks?
+Sim, pode utilizar cópias de segurança criadas antes de discos foram migrados do não gerido para gerido.
+- Por predefinição, um trabalho VM de restauro cria uma VM não gerida.
+- No entanto, pode restaurar discos e usá-los para criar uma VM gerida.
 
-### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>Pode restaurar a VM se a minha VM é eliminado?
-Sim. Ciclo de vida da VM e seu item de cópia de segurança correspondente são diferentes. Portanto, mesmo que a VM, pode aceder à correspondente item no cofre dos serviços de recuperação de cópia de segurança e acione um restauro através de um dos pontos de recuperação.
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Como posso restaurar uma VM para um ponto de restauro antes da VM foi migrada para o managed disks?
+Por predefinição, um trabalho VM de restauro cria uma VM com discos não geridos. Para criar uma VM com discos geridos:
+1. [Restaurar para discos não geridos](tutorial-restore-disk.md#restore-a-vm-disk).
+2. [Converta os discos restaurados em discos geridos](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Criar uma VM com discos geridos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+
+[Saiba mais](backup-azure-vms-automation.md#restore-an-azure-vm) sobre como fazer isso no PowerShell.
+
+### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Pode restaurar a VM que é eliminada?
+Sim. Mesmo que a VM, pode aceder à cópia de segurança correspondente do item no cofre e restaurar a partir de um ponto de recuperação.
+
+### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>Como restaurar uma VM para os conjuntos de disponibilidade mesmo?
+Restauro para os conjuntos de disponibilidade está ativada para a VM de Azure de disco gerido, ao fornecer uma opção no modelo enquanto restaurava como discos geridos. Este modelo tem o parâmetro de entrada chamado **conjuntos de disponibilidade**.
+
+### <a name="how-do-we-get-faster-restore-performances"></a>Como podemos obter os desempenhos de restauro mais rápidos?
+Para acelerar o desempenho de restauro, recomendamos que mova para a pilha de cópia de segurança de VM V2 e utilizar [funcionalidade de RP instantâneas](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
-### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>O que acontece quando altero uma política de cópias de segurança numa ou em várias VMs?
-Quando uma nova política é aplicada ou mais VMS, agenda e a retenção da nova política é seguida. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
 
-### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Como posso mover que uma VM inscrito na cópia de segurança do Azure entre grupos de recursos?
-Siga os passos abaixo para mover com êxito a VM de cópia de segurança para o grupo de recursos de destino
-1. Temporariamente parar cópia de segurança e manter os dados de cópia de segurança
-2. Mova a VM para o grupo de recursos de destino
-3. Voltar a proteger com o mesmo/novo cofre
+### <a name="what-happens-if-i-modify-a-backup-policy"></a>O que acontece se eu modificar uma política de cópia de segurança?
+A VM é apoiada utilizando as definições de agendamento e retenção na política de nova ou modificada.
 
-Os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+- Se a retenção for estendida, pontos de recuperação existentes são marcados e mantidos em conformidade com a nova política.
+- Se for reduzida, pontos de recuperação são marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
+
+### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Como faço para mover uma VM de uma cópia de segurança do Azure Backup para um grupo de recursos diferente?
+
+1. Temporariamente parar a cópia de segurança e manter os dados de cópia de segurança.
+2. Mova a VM para o grupo de recursos de destino.
+3. Cópia de segurança reenabled no mesmo ou novo cofre.
+
+Pode restaurar a VM a partir de pontos de restauração disponíveis que foram criados antes da operação de movimentação.

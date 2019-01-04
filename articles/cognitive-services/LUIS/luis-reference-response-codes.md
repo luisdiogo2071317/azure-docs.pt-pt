@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078244"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598455"
 ---
-# <a name="luis-api-http-response-codes"></a>Códigos de resposta HTTP da API de LUIS
+# <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta de API comuns e o respetivo significado
+
 O [criação](https://aka.ms/luis-authoring-apis) e [endpoint](https://aka.ms/luis-endpoint-apis) APIs devolvem os códigos de resposta HTTP. Mensagens de resposta inclui informações específicas a um pedido, o código de estado de resposta HTTP é geral. 
 
 ## <a name="common-status-codes"></a>Códigos de status comuns
@@ -38,3 +39,7 @@ A tabela seguinte lista algumas dos códigos de estado de resposta HTTP mais com
 |410|Ponto Final|aplicação tem de ser reestruturar e replicado|
 |414|Ponto Final|consulta excede o limite máximo de carateres|
 |429|Criação de ponto final|Limite de taxa foi excedido (pedidos/segundo)|
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* REST API [criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) e [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) documentação

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 43f1918e7c80fdc04b80583ce374cfb8127dd021
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602567"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972350"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Windows Máquina Virtual do Azure em Python
 
@@ -137,7 +137,7 @@ Pode seguir esta [tutorial](https://docs.microsoft.com/azure/virtual-machines/wi
 
 ## <a name="create-and-run-sample-python-app"></a>Criar e executar a aplicação Python de exemplo
 
-A seguir é apenas um ficheiro de exemplo com o nome "Sample.py". Ele usa [pedidos](http://docs.python-requests.org/master/) biblioteca para fazer chamadas HTTP GET.
+A seguir é apenas um ficheiro de exemplo com o nome "Sample.py". Ele usa [pedidos](http://docs.python-requests.org/en/master/) biblioteca para fazer chamadas HTTP GET.
 
 ## <a name="edit-samplepy"></a>Editar Sample.py
 Depois de criar Sample.py, abra o ficheiro e copie o abaixo código

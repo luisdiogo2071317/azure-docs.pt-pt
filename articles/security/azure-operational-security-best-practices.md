@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853622"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725325"
 ---
 # <a name="azure-operational-security-best-practices"></a>Segurança operacional melhores práticas do Azure
 Segurança operacional do Azure refere-se a serviços, controles e recursos disponíveis aos utilizadores para proteger seus dados, aplicativos e outros recursos no Azure. Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados recolhidos através de capacidades que são exclusivas da Microsoft, incluindo o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), o [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programa e profundo entendimento do cenário de ameaças de cibersegurança.
@@ -55,39 +55,39 @@ Os clientes criam uma rede ponto a ponto no Azure através da combinação de re
 
 Seguem-se as práticas recomendadas para as ferramentas de monitorização e de disponibilidade de rede.
 
-**Melhor prática**: automatizar a monitorização remota de redes com captura de pacotes.  
-**Detalhe**: monitorizar e diagnosticar problemas de rede sem iniciar sessão nas VMS com o observador de rede. Acionador [captura de pacotes](../network-watcher/network-watcher-alert-triggered-packet-capture.md) ao definir alertas e obter acesso a informações de desempenho em tempo real ao nível do pacote. Quando se deparar com um problema, pode investigar em pormenor para obter melhores diagnósticos.
+**Melhor prática**: Automatize a monitorização remota de redes com captura de pacotes.  
+**Detalhe**: Monitorizar e diagnosticar problemas de rede sem iniciar sessão nas VMS com o observador de rede. Acionador [captura de pacotes](../network-watcher/network-watcher-alert-triggered-packet-capture.md) ao definir alertas e obter acesso a informações de desempenho em tempo real ao nível do pacote. Quando se deparar com um problema, pode investigar em pormenor para obter melhores diagnósticos.
 
-**Melhor prática**: obter informações sobre o seu tráfego de rede ao utilizar os registos de fluxo.  
-**Detalhe**: desenvolver uma compreensão mais aprofundada da sua rede padrões de tráfego utilizando [registos de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informações nos registos de fluxo ajudam-o a recolher dados de conformidade, auditoria e monitorização do seu perfil de segurança de rede.
+**Melhor prática**: Obtenha informações sobre o seu tráfego de rede ao utilizar os registos de fluxo.  
+**Detalhe**: Criar padrões de tráfego de uma compreensão mais aprofundada da sua rede usando [registos de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informações nos registos de fluxo ajudam-o a recolher dados de conformidade, auditoria e monitorização do seu perfil de segurança de rede.
 
-**Melhor prática**: problemas de conectividade de VPN de diagnosticar.  
-**Detalhe**: Utilize o observador de rede para [diagnosticar os problemas mais comuns de Gateway de VPN e ligação](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Pode não só identificar o problema, mas também utilizar registos detalhados para continuar a investigar.
+**Melhor prática**: Diagnostica problemas de conectividade VPN.  
+**Detalhe**: Utilizar o observador de rede para [diagnosticar os problemas mais comuns de Gateway de VPN e ligação](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Pode não só identificar o problema, mas também utilizar registos detalhados para continuar a investigar.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Proteger a implementação com as ferramentas de DevOps comprovadas
 Utilize as seguintes práticas recomendadas do DevOps para se certificar de que suas equipas de enterprise e produtiva e eficiente.
 
-**Melhor prática**: automatizar a compilação e implementação de serviços.  
-**Detalhe**: [infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) é um conjunto de técnicas e práticas recomendadas que ajudam os profissionais de TI remover o fardo da compilação diária e a gestão de infraestrutura modular. Permite que os profissionais de TI criar e manter seu ambiente de servidor modernas de forma que é semelhante a como os desenvolvedores de software criar e manter o código da aplicação.
+**Melhor prática**: Automatize a compilação e implementação de serviços.  
+**Detalhe**: [Infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) é um conjunto de técnicas e práticas recomendadas que ajudam os profissionais de TI remover o fardo da compilação diária e a gestão de infraestrutura modular. Permite que os profissionais de TI criar e manter seu ambiente de servidor modernas de forma que é semelhante a como os desenvolvedores de software criar e manter o código da aplicação.
 
 Pode usar [do Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) para aprovisionar as suas aplicações ao utilizar um modelo declarativo. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Utilize o mesmo modelo para implementar repetidamente a sua aplicação em cada fase do ciclo de vida do aplicativo.
 
-**Melhor prática**: automaticamente a criar e implementar aplicações web do Azure ou serviços em nuvem.  
-**Detalhe**: pode utilizar Pipelines do Azure para [automaticamente, criar e implementar](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) para aplicações web do Azure ou serviços cloud. Pipelines do Azure implementa automaticamente os binários depois de fazer uma compilação para o Azure após cada check-in de código. O processo de compilação do pacote é equivalente ao comando do pacote no Visual Studio e os passos de publicação são equivalentes para o comando Publish no Visual Studio.
+**Melhor prática**: Automaticamente a criar e implementar aplicações web do Azure ou serviços em nuvem.  
+**Detalhe**: Pode utilizar Pipelines do Azure para [automaticamente, criar e implementar](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) para aplicações web do Azure ou serviços cloud. Pipelines do Azure implementa automaticamente os binários depois de fazer uma compilação para o Azure após cada check-in de código. O processo de compilação do pacote é equivalente ao comando do pacote no Visual Studio e os passos de publicação são equivalentes para o comando Publish no Visual Studio.
 
 **Melhor prática**: Utilize a implementação contínua.  
 **Detalhe**: [Pipelines do Azure](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) é uma solução para automatizar a implementação de vários estágios e gerenciar o processo de lançamento. Crie pipelines de implementação contínua gerido para libertar rapidez, facilidade e, muitas vezes. Com os Pipelines do Azure, pode automatizar o processo de liberação e pode predefinida fluxos de trabalho de aprovação. Implemente no local e na nuvem, expandir e personalizar conforme necessário.
 
-**Melhor prática**: verificar o desempenho da sua aplicação antes de iniciá-lo ou implementar atualizações em produção.  
-**Detalhe**: execute com base na cloud [testes de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) ao utilizar planos de teste do Azure para:
+**Melhor prática**: Verifique o desempenho da sua aplicação antes de iniciá-lo ou implementar atualizações em produção.  
+**Detalhe**: Executar com base na cloud [testes de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) ao utilizar planos de teste do Azure para:
 
 - Encontre problemas de desempenho na sua aplicação.
 - Melhore a qualidade de implementação.
 - Certifique-se de que a aplicação está sempre disponível.
 - Certifique-se de que a aplicação consegue processar o tráfego para a sua campanha de lançamento ou de marketing seguinte.
 
-**Melhor prática**: monitorizar o desempenho do aplicativo.  
-**Detalhe**: [Azure Application Insights](../application-insights/app-insights-overview.md) é um serviço de gestão (APM) de desempenho de aplicações extensível para desenvolvedores da web em várias plataformas. Utilize o Application Insights para monitorizar a sua aplicação web em direto. Deteta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+**Melhor prática**: Monitorizar o desempenho do aplicativo.  
+**Detalhe**: [O Azure Application Insights](../application-insights/app-insights-overview.md) é um serviço de gestão (APM) de desempenho de aplicações extensível para desenvolvedores da web em várias plataformas. Utilize o Application Insights para monitorizar a sua aplicação web em direto. Deteta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Mitigar e proteção contra DDoS
 Ataques denial of service (DDoS) é um tipo de ataque que tenta a esgotar os recursos de aplicativos. O objetivo é afetar a disponibilidade da aplicação e a sua capacidade de processar pedidos legítimos. Esses ataques estão se tornando mais sofisticados e maior tamanho e o impacto. Eles podem ser direcionados para qualquer ponto final que está publicamente acessível através da internet.
@@ -97,12 +97,12 @@ Projetando e criando para resiliência contra DDoS requerem um planeamento e con
 Seguem-se as práticas recomendadas para criação de serviços de DDoS resilientes no Azure.
 
 **Melhor prática**: Certifique-se de que a segurança é uma prioridade ao longo de todo o ciclo de vida de um aplicativo, desde a conceção e implementação para implantação e operações. As aplicações podem ter bugs que permitem que um volume relativamente baixo de pedidos para utilizar muitos recursos, resultando numa indisponibilidade do serviço.  
-**Detalhe**: para ajudar a proteger um serviço em execução no Microsoft Azure, deve ter uma boa compreensão da sua arquitetura de aplicativo e enfocar o [cinco pilares de qualidade de software](https://docs.microsoft.com/azure/architecture/guide/pillars). Deve saber volumes de tráfego típico, o modelo de conectividade entre a aplicação e outras aplicações e os pontos finais de serviço são expostos à Internet pública.
+**Detalhe**: Para ajudar a proteger um serviço em execução no Microsoft Azure, deve ter uma boa compreensão da sua arquitetura de aplicativo e enfocar o [cinco pilares de qualidade de software](https://docs.microsoft.com/azure/architecture/guide/pillars). Deve saber volumes de tráfego típico, o modelo de conectividade entre a aplicação e outras aplicações e os pontos finais de serviço são expostos à Internet pública.
 
 É mais importante garantir que um aplicativo é resiliente para lidar com uma negação de serviço que é direcionada para a própria aplicação. Segurança e a privacidade são incorporadas na plataforma do Azure, começando com o [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). O SDL aborda a segurança em todas as fases de desenvolvimento e garante que o Azure é continuamente atualizado para que seja ainda mais seguro.
 
-**Melhor prática**: conceber a sua aplicação para [Dimensionar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplified, especificamente no caso de um ataque DDoS. Se seu aplicativo depende de uma única instância de um serviço, ele cria um ponto único de falha. Várias instâncias de aprovisionamento torna o seu sistema, mais escalonável e mais resiliente.  
-**Detalhe**: para [serviço de aplicações do Azure](../app-service/app-service-value-prop-what-is.md), selecione uma [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que oferece várias instâncias.
+**Melhor prática**: Conceber a sua aplicação para [Dimensionar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplified, especificamente no caso de um ataque DDoS. Se seu aplicativo depende de uma única instância de um serviço, ele cria um ponto único de falha. Várias instâncias de aprovisionamento torna o seu sistema, mais escalonável e mais resiliente.  
+**Detalhe**: Para [App Service do Azure](../app-service/app-service-value-prop-what-is.md), selecione um [plano do App Service](../app-service/overview-hosting-plans.md) que oferece várias instâncias.
 
 Serviços Cloud do Azure, configure cada uma das suas funções para utilizar [várias instâncias](../cloud-services/cloud-services-choose-me.md).
 

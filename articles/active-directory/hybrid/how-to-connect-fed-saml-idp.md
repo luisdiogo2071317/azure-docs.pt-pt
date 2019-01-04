@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426414"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743532"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único no
 
@@ -167,7 +167,7 @@ Tem de ativar a comunicação entre o seu fornecedor de identidade de SAML 2.0 e
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalar o Windows PowerShell para início de sessão com o fornecedor de identidade de SAML 2.0
 Depois de ter configurado o fornecedor de identidade de SAML 2.0 para utilização com o início de sessão no Azure AD, a próxima etapa é baixar e instalar o módulo Azure Active Directory para Windows PowerShell. Uma vez instalado, irá utilizar estes cmdlets para configurar seus domínios do Azure AD como domínios federados.
 
-O módulo Azure Active Directory para Windows PowerShell é um download para gerir os seus dados de que as organizações no Azure AD. Este módulo instala um conjunto de cmdlets para o Windows PowerShell; executar os cmdlets para configurar o acesso de início de sessão único para o Azure AD e, por sua vez, para todos os serviços de cloud está a subscrever. Para obter instruções sobre como transferir e instalar os cmdlets, consulte [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
+O módulo Azure Active Directory para Windows PowerShell é um download para gerir os seus dados de que as organizações no Azure AD. Este módulo instala um conjunto de cmdlets para o Windows PowerShell; executar os cmdlets para configurar o acesso de início de sessão único para o Azure AD e, por sua vez, para todos os serviços de cloud está a subscrever. Para obter instruções sobre como transferir e instalar os cmdlets, consulte [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configurar uma confiança entre o seu fornecedor de identidade SAML e o Azure AD
 Antes de configurar o Federação num domínio do Azure AD, tem de ter um domínio personalizado configurado. Não é possível federar o domínio predefinido que é fornecido pela Microsoft. O domínio padrão da Microsoft termina com "onmicrosoft.com".
@@ -183,14 +183,14 @@ O procedimento seguinte orienta-o através de conversão de um domínio padrão 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Configurar um domínio do Azure AD Directory para a Federação
 
 
-1. Ligar ao diretório do Azure AD, como um administrador de inquilino: Connect-MsolService.
+1. Ligar ao diretório do Azure AD como um administrador de inquilino: Connect-MsolService.
 2.  Configure o seu domínio do Office 365 pretendido para usar a Federação com o SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  Pode obter a cadeia de caracteres de codificada em base64 assinatura do certificado no seu ficheiro de metadados do IDP. Um exemplo desse local foi fornecido, mas pode diferir ligeiramente com base na sua implementação.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [ https://technet.microsoft.com/library/dn194112.aspx ](httpss://technet.microsoft.com/library/dn194112.aspx).
+Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Tem de executar a utilização "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" apenas se configurar uma extensão ECP para o seu fornecedor de identidade. Os clientes Exchange Online, excluindo a aplicação OWA (Outlook Web), dependem uma publicação com base em ponto final de Active Directory. Se o seu STS do SAML 2.0 implementa um ponto de final Active Directory semelhante à implementação de ECP do Shibboleth de um ponto final de Active Directory pode ser possível que estes clientes avançados interagir com o serviço Exchange Online.
@@ -207,7 +207,7 @@ Também pode ser utilizado o Windows PowerShell para automatizar a adição de n
 Este procedimento mostra como adicionar um único utilizador para o Azure AD.
 
 
-1. Ligar ao diretório do Azure AD, como um administrador de inquilino: Connect-MsolService.
+1. Ligar ao diretório do Azure AD como um administrador de inquilino: Connect-MsolService.
 2.  Crie um novo principal de utilizador: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -218,7 +218,7 @@ Este procedimento mostra como adicionar um único utilizador para o Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Para obter mais informações sobre o Check-out de "New-MsolUser", [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
+Para obter mais informações sobre o Check-out de "New-MsolUser", [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >O valor de "UserPrinciplName" tem de corresponder ao valor que irá enviar para "IDPEmail" no seu afirmações de SAML 2.0 e o valor de "ImmutableID" tem de corresponder ao valor enviado no seu asserção "NameID".
@@ -254,13 +254,13 @@ A Microsoft forneceu uma ferramenta que pode usar para testar o seu fornecedor d
 2.  Clique em instalar agora para começar a baixar e instalar a ferramenta.
 3.  Selecione "Não é possível configurar a Federação com o Office 365, Azure ou noutros serviços que utilizam o Azure Active Directory".
 4.  Assim que a ferramenta é transferida e em execução, verá a janela de diagnóstico de conectividade. A ferramenta apresentará a por meio do teste a ligação de Federação.
-5.  O analisador de conectividade abrirá o SAML 2.0 IDP-lhe iniciar sessão, introduza as credenciais de principal de utilizador está a testar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  O analisador de conectividade abrirá o SAML 2.0 IDP-lhe iniciar sessão, introduza as credenciais de principal de utilizador que está a testar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  No teste de início de sessão na janela de Federação, que deve introduzir um nome de conta e palavra-passe para o inquilino do Azure AD que está configurado para ser Federado com o seu fornecedor de identidade de SAML 2.0. A ferramenta irá tentar inicie a sessão com as credenciais e resultados detalhados de testes executados durante a tentativa de início de sessão serão fornecidos como saída.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Esta janela exibe um resultado de falha de teste. Clicar em revisão dos resultados em pormenor mostrará informações sobre os resultados para cada teste que foi executada. Também pode guardar os resultados para o disco para partilhá-los.
  
 >[!NOTE]
->O analisador de conectividade também testa o Federação ativa com o WS *-com base e ECP/PAOS protocolos. Se não estiver a utilizar estas pode ignorar o erro seguinte: testar o início de sessão fluxo ativo através do ponto final de Federação do Active Directory do seu fornecedor de identidade.
+>O analisador de conectividade também testa o Federação ativa com o WS *-com base e ECP/PAOS protocolos. Se não estiver a utilizar estas pode ignorar o erro seguinte: Teste o início de sessão fluxo ativo através do ponto final de Federação do Active Directory do seu fornecedor de identidade.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Verifique manualmente esse início de sessão único foi configurado corretamente
 A verificação manual fornece passos adicionais que pode tomar para se certificar de que o seu fornecedor de identidade de SAML 2.0 está a funcionar corretamente em muitos cenários.
@@ -268,7 +268,7 @@ Para verificar que esse início de sessão único foi configurado corretamente, 
 
 
 1. Num computador associado a um domínio, início de sessão ao seu serviço de nuvem com o mesmo nome de início de sessão que utilizam as suas credenciais empresariais.
-2.  Clique dentro da caixa de palavra-passe. Se o início de sessão único é configurado, a caixa de palavra-passe será sombreada e verá a seguinte mensagem: "agora tem de iniciar sessão no &lt;da sua empresa&gt;."
+2.  Clique dentro da caixa de palavra-passe. Se o início de sessão único estiver configurado, a caixa de palavra-passe será sombreada e verá a seguinte mensagem: "Agora tem de iniciar sessão no &lt;da sua empresa&gt;."
 3.  Clique no início de sessão no &lt;da sua empresa&gt; ligação. Se for capaz de início de sessão, em seguida, único início de sessão foi configurado.
 
 ## <a name="next-steps"></a>Próximos Passos

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407058"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993030"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Hadoop HDFS com o Azure HDInsight
 
@@ -23,7 +23,7 @@ Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads
 
 ### <a name="issue"></a>Problema
 
-Acesso do HDFS local a partir da linha de comandos e o código da aplicação em vez de ao utilizar o armazenamento de Blobs do Azure ou do Azure Data Lake Store de dentro do cluster do HDInsight.   
+Acesso do HDFS local a partir da linha de comandos e o código da aplicação em vez de ao utilizar o armazenamento de Blobs do Azure ou o armazenamento do Azure Data Lake de dentro do cluster do HDInsight.   
 
 ### <a name="resolution-steps"></a>Passos de resolução
 

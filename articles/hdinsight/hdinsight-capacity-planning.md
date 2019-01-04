@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193863"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716145"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -38,17 +38,17 @@ HDInsight está disponível em muitas regiões do Azure. Para a região mais pr�
 
 ### <a name="location-of-default-storage"></a>Localização de armazenamento predefinido
 
-O armazenamento predefinido, uma conta de armazenamento do Azure ou o Azure Data Lake Store, tem de ser na mesma localização do seu cluster. O armazenamento do Azure está disponível em todos os locais. Geração 1 do Data Lake Store está disponível em algumas regiões - ver a disponibilidade atual do Data Lake Store sob *armazenamento* na [Azure produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+O armazenamento predefinido, uma conta de armazenamento do Azure ou o armazenamento do Azure Data Lake, tem de ser na mesma localização do seu cluster. O armazenamento do Azure está disponível em todos os locais. Geração 1 de armazenamento do Data Lake está disponível em algumas regiões - ver a disponibilidade de armazenamento do Data Lake atual sob *armazenamento* na [Azure produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Localização dos dados existentes
 
-Se já tiver uma conta de armazenamento ou o Data Lake Store que contém os dados e pretende utilizar este armazenamento como armazenamento predefinido do seu cluster, tem de implementar o cluster nessa mesma localização.
+Se já tiver uma conta de armazenamento ou que contém os dados de armazenamento do Data Lake e pretende utilizar este armazenamento como armazenamento predefinido do seu cluster, tem de implementar o cluster nessa mesma localização.
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
 
-Depois de ter implementado um cluster do HDInsight, pode anexar a contas de armazenamento do Azure adicionais ou outros dados de data Lake Stores de acesso. Todas as suas contas de armazenamento têm de residir na mesma localização do seu cluster. Um Store de Lake de dados pode ser numa localização diferente, embora isso pode introduzir alguma latência de leitura/escrita de dados.
+Depois de ter implementado um cluster do HDInsight, pode anexar a contas de armazenamento do Azure adicionais ou aceder a outros armazenamento do Data Lake. Todas as suas contas de armazenamento têm de residir na mesma localização do seu cluster. Armazenamento do Data Lake pode ser numa localização diferente, embora isso pode introduzir alguma latência de leitura/escrita de dados.
 
-O armazenamento do Azure tem algumas [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto a geração 1 do Data Lake Store é praticamente ilimitado.
+O armazenamento do Azure tem algumas [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto a geração 1 de armazenamento do Data Lake é praticamente ilimitado.
 
 Um cluster pode aceder a uma combinação de contas de armazenamento diferentes. Os exemplos típicos incluem:
 
@@ -75,7 +75,7 @@ O tamanho da VM e o tipo é determinado por CPU processamento, o tamanho de RAM 
 
 * RAM: O tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento, em vez de leitura do disco, certifique-se os nós de trabalho tem memória suficiente para colocar os dados.
 
-* Rede: Para a maioria dos tipos de cluster, os dados processados pelo cluster são não num disco local, mas num serviço de armazenamento externo, como o Data Lake Store ou o armazenamento do Azure. Considere a largura de banda de rede e o débito entre o nó de VM e o serviço de armazenamento. Normalmente, aumenta a largura de banda de rede disponível para uma VM com tamanhos maiores. Para obter detalhes, consulte [descrição geral de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Rede: Para a maioria dos tipos de cluster, os dados processados pelo cluster são não num disco local, mas num serviço de armazenamento externo, como o armazenamento do Data Lake ou de armazenamento do Azure. Considere a largura de banda de rede e o débito entre o nó de VM e o serviço de armazenamento. Normalmente, aumenta a largura de banda de rede disponível para uma VM com tamanhos maiores. Para obter detalhes, consulte [descrição geral de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Selecionar o dimensionamento do cluster
 
@@ -89,7 +89,7 @@ Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, e
 
 É-lhe cobrada a duração de um cluster. Se houver apenas horas específicas que terá do cluster de cópia de segurança e em execução, pode [criar clusters a pedido com o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Pode também criar scripts do PowerShell que aprovisionam e elimina o cluster e, em seguida, agendar esses scripts usando [automatização do Azure](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Quando um cluster é eliminado, o metastore de Hive padrão também é eliminado. Para manter o metastore para a próximo recriação de cluster, utilize um arquivo externo de metadados, tais como a base de dados do Azure ou [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o t
 1. Clique em **seguinte: Rever + criar**.
 1. Sobre o **rever + criar** separador, clique em **criar**.
 
-> [!Note]
+> [!NOTE]  
 > Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista branca](https://aka.ms/canaryintwhitelist).
 
 Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

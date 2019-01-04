@@ -1,20 +1,17 @@
 ---
 title: Como uso sys_schema para ajuste de desempenho e manutenção de banco de dados na base de dados do Azure para MySQL
 description: Este artigo descreve como utilizar sys_schema para detetar problemas de desempenho e manutenção de banco de dados na base de dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446912"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542854"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como utilizar sys_schema para manutenção de ajuste e a base de dados de desempenho na base de dados do Azure para MySQL
 
@@ -24,15 +21,15 @@ A MySQL performance_schema, primeiro disponíveis no MySQL 5.5, oferece a instru
 
 Existem 52 vistas na sys_schema e cada vista tem um dos seguintes prefixos:
 
-- Host_summary ou e/s: latências relacionados com a e/s.
+- Host_summary ou e/s: E/s relacionados com latências.
 - InnoDB: Estado da memória intermédia de InnoDB e bloqueios.
-- Memória: Utilização de memória o anfitrião e usuários.
+- Memória: Utilização da memória pelo anfitrião e os utilizadores.
 - Esquema: Esquema-informações relacionadas com o incremento automático, índices, etc.
-- Declaração: Informações nas instruções SQL; pode ser declaração que resultaram numa análise da tabela completa ou longo tempo de consulta.
+- Instrução: Informações sobre instruções SQL; pode ser declaração que resultaram numa análise da tabela completa ou longo tempo de consulta.
 - Utilizador: Os recursos consumidos e agrupados por utilizadores. Os exemplos são ficheiros de e/s, ligações e memória.
-- Espera: Eventos de espera agrupados pelo anfitrião ou o utilizador.
+- Espere: Aguarde eventos agrupados por host ou ao usuário.
 
-Agora vamos examinar alguns padrões comuns de utilização do sys_schema. Para começar, podemos irá agrupar os padrões de utilização em duas categorias: **ajuste de desempenho** e **manutenção de base de dados**.
+Agora vamos examinar alguns padrões comuns de utilização do sys_schema. Para começar, podemos irá agrupar os padrões de utilização em duas categorias: **Ajuste de desempenho** e **manutenção de base de dados**.
 
 ## <a name="performance-tuning"></a>Otimização do desempenho
 
@@ -48,7 +45,7 @@ Porque a base de dados do Azure para MySQL é dimensionado e/s em relação ao a
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-Apesar de um planejamento cuidadoso, muitas consultas ainda podem fazer análises de tabela completa. Para obter mais informações sobre os tipos de índices e como otimizá-los, pode consultar este artigo: [como resolver problemas de desempenho de consulta](./howto-troubleshoot-query-performance.md). Verificações de tabela completa são com muitos recursos e degradar o desempenho da sua base de dados. A forma mais rápida de localizar as tabelas com a análise da tabela completa é a consulta a *sys.schema_tables_with_full_table_scans* vista.
+Apesar de um planejamento cuidadoso, muitas consultas ainda podem fazer análises de tabela completa. Para obter mais informações sobre os tipos de índices e como otimizá-los, pode consultar este artigo: [Como resolver problemas de desempenho de consulta](./howto-troubleshoot-query-performance.md). Verificações de tabela completa são com muitos recursos e degradar o desempenho da sua base de dados. A forma mais rápida de localizar as tabelas com a análise da tabela completa é a consulta a *sys.schema_tables_with_full_table_scans* vista.
 
 ![verificações de tabela completa](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

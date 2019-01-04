@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888516"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547554"
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Serviço de aplicações no Azure Stack oferece suporte à implantação de demanda de vários fornecedores de controle de origem. Esta funcionalidade permite aos programadores de aplicações implementar direta a partir de seus repositórios de controlo de origem. Se quiserem que os utilizadores configurar o serviço de aplicações para ligar aos seus repositórios, um operador de nuvem em primeiro lugar tem de configurar a integração entre o serviço de aplicações no Azure Stack e o fornecedor de controlo de origem.  
 
@@ -74,8 +74,8 @@ Tem de ter uma conta do BitBucket para concluir esta tarefa. Pode querer utiliza
 5. Introduza o **URL de retorno de chamada**. Numa implementação predefinida do Azure Stack, o retorno de chamada URL está no formato https://portal.local.azurestack.external/TokenAuthorize. Se estiver executando num domínio diferente, substitua o nome de domínio de azurestack. Para a integração do BitBucket tenha êxito, o URL tem de seguir a capitalização listada aqui.
 6. Introduza o **URL**. Este URL deve ser o portal do Azure Stack URL; Por exemplo, https://portal.local.azurestack.external.
 7. Selecione o **permissões** necessário:
-    - **Repositórios**: *leitura*
-    - **Webhooks**: *leitura e escrita*
+    - **Repositórios**: *Leitura*
+    - **Webhooks**: *Leitura e escrita*
 8. Clique em **Guardar**. Agora, ver esta nova aplicação, juntamente com o **chave** e **segredo**, em **OAuth consumidores**.
     ![Lista de aplicações do BitBucket][9]
 9.  Num novo separador do browser ou janela, inicie sessão no portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviços.
@@ -138,7 +138,7 @@ Tem de ter um Account da Microsoft associada a uma conta do OneDrive para conclu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os utilizadores podem agora utilizar as origens de implementação para itens como [implementação contínua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [implementação de Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), e [sincronização da pasta de nuvem](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Os utilizadores podem agora utilizar as origens de implementação para itens como [implementação contínua](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [implementação de Git local](https://docs.microsoft.com/azure/app-service/deploy-local-git), e [sincronização da pasta de nuvem](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

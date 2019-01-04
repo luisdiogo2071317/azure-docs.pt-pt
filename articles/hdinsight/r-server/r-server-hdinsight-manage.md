@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497548"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584399"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerir o cluster de serviços de ML no Azure HDInsight
 
@@ -22,9 +22,9 @@ Neste artigo, irá aprender a gerir um cluster existente de serviços de ML no A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster de serviços de ML no HDInsight**: para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
+* **Um cluster de serviços de ML no HDInsight**: Para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
 
-* **Um cliente Secure Shell (SSH)**: é utilizado um cliente SSH para ligar remotamente ao cluster do HDInsight e executar comandos diretamente no mesmo. Para obter mais informações, consulte [utilizar o SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)**: Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, consulte [utilizar o SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Permitir vários utilizadores em simultâneo
@@ -80,7 +80,7 @@ Repare também que os utilizadores adicionados recentemente não têm privilégi
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Ligar remotamente a serviços da Microsoft ML
 
-Pode configurar o acesso ao contexto de cálculo do Spark do HDInsight numa instância remota do ML de cliente em execução no seu ambiente de trabalho. Para tal, tem de especificar as opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando definir o RxSpark contexto de cálculo no seu ambiente de trabalho: por exemplo:
+Pode configurar o acesso ao contexto de cálculo do Spark do HDInsight numa instância remota do ML de cliente em execução no seu ambiente de trabalho. Para tal, tem de especificar as opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando definir o RxSpark contexto de cálculo no seu ambiente de trabalho: Por exemplo:
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ Se quiser instalar pacotes de R adicionais no nó de extremidade, pode utilizar 
 
 Para instalar pacotes de R em nós de trabalho do cluster, tem de utilizar uma ação de Script. As Ações de Script são scripts de Bash utilizadas para fazer alterações de configuração ao cluster do HDInsight ou para instalar mais software, como pacotes de R adicionais. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Só é possível utilizar as Ações de Script para instalar pacotes de R adicionais depois de o cluster ter sido criado. Não utilize este procedimento durante a criação do cluster, pois o script depende de serviços de ML completamente a ser configurado.
->
->
 
 1. Siga os passos indicados em [personalizar clusters com ação de Script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -312,11 +310,11 @@ Para instalar pacotes de R em nós de trabalho do cluster, tem de utilizar uma a
 
    * Para **nome**, forneça um nome para a ação de script.
 
-    * Para **URI do script de Bash**, introduza `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Este é o script que instala os pacotes de R adicionais no nó de trabalho
+    * Para **URI do script de Bash**, introduza `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Este é o script que instala os pacotes de R adicionais no nó de trabalho
 
    * Selecione a caixa de verificação só **trabalho**.
 
-   * **Parâmetros**: os pacotes de R que vão ser instalados. Por exemplo, `bitops stringr arules`
+   * **Parâmetros**: Os pacotes de R a ser instalados. Por exemplo, `bitops stringr arules`
 
    * Selecione a caixa de seleção **manter esta ação de script**.  
 

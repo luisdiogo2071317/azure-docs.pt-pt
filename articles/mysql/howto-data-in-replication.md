@@ -1,20 +1,17 @@
 ---
 title: Configure a replicação de dados para replicar os dados na base de dados do Azure para MySQL.
 description: Este artigo descreve como configurar a dados na replicação da base de dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497931"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539624"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados MySQL
 
@@ -156,7 +153,7 @@ Os seguintes passos prepararem e configurar o MySQL server alojado no local, uma
    - master_password: palavra-passe para o servidor mestre
    - master_log_file: nome de ficheiro de registo binário a execução `show master status`
    - master_log_pos: posição do registo binário a execução `show master status`
-   - master_ssl_ca: o contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
+   - master_ssl_ca: Contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
        - Recomenda-se para transmitir este parâmetro no como uma variável. Veja os exemplos seguintes para obter mais informações.
 
 > [!NOTE]

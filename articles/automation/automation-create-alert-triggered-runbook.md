@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a099fe371198da7d3cda3146bbd9668c4d49285
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d35d2bfdf379d5bf02ebb4b2fd71fb85519c741a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343654"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581651"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utilize um alerta para acionar um runbook da automatização do Azure
 
@@ -33,7 +33,7 @@ Quando um alerta chama um runbook, a chamada real é um pedido de HTTP POST para
 |---------|---------|---------|
 |[Alerta de métrica clássica](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer métrica de nível de plataforma cumpre uma condição específica. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90** durante os últimos 5 minutos.| [Esquema do payload de alerta de métrica de classe](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
 |[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando um `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de estado de funcionamento de serviço de Azure com uma **Active** estado é apresentado.| [Esquema do payload de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alerta de métrica em tempo real em breve](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas de métricas, quando uma ou mais métricas de nível de plataforma cumprem condições específicas. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90**e o valor de **na rede** for maior do que **500 MB** nas últimas 5 minutos.| [Junto ao esquema do payload de alerta de métricas em tempo real](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Alerta de métrica em tempo real em breve](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas de métricas, quando uma ou mais métricas de nível de plataforma cumprem condições específicas. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90**e o valor de **na rede** for maior do que **500 MB** nas últimas 5 minutos.| [Junto ao esquema do payload de alerta de métricas em tempo real](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Uma vez que os dados que são fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é processado de forma diferente. Na secção seguinte, irá aprender a criar um runbook para lidar com diferentes tipos de alertas.
 

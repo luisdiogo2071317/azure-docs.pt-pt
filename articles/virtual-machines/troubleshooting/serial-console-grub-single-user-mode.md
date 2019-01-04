@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211388"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580149"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o carregador de inicialização Unified geral. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -28,10 +28,10 @@ Modo de utilizador único é um ambiente mínimo com a funcionalidade mínima. P
 
 Também é útil em situações em que a VM só pode ser configurada para aceitar as chaves SSH para iniciar sessão no modo de utilizador único. Neste caso, poderá utilizar o modo de utilizador único para criar uma conta com a autenticação de palavra-passe.
 
-Para entrar no modo de utilizador único, terá de introduzir o GRUB quando a VM está a arrancar e modificar a configuração da inicialização no GRUB. Isso pode ser feito com a consola de série de VM. 
+Para entrar no modo de utilizador único, terá de introduzir o GRUB quando a VM está a arrancar e modificar a configuração da inicialização no GRUB. Isso pode ser feito com a consola de série de VM.
 
 ## <a name="general-grub-access"></a>Acesso GRUB geral
-Para acessar o GRUB, terá de reiniciar a VM, mantendo o painel de consola de série aberto. Algumas distribuições irão exigir a entrada de teclado para mostrar o GRUB, enquanto outros automaticamente mostrará GRUB por alguns segundos e permitir a entrada de teclado do usuário cancelar o tempo limite. 
+Para acessar o GRUB, terá de reiniciar a VM, mantendo o painel de consola de série aberto. Algumas distribuições irão exigir a entrada de teclado para mostrar o GRUB, enquanto outros automaticamente mostrará GRUB por alguns segundos e permitir a entrada de teclado do usuário cancelar o tempo limite.
 
 Convém garantir que o GRUB está ativado na sua VM para que seja possível para o modo de utilizador único de acesso. Dependendo de sua distribuição, pode haver algum trabalho de configuração para se certificar de que o GRUB está ativado. Informações específicas de distribuição estão disponíveis abaixo e no [esta ligação](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -56,18 +56,18 @@ RHEL cairá em modo de utilizador único automaticamente se ele não consegue ar
 ### <a name="grub-access-in-rhel"></a>Acesso GRUB no RHEL
 RHEL vem com GRUB ativada na. Para introduzir GRUB, reiniciar a VM com `sudo reboot` e pressione qualquer tecla. Verá a tela GRUB aparecer.
 
-> Nota: O Red Hat também fornece documentação para inicialização no modo de entra em ação, de modo de emergência, de modo de depuração e repor a palavra-passe de raiz. [Clique aqui para aceder ao mesmo](https://aka.ms/rhel7grubterminal).
+> Nota: Red Hat também fornece documentação para inicialização no modo de entra em ação, de modo de emergência, de modo de depuração e repor a palavra-passe de raiz. [Clique aqui para aceder ao mesmo](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurar o acesso de raiz para o modo de utilizador único no RHEL
 Modo de utilizador único no RHEL exige que o utilizador de raiz ser ativada, o que está desabilitado por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:
 
 1. Iniciar sessão sistema de Red Hat através de SSH
 1. Mude para a raiz
-1. Ativar a palavra-passe de utilizador de raiz 
+1. Ativar a palavra-passe de utilizador de raiz
     * `passwd root` (definido uma palavra-passe de raiz fortes)
 1. Certifique-se de que o utilizador de raiz pode apenas iniciar sessão através de ttyS0
     * `edit /etc/ssh/sshd_config` e certifique-se de que PermitRootLogIn está definido ou nenhum
-    * `edit /etc/securetty file` para permitir apenas o início de sessão por meio de ttyS0 
+    * `edit /etc/securetty file` para permitir apenas o início de sessão por meio de ttyS0
 
 Agora se o sistema for inicializado no modo de utilizador único pode iniciar sessão através de palavra-passe de raiz.
 
@@ -83,7 +83,7 @@ Se tiver configurado o GRUB e raiz aceder com as instruções acima, em seguida,
 1. Adicione o seguinte ao final da linha: `systemd.unit=rescue.target`
     * Isso será inicializado em modo de utilizador único. Se pretender utilizar o modo de emergência, adicionar `systemd.unit=emergency.target` ao final da linha em vez de `systemd.unit=rescue.target`
 1. Prima Ctrl + X para sair e reiniciar com as definições aplicadas
-1. Será solicitado a palavra-passe de administrador antes de poder entrar no modo de utilizador único – Esta é a mesma palavra-passe que criou nas instruções acima    
+1. Será solicitado a palavra-passe de administrador antes de poder entrar no modo de utilizador único – Esta é a mesma palavra-passe que criou nas instruções acima
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
@@ -104,11 +104,11 @@ Se não passou os passos acima para permitir que o utilizador de raiz, ainda pod
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Nota: A executar as instruções acima irá diminuir o no shell de emergência, pelo que também pode executar tarefas como edição `fstab`. No entanto, a sugestão geralmente aceita é para repor a palavra-passe de raiz e usá-lo para entrar no modo de utilizador único. 
+> Nota: A executar as instruções acima irá diminuir o no shell de emergência, pelo que também pode executar tarefas como edição `fstab`. No entanto, a sugestão geralmente aceita é para repor a palavra-passe de raiz e usá-lo para entrar no modo de utilizador único.
 
 
 ## <a name="access-for-centos"></a>Acesso para CentOS
-Muito como Red Hat Enterprise Linux, modo de utilizador único no CentOS requer GRUB e o utilizador raiz seja ativado. 
+Muito como Red Hat Enterprise Linux, modo de utilizador único no CentOS requer GRUB e o utilizador raiz seja ativado.
 
 ### <a name="grub-access-in-centos"></a>Acesso GRUB no CentOS
 CentOS vem com GRUB ativada na. Para introduzir GRUB, reiniciar a VM com `sudo reboot` e pressione qualquer tecla. Verá a tela GRUB aparecer.
@@ -116,8 +116,8 @@ CentOS vem com GRUB ativada na. Para introduzir GRUB, reiniciar a VM com `sudo r
 ### <a name="single-user-mode-in-centos"></a>Modo de utilizador único no CentOS
 Siga as instruções para RHEL acima para ativar o modo de utilizador único no CentOS.
 
-## <a name="access-for-ubuntu"></a>Acesso para Ubuntu 
-Imagens do Ubuntu não necessitam de uma palavra-passe de raiz. Se o sistema efetua o arranque no modo de utilizador único, pode utilizá-la sem credenciais adicionais. 
+## <a name="access-for-ubuntu"></a>Acesso para Ubuntu
+Imagens do Ubuntu não necessitam de uma palavra-passe de raiz. Se o sistema efetua o arranque no modo de utilizador único, pode utilizá-la sem credenciais adicionais.
 
 ### <a name="grub-access-in-ubuntu"></a>Acesso GRUB no Ubuntu
 Para acessar o GRUB, prima e mantenha premido "Esc" enquanto a VM está a arrancar.
@@ -137,8 +137,17 @@ Ubuntu cairá em modo de utilizador único automaticamente se ele não consegue 
 1. Adicione `single` depois de `ro`, garantir que existe um espaço antes e depois `single`
 1. Prima Ctrl + X para reiniciar com estas definições e introduza o modo de utilizador único
 
+### <a name="using-grub-to-invoke-bash-in-ubuntu"></a>Usando o GRUB para invocar o bash no Ubuntu
+Poderão existir situações (por exemplo, uma palavra-passe de raiz esquecidas) em que ainda pode ser não é possível aceder de modo de utilizador único na sua VM do Ubuntu depois de tentar as instruções descritas acima. Também pode informar o kernel para executar /bin/bash como init, em vez do sistema init, que irá dar-lhe uma shell bash e permitir a manutenção do sistema. Utilize as instruções seguintes:
+
+1. Do GRUB, prima "e" para editar sua entrada de arranque (a entrada do Ubuntu)
+1. Procure a linha que começa com `linux`, em seguida, procure `ro`
+1. Substitua `ro` com `rw init=/bin/bash`
+    - Esta ação irá montar o sistema de ficheiros como leitura / escrita e utilizar /bin/bash como o processo de inicialização
+1. Prima Ctrl + X para reiniciar o computador com estas definições
+
 ## <a name="access-for-coreos"></a>Acesso para CoreOS
-Modo de utilizador único no CoreOS requer GRUB seja ativado. 
+Modo de utilizador único no CoreOS requer GRUB seja ativado.
 
 ### <a name="grub-access-in-coreos"></a>Acesso GRUB no CoreOS
 Para acessar o GRUB, pressione qualquer tecla quando a VM está a arrancar.
@@ -151,13 +160,13 @@ CoreOS cairá em modo de utilizador único automaticamente se ele não consegue 
 1. Prima Ctrl + X para reiniciar com estas definições e introduza o modo de utilizador único
 
 ## <a name="access-for-suse-sles"></a>Acesso para SUSE SLES
-Imagens mais recentes do SLES 12 SP3 + permitem o acesso através da consola de série, no caso do sistema for inicializado no modo de emergência. 
+Imagens mais recentes do SLES 12 SP3 + permitem o acesso através da consola de série, no caso do sistema for inicializado no modo de emergência.
 
 ### <a name="grub-access-in-suse-sles"></a>Acesso GRUB no SUSE SLES
 Acesso GRUB no SLES requer a configuração do carregador de inicialização por meio do YaST. Para tal, siga estas instruções:
 
-1. SSH para a sua VM de SLES e execute `sudo yast bootloader`. Utilize o `tab` chave, `enter` chave e teclas de seta para navegar pelo menu. 
-1. Navegue para `Kernel Parameters`e verificar `Use serial console`. 
+1. SSH para a sua VM de SLES e execute `sudo yast bootloader`. Utilize o `tab` chave, `enter` chave e teclas de seta para navegar pelo menu.
+1. Navegue para `Kernel Parameters`e verificar `Use serial console`.
 1. Adicionar `serial --unit=0 --speed=9600 --parity=no` para os argumentos de consola
 
 1. Pressione F10 para guardar as definições e sair
@@ -176,7 +185,7 @@ Se o SLES não conseguem arrancar normalmente será automaticamente colocada num
 > Tenha em atenção que irá ser deixado no shell de emergência com um _só de leitura_ sistema de ficheiros. Se desejar fazer qualquer edições em todos os ficheiros, terá de voltar a montar o sistema de ficheiros com permissões de leitura / escrita. Para tal, introduza `mount -o remount,rw /` no shell
 
 ## <a name="access-for-oracle-linux"></a>Acesso para Oracle Linux
-Muito como Red Hat Enterprise Linux, modo de utilizador único no Oracle Linux requer GRUB e o utilizador raiz seja ativado. 
+Muito como Red Hat Enterprise Linux, modo de utilizador único no Oracle Linux requer GRUB e o utilizador raiz seja ativado.
 
 ### <a name="grub-access-in-oracle-linux"></a>Acesso GRUB no Oracle Linux
 Oracle Linux vem com GRUB ativada na. Para introduzir GRUB, reiniciar a VM com `sudo reboot` e prima "Esc". Verá a tela GRUB aparecer.

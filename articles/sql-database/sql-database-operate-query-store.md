@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf5035d4dd1c58baff66bd5edbdac42c08d6baab
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164570"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600185"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Operar o Store de consulta na base de dados SQL do Azure
 Store de consulta no Azure é uma funcionalidade de base de dados totalmente gerido que recolhe e apresenta informações históricas detalhadas sobre todas as consultas de forma contínua. Pense sobre Store de consulta como sendo semelhante a dados gravador um avião que significativamente simplifica o desempenho das consultas de resolução de problemas para a cloud e os clientes locais. Este artigo explica os aspetos específicos de operar Store de consulta no Azure. Usando esta consulta previamente recolhidos dados, pode diagnosticar rapidamente e resolver problemas de desempenho e, portanto, passar mais tempo se concentrando em seu negócio. 

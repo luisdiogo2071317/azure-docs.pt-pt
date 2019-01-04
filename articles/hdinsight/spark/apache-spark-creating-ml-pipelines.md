@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499391"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597482"
 ---
-# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar uma pipeline de aprendizagem automática de Apache Spark
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
-Biblioteca de rede do Apache Spark dimensionáveis de machine learning (MLlib) oferece capacidades de modelação para um ambiente distribuído. O pacote de Spark [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível incorporadas no DataFrames. Estas APIs ajudam a criar e otimizar o práticos pipelines de machine learning.  *Aprendizagem do spark* refere-se a esta API com base em MLlib DataFrame, não mais antigo com base em RDD pipeline API.
+Biblioteca de rede do Apache Spark dimensionáveis de machine learning (MLlib) oferece capacidades de modelação para um ambiente distribuído. O pacote de Spark [ `spark.ml` ](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível incorporadas no DataFrames. Estas APIs ajudam a criar e otimizar o práticos pipelines de machine learning.  *Aprendizagem do spark* refere-se a esta API com base em MLlib DataFrame, não mais antigo com base em RDD pipeline API.
 
 Um pipeline (ML) de aprendizagem automática é um fluxo de trabalho completo, combinar vários algoritmos de machine learning em conjunto. Podem existir muitas etapas necessárias para processar e Aprenda com dados, exigindo que uma sequência de algoritmos. Pipelines definem as fases e a ordenação de um processo de aprendizagem automática. No MLlib, fases de um pipeline são representados por uma seqüência específica de PipelineStages, onde um transformador e um avaliador que esteja realizar tarefas.
 
@@ -30,7 +30,7 @@ Cada instância sem monitoração de estado de um transformador ou um avaliador 
 
 ## <a name="pipeline-example"></a>Exemplo de pipeline
 
-Para demonstrar um uso prático de um pipeline de ML, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que estão pré-carregados no armazenamento padrão para o seu cluster do HDInsight, o armazenamento do Azure ou o Data Lake Store. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de vezes com o destino e temperaturas reais de ar-Condicionado (*aquecimento, ventilação e ar condicionado*) sistemas em vários edifícios. O objetivo é preparar o modelo nos dados e produzir uma temperatura previsão para um determinado edifício.
+Para demonstrar um uso prático de um pipeline de ML, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que estão pré-carregados no armazenamento padrão para o seu cluster do HDInsight, o armazenamento do Azure ou o armazenamento do Data Lake. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de vezes com o destino e temperaturas reais de ar-Condicionado (*aquecimento, ventilação e ar condicionado*) sistemas em vários edifícios. O objetivo é preparar o modelo nos dados e produzir uma temperatura previsão para um determinado edifício.
 
 O código a seguir:
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499129"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653260"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalar a aplicação publicada - Dataiku DDS
 
@@ -28,7 +28,7 @@ Pode usar DSS para implementar uma solução completa de análise, começando co
 
 Pode instalar DSS sobre como utilizar o HDInsight [Apache Hadoop](https://hadoop.apache.org/) ou [Apache Spark](https://spark.apache.org/) clusters. Pode instalar o DSS em clusters em execução existentes, ou durante a criação de novos clusters. DSS também oferece suporte a utilizar o armazenamento de Blobs do Azure como um conector para a leitura de dados.
 
-Pode usar o DSS para criar projetos, que, em seguida, podem gerar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) ou tarefas do Spark. Estas tarefas são executadas como normais trabalhos de MapReduce ou do Spark no HDInsight, pelo que pode dimensionar o cluster a pedido.
+Pode usar o DSS para criar projetos, que, em seguida, podem gerar [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) ou tarefas do Spark. Estas tarefas são executadas como normais trabalhos de MapReduce ou do Spark no HDInsight, pelo que pode dimensionar o cluster a pedido.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,8 +113,8 @@ Para tutoriais detalhados, leia [Dataiku DSS Saiba](https://www.dataiku.com/lear
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Documentação de Dataiku DSS](https://doc.dataiku.com/dss/latest/).
-* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada para o HDInsight.
-* [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
+* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada HDInsight.
+* [Publicar aplicações HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar aplicações HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseado em Linux com ação de Script](hdinsight-hadoop-customize-cluster-linux.md): Saiba como utilizar a ação de Script para instalar outras aplicações.
 * [Utilizar nós de extremidade vazios no HDInsight](hdinsight-apps-use-edge-node.md): Saiba como utilizar um nó de extremidade vazio para aceder aos clusters do HDInsight e de teste e alojamento de aplicações do HDInsight.

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260043"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726566"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar uma aplicação no Azure a partir de um instantâneo
-Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/app-service-web-overview.md) partir de um instantâneo. Pode restaurar a sua aplicação para um estado anterior, com base em um dos instantâneos da sua aplicação. Não é necessário ativar a cópia de segurança de instantâneos, a plataforma guarda automaticamente um instantâneo de todas as aplicações para fins de recuperação de dados.
+Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/overview.md) partir de um instantâneo. Pode restaurar a sua aplicação para um estado anterior, com base em um dos instantâneos da sua aplicação. Não é necessário ativar a cópia de segurança de instantâneos, a plataforma guarda automaticamente um instantâneo de todas as aplicações para fins de recuperação de dados.
 
-Os instantâneos são cópias de sombra de incremental e oferecem algumas vantagens em relação a regular [cópias de segurança](web-sites-backup.md):
+Os instantâneos são cópias de sombra de incremental e oferecem algumas vantagens em relação a regular [cópias de segurança](manage-backup.md):
 - Não existem erros de cópia de ficheiros devido a bloqueios de arquivo.
 - Sem limite de tamanho de armazenamento.
 - Nenhuma configuração necessária.

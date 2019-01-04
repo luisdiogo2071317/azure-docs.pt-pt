@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139527"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808065"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Criar uma máquina virtual e instalar um certificado obtido a partir de um cofre de chaves do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como criar uma máquina virtual (VM) do Azure Stack com um certificado do Cofre de chaves instalado.
 
@@ -41,7 +41,7 @@ Os passos seguintes descrevem o processo necessário para emitir um certificado 
 
 1. Crie um cofre de chave secreta.
 2. Atualize o ficheiro azuredeploy.
-3. Implementar o modelo
+3. Implemente o modelo.
 
 > [!NOTE]
 > Pode utilizar estes passos do Development Kit do Azure Stack ou de um cliente externo se estiver ligado através de VPN.
@@ -49,8 +49,8 @@ Os passos seguintes descrevem o processo necessário para emitir um certificado 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Tem de subscrever uma oferta que inclui o serviço de Key Vault.
-* [Instale o PowerShell para o Azure Stack.](azure-stack-powershell-install.md)
-* [Configurar o ambiente do PowerShell do utilizador do Azure Stack](azure-stack-powershell-configure-user.md)
+* [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
+* [Configurar o ambiente do PowerShell do utilizador do Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Criar um cofre de chave secreta
 
@@ -60,7 +60,6 @@ O script seguinte cria um certificado no formato. pfx, cria um cofre de chaves e
 > Tem de utilizar o `-EnabledForDeployment` parâmetro ao criar o Cofre de chaves. Esse parâmetro garante que o Cofre de chaves pode ser referenciado a partir de modelos do Azure Resource Manager.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-Ao executar o script anterior, a saída inclui o URI do segredo. Anote este URI. Precisa fazer referência a ela na [certificado Push para o modelo de Gestor de recursos do Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Transfira o [modelo de vm push-certificado windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) pasta no computador de desenvolvimento. Esta pasta contém os `azuredeploy.json` e `azuredeploy.parameters.json` arquivos, que será necessário nos passos seguintes.
+Ao executar o script anterior, a saída inclui o URI do segredo. Anote este URI. Precisa fazer referência a ela na [certificado Push para o modelo de Gestor de recursos do Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Transfira o [vm push-certificado windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) pasta de modelos para o seu computador de desenvolvimento. Esta pasta contém os `azuredeploy.json` e `azuredeploy.parameters.json` arquivos, que será necessário nos passos seguintes.
 
-Modificar o `azuredeploy.parameters.json` ficheiro de acordo com os valores de ambiente. Os parâmetros de especial interesse são o nome do cofre, o grupo de recursos do cofre e o segredo do URI (como gerado pelo script anterior). O arquivo a seguir é um exemplo de um ficheiro de parâmetros:
+Modificar o `azuredeploy.parameters.json` ficheiro de acordo com os valores de ambiente. Os parâmetros de especial interesse são o nome do cofre, o grupo de recursos do cofre e o segredo do URI (como gerado pelo script anterior). A seção a seguir mostra um exemplo de um ficheiro de parâmetros.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Atualize o ficheiro azuredeploy.
 
-Atualize o ficheiro azuredeploy com o vaultName, URI secreta, VmName e outros valores de acordo com o seu ambiente. O ficheiro JSON seguinte mostra um exemplo de ficheiro de parâmetros de modelo:
+Atualização do `azuredeploy.parameters.json` de ficheiros com o `vaultName`, URI secreta, `VmName`e outros valores de acordo com o seu ambiente. O ficheiro JSON seguinte mostra um exemplo de ficheiro de parâmetros de modelo:
 
 ```json
 {
@@ -178,10 +176,10 @@ Quando o modelo é implementado com êxito, o que resulta na seguinte saída:
 
 ![Resultados de implementação do modelo](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-O Azure Stack envia o certificado para a máquina virtual durante a implementação. Localização do certificado depende do sistema de operativo da VM:
+O Azure Stack envia o certificado para a máquina virtual durante a implementação. A localização do certificado depende do sistema de operativo da VM:
 
-* No Windows, o certificado é adicionado para a localização de certificados LocalMachine, com o arquivo de certificados que o utilizador forneceu.
-* No Linux, o certificado é colocado no diretório de /var/lib/waagent, com o nome de ficheiro &lt;UppercaseThumbprint&gt;. crt para X509 ficheiro de certificado e &lt;UppercaseThumbprint&gt;.prv para a chave privada .
+* No Windows, o certificado é adicionado para o **LocalMachine** localização, com o arquivo de certificados que o usuário forneceu do certificado.
+* No Linux, o certificado é colocado sob o `/var/lib/waagent directory`, com o nome de ficheiro &lt;UppercaseThumbprint&gt;. crt para X509 ficheiro de certificado e &lt;UppercaseThumbprint&gt;.prv para a chave privada.
 
 ## <a name="retire-certificates"></a>Remover certificados
 

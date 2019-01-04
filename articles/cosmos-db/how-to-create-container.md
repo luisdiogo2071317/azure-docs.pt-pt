@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: bf91377b544328ed63d3767ce9b0064a6c4eeaff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 66fdb1313177b6f6a285f7d1b1b02dadac9472cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711895"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810445"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Criar um contentor no Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 ![A API de SQL cria uma coleção](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>Azure Cosmos DB para API do MongoDB
+### <a id="portal-mongodb"></a>API do Azure Cosmos DB para o MongoDB
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -51,7 +51,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
    * Introduza um débito, por exemplo, 1000 RUs.
    * Selecione **OK**.
 
-![O Azure Cosmos DB para a MongoDB API cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![API do Azure Cosmos DB para o MongoDB cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API para Cassandra
 
@@ -123,7 +123,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>Azure Cosmos DB para API do MongoDB
+### <a id="cli-mongodb"></a>API do Azure Cosmos DB para o MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>Azure Cosmos DB para API do MongoDB
+### <a id="dotnet-mongodb"></a>API do Azure Cosmos DB para o MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:

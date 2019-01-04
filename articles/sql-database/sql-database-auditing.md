@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971526"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973207"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -175,13 +175,15 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
 
 Georreplicado bancos de dados, quando ativar a auditoria na base de dados primária a base de dados secundária terão uma política de auditoria idêntica. Também é possível configurar a auditoria na base de dados secundário ao ativar a auditoria no **servidor secundário**, independentemente da base de dados primária.
 
-- Ao nível do servidor (**recomendado**): Ativar a auditoria em ambos os **servidor primário** , bem como o **servidor secundário** -as bases de dados primárias e secundárias serão cada auditados independentemente, com base em seus respectiva política de ao nível do servidor.
-- Ao nível da base de dados: Só pode ser configurado auditoria para bases de dados secundárias de nível de base de dados da base de dados primária, definições de auditoria.
+- Ao nível do servidor (**recomendado**): Ativar a auditoria em ambos os **servidor primário** , bem como a **servidor secundário** -as bases de dados primárias e secundárias serão cada auditadas independentemente com base em seus respectiva política de ao nível do servidor.
+- Nível de base de dados: Auditoria ao nível da base de dados para bases de dados secundárias só pode ser configurada da base de dados primária, definições de auditoria.
   - Auditoria deve ser habilitada no *base de dados primária em si*, não o servidor.
   - Depois de auditoria estiver ativada na base de dados primária, ele também ficará ativo na base de dados secundário.
 
     >[!IMPORTANT]
     >Com a auditoria ao nível da base de dados, as definições de armazenamento para a base de dados secundário será idênticas de base de dados primária, fazendo com que o tráfego entre regiões. Recomendamos que ativar a auditoria apenas ao nível do servidor e deixe a auditoria ao nível do banco de dados desativada para todas as bases de dados.
+    > [!WARNING]
+    > Utilizando a análise de hub ou de registo de eventos como destinos para registos de auditoria ao nível do servidor não é suportada atualmente para bases de dados de georreplicação secundárias.
 
 ### <a id="subheading-6">Regeneração da chave de armazenamento</a>
 
@@ -220,12 +222,12 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 
 ## <a id="subheading-7"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
 
-**Cmdlets do PowerShell**:
+**Cmdlets do PowerShell (incluindo suporte de cláusula WHERE para filtrar adicionais)**:
 
-- [Criar ou atualizar o Blob de base de dados (Set-azurermsqldatabaseauditing,) de política de auditoria][105]
-- [Criar ou atualizar o Blob de servidor (Set-azurermsqlserverauditing,) de política de auditoria][106]
-- [Obter política de auditoria de base de dados (Get-azurermsqldatabaseauditing)][101]
-- [Obter política de auditoria de BLOBs de servidor (Get-azurermsqlserverauditing)][102]
+- [Criar ou atualizar o Blob de base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Criar ou atualizar o Blob de servidor (conjunto-AzSqlServerAuditing) de política de auditoria](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Obter política de auditoria de base de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Obter política de auditoria de BLOBs de servidor (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Para obter um exemplo de script, consulte [configurar a deteção de ameaças e auditoria com o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 - [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>Gerir a auditoria de base de dados SQL através de modelos ARM
+
+Pode gerenciar a auditoria de base de dados de SQL do Azure através de [do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) modelos, conforme mostrado nestes exemplos:
+
+- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para o Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para os Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

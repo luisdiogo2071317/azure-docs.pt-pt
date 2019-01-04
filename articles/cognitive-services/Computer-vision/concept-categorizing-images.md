@@ -1,7 +1,7 @@
 ---
 title: Categorizar imagens - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a categorizar imagens usando a API de imagem digitalizada.
+description: Aprenda conceitos relacionados com a funcionalidade de categorização de imagem da API de visão do computador.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333484"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579503"
 ---
-# <a name="categorizing-images"></a>Categorizar imagens
+# <a name="image-categorization-with-computer-vision"></a>Categorização de imagem com imagem digitalizada
 
 Para além das etiquetas e descrições, imagem digitalizada devolve as categorias com base em taxonomia definidas nas versões anteriores. Estas categorias são organizadas como uma taxonomia com hierarquias hereditárias principais/subordinadas. Todas as categorias estão em inglês. Eles podem ser usados isoladamente ou com a nossa nova marcação de modelos.
 
@@ -31,7 +32,7 @@ Com base numa lista de 86 conceitos ilustrado no diagrama seguinte, uma imagem p
 
 A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando categorizar a imagem de exemplo com base nos seus recursos do visual.
 
-![Mulher num Terraço](./Images/woman_roof.png)
+![Uma mulher no teto de um apartamento](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ A tabela a seguir ilustra um conjunto típico de imagem e a categoria devolvido 
 
 | Imagem | Categoria |
 |-------|----------|
-| ![Fotografia de Família](./Images/family_photo.png) | people_group |
-| ![Cão fofinho](./Images/cute_dog.png) | animal_dog |
-| ![Exterior/Montanha](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Análise de imagem de pão](./Images/bread.png) | food_bread |
+| ![Quatro pessoas colocadas em conjunto como uma família](./Images/family_photo.png) | people_group |
+| ![Um lançamento será feito num campo grassy](./Images/cute_dog.png) | animal_dog |
+| ![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Uma pilha de funções de pão numa tabela](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

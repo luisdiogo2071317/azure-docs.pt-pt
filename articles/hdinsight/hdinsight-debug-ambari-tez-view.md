@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012356"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719698"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Utilizar vistas do Apache Ambari para depurar tarefas do Apache Tez no HDInsight
 
 O [Apache Ambari](https://ambari.apache.org/) IU da Web para o HDInsight contém um [Apache TEZ](https://tez.apache.org/) vista que pode ser utilizada para compreender e depurar tarefas do que utilizar Tez. O modo de exibição do Tez permite-lhe visualizar a tarefa como um gráfico de itens ligados, detalhar cada item e obter estatísticas e informações de registo.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [controlo de versões de componente de HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -90,9 +90,9 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez:
 
 5. Os separadores nesta página permitem-lhe ver as seguintes informações:
 
-    * **Detalhes das consultas**: detalhes sobre a consulta do Hive.
-    * **Linha cronológica**: informações sobre cada estágio do processamento de quanto tempo demorou.
-    * **Configurações**: A configuração usada para esta consulta.
+    * **Detalhes das consultas**: Detalhes sobre a consulta do Hive.
+    * **Linha cronológica**: Informações sobre cada estágio do processamento de quanto tempo demorou.
+    * **Configurações**: A configuração utilizada para esta consulta.
 
     Partir __detalhes de consulta__ pode utilizar as ligações para obter informações sobre o __aplicativo__ ou o __DAG__ para esta consulta.
     

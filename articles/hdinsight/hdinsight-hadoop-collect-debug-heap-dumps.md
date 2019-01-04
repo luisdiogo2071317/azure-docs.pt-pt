@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b4ca22faf8ef01cab4b2e7231fea8ed49f0fcb3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 698806bdedd9994f2c9de53118cb42c9df1c36cd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494597"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724407"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Área dinâmica para dados recolher informações do Estado no armazenamento de BLOBs para depurar e analisar os serviços do Apache Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
@@ -23,8 +23,8 @@ Capturas de área dinâmica para dados contém um instantâneo de memória do ap
 
 A coleção de registos da área dinâmica para vários serviços tem de estar ativada para os serviços em clusters individuais. A predefinição para esta funcionalidade é ter um para um cluster. Estes registos da área dinâmica podem ser grandes, portanto, é aconselhável para monitorizar a conta de armazenamento de BLOBs onde eles são guardados depois da coleção foi ativada.
 
-> [!IMPORTANT]
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). As informações neste artigo aplica-se apenas ao HDInsight baseado em Windows. Para obter informações sobre o HDInsight baseado em Linux, consulte [registos da área dinâmica de ativação para os serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [!IMPORTANT]  
+> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). As informações neste artigo aplica-se apenas ao HDInsight baseado em Windows. Para obter informações sobre o HDInsight baseado em Linux, consulte [registos da área dinâmica de ativação para os serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>Serviços elegíveis para capturas de área dinâmica para dados

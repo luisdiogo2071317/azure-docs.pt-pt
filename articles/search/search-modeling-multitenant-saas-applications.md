@@ -1,5 +1,5 @@
 ---
-title: Modelagem de arquitetura "multitenancy" na pesquisa do Azure | Documentos da Microsoft
+title: Modelagem de arquitetura "multitenancy" para isolamento de conteúdo num único serviço - Azure Search
 description: Saiba mais sobre os padrões de design comuns para aplicações SaaS multi-inquilino, ao utilizar o Azure Search.
 manager: jlembicz
 author: LiamCavanagh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313042"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632930"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicações SaaS multi-inquilino e Azure Search
 Uma aplicação multi-inquilino é aquele que fornece as mesmas serviços e recursos para qualquer número de inquilinos que não é possível ver ou partilhar os dados de qualquer outro inquilino. Este documento discute as estratégias de isolamento de inquilino para aplicações multi-inquilino criadas com o Azure Search.

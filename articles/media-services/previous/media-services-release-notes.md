@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186315"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631673"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
@@ -44,6 +44,10 @@ Estas notas de versão para serviços de multimédia do Azure resumir as altera�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versões de REST API
 Para obter informações sobre o histórico de versões de API de REST dos serviços de suporte de dados, consulte a [Referência da API de REST dos serviços de multimédia do Azure].
+
+## <a name="december-2018"></a>Dezembro de 2018
+
+O [Hyperlapse de suporte de dados pré-visualização](media-services-hyperlapse-content.md) em breve será retirada a funcionalidade dos serviços de multimédia do Azure. A partir de 19 de Dezembro de 2018, os serviços de multimédia já não fará alterações ou melhorias no Hyperlapse de multimédia. 29 de Março de 2019 será extinto e já não está disponível.
 
 ## <a name="october-2018"></a>Outubro de 2018
 

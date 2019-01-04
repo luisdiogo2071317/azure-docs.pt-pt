@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c31c57cc28b1e817cbb772154cfb2f04ff349640
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668032"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973711"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](data-factory-create-pipelines.md)
 > * [Versão 2 (versão atual)](../concepts-pipelines-activities.md)
 
@@ -95,7 +95,7 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 
 | Etiqueta | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
+| nome |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
 | descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
 | atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção seguinte para obter detalhes sobre o elemento JSON de atividades. | Sim |  
 | start | Data-hora de início para o pipeline. Tem de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod mais tarde. |
@@ -133,7 +133,7 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
 | Etiqueta | Descrição | Necessário |
 | --- | --- | --- |
-| nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
+| nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
 | descrição | Texto que descreve para o que é utilizada a atividade |Sim |
 | tipo | Tipo de atividade. Consulte a [atividades de movimento de dados](#data-movement-activities) e [atividades de transformação de dados](#data-transformation-activities) secções para diferentes tipos de atividades. |Sim |
 | entradas |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
@@ -154,7 +154,7 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
 | tempo limite |Período de tempo |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
 | atraso |Período de tempo |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
-| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repita: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01: 00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
 | longRetryInterval |Período de tempo |00:00:00 |O atraso entre tentativas de repetição longa |
 
 ## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
@@ -209,7 +209,7 @@ Tenha em atenção os seguintes pontos:
 * A entrada da atividade está definida como **InputDataset** e a saída como **OutputDataset**. Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para saber como definir conjuntos de dados em JSON. 
 * Na secção **typeProperties**, **BlobSource** está especificado como o tipo de origem e **SqlSink** como o tipo de sink. Na [atividades de movimento de dados](#data-movement-activities) secção, clique o arquivo de dados que pretende utilizar como origem ou sink para saber mais sobre como mover dados de/para esse arquivo de dados. 
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Para obter instruções completas de criar este pipeline, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ## <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplos
 No pipeline de exemplo seguinte, existe uma atividade do tipo **HDInsightHive** na secção **activities**. Neste exemplo, a [atividade Hive do HDInsight](data-factory-hive-activity.md) transforma dados de um armazenamento de Blobs do Azure mediante a execução de um ficheiro de script de Hive num cluster do Hadoop para o Azure HDInsight. 
@@ -267,7 +267,7 @@ Tenha em atenção os seguintes pontos:
 
 A secção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades do tipo suportadas para uma atividade de transformação, clique na atividade de transformação no [atividades de transformação de dados](#data-transformation-activities) tabela. 
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: criar o seu primeiro pipeline para processar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md). 
+Para obter instruções completas de criar este pipeline, veja [Tutorial: Crie seu primeiro pipeline para processar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Múltiplas atividades num pipeline
 Os dois pipelines de exemplo anteriores só contêm uma atividade. Pode ter mais de uma atividade num pipeline.  
@@ -278,7 +278,7 @@ Pode encadear duas atividades fazendo com que o conjunto de dados de saída de u
 
 ![Encadeamento de atividades no mesmo pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-Neste exemplo, o pipeline tem duas atividades: Activity1 e Activity2. O Activity1 usa Dataset1 como entrada e produz uma saída Dataset2. A atividade usa Dataset2 como entrada e produz uma saída Dataset3. Desde a saída de Activity1 (Dataset2) é a entrada de Activity2, as execuções de Activity2 apenas depois da atividade for concluída com êxito e produz o setor de Dataset2. Se o Activity1 falhar por algum motivo e não produz o setor de Dataset2, a atividade 2 não é executado para essas fatias (por exemplo: 9h para 10 AM). 
+Neste exemplo, o pipeline tem duas atividades: Activity1 e Activity2. O Activity1 usa Dataset1 como entrada e produz uma saída Dataset2. A atividade usa Dataset2 como entrada e produz uma saída Dataset3. Desde a saída de Activity1 (Dataset2) é a entrada de Activity2, as execuções de Activity2 apenas depois da atividade for concluída com êxito e produz o setor de Dataset2. Se o Activity1 falhar por algum motivo e não produz o setor de Dataset2, a atividade 2 não é executado para essas fatias (por exemplo: 9-me para o 10 AM). 
 
 Também pode encadear atividades que estão em diferentes pipelines.
 
@@ -301,7 +301,7 @@ Pode criar pipelines ao utilizar uma destas ferramentas ou SDKs.
 
 Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines ao utilizar uma destas ferramentas ou SDKs.
  
-- [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md) (Criar um pipeline cum uma atividade de transformação de dados)
+- [Criar um pipeline cum uma atividade de transformação de dados](data-factory-build-your-first-pipeline.md)
 - [Criar um pipeline com uma atividade de movimento de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
 Depois de um pipeline é criado/implementado, pode gerir e monitorizar os seus pipelines com o painéis do portal do Azure ou o Monitor e a gerir a aplicação. Consulte os seguintes tópicos para obter instruções passo a passo. 

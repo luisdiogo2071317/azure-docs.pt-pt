@@ -4,16 +4,17 @@ description: Saiba como fazer a ativação pós-falha de VMs do VMware e de serv
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838026"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973179"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 
@@ -42,10 +43,10 @@ Este é o quinto tutorial de uma série. Este tutorial parte do princípio de qu
 
 A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
-1. **Fazer a ativação pós-falha para o Azure**: fazer a ativação pós-falha de máquinas do site no local para o Azure.
-2. **Voltar a proteger as VMs do Azure**: voltar a proteger as VMs do Azure, para que comecem a ser replicadas novamente para as VMs do VMware no local. A VM no local é desativada durante a nova proteção. Desta forma, garante-se a consistência dos dados durante a replicação.
-3. **Fazer a ativação pós-falha no local**: executar uma ativação pós-falha para fazer a reativação pós-falha do Azure.
-4. **Voltar a proteger VMs no local**: após a reativação pós-falha dos dados, voltar a proteger as VMs no local das quais foi feita a reativação pós-falha, para que comecem a ser replicadas para o Azure.
+1. **Efetuar a ativação pós-falha para o Azure**: Pós-falha de máquinas do site no local para o Azure.
+2. **Voltar a proteger VMs do Azure**: Voltar a proteger as VMs do Azure, para que comecem a ser replicadas novamente para as VMs do VMware no local. A VM no local é desativada durante a nova proteção. Desta forma, garante-se a consistência dos dados durante a replicação.
+3. **Efetuar a ativação pós-falha no local**: Execute uma ativação pós-falha, reativação pós-falha do Azure.
+4. **Voltar a proteger VMs no local**: Depois de dados falhou, novamente, voltar a proteger as VMs no local que falharam ao, para que comecem a ser replicadas para o Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
@@ -66,17 +67,17 @@ Verifique as propriedades da VM e certifique-se de que a VM está em conformidad
 1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha**.
 
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual irá realizar a ativação pós-falha. Pode utilizar uma das opções seguintes:
-   - **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
-   - **Processado mais recentemente**: esta opção faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-   - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha da VM para o último ponto de recuperação consistente com a aplicação processado pelo Site Recovery.
-   - **Personalizado**: especifique um ponto de recuperação.
+   - **Mais recente**: Esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+   - **Processado mais recentemente**: Esta opção faz a ativação pós-falha da VM do ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+   - **Mais recente consistente com a aplicação**: Esta opção faz a ativação pós-falha da VM para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery.
+   - **Custom**: Especifique um ponto de recuperação.
 
 3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha** para tentar encerrar as máquinas virtuais de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Pode observar **tempos mais longos de ativação pós-falha de teste** para máquinas virtuais de VMware com o serviço de mobilidade na versão anterior à 9.8, servidores físicos, máquinas virtuais do Linux de VMware, máquinas virtuais de Hyper-V protegidas como servidores físicos, VMs de VMware que não têm o serviço DHCP ativado e VMs de VMware que não têm os seguintes controladores de arranque: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **Não cancelar uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada.
+> **Não cancelar uma ativação pós-falha em curso**: Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida.
 > Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Ligar a máquina virtual com ativação pós-falha no Azure

@@ -16,18 +16,15 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 9e3ad2327297e0403b279ad40db2186fcb55ae93
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080984"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579418"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilizar APIs de faturação do Azure para obter informações sobre sua utilização do Azure programaticamente
 Utilize APIs de faturação do Azure para extrair dados de utilização e de recursos em suas ferramentas de análise de dados preferencial. As APIs de Utilização de Recursos do Azure e de RateCard podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
-
-> [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API de transferência de faturas do Azure (pré-visualização)
 Uma vez a [participar tiver sido concluída](billing-manage-access.md#opt-in), notas fiscais de download com a versão de pré-visualização [API de nota fiscal](/rest/api/billing). As funcionalidades incluem:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187855"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726233"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
@@ -161,8 +161,8 @@ A solução recebe os seguintes tipos de telemetria dos dados das suas aplicaç�
 - Disponibilidade
 - Exceções
 - Pedidos
-- Vistas de página – sua área de trabalho receber as vistas de página, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [vistas de página](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Eventos personalizados – sua área de trabalho receber eventos personalizados, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Vistas de página – sua área de trabalho receber as vistas de página, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [vistas de página](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Eventos personalizados – sua área de trabalho receber eventos personalizados, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Dados são recebidos pelo Log Analytics do Application Insights à medida que ficam disponível.
 

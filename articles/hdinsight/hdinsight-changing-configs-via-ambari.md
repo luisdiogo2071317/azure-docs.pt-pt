@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498675"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722928"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
-HDInsight fornece [Apache Hadoop](https://hadoop.apache.org/) clusters para aplicações de processamento de dados em grande escala. Gestão, monitorização e otimizar esses clusters com vários nós complexos podem ser um desafio. [Apache Ambari](http://ambari.apache.org/) é uma interface web para gerir e monitorizar clusters do Linux de HDInsight.  Para os clusters do Windows, utilize o [API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight fornece [Apache Hadoop](https://hadoop.apache.org/) clusters para aplicações de processamento de dados em grande escala. Gestão, monitorização e otimizar esses clusters com vários nós complexos podem ser um desafio. [Apache Ambari](https://ambari.apache.org/) é uma interface web para gerir e monitorizar clusters do Linux de HDInsight.  Para os clusters do Windows, utilize o [API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Para uma introdução ao utilizar a interface do Usuário da Web de Ambari, consulte [HDInsight gerir clusters com a IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
@@ -83,7 +83,7 @@ Hive fornece dois mecanismos de execução: [Apache Hadoop MapReduce](https://ha
 Hadoop tenta dividir (*mapa*) um único arquivo em vários ficheiros e o processo resultante ficheiros em paralelo. O número de mapeadores depende do número de divisões de. Os seguintes parâmetros de configuração de dois unidade o número de divisões para o motor de execução Tez:
 
 * `tez.grouping.min-size`: Limite inferior ao tamanho de uma divisão de agrupados, com um valor padrão de 16 MB (16,777,216 bytes).
-* `tez.grouping.max-size`: Limite superior ao tamanho de uma divisão de agrupados, com um valor predefinido de 1 GB (1,073,741,824 bytes).
+* `tez.grouping.max-size`: Limite superior no tamanho de uma divisão de agrupados, com um valor predefinido de 1 GB (1,073,741,824 bytes).
 
 Como uma desempenho regra prática, diminua a ambos os parâmetros para melhorar a latência, aumentar para obter mais débito.
 
@@ -189,7 +189,7 @@ Como regra geral, é importante ter o método de compressão divisível, caso co
 
     ![Hive exec compress intermédio](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Para compactar arquivos intermediários, escolha um codec de compressão com CPU mais baixa custo, mesmo que o codec não tiver uma saída de compressão elevada.
 
 1. Para definir o codec de compressão intermediários, adicione a propriedade personalizada `mapred.map.output.compression.codec` para o `hive-site.xml` ou `mapred-site.xml` ficheiro.
@@ -210,7 +210,7 @@ Como regra geral, é importante ter o método de compressão divisível, caso co
 
     Isto irá compactar o arquivo intermediário usando a compactação Snappy. Quando é adicionada a propriedade, aparecerá no painel de site do ramo de registo personalizado.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Este procedimento modifica o `$HADOOP_HOME/conf/hive-site.xml` ficheiro.
 
 ### <a name="compress-final-output"></a>Comprimir a saída final
@@ -299,7 +299,7 @@ Recomendações adicionais para otimizar o motor de execução do Hive:
 
     ![Propriedades avançadas do pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > As definições de nível de sessão substituem valores de propriedade no `pig.properties` ficheiro.
 
 ### <a name="tune-execution-engine"></a>Otimizar o motor de execução
@@ -335,7 +335,7 @@ As seguintes definições de memória podem ajudar a otimizar o desempenho do sc
 
 * `pig.cachedbag.memusage`: A quantidade de memória alocada a uma matriz. Uma matriz é o conjunto de cadeias de identificação. Uma cadeia de identificação é um conjunto ordenado de campos e um campo é um conjunto de dados. Se os dados numa sacola estão além da memória alocada, é derramou no disco. O valor predefinido é 0,2, que representa a 20 por cento da memória disponível. Esta memória é compartilhada entre todos os recipientes num aplicativo.
 
-* `pig.spill.size.threshold`: São derramou matrizes maiores do que este limiar de tamanho vaze (em bytes) para o disco. O valor predefinido é 5 MB.
+* `pig.spill.size.threshold`: Recipientes de maiores do que este limiar de tamanho vaze (em bytes) são derramou no disco. O valor predefinido é 5 MB.
 
 
 ### <a name="compress-temporary-files"></a>Comprimir ficheiros temporários
@@ -408,7 +408,7 @@ O `hbase.client.scanner.caching` definição define o número de linhas a ler a 
 
 ![Número de HBase de linhas obtidas](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Não defina o valor, de modo a que o tempo entre a invocação do método seguinte num scanner é maior do que o tempo limite do scanner. A duração de tempo limite do scanner é definida pelo `hbase.regionserver.lease.period` propriedade.
 
 

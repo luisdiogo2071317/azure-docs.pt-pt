@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877189"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720721"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 Transações de base de dados elástica de base de dados do Azure SQL (SQL DB) permitem-lhe executar transações que abrangem várias bases de dados no SQL DB. Transações de base de dados elástica para a BD SQL estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. Para obter a biblioteca, consulte [.NET Framework 4.6.1 (instalador Web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,8 +30,8 @@ No local, um cenário desse tipo normalmente necessário executar o coordenador 
 Transações de bases de dados elásticas para o SQL DB permitem aplicações fazer alterações atômicas para dados armazenados em vários diferentes bancos de dados do SQL. A pré-visualização se concentra em experiências de desenvolvimento do lado do cliente em c# e .NET. Uma experiência de lado do servidor com o T-SQL está prevista para um horário posterior.  
 Transações de bases de dados elásticas destina-se os seguintes cenários:
 
-* Aplicações de múltiplas base de dados no Azure: com este cenário, os dados são verticalmente particionados em várias bases de dados no SQL DB, de modo a que os diferentes tipos de dados residem em diferentes bases de dados. Algumas operações requerem alterações aos dados que são mantidos em duas ou mais bases de dados. O aplicativo usa transações da base de dados elástica para coordenar as alterações em bancos de dados e certifique-se de atomicidade.
-* Aplicativos de banco de dados em partição horizontal no Azure: com este cenário, a camada de dados utiliza o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) ou self-fragmentação partição horizontal os dados em muitas bases de dados no SQL DB. Um caso de uso proeminente é a necessidade de fazer alterações de atômicas para uma aplicação em partição horizontal do multi-inquilino quando alterações span inquilinos. Imagine por exemplo uma transferência de um inquilino para outro, ambos os que residem em diferentes bases de dados. Um segundo caso é a fragmentação refinada para acomodar as necessidades de capacidade para um inquilino de grandes dimensões que por sua vez, normalmente, implica que algumas operações atómicas precisa apareça em vários bancos de dados utilizados para o mesmo inquilino. Um terceiro caso é atômicas atualizações para os dados que são replicados entre bases de dados de referência. Operações atômicas, transacionadas, juntamente com estas linhas agora podem ser coordenadas entre várias bases de dados a utilizar a pré-visualização.
+* Aplicações de múltiplas base de dados no Azure: Com este cenário, os dados são particionados verticalmente em várias bases de dados no SQL DB, de modo a que os diferentes tipos de dados residem em diferentes bases de dados. Algumas operações requerem alterações aos dados que são mantidos em duas ou mais bases de dados. O aplicativo usa transações da base de dados elástica para coordenar as alterações em bancos de dados e certifique-se de atomicidade.
+* Aplicações de base de dados em partição horizontal no Azure: Com este cenário, a camada de dados utiliza o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) ou self-fragmentação partição horizontal os dados em muitas bases de dados no SQL DB. Um caso de uso proeminente é a necessidade de fazer alterações de atômicas para uma aplicação em partição horizontal do multi-inquilino quando alterações span inquilinos. Imagine por exemplo uma transferência de um inquilino para outro, ambos os que residem em diferentes bases de dados. Um segundo caso é a fragmentação refinada para acomodar as necessidades de capacidade para um inquilino de grandes dimensões que por sua vez, normalmente, implica que algumas operações atómicas precisa apareça em vários bancos de dados utilizados para o mesmo inquilino. Um terceiro caso é atômicas atualizações para os dados que são replicados entre bases de dados de referência. Operações atômicas, transacionadas, juntamente com estas linhas agora podem ser coordenadas entre várias bases de dados a utilizar a pré-visualização.
   Transações de bases de dados elásticas utilizam confirmação de duas fases para se certificar de atomicidade transações entre bases de dados. É uma boa opção para transações que envolvem menos de 100 bases de dados ao mesmo tempo numa única transação. Estes limites não são impostos, mas um deve esperar, desempenho e taxas de êxito para transações da base de dados elástica afetado quando exceder estes limites.
 
 ## <a name="installation-and-migration"></a>Instalação e migração
@@ -92,7 +92,7 @@ Transações de bases de dados elásticas para o SQL DB também suportam a coord
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação do .NET para serviços Cloud do Azure
-O Azure fornece várias ofertas para alojar aplicações .NET. Uma comparação das ofertas diferentes está disponível no [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/choose-web-site-cloud-service-vm.md). Se o SO convidado da oferta é menor do que o .NET 4.6.1 necessários para transações elásticas, terá de atualizar o SO convidado para 4.6.1. 
+O Azure fornece várias ofertas para alojar aplicações .NET. Uma comparação das ofertas diferentes está disponível no [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/overview-compare.md). Se o SO convidado da oferta é menor do que o .NET 4.6.1 necessários para transações elásticas, terá de atualizar o SO convidado para 4.6.1. 
 
 Para serviços de aplicações do Azure, as atualizações para o SO convidado não são atualmente suportadas. Para máquinas de virtuais do Azure, basta iniciar sessão na VM e execute o instalador para o .NET framework mais recente. Serviços Cloud do Azure, terá de incluir a instalação de uma versão mais recente do .NET para as tarefas de arranque da sua implementação. Os conceitos e passos documentados em [instalar o .NET numa função de serviço Cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -127,13 +127,13 @@ Utilize os seguintes cmdlets do PowerShell para gerir as relações de comunica�
 * **Remove-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para remover uma relação de comunicação existente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorização do Estado de transação
-Utilize vistas de gestão dinâmica (DMVs) no SQL DB para monitorizar o estado e o progresso das suas transações de bases de dados elásticas em curso. Todas as DMVs relacionados com transações são relevantes para transações distribuídas na BD SQL. Pode encontrar a lista correspondente de DMVs aqui: [vistas de gestão de dinâmica relacionadas de transação e as funções (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Utilize vistas de gestão dinâmica (DMVs) no SQL DB para monitorizar o estado e o progresso das suas transações de bases de dados elásticas em curso. Todas as DMVs relacionados com transações são relevantes para transações distribuídas na BD SQL. Pode encontrar a lista correspondente de DMVs aqui: [Transações relacionadas a funções (Transact-SQL) e exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Esses DMVs são particularmente úteis:
 
-* **sys.dm\_tran\_Active Directory\_transações**: apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho) pode identificar as transações de diferentes filho que pertencem à mesma transação distribuída. Todas as transações na mesma transação distribuída realizar o mesmo valor UOW. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
-* **sys.dm\_tran\_base de dados\_transações**: fornece informações adicionais sobre transações, como posicionamento da transação no registo. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
-* **sys.dm\_tran\_bloqueios**: fornece informações sobre os bloqueios que atualmente são mantidas por transações em curso. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
+* **sys.dm\_tran\_Active Directory\_transações**: Apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho) pode identificar as transações de diferentes filho que pertencem à mesma transação distribuída. Todas as transações na mesma transação distribuída realizar o mesmo valor UOW. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
+* **sys.dm\_tran\_base de dados\_transações**: Fornece informações adicionais sobre transações, como posicionamento da transação no registo. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
+* **sys.dm\_tran\_bloqueios**: Fornece informações sobre os bloqueios que atualmente são mantidas por transações em curso. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
 
 ## <a name="limitations"></a>Limitações
 As seguintes limitações aplicam-se atualmente a transações de bases de dados elásticas na BD SQL:

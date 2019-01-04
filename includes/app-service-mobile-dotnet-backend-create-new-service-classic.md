@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134243"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729412"
 ---
 1. Inicie sessão no [portal do Azure].
 2. Selecione **+ novo** > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para as suas aplicações de Mobile back-end.
 3. Para **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo (utilizando o mesmo nome que a sua aplicação). 
 4. Para **plano do App Service**, o plano predefinido (no [escalão Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionada. Pode ainda selecionar um plano diferente ou [criar um novo](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   Definições do plano de serviço de aplicações determinam a [localização, funcionalidades, custo e recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados à aplicação. Para obter mais informações sobre o App Service os planos e como criar um novo plano num preço diferente da camada e na localização pretendida, consulte [descrição geral aprofundada dos planos do App Service do Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   Definições do plano de serviço de aplicações determinam a [localização, funcionalidades, custo e recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados à aplicação. Para obter mais informações sobre o App Service os planos e como criar um novo plano num preço diferente da camada e na localização pretendida, consulte [descrição geral aprofundada dos planos do App Service do Azure](../articles/app-service/overview-hosting-plans.md).
    
 5. Selecione **Criar**. Este passo cria o back-end de aplicações móveis. 
 6. Na **configurações** painel para as novas aplicações móveis de back-end, selecione **início rápido** > sua plataforma de aplicação de cliente > **ligar uma base de dados**. 

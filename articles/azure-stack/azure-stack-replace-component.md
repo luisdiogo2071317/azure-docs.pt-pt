@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379609"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717726"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware num nó de unidade de escala do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
-Este artigo descreve o processo geral para substituir componentes de hardware que são não fontes. Substituição real passos variam com base no seu fornecedor de hardware do fabricante de equipamento original (OEM). Consulte a documentação do fornecedor campo unidade substituível em (FRU) para obter passos detalhados que são específicas para o seu sistema integrado do Azure Stack.
+Este artigo descreve o processo geral para substituir componentes de hardware que são não fontes. Substituição real passos variam com base no seu fornecedor de hardware do fabricante de equipamento original (OEM). Veja a documentação do seu fornecedor da unidade substituível no campo (FRU) para obter os passos detalhados específicos do seu sistema integrado do Azure Stack.
 
 Componentes não fontes incluem o seguinte:
 
@@ -54,21 +54,23 @@ O estado de funcionamento do Azure Stack e o sistema de monitorização controla
 
 Os passos seguintes fornecem uma visão geral sobre o processo de substituição de componente. Não siga estes passos sem referir-se a sua documentação FRU fornecidos pelo OEM.
 
-1. Utilize o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação pode não ser necessária com base na condição física do hardware.
+1. Utilize a ação de encerramento para for encerrada corretamente o nó de unidade de escala. Esta ação pode não ser necessária com base na condição física do hardware.
 
-   > [!NOTE]
-   > De qualquer forma, apenas um nó pode ser drenado e está desligada, ao mesmo tempo, sem quebrar o S2D (espaços de armazenamento direto).
+2. Num cenário improvável, a ação de encerramento falhar, utilize o [drenar](azure-stack-node-actions.md#drain) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação pode não ser necessária com base na condição física do hardware.
 
-2. Depois do nó de unidade de escala está no modo de manutenção, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição física do hardware.
+   > [!NOTE]  
+   > De qualquer forma, apenas um nó pode ser desabilitado e está desligada, ao mesmo tempo, sem quebrar o S2D (espaços de armazenamento direto).
 
-   > [!NOTE]
+3. Depois do nó de unidade de escala está no modo de manutenção, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição física do hardware.
+
+   > [!NOTE]  
    > No caso pouco provável que a ação de desligar não funciona, utilize a interface de web do controlador (BMC) de gestão da placa base em vez disso.
 
-3. Substitua o componente de hardware danificado. Se o seu fornecedor de hardware de OEM efetua a substituição de componente pode variar com base no seu contrato de suporte.  
-4. Atualize o firmware. Siga o processo de atualização de firmware específicas do fornecedor com o anfitrião de ciclo de vida do hardware para se certificar de que o componente de hardware substituído tem o firmware aprovado nível aplicado. Se o seu fornecedor de hardware de OEM executa este passo pode variar com base no seu contrato de suporte.  
-5. Utilize o [reparação](azure-stack-node-actions.md#scale-unit-node-actions) ação para repor o nó de unidade de escala a unidade de escala.
-6. Utilizar o ponto final com privilégios para [verificar o estado de reparação de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, uma tarefa de reparação de armazenamento completa pode demorar várias horas, dependendo da carga de sistema e consumidos espaço.
-7. Após concluir a ação de reparação, confirme que todos os alertas ativos foram fechados automaticamente.
+4. Substitua o componente de hardware danificado. Se o seu fornecedor de hardware de OEM efetua a substituição de componente pode variar com base no seu contrato de suporte.  
+5. Atualize o firmware. Siga o processo de atualização de firmware específicas do fornecedor com o anfitrião de ciclo de vida do hardware para se certificar de que o componente de hardware substituído tem o firmware aprovado nível aplicado. Se o seu fornecedor de hardware de OEM executa este passo pode variar com base no seu contrato de suporte.  
+6. Utilize o [reparação](azure-stack-node-actions.md#scale-unit-node-actions) ação para repor o nó de unidade de escala a unidade de escala.
+7. Utilizar o ponto final com privilégios para [verificar o estado de reparação de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, uma tarefa de reparação de armazenamento completa pode demorar várias horas, dependendo da carga de sistema e consumidos espaço.
+8. Após concluir a ação de reparação, confirme que todos os alertas ativos foram fechados automaticamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

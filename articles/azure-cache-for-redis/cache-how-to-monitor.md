@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438302"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582716"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorizar a Cache do Azure para Redis
 A Cache do Azure para utilizações de Redis [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para a monitorização de instâncias de cache. Pode ver métricas, afixar gráficos de métricas ao Startboard, personalizar o intervalo de data e hora dos gráficos de monitorização, adicionar e remover as métricas de gráficos e definir alertas quando forem cumpridas determinadas condições. Essas ferramentas permitem-lhe monitorizar o estado de funcionamento da Cache do Azure para instâncias de Redis e ajudarão a gerenciar seus aplicativos de colocação em cache.
@@ -79,7 +79,7 @@ Para configurar uma conta de armazenamento para as suas métricas de cache:
 >
 >
 
-Para acessar as suas métricas, pode visualizá-las no portal do Azure, conforme descrito anteriormente neste artigo, e também pode acessá-los utilizando o [API de REST do Azure Monitor métricas](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Para acessar as suas métricas, pode visualizá-las no portal do Azure, conforme descrito anteriormente neste artigo, e também pode acessá-los utilizando o [API de REST do Azure Monitor métricas](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Se alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecem disponíveis para download, mas não é apresentada no portal do Azure.  
@@ -142,7 +142,7 @@ Registos de atividades fornecem informações sobre as operações que foram exe
 
 Para ver os registos de atividades para a sua cache, clique em **registos de atividades** partir a **menu recursos**.
 
-Para obter mais informações sobre os registos de atividade, consulte [descrição geral do registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Para obter mais informações sobre os registos de atividade, consulte [descrição geral do registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

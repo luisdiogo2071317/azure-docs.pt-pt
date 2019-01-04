@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405602"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810784"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas de operativos convidados suportados no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 ## <a name="windows"></a>Windows
 
@@ -71,11 +71,11 @@ Distribuições do Linux listadas como disponível no Marketplace incluem o agen
 | Ubuntu 16.04-LTS | 64 bits | Canónico | Sim |
 | Ubuntu 18.04-LTS | 64 bits | Canónico | Sim |
 
-Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e o Azure Stack: Perguntas mais frequentes](https://access.redhat.com/articles/3413531).
+Para informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e o Azure Stack: Perguntas mais frequentes sobre](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Marketplace do Azure Stack, veja os artigos seguintes:
 
-[Transferir itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
-[Criar e publicar um item do mercado](azure-stack-create-and-publish-marketplace-item.md)
+- [Transferir itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
+- [Criar e publicar um item do mercado](azure-stack-create-and-publish-marketplace-item.md)

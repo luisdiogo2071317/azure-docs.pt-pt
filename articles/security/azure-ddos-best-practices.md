@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231639"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720871"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>A proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
 
 Este artigo destina-se a decisores de TI e a equipe de segurança. Ele espera que esteja familiarizado com o Azure, redes e segurança.
 
@@ -81,7 +81,7 @@ Deve saber volumes de tráfego típico, o modelo de conectividade entre a aplica
 
 A escalabilidade é a eficiência com que um sistema pode processar o aumento de carga. Deve conceber as suas aplicações para [Dimensionar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplified, especificamente no caso de um ataque DDoS. Se seu aplicativo depende de uma única instância de um serviço, ele cria um ponto único de falha. Várias instâncias de aprovisionamento torna o seu sistema, mais escalonável e mais resiliente.
 
-Para [App Service do Azure](../app-service/app-service-value-prop-what-is.md), selecione um [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que oferece várias instâncias. Serviços Cloud do Azure, configure cada uma das suas funções para utilizar [várias instâncias](../cloud-services/cloud-services-choose-me.md). Para [máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), certifique-se de que a sua arquitetura de máquina virtual (VM) inclui mais de uma VM e que cada VM está incluído num [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md). Recomendamos que utilize [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para capacidades de dimensionamento automático.
+Para [App Service do Azure](../app-service/app-service-value-prop-what-is.md), selecione um [plano do App Service](../app-service/overview-hosting-plans.md) que oferece várias instâncias. Serviços Cloud do Azure, configure cada uma das suas funções para utilizar [várias instâncias](../cloud-services/cloud-services-choose-me.md). Para [máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), certifique-se de que a sua arquitetura de máquina virtual (VM) inclui mais de uma VM e que cada VM está incluído num [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md). Recomendamos que utilize [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para capacidades de dimensionamento automático.
 
 ### <a name="defense-in-depth"></a>Defesa em profundidade
 
@@ -96,7 +96,7 @@ Vemos com freqüência dos clientes recursos no local ataques juntamente com seu
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Ofertas do Azure para proteção contra DDoS
 
-O Azure tem duas ofertas de serviço de DDoS que fornecem proteção contra ataques à rede (camada 3 e 4): DDoS Protection básico e padrão de proteção de DDoS. 
+O Azure tem duas ofertas de serviço de DDoS que fornecem proteção contra ataques à rede (camada 3 e 4): Básico de proteção de DDoS e norma de proteção DDoS. 
 
 ### <a name="ddos-protection-basic"></a>Basic de proteção DDoS
 

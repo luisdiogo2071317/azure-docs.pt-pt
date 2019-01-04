@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274569"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993295"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
@@ -146,9 +146,9 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte de Id de início de sessão alternativo na associação ao Azure AD híbrido
 
-Associação com o Windows 10 Hybrid Azure AD fornece suporte limitado para [alternativo Ids de início de sessão](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de id de início de sessão alternativo, [método de autenticação](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipo de ids de início de sessão alternativo que pode existir no seu ambiente.
+Associação com o Windows 10 Hybrid Azure AD fornece suporte limitado para [alternativo Ids de início de sessão](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de id de início de sessão alternativo, [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipo de ids de início de sessão alternativo que pode existir no seu ambiente.
 
- - Id de início de sessão alternativo encaminhável: Um id de início de sessão alternativo encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal, contoso.org e contoso.co.uk são domínios válidos pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - Id de início de sessão alternativo encaminhável: Um id de início de sessão alternativo encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal, contoso.org e contoso.co.uk são domínios válidos pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Id de início de sessão alternativo não encaminháveis: Um id de início de sessão alternativo não encaminháveis internos não tem um domínio verificado. É aplicável apenas dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio principal, contoso. local não é um domínio verificável na internet, mas é utilizado na rede da Contoso.
  

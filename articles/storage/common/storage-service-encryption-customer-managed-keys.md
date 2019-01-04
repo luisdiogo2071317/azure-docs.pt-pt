@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970710"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628498"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault
 
@@ -32,6 +32,8 @@ Porquê criar suas próprias chaves? Chaves personalizadas dão-lhe mais flexibi
 
 Para utilizar chaves geridas pelo cliente e o SSE, pode criar um novo cofre de chaves e chave ou pode usar um cofre de chaves existente e a chave. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="step-1-create-a-storage-account"></a>Passo 1: Criar uma conta de armazenamento
 
 Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
@@ -45,7 +47,7 @@ Se quiser habilitar programaticamente a chaves geridas pelo cliente para o SSE, 
 Para utilizar chaves geridas pelo cliente e o SSE, tem de atribuir uma identidade de conta de armazenamento para a conta de armazenamento. Pode definir a identidade, executando o seguinte comando do PowerShell ou CLI do Azure:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 Pode ativar a eliminação de forma recuperável e fazer não remover executando os seguintes comandos do PowerShell ou CLI do Azure:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,11 +123,11 @@ Também pode conceder acesso através do portal do Azure ao navegar para o Cofre
 Pode associar a chave acima com uma conta de armazenamento existente com os seguintes comandos do PowerShell:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passo 5: Copiar dados para a conta de armazenamento
@@ -154,7 +156,7 @@ Encriptação do serviço de armazenamento está disponível para Managed Disks 
 O Azure Disk Encryption fornece integração entre soluções baseadas no sistema operacional como o BitLocker e o DM-Crypt e o Cofre de chaves do Azure. Encriptação do serviço de armazenamento fornece encriptação nativamente na camada de plataforma de armazenamento do Azure, abaixo da máquina virtual.
 
 **Pode revogar o acesso às chaves de encriptação?**
-Sim, pode revogar o acesso em qualquer altura. Existem várias formas de revogar o acesso para as suas chaves. Consulte a [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) para obter mais detalhes. A revogar o acesso com eficiência irá bloquear o acesso a todos os blobs na conta de armazenamento como a chave de encriptação da conta não está acessível pelo armazenamento do Azure.
+Sim, pode revogar o acesso em qualquer altura. Existem várias formas de revogar o acesso para as suas chaves. Consulte a [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/) e [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) para obter mais detalhes. A revogar o acesso com eficiência irá bloquear o acesso a todos os blobs na conta de armazenamento como a chave de encriptação da conta não está acessível pelo armazenamento do Azure.
 
 **Posso criar uma conta de armazenamento e a chave numa região diferente?**  
 Não, a conta de armazenamento e o Azure Key Vault e a chave tem de estar na mesma região.

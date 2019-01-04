@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233519"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600726"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas, pode chamar a partir do Azure Logic Apps
 
@@ -25,11 +25,11 @@ Embora o Azure Logic Apps oferece [mais de 100 conectores incorporados](../conne
 * Ajude os clientes a utilizar o seu serviço para gerir as tarefas pessoais ou profissionais.
 * Expanda o alcance, a capacidade de deteção e a utilização para o seu serviço.
 
-Basicamente, os conectores são web APIs que utilizar REST para interfaces de conectáveis [formato de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores. Também pode alojar as suas APIs num [App Service do Azure](../app-service/app-service-web-overview.md), uma plataforma-como-um-serviço (PaaS que fornece uma das formas melhores, mais fácil e mais escaláveis para alojar a API da oferta). 
+Basicamente, os conectores são web APIs que utilizar REST para interfaces de conectáveis [formato de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores. Também pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece uma das formas melhores, mais fácil e mais escaláveis para alojar a API da oferta). 
 
 Para obter APIs personalizadas trabalhar com o logic apps, pode fornecer a sua API [ *ações* ](./logic-apps-overview.md#logic-app-concepts) que realizam tarefas específicas em fluxos de trabalho de aplicação de lógica. A API pode também agir como um [ *acionador* ](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho de aplicação lógica quando novos dados ou um evento cumpre uma condição especificada. Este tópico descreve os padrões comuns que pode seguir para a criação de ações e acionadores na sua API, com base no comportamento que pretende que a API para fornecer.
 
-Pode alojar as suas APIs num [App Service do Azure](../app-service/app-service-web-overview.md), uma plataforma-como-um-serviço (PaaS que fornece fácil, altamente dimensionável e que aloja a API da oferta).
+Pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece fácil, altamente dimensionável e que aloja a API da oferta).
 
 > [!TIP] 
 > Embora possa implementar as suas APIs como aplicações web, considere implementar as suas APIs como aplicações de API, que podem tornar seu trabalho mais fácil quando cria, host e consumir APIs na cloud e no local. Não precisa alterar qualquer código em suas APIs – basta implementar o seu código numa aplicação API. Por exemplo, saiba como criar aplicações de API criadas com esses idiomas: 
@@ -106,7 +106,7 @@ Eis os passos específicos para a sua API a seguir, descrito da perspectiva da A
    
    * *Necessário*: A `location` cabeçalho que especifica o caminho absoluto para um URL em que o motor do Logic Apps pode verificar o estado da tarefa da sua API
 
-   * *Opcional*: A `retry-after` cabeçalho que especifica o número de segundos que o mecanismo deve aguardar antes de a verificar o `location` URL para o estado da tarefa. 
+   * *Opcional*: R `retry-after` cabeçalho que especifica o número de segundos que o mecanismo deve aguardar antes de a verificar o `location` URL para o estado da tarefa. 
 
      Por predefinição, o mecanismo verifica cada 20 segundos. Para especificar um intervalo diferente, inclua o `retry-after` cabeçalho e o número de segundos até que a consulta seguinte.
 
@@ -134,9 +134,9 @@ Quando a tarefa está concluída, a sua API utiliza o URL para o notificar o mec
 
 Para esse padrão, configurar dois pontos de extremidade no seu controlador: `subscribe` e `unsubscribe`
 
-*  `subscribe` ponto final: quando a execução atinge a ação da sua API no fluxo de trabalho, o Logic Apps do motor de chamadas a `subscribe` ponto final. Este passo faz com que a aplicação lógica para criar um URL de retorno de chamada que armazena a sua API e, em seguida, aguarde o retorno de chamada de API quando o trabalho está concluído. A API, em seguida, chama de volta com um HTTP POST para o URL e passa a qualquer conteúdo devolvido e cabeçalhos como entrada para a aplicação lógica.
+*  `subscribe` Ponto final: Quando a execução atinge a ação da sua API no fluxo de trabalho, o Logic Apps do motor de chamadas a `subscribe` ponto final. Este passo faz com que a aplicação lógica para criar um URL de retorno de chamada que armazena a sua API e, em seguida, aguarde o retorno de chamada de API quando o trabalho está concluído. A API, em seguida, chama de volta com um HTTP POST para o URL e passa a qualquer conteúdo devolvido e cabeçalhos como entrada para a aplicação lógica.
 
-* `unsubscribe` ponto final: se a execução da aplicação lógica é cancelada, o Logic Apps do motor de chamadas a `unsubscribe` ponto final. A API pode, em seguida, anular o registo o URL de retorno de chamada e parar todos os processos conforme necessário.
+* `unsubscribe` Ponto final: Se a execução da aplicação lógica é cancelada, o Logic Apps do motor de chamadas a `unsubscribe` ponto final. A API pode, em seguida, anular o registo o URL de retorno de chamada e parar todos os processos conforme necessário.
 
 ![Padrão de ação do Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -196,9 +196,9 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 Um acionador de webhook é um *acionador push* que deve aguardar e está à escuta de novos dados ou eventos no seu ponto final de serviço. Se novos dados ou um evento atenda à condição especificada, o acionador é acionado e cria uma instância da aplicação lógica, que, em seguida, processa os dados como entrada.
 Acionadores de Webhook agem muito como a [ações de webhook](#webhook-actions) anteriormente descritas neste tópico e são configurados com `subscribe` e `unsubscribe` pontos de extremidade. 
 
-* `subscribe` ponto final: ao adicionar e guardar um acionador de webhook na sua aplicação lógica, o Logic Apps do motor de chamadas a `subscribe` ponto final. Este passo faz com que a aplicação lógica criar um URL de retorno de chamada que armazena a sua API. Quando existe novos dados ou um evento que atenda à condição especificada, a API chama-se novamente com um HTTP POST para o URL. O payload de conteúdo e cabeçalhos de passam como entrada para a aplicação lógica.
+* `subscribe` Ponto final: Quando adicionar e guardar um acionador de webhook na sua aplicação lógica, o Logic Apps do motor de chamadas a `subscribe` ponto final. Este passo faz com que a aplicação lógica criar um URL de retorno de chamada que armazena a sua API. Quando existe novos dados ou um evento que atenda à condição especificada, a API chama-se novamente com um HTTP POST para o URL. O payload de conteúdo e cabeçalhos de passam como entrada para a aplicação lógica.
 
-* `unsubscribe` ponto final: se o acionador de webhook ou uma aplicação lógica todo for eliminada, o Logic Apps do motor de chamadas a `unsubscribe` ponto final. A API pode, em seguida, anular o registo o URL de retorno de chamada e parar todos os processos conforme necessário.
+* `unsubscribe` Ponto final: Se o acionador de webhook ou uma aplicação lógica todo for eliminada, o Logic Apps do motor de chamadas a `unsubscribe` ponto final. A API pode, em seguida, anular o registo o URL de retorno de chamada e parar todos os processos conforme necessário.
 
 ![Padrão de Acionador de Webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

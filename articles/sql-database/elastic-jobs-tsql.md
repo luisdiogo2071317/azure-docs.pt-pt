@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 3c40c6721651864b9e0d64d4eeda415bfd3e181a
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164522"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606814"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -1225,7 +1225,7 @@ Mostra o histórico de execução de tarefas.
 |**end_time**|  datetime2(7)    |Data e hora a tarefa foi concluída a execução. NULO se a tarefa ainda não tiver sido executada ou não tem ainda concluiu a execução.
 |**current_attempts**   |int    |Número de vezes que a etapa foi repetida. Tarefa principal será 0, as execuções de tarefas de subordinado vão ser 1 ou superior com base na política de execução.
 |**current_attempt_start_time** |datetime2(7)|  Data e hora a tarefa iniciou a execução. NULO indica que esta é a execução de tarefa principal.
-|**last_message**   |nvarchar (Max)| Mensagem de histórico do trabalho ou passo. 
+|**last_message**   |nvarchar(max)| Mensagem de histórico do trabalho ou passo. 
 |**target_type**|   nvarchar(128)   |Tipo de base de dados de destino ou uma coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico ou uma base de dados. Valores válidos para target_type são 'SqlServer', "SqlElasticPool" ou "SqlDatabase". NULO indica que esta é a execução de tarefa principal.
 |**target_id**  |uniqueidentifier|  ID exclusivo do membro do grupo de destino.  NULO indica que esta é a execução de tarefa principal.
 |**target_group_name**  |nvarchar(128)  |Nome do grupo de destino. NULO indica que esta é a execução de tarefa principal.
@@ -1279,7 +1279,7 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**step_name**  |nvarchar(128)  |Nome exclusivo (para esta tarefa) para o passo.|
 |**command_type**   |nvarchar(50)   |Tipo de comando a executar o passo de tarefa. Para a v1, valor tem de ser igual ao e predefinido para 'TSql'.|
 |**command_source** |nvarchar(50)|  Localização do comando. Para a v1, "Inline" é o padrão e apenas aceite o valor.|
-|**Comando**|   nvarchar (Max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
+|**Comando**|   nvarchar(max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
 |**credential_name**|   nvarchar(128)   |Nome da credencial com âmbito de base de dados utilizado para a execução da tarefa.|
 |**target_group_name**| nvarchar(128)   |Nome do grupo de destino.|
 |**target_group_id**|   uniqueidentifier|   ID exclusivo do grupo de destino.|
@@ -1294,8 +1294,8 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**output_resource_group_name** |nvarchar(128)| Nome do grupo de recursos onde reside o servidor de destino.|
 |**output_server_name**|    nvarchar(256)   |Nome do servidor de destino para o conjunto de resultados.|
 |**output_database_name**   |nvarchar(128)| Nome da base de dados de destino para o conjunto de resultados.|
-|**output_schema_name** |nvarchar (Max)| Nome do esquema de destino. Assume a predefinição de dbo, se não for especificado.|
-|**output_table_name**| nvarchar (Max)|  Nome da tabela para armazenar os resultados definido nos resultados da consulta. Tabela será criada automaticamente com base no esquema de resultados definido se ainda não exista. Esquema tem de corresponder ao esquema do conjunto de resultados.|
+|**output_schema_name** |nvarchar(max)| Nome do esquema de destino. Assume a predefinição de dbo, se não for especificado.|
+|**output_table_name**| nvarchar(max)|  Nome da tabela para armazenar os resultados definido nos resultados da consulta. Tabela será criada automaticamente com base no esquema de resultados definido se ainda não exista. Esquema tem de corresponder ao esquema do conjunto de resultados.|
 |**max_parallelism**|   int|    O número máximo de bases de dados por conjunto elástico que o passo da tarefa será executado cada vez. A predefinição é nulo, significa que nenhum limite. |
 
 

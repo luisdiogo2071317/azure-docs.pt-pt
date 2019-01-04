@@ -10,24 +10,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5f4b7994ad5061c64021f3625f42ac028cbee859
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165810"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653412"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark (DStream) de exemplo com o Apache Kafka no HDInsight de transmissão em fluxo
 
 Aprenda a usar [Apache Spark](https://spark.apache.org/) para transmitir dados para dentro ou fora de [Apache Kafka](https://kafka.apache.org/) sobre como utilizar o HDInsight [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). Este exemplo utiliza um [bloco de notas do Jupyter](https://jupyter.org/) que é executado no cluster do Spark.
 
-> [!NOTE]
+> [!NOTE]  
 > Os passos neste documento criam um grupo de recursos do Azure que contém um cluster do Spark no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Spark comunique diretamente com o cluster do Kafka.
 >
 > Quando tiver concluído os passos neste documento, elimine os clusters para evitar encargos em excesso.
 
-> [!IMPORTANT]
-> Este exemplo utiliza DStreams, que é uma tecnologia de transmissão em fluxo do Spark mais antiga. Para obter um exemplo que utiliza o Spark mais recente funcionalidades de transmissão em fluxo, consulte a [Spark transmissão em fluxo estruturada com o Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) documento.
+> [!IMPORTANT]  
+> Este exemplo utiliza DStreams, que é uma tecnologia de transmissão em fluxo do Spark mais antiga. Para obter um exemplo que utiliza o Spark mais recente funcionalidades de transmissão em fluxo, consulte a [Spark transmissão em fluxo estruturada com o Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) documento.
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
@@ -35,7 +35,7 @@ O Apache Kafka no HDInsight não fornece acesso aos mediadores Kafka através da
 
 ![Diagrama de clusters do Spark e Kafka numa rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Embora o Kafka em si está limitado à comunicação na rede virtual, outros serviços em cluster como SSH e Ambari podem ser acedidos através da internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, veja [Portas e URIs utilizados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualmente, é mais fácil de usar um modelo Azure Resource Manager. Utilize os seguintes passos para implementar uma rede virtual do Azure, Kafka e do Spark clusters para a sua subscrição do Azure.
@@ -46,7 +46,7 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
     
     O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Para garantir a disponibilidade do Kafka no HDInsight, o cluster tem de conter pelo menos três nós de trabalho. Este modelo cria um cluster do Kafka que contém três nós de trabalho.
 
     Este modelo cria um cluster do HDInsight 3.6 para Kafka e Spark.
@@ -77,7 +77,7 @@ Assim que os recursos foram criados, é apresentada uma página de resumo.
 
 ![Resumo para a vnet e a clusters do grupo de recursos](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tenha em atenção que os nomes dos HDInsight clusters estão **spark NOME_DE_BASE** e **kafka NOME_DE_BASE**, onde NOME_DE_BASE é o nome que indicou para o modelo. Utilize esses nomes em passos posteriores ao estabelecer ligação com os clusters.
 
 ## <a name="use-the-notebooks"></a>Utilize os blocos de notas

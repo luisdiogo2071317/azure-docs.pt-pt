@@ -1,5 +1,5 @@
 ---
-title: Executar cargas de trabalho do Azure Batch em VMs de baixa prioridade económicas | Documentos da Microsoft
+title: Executar cargas de trabalho em VMs de baixa prioridade económicas - Azure Batch | Documentos da Microsoft
 description: Saiba como aprovisionar as VMs de baixa prioridade para reduzir o custo de cargas de trabalho do Azure Batch.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093008"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546798"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
@@ -42,11 +43,11 @@ Tendo em conta as características das VMs de baixa prioridade, o que as cargas 
 
 Alguns exemplos de casos de utilização de processamento de batch bem adequados para utilizar VMs de baixa prioridade são:
 
--   **Desenvolvimento e teste**: em particular, se estão a ser desenvolvidas soluções em grande escala, podem perceberam economias significativas. Podem trazer benefícios para todos os tipos de teste, mas o teste de carga em grande escala e testes de regressão são excelente utiliza.
+-   **Desenvolvimento e teste**: Em particular, se estão a ser desenvolvidas soluções em grande escala, podem ser percebidas economias significativas. Podem trazer benefícios para todos os tipos de teste, mas o teste de carga em grande escala e testes de regressão são excelente utiliza.
 
--   **Complementar as capacidade a pedido**: VMs de baixa prioridade podem ser utilizadas para complementar VMs regular dedicadas - quando estiverem disponíveis, tarefas, podem aumentar e, portanto, conclua mais rápida de custo mais baixo; quando não está disponível, a linha de base de VMs dedicadas permanece disponível .
+-   **Complementar as capacidade a pedido**: VMs de baixa prioridade podem ser utilizadas para complementar VMs regular dedicadas - quando estiverem disponíveis, tarefas, podem aumentar e, portanto, conclua mais rápida de custo mais baixo; Quando não está disponível, a linha de base de VMs dedicadas permanece disponível.
 
--   **Tempo de execução de tarefa flexível**: se houver flexibilidade para as tarefas de tempo tem de concluir, em seguida, quedas potenciais na capacidade pela podem tolerar; no entanto, com a adição de VMs de baixa prioridade tarefas com freqüência são executadas mais rapidamente e um custo mais baixo.
+-   **Tempo de execução de tarefa flexível**: Se houver flexibilidade no tempo de tarefas tem de concluir, em seguida, quedas potenciais na capacidade pela podem tolerar; No entanto, com a adição de tarefas de VMs de baixa prioridade frequência de execução de forma mais rápida e um custo mais baixo.
 
 Os conjuntos do batch podem ser configurados para utilizar VMs de baixa prioridade de diversas formas, consoante a flexibilidade em tempo de execução de tarefa:
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497129"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604536"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
@@ -35,7 +35,7 @@ RTVS melhora o seu fluxo de trabalho do R, oferecendo ferramentas como o [R Inte
 
 4. Instale [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) no seu computador. ML Server fornece a [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) e `RxSpark` funções.
 
-5. Instale [PuTTY](http://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções a partir do seu cliente local no seu cluster do HDInsight.
+5. Instale [PuTTY](https://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções a partir do seu cliente local no seu cluster do HDInsight.
 
 6. Tem a opção para aplicar as definições de ciência de dados para o ambiente do Visual Studio, que fornece um novo esquema para a área de trabalho para as ferramentas de R.
     1. Para guardar as definições atuais do Visual Studio, utilize o **Tools > Import and Export Settings** comando, em seguida, selecione **Export selected definições de ambiente** e especifique um nome de ficheiro. Para restaurar essas definições, utilize o comando mesmo e selecione **Import selected definições de ambiente**.
@@ -44,7 +44,7 @@ RTVS melhora o seu fluxo de trabalho do R, oferecendo ferramentas como o [R Inte
 
         ![Definições de ciência de dados...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Usando a abordagem no passo 1, também pode guardar e restaurar o layout de cientista de dados personalizados, em vez de repetir a **definições de ciência de dados** comando.
 
 ## <a name="execute-local-r-methods"></a>Executar métodos locais do R

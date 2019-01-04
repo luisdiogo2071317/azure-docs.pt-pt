@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 585202203e0828848ea51cc5d0d548c6f1ac6cba
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 364c8d4c0ca9ac9a733ee98fd73b2dfd8497625f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724337"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791291"
 ---
-# <a name="create-an-azure-cosmos-db-for-mongodb-api-app-with-angular-and-cosmos-db"></a>Criar um Azure Cosmos DB para a aplicação de API do MongoDB com Angular e o Cosmos DB
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada para a MongoDB API](mongodb-introduction.md).
+Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada com a API do Cosmos DB para o MongoDB](mongodb-introduction.md).
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Permite-lhe criar e consultar rapidamente documentos, chaves/valores e bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global, que constituem o âmago do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Permite-lhe rapidamente criar e consultar documentos e as bases de dados de gráfico que tiram partido de capacidades de escalamento horizontal no núcleo do Cosmos DB e distribuição global chave/valor. 
 
 Este tutorial com várias parte abrange as seguintes tarefas:
 

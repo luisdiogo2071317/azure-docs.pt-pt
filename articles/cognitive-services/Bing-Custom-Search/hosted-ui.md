@@ -1,7 +1,7 @@
 ---
-title: Pesquisa do site, utilize o hospedado da interface do Usuário personalizada de pesquisa do Bing
+title: Configurar uma interface do Usuário alojado para pesquisa personalizada do Bing | Documentos da Microsoft
 titlesuffix: Azure Cognitive Services
-description: Descreve como configurar a pesquisa personalizada do Bing hospedado da interface do Usuário.
+description: Utilize este artigo para configurar e integrar uma interface do Usuário alojado para pesquisa personalizada do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,100 +10,49 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e30c36cbde3bf112b012526e6268dfc4414f64a9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424991"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555477"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de interface do Usuário alojada
 
-Depois de configurar a sua instância de pesquisa personalizada, pode chamar a API de pesquisa personalizada para obter os resultados da pesquisa e exibi-las na sua aplicação. Em alternativa, se a aplicação for uma aplicação web, pode usar a interface do Usuário alojado que fornece pesquisa personalizada.   
+Pesquisa personalizada do Bing fornece uma interface do Usuário hospedado que podem integrar facilmente em seus aplicativos web e de páginas da Web como um trecho de código JavaScript. Utilizar o portal de pesquisa personalizada do Bing, pode configurar o esquema, a cor e opções de pesquisa da interface do Usuário.
 
-## <a name="configure-custom-hosted-ui"></a>Configurar a interface do Usuário de hospedado personalizado
 
-Para configurar uma interface de Usuário para a sua aplicação web alojada, siga estes passos:
 
-1. Entrar para a pesquisa personalizada [portal](https://customsearch.ai).  
+## <a name="configure-the-custom-hosted-ui"></a>Configurar a interface do Usuário personalizada alojada
+
+Para configurar uma interface do Usuário alojado para seus aplicativos web, siga estes passos. Como efetuar alterações, o painel no lado direito irá dar-lhe uma pré-visualização da sua interface do Usuário. Os resultados da pesquisa exibidos não são os resultados reais da sua instância.
+
+1. Entrar para a pesquisa personalizada do Bing [portal](https://customsearch.ai).  
   
-2. Clique numa instância de pesquisa personalizada. Para criar uma instância, veja [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).  
+2. Selecione a sua instância de pesquisa personalizada do Bing.
 
 3. Clique no separador **IU Alojada**.  
   
 4. Selecione um esquema.
-  
-  - Barra de pesquisa e os resultados (predefinição) &mdash; este esquema é sua página de pesquisa tradicional com a caixa de pesquisa e os resultados da pesquisa.
-  - Os resultados apenas &mdash; este esquema apresenta apenas os resultados da pesquisa. Este esquema não exibe uma caixa de pesquisa. Tem de fornecer a consulta de pesquisa, adicionando o parâmetro de consulta (& q =\<cadeia de consulta >) para o URL do pedido no fragmento do JavaScript ou ligação de ponto final HTML.
-  - A ativação pós-falha POP &mdash; esse layout fornece uma caixa de pesquisa e exibe os resultados da pesquisa numa sobreposição deslizante.
-      
-5. Selecione um tema de cores. Os temas possíveis são: 
-  
-  - Clássica
-  - Escuro
-  - Skyline azul
 
-  Clique em cada um dos temas para ver o tema funciona melhor com a sua aplicação web. Se precisar de ajustar o tema de cores para uma melhor integração na sua aplicação Web, clique em **Personalizar tema**. Nem todas as configurações de cores se aplicam a todos os temas de esquema. Para alterar uma cor, introduza o valor HEX de RGB (por exemplo, #366eb8) na caixa de texto correspondente. Em alternativa, clique no botão de cor e, em seguida, clique no tom que funcione para si. 
-  
-  Depois de alterar uma cor, veja como a alteração afetará o exemplo de pré-visualização do lado direito. Pode sempre clicar **repor para predefinição** para voltar às cores predefinidas para o tema que selecionou.
+    |  |  |
+    |---------|---------|
+    |Barra de pesquisa e os resultados (predefinição)    | Apresenta uma caixa de pesquisa com os resultados de pesquisa abaixo dele.         |
+    |Apenas os resultados     | Apresenta apenas os resultados da procura sem uma caixa de pesquisa. Ao usar esse layout, tem de fornecer a consulta de pesquisa (`&q=<query string>`). Adicione o parâmetro de consulta para o URL de pedido no fragmento do JavaScript ou a ligação de ponto final HTML.        |
+    |Ativação pós-falha pop     | Fornece uma caixa de pesquisa e exibe os resultados da pesquisa numa sobreposição deslizante.        |
+    
+5. Selecione um tema de cores. Pode personalizar as cores de acordo com seu aplicativo clicando **personalizar tema**. Para alterar uma cor, introduza um valor da cor RGB HEXADECIMAL (por exemplo, `#366eb8`), ou clique na pré-visualização de cor.
+
+  Pode visualizar as alterações no lado direito do portal. Clicar **repor para predefinição** irá reverter as alterações às cores predefinidas para o tema que selecionou.
 
   > [!NOTE]
-  > Quando alterar o tema de cor, considere acessibilidade ao escolher cores.
+  > Ao escolher cores, considere acessibilidade.
 
-5. Sob **configurações adicionais**, forneça os valores conforme adequado para a sua aplicação. Estas definições são opcionais. Para ver o efeito de aplicar ou removê-los, consulte o painel de visualização no lado direito. Opções de configuração disponíveis são:  
-  
-  - Configurações de pesquisa Web:
-    - Os resultados ativada da Web &mdash; determina se a pesquisa na web está ativada (verá um separador de Web na parte superior da página).
-    - Ativar sugestão automática &mdash; determina se a sugestão automática personalizada está ativada (consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) custo adicional).
-    - Resultados por página da Web &mdash; número de resultados de pesquisa web a apresentar ao mesmo tempo (o máximo é de 50 resultados por página).
-    - Legenda da imagem deve &mdash; determina se as imagens são apresentadas com os resultados da pesquisa.
-  
-    As seguintes configurações são apresentadas se clicar **Show configurações avançadas**.  
-  
-    - Realçar palavras &mdash; determina se os resultados são apresentados com os termos de pesquisa em negrito. 
-    - Destino de ligação &mdash; determina se a página Web abre num novo separador do browser (em branco) ou o mesmo separador do browser (auto) quando o usuário clica num resultado de pesquisa. 
+6. Sob **configurações adicionais**, forneça os valores conforme adequado para a sua aplicação. Estas definições são opcionais. Para ver o efeito de aplicar ou removê-los, consulte o painel de visualização no lado direito. Opções de configuração disponíveis são:  
 
-  - Configurações de pesquisa de imagem:
-    - Os resultados ativada de imagem &mdash; determina se a pesquisa de imagens está ativada (verá um separador de imagens na parte superior da página).   
-    - Resultados por página de imagem &mdash; número de resultados de pesquisa de imagem a apresentar ao mesmo tempo (o máximo é 150 resultados por página).  
-  
-    A seguinte configuração é apresentada se clicar **Show configurações avançadas**.  
-  
-    - Ativar filtros &mdash; adiciona filtros que o utilizador pode utilizar para filtrar as imagens que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados para apenas os GIF animados.
+7. Introduza a chave de subscrição de pesquisa ou escolha um na lista pendente. A lista pendente é preenchida com chaves de subscrições da sua conta do Azure. Ver [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-  - Configurações de pesquisa de vídeos:
-    - Resultados de vídeo ativados &mdash; determina se a pesquisa de vídeos está ativada (verá um separador de vídeos na parte superior da página).  
-    - Resultados de vídeo por página &mdash; número de resultados de pesquisa de vídeos para apresentar ao mesmo tempo (o máximo é 150 resultados por página).
-  
-    A seguinte configuração é apresentada se clicar **Show configurações avançadas**.  
-  
-    - Ativar filtros &mdash; adiciona filtros que o utilizador pode utilizar para filtrar os vídeos que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados para vídeos com uma resolução específico ou vídeos detetados nas últimas 24 horas.
-
-  - Diversas configurações:
-    - Título da página &mdash; texto apresentado na área de título da página de resultados de pesquisa (não para a ativação pós-falha pop layout).
-    - Tema de barra de ferramentas &mdash; determina a cor de fundo da área do título da página de resultados de pesquisa.  
-  
-    As seguintes configurações são apresentadas se clicar **Show configurações avançadas**.  
-  
-    - Marcador de posição de texto de caixa de pesquisa &mdash; texto apresentado na antes de caixa de pesquisa de entrada.
-    - Url de ligação do título &mdash; destino para a ligação do título.
-    - Url de logótipo &mdash; imagem exibida ao lado do título. 
-    - Url de Favicon &mdash; ícone apresentado na barra de título do navegador.  
-
-    As seguintes configurações aplicam-se apenas se consumir a interface do Usuário alojadas através do ponto final HTML (eles não se aplicam se utilizar o fragmento do JavaScript).
-    
-    - Título da página
-    - Tema de barra de ferramentas
-    - URL de ligação do título
-    - URL de logótipo
-    - URL de Faviicon  
-  
-6. Introduza a chave de subscrição de pesquisa ou escolha um na lista pendente. A lista pendente é preenchida com chaves de subscrições da sua conta do Azure. Ver [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
-
-7. Se ativou a sugestão automática, introduza a chave de subscrição de sugestão automática ou escolha um na lista pendente. A lista pendente é preenchida com chaves de subscrições da sua conta do Azure. Sugestão automática personalizada requer um escalão de subscrição específica, consulte a [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
-
-> [!NOTE]
-> Como efetuar alterações à configuração de interface do Usuário hospedada personalizada, o painel à direita fornece uma referência visual para que as alterações feitas. Os resultados da pesquisa exibidos não são os resultados reais da sua instância.
+8. Se ativou a sugestão automática, introduza a chave de subscrição de sugestão automática ou escolha um na lista pendente. A lista pendente é preenchida com chaves de subscrições da sua conta do Azure. Sugestão automática personalizada requer um escalão de subscrição específica, consulte a [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
@@ -140,6 +89,79 @@ Para consumir a interface do Usuário alojado, optar por:
   > A página não é possível apresentar a sua declaração de privacidade ou outros avisos e os termos. Pode variar de adequação para a sua utilização.  
 
 Para obter mais informações, incluindo o seu ID de configuração personalizada, aceda a **pontos de extremidade** sob a **produção** separador.
+
+## <a name="configuration-options"></a>Opções de configuração
+
+Pode configurar o comportamento da sua interface do Usuário alojada clicando **configurações adicionais**e o fornecimento de valores. Estas definições são opcionais. Para ver o efeito de aplicar ou removê-los, consulte o painel de visualização no lado direito. 
+
+### <a name="web-search-configurations"></a>Configurações de pesquisa Web
+
+|  |  |
+|---------|---------|
+|Resultados da Web habilitados    | Determina se a pesquisa na web está ativada (verá um separador de Web na parte superior da página)        |
+|Ativar sugestão automática     | Determina se sugestão automática personalizada está ativada (consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) custo adicional).        |
+|Resultados da Web por página    | Número de resultados de pesquisa web a apresentar ao mesmo tempo (o máximo é de 50 resultados por página).        |
+|Legenda da imagem   | Determina se as imagens são apresentadas com os resultados da pesquisa.|
+
+
+As seguintes configurações são apresentadas se clicar **Show configurações avançadas**:
+
+
+|  | |
+|---------|---------|
+|Realçar palavras     | Determina se os resultados são apresentados com os termos de pesquisa em negrito.         |
+|Destino de ligação    |  Determina se a página Web abre num novo separador do browser (em branco) ou o mesmo separador do browser (auto) quando o usuário clica num resultado de pesquisa.        |
+
+### <a name="image-search-configurations"></a>Configurações de pesquisa de imagem
+
+| | |
+|---------|---------|
+|Resultados da imagem ativada     | Determina se a pesquisa de imagens está ativada (verá um separador de imagens na parte superior da página).            |
+|Resultados de imagem por página     | Número de resultados de pesquisa de imagem a apresentar ao mesmo tempo (o máximo é 150 resultados por página).          |
+
+A seguinte configuração é apresentada se clicar **Show configurações avançadas**.  
+  
+| | |
+|---------|---------|
+| Ativar filtros     | Adiciona os filtros que o utilizador pode utilizar para filtrar as imagens que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados para apenas os GIF animados.|
+
+### <a name="video-search-configurations"></a>Configurações de pesquisa de vídeos
+
+|  | |
+|---------|---------|
+|Resultados de vídeo ativados     | Determina se a pesquisa de vídeos está ativada (verá um separador de vídeos na parte superior da página).           |
+|Resultados de vídeo por página   | Número de resultados de pesquisa de vídeos para apresentar ao mesmo tempo (o máximo é 150 resultados por página).        |
+
+A seguinte configuração é apresentada se clicar **Show configurações avançadas**.  
+  
+|  | |
+|---------|---------|
+|Ativar filtros    | Adiciona os filtros que o utilizador pode utilizar para filtrar os vídeos que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados para vídeos com uma resolução específico ou vídeos detetados nas últimas 24 horas.          |
+
+### <a name="miscellaneous-configurations"></a>Diversas configurações
+
+
+| |  |
+|---------|---------|
+|Título da página   | Texto apresentado na área de título da página de resultados de pesquisa (não para a ativação pós-falha pop layout).        |
+|Tema de barra de ferramentas    | Determina a cor de fundo da área do título da página de resultados de pesquisa. |
+
+As seguintes configurações são apresentadas se clicar **Show configurações avançadas**.  
+
+|Column1  |Column2  |
+|---------|---------|
+|Marcador de posição de texto de caixa de pesquisa   | Texto exibido na antes de caixa de pesquisa de entrada.        |
+|Url de ligação do título    |Destino da ligação do título.         |
+|URL de logótipo     | Imagem exibida ao lado do título.         |
+|Favicon    | Ícone apresentado na barra de título do navegador.          |
+
+As seguintes configurações aplicam-se apenas se consumir a interface do Usuário alojadas através do ponto final HTML (eles não se aplicam se utilizar o fragmento do JavaScript).
+
+- Título da página
+- Tema de barra de ferramentas
+- URL de ligação do título
+- URL de logótipo
+- URL de Faviicon  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

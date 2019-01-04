@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274930"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580281"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de estado de funcionamento para sistemas de gestão existentes do problema através de um webhook
 
@@ -119,5 +119,5 @@ Isso mostra que existem problemas com "Alertas de métricas de &" no Leste da Au
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Reveja os [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [notificações de estado de funcionamento de serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre [notificações de estado de funcionamento de serviço](../azure-monitor/platform/service-notifications.md).
 - Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

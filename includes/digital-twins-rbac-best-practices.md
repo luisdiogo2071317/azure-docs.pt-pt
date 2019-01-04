@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 42aa275e692e4e2e9b7ca38825c828c1f56247fb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628191"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995758"
 ---
 Controlo de acesso baseado em funções é uma estratégia de segurança condicionada por herança para a gestão de acesso, permissões e funções. Funções descendentes herdarem permissões do funções do principal. Permissões também podem ser atribuídas sem a ser herdadas a partir de uma função principal. Também eles podem ser atribuídos a uma função ser personalizados conforme necessário.
 

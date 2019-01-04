@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874572"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793517"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -39,31 +39,34 @@ Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protec
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que áreas geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure <br/>
 A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmente em Pré-visualização e está disponível apenas nas seguintes áreas geográficas: 
--   Leste da Austrália (AE) 
+- Leste da Austrália (AE) 
 - Sudeste da Austrália (ASE) 
 - Sul do Brasil (BRS)
 - Canadá Central (CNC)
--   Leste do Canadá (CE)
--   EUA Central (CUS)
--   Ásia Oriental (EA)
--   EUA Leste (EUS)
--   EUA Leste 2 (EUS2)
+- Leste do Canadá (CE)
+- EUA Central (CUS)
+- Ásia Oriental (EA)
+- EUA Leste (EUS)
+- EUA Leste 2 (EUS2)
 - Leste do Japão (JPE)
 - Oeste do Japão (JPW)
--   Índia Central (INC) 
+- Índia Central (INC) 
 - Índia do Sul (INS)
 - KR do Sul Central (KRC)
 - Sul KR do Sul (KRS)
--   EUA Centro-Norte (NCUS) 
--   Europa do Norte (NE) 
--   EUA Centro-Sul (SCUS) 
--   Sudeste Asiático (SEA)
--   Sul do Reino Unido (UKS) 
--   Oeste do Reino Unido (UKW) 
--   Europa Ocidental (WE) 
--   EUA Oeste (WUS)
--   EUA Centro-Oeste (WCUS)
--   EUA Oeste 2 (WUS 2)
+- EUA Centro-Norte (NCUS) 
+- Europa do Norte (NE) 
+- EUA Centro-Sul (SCUS) 
+- Sudeste Asiático (SEA)
+- Sul do Reino Unido (UKS) 
+- Oeste do Reino Unido (UKW) 
+- Europa Ocidental (WE) 
+- EUA Oeste (WUS)
+- EUA Centro-Oeste (WCUS)
+- EUA Oeste 2 (WUS 2)
+- US Gov Arizona (UGA)
+- US Gov Texas (UGT)
+- US Gov Virgínia (UGV)
 
 Envie uma mensagem para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se precisar de a utilizar numa área geográfica específica que não esteja listada acima.
 

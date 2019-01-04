@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384501"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713561"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Instalar e utilizar o Apache Solr nos clusters do HDInsight baseado em Windows
 
@@ -38,7 +38,7 @@ O script de exemplo utilizado neste tópico cria um cluster de Solr baseados em 
 * [Desenvolver scripts de ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>O que é o Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> é uma plataforma de pesquisa empresarial que permite a poderosa pesquisa de texto completo em dados. Embora Hadoop permite armazenar e gerir grandes quantidades de dados, o Apache Solr fornece as capacidades de pesquisa para obter rapidamente os dados.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> é uma plataforma de pesquisa empresarial que permite a poderosa pesquisa de texto completo em dados. Embora Hadoop permite armazenar e gerir grandes quantidades de dados, o Apache Solr fornece as capacidades de pesquisa para obter rapidamente os dados.
 
 ## <a name="install-solr-using-portal"></a>Instalar o Solr através do portal
 1. Começar a criar um cluster utilizando o **criação personalizada** opção, conforme descrito na [criar o Apache Hadoop clusters no HDInsight](hdinsight-provision-clusters.md).
@@ -156,7 +156,7 @@ Tem de começar com indexação Solr com alguns arquivos de dados. Em seguida, p
           </response>
       ```
       
-   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante a **instantâneo.\*Timestamp**\*.
+   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante a **instantâneo.* Timestamp ***.
    
    3. Zip na pasta de instantâneos e carregue-o para o armazenamento de Blobs do Azure. A linha de comandos do Hadoop, navegue para a localização da pasta de instantâneo, utilizando o seguinte comando:
 

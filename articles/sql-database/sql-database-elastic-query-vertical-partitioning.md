@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7bf1a3af7705858432b9ff8caf5064b0794568df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875370"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602465"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bases de dados de cloud com esquemas diferentes (pré-visualização)
 ![Consultar entre tabelas em diferentes bases de dados][1]
@@ -117,7 +117,7 @@ O exemplo seguinte mostra como obter a lista de tabelas externas da base de dado
 ### <a name="remarks"></a>Observações
 Consulta elástica estende a sintaxe de tabela externa existente para definir tabelas externas que utilizam a origens de dados externas do tipo RDBMS. Uma definição de tabela externa para a criação de partições verticais abrange os seguintes aspetos: 
 
-* **Esquema**: O DDL da tabela externa define um esquema que podem utilizar as suas consultas. O esquema fornecido na sua definição de tabela externa tem de corresponder ao esquema das tabelas na base de dados remoto onde estão armazenados os dados reais. 
+* **Esquema**: A tabela externa DDL define um esquema que podem utilizar as suas consultas. O esquema fornecido na sua definição de tabela externa tem de corresponder ao esquema das tabelas na base de dados remoto onde estão armazenados os dados reais. 
 * **Referência da base de dados remota**: A tabela externa DDL refere-se a uma origem de dados externa. A origem de dados externo Especifica o nome do servidor lógico e o nome de base de dados da base de dados remoto onde estão armazenados os dados da tabela real. 
 
 A sintaxe para criar tabelas externas usando uma origem de dados externos, conforme descrito na secção anterior, é o seguinte: 
@@ -130,7 +130,7 @@ A seguinte instrução DDL ignora uma definição de tabela externa existente do
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Permissões para a tabela externa de CREATE/DROP**: são necessárias permissões de alterar qualquer origem de dados externa para a tabela externa DDL que também é necessária para fazer referência à origem de dados subjacente.  
+**Permissões para criar/DROP tabela externa**: São necessárias permissões de alterar qualquer origem de dados externa para a tabela externa DDL que também é necessária para fazer referência à origem de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
 Os utilizadores com acesso à tabela externa automaticamente obtém acesso às tabelas subjacentes remotos sob a credencial fornecida na definição de origem de dados externa. Deve gerenciar cuidadosamente o acesso à tabela externa para evitar indesejada de elevação de privilégios através da credencial da origem de dados externo. Permissões de SQL regulares podem ser utilizadas para conceder ou REVOGAR o acesso a uma tabela externa como se fosse uma tabela normal.  
@@ -156,10 +156,10 @@ A seguinte consulta executa uma junção de três vias entre as duas tabelas loc
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento para execução remota de T-SQL armazenado: sp\_execute_remote
 Consulta elástica também introduz um procedimento armazenado que fornece acesso direto à base de dados remota. O procedimento armazenado é chamado [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser utilizado para executar procedimentos armazenados remotos ou o código T-SQL na base de dados remota. Ele usa os seguintes parâmetros: 
 
-* O nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): consulta de T-SQL a ser executado na base de dados remota. 
-* Declaração de parâmetro (nvarchar) - opcional: cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
-* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
+* Nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): A consulta de T-SQL a ser executado na base de dados remota. 
+* Declaração de parâmetro (nvarchar) - opcional: Cadeia com os dados de definições de tipo para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
+* Lista de valores parâmetro - opcional: Lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
 O sp\_executar\_remoto da origem de dados externo fornecida nos parâmetros de invocação para executar a instrução T-SQL específica na base de dados remota. Utiliza a credencial da origem de dados externos para ligar à base de dados remota.  
 

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30bfaad8fcc1a837a37689280149a6dbe20b7c1d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634350"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628156"
 ---
 # <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utilizar o Apache Hive com o HDInsight baseado em Windows para analisar os registos de Web sites
 Saiba como utilizar o HiveQL com o HDInsight para analisar os registos a partir de um site. Análise de registos de Web site pode ser utilizado para segmentar o público-alvo com base em atividades semelhantes, categorizar os visitantes do site por dados demográficos e para obter o conteúdo vista, o Web sites, eles vêm e assim por diante.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento funcionam apenas com clusters do HDInsight baseado em Windows. HDInsight só está disponível no Windows para versões mais baixos do que o HDInsight 3.4. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 Neste exemplo, utilize um cluster do HDInsight para analisar ficheiros de registo do Web site para obter informações sobre a frequência de visitas ao Web site de Web sites externos num dia. Também gerar um resumo dos erros de Web site que os utilizadores experienciam. Saiba como:
@@ -32,7 +32,7 @@ Neste exemplo, utilize um cluster do HDInsight para analisar ficheiros de regist
 ![HDI. Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Tem de ter aprovisionado um cluster do Hadoop no HDInsight do Azure. Para obter instruções, consulte [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+* Tem de ter aprovisionado um cluster do Apache Hadoop no HDInsight do Azure. Para obter instruções, consulte [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 * Tem de ter o Microsoft Excel 2013 ou o Excel 2010 instalado.
 * Tem de ter [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) para importar dados de Hive para o Excel.
 
@@ -47,6 +47,6 @@ Neste exemplo, utilize um cluster do HDInsight para analisar ficheiros de regist
 4. Siga as instruções fornecidas na página da web para concluir o exemplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Tente o seguinte exemplo: [análise de dados do sensor utilizando o Hive com HDInsight](apache-hive-analyze-sensor-data.md).
+Experimente o exemplo a seguir: [Análise de dados do sensor utilizando o Hive com HDInsight](apache-hive-analyze-sensor-data.md).
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

@@ -9,27 +9,27 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277896"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605981"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
 
 ## <a name="overview"></a>Descrição geral
 
-Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
+Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
 
-Monitorizar a utilização do espaço de ficheiro e reduzindo ficheiros de dados podem ser necessários nos seguintes cenários:
-- Permita o crescimento de dados num conjunto elástico quando o espaço de ficheiro alocado para seus bancos de dados atinge o tamanho máximo do conjunto.
-- Permita a diminuir o tamanho máximo de um único banco de dados ou conjunto elástico.
-- Permita a alteração de um único banco de dados ou conjunto elástico para um escalão de serviço diferentes ou o escalão de desempenho com um tamanho máximo inferior.
+Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encolher os ficheiros de dados poderá ser necessário:
+- Permita o crescimento dos dados num conjunto elástico quando o espaço de ficheiros alocado às respetivas bases de dados atingir o tamanho máximo do conjunto.
+- Permita a diminuição do tamanho máximo de uma base de dados individual ou de um conjunto elástico.
+- Permita a alteração de uma base de dados individual ou de um conjunto elástico para outro escalão de serviço ou escalão de desempenho com um tamanho máximo mais baixo.
 
 ### <a name="monitoring-file-space-usage"></a>Monitorizar a utilização do espaço de ficheiro
 A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:

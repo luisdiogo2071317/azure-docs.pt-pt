@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 26aeb5641533125dcd909ae96d28c8274677cf30
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013446"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788808"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -135,10 +135,8 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ## <a name="scale-clusters"></a>Dimensionar clusters
 O funcionalidade de dimensionamento do cluster permite-lhe alterar o número de nós de trabalho utilizado por um cluster que está em execução no Azure HDInsight sem ter de voltar a criar o cluster.
 
-> [!NOTE]
-> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.  Ver [listar e Mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+> [!NOTE]  
+> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.  Ver [listar e Mostrar clusters](hdinsight-administer-use-portal-linux.md#showClusters).
 
 O impacto de alterar o número de nós de dados para cada tipo de cluster suportada pelo HDInsight:
 
@@ -165,7 +163,7 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
   * IU da web do Storm
   * Ferramenta de interface de linha de comandos (CLI)
     
-    Consulte a [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
+    Consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
     
     A IU da web de Storm está disponível no cluster do HDInsight:
     
@@ -220,10 +218,8 @@ var httpParams = new HttpSettingsParameters
 _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Ao conceder/revogar o acesso irá repor o nome de utilizador do cluster e a palavra-passe.
-> 
-> 
 
 Também pode ser feito através do Portal. Ver [administrar o HDInsight com o portal do Azure][hdinsight-admin-portal].
 
@@ -242,9 +238,9 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Submeter tarefas
-**Submeter tarefas do Apache Hadoop MapReduce**
+**Submeter tarefas de MapReduce**
 
-Ver [exemplos de executar o Apache Hadoop MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Ver [exemplos de executar o MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Para submeter tarefas do Apache Hive** 
 

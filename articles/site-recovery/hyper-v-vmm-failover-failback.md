@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832377"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788023"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicados para o seu site no local secundário
 
@@ -30,8 +30,8 @@ Este artigo descreve como fazer a ativação pós-falha de uma VM de Hyper-V ger
 
 A ativação pós-falha e reativação pós-falha tem três fases:
 
-1. **Ativação pós-falha para o site secundário**: pós-falha de máquinas do site primário para o secundário.
-2. **Reativação pós-falha do site secundário**: replicar VMs a partir de secundária para primária e execute uma ativação pós-falha planeada para a reativação pós-falha.
+1. **Ativação pós-falha para o site secundário**: Pós-falha de máquinas do site primário para o secundário.
+2. **Reativação pós-falha do site secundário**: Replicar VMs de secundária para primária e execute uma ativação pós-falha planeada para a reativação pós-falha.
 3. Após a ativação pós-falha planeada, opcionalmente, inicie a replicação do site primário para o secundário novamente.
 
 
@@ -58,7 +58,7 @@ Este procedimento descreve como executar uma ativação pós-falha normal.
 3. Depois de verificar a VM **consolidar** a ativação pós-falha. São eliminados todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancelar uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.  
+> **Não cancelar uma ativação pós-falha em curso**: Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>A replicação inversa e ativação pós-falha

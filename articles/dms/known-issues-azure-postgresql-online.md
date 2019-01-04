@@ -4,19 +4,19 @@ description: Saiba mais sobre as limitações de migração/problemas conhecidos
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282881"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724149"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para PostgreSQL
 
@@ -76,22 +76,22 @@ Problemas conhecidos e limitações associadas a migrações online, do PostgreS
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
 
-- **Limitação**: se houver um tipo de dados de Enumeração à base de dados PostgreSQL, a migração irá falhar durante a sincronização contínua.
+- **Limitação**: Se houver um tipo de dados de Enumeração à base de dados PostgreSQL, a migração irá falhar durante a sincronização contínua.
 
-    **Solução**: tipo de dados de Enumeração de modificar a caráter variados na base de dados do Azure para PostgreSQL.
+    **Solução**: Modificar o tipo de dados de Enumeração para caráter variados na base de dados do Azure para PostgreSQL.
 
 - **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua irá falhar.
 
-    **Solução**: definir temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
+    **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 Grandes colunas de objeto (LOB) são colunas que podem crescer grandes. Para o PostgreSQL, tipos de dados LOB exemplos de XML, JSON, imagem, texto, etc.
 
-- **Limitação**: os tipos de dados se LOB são utilizados como chaves primárias, a migração falhará.
+- **Limitação**: Se os tipos de dados LOB são utilizados como chaves primárias, a migração falhará.
 
-    **Solução**: substituir a chave primária com outros tipos de dados ou colunas que não são LOB.
+    **Solução**: Substitua a chave primária com outros tipos de dados ou colunas que não são LOB.
 
-- **Limitação**: se o comprimento da coluna de objeto grande (LOB) é maior do que 32 KB, os dados podem ser truncados no destino. Pode verificar o comprimento de coluna LOB usando esta consulta:
+- **Limitação**: Se o comprimento da coluna de objeto grande (LOB) é maior do que 32 KB, dados podem ser truncados no destino. Pode verificar o comprimento de coluna LOB usando esta consulta:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
@@ -101,7 +101,7 @@ Grandes colunas de objeto (LOB) são colunas que podem crescer grandes. Para o P
 
 - **Limitação**: Se não existem colunas LOB na tabela e não existe nenhum conjunto de chaves primário para a tabela, os dados não podem ser migrados para esta tabela.
 
-    **Solução**: definir temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
+    **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="postgresql10-workaround"></a>Solução de PostgreSQL10
 PostgreSQL 10.x faz alterações vários nomes de pastas de pg_xlog e, por conseguinte, fazendo com que a migração não está em execução conforme esperado. Se estiver migrando do PostgreSQL 10.x à base de dados do Azure para PostgreSQL 10.3, execute o seguinte script na base de dados do PostgreSQL origem para criar a função de invólucro em torno das funções de pg_xlog.

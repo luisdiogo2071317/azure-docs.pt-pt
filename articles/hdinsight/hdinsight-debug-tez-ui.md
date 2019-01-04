@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 65e0fed29909ad5714b35659a7dd453e095a3eeb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012815"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713732"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Utilize a interface do Usuário do Apache Tez para depurar tarefas do Tez no HDInsight baseado em Windows
 O [Apache TEZ](https://tez.apache.org/) interface do Usuário pode ser utilizado para depurar [Apache Hive](https://hive.apache.org/) tarefas que utilizam o Tez como motor de execução. A IU do Tez visualiza a tarefa, como um gráfico de itens ligados, pode explorar cada item e obter estatísticas e informações de registo.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos neste documento exigem um cluster do HDInsight que utiliza o Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster do HDInsight baseado em Windows. Para obter passos sobre como criar um novo cluster, consulte [começar a utilizar o HDInsight baseado em Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > A interface do Usuário do Apache Tez só está disponível em clusters do HDInsight baseado em Windows criados após 8 de Fevereiro de 2016.
-  >
-  >
+
 * Um cliente de ambiente de trabalho remota baseado em Windows.
 
 ## <a name="understanding-apache-tez"></a>Noções básicas sobre o Apache Tez
@@ -65,10 +64,8 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez.
         en-GB   Nairobi Area    Kenya
 
 ## <a name="use-the-tez-ui"></a>Utilizar a IU do Tez
-> [!NOTE]
+> [!NOTE]  
 > A IU do Tez só está disponível no ambiente de trabalho de nós principais do cluster, deve usar o ambiente de trabalho remoto para ligar para os nós principais.
->
->
 
 1. Partir do [portal do Azure](https://portal.azure.com), selecione o cluster do HDInsight. Na parte superior do painel do HDInsight, selecione o **ambiente de trabalho remoto** ícone. Esta ligação apresenta o painel de área de trabalho remoto
 
@@ -77,10 +74,9 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez.
 
     ![Ícone de ligação de ambiente de trabalho remoto](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Se não tiver ativado a conectividade de ambiente de trabalho remoto, forneça um nome de utilizador, a palavra-passe e a data de expiração, em seguida, selecione **ativar** para ativar o ambiente de trabalho remoto. Assim que tiver sido ativada, utilize os passos anteriores para ligar.
-   >
-   >
+
 3. Assim que estiver ligado, abra o Internet Explorer no ambiente de trabalho remoto, selecione o ícone de engrenagem no canto superior direito do browser e, em seguida, selecione **ver definições de compatibilidade**.
 4. Na parte inferior **ver definições de compatibilidade**, desmarque a caixa de verificação **apresentar sites de intranet na vista de compatibilidade** e **listas de compatibilidade da Microsoft de utilização**, e em seguida, selecione **fechar**.
 5. No Internet Explorer, navegue para http://headnodehost:8188/tezui/#/. Esta ação apresenta a IU do Tez
@@ -101,10 +97,8 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez.
    * **Todas as tarefas** apresenta uma lista de tarefas para todos os vértices neste DAG.
    * **Todos os TaskAttempts** apresenta informações sobre as tentativas de executar tarefas para esta DAG.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Se se deslocar para a exibição de coluna para vértices, tarefas e TaskAttempts, tenha em atenção que existem links para exibir **contadores** e **ver ou transferir registos** para cada linha.
-     >
-     >
 
      Se tiver ocorrido uma falha com a tarefa, os detalhes de DAG apresentam um Estado de FALHADO, juntamente com ligações para informações sobre a tarefa falhada. Informações de diagnóstico é apresentada abaixo os detalhes do DAG.
 8. Selecione **visualização gráfica**. Esta ação apresenta uma representação gráfica do DAG. Pode colocar o mouse sobre cada vértice na vista para apresentar informações sobre ele.
@@ -115,20 +109,17 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez.
     ![Detalhes de vértice](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Tenha em atenção que agora tem ligações na parte superior da página que estão relacionadas com vértices e tarefas.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Também pode chegar a esta página voltando ao **detalhes do DAG**, ao selecionar **detalhes de vértice**e, em seguida, selecionando o **1 do mapa** vértice.
-    >
-    >
 
     * **Contadores de vértice** apresenta informações do contador para esse vértice.
     * **Tarefas** apresenta tarefas para esse vértice.
     * **Tentativas de tarefas** apresenta informações sobre tentativas de executar tarefas para esse vértice.
     * **Origens & coletores** apresenta origens de dados e sinks para esse vértice.
 
-      > [!NOTE]
+      > [!NOTE]  
       > Como com o menu anterior, pode rolar a exibição de coluna para tarefas, tentativas de tarefas e origens & Sinks__ apresentar ligações para obter mais informações para cada item.
-      >
-      >
+
 11. Selecione **tarefas**e, em seguida, selecione o item chamado **00_000000**. Esta ligação apresenta **detalhes da tarefa** para esta tarefa. Neste ecrã, pode ver **tarefa contadores** e **tentativas de tarefa**.
 
     ![Detalhes da tarefa](./media/hdinsight-debug-tez-ui/taskdetails.png)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567422"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583073"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -27,6 +27,10 @@ Este artigo fala sobre os passos para criar cópias de segurança e restaurar m�
    | --- | --- | --- |
    | **Em VMs**  | Sim | Sim  |
    | **VMs geridas**  | Sim | Sim  |
+
+   > [!NOTE]
+   > O Azure Backup suporta VMs encriptadas com chaves de autónomo. Qualquer chave que é uma parte de um certificado utilizado para encriptar uma VM não é suportada atualmente.
+   >   
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * A VM foi encriptada utilizando [do Azure Disk Encryption](../security/azure-security-disk-encryption.md).

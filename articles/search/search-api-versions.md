@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311648"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631161"
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API no Azure Search
 O Azure Search implementa atualizações de funcionalidades regularmente. Às vezes, mas nem sempre, estas atualizações requerem uma nova versão da API para preservar a compatibilidade com versões anteriores. Publicar uma nova versão permite-lhe controlar quando e como integrar atualizações de serviço de pesquisa em seu código.
 
 Como regra, a equipe de pesquisa do Azure publica novas versões apenas quando necessário, uma vez que pode envolver algum esforço para atualizar o código para usar uma nova versão de API. Uma nova versão é necessária apenas se algum aspeto da API foi alterado de forma que venha a compatibilidade com versões anteriores. Tais alterações podem ocorrer devido a correções para os recursos existentes, ou devido a novos recursos que alteram a área de superfície de API existente.
 
-A mesma regra se aplica a atualizações do SDK. Segue-se o SDK do Azure Search a [controle de versão semântica](http://semver.org/) regras, o que significa que a sua versão possui três partes: hlavní, menor e número (por exemplo, 1.1.0) de compilação. Uma versão principal nova do SDK é lançada apenas para as alterações que interromper a compatibilidade com versões anteriores. Atualizações de funcionalidades mais recentes não irão incrementar a versão secundária e correções de erros será aumentada somente a versão de compilação.
+A mesma regra se aplica a atualizações do SDK. Segue-se o SDK do Azure Search a [controle de versão semântica](https://semver.org/) regras, o que significa que a sua versão possui três partes: hlavní, menor e número (por exemplo, 1.1.0) de compilação. Uma versão principal nova do SDK é lançada apenas para as alterações que interromper a compatibilidade com versões anteriores. Atualizações de funcionalidades mais recentes não irão incrementar a versão secundária e correções de erros será aumentada somente a versão de compilação.
 
 > [!NOTE]
 > A instância de serviço do Azure Search oferece suporte a várias versões de REST API, incluindo o mais recente. Pode continuar a utilizar uma versão quando ele é já não é a mais recente, mas recomendamos que migre o código para usar a versão mais recente. Ao utilizar a API REST, tem de especificar a versão de API em cada solicitação por meio do parâmetro de versão de api. Quando utilizar o SDK de .NET, a versão do SDK que está a utilizar determina a versão da REST API correspondente. Se estiver a utilizar um SDK mais antigo, pode continuar a executar esse código sem alterações, mesmo que o serviço é atualizado para suportar uma versão mais recente do API.

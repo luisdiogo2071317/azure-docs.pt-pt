@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257612"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554763"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Reenviar um serviço da web clássico do Azure Machine Learning Studio
-O serviço Web preditivo implementou predefinição é o ponto final de classificação. Pontos de extremidade padrão são mantidos em sincronização com a formação original e experiências de classificação e, portanto, o modelo preparado para o ponto final predefinido não pode ser substituído. Para voltar a preparar o serviço web, tem de adicionar um novo ponto final para o serviço web. 
+O serviço Web preditivo implementou predefinição é o ponto final de classificação. Pontos de extremidade padrão são mantidos em sincronização com a formação original e experiências de classificação e, portanto, o modelo preparado para o ponto final predefinido não pode ser substituído. Para voltar a preparar o serviço web, tem de adicionar um novo ponto final para o serviço web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Deverá ter sido configurada uma experimentação de preparação e de uma experimentação preditiva como mostrado na [Retrain Machine Learning dos modelos](retrain-models-programmatically.md). 
+Deverá ter sido configurada uma experimentação de preparação e de uma experimentação preditiva como mostrado na [Retrain Machine Learning dos modelos](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> A experimentação preditiva tem de ser implementada como um serviço web de aprendizagem automática de clássico. 
-> 
-> 
+> A experimentação preditiva tem de ser implementada como um serviço web de aprendizagem automática de clássico.
+>
+>
 
 Para obter informações adicionais em Implantando serviços da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto final
-O serviço Web preditivo que implementou contém um padrão de ponto final que é mantido em sincronia com a formação original de classificação e modelo treinado de experimentações de classificação. Para atualizar o seu serviço web com um novo modelo preparado, tem de criar um novo ponto de final de classificação. 
+O serviço Web preditivo que implementou contém um padrão de ponto final que é mantido em sincronia com a formação original de classificação e modelo treinado de experimentações de classificação. Para atualizar o seu serviço web com um novo modelo preparado, tem de criar um novo ponto de final de classificação.
 
 Para criar um novo ponto de final classificação, no serviço Web preditivo que podem ser atualizados com o modelo treinado:
 
 > [!NOTE]
 > Certifique-se de que está a adicionar o ponto de extremidade ao serviço Web preditivo, não o serviço da Web de treinamento. Se tiver implementado um treinamento e um serviço Web preditivo corretamente, deverá ver dois serviços da web separado listados. O serviço Web preditivo deve terminar com "[exp preditiva.]".
-> 
-> 
+>
+>
 
 Existem duas formas na qual pode adicionar um novo ponto final a um serviço web:
 
@@ -51,7 +51,7 @@ Existem duas formas na qual pode adicionar um novo ponto final a um serviço web
 2. Utilizar o portal de serviços da Web do Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Adicionar programaticamente um ponto final
-Pode adicionar pontos finais de classificação usando o código de exemplo fornecido neste [repositório do github](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Pode adicionar pontos finais de classificação usando o código de exemplo fornecido neste [repositório do GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Utilizar o portal de serviços da Web do Microsoft Azure para adicionar um ponto final
 1. No Machine Learning Studio, na coluna de navegação esquerda, clique em serviços da Web.

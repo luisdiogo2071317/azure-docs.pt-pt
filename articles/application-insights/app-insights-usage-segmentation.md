@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720155"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974595"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de utilizadores, sessões e eventos no Application Insights
 
@@ -34,22 +34,22 @@ Se ainda não vir dados nos utilizadores, sessões ou painéis de eventos no por
 
 Três dos painéis de utilização utilizam a mesma ferramenta para examinar telemetria da sua aplicação web de três perspectivas. Ao filtrar e dividir os dados, pode descobrir informações sobre a utilização relativa de diferentes páginas e funcionalidades.
 
-* **Ferramenta utilizadores**: quantas pessoas utilizado a sua aplicação e as respetivas funcionalidades.  Os utilizadores são contabilizados ao utilizar IDs anônimos armazenados em cookies do browser. Uma única pessoa através de browsers diferentes ou em máquinas será contada como mais de um usuário.
-* **Ferramenta de sessões**: O número de sessões de atividade do utilizador incluem determinadas páginas e funcionalidades da sua aplicação. Uma sessão é contabilizada após a meia hora de inatividade do usuário ou após 24 horas de utilização contínua.
-* **Ferramenta de eventos**: com que frequência são utilizadas determinadas páginas e funcionalidades da sua aplicação. Uma vista de página é contabilizada quando um navegador carrega uma página da sua aplicação, desde que tenha [instrumentada-](app-insights-javascript.md). 
+* **Ferramenta utilizadores**: Como muitas pessoas utilizado a sua aplicação e as respetivas funcionalidades.  Os utilizadores são contabilizados ao utilizar IDs anônimos armazenados em cookies do browser. Uma única pessoa através de browsers diferentes ou em máquinas será contada como mais de um usuário.
+* **Ferramenta de sessões**: O número de sessões de atividade do utilizador incluíram determinadas páginas e funcionalidades da sua aplicação. Uma sessão é contabilizada após a meia hora de inatividade do usuário ou após 24 horas de utilização contínua.
+* **Ferramenta de eventos**: A frequência com que são utilizadas determinadas páginas e funcionalidades da sua aplicação. Uma vista de página é contabilizada quando um navegador carrega uma página da sua aplicação, desde que tenha [instrumentada-](../azure-monitor/app/javascript.md). 
 
-    Um evento personalizado representa uma ocorrência de algo acontecer na sua aplicação, muitas vezes, uma interação do usuário, como o clique de um botão ou a conclusão de alguma tarefa. Insira o código na sua aplicação para [gerar eventos personalizados](app-insights-api-custom-events-metrics.md#trackevent).
+    Um evento personalizado representa uma ocorrência de algo acontecer na sua aplicação, muitas vezes, uma interação do usuário, como o clique de um botão ou a conclusão de alguma tarefa. Insira o código na sua aplicação para [gerar eventos personalizados](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Para determinados consultando os utilizadores
 
 Explore os diferentes grupos de utilizadores ao ajustar as opções de consulta na parte superior da ferramenta utilizadores:
 
-* Show: Escolha uma coorte de utilizadores para analisar.
+* Mostrar: Escolha uma coorte de utilizadores para analisar.
 * Quem utilizou: Escolha os eventos personalizados e vistas de página.
 * Durante a: Escolha um intervalo de tempo.
 * Por: Escolha como registo de dados, por um período de tempo ou por outra propriedade, como o navegador ou cidade.
-* Dividir por: Escolha uma propriedade pelo qual dividir ou segmento os dados. 
-* Adicionar filtros: Limite a consulta para determinados utilizadores, sessões ou eventos com base em suas propriedades, como o navegador ou cidade. 
+* Divida por: Escolha uma propriedade através do qual a divisão ou segmento de dados. 
+* Adicione filtros: Limite a consulta para determinados utilizadores, sessões ou eventos com base em suas propriedades, como o navegador ou cidade. 
  
 ## <a name="saving-and-sharing-reports"></a>A guardar e partilhar relatórios 
 Pode salvar relatórios de utilizadores, privados apenas para na secção os meus relatórios ou partilhados com pessoas com acesso a este recurso do Application Insights na secção relatórios partilhados.

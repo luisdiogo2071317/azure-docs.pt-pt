@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432228"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606474"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicações
 O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Serviços de DevOps do Azure ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
-As [Aplicações Web](/app-service/app-service-web-overview) são a oferta principal do Serviço de Aplicações para criar e alojar aplicações Web através de ambientes do Windows. Os programadores que preferem um ambiente Linux podem escolher [O Serviço de Aplicações para Linux](/app-service/containers/app-service-linux-intro). Os programadores também podem implementar imagens do Docker diretamente no Serviço de Aplicações para Linux de modo a implementar os runtimes/arquiteturas personalizados.
+As [Aplicações Web](/app-service/overview) são a oferta principal do Serviço de Aplicações para criar e alojar aplicações Web através de ambientes do Windows. Os programadores que preferem um ambiente Linux podem escolher [O Serviço de Aplicações para Linux](/app-service/containers/app-service-linux-intro). Os programadores também podem implementar imagens do Docker diretamente no Serviço de Aplicações para Linux de modo a implementar os runtimes/arquiteturas personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Inícios rápidos de cinco minutos
 
@@ -54,7 +54,7 @@ Saiba como implementar, gerir e monitorizar aplicações Web seguras no Azure.
 Encontre scripts para gerir tarefas comuns.
 
 - [CLI do Azure](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Mais
 

@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d789954c0ebc71f88fb434430de5b5076ca6c246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713730"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753120"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extrair padrões relacionados contextualmente
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair contextualmente relacionados com padrões de utilização de funções
 
 Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
+
+
+**Neste tutorial, ficará a saber como:**
+
+> [!div class="checklist"]
+> * Aplicação de exemplo de importação
+> * Criar novas entidades
+> * Criar nova intenção
+> * Preparar
+> * Publicar
+> * Obter as intenções e as entidades do ponto final
+> * Criar padrão com funções
+> * Criar lista de expressões de Cidades
+> * Obter as intenções e as entidades do ponto final
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Utilização de funções em padrões
 
 A finalidade das funções é extrair entidades relacionadas contextualmente numa expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, os valores da cidade de origem e da cidade de destino estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
 
@@ -37,25 +55,10 @@ Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacr
 
 Se tiver dificuldade na detecção de uma entidade simples porque consiste num nome como uma cidade, considere adicionar uma lista de expressões com valores similares. Isto facilita a deteção do nome da cidade, ao fornecer ao LUIS uma indicação adicional sobre esse tipo de palavra ou expressão. As listas de expressões só ajudam o padrão ao ajudar na deteção de entidades, que é necessária para o padrão corresponder. 
 
-**Neste tutorial, ficará a saber como:**
-
-> [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
-> * Criar novas entidades
-> * Criar nova intenção
-> * Preparar
-> * Publicar
-> * Obter as intenções e as entidades do ponto final
-> * Criar padrão com funções
-> * Criar lista de expressões de Cidades
-> * Obter as intenções e as entidades do ponto final
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+Utilize os passos seguintes:
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 

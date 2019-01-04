@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077125"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718729"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -85,7 +85,7 @@ Para migrar um espaço de trabalho:
 
 4.  Na página seguinte, selecione uma destas duas opções:
 
-    a.  Implementado Treinamentos apenas: a seleção desta opção irá migrar apenas os sistemas implantados e os documentos relacionados.
+    a.  Apenas Treinamentos implementados: A seleção desta opção irá migrar apenas os sistemas implantados e os documentos relacionados.
 
     b.  Todos os Treinamentos com êxito: A seleção desta opção irá migrar todos os treinamentos com êxito e documentos relacionados.
 
@@ -111,11 +111,11 @@ Para ver o histórico de migração, siga estes passos:
 
 Página de histórico de migração apresenta seguindo as informações de resumo para cada pedido de migração.
 
-1.  Migrados pela: Nome e e-mail do utilizador submeter este pedido de migração
+1.  Migrados: Nome e e-mail do utilizador submeter este pedido de migração
 
-2.  Migrados: Data e hora carimbo da migração
+2.  Migrados: Carimbo de data e hora da migração
 
-3.  Projetos: O número de projetos solicitado para o número de v/s de migração de projetos migrado com êxito.
+3.  Projetos: Número de projetos solicitado para o número de v/s de migração de projetos migrado com êxito.
 
 4.  Treinamentos: Número de treinamentos solicitado para o número de v/s de migração de treinamentos migrado com êxito.
 
@@ -130,7 +130,7 @@ Se quiser que mais detalhadas que o relatório de migração sobre os seus proje
 * Apenas são permitidos para migrar uma vez por projeto.  Se precisar repetir uma migração num projeto, entre em contato conosco.
 * Atualmente, o tradutor personalizado suporta 36 idiomas traduzir de e para inglês e estamos a trabalhar arduamente para adicionar outros idiomas.  Hub não necessita de modelos de linha de base e, portanto, oferece suporte a várias linguagens de milhares.  É possível migrar um par de idioma não suportado, no entanto, estamos apenas irá executar a migração de documentos e as definições do projeto.  Não será capazes de preparar o modelo de novo.  Além disso, estes documentos e projetos serão apresentados como Inativos para indicar que não pode ser utilizados neste momento. Se é adicionado suporte para estes projetos e/ou documentos, ficam trainable e Active Directory.
 * Tradutor personalizado não suporta atualmente os dados de treinamento monolíngüe.  Como pares de idioma não suportado, pode migrar monolíngües documentos, mas eles mostram como Inativos até que os dados monolíngües são suportados.  
-* Tradutor personalizado requer 10 frases paralela de k para treinar.  Hub da Microsoft poderia dar formação num conjunto menor de dados.  Se um treinamento é migrado que não cumpre este requisito, será preparado.
+* Tradutor personalizado requer 10 frases paralela de k para treinar.  Hub da Microsoft poderia dar formação num conjunto menor de dados. Se um treinamento é migrado que não cumpre este requisito, ele não será preparado.
 
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor personalizado em comparação com o Hub

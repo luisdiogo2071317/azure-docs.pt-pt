@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438868"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976975"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de versão do Azure HDInsight
 
@@ -35,7 +35,7 @@ As novas atualizações e capacidades se encontra às seguintes categorias:
 
     a.  [**Novos recursos do Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Novos recursos do Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Novos recursos do Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Atualizar o R Server 9.1 para Machine Learning Services 9.3*** – com esta versão, estamos oferecendo os cientistas de dados e engenheiros com o melhor do código-fonte aberto melhorado com inovações algorítmica e a facilidade de operacionalização, todos disponível no respetivo idioma preferencial com a velocidade do Apache Spark. Esta versão expande os recursos oferecidos no R Server com foi adicionado suporte para o Python, que leva para a alteração do nome de cluster do R Server nos serviços de ML. 
 
@@ -1300,9 +1300,9 @@ Problemas de fixos representam selecionados problemas que foram anteriormente re
 
 |**Componente do Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**2.3 do Spark** |**N/D** |**Notas de versão de alterações, conforme documentado no Apache Spark** |-Existe um documento de "Preterição" e um guia de "Alteração do comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para parte SQL, existe outro guia de detalhadas "migração" (a partir de 2.2 para 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**2.3 do Spark** |**N/D** |**Notas de versão de alterações, conforme documentado no Apache Spark** |-Existe um documento de "Preterição" e um guia de "Alteração do comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para parte SQL, existe outro guia de detalhadas "migração" (a partir de 2.2 para 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**12505 DO HIVE**](https://issues.apache.org/jira/browse/HIVE-12505) |Tarefa do Spark for concluída com êxito, mas existe um erro de total de quota de disco HDFS |**Cenário:** Em execução **insert substituir** quando uma quota está definida na pasta de lixo do utilizador que executa o comando.<br /><br />**Comportamento anterior:** A tarefa for concluída com êxito, apesar de não ter conseguido mover os dados para o lixo. O resultado rostos pode conter alguns dos dados anteriormente presentes na tabela.<br /><br />**Novo comportamento:** Quando a mudança para a pasta de lixo ocorre uma falha, os ficheiros são eliminados permanentemente.|
-|**Kafka 1.0**|**N/D**|**Notas de versão de alterações, conforme documentado no Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/D**|**Notas de versão de alterações, conforme documentado no Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para inserir substituir |**Cenário:** Políticas de hive do ranger adicionais necessárias para **inserir substituir**<br /><br />**Comportamento anterior:** Hive **inserir substituir** consultas concluída com êxito como de costume.<br /><br />**Novo comportamento:** Hive **inserir substituir** consultas inesperadamente estão a falhar após a atualização para HDP 2.6.x com o erro:<br /><br />Erro ao compilar a instrução: FALHOU: Permissão de HiveAccessControlException negada: jdoe de utilizador não tem privilégios de escrita no /tmp/\*(estado = 42000, código = 40000)<br /><br />No momento da elaboração HDP-2.6.0 do Hive **inserir substituir** consultas exigem uma política de URI do Ranger para permitir operações de escrita, mesmo que o usuário tenha privilégios de escrita concedido por meio da diretiva HDFS.<br /><br />**Ação de cliente de solução/esperado:**<br /><br />1. Crie uma nova política sob o repositório de Hive.<br />2. Na lista pendente onde vir o banco de dados, selecione o URI.<br />3. O caminho de atualização (exemplo: / tmp / *)<br />4. Adicione os utilizadores e grupo e guarde.<br />5. Repita a consulta insert.|
 |**HDFS**|**N/D** |HDFS deve oferecer suporte para vários Uris de KMS |**Comportamento anterior:** dfs.encryption.key.provider.uri propriedade foi utilizada para configurar o caminho do fornecedor KMS.<br /><br />**Novo comportamento:** dfs.encryption.key.provider.uri foi agora preterida em prol de hadoop.security.key.provider.path para configurar o caminho do fornecedor KMS.|
 |**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desativar o scheduler |**Componente afetado:** Servidor do Zeppelin<br /><br />**Comportamento anterior:** Nas versões anteriores do Zeppelin, não havia nenhuma opção para desativar o scheduler.<br /><br />**Novo comportamento:** Por predefinição, os utilizadores já não verá agendador, porque está desativada por predefinição.<br /><br />**Ação de cliente de solução/esperado:** Se pretender ativar o scheduler, terá de adicionar azeppelin.notebook.cron.enable com valor de true em site zeppelin personalizado nas definições de Zeppelin do Ambari.|
@@ -1409,6 +1409,10 @@ Problemas de fixos representam selecionados problemas que foram anteriormente re
             VAL = \_.escape(val);//Line 460: não
             
             Depois de remover a linha acima, a IU do Ranger permite-lhe criar políticas com a condição de política que pode conter carateres especiais e a política de avaliação será efetuada com êxito para a mesma política.
+
+**Integração do HDInsight com o ADLS Gen 2: Problema de diretórios e permissões de utilizador com clusters do ESP**
+    1.  Diretórios raiz para os utilizadores não são introdução criados no Head nó 1. Solução alternativa é criá-las manualmente e alterar a propriedade para o respetivo UPN dos utilizadores.
+    2.  As permissões no /hdp não está atualmente configurado para 751. Isso precisa ser definida um.  chmod 751 /hdp b.  chmod 755 – R/hdp/aplicações
 
 ## <a name="deprecation"></a>Preterição
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 605ce97f786b6b674a4adf8d6b1ee50957ef25fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582705"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582750"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança do Azure VM V2
 
@@ -147,3 +147,6 @@ Instantâneos incrementais são utilizados para discos não geridos. Para discos
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Como obter SSD padrão geridos pelo suporte de disco para uma máquina virtual?
 Atualização para a pilha de cópia de segurança do Azure VM V2 para obter suporte de cópia de segurança do Azure para o [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-snapshot-tier1"></a>O que acontece se eu selecionar o período de retenção do ponto de restauro (camada 2) menor que o instantâneo (nível 1)?
+O v2 de pilha de cópia de segurança de VM não permite a eliminar o ponto de restauro (administração de nível 2), a menos que o instantâneo (nível 1) é eliminado. Atualmente, suportamos o período de retenção de 7 dias para eliminação de instantâneos (nível 1), para que o restauro do ponto de (administração de nível 2) o período de retenção para menos de 7 dias não é honrado. Recomendamos que o serviço de agendamento do período de retenção de (escalão 2) do ponto de restauro mais de 7 dias.

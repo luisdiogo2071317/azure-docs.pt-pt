@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315728"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632692"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Melhores práticas e guia de resolução de problemas para aplicações de nó no Windows de serviço de aplicações do Azure
 
-Neste artigo, ficará a saber as práticas recomendadas e passos de resolução [aplicações de nó](app-service-web-get-started-nodejs.md) em execução em aplicações Web do Azure (com [iisnode](https://github.com/azure/iisnode)).
+Neste artigo, ficará a saber as práticas recomendadas e passos de resolução [aplicações de nó](app-service-web-get-started-nodejs.md) em execução no App Service do Azure (com [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Tenha cuidado ao utilizar os passos de resolução de problemas no seu site de produção. Recomenda-se resolver problemas de seu aplicativo numa configuração de não produção por exemplo o bloco de teste e quando o problema estiver resolvido, trocar o bloco de teste com o bloco de produção.
@@ -44,18 +44,18 @@ Esta definição controla o caminho para o node.exe. Pode definir este valor par
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Esta definição controla o número máximo de pedidos simultâneos enviada por iisnode para cada node.exe. Nas aplicações da Web do Azure, o valor predefinido é infinito. Quando não alojadas no Azure Web Apps, o valor predefinido é de 1024. Pode configurar o valor dependendo de quantas solicitações que seu aplicativo receba e rapidez o seu aplicativo processa cada pedido.
+Esta definição controla o número máximo de pedidos simultâneos enviada por iisnode para cada node.exe. No serviço de aplicações do Azure, o valor predefinido é infinito. Pode configurar o valor dependendo de quantas solicitações que seu aplicativo receba e rapidez o seu aplicativo processa cada pedido.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Esta definição controla o número máximo de vezes que fazer a conexão no pipe nomeado para enviar os pedidos para node.exe de repetições de iisnode. Esta definição em combinação com namedPipeConnectionRetryDelay determina o tempo limite total de cada pedido dentro do iisnode. O valor predefinido é de 200 em aplicações Web do Azure. Total de tempo limite em segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Esta definição controla o número máximo de vezes que fazer a conexão no pipe nomeado para enviar os pedidos para node.exe de repetições de iisnode. Esta definição em combinação com namedPipeConnectionRetryDelay determina o tempo limite total de cada pedido dentro do iisnode. O valor predefinido é 200 no App Service do Azure. Total de tempo limite em segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Esta definição controla a quantidade de tempo (em ms) iisnode esperas entre cada tentativa para enviar o pedido para node.exe através do pipe nomeado. O valor predefinido é 250 ms.
 Total de tempo limite em segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-Por predefinição, o total de tempo limite no iisnode em aplicações Web do Azure é 200 \* 250 ms = 50 segundos.
+Por predefinição, o total de tempo limite no iisnode no App Service do Azure é 200 \* 250 ms = 50 segundos.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Leia [depurar aplicações node. js no Windows](https://tomasz.janczuk.org/2011/
 
 Muitos aplicativos iria querer fazer conexões de saída como parte da respetiva operação normal. Por exemplo, quando uma solicitação chega, a aplicação de nó gostaria entre em contato com uma API REST em outro lugar e obtenha algumas informações para processar o pedido. Gostaria de utilizar um agente ativo de manter, ao efetuar chamadas http ou https. Poderia usar o módulo de agentkeepalive seu agente alive keep quando fazer essas chamadas de saída.
 
-O módulo de agentkeepalive garante que os soquetes são reutilizados na sua aplicação de Web do Azure VM. Criar um novo socket em cada solicitação de saída adiciona sobrecarga ao seu aplicativo. O seu aplicativo reutilizar sockets para pedidos de saída garante que seu aplicativo não excede o maxSockets alocadas por VM. A recomendação em aplicações Web do Azure é definir o valor de maxSockets agentKeepAlive para um total de (4 instâncias de node.exe \* 40 maxSockets/instância) 160 sockets por VM.
+O módulo de agentkeepalive garante que os soquetes são reutilizados na sua aplicação de Web do Azure VM. Criar um novo socket em cada solicitação de saída adiciona sobrecarga ao seu aplicativo. O seu aplicativo reutilizar sockets para pedidos de saída garante que seu aplicativo não excede o maxSockets alocadas por VM. A recomendação no App Service do Azure é definir o valor de maxSockets agentKeepAlive para um total de (4 instâncias de node.exe \* 40 maxSockets/instância) 160 sockets por VM.
 
 Exemplo [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuração:
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Meu aplicativo de nó está a consumir muita CPU
 
-Poderá receber uma recomendação de aplicações Web do Azure no seu portal sobre o consumo de cpu elevada. Também pode definir monitores para ver a determinados [métricas](web-sites-monitor.md). Ao verificar a utilização da CPU no [Dashboard do Portal do Azure](../application-insights/app-insights-web-monitor-performance.md), verifique os valores de máx. de CPU para não perder os valores de pico.
+Poderá receber uma recomendação do serviço de aplicações do Azure no seu portal sobre o consumo de cpu elevada. Também pode definir monitores para ver a determinados [métricas](web-sites-monitor.md). Ao verificar a utilização da CPU no [Dashboard do Portal do Azure](../application-insights/app-insights-web-monitor-performance.md), verifique os valores de máx. de CPU para não perder os valores de pico.
 Se considerar sua aplicação está a consumir muita CPU e não pode explicar por que, pode criar o perfil a aplicação de nó para descobrir.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>A aplicação de nó em aplicações Web do Azure com o Profiler V8 de criação de perfis
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>A aplicação de nó no serviço de aplicações do Azure com o Profiler V8 de criação de perfis
 
 Por exemplo, digamos que tenha uma aplicação hello world que quer criar perfis da seguinte forma:
 
@@ -220,7 +220,7 @@ Pode ver que 95% do tempo foi consumido pela função WriteConsoleLog. O resulta
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Meu aplicativo de nó está a consumir demasiada memória
 
-Se a sua aplicação está a consumir demasiada memória, verá um aviso de aplicações Web do Azure no seu portal sobre o consumo de memória elevada. Pode configurar monitores para ver a determinados [métricas](web-sites-monitor.md). Ao verificar a utilização da memória no [Dashboard do Portal do Azure](../application-insights/app-insights-web-monitor-performance.md), certifique-se de que verifique os valores de máx. de memória para não perder os valores de pico.
+Se a sua aplicação está a consumir demasiada memória, verá um aviso do serviço de aplicações do Azure no seu portal sobre o consumo de memória elevada. Pode configurar monitores para ver a determinados [métricas](web-sites-monitor.md). Ao verificar a utilização da memória no [Dashboard do Portal do Azure](../application-insights/app-insights-web-monitor-performance.md), certifique-se de que verifique os valores de máx. de memória para não perder os valores de pico.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Deteção de vazamento e Diff de Heap para node. js
 
@@ -249,12 +249,12 @@ A aplicação que está a gerar exceções não identificadas – verificação 
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Meu aplicativo de nó leva muito tempo para iniciar (começar a frio)
 
-A causa comum para horas de início de aplicação muito tempo é um grande número de ficheiros no nó\_módulos. A aplicação tenta carregar a maioria desses arquivos ao iniciar. Por predefinição, uma vez que os ficheiros são armazenados na partilha de rede no Azure Web Apps, muitos ficheiros de carregamento pode demorar tempo.
+A causa comum para horas de início de aplicação muito tempo é um grande número de ficheiros no nó\_módulos. A aplicação tenta carregar a maioria desses arquivos ao iniciar. Por predefinição, uma vez que os ficheiros são armazenados na partilha de rede no serviço de aplicações do Azure, a carregar vários ficheiros pode demorar tempo.
 Algumas soluções para tornar esse processo mais rápido são:
 
 1. Certifique-se de que tem uma estrutura de dependência simples e sem dependências duplicadas ao utilizar npm3 para instalar os módulos.
 2. Tente lento para carregar o seu nó\_módulos e não carregar todos os módulos no início do aplicativo. Aos módulos de carregamento lento, a chamada para require('module') deve ser feita quando precisa, na verdade, o módulo na função antes da primeira execução de código do módulo.
-3. Aplicações Web do Azure oferece um recurso chamado de local cache. Esta funcionalidade copia o conteúdo de partilha de rede para o disco local na VM. Uma vez que os ficheiros são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
+3. Serviço de aplicações do Azure oferece um recurso chamado de local cache. Esta funcionalidade copia o conteúdo de partilha de rede para o disco local na VM. Uma vez que os ficheiros são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Estado de http do IISNODE e subestado
 
@@ -274,13 +274,13 @@ Ativar FREB para a sua aplicação ver o código de erro do win32 (Certifique-se
 | 503 |1002 |Não foi possível emitir o código de erro do win32 de verificação para o real motivo – pedido para um node.exe. |
 | 503 |1003 |Pipe nomeado está demasiado ocupado – Certifique-se de que se node.exe está a consumir CPU excessiva |
 
-NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Por predefinição, quando não é implementado no Azure Web Apps, este valor é 4. O que significa que node.exe só pode aceitar pedidos de quatro ao mesmo tempo no pipe nomeado. Nas aplicações da Web do Azure, este valor é definido como 5000. Este valor deve ser bom o suficiente para a maioria dos aplicativos de nó em execução em aplicações Web do Azure. Não deverá ver 503.1003 em aplicações Web do Azure devido ao valor alto para o `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. No serviço de aplicações do Azure, este valor é definido como 5000. O que significa que node.exe pode aceitar 5000 pedidos num momento no pipe nomeado. Este valor deve ser bom o suficiente para a maioria dos aplicativos de nó em execução no App Service do Azure. Não deverá ver 503.1003 no App Service do Azure devido ao valor alto para o `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Mais recursos
 
 Siga estas ligações para saber mais sobre aplicações node. js no App Service do Azure.
 
-* [Introdução às aplicações Web de node. js no serviço de aplicações do Azure](app-service-web-get-started-nodejs.md)
+* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
 * [Como depurar uma aplicação Web Node.js no Serviço de Aplicações do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicações de Web do serviço de aplicações do Azure: NODE. js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

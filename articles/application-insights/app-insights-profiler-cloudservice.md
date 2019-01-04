@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721855"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789387"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil live serviços cloud do Azure com o Application Insights
 
 Também pode implementar o criador de perfil do Application Insights estes serviços:
-* [Aplicações Web do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicações do Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler é instalado com a extensão do Windows Azure Diagnostics (WAD). Terá de configurar WAD para instalar o gerador de perfis e enviar perfis para o recurso do Application Insights.
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Ative profiler para o seu serviço Cloud do Azure
-1. Verifique que usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior.  É suficiente confirmar que o *ServiceConfiguration.\*. cscfg* arquivos têm uma `osFamily` valor "5" ou posterior.
-1. Adicione [Application Insights SDK para o serviço em nuvem](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Verifique que usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior.  É suficiente confirmar que o *ServiceConfiguration.\*.cscfg* arquivos têm uma `osFamily` valor "5" ou posterior.
+1. Adicione [Application Insights SDK para o serviço em nuvem](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Acompanhar pedidos com o Application Insights:
 
     Para funções da web ASP.Net, Application Insights pode controlar os pedidos automaticamente.
@@ -63,12 +63,12 @@ Application Insights Profiler é instalado com a extensão do Windows Azure Diag
       </WadCfg>
       ```
 
-    >   **Nota:** se o *diagnostics.wadcfgx* ficheiro também contém outro sink do tipo `ApplicationInsights`, três das seguintes chaves de instrumentação tem de corresponder ao:  
+    >   **NOTA:** Se o *diagnostics.wadcfgx* ficheiro também contém outro sink do tipo `ApplicationInsights`, três das seguintes chaves de instrumentação tem de corresponder ao:  
     >  * A chave que é utilizada pela sua aplicação.  
     >  * A chave utilizada pelo `ApplicationInsights` sink.  
     >  * A chave utilizada pelo `ApplicationInsightsProfiler` sink.  
     >
-    > Pode encontrar o valor de chave de instrumentação real é utilizado pelos `ApplicationInsights` serem digeridos a *ServiceConfiguration.\*. cscfg* ficheiros.  
+    > Pode encontrar o valor de chave de instrumentação real é utilizado pelos `ApplicationInsights` serem digeridos a *ServiceConfiguration.\*.cscfg* ficheiros.  
     > Após o lançamento do SDK do Azure do Visual Studio 15,5, apenas as chaves de instrumentação que são utilizados pela aplicação e o `ApplicationInsightsProfiler` necessidade de sink para corresponderem entre si.
 1. Implementar o seu serviço com a nova configuração de diagnóstico e Application Insights Profiler irá ser configurado para executar no seu serviço.
  

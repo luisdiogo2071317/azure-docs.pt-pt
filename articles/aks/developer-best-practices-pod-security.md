@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 8acd69480d6cd441c33ccc696794977bbfbfd975
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110049"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559081"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para segurança de pod no Azure Kubernetes Service (AKS)
 
-À medida que desenvolve e executar aplicações no Azure Kubernetes Service (AKS), a segurança dos seus pods é uma consideração fundamental. As aplicações devem ser projetadas para o principal de número mínimo de privilégios necessários. Manter os dados privados seguros é prioritários para os clientes. Não quer que as credenciais, como cadeias de ligação de base de dados, chaves ou segredos e certificados expostos ao mundo externo, onde um atacados poderiam aproveitar esses segredos para fins maliciosos. Não adicioná-los ao seu código ou inseri-los em suas imagens de contentor. Esta abordagem seria criar um risco de exposição e limitar a capacidade de rodar essas credenciais como as imagens de contentor tem de ser reconstruída.
+À medida que desenvolve e executar aplicações no Azure Kubernetes Service (AKS), a segurança dos seus pods é uma consideração fundamental. As aplicações devem ser concebidas para o princípio do menor número de privilégios necessários. Manter os dados privados seguros é prioritários para os clientes. Não quer credenciais, como cadeias de ligação de base de dados, chaves ou segredos e certificados expostos ao mundo externo em que um invasor poderia aproveitar esses segredos para fins maliciosos. Não adicioná-los ao seu código ou inseri-los em suas imagens de contentor. Esta abordagem seria criar um risco de exposição e limitar a capacidade de rodar essas credenciais como as imagens de contentor tem de ser reconstruída.
 
 Este artigo de melhores práticas que se concentra em pods quão seguras no AKS. Saiba como:
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 8b982dbddf22393e276437c77007e18bc4d40042
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867194"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604553"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
@@ -67,11 +67,11 @@ Quando a base de dados SQL sofrer um período de indisponibilidade, a análise �
 
 #### <a name="planned-maintenance"></a>Manutenção planeada
 
-A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. O início de sessão durante a manutenção planeada de falhas costumam ser transitórios e lógica de repetição ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
+A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. As falhas de início de sessão durante a manutenção planeada estão costumam ser transitórias e [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
 
 #### <a name="reconfiguration"></a>Reconfiguração
 
-Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicativo de produção do cliente que se liga a um serviço de base de dados em nuvem deve implementar uma lógica de repetição de ligação robusta com a lógica de backoff, ele poderia ajudar a reduzir tais situações e deve geralmente fazem os erros transparente para o utilizador final.
+Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicativo de produção do cliente que se liga a uma base de dados na cloud deve implementar uma ligação robusta [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), ele poderia ajudar a reduzir tais situações e deve geralmente fazem os erros transparente para o utilizador final.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

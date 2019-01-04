@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a7f09341c1362850409a940810a4e2dd20aa7f74
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864541"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745045"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
+
 Os alertas são as respostas do serviço que foi cumprido ou ultrapassado um limiar de evento. Saber quando o início de problemas pode ser essencial para manter os custos de negócio para baixo. Alertas normalmente não ocorrem com base numa agenda e, portanto, é útil saber, logo que possível, depois de ocorrerem de alertas. Por exemplo, quando uma tarefa de cópia de segurança ou restauro falhar, um alerta ocorre dentro de cinco minutos da falha. No dashboard do cofre, o mosaico alertas de cópia de segurança apresenta os eventos de críticas e de nível de aviso. Nas definições de alertas de cópia de segurança, pode ver todos os eventos. Mas o que fazer se um alerta ocorre quando está trabalhando numa questão separada? Se não sabe quando o alerta acontece, pode ser uma inconveniência secundária ou poderia comprometer os dados. Para certificar-se de que as pessoas certas estão cientes de um alerta - quando ocorrer, configure o serviço para enviar notificações de alerta por e-mail. Para obter detalhes sobre como configurar notificações por e-mail, consulte [configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Como faço para localizar informações sobre os alertas?
+
 Para ver informações sobre o evento que acionou um alerta, tem de abrir a seção de alertas de cópia de segurança. Existem duas formas de abrir a seção de alertas de cópia de segurança: os alertas de cópia de segurança a partir de mosaico no dashboard do cofre ou da seção de alertas e eventos.
 
 Para abrir o painel de alertas de cópia de segurança a partir do mosaico alertas de cópia de segurança:
@@ -43,6 +45,7 @@ Para abrir o painel de alertas de cópia de segurança da seção de alertas e e
     Para personalizar os atributos apresentados na lista, consulte [ver os atributos de eventos adicionais](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Configurar notificações
+
  Pode configurar o serviço para enviar notificações por e-mail para os alertas que ocorreram durante a última hora, ou quando ocorrem determinados tipos de eventos.
 
 Para configurar notificações por e-mail para alertas
@@ -62,14 +65,16 @@ Para configurar notificações por e-mail para alertas
 5. Na **gravidade** caixa de diálogo, selecione um ou mais níveis que deseja acionar a notificação por e-mail.
 6. Clique em **Guardar**.
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Que tipos de alertas estão disponíveis para cópia de segurança de VM de IaaS do Azure?
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Que tipos de alertas estão disponíveis para cópia de segurança de VM de IaaS do Azure
+
    | Nível de alerta | Alertas enviados |
    | --- | --- |
    | Crítica | Falha de cópia de segurança, falha na recuperação |
    | Aviso | para as tarefas de cópia de segurança foi concluída com êxito com avisos (por exemplo: algumas gravadores falharam ao criar um instantâneo) |
    | Informativo | Atualmente, não existem alertas informativos estão disponíveis para cópia de segurança de VM do Azure |
 
-### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Existem situações em que um e-mail não é enviado, mesmo que as notificações estejam configuradas?
+### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situações em que o e-mail não é enviado, mesmo que as notificações estão configuradas
+
 Existem situações em que não é enviado um alerta, mesmo que as notificações foram corretamente configuradas. No e-mail de situações seguintes não são enviadas notificações para evitar o ruído de alerta:
 
 * Se as notificações estão configuradas para resumo de hora a hora e um alerta for emitido e resolvido dentro da hora.
@@ -79,9 +84,13 @@ Existem situações em que não é enviado um alerta, mesmo que as notificaçõe
 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Utilizar registos de atividade para receber notificações para cópias de segurança com êxito
 
+> [!NOTE]
+> Foi movido para um novo modelo de bombeando os registos de atividade de cópia de segurança do Azure nos cofres dos serviços de recuperação. Infelizmente, isso tem impacto no geração de registos de atividade em Clouds soberanas do Azure. Se os utilizadores de Cloud soberanas do Azure criou ou não está configurado todos os alertas de registos de Atividades através do Azure Monitor, conforme mencionado aqui, eles não seriam acionados. Nesse caso, seria Aconselhamos tais usuários para utilizar as definições de diagnóstico e de área de trabalho LA ou [Power BI a solução em relatórios](backup-azure-configure-reports.md) para obter as informações relevantes. Além disso, em todas as regiões públicas do Azure, se um utilizador está a recolher registos de atividades de serviços de recuperação numa área de trabalho de análise de registo como mencionado [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), estes registos também não iria aparecer.
+
 Se quiser ser notificado quando as cópias de segurança são com êxito, pode utilizar alertas criadas sobre o [registos de atividades](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) do cofre.
 
 ### <a name="login-into-azure-portal"></a>Inicie sessão no portal do Azure
+
 Início de sessão no portal do Azure e continuar para o Cofre de serviços de recuperação do Azure relevante e clique em "secção registo de atividades" nas propriedades.
 
 ### <a name="identify-appropriate-log"></a>Identificar o registo adequado
@@ -98,9 +107,7 @@ Em seguida, clique em "Adicionar alerta de registo de atividade" para gerar aler
 
 Clicar em "Adicionar alerta de registo de atividade" mostrará a uma tela conforme mostrado abaixo
 
-![Alerta de registo de atividade](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
-A subscrição e grupo de recursos são utilizados para armazenar o alerta. Os critérios serão preenchidos previamente. Certifique-se de que todos os valores são relevantes para seus requisitos.
+![Alerta de registo de atividade](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png) da subscrição e grupo de recursos são utilizados para armazenar o alerta. Os critérios serão preenchidos previamente. Certifique-se de que todos os valores são relevantes para seus requisitos.
 
 Para cópias de segurança com êxito, o "nível" está marcado como "Informativo" e o estado "Com êxito".
 
@@ -112,18 +119,19 @@ Utilize o "grupo de ação" para definir a ação após a gerar um alerta. Pode 
 
 ![Grupo de ação de registo de atividade](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Assim que clicar em OK, será gerado um alerta de registo de atividades e os registos de atividade subsequente registados para as cópias de segurança com êxito irão disparar a ação, conforme definido no grupo de ação.
 
 ### <a name="limitations-on-alerts"></a>Limitações sobre alertas
+
 Alertas com base em eventos estão sujeitos aos seguintes limitações:
 
 1. Alertas são acionados em todas as máquinas virtuais no cofre dos serviços de recuperação. Não é possível personalizar o alerta para um subconjunto das máquinas virtuais num cofre dos serviços de recuperação.
 2. Os alertas são enviados a partir de "alerts-noreply@mail.windowsazure.com". Atualmente não é possível modificar o remetente de e-mail.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, verifique [restaurar VMs do Azure](backup-azure-arm-restore-vms.md).
 
-Se precisar de informações sobre como proteger suas máquinas virtuais, veja [primeiras impressões: efetuar cópias de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). 
+Se precisar de informações sobre como proteger suas máquinas virtuais, consulte o artigo [primeira impressão: Cópia de segurança de VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
 Saiba mais sobre as tarefas de gestão para cópias de segurança VM no artigo [cópias de segurança do Azure de gerir máquinas virtuais](backup-azure-manage-vms.md).

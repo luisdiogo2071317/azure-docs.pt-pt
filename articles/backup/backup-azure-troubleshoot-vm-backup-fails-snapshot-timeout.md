@@ -1,5 +1,5 @@
 ---
-title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado indisponível'
+title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado não disponível'
 description: Os sintomas, causas e resoluções de falhas de cópia de segurança do Azure relacionados com o agente de extensão e discos.
 services: backup
 author: genlin
@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833878"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789862"
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
 Este artigo fornece passos de resolução de problemas que podem ajudar a resolverem erros de cópia de segurança do Azure relacionados à comunicação com o agente da VM e a extensão.
 
@@ -25,93 +25,92 @@ Este artigo fornece passos de resolução de problemas que podem ajudar a resolv
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - agente VM não é possível comunicar com o Azure Backup
 
 **Código de erro**: UserErrorGuestAgentStatusUnavailable <br>
-**Mensagem de erro**: agente de VM não é possível comunicar com o Azure Backup<br>
+**Mensagem de erro**: Agente de VM não é possível comunicar com o Azure Backup<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança, cópia de segurança inicia a tarefa através da comunicação com o agente da VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Quando um instantâneo não é acionado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:<br>
-**Causa 1: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Causa 4: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
+**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [Não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Fazer com que 4: [A extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Fazer com que 5: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - não foi possível comunicar com o agente VM para o estado do instantâneo
 
 **Código de erro**: GuestAgentSnapshotTaskStatusError<br>
-**Mensagem de erro**: não foi possível comunicar com o agente VM para o estado do instantâneo <br>
+**Mensagem de erro**: Não foi possível comunicar com o agente da VM para obter o estado do instantâneo <br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
-**Causa 1: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
+**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - atingiu o limite máximo da coleção de ponto de restauro
 
 **Código de erro**: UserErrorRpCollectionLimitReached <br>
-**Mensagem de erro**: atingiu o limite máximo da coleção do ponto de restauro. <br>
+**Mensagem de erro**: Atingiu o limite máximo da coleção de ponto de restauro. <br>
 * Este problema pode ocorrer se existir um bloqueio no grupo de recursos de ponto de recuperação que impede a limpeza automática de ponto de recuperação.
 * Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos que apenas uma cópia de segurança por dia como instantâneas RPs são mantidas durante 7 dias e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
 
 Ação recomendada:<br>
-Para resolver este problema, remova o bloqueio do grupo de recursos e repita a operação para acionar a limpeza.
-
+Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza. 
 > [!NOTE]
-    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` por exemplo: AzureBackupRG_northeurope_1
 
-**Passo 1: [remover o bloqueio do grupo de recursos do ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**Passo 2: [limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
+**Passo 1: [Remova o bloqueio do grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Passo 2: [Limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas.
 
 **Código de erro**: UserErrorKeyvaultPermissionsNotConfigured <br>
-**Mensagem de erro**: cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
+**Mensagem de erro**: Cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
 
 Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) ou através do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
 
 **Código de erro**: ExtensionSnapshotFailedNoNetwork<br>
-**Mensagem de erro**: a operação falhou devido a nenhuma conectividade de rede na máquina virtual de instantâneo<br>
+**Mensagem de erro**: A operação de instantâneo falhou devido à falta de conetividade de rede na máquina virtual<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:    
-**Causa 1: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
+**Fazer com que 1: [Não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [A extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - operação de extensão de VMSnapshot falhou
 
 **Código de erro**: ExtentionOperationFailedForManagedDisks <br>
-**Mensagem de erro**: a operação de extensão do VMSnapshot falhou<br>
+**Mensagem de erro**: Operação de extensão de VMSnapshot falhou<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
-**Causa 1: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 4: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Fazer com que 1: [Não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [A extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Fazer com que 4: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - cópia de segurança falha, com um erro interno
 
 **Código de erro**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
-**Mensagem de erro**: cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos <br>
+**Mensagem de erro**: Cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos <br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
-**Causa 1: [o agente instalado na VM, mas não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 4: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
-**Causa 6: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
+**Fazer com que 1: [O agente instalado na VM, mas não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [Não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Fazer com que 4: [A extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Fazer com que 5: [Serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Fazer com que 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023GB
 
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
-**Mensagem de erro**: atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023 GB <br>
+**Mensagem de erro**: O Azure Backup não suporta atualmente tamanhos de disco superiores a 1023 GB <br>
 
 A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para a pilha de cópia de segurança do Azure VM V2. Atualizar para o Azure VM Backup pilha V2 irá fornecer suporte a até 4TB. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
 
 **Código de erro**: UserErrorStandardSSDNotSupported <br>
-**Mensagem de erro**: atualmente o Azure Backup não suporta discos de Standard SSD <br>
+**Mensagem de erro**: Atualmente, o Azure Backup não suporta discos Standard SSD <br>
 
 Atualmente o Azure Backup suporta discos de SSD padrão apenas para os cofres que sejam atualizados para a pilha de cópia de segurança do Azure VM V2. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
 
@@ -192,7 +191,7 @@ Mais relacionados com o agente ou relacionados com a extensão de falhas para VM
 
 Se é necessário o registo verboso para waagent, siga estes passos:
 
-1. No ficheiro /etc/waagent.Conf., localize a seguinte linha: **ativar o registo verboso (y | n)**
+1. No ficheiro /etc/waagent.Conf., localize a seguinte linha: **Ativar o registo verboso (y | n)**
 2. Alteração da **Logs.Verbose** partir da *n* para *y*.
 3. Guardar a alteração e, em seguida, reinicie waagent, concluindo os passos descritos anteriormente nesta secção.
 

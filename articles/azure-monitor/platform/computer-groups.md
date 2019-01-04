@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192418"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728414"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registos de grupos de computadores no Log Analytics
 
@@ -31,7 +31,7 @@ Pode criar um grupo de computadores no Log Analytics com qualquer um dos método
 |:--- |:--- |
 | Pesquisas de registos |Crie uma pesquisa de registos que devolva uma lista de computadores. |
 | API de Pesquisas de Registos |Utilize a API de pesquisa de registo para criar programaticamente um grupo de computadores com base nos resultados da pesquisa de registos. |
-| Active Directory |Analise automaticamente a associação do grupo de todos os computadores agente que são membros de um domínio do Active Directory e criar um grupo no Log Analytics para cada grupo de segurança. |
+| Active Directory |Analise automaticamente a associação do grupo de todos os computadores agente que são membros de um domínio do Active Directory e criar um grupo no Log Analytics para cada grupo de segurança. (Apenas para máquinas do Windows)|
 | Configuration Manager | Importar coleções a partir do System Center Configuration Manager e crie um grupo no Log Analytics para cada um. |
 | Windows Server Update Services |Procurar o filtragem de grupos de servidores WSUS ou de clientes e criar um grupo no Log Analytics para cada automaticamente. |
 
@@ -60,7 +60,10 @@ Utilize o procedimento seguinte para criar um grupo de computadores a partir de 
 
 
 ### <a name="active-directory"></a>Active Directory
-Quando configurar o Log Analytics para importar associações a grupos do Active Directory, analisa a associação de grupo de todos os computadores associados a um domínio com o agente do Log Analytics.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado para os grupos de computadores correspondentes aos grupos de segurança que são membros.  Esta associação é constantemente atualizada a cada 4 horas.  
+Quando configurar o Log Analytics para importar associações a grupos do Active Directory, analisa a associação de grupo dos computadores associados a um domínio Windows com o agente do Log Analytics.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador Windows é adicionado para os grupos de computadores correspondentes aos grupos de segurança que são membros.  Esta associação é constantemente atualizada a cada 4 horas.  
+
+> [!NOTE]
+> Grupos importados do Active Directory contêm apenas as máquinas do Windows.
 
 Configurar o Log Analytics para importar grupos de segurança do Active Directory do Log Analytics **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **do Active Directory**e, em seguida **associações a grupos de computadores do Active Directory de importação**.  Não há nenhuma configuração adicional.
 

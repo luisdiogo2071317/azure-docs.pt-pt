@@ -1,7 +1,7 @@
 ---
 title: Criar cliente para consumir o serviço web implementado
 titleSuffix: Azure Machine Learning service
-description: Saiba como consumir um serviço web que foi gerado quando um modelo foi implementado com o modelo do Azure Machine Learning. O serviço web que expõe uma API REST. Crie clientes para esta API usando a linguagem de programação da sua preferência.
+description: Saiba como consumir um serviço web que foi gerado quando um modelo foi implementado com o modelo do Azure Machine Learning. O web service expõe uma API REST. Crie clientes para esta API com a linguagem de programação da sua preferência.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251135"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753392"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
-Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com C#, Go, Java e Python.
+Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com o C#, Go, Java e Python.
 
-Um serviço web é criado quando implementa uma imagem para uma instância de contentor do Azure, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Imagens são criadas a partir de modelos de registado e classificação de ficheiros. O URI utilizado para aceder a um serviço web pode ser obtido com o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
+Criar um web service ao implementar uma imagem para o Azure Container Instances, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Criar imagens a partir de modelos de registado e classificação de ficheiros. Obter o URI utilizado para aceder a um serviço web utilizando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
 
-O fluxo de trabalho geral, quando criar um cliente que utiliza um serviço da web de ML é:
+O fluxo de trabalho geral para a criação de um cliente que utiliza um serviço web machine learning é:
 
-1. Utilizar o SDK para obter as informações de ligação
-1. Determinar o tipo de dados de pedido utilizados pelo modelo
-1. Criar uma aplicação que chama o serviço web
+1. Utilize o SDK para obter as informações de ligação.
+1. Determine o tipo de dados de pedido utilizados pelo modelo.
+1. Crie uma aplicação que chama o serviço web.
 
 ## <a name="connection-information"></a>Informações da ligação
 
 > [!NOTE]
-> O SDK do Azure Machine Learning é utilizado para obter as informações de serviço da web. Trata-se de um SDK de Python. Enquanto ele é usado para obter informações sobre os serviços web, pode usar qualquer linguagem para criar um cliente para o serviço.
+> Utilize o SDK do Azure Machine Learning para obter as informações do serviço web. Trata-se de um SDK de Python. Pode usar qualquer linguagem para criar um cliente para o serviço.
 
-As informações de ligação de serviço web podem ser obtidas com o SDK do Azure Machine Learning. O [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe fornece as informações necessárias para criar um cliente. O seguinte `Webservice` propriedades que são úteis ao criar um aplicativo de cliente:
+O [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe fornece as informações necessárias criar um cliente. O seguinte `Webservice` propriedades são úteis para criar uma aplicação de cliente:
 
 * `auth_enabled` -Se a autenticação estiver ativada, `True`; caso contrário, `False`.
 * `scoring_uri` -O endereço da REST API.
@@ -60,7 +60,7 @@ Para obter estas informações para os serviços web implementados, há um três
     print(services[0].scoring_uri)
     ```
 
-* Se souber o nome do serviço implementado, pode criar uma nova instância do `Webservice` e forneça o nome de área de trabalho e o serviço como parâmetros. O novo objeto contém informações sobre o serviço implementado.
+* Se souber o nome do serviço implementado, pode criar uma nova instância do `Webservice`e forneça o nome de área de trabalho e o serviço como parâmetros. O novo objeto contém informações sobre o serviço implementado.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Para obter estas informações para os serviços web implementados, há um três
 
 ### <a name="authentication-key"></a>Chave de autenticação
 
-Chaves de autenticação são criadas automaticamente quando a autenticação é ativada para uma implementação.
+Quando ativar a autenticação para uma implementação, são criadas automaticamente as chaves de autenticação.
 
-* A autenticação é __ativada por predefinição__ quando implementar __Azure Kubernetes Service__.
-* A autenticação é __desativada por predefinição__ quando implementar __instâncias de contentor do Azure__.
+* Autenticação está ativada por predefinição, quando estiver a implementar no serviço Kubernetes do Azure.
+* Autenticação está desativada por predefinição, quando estiver a implementar no Azure Container Instances.
 
-Para controlar a autenticação, use o `auth_enabled` parâmetro quando criar ou atualizar uma implementação.
+Para controlar a autenticação, use o `auth_enabled` parâmetro quando estiver a criar ou atualizar uma implementação.
 
 Se a autenticação estiver ativada, pode utilizar o `get_keys` método para recuperar uma chave de autenticação primária e secundária:
 
@@ -102,7 +102,7 @@ A API REST espera que o corpo da solicitação para ser um documento JSON com a 
 > [!IMPORTANT]
 > A estrutura dos dados tem de corresponder ao que a classificação script e o modelo no expect serviço. O script de classificação pode modificar os dados antes de o transmitir para o modelo.
 
-Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de 10 números. O script de classificação para este exemplo cria uma matriz de Numpy da solicitação e passa-o para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
+Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de 10 números. O script de classificação para este exemplo cria uma matriz de Numpy no pedido e o transmite para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
 
 ```json
 {
@@ -128,7 +128,7 @@ O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele r
 
 ### <a name="binary-data"></a>Dados binários
 
-Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Eis um exemplo de um `score.py` que aceita dados binários e devolve os bytes revertidos em solicitações POST. Para pedidos GET-devolve o URL completo no corpo da resposta:
+Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Eis um exemplo de um `score.py` que aceita dados binários e retorna os bytes revertidos em solicitações POST. Para solicitações GET, ele retorna o URL completo no corpo da resposta:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Coisas a `azureml.contrib` espaço de nomes mudam frequentemente enquanto Trabalhamos para melhorar o serviço. Como tal, qualquer coisa neste espaço de nomes deve ser considerada como uma pré-visualização e não totalmente suportada pela Microsoft.
+> O `azureml.contrib` espaço de nomes são alterados com frequência, pois estamos a trabalhar para melhorar o serviço. Como tal, qualquer coisa neste espaço de nomes deve ser considerada como uma pré-visualização e não totalmente suportada pela Microsoft.
 >
-> Se precisar de teste em seu ambiente de desenvolvimento local, pode instalar os componentes no espaço de nomes contrib com o seguinte comando:
+> Se precisar de teste em seu ambiente de desenvolvimento local, pode instalar os componentes no `contrib` espaço de nomes utilizando o seguinte comando:
 > 
 > ```shell
 > pip install azureml-contrib-services

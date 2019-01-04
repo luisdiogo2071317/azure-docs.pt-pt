@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409528"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743872"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Utilizar o túnel SSH para aceder a Apache Ambari web UI, JobHistory, NameNode, Apache Oozie e outras interfaces do usuário da web
 
@@ -47,7 +47,7 @@ Se utilizar as ações de Script para personalizar o seu cluster, quaisquer serv
 
 * Um navegador da web que pode ser configurado para utilizar um proxy de SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > O suporte de proxy de SOCKS incorporado nas configurações de Internet do Windows não suporta SOCKS5 e não funciona com os passos neste documento. Os seguintes browsers contam com as definições de proxy do Windows e não trabalhar com os passos neste documento:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Assim que o comando terminar, o tráfego enviado para a porta 9876 no computador
 
 ## <a name="useputty"></a>Criar um túnel a utilizar o PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH gráfico para Windows. Se não estiver familiarizado com PuTTY, veja a [documentação do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Utilize os seguintes passos para criar um túnel SSH PuTTY a utilizar:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH gráfico para Windows. Se não estiver familiarizado com PuTTY, veja a [documentação do PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Utilize os seguintes passos para criar um túnel SSH PuTTY a utilizar:
 
 ### <a name="create-or-load-a-session"></a>Criar ou carregar uma sessão
 
@@ -120,7 +120,7 @@ Assim que o comando terminar, o tráfego enviado para a porta 9876 no computador
    > [!NOTE]  
    > Selecionando **DNS remoto** resolve os pedidos de sistema de nomes de domínio (DNS) ao utilizar o cluster do HDInsight. Esta definição resolve DNS com o nó principal do cluster.
 
-2. Certifique-se de que o túnel funciona ao visitar um site como [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). O IP devolvido deve ser usada pelo datacenter do Microsoft Azure.
+2. Certifique-se de que o túnel funciona ao visitar um site como [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). O IP devolvido deve ser usada pelo datacenter do Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Certifique-se com a IU web do Ambari
 

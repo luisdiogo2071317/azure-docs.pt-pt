@@ -1,19 +1,20 @@
 ---
 title: Como configurar a monitorização no duplos Digital do Azure | Documentos da Microsoft
-description: Como configurar a monitorização no duplos Digital do Azure
+description: Como configurar a monitorização no duplos Digital do Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945826"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807589"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização no duplos Digital do Azure
 
@@ -23,7 +24,7 @@ Este artigo resume o registo e monitorização de opções e como combiná-los d
 
 ## <a name="review-activity-logs"></a>Registos de atividades de revisão
 
-Azure [registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações rápidas sobre históricos de evento e a operação de nível de assinatura para cada instância de serviço do Azure.
+Azure [registos de atividades](../azure-monitor/platform/activity-logs-overview.md) fornecem informações rápidas sobre históricos de evento e a operação de nível de assinatura para cada instância de serviço do Azure.
 
 Eventos de nível de assinatura incluem:
 
@@ -54,7 +55,7 @@ Para o registo de atividade avançadas:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Ativar registos de diagnóstico do cliente
 
-Azure [das definições de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) podem ser definidos para cada instância do Azure complementar o registo de atividade. Enquanto os registos de atividades que dizem respeito a eventos de nível de assinatura, o registo de diagnósticos fornece informações sobre o histórico de operacional dos próprios recursos.
+Azure [das definições de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) podem ser definidos para cada instância do Azure complementar o registo de atividade. Enquanto os registos de atividades que dizem respeito a eventos de nível de assinatura, o registo de diagnósticos fornece informações sobre o histórico de operacional dos próprios recursos.
 
 Exemplos de registo de diagnósticos:
 
@@ -74,7 +75,7 @@ Para ativar os registos de diagnóstico para uma instância:
 
     ![Duas definições de diagnóstico][5]
 
-    Os registos de diagnóstico são, muitas vezes, salvo usando [File Storage do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) e partilhado com [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Ambas as opções podem ser selecionadas.
+    Os registos de diagnóstico são, muitas vezes, salvo usando [File Storage do Azure](../storage/files/storage-files-deployment-guide.md) e partilhado com [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
 >[!TIP]
 >Uso **registos de diagnóstico** para informações sobre operações de recursos.
@@ -91,7 +92,7 @@ Exemplos de utilização incluem:
 * Ver registos para várias funções definidas pelo utilizador
 * Exibindo logs para dois ou mais serviços dentro de um período de tempo específico
 
-Consultar o registo completo é fornecido através de [do Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Para configurar estas funcionalidades poderosas:
+Consultar o registo completo é fornecido através de [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Para configurar estas funcionalidades poderosas:
 
 1. Procure **do Log Analytics** no portal do Azure.
 1. Verá sua disponíveis **do Log Analytics** instâncias. Escolha uma e selecione **registos** a consulta:
@@ -106,7 +107,7 @@ Uma vez sua **do Log Analytics** instância é aprovisionada, pode utilizar cons
 
    ![Gestão de registos][8]
 
-Para obter mais informações sobre as operações de consulta poderosa, consulte [introdução às consultas](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Para obter mais informações sobre as operações de consulta poderosa, consulte [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Poderá haver um atraso de 5 minutos, ao enviar eventos para **do Log Analytics** pela primeira vez.
@@ -120,15 +121,15 @@ O Azure Log Analytics também fornece o erro poderosas e serviços de notificaç
 
 ## <a name="other-options"></a>Outras opções
 
-Duplos Digital do Azure também suporta o registo específico de aplicação e auditoria de segurança. Para obter uma descrição geral completa de todas as opções de registo do Azure disponíveis para a sua instância de duplos Digital do Azure, consulte a [auditoria de registos do Azure](https://docs.microsoft.com/azure/security/azure-log-audit) artigo.
+Duplos Digital do Azure também suporta o registo específico de aplicação e auditoria de segurança. Para obter uma descrição geral completa de todas as opções de registo do Azure disponíveis para a sua instância de duplos Digital do Azure, consulte a [auditoria de registos do Azure](../security/azure-log-audit.md) artigo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o Azure [registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
+- Saiba mais sobre o Azure [registos de atividades](../azure-monitor/platform/activity-logs-overview.md).
 
-Aprofunde-se em definições de diagnóstico do Azure, lendo um [descrição geral dos registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Aprofunde-se em definições de diagnóstico do Azure, lendo um [descrição geral dos registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Leia mais sobre [do Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Leia mais sobre [do Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

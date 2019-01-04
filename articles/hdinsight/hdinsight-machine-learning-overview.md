@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437202"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743005"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning no HDInsight
 
-HDInsight permite que o machine learning com grandes volumes de dados, fornecendo a capacidade para obter informações valiosas de grandes quantidades (petabytes ou até mesmo exabytes) de não estruturados e os dados de rápida evolução. Existem vários aprendizagem automática opções no HDInsight:  SparkML e MLlib, R, Apache Hive e o Microsoft Cognitive Toolkit.
+HDInsight permite que o machine learning com grandes volumes de dados, fornecendo a capacidade para obter informações valiosas de grandes quantidades (petabytes ou até mesmo exabytes) de não estruturados e os dados de rápida evolução. Existem vários aprendizagem automática opções no HDInsight:  SparkML e Apache Spark MLlib, R, Apache Hive e o Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML e o MLlib
 
-[Spark do HDInsight](spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Apache Spark](http://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que suporta o processamento de dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. Existem duas bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base no RDDs. SparkML é um pacote mais recente que fornece uma API de nível mais alto assentes DataFrames para a criação de pipelines de ML. SparkML ainda não suporta todas as funcionalidades de MLlib, mas está a substituir o MLlib como biblioteca de aprendizagem automática padrão do Spark.
+[Spark do HDInsight](spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Apache Spark](https://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que suporta o processamento de dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. Existem duas bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base no RDDs. SparkML é um pacote mais recente que fornece uma API de nível mais alto assentes DataFrames para a criação de pipelines de ML. SparkML ainda não suporta todas as funcionalidades de MLlib, mas está a substituir o MLlib como biblioteca de aprendizagem automática padrão do Spark.
 
 A biblioteca do Microsoft Machine Learning para Apache Spark está [MMLSpark](https://github.com/Azure/mmlspark). Esta biblioteca foi concebida para tornar os cientistas de dados mais produtivos no Spark, aumentam a taxa de experimentação e tirar partido das técnicas de aprendizagem de última geração, incluindo a aprendizagem profunda, em conjuntos de dados muito grandes. MMLSpark fornece uma camada sobre APIs de baixo nível do SparkML durante a criação de modelos de ML dimensionáveis, como cadeias de caracteres de indexação, impor dados num layout esperado pela máquina algoritmos de aprendizagem e a criação de vetores de funcionalidade. A biblioteca de MMLSpark simplifica estas e outras tarefas comuns para a criação de modelos no PySpark.
 

@@ -1,6 +1,6 @@
 ---
 title: Ligar ao Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Utilize o utilitário de linha de comandos [sqlcmd][sqlcmd] para ligar e consultar um Azure SQL Data Warehouse.
+description: Utilize o utilitário sqlcmd de linha de comando para ligar e consultar um Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247718"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976414"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Ligar ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Utilize o utilitário de linha de comandos [sqlcmd][sqlcmd] para ligar e consult
 ## <a name="1-connect"></a>1. Ligar
 Para começar a utilizar o [sqlcmd][sqlcmd], abra a linha de comandos e escreva **sqlcmd**, seguido da cadeia de ligação da sua base de dados SQL Data Warehouse. A cadeia de ligação requer os parâmetros seguintes:
 
-* **Server (-S):** servidor sob a forma `<`Nome do Servidor`>`. database.windows.net
-* **Database (-d):** nome da base de dados.
-* **Enable Quoted Identifiers (-I):** os identificadores delimitado por aspas têm de estar ativados para ligar a uma instância do SQL Data Warehouse.
+* **Servidor (-S):** Servidor sob a forma `<`nome do servidor`>`. database.windows.net
+* **Base de dados (-1!d):** Nome da base de dados.
+* **Enable Quoted identificadores (-Me):** Identificadores delimitados por aspas tem de estar ativadas para ligar a uma instância do SQL Data Warehouse.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:
 
-* **User (-U):** utilizador do servidor sob a forma `<`Utilizador`>`
-* **Password (-P):** palavra-passe associada ao utilizador.
+* **Utilizador (-U):** Utilizador do servidor sob a forma `<`utilizador`>`
+* **Palavra-passe (-P):** Palavra-passe associado ao utilizador.
 
 Por exemplo, a cadeia de ligação poderá ter o seguinte aspeto:
 

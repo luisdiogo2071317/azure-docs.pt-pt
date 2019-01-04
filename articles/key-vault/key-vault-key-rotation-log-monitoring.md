@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39ae2108c327f38dbf41981ec6aabe7722b77685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302022"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717386"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com auditoria e rotação de chaves
 
@@ -414,7 +414,7 @@ E adicione um arquivo chamado Project com o seguinte conteúdo:
 
 Após **guardar**, as funções do Azure irá transferir os binários necessários.
 
-Mude para o **integrar** separador e dê o parâmetro de temporizador um nome significativo para utilizar dentro da função. No código anterior, ele espera que o temporizador seja chamado *myTimer*. Especifique um [expressão CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) da seguinte forma: 0 \* \* \* \* \* para o temporizador que fará com que a função ser executado uma vez um minuto.
+Mude para o **integrar** separador e dê o parâmetro de temporizador um nome significativo para utilizar dentro da função. No código anterior, ele espera que o temporizador seja chamado *myTimer*. Especifique um [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) da seguinte forma: 0 \* \* \* \* \* para o temporizador que fará com que a função ser executado uma vez um minuto.
 
 No mesmo **integrar** separador, adicione uma entrada do tipo **armazenamento de Blobs do Azure**. Isto irá apontar para o ficheiro de sync.txt que contém o carimbo de hora do último evento examinou pela função. Isso vai estar disponível dentro da função com o nome de parâmetro. No código anterior, a entrada de armazenamento de Blobs do Azure espera que o nome do parâmetro seja *inputBlob*. Selecione a conta de armazenamento onde o ficheiro de sync.txt irá residir (pode ser o mesmo ou outra conta de armazenamento). No campo do caminho, forneça o caminho onde o arquivo reside no formato {container-name}/path/to/sync.txt.
 

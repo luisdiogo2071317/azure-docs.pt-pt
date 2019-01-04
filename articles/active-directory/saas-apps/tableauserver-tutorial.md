@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Tableau Server | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Tableau Server | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Tableau Server.
 services: active-directory
 documentationCenter: na
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850368"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789726"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory com o Tableau Server
+# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Server
 
 Neste tutorial, saiba como integrar o Tableau Server no Azure Active Directory (Azure AD).
 
@@ -86,13 +86,14 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 
 Para configurar e testar o Azure AD início de sessão único com o Tableau Server, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do servidor da Tableau](#creating-a-tableau-server-test-user)**  - para ter um equivalente da Eduarda Almeida no servidor da Tableau que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar o Tableau Server início de sessão único](#configure-tableau-server-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Criar utilizador de teste do servidor da Tableau](#create-tableau-server-test-user)**  - para ter um equivalente da Eduarda Almeida na Cisco guarda-chuva que está ligado à representação de utilizador do Azure AD.
+5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
 Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de servidor da Tableau.
 
@@ -112,9 +113,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 4. No **afirmações de utilizador** secção sobre o **atributos de utilizador e afirmações** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo |
-    | ---------------| --------------- |    
-    | o nome de utilizador | user.userprincipalname |
+    | Nome do Atributo | Valor do Atributo | Espaço de nomes |
+    | ---------------| --------------- | ----------- |   
+    | o nome de utilizador | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -151,33 +152,41 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 7. No **certificado de assinatura SAML** página, além da **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![O link de download de certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![O link de download de certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. Para obter SSO configurado para a sua aplicação, terá de iniciar sessão com o seu inquilino do servidor da Tableau como administrador.
+### <a name="configure-tableau-server-single-sign-on"></a>Configurar o Tableau Server início de sessão único 
 
-9. Sobre o **configuração do servidor Tableau** página, execute os seguintes passos:
-   
-    ![Configurar o início de sessão único](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. Para obter SSO configurado para a sua aplicação, terá de iniciar sessão com o seu inquilino do servidor da Tableau como administrador.
 
-    a. Na configuração do servidor da Tableau, clique nas **SAML** separador. 
-  
-    b. Selecione a caixa de seleção de **SAML de utilização para início de sessão único**.
-   
+2. Na **CONFIGURATION** separador, selecione **identidade de utilizador e acesso**e, em seguida, selecione o **autenticação** guia de método.
+
+    ![Configurar o início de sessão único](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. Sobre o **configuração** página, execute os seguintes passos:
+
+    ![Configurar o início de sessão único](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+    a. Para **método de autenticação**, selecione o SAML.
+    
+    b. Selecione a caixa de seleção de **ativar a autenticação de SAML para o servidor**.
+
     c. URL de retorno de servidor da tableau — o URL que os utilizadores do servidor da Tableau irão aceder aos, tais como http://tableau_server. Usando http://localhost não é recomendado. Utilizar um URL com um traço à direita (por exemplo, http://tableau_server/) não é suportada. Cópia **URL de retorno de servidor da Tableau** e cole-o para o Azure AD **URL de início de sessão** caixa de texto no **Tableau Server domínio e URLs** secção.
-   
+
     d. ID de entidade SAML, o ID da entidade identifica de forma a instalação do servidor da Tableau para o IdP. Pode introduzir o URL de servidor da Tableau novamente aqui, se assim o desejar, mas ele não tem de ser o URL de servidor da Tableau. Cópia **ID de entidade SAML** e cole-o para o Azure AD **identificador** caixa de texto no **Tableau Server domínio e URLs** secção.
-     
-    e. Clique nas **exportar o ficheiro de metadados** e abri-lo no aplicativo de editor de texto. Localize o URL de serviço de consumidor de asserção com Http Post e de índice 0 e copie o URL. Agora cole-o para o Azure AD **URL de resposta** na caixa de texto **Tableau Server domínio e URLs** secção.
-   
+
+    e. Clique nas **transferir o ficheiro de metadados XML** e abri-lo no aplicativo de editor de texto. Localize o URL de serviço de consumidor de asserção com Http Post e de índice 0 e copie o URL. Agora cole-o para o Azure AD **URL de resposta** na caixa de texto **Tableau Server domínio e URLs** secção.
+
     f. Localize o ficheiro de metadados de Federação transferido a partir do portal do Azure e, em seguida, carregue-na **o ficheiro de metadados de SAML Idp**.
-   
-    g. Clique nas **OK** botão na página de configuração de servidor da Tableau.
-   
+
+    g. Introduza os nomes para os atributos que o IdP utiliza para armazenar os nomes de utilizador, nomes a apresentar e endereços de e-mail.
+
+    h. Clicar em **Guardar**
+
     >[!NOTE] 
     >Cliente tem de carregar qualquer certificado na configuração da Tableau Server SAML SSO e irá obter ignorada no fluxo SSO.
-    >Se precisar de ajudar a configurar o SAML no servidor da Tableau, em seguida, leia este artigo [configurar SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Se precisar de ajudar a configurar o SAML no servidor da Tableau, em seguida, leia este artigo [configurar SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
@@ -202,7 +211,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Selecione **Criar**.
   
-### <a name="creating-a-tableau-server-test-user"></a>Criar um utilizador de teste do servidor da Tableau
+### <a name="create-tableau-server-test-user"></a>Criar utilizador de teste do servidor da Tableau
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no servidor da Tableau. Precisa de aprovisionar todos os utilizadores no servidor Tableau. 
 
@@ -211,7 +220,7 @@ Esse nome de utilizador do utilizador deve corresponder ao valor que tiver confi
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o administrador de servidor da Tableau na sua organização.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao servidor da Tableau.
 
@@ -235,7 +244,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 6. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
 
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

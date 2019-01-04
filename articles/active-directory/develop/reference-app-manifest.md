@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086782"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631193"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -40,7 +40,7 @@ Para configurar o manifesto do aplicativo:
 1. Iniciar sessão a [portal do Azure](https://portal.azure.com).
 1. Selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações** ou **registos de aplicações (pré-visualização)**.
 1. Selecione a aplicação que pretende configurar.
-1. A partir da aplicação **descrição geral** página, selecione a **manifesto** secção. É aberta um editor de manifesto baseada na web, permitindo-lhe editar o manifesto no portal. Opcionalmente, pode selecionar **baixe** para editar o manifesto localmente e, em seguida, utilizar **carregar** para voltar a aplicar à sua aplicação.
+1. A partir da página **Descrição geral** da aplicação, selecione a secção **Manifesto**. É aberta um editor de manifesto baseada na web, permitindo-lhe editar o manifesto no portal. Opcionalmente, pode selecionar **baixe** para editar o manifesto localmente e, em seguida, utilizar **carregar** para voltar a aplicar à sua aplicação.
 
 ## <a name="manifest-reference"></a>Referência do manifesto
 
@@ -56,11 +56,11 @@ Para configurar o manifesto do aplicativo:
 | `allowPublicClient` | boolean | Especifica o tipo de aplicação de contingência. Azure AD infere o tipo de aplicação da replyUrlsWithType por predefinição. Existem determinados cenários em que o Azure AD não é possível determinar o tipo de aplicação de cliente (por exemplo, [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) fluxo onde o pedido HTTP acontece sem um redirecionamento de URL). Nesses casos, do Azure AD interpretará o tipo de aplicação com base no valor desta propriedade. Se este valor é definido como verdadeiro o tipo de aplicação de contingência está definido como cliente público, como uma aplicação instalada em execução num dispositivo móvel. O valor predefinido é false, que significa que o tipo de aplicação de contingência é um cliente confidencial, tais como a aplicação web. | `false` |
 | `appId` | Cadeia de caracteres de identificador | Especifica o identificador exclusivo da aplicação que está atribuído a uma aplicação pelo Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica a coleção de funções de que uma aplicação poderá declarar. Estas funções podem ser atribuídas a utilizadores, grupos ou principais de serviço. Para obter mais exemplos e informações, consulte [adicionar funções de aplicação na sua aplicação e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | cadeia | Uma máscara de bits que configura o `groups` afirmação emitida num utilizador ou o token de acesso de OAuth 2.0 que a aplicação espera. Os valores de máscara de bits são:<br>0: nenhuma<br>1: grupos de segurança e funções do Azure AD<br>2: reservado<br>4: reservado<br>Definição da bitmask para 7 irá obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. | `1` |
+| `groupMembershipClaims` | cadeia | Configura o `groups` afirmação emitida num utilizador ou o token de acesso de OAuth 2.0 que a aplicação espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válida:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (para grupos de segurança e funções do Azure AD)<br/>- `"All"` (Isto irá obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. | `"SecurityGroup"` |
 | `optionalClaims` | cadeia | As afirmações opcionais devolvidas no token pelo serviço de token de segurança para esta aplicação específica.<br>Neste momento, as aplicações que suportam contas pessoais e do Azure AD (registado através do portal de registo de aplicação) não é possível utilizar afirmações opcionais. No entanto, as aplicações registadas para apenas Azure AD com o ponto final v2.0 podem obter as afirmações opcionais que solicitados no manifesto. Para mais informações, veja [afirmações opcionais](active-directory-optional-claims.md). | `null` |
 | `id` | Cadeia de caracteres de identificador | O identificador exclusivo para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. Ele é usado para fazer referência ao objeto em consultas de diretório. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | Matriz de cadeia de caracteres | URI(s) definidas pelo utilizador que identificam exclusivamente uma aplicação Web no seu inquilino do Azure AD, ou dentro de um domínio personalizado verificado se a aplicação multi-inquilino. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
-| `informationalUrls` | cadeia | Especifica as ligações para os termos da aplicação de serviço e declaração de privacidade. Os termos de serviço e declaração de privacidade são apresentados aos utilizadores através da experiência de consentimento do utilizador. Para mais informações, veja [como: adicionar termos de serviço e declaração de privacidade para registar aplicações do Azure AD](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
+| `identifierUris` | Matriz de cadeia de caracteres | URI(s) definidas pelo utilizador que identificam exclusivamente uma aplicação Web no seu inquilino do Azure AD, ou dentro de um domínio personalizado verificado se a aplicação multi-inquilino. | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
+| `informationalUrls` | cadeia | Especifica as ligações para os termos da aplicação de serviço e declaração de privacidade. Os termos de serviço e declaração de privacidade são apresentados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [como: Adicionar termos de serviço e declaração de privacidade para registar aplicações do Azure AD](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | Tipo de matriz | Contém referências a aplicação atribuída credenciais, com base na cadeia de caracteres segredos compartilhados e certificados X.509. Estas credenciais são utilizadas ao pedir tokens de acesso (quando a aplicação está a agir como um cliente em vez disso, que como recurso). | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | Tipo de matriz | Utilizado para agrupar consentimento, se tiver uma solução que contém duas partes: uma aplicação de cliente e uma aplicação de API da web personalizada. Se introduzir o appID da aplicação de cliente para este valor, o utilizador terá apenas autorizar uma vez a aplicação de cliente. Do Azure AD saberá que consentir o cliente significa implicitamente consentir a API web e irá aprovisionar automaticamente os principais de serviço para o cliente e a web API ao mesmo tempo. O cliente e a aplicação de web API têm de estar registados no mesmo inquilino. | `[GUID]` |
 | `logoUrl` | cadeia | Ler apenas o valor que aponta para o URL da CDN para o logótipo que foi carregado no portal. | `https://MyRegisteredAppLogo` |

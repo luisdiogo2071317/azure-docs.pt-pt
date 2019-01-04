@@ -1,56 +1,54 @@
 ---
-title: Ativar a encriptação transparente de dados para a Stretch Database - Azure | Microsoft Docs
-description: Ativar a encriptação de dados transparente (TDE) para o SQL Server Stretch Database no Azure
+title: Ativar a encriptação de dados transparente para o Stretch Database - Azure | Documentos da Microsoft
+description: Ativar a encriptação de dados transparente (TDE) para SQL Server Stretch Database, no Azure
 services: sql-server-stretch-database
 documentationcenter: ''
 author: douglaslMS
-manager: barbkess
-editor: ''
+manager: craigg
 ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
-ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1e40e3d9eb1231666acda89c752ebc8f517e8fc6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23872926"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741543"
 ---
-# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Ativar a encriptação de dados transparente (TDE) para a Stretch Database no Azure
+# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Ativar a encriptação de dados transparente (TDE) para Stretch Database no Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
-Encriptação de dados transparente (TDE) ajuda a proteger contra a ameaça de atividade maliciosa através de encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e os ficheiros de registo de transações Inativos sem necessidade de alterações à aplicação.
+Encriptação de dados transparente (TDE) ajuda a proteger contra ameaças de atividades maliciosas através de encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso sem a necessidade de alterações à aplicação.
 
-TDE encripta o armazenamento de uma base de dados completa através de uma chave simétrica chamada a chave de encriptação da base de dados. A chave de encriptação da base de dados está protegida por um certificado de servidor incorporada. O certificado de servidor incorporada é exclusivo para cada servidor do Azure. Microsoft roda automaticamente estes certificados, pelo menos, todos os 90 dias. Para obter uma descrição geral de TDE, consulte [encriptação de dados transparente (TDE)].
+TDE criptografa o armazenamento de uma base de dados completa com uma chave simétrica denominada a chave de encriptação da base de dados. A chave de encriptação da base de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor do Azure. Microsoft gira automaticamente estes certificados, pelo menos a cada 90 dias. Para obter uma descrição geral de TDE, consulte [encriptação de dados transparente (TDE)].
 
 ## <a name="enabling-encryption"></a>Ativar a encriptação
-Para ativar a TDE para um Azure base de dados que está a armazenar os dados migrados a partir de uma base de dados do SQL Server com a Stretch ativada, efetue os seguintes procedimentos:
+Para ativar a TDE para um Azure, base de dados que está armazenando os dados migrados de uma base de dados do SQL Server com a Stretch ativada, efetue os seguintes procedimentos:
 
 1. Abrir a base de dados no [portal do Azure](https://portal.azure.com)
-2. No painel da base de dados, clique o **definições** botão
-3. Selecione o **encriptação transparente de dados** opção![][1]
-4. Selecione o **no** definição e, em seguida, selecione **guardar**
+2. No painel da base de dados, clique nas **definições** botão
+3. Selecione o **encriptação de dados transparente** opção ![][1]
+4. Selecione o **nos** definição e, em seguida, selecione **guardar**
    ![][2]
 
 ## <a name="disabling-encryption"></a>A desativação da encriptação
-Para desativar o TDE para um Azure base de dados que está a armazenar os dados migrados a partir de uma base de dados do SQL Server com a Stretch ativada, efetue os seguintes procedimentos:
+Para desativar a TDE para um Azure base de dados que está armazenando os dados migrados de uma base de dados do SQL Server com a Stretch ativada, efetue os seguintes procedimentos:
 
 1. Abrir a base de dados no [portal do Azure](https://portal.azure.com)
-2. No painel da base de dados, clique o **definições** botão
-3. Selecione o **encriptação transparente de dados** opção
-4. Selecione o **desativar** definição e, em seguida, selecione **guardar**
+2. No painel da base de dados, clique nas **definições** botão
+3. Selecione o **encriptação de dados transparente** opção
+4. Selecione o **Off** definição e, em seguida, selecione **guardar**
 
 <!--Anchors-->
-[encriptação de dados transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Encriptação de dados transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

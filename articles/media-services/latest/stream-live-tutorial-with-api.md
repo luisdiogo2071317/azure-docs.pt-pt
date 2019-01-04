@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 266227b87381fde74efd0fa05c6ea10a0eace985
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724968"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969340"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream em direto com serviços de multimédia v3 com APIs
 
@@ -107,7 +107,7 @@ Ao criar o evento, poderá especificar o início automático do mesmo.
 
 ### <a name="get-ingest-urls"></a>Obter URLs de inserção
 
-Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
+Uma vez criado o LiveEvent, pode obter URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: f7f247da93290aafaec62fe68158a036bc6cb887
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c6086c3d3bc025feaf9da2d4c26d7f008b304b57
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723349"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788128"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar uma aplicação MongoDB com o React e o Azure Cosmos DB  
 
-Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. A aplicação utiliza Node e Express para o servidor, liga-se ao Azure Cosmos DB com o [Azure Cosmos DB para a MongoDB API](mongodb-introduction.md)e, em seguida, liga o front-end do React à parte do servidor da aplicação. O tutorial também mostra como fazer o dimensionamento de tipo apontar e clicar do Azure Cosmos DB no portal do Azure, bem como implementar a aplicação na Internet, para que todos os utilizadores possam fazer o acompanhamento dos heroes preferidos. 
+Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. A aplicação utiliza Node e Express para o servidor, liga-se à base de dados do Cosmos configurado com o [API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md)e, em seguida, liga o front-end do React à parte do servidor da aplicação. O tutorial também mostra como fazer o dimensionamento de apontar e clicar do Cosmos DB no portal do Azure e como implementar a aplicação para a internet para que todos os utilizadores podem acompanhamento dos heroes preferidos. 
 
-[O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) suporta ligações de cliente de MongoDB, pelo que pode utilizar o Azure Cosmos DB em vez do MongoDB.  
+[O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) suporta conectar compatibilidade de protocolo com o MongoDB, permitindo aos clientes utilizar o Azure Cosmos DB em vez do MongoDB.  
 
 Este tutorial com várias parte abrange as seguintes tarefas:
 

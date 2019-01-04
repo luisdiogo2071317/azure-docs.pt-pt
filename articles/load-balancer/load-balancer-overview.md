@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185618"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971193"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -68,7 +68,7 @@ O Balanceador de Carga proporciona as seguintes capacidades básicas para as apl
 
 * **Encaminhamento de portas**
 
-    Com o Balanceador de Carga, pode criar uma regra NAT de entrada para fazer o encaminhamento de portas do tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Esse encaminhamento também pode ser obtido pela mesma distribuição baseada em hashes como balanceamento de carga. Os cenários comuns para esta capacidade são as sessões protocolo RDP (Remote Desktop Protocol) ou Secure Shell (SSH) em instâncias de VMs individuais dentro da Rede Virtual do Azure. Pode mapear vários pontos finais internos para as diversas portas no mesmo endereço IP do front-end. Os endereços IP do front-end podem ser utilizados para administrar remotamente as VMs na Internet sem precisar de um servidor de salto.
+    Com o Balanceador de Carga, pode criar uma regra NAT de entrada para fazer o encaminhamento de portas do tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Esse encaminhamento também pode ser obtido pela mesma distribuição baseada em hashes como balanceamento de carga. Os cenários comuns para esta capacidade são as sessões protocolo RDP (Remote Desktop Protocol) ou Secure Shell (SSH) em instâncias de VMs individuais dentro da Rede Virtual do Azure. Pode mapear vários pontos finais internos para as diversas portas no mesmo endereço IP do front-end. Pode usar os endereços IP de front-end para administrar remotamente as suas VMs através da internet sem a necessidade de uma jumpbox adicionais.
 
 * **Independente de aplicações e transparente**
 

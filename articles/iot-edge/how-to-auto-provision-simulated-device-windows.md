@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101607"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557704"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Criar e aprovisionar um dispositivo de periferia de TPM simulado no Windows
 
@@ -61,14 +61,13 @@ Depois de criar a inscrição individual, guardar o valor do **ID de registo**. 
 
 Depois de concluir a seção anterior, deverá ver seu novo dispositivo listado como um dispositivo IoT Edge no seu IoT Hub. Agora, tem de instalar o runtime do IoT Edge no dispositivo. 
 
-O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Seus componentes executadas em contentores e permitem-lhe implementar contentores adicionais no dispositivo para que pode executar o código na periferia. Em dispositivos com Windows, pode optar por utilizar contentores do Windows ou de contentores do Linux. Escolha o tipo de contentores que pretende utilizar e siga os passos. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual. 
+O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Seus componentes executadas em contentores e permitem-lhe implementar contentores adicionais no dispositivo para que pode executar o código na periferia.  
 
-Siga as instruções para instalar o runtime do IoT Edge no dispositivo que está a executar o TPM simulado da secção anterior. 
+Siga as instruções para instalar o runtime do IoT Edge no dispositivo que está a executar o TPM simulado da secção anterior. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual.
 
-Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de iniciar estes artigos. 
+Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de instalar o IoT Edge no dispositivo. 
 
-* [Contentores do Windows](how-to-install-iot-edge-windows-with-windows.md)
-* [Contentores do Linux](how-to-install-iot-edge-windows-with-linux.md)
+[Instalar e aprovisionar automaticamente do IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 

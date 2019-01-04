@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
-ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091934"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723457"
 ---
 # <a name="azure-data-box-limits"></a>Limites do Azure Data Box
 
@@ -22,7 +22,6 @@ Considere estes limites, como implantar e operar o Microsoft Azure Data Box. A t
 
 ## <a name="data-box-service-limits"></a>Limites do serviço de caixa de dados
 
- - Serviço do Data Box está disponível apenas dentro dos Estados Unidos de todo o [regiões do Azure para a cloud pública do Azure](https://azure.microsoft.com/regions/).
  - Se utilizar várias contas de armazenamento com o serviço do Data Box, todas as contas de armazenamento têm de pertencer à mesma região do Azure apenas.
  - Recomendamos que utilize mais do que três contas de armazenamento. Utilizar contas de armazenamento mais potencialmente poderá afetar o desempenho.
 
@@ -79,5 +78,5 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Não são permitidos hífenes consecutivos em nomes. |
 | Os nomes das partilhas de ficheiros do Azure                  | Mesmo que acima                                                                                                                                                                                                                                                                                                             |
-| Nomes de diretórios e arquivos para os ficheiros do Azure     |<li> Preservação de caso, maiúsculas e minúsculas e não pode exceder os 255 carateres de comprimento. </li><li> Não pode terminar com a barra (/). </li><li>Se for fornecido, será automaticamente removido. </li><li> Os carateres seguintes não são permitidos: "" \ /: | < > *? "</li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos carateres ilegais de caminho de URL. Pontos de código, como \uE000 não são carateres válidos do Unicode. Alguns caracteres ASCII ou Unicode, como carateres de controlo (0x00 para 0x1F \u0081, etc.), não também são permitidas. Para regras para Unicode cadeias de caracteres no HTTP/1.1, consulte RFC 2616, secção 2.2: regras básicas e RFC 3987. </li><li> Seguintes ficheiro nomes não são permitidos: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caráter de ponto (.) e dois pontos carateres (.).</li>|
+| Nomes de diretórios e arquivos para os ficheiros do Azure     |<li> Preservação de caso, maiúsculas e minúsculas e não pode exceder os 255 carateres de comprimento. </li><li> Não pode terminar com a barra (/). </li><li>Se for fornecido, será automaticamente removido. </li><li> Os carateres seguintes não são permitidos: "" \ /: | < > *? "</li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos carateres ilegais de caminho de URL. Pontos de código, como \uE000 não são carateres válidos do Unicode. Alguns caracteres ASCII ou Unicode, como carateres de controlo (0x00 para 0x1F \u0081, etc.), não também são permitidas. Para regras para Unicode cadeias de caracteres no HTTP/1.1, consulte RFC 2616, secção 2.2: Regras básicas e RFC 3987. </li><li> Os nomes de ficheiros seguintes não são permitidos: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caráter de ponto (.) e dois pontos carateres (.).</li>|
 | Nomes de blobs para blob de blocos e blob de páginas      | </li><li>Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. </li><li>Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento. </li><li>Os carateres de URL reservados devem ser escritos corretamente. </li><li>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual.</li> |

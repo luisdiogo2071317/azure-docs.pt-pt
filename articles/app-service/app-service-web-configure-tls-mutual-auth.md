@@ -1,6 +1,6 @@
 ---
 title: Configurar a autenticação mútua de TLS - serviço de aplicações do Azure
-description: Saiba como configurar a sua aplicação web para utilizar a autenticação de certificado de cliente no TLS.
+description: Saiba como configurar a sua aplicação para utilizar a autenticação de certificado de cliente no TLS.
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -15,40 +15,38 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252886"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650402"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Como Configurar a Autenticação Mútua de TLS para a Aplicação Web
+# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Como configurar a autenticação mútua de TLS para o serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
-Pode restringir o acesso à sua aplicação web do Azure, permitindo que diferentes tipos de autenticação para o mesmo. É uma forma de fazê-lo autenticar com um certificado de cliente quando a solicitação é sobre TLS/SSL. Esse mecanismo é chamado de autenticação mútua de TLS ou autenticação e este artigo apresenta em pormenor como configurar a sua aplicação web para utilizar a autenticação de certificado de cliente de certificado de cliente.
+Pode restringir o acesso à sua aplicação de serviço de aplicações do Azure, permitindo que diferentes tipos de autenticação para o mesmo. É uma forma de fazê-lo autenticar com um certificado de cliente quando a solicitação é sobre TLS/SSL. Esse mecanismo é chamado de autenticação mútua de TLS ou autenticação e este artigo apresenta em pormenor como configurar a sua aplicação para utilizar a autenticação de certificado de cliente de certificado de cliente.
 
 > **Nota:** Se acessar seu site por HTTP e HTTPS não, não receberá qualquer certificado de cliente. Portanto, se seu aplicativo exigir certificados de cliente que não deve permitir pedidos à sua aplicação através de HTTP.
 > 
 > 
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-## <a name="configure-web-app-for-client-certificate-authentication"></a>Configurar aplicação Web para autenticação de certificados de cliente
-Para configurar a aplicação web para exigir certificados de cliente, terá de adicionar a definição de site clientCertEnabled para a sua aplicação web e defini-lo como true. Esta definição também é possível configurar no portal do Azure, no painel de certificados de SSL.
+## <a name="configure-app-service-for-client-certificate-authentication"></a>Configurar o serviço de aplicações para autenticação de certificados de cliente
+Para definir a sua aplicação para exigir certificados de cliente, terá de adicionar a definição de site clientCertEnabled para a sua aplicação e configurá-lo como true. Esta definição também é possível configurar no portal do Azure, no painel de certificados de SSL.
 
 Pode utilizar o [ARMClient ferramenta](https://github.com/projectkudu/ARMClient) torna mais fácil criar a chamada à REST API. Depois de iniciar sessão com a ferramenta, precisará emitir o comando seguinte:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-Substituir tudo no {} com informações para a web app e a criação de um arquivo chamado enableclientcert.json com o JSON seguinte conteúdo:
+Substituir tudo no {} com informações para a sua aplicação e a criação de um arquivo chamado enableclientcert.json com o JSON seguinte conteúdo:
 
     {
-        "location": "My Web App Location",
+        "location": "My App Location",
         "properties": {
             "clientCertEnabled": true
         }
     }
 
-Certifique-se alterar o valor de "local" para onde quer que a sua aplicação web está localizada por exemplo, e.u.a. Centro-Norte ou oeste dos EUA etc.
+Lembre-se de que altere o valor de "local" para onde quer que a sua aplicação está localizada, por exemplo, e.u.a. Centro-Norte ou oeste dos EUA etc.
 
 Também pode utilizar https://resources.azure.com inverter os `clientCertEnabled` propriedade `true`.
 
@@ -56,11 +54,11 @@ Também pode utilizar https://resources.azure.com inverter os `clientCertEnabled
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Acessando o certificado de cliente a partir da sua aplicação Web
+## <a name="accessing-the-client-certificate-from-app-service"></a>Acessando o certificado de cliente do serviço de aplicações
 Se estiver usando o ASP.NET e configurar a sua aplicação para utilizar a autenticação de certificado de cliente, o certificado vai estar disponível através da **HttpRequest.ClientCertificate** propriedade. Para outras pilhas de aplicação, o certificado de cliente estarão disponível na sua aplicação através de um valor de codificação base64 no cabeçalho de pedido "X-ARR-ClientCert". Seu aplicativo pode criar um certificado a partir deste valor e, em seguida, utilizá-la para fins de autenticação e autorização em seu aplicativo.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Considerações especiais para validação do certificado
-O certificado de cliente que é enviado para o aplicativo não passa pela nenhuma validação da plataforma de aplicações Web do Azure. A validar este certificado é da responsabilidade da aplicação web. Aqui está o código ASP.NET de exemplo que valida as propriedades do certificado para fins de autenticação.
+O certificado de cliente que é enviado para o aplicativo não passa pela nenhuma validação pela plataforma do App Service do Azure. A validar este certificado é da responsabilidade da aplicação. Aqui está o código ASP.NET de exemplo que valida as propriedades do certificado para fins de autenticação.
 
     using System;
     using System.Collections.Specialized;

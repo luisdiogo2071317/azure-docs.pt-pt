@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400119"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594199"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 
@@ -41,7 +41,7 @@ Ativar o acelerador de escrita para discos de SO não é necessário para config
 Ao usar o acelerador de escrita para um VHD/disco do Azure, estas restrições aplicam-se:
 
 - O cache de disco Premium deve ser definido como 'None' ou "Só de leitura". Todos os outros modos de colocação em cache não são suportados.
-- Os instantâneos num disco de acelerador de escrita ativados ainda não é suportado. Esta restrição bloqueia a capacidade de serviço de cópia de segurança do Azure para efetuar um instantâneo consistente da aplicação de todos os discos da máquina virtual.
+- Instantâneo não são atualmente suportadas para discos com acelerador de escrita ativado. Durante a cópia de segurança, o serviço Azure Backup exclui automaticamente os discos com acelerador de escrita ativado, ligados à VM.
 - Apenas os tamanhos de e/s menores (< = 32 KiB) estão a tirar o melhor caminho. Na carga de trabalho situações em que está a ficar em massa dados carregados ou em que os buffers de log de transação de diferentes DBMS são preenchidos para um maior grau antes da introdução persistida para o armazenamento, é provável que a e/s escrito para disco não está a demorar o caminho acelerado.
 
 Existem limites de VHDs de armazenamento Premium do Azure por VM, que pode ser suportado pelo acelerador de escrita. Os limites atuais são:

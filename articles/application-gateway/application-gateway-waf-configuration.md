@@ -7,19 +7,16 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036722"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752729"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limites de tamanho de pedido de firewall de aplicação Web e de exclusão contém uma lista (pré-visualização pública)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
 
 A firewall de aplicações do Gateway de aplicação Azure web (WAF) fornece proteção para aplicativos web. Este artigo descreve os limites de tamanho do pedido de WAF e configuração de listas de exclusão.
-
-> [!IMPORTANT]
-> Configuração de limites de tamanho do pedido de WAF e listas de exclusão está atualmente em pré-visualização pública. Esta pré-visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho do pedido de WAF
 
@@ -52,9 +49,9 @@ Pode especificar um cabeçalho de pedido exata, body, cookie ou correspondência
 
 Seguem-se os operadores de critérios de correspondência suportados:
 
-- **É igual a**: Este operador é usado para uma correspondência exata. Por exemplo, para a seleção de um cabeçalho denominado **bearerToken**, utilize o operador equals com o Seletor de definido como **bearerToken**.
+- **É igual a**:  Este operador é utilizado para uma correspondência exata. Por exemplo, para a seleção de um cabeçalho denominado **bearerToken**, utilize o operador equals com o Seletor de definido como **bearerToken**.
 - **Começa com**: Este operador corresponde a todos os campos que começam com o valor de Seletor especificado.
-- **Termina com**: Este operador corresponde a todos os campos de solicitação que terminam com o valor de Seletor especificado.
+- **Termina com**:  Este operador corresponde a todos os campos de solicitação que terminam com o valor de Seletor especificado.
 - **Contém**: Este operador corresponde a todos os campos de solicitação que contêm o valor de Seletor especificado.
 
 Em todos os casos, a correspondência é sensível a maiúsculas e expressões regulares não são permitidos como seletores.

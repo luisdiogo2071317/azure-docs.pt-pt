@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101420"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608958"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -27,47 +27,52 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-150"></a>Versão 1.5.0
-10/29/2018
+## <a name="version-161"></a>Versão 1.6.1
+12/18/2018
 
-### <a name="download-azure-storage-explorer-150"></a>Transfira o Explorador de armazenamento do Azure 1.5.0
-- [Explorador de armazenamento do Azure 1.5.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.5.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.5.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-161"></a>Transfira o Explorador de armazenamento do Azure 1.6.1
+- [Explorador de armazenamento do Azure 1.6.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.6.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.6.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Correções
+* Devido a limitações de API, validação de todos os de ObjectIds na caixa de diálogo Gerir o acesso foram desativadas. Agora, validação situação ocorrerá apenas para o utilizador UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* Na caixa de diálogo de geração 2 do ADLS gerir o acesso, não foi possível modificar as permissões para um grupo. Isto foi corrigido. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Foi adicionado arrastar e soltar carregar o suporte para o editor de geração 2 do ADLS. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* A propriedade de URL na caixa de diálogo Propriedades de geração 2 do ADLS ficheiros e pastas, às vezes, estava em falta um '/'. Isto foi corrigido. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Se a obter as permissões atuais para um contentor de geração 2 do ADLS, ficheiro ou pasta falha, então o erro agora é propertly apresentado no registo de atividades. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* O caminho temporário, criado para abrir ficheiros tem foram abreviado para reduzir a possibilidade de criar um caminho que é mais de MAX_PATH no Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* A caixa de diálogo Connect agora corretamente é apresentado quando não foram encontrados utilizadores com sessão iniciada e não existem recursos que tenham sido vinculados. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 1.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Carregar uma pasta para um contentor de BLOBs não HNS falha se foi utilizada uma SAS e a SAS não tem as permissões de leitura. Isto foi corrigido. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* A cancelar uma transferência de AzCopy não funcionava. Isto foi corrigido. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
 ### <a name="new"></a>Novo
 
-* Agora, pode utilizar [AzCopy v10 (pré-visualização)](https://github.com/Azure/azure-storage-azcopy) para carregar e transferir Blobs. Para ativar esta funcionalidade vá para o menu "Experimental" e, em seguida, clique em "Utilizar AzCopy para melhorada Blob carregar e transferir". Quando ativada, o AzCopy será utilizado nos seguintes cenários:
-   * Carregar pastas e arquivos para os contentores de BLOBs, através da barra de ferramentas ou arraste e largue.
-   * Transferência de pastas e arquivos, através do menu de contexto ou da barra de ferramentas.
-
-* Além disso, ao utilizar o AzCopy:
-   * Pode copiar o comando do AzCopy utilizado para executar a transferência para a área de transferência. Basta clicar em "Copiar AzCopy comando para área de transferência" no registo de atividades.
-   * Terá de atualizar o editor de BLOBs manualmente depois de carregar.
-   * Não é suportada a carregar ficheiros para blobs de acréscimo, .vhds será carregado como blobs de páginas e serão carregados todos os outros ficheiros como blobs de blocos.
-   * Erros e conflitos que ocorrem durante o carregamento ou transferência não serão mostrados até que, após um carregamento ou download for concluído.
-
-Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no futuro.
-* Explorador de armazenamento agora está a utilizar o Bombardeador versão 2.0.11.
-* Quebra concessões agora pode apenas ser executada num blob de cada vez. Além disso, tem de introduzir o nome do blob cujo concessão são a última hora. Esta alteração foi feita para reduzir a probabilidade de quebrar acidentalmente uma concessão, especialmente no caso de .vhds para as VMs. #394
-* Se alguma vez ocorrer problemas de início de sessão, pode agora tentar repor a autenticação. Vá para o menu de "Ajuda" e clique em "Repor" para aceder a esta capacidade. #419
-
-### <a name="fix"></a>Corrigir
-
-* Depois de comentários do usuário forte, o nó de emulador predefinido foi reativado. Pode ainda adicionar ligações de emulador adicionais por meio da caixa de diálogo conectar, mas se o emulador estiver configurado para utilizar as portas padrão também pode utilizar o "Emulador * portas predefinidas" no nó "Local e ligado/as contas de armazenamento". #669
-* Explorador de armazenamento já não será permitem-lhe definir os valores de metadados de BLOBs que têm espaço em branco à esquerda nem à direita. #760
-* O botão "Sessão" sempre foi ativado no mesmo páginas da caixa de diálogo Connect. Agora está desativada quando apropriado. #761
-* Acesso rápido já não irá gerar um erro na consola quando não existem itens de acesso rápido foram adicionados.
+* Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
+* Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
+    * Criar e eliminar contentores
+    * Gerir as propriedades do contentor e permissões (lado esquerdo)
+    * Exibir e navegar dados dentro de contentores
+    * Criar novas pastas
+    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+    
+    Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
+* Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
-* Desanexar de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver #537 para obter mais informações.
-* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se, ao fazê-lo por isso, não desbloquear, comente sobre esse problema.
+* Ao transferir a partir de uma conta de armazenamento do ADLS geração 2, se um dos ficheiros a serem transferidos já existir, o AzCopy, às vezes, irá falhar. Isso será corrigido numa futura correção.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentário sobre este problema.
 * Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
-* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para resolver este problema quando carregar para o ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para contornar este problema ao carregar para ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * O Azure Stack não suporta as seguintes funcionalidades. Recursos tentando usar esses recursos ao trabalhar com o Azure Stack podem resultar em erros inesperados.
@@ -98,6 +103,8 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 1.6.0](#version-160)
+* [Versão 1.5.0](#version-150)
 * [Versão 1.4.4](#version-144)
 * [Versão 1.4.3](#version-143)
 * [Versão 1.4.2](#version-142)
@@ -129,11 +136,131 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
 
+## <a name="version-160"></a>Versão 1.6.0
+12/5/2018
+
+### <a name="new"></a>Novo
+
+* Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
+* Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
+    * Criar e eliminar contentores
+    * Gerir as propriedades do contentor e permissões (lado esquerdo)
+    * Exibir e navegar dados dentro de contentores
+    * Criar novas pastas
+    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+    
+    Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
+* Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.
+
+### <a name="known-issues"></a>Problemas Conhecidos
+
+* Ao transferir a partir de uma conta de armazenamento do ADLS geração 2, se um dos ficheiros a serem transferidos já existir, o AzCopy, às vezes, irá falhar. Isso será corrigido numa futura correção.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentário sobre este problema.
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para contornar este problema ao carregar para ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* O Azure Stack não suporta as seguintes funcionalidades. Recursos tentando usar esses recursos ao trabalhar com o Azure Stack podem resultar em erros inesperados.
+   * Partilhas de ficheiros
+   * Camadas de acesso
+   * Eliminação de forma recuperável
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-150"></a>Versão 1.5.0
+10/29/2018
+
+### <a name="new"></a>Novo
+
+* Agora, pode utilizar [AzCopy v10 (pré-visualização)](https://github.com/Azure/azure-storage-azcopy) para carregar e transferir Blobs. Para ativar esta funcionalidade vá para o menu "Experimental" e, em seguida, clique em "Utilizar AzCopy para melhorada Blob carregar e transferir". Quando ativada, o AzCopy será utilizado nos seguintes cenários:
+   * Carregar pastas e arquivos para os contentores de BLOBs, através da barra de ferramentas ou arraste e largue.
+   * Transferência de pastas e arquivos, através do menu de contexto ou da barra de ferramentas.
+
+* Além disso, ao utilizar o AzCopy:
+   * Pode copiar o comando do AzCopy utilizado para executar a transferência para a área de transferência. Basta clicar em "Copiar AzCopy comando para área de transferência" no registo de atividades.
+   * Terá de atualizar o editor de BLOBs manualmente depois de carregar.
+   * Não é suportada a carregar ficheiros para blobs de acréscimo e ficheiros vhd serão carregados como blobs de páginas e serão carregados todos os outros ficheiros como blobs de blocos.
+   * Erros e conflitos que ocorrem durante o carregamento ou transferência não serão mostrados até que, após um carregamento ou download for concluído.
+
+Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no futuro.
+* Explorador de armazenamento agora está a utilizar o Bombardeador versão 2.0.11.
+* Quebra concessões agora pode apenas ser executada num blob de cada vez. Além disso, tem de introduzir o nome do blob cujo concessão são a última hora. Esta alteração foi feita para reduzir a probabilidade de quebrar acidentalmente uma concessão, especialmente para as VMs. #394
+* Se alguma vez ocorrer problemas de início de sessão, pode agora tentar repor a autenticação. Vá para o menu de "Ajuda" e clique em "Repor" para aceder a esta capacidade. #419
+
+### <a name="fix"></a>Corrigir
+
+* Depois de comentários do usuário forte, o nó de emulador predefinido foi reativado. Pode ainda adicionar ligações de emulador adicionais por meio da caixa de diálogo conectar, mas se o emulador estiver configurado para utilizar as portas padrão também pode utilizar o "Emulador * portas predefinidas" no nó "Local e ligado/as contas de armazenamento". #669
+* Explorador de armazenamento já não será permitem-lhe definir os valores de metadados de BLOBs que têm espaço em branco à esquerda nem à direita. #760
+* O botão "Sessão" sempre foi ativado no mesmo páginas da caixa de diálogo Connect. Agora está desativada quando apropriado. #761
+* Acesso rápido já não irá gerar um erro na consola quando não existem itens de acesso rápido foram adicionados.
+
+### <a name="known-issues"></a>Problemas Conhecidos
+
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentário sobre este problema.
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para contornar este problema ao carregar para ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* O Azure Stack não suporta as seguintes funcionalidades. Recursos tentando usar esses recursos ao trabalhar com o Azure Stack podem resultar em erros inesperados.
+   * Partilhas de ficheiros
+   * Camadas de acesso
+   * Eliminação de forma recuperável
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
 ## <a name="version-144"></a>Versão 1.4.4
 10/15/2018
 
 ### <a name="hotfixes"></a>Correções
-* A versão de Api de gestão de recursos do Azure foi revertida para o desbloqueio de utilizadores do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* A versão de API de gestão de recursos do Azure foi revertida para o desbloqueio de utilizadores do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * A carregar spinners estão agora a utilizar animações do CSS para reduzir a quantidade de GPU utilizado pelo Explorador de armazenamento. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Novo
@@ -159,7 +286,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -189,7 +316,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 10/11/2018
 
 ### <a name="hotfixes"></a>Correções
-* A versão de Api de gestão de recursos do Azure foi revertida para o desbloqueio de utilizadores do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* A versão de API de gestão de recursos do Azure foi revertida para o desbloqueio de utilizadores do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * A carregar spinners estão agora a utilizar animações do CSS para reduzir a quantidade de GPU utilizado pelo Explorador de armazenamento. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Novo
@@ -215,7 +342,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -245,7 +372,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 24/09/2018
 
 ### <a name="hotfixes"></a>Correções
-* Atualize a versão de Api de gestão de recursos Azure 2018-07-01, para adicionar suporte para novos tipos de conta de armazenamento do Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+* Atualize a versão de API de gestão de recursos Azure 2018-07-01, para adicionar suporte para novos tipos de conta de armazenamento do Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
 ### <a name="new"></a>Novo
 * Anexos de recurso externo, como para ligações SAS e emuladores, foi melhorada significativamente. Agora, pode:
@@ -270,7 +397,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -330,7 +457,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -373,18 +500,18 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * O "Microsoft Azure Storage Explorer-" o prefixo estava em falta na caixa de diálogo Criar novo diretório. Isto foi corrigido. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
 * Acessibilidade: A caixa de diálogo Adicionar entidade era difícil navegue até ao utilizar VoiceOver. Foram efetuadas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * Acessibilidade: A cor de fundo do botão Expandir/Fechar para o painel de ações e propriedades foi inconsistente com controles de interface do Usuário semelhante no tema de alto contraste preto. A cor foi alterada. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Acessibilidade: No tema de alto contraste preto, o foco de definição de estilo para o botão 'X', na caixa de diálogo de propriedades não era visível. Isto foi corrigido. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Acessibilidade: Tema de alto contraste preto, o foco de definição de estilo para o botão 'X', na caixa de diálogo de propriedades não era visível. Isto foi corrigido. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
 * Acessibilidade: Os separadores de propriedades e ações foram em falta vários valores de aria que resultou numa experiência de leitor de ecrã abaixo da média comparados. Os valores em falta do aria agora foram adicionados. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
 * Acessibilidade: Nós da árvore recolhido no lado esquerdo não foram a ser fornecidos um valor false aria-expandido. Isto foi corrigido. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### <a name="known-issues"></a>Problemas Conhecidos
-* Desanexar de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537) para obter mais informações.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537) para obter mais informações.
 * Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * O Azure Stack não suporta as seguintes funcionalidades e tentar usá-los ao trabalhar com o Azure Stack pode resultar em erros inesperados:
@@ -444,7 +571,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -498,7 +625,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -564,7 +691,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 ### <a name="known-issues"></a>Problemas Conhecidos
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
 * Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
@@ -600,7 +727,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 ### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
@@ -649,7 +776,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 ### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
@@ -696,7 +823,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
@@ -760,7 +887,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
@@ -816,7 +943,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
@@ -894,7 +1021,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
-* Botões da caixa de diálogo de confirmação de pasta delete não se registar com os cliques do mouse no Linux. Solução alternativa é usar a tecla Enter
+* Botões da caixa de diálogo de confirmação de pasta delete não se registar com os cliques do mouse no Linux. trabalho em torno é usar a tecla Enter
 * Se escolher o certificado PIN/smart card errado, em seguida, terá de reiniciar para ter o Explorador de armazenamento se esqueça a decisão
 * Ter mais de 3 grupos de blobs ou ficheiros a carregar ao mesmo tempo, poderá causar erros
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar subscrições
@@ -920,11 +1047,11 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 #### <a name="fixes"></a>Correções
 
 * Corrigido: Carregamento de ficheiros tido a oportunidade de causar um fora de erro de memória elevada
-* Corrigido: Que pode agora iniciar sessão com o PIN/smart card
-* Corrigido: Abra no Portal agora funciona com o Azure China, Azure Alemanha, Azure US Government e Azure Stack
-* Corrigido: Ao carregar uma pasta para um contentor de BLOBs, um erro de "Operação ilegal" às vezes, ocorreria
+* Corrigido: Pode agora iniciar sessão com PIN/smart card
+* Corrigido: Abrir no Portal agora funciona com o Azure China 21Vianet, Azure Alemanha, Azure US Government e Azure Stack
+* Corrigido: Ao carregar uma pasta para um contentor de BLOBs, às vezes, poderia ocorrer um erro de "Operação ilegal"
 * Corrigido: Selecionar tudo foi desativado, gerindo instantâneos
-* Foi corrigido: Os metadados do base blob talvez seja substituído depois de visualizar as propriedades dos respetivos instantâneos
+* Corrigido: Os metadados do base blob talvez seja substituído depois de visualizar as propriedades dos respetivos instantâneos
 
 #### <a name="known-issues"></a>Problemas Conhecidos
 
@@ -1000,7 +1127,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Explorador de armazenamento 0.8.9 irá transferir automaticamente a versão mais recente de atualizações.
 * URI de SAS gerado para anexar uma conta de armazenamento a correção: utilizar um portal iria resultar num erro.
 * Agora pode criar, gerenciar e promover instantâneos de blob.
-* Pode agora iniciar sessão para contas de Azure US Government, Azure China e Azure Alemanha.
+* Pode agora iniciar sessão no Azure China 21Vianet, o Azure Alemanha e contas do Azure US Government.
 * Agora, pode alterar o nível de zoom. Utilize as opções no menu exibir para aplicar Zoom no, ampliar horizontalmente e repor Zoom.
 * Caracteres Unicode agora são suportados nos metadados de utilizador para blobs e ficheiros.
 * Melhorias de acessibilidade.
@@ -1033,13 +1160,13 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 #### <a name="fixes"></a>Correções
 
-* Foi corrigido: Explorador de armazenamento é agora uma aplicação fidedigno no Mac
-* Foi corrigido: Ubuntu 14.04 é novamente suportado
-* Foi corrigido: Por vezes, a adicionar conta da interface do Usuário pisca quando a carregar subscrições
-* Foi corrigido: Por vezes, nem todos os recursos de armazenamento listados no painel de navegação do lado esquerdo
-* Corrigido: O ação, às vezes, apresentado o painel de ações vazias
-* Foi corrigido: O tamanho da janela na última sessão fechada é agora mantido
-* Foi corrigido: É possível abrir vários separadores para o mesmo recurso utilizando o menu de contexto
+* Corrigido: Explorador de armazenamento agora é um aplicativo confiável no Mac
+* Corrigido: Ubuntu 14.04 novamente é suportada
+* Corrigido: Por vezes, a adicionar conta da interface do Usuário pisca quando a carregar subscrições
+* Corrigido: Por vezes, nem todos os recursos de armazenamento listados no painel de navegação do lado esquerdo
+* Corrigido: O painel de ações, às vezes, apresentado ações vazias
+* Corrigido: O tamanho da janela na última sessão fechada agora é mantido
+* Corrigido: Pode abrir vários separadores para o mesmo recurso utilizando o menu de contexto
 
 #### <a name="known-issues"></a>Problemas Conhecidos
 
@@ -1061,7 +1188,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 * Introduzimos novamente procura de âmbito com nossa nova pesquisa de subcadeia aprimorada, portanto, agora tem duas opções de pesquisa:
     * Global de pesquisa – basta inserir um termo de pesquisa na caixa de texto de pesquisa
     * Procura de âmbito - clique no ícone de lupa junto a um nó, em seguida, adicione um termo de pesquisa no final do caminho, ou com o botão direito e selecione "Pesquisa de aqui"
-* Adicionámos vários temas: claro (padrão), escuro, elevado contraste preto e alto contraste White. Aceda a edição -&gt; temas para alterar a sua preferência de personalização
+* Adicionámos vários temas: Claro (padrão), escuro, elevado contraste preto e alto contraste White. Aceda a edição -&gt; temas para alterar a sua preferência de personalização
 * Pode modificar as propriedades de BLOBs e ficheiros
 * Suportamos agora codificado (base64) e mensagens de fila não codificado
 * No Linux, um sistema operacional de 64 bits é agora necessário. Para esta versão só oferecemos suporte a 64-bit Ubuntu 16.04.1 LTS
@@ -1069,13 +1196,13 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 #### <a name="fixes"></a>Correções
 
-* Corrigido: Problemas congelando de ecrã
-* Fixo: Segurança avançada
-* Corrigido: Contas anexadas às vezes, duplicadas podem aparecer
-* Foi corrigido: Um blob com um tipo de conteúdo indefinido foi possível gerar uma exceção
-* Corrigido: Abrir o painel de consulta numa tabela vazia não era possível
-* Foi corrigido: Varia bugs na pesquisa
-* Aumentar fixos: O número de recursos carregado de 50 a 100 quando clicar em "Mais carga"
+* Corrigido: Ecrã congelando problemas
+* Corrigido: Segurança avançada
+* Corrigido: Podem aparecer contas anexadas às vezes, duplicadas
+* Corrigido: Um blob com um tipo de conteúdo indefinido foi possível gerar uma exceção
+* Corrigido: Não foi possível abrir o painel de consulta numa tabela vazia
+* Corrigido: Varia bugs na pesquisa
+* Corrigido: Aumentar o número de recursos carregado de 50 a 100, quando clicar em "Mais carga"
 * Corrigido: Na primeira execução, se uma conta está conectada, podemos agora selecione todas as subscrições para essa conta por predefinição
 
 #### <a name="known-issues"></a>Problemas Conhecidos
@@ -1097,8 +1224,8 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 #### <a name="fixes"></a>Correções
 
 * Corrigido: a condição de corrida durante a pesquisa, às vezes, causado nós para se tornar não expansível
-* Foi corrigido: "Utilizar HTTP" não funciona ao ligar a contas de armazenamento com o nome da conta e chave
-* Foi corrigido: Chaves SAS (especialmente gerado pelo Portal aqueles) retornam um erro de "à direita barra"
+* Corrigido: "Utilizar HTTP" não funciona ao ligar a contas de armazenamento com o nome da conta e chave
+* Corrigido: Chaves SAS (especialmente gerado pelo Portal aqueles) retornam um erro de "à direita barra"
 * Foi corrigido: tabela problemas de importação
     * Por vezes, chave de partição e chave de linha foram revertidas
     * Não é possível ler as chaves de partição "null"
@@ -1144,7 +1271,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 #### <a name="fixes"></a>Correções
 
-* Foi corrigido: Accounts Microsoft requerem reautenticação a cada 8 a 12 horas
+* Corrigido: Accounts Microsoft requerem reautenticação a cada 8 a 12 horas
 
 #### <a name="known-issues"></a>Problemas Conhecidos
 
@@ -1163,7 +1290,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 #### <a name="new"></a>Novo
 
 * Contas de armazenamento estão agrupadas por subscrições; armazenamento de desenvolvimento e recursos ligados através de SAS ou de chave são apresentados no nó (Local e ligado)
-* Termine a sessão das contas no painel "Definições de conta do Azure"
+* Terminar sessão das contas no painel "Definições de conta do Azure"
 * Configurar definições de proxy para ativar e gerir o início de sessão
 * Criar e dividir concessões de blob
 * Contentores de BLOBs aberto, filas, tabelas e ficheiros com o clique único
@@ -1266,7 +1393,7 @@ Por fim, suporte para utilizar o AzCopy com partilhas de ficheiros chegará no f
 
 * Apoio técnico para Linux (recursos de paridade para OSX)
 * Adicionar contentores de Blobs com a chave de assinaturas de acesso partilhado (SAS)
-* Adicionar contas de armazenamento para o Azure China
+* Adicionar contas de armazenamento para o Azure na China 21Vianet
 * Adicionar contas de armazenamento com os pontos finais personalizados
 * Abrir e ver os blobs de texto e imagem de conteúdo
 * Ver e editar propriedades de BLOBs e metadados

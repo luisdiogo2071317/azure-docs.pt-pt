@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876524"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753647"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -119,7 +119,7 @@ Na [Explorador de métricas](../application-insights/app-insights-metrics-explor
 
 ![Explorador de Métricas](media/functions-monitoring/metrics-explorer.png)
 
-Sobre o [falhas](../application-insights/app-insights-asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas a menos que implemente [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
+Sobre o [falhas](../azure-monitor/app/asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas a menos que implemente [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
 
 ![Falhas](media/functions-monitoring/failures.png)
 
@@ -137,7 +137,7 @@ O [Stream de métricas em direto](../application-insights/app-insights-live-stre
 
 ## <a name="query-telemetry-data"></a>Consultar dados de telemetria
 
-[O Application Insights Analytics](../application-insights/app-insights-analytics.md) permite-lhe aceder a todos os dados de telemetria na forma de tabelas numa base de dados. Analytics fornece uma linguagem de consulta para extrair, manipulação e visualizar os dados.
+[O Application Insights Analytics](../azure-monitor/app/analytics.md) permite-lhe aceder a todos os dados de telemetria na forma de tabelas numa base de dados. Analytics fornece uma linguagem de consulta para extrair, manipulação e visualizar os dados.
 
 ![Selecione a análise](media/functions-monitoring/select-analytics.png)
 
@@ -158,7 +158,7 @@ As tabelas que estão disponíveis são mostradas na **esquema** separador do pa
 * **pedidos** -um para cada invocação de função.
 * **exceções** - eventuais exceções geradas pelo tempo de execução.
 * **customMetrics** -contagem de êxito e falha invocações, a taxa de êxito, a duração.
-* **customEvents** -eventos controlados pelo tempo de execução, por exemplo: pedidos HTTP que acionam uma função.
+* **customEvents** -eventos controlados pelo tempo de execução, por exemplo:  Pedidos HTTP que acionam uma função.
 * **performanceCounters** -informações sobre o desempenho dos servidores que executem as funções.
 
 As outras tabelas destinam-se a testes de disponibilidade e a telemetria de browser do cliente. Pode implementar a telemetria personalizada para adicionar dados a eles.
@@ -439,7 +439,7 @@ Esse código é uma alternativa ao chamar `trackMetric` usando [o SDK de node. j
 
 ## <a name="custom-telemetry-in-c-functions"></a>Telemetria personalizada em c# funções
 
-Pode utilizar o [applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) pacote NuGet para enviar dados de telemetria personalizada para o Application Insights. O seguinte C# exemplo utiliza o [API de telemetria personalizado](../application-insights/app-insights-api-custom-events-metrics.md). O exemplo é para uma biblioteca de classes do .NET, mas o código do Application Insights é o mesmo para script c#.
+Pode utilizar o [applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) pacote NuGet para enviar dados de telemetria personalizada para o Application Insights. O seguinte C# exemplo utiliza o [API de telemetria personalizado](../azure-monitor/app/api-custom-events-metrics.md). O exemplo é para uma biblioteca de classes do .NET, mas o código do Application Insights é o mesmo para script c#.
 
 ### <a name="version-2x"></a>Versão 2.x
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Para obter mais informações, consulte [como transmitir registos](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+Para obter mais informações, consulte [como transmitir registos](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### <a name="viewing-log-files-locally"></a>Ficheiros de registo de visualização localmente
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409926"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743362"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure Storage para restringir o acesso aos dados no HDInsight
 
@@ -180,10 +180,10 @@ Um exemplo de como criar um cluster do HDInsight que utiliza a SAS está incluí
    > [!IMPORTANT]  
    > Quando lhe for pedido para o HTTP/s ou o nome de utilizador SSH e a palavra-passe, tem de fornecer uma palavra-passe que cumpra os seguintes critérios:
    >
-   > * Tem de ser no mínimo 10 carateres de comprimento
-   > * Tem de conter, pelo menos, um dígito
-   > * Tem de conter pelo menos um caráter não alfanumérico
-   > * Tem de conter pelo menos uma letra em minúsculas em maiúsculas ou
+   > * Tem de ser no mínimo 10 carateres de comprimento.
+   > * Tem de conter, pelo menos, um dígito.
+   > * Tem de conter pelo menos um caráter não alfanumérico.
+   > * Tem de conter pelo menos um canto superior ou uma letra minúscula.
 
 Demora algum tempo para que este script concluir, normalmente, cerca de 15 minutos. Quando o script for concluído sem erros, o cluster ter sido criado.
 
@@ -290,10 +290,10 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
 
 **Resolução**: Utilize uma palavra-passe que cumpra os seguintes critérios:
 
-* Tem de ser no mínimo 10 carateres de comprimento
-* Tem de conter, pelo menos, um dígito
-* Tem de conter pelo menos um caráter não alfanumérico
-* Tem de conter pelo menos uma letra em minúsculas em maiúsculas ou
+* Tem de ser no mínimo 10 carateres de comprimento.
+* Tem de conter, pelo menos, um dígito.
+* Tem de conter pelo menos um caráter não alfanumérico.
+* Tem de conter pelo menos um canto superior ou uma letra minúscula.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

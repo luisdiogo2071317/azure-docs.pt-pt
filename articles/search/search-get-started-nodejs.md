@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 81fa7e34c2cacf1ee8613c080d55225ffc37cdfc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0b36ee9aa54f0d8dd3d246d6c5a96e767326d2d8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311087"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634682"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -25,12 +25,12 @@ ms.locfileid: "53311087"
 
 Saiba como compilar uma aplicação de pesquisa Node.js personalizada que utiliza a Azure Search pela sua experiência de pesquisa. Este tutorial utiliza a [API REST do Serviço da Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações utilizados neste exercício.
 
-Utilizamos [Node.js](https://Nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e Windows PowerShell no Windows 8.1 para desenvolver e testar este código.
+Utilizamos [Node.js](https://Nodejs.org) e NPM, [Sublime Text 3](https://www.sublimetext.com/3) e Windows PowerShell no Windows 8.1 para desenvolver e testar este código.
 
 Para executar este exemplo, precisa de um serviço da Azure Search e, para isso, pode inscrever-se no [portal do Azure](https://portal.azure.com). Consulte [Criar um serviço da Azure Search no portal](search-create-service-portal.md) para obter instruções passo a passo.
 
 ## <a name="about-the-data"></a>Sobre os dados
-Esta aplicação de exemplo utiliza dados dos [Serviços Geológicos dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) filtrados no estado de Rhode Island de forma a reduzir o tamanho do conjunto de dados. Utilizaremos estes dados para compilar uma aplicação de pesquisa que devolve edifícios históricos, tais como hospitais e escolas, assim como características geológicas, como rios, lagos e cumes.
+Esta aplicação de exemplo utiliza dados dos [Serviços Geológicos dos Estados Unidos (USGS)](https://geonames.usgs.gov/domestic/download_data.htm) filtrados no estado de Rhode Island de forma a reduzir o tamanho do conjunto de dados. Utilizaremos estes dados para compilar uma aplicação de pesquisa que devolve edifícios históricos, tais como hospitais e escolas, assim como características geológicas, como rios, lagos e cumes.
 
 Nesta aplicação, o programa **DataIndexer** compila e carrega o índice utilizando uma construção do [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), obtendo o conjunto de dados USGS filtrado a partir de uma Base de Dados SQL pública do Azure. As informações da ligação e das credenciais da fonte de dados online são fornecidas no código do programa. Não é necessária qualquer configuração adicional.
 

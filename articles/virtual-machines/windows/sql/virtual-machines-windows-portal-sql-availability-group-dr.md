@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240414"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972384"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
 
@@ -84,6 +84,7 @@ Para criar uma réplica num Datacenter remoto, siga os passos abaixo:
    - Inclua um conjunto de back-end consiste apenas as máquinas virtuais na mesma região que o Balanceador de carga.
    - Utilize uma sonda de porta TCP específica para o endereço IP.
    - Ter uma regra específica para o SQL Server na mesma região de balanceamento de carga.  
+   - Se as máquinas virtuais no conjunto de back-end não fazem parte de um único conjunto de disponibilidade ou o conjunto de dimensionamento de máquina virtual de ser um balanceador de carga Standard. Para informações adicionais, veja [descrição geral do Azure Balanceador de carga Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Adicionar a funcionalidade de Clustering de ativação pós-falha para o novo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

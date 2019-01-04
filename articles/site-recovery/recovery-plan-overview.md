@@ -3,16 +3,17 @@ title: Utilizar planos de recuperação na recuperação após desastre com o Az
 description: Saiba como utilizar planos de recuperação para recuperação após desastre com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848396"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975666"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
@@ -60,11 +61,11 @@ Com essa personalização no local, este é o que acontece quando executa uma at
 
 Recuperação de aplicativos grandes pode ser uma tarefa complexa. Passos manuais tornam o processo propenso a erro e a pessoa a executar a ativação pós-falha possa não ter conhecimento de todos os pormenores de aplicação. Pode utilizar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, através de runbooks de automatização do Azure para a ativação pós-falha para o Azure ou scripts. Para tarefas que não podem ser automatizadas, pode inserir interrupções para ações manuais em planos de recuperação. Existem dois tipos de tarefas que pode configurar:
 
-* **Tarefas na VM do Azure após a ativação pós-falha**: quando estiver a fazer failover para o Azure, normalmente, tem de executar ações para que possam ligar à VM após a ativação pós-falha. Por exemplo: 
+* **Tarefas na VM do Azure após a ativação pós-falha**: Quando estiver a fazer failover para o Azure, normalmente, tem de executar ações para que possam ligar à VM após a ativação pós-falha. Por exemplo: 
     * Crie um endereço IP público na VM do Azure.
     * Atribua um grupo de segurança de rede para o adaptador de rede da VM do Azure.
     * Adicione um balanceador de carga a um conjunto de disponibilidade.
-* **Tarefas de VM após a ativação pós-falha**: estas tarefas normalmente reconfigurar a aplicação em execução na máquina, para que continuam a funcionar corretamente no novo ambiente. Por exemplo:
+* **Tarefas de VM após a ativação pós-falha**: Estas tarefas, normalmente, reconfigure a aplicação em execução na máquina, para que continuam a funcionar corretamente no novo ambiente. Por exemplo:
     * Modificar a cadeia de ligação de base de dados dentro da máquina.
     * Altere a configuração de servidor web ou regras.
 

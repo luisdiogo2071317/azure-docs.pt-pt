@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42812876"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744416"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -35,7 +35,7 @@ Para concluir este tutorial:
 - Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
-- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](app-insights-asp-net.md).
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../azure-monitor/app/asp-net.md).
 - [Ativar o gerador de perfis do Application Insights](app-insights-profiler.md#installation) para a sua aplicação.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -122,7 +122,7 @@ Como acontece nos dados recolhidos do desempenho do servidor, o Application Insi
     ![Diagnóstico Inteligente](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]

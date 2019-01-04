@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437838"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583515"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Resolver problemas relacionados com os Runbook Workers híbridos
 
@@ -34,7 +34,7 @@ Falha de execução de Runbooks e receber o erro seguinte:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-O runbook está suspenso pouco depois tentar executá-lo três vezes. Existem condições, que podem interromper o runbook a conclusão com êxito e a mensagem de erro relacionados não inclui qualquer informação adicional que indica o porquê.
+O runbook está suspenso logo após o mesmo tenta a executá-lo três vezes. Existem condições, que podem interromper o runbook a conclusão. Quando isto acontecer, a mensagem de erro relacionados não pode incluir qualquer informação adicional que indica por que motivo.
 
 #### <a name="cause"></a>Causa
 
@@ -46,17 +46,40 @@ Seguem-se possíveis causas possíveis:
 
 * Os runbooks não é possível autenticar com recursos locais
 
-* O computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware.
+* O computador configurado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware.
 
 #### <a name="resolution"></a>Resolução
 
 Certifique-se de que o computador tem acesso de *. Azure-Automation.NET saída na porta 443.
 
-Computadores que executam a função de trabalho de Runbook híbrida devem cumprir os requisitos mínimos de hardware antes ao designá-lo para alojar esta funcionalidade. Caso contrário, consoante a utilização de recursos de outros processos em segundo plano e a contenção durante podem de execução do runbook causa o computador ficar sobrecarregado e causar atrasos de tarefa de runbook ou os tempos limite.
+Computadores que executam a função de trabalho de Runbook híbrida devem satisfazer os requisitos mínimos de hardware antes de está configurada para alojar esta funcionalidade. Runbooks e os processos em segundo plano utilizam podem fazer com que o sistema a ser sobrecarregado e causar atrasos de tarefa de runbook ou os tempos limite.
 
-Certifique-se o computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se assim for, monitorize a utilização de CPU e memória para determinar qualquer correlação entre o desempenho de processos de trabalho de Runbook híbrida e Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de atualizar ou adicione processadores adicionais ou aumente a memória para o afunilamento do recurso de endereço e resolva o erro. Em alternativa, selecione um recurso de computação diferentes que pode suportar os requisitos mínimos e dimensionamento quando a carga de trabalho demandas indicarem que um aumento é necessário.
+Certifique-se o computador que executará a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se assim for, monitor de CPU e memória utilizam para determinar qualquer correlação entre o desempenho de processos de trabalho de Runbook híbrida e Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de recursos de atualização. Também pode selecionar um recurso de computação diferentes que pode suportar os requisitos mínimos e dimensionamento quando a carga de trabalho demandas indicarem que um aumento é necessário.
 
 Verifique os **Microsoft SMA** registo de eventos para um evento correspondente com descrição *Win32 processo saiu com o código [4294967295]*. A causa deste erro é que ainda não tiver configurado a autenticação nos runbooks ou especificadas as credenciais Run As para o grupo de trabalho híbrida. Revisão [permissões do Runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que configurou corretamente a autenticação para os runbooks.
+
+### <a name="no-cert-found"></a>Cenário: Foi encontrado nenhum certificado no arquivo de certificados no trabalho de Runbook híbrida
+
+#### <a name="issue"></a>Problema
+
+Um runbook em execução numa função de trabalho de Runbook híbrida pode falhar com a seguinte mensagem de erro:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro ocorre quando tentar usar um [conta Run As](../manage-runas-account.md) num runbook que é executado numa função de trabalho de Runbook híbrida onde o certificado de conta Run As não está presente. Os Runbook Workers híbridos não tem o recurso de certificado localmente, por predefinição, o que é necessário para a conta Run As funcione corretamente.
+
+#### <a name="resolution"></a>Resolução
+
+Se a sua função de trabalho de Runbook híbrida é uma VM do Azure, pode utilizar [identidades geridas por um para recursos do Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez disso. Este cenário permite-lhe autenticar em recursos do Azure com a identidade gerida de VM do Azure em vez da conta Run As, simplificando a autenticação. Quando a função de trabalho de Runbook híbrida é uma máquina no local, terá de instalar o certificado de conta Run As na máquina. Para saber como instalar o certificado, veja os passos para executar o [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## <a name="linux"></a>Linux
 
@@ -64,7 +87,8 @@ O Runbook Worker do Linux híbrida depende do agente do OMS para Linux comunicar
 
 ### <a name="oms-agent-not-running"></a>Cenário: O agente do OMS para Linux não está em execução
 
-Se o agente do OMS para Linux não está em execução, isso impede que o Runbook Worker do Linux híbrida comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o seguinte comando: `ps -ef | grep python`. Deverá ver um resultado semelhante ao seguinte, os processos de python com **nxautomation** conta de utilizador. Se as soluções de gestão de atualizações ou a automatização do Azure não estiverem ativadas, nenhum dos seguintes processos está a executar.
+
+Se o agente do OMS para Linux não está em execução, impede que o Runbook Worker do Linux híbrida de comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o seguinte comando: `ps -ef | grep python`. Deverá ver um resultado semelhante ao seguinte, os processos de python com **nxautomation** conta de utilizador. Se as soluções de gestão de atualizações ou a automatização do Azure não estiverem ativadas, nenhum dos seguintes processos está a executar.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 A lista seguinte mostra os processos que estão a utilizar uma função de trabalho do Runbook de híbrida do Linux. Eles estão todos localizados no `/var/opt/microsoft/omsagent/state/automationworker/` diretório.
 
-* **OMS.Conf** -este processo é o processo do Gestor de trabalho, este processo é iniciado diretamente a partir de DSC.
+
+* **OMS.Conf** -este valor é o processo do Gestor de trabalho. É iniciada a diretamente a partir de DSC.
 
 * **Worker.Conf** -este processo é o processo de trabalho híbrida de registado automaticamente, é iniciada pelo Gestor de trabalho. Este processo é utilizado pela gestão de atualizações e é transparente ao usuário. Este processo não estiver presente, se a solução de gestão de atualizações não está ativada na máquina.
 
-* **diy/Worker.Conf** -esse processo é o processo de trabalho híbrida faça mesmo. O processo de trabalho híbrida faça mesmo é utilizado para executar runbooks de utilizador na função de trabalho de Runbook híbrida. Apenas é diferente do autom registado o processo de trabalho híbrida em detalhes a chave que utiliza uma configuração diferente. Este processo não estiver presente se a solução de automatização do Azure não está ativada e a função de trabalho de híbrida do Linux faça mesmo não está registrada.
+* **diy/Worker.Conf** -esse processo é o processo de trabalho híbrida faça mesmo. O processo de trabalho híbrida faça mesmo é utilizado para executar runbooks de utilizador na função de trabalho de Runbook híbrida. Apenas é diferente do autom registado o processo de trabalho híbrida em detalhes a chave que utiliza uma configuração diferente. Este processo não estiver presente se a solução de automatização do Azure está desativada e a função de trabalho de híbrida do Linux faça mesmo não está registrada.
 
 Se o agente do OMS para Linux não está em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -102,7 +127,7 @@ O `healthservice` serviço não está em execução na máquina de trabalho de R
 
 #### <a name="cause"></a>Causa
 
-Se o serviço Windows do Microsoft Monitoring Agent não está em execução, este cenário impede que a função de trabalho de Runbook híbrida comunicar com a automatização do Azure.
+Se o serviço Windows do Microsoft Monitoring Agent não está em execução, esse estado impede que a função de trabalho de Runbook híbrida comunicar com a automatização do Azure.
 
 #### <a name="resolution"></a>Resolução
 

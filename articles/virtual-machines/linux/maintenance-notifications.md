@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982091"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543449"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
@@ -32,7 +32,7 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 
 Manutenção planeada, que requer uma reinicialização é agendada em etapas. Cada fase tem escopo diferente (regiões).
 
-- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e webhooks e os destinatários de notificações através do Azure [alertas de registo de atividade](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e webhooks e os destinatários de notificações através do Azure [alertas de registo de atividade](../../azure-monitor/platform/activity-logs-overview.md).  
 - No momento da notificação, um *janela de self-service* é disponibilizado. Durante este período, pode encontrar a quais das suas máquinas virtuais estão incluídos nessa onda e iniciar proativamente a manutenção, de acordo com suas necessidades de agendamento.
 - Depois da janela de self-service, um *janela de manutenção agendada* começa. Em algum momento durante este período, o Azure agendas e aplica-se a manutenção necessária à máquina virtual. 
 
@@ -132,50 +132,50 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 ## <a name="faq"></a>FAQ
 
 
-**P: por que precisa reiniciar agora minhas máquinas virtuais?**
+**P: Por que precisa reiniciar agora minhas máquinas virtuais?**
 
-**R:** enquanto a maioria das atualizações e melhoramentos para a plataforma do Azure não afetar a disponibilidade da máquina virtual, há casos em que nós não é possível evitar o reinício das máquinas virtuais alojadas no Azure. Temos acumulado várias alterações, requerer que o reinício dos nossos servidores que resultarão no reinício das máquinas virtuais.
+**R:** Embora a maioria das atualizações e melhoramentos para a plataforma do Azure não afetar a disponibilidade da máquina virtual, há casos em que nós não é possível evitar o reinício das máquinas virtuais alojadas no Azure. Temos acumulado várias alterações, requerer que o reinício dos nossos servidores que resultarão no reinício das máquinas virtuais.
 
-**P: se eu seguir as recomendações para elevada disponibilidade através de um conjunto de disponibilidade, sou seguro?**
+**P: Se eu seguir as recomendações para elevada disponibilidade através de um conjunto de disponibilidade, estou seguro?**
 
-**R:** definir de máquinas virtuais implementadas de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais têm a noção de domínios de atualização (UD). Quando efetuar a manutenção, o Azure honra a restrição UD e não irá reiniciar as máquinas virtuais de UD diferentes (dentro do mesmo conjunto de disponibilidade).  Azure também tem de aguardar durante, pelo menos, 30 minutos antes de passar para o grupo seguinte de máquinas virtuais. 
+**R:** As máquinas virtuais implementadas num conjunto de disponibilidade ou em conjuntos de dimensionamento de máquinas virtuais têm a noção de Domínios de Atualização (UD). Quando efetuar a manutenção, o Azure honra a restrição UD e não irá reiniciar as máquinas virtuais de UD diferentes (dentro do mesmo conjunto de disponibilidade).  Azure também tem de aguardar durante, pelo menos, 30 minutos antes de passar para o grupo seguinte de máquinas virtuais. 
 
 Para obter mais informações sobre a elevada disponibilidade, consulte [regiões e disponibilidade para máquinas virtuais no Azure](regions-and-availability.MD).
 
-**P: como posso ser notificado sobre manutenção planeada?**
+**P: Como posso ser notificado sobre manutenção planeada?**
 
-**R:** uma onda de manutenção planeada é iniciada ao definir uma agenda a um ou mais regiões do Azure. Logo depois, uma notificação por e-mail é enviada para os proprietários de subscrições (um e-mail por subscrição). Canais adicionais e os destinatários para obter esta notificação poderiam ser configurados com alertas de registo de atividade. No caso de implementar uma máquina virtual para uma região em que a manutenção planeada já foi agendada, não irá receber a notificação, mas em vez disso, tem de verificar o estado de manutenção da VM.
+**R:** Inicia uma onda de manutenção planeada ao definir uma agenda a um ou mais regiões do Azure. Logo depois, uma notificação por e-mail é enviada para os proprietários de subscrições (um e-mail por subscrição). Canais adicionais e os destinatários para obter esta notificação poderiam ser configurados com alertas de registo de atividade. No caso de implementar uma máquina virtual para uma região em que a manutenção planeada já foi agendada, não irá receber a notificação, mas em vez disso, tem de verificar o estado de manutenção da VM.
 
-**P: não vejo qualquer indicação de manutenção planeada no portal do Powershell ou CLI. O que há de errado?**
+**P: Não vejo qualquer indicação de manutenção planeada no portal, Powershell ou na CLI. O que há de errado?**
 
-**R:** informações relacionadas com a manutenção planeada estão disponíveis durante uma onda de manutenção planeada apenas para as VMs que vão ser afetadas pela mesma. Em outras palavras, se ver dados não, é possível que a onda de manutenção já concluiu (ou não iniciado) ou que sua máquina virtual já esteja alojada num servidor atualizado.
+**R:** Informações relacionadas com a manutenção planeada estão disponíveis durante uma onda de manutenção planeada apenas para as VMs que vão ser afetadas pela mesma. Em outras palavras, se ver dados não, é possível que a onda de manutenção já concluiu (ou não iniciado) ou que sua máquina virtual já esteja alojada num servidor atualizado.
 
-**P: existe uma forma de saber exatamente quando a minha máquina virtual será afetada?**
+**P: Existe uma forma de saber exatamente quando a minha máquina virtual será afetada?**
 
-**R:** ao definir a agenda, definimos uma janela de tempo de vários dias. No entanto, a sequenciação exata de servidores (e as VMs) durante esse período é desconhecida. Podem utilizar os clientes que gostariam de saber o tempo exato para as suas VMs [eventos agendados](scheduled-events.md) e consultar a partir da máquina virtual e receber uma notificação de 15 minutos antes de um reinício VM.
+**R:** Ao definir a agenda, definimos uma janela de tempo de vários dias. No entanto, a sequenciação exata de servidores (e as VMs) durante esse período é desconhecida. Podem utilizar os clientes que gostariam de saber o tempo exato para as suas VMs [eventos agendados](scheduled-events.md) e consultar a partir da máquina virtual e receber uma notificação de 15 minutos antes de um reinício VM.
 
-**P: o tempo que demora a reiniciar a minha máquina virtual?**
+**P: O tempo que demora a reiniciar a minha máquina virtual?**
 
-**R:** dependendo do tamanho da sua VM, reinício poderá demorar vários minutos durante a janela de manutenção self-service. Durante o Azure iniciou reinicializações na janela de manutenção agendada, o reinício demorará, normalmente, cerca de 25 minutos. Tenha em atenção que no caso de usar os serviços Cloud (função da Web/trabalho), conjuntos de dimensionamento de máquinas virtuais ou conjuntos de disponibilidade, terá a chance de 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada.
+**R:**  Dependendo do tamanho da sua VM, reinício pode demorar vários minutos durante a janela de manutenção self-service. Durante o Azure iniciou reinicializações na janela de manutenção agendada, o reinício demorará, normalmente, cerca de 25 minutos. Tenha em atenção que no caso de usar os serviços Cloud (função da Web/trabalho), conjuntos de dimensionamento de máquinas virtuais ou conjuntos de disponibilidade, terá a chance de 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada.
 
-**P: qual é a experiência no caso de conjuntos de dimensionamento de máquinas virtuais?**
+**P: O que é a experiência no caso de conjuntos de dimensionamento de máquinas virtuais?**
 
-**R:** manutenção planeada já está disponível para os conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção self-service, consulte [manutenção planeada para o VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) documento.
+**R:** Manutenção planeada já está disponível para os conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção self-service, consulte [manutenção planeada para o VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) documento.
 
-**P: qual é a experiência no caso de serviços Cloud (função da Web/trabalho) e o Service Fabric?**
+**P: O que é a experiência no caso de serviços Cloud (função da Web/trabalho) e o Service Fabric?**
 
-**R:** enquanto estas plataformas serem afetadas pela manutenção planeada, os clientes que utilizam estas plataformas são considerados safe tendo em conta que apenas as VMs num único atualizar domínio (UD) vai ser o impacto em qualquer momento. Manutenção self-service não está atualmente disponível para serviços Cloud (função da Web/trabalho) e o Service Fabric.
+**R:** Apesar de estas plataformas serem afetadas pela manutenção planeada, os clientes que utilizam estas plataformas são considerados seguros, uma vez que apenas as VMs num Domínio de Atualização (UD) único serão impactadas em qualquer momento. Manutenção self-service não está atualmente disponível para serviços Cloud (função da Web/trabalho) e o Service Fabric.
 
-**P: não vejo qualquer informação de manutenção nas minhas VMs. O que aconteceu de errado?**
+**P: Não vejo qualquer informação de manutenção nas minhas VMs. O que aconteceu de errado?**
 
-**R:** por vários motivos por que não esteja a ver quaisquer informações de manutenção nas suas VMs:
+**R:** Há vários motivos por que não esteja a ver quaisquer informações de manutenção nas suas VMs:
 1.  Está a utilizar uma subscrição marcada como Microsoft interna.
 2.  As VMs não são agendadas para manutenção. É possível que terminou a onda de manutenção, cancelada ou modificada para que as suas VMs já não são afetadas pela mesma.
 3.  Não tem o **manutenção** coluna adicionada à sua exibição de lista VM. Apesar de termos adicionado esta coluna para a exibição padrão, os clientes que configuraram para ver colunas não predefinidas tem de adicionar manualmente os **manutenção** coluna à sua vista de lista VM.
 
-**P: a minha VM está agendada para manutenção pela segunda vez. Porquê?**
+**P: A minha VM está agendada para manutenção pela segunda vez. Porquê?**
 
-**R:** existem vários casos de utilização em que verá sua VM agendada para manutenção depois de já ter concluído a reimplementação da manutenção:
+**R:** Existem vários casos de utilização em que verá a sua VM agendada para manutenção depois de já ter concluído a reimplementação da manutenção:
 1.  Temos cancelada a onda de manutenção e reiniciado-lo com um payload de diferente. É possível que foi detetada payload com falha e precisamos simplesmente de implementar um payload adicional.
 2.  A VM esteve *corrigido por outro serviço* para outro nó devido a uma falha de hardware.
 3.  Selecionou a parar (desaloque) e reinicie a VM.

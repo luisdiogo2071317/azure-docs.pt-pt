@@ -1,22 +1,23 @@
 ---
-title: Executar tarefas de lote do Azure-a-ponto através de modelos | Documentos da Microsoft
+title: Executar tarefas de ponto-a-ponto através de modelos - Azure Batch | Documentos da Microsoft
 description: Crie conjuntos, trabalhos e tarefas do Batch com arquivos de modelo e a CLI do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964297"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547682"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utilizar modelos da CLI do Azure Batch e a transferência de ficheiros
 
@@ -37,7 +38,7 @@ Criar modelos do batch a [suporte existente para o Batch na CLI do Azure](batch-
 
 Tarefas normalmente utilizam ficheiros de dados de entrada e produzem ficheiros de dados de saída. Uma conta de armazenamento está associada, por predefinição, cada conta do Batch. Transferi ficheiros de e para esta conta de armazenamento com a CLI, sem codificação e não existem credenciais de armazenamento.
 
-Por exemplo, [ffmpeg](http://ffmpeg.org/) é um aplicativo popular que processa os ficheiros de áudio e vídeos. Eis os passos com a CLI do Azure Batch para invocar o ffmpeg para transcodificar ficheiros de vídeo de origem a resoluções diferentes.
+Por exemplo, [ffmpeg](https://ffmpeg.org/) é um aplicativo popular que processa os ficheiros de áudio e vídeos. Eis os passos com a CLI do Azure Batch para invocar o ffmpeg para transcodificar ficheiros de vídeo de origem a resoluções diferentes.
 
 -   Crie um modelo de agrupamento. O utilizador criar o modelo sabe como chamar a aplicação ffmpeg e os respetivos requisitos; Especifica o sistema operacional adequado, a VM de tamanho, como o ffmpeg está instalado (a partir de um pacote de aplicação ou utilizar um Gestor de pacotes, por exemplo) e outros valores de propriedade do agrupamento. Parâmetros são criados pelo quando o modelo é utilizado, apenas o ID do conjunto e o número de VMs tem de ser especificado.
 

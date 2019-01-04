@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833466"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794214"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicadas no Azure
 
@@ -39,9 +39,9 @@ Certifique-se de que não existem instantâneos na VM e de que a VM no local est
 
 A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
-1. **Ativação pós-falha para o Azure**: VM de Hyper-V de ativação pós-falha do site no local para o Azure.
-2. **Reativação pós-falha para o local**: as VM do Azure de ativação pós-falha para o seu site no local quando o site no local está disponível. Começa a sincronização de dados a partir do Azure para o local e, após a conclusão, apresenta as VM no local.  
-3. **Replicação inversa das VM no local**: Depois de terem sido reativadas pós-falha para o local, efetue a replicação inversa das VM no local para iniciar a replicação das mesmas para o Azure.
+1. **Ativação pós-falha do Azure**: Ativação pós-falha de VMs Hyper-V do site no local para o Azure.
+2. **Reativação pós-falha para o local**: VMs do Azure de ativação pós-falha para o seu site no local quando o site no local está disponível. Começa a sincronização de dados a partir do Azure para o local e, após a conclusão, apresenta as VM no local.  
+3. **A replicação inversa VMs no local**: Depois de falha para o local, o inverso replicar as VMs no local para iniciar a replicação-los para o Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
@@ -65,7 +65,7 @@ Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 4. Depois de verificar a ativação pós-falha, clique em **Consolidar**. Todos os pontos de recuperação disponíveis são eliminados.
 
 > [!WARNING]
-> **Não cancele uma ativação pós-falha em curso**: Se cancelar uma ativação pós-falha que esteja em curso, esta é interrompida, mas a VM não volta a ser replicada.
+> **Não cancelar uma ativação pós-falha em curso**: Se cancela em curso, paradas de ativação pós-falha, mas a VM não replicar novamente.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Reativação pós-falha da VM do Azure para o local e replicação inversa da VM no local
 

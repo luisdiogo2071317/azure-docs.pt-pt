@@ -8,24 +8,65 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088311"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599421"
 ---
 # <a name="release-notes"></a>Notas de versão
 
-## <a name="speech-service-sdk-110"></a>Serviço de voz SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>Voz SDK 1.2.0: Versão de Dezembro de 2018
+
+**Novos recursos**
+
+* Python
+  * A versão Beta do suporte de Python (3.5 e superior) está disponível com esta versão. Para obter mais detalhes [ver aqui](quickstart-python.md).
+* JavaScript
+  * O SDK de voz para JavaScript foi aberto. O código-fonte está disponível no [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * Agora, suportamos node. js, podem encontrar mais informações [aqui](quickstart-js-node.md).
+  * A restrição de comprimento para sessões de áudio tiver sido removida, o restabelecimento de ligação acontecerá automaticamente sob a capa.
+* Objeto de ligação
+  * De que o reconhecedor, pode acessar um objeto de conexão. Este objeto permite-lhe explicitamente iniciar a ligação de serviço e inscrever-se para se ligar e desligar os eventos.
+    (Isso ainda não está disponível a partir do JavaScript e Python.)
+* Suporte para Ubuntu 18.04.
+* Android
+  * Suporta ProGuard ativado durante a geração do ficheiro APK.
+
+**Melhorias**
+
+* Melhorias na utilização de thread interno e reduzindo o número de threads, bloqueios, exclusões mútuas.
+* Relatórios de erros melhorados / informações. Em vários casos mensagens de erro não tem sido propagadas totalmente horizontalmente.
+* Atualizar as dependências de desenvolvimento em JavaScript para utilizar módulos atualizados.
+
+**Correções de erros**
+
+* Vazamentos de memória fixa devido a uma incompatibilidade de tipo na RecognizeAsync.
+* Em alguns casos, foram a fuga exceções.
+* Corrigir o vazamento de memória nos argumentos do evento de tradução.
+* Foi corrigido um problema de bloqueio no restabelecimento de ligação de longa execução sessões.
+* Foi corrigido um problema que poderia levar a falta de resultado final para traduções com falha.
+* C#: Se uma operação assíncrona não era tão esperada no thread principal, era possível que o reconhecedor poderia ser descartado antes da tarefa assíncrona foi concluída.
+* Java: Foi corrigido um problema resulta numa falha da VM de Java.
+* Objective-c: Mapeamento de enumeração fixo; RecognizedIntent foi devolvido em vez de RecognizingIntent.
+* JavaScript: Conjunto de formato de saída de predefinido para 'simples' SpeechConfig.
+* JavaScript: A remover a inconsistência entre as propriedades do objeto de configuração em JavaScript e outras linguagens.
+
+**Amostras**
+
+* Atualizados e corrigidos vários exemplos (por exemplo vozes de saída para a tradução, etc).
+* Adicionados os exemplos de node. js no [repositório de exemplo](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>Voz SDK 1.1.0
 
 **Novos recursos**
 
 * Suporte para Android x86/x64.
-* Suporte para o proxy: No objeto SpeechConfig agora é possível chamar uma função para definir as informações de proxy (nome de anfitrião, porta, nome de utilizador e palavra-passe). Esta funcionalidade ainda não está disponível no iOS.
+* Suporte para o proxy: No objeto SpeechConfig, agora pode chamar uma função para definir as informações de proxy (nome de anfitrião, porta, nome de utilizador e palavra-passe). Esta funcionalidade ainda não está disponível no iOS.
 * Código de erro melhoradas e mensagens. Se um reconhecimento devolveu um erro, isso já definido `Reason` (no evento foi cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento foi cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor devolveu informações de erro adicionais com o erro comunicado, agora estará disponível em novos membros.
 
 **Melhorias**
@@ -51,21 +92,21 @@ ms.locfileid: "53088311"
 
 * Adicionado o C++ e C# samplea para a utilização de fluxo de push e pull no [repositório de exemplo](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>Serviço de voz SDK 1.0.1
+## <a name="speech-sdk-101"></a>Voz SDK 1.0.1
 
 Melhorias de confiabilidade e correções de erros:
 
 * Correção do erro fatal potencial devido a condição de corrida em reconhecedor descarte
 * Erro fatal potencial fixo em caso de propriedades não definidas.
 * Foram adicionados erros adicionais e verificação de parâmetros.
-* Foi corrigido Objective-c: possível erro fatal causado por nome substituindo no NSString.
-* Objective-c: ajustado visibilidade da API
+* Objective-c: Foi corrigido possível erro fatal causado por nome substituindo no NSString.
+* Objective-c: Ajustada visibilidade da API
 * JavaScript: Corrigido em relação a eventos e respetivos payloads.
 * Melhorias de documentação.
 
 No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicionada uma nova amostra para JavaScript.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK de voz dos serviços cognitivos 1.0.0: versão de Setembro de 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>1.0.0 do SDK de voz dos serviços cognitivos: Versão de Setembro de 2018
 
 **Novos recursos**
 
@@ -77,14 +118,14 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * Com esta versão é introduzido um número de alterações de última hora.
   Verifique se existem [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de voz dos serviços cognitivos 0.6.0: versão de Agosto de 2018
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Voz dos serviços cognitivos SDK 0.6.0: Lançamento de Agosto de 2018
 
 **Novos recursos**
 
 * Aplicações do UWP criadas com o SDK de voz, agora podem passar o Kit de certificação de aplicações de Windows (WACK).
   Veja a [guia de introdução do UWP](quickstart-csharp-uwp.md).
 * Suporte para .NET Standard 2.0 no Linux (Ubuntu 16.04 x64).
-* Experimental: Suportar Java 8 (64-bit) do Windows e Linux (Ubuntu 16.04 x64).
+* Experimental: Suportam Java 8 no Windows (64-bit) e o Linux (Ubuntu 16.04 x64).
   Veja a [início rápido de Java Runtime Environment](quickstart-java-jre.md).
 
 **Alteração funcional**
@@ -103,15 +144,15 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * Foi corrigido um problema, onde um reconhecimento de longa execução foi possível terminar no meio da transmissão.
 * Fixo, uma condição de corrida em encerramento do reconhecedor.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de voz dos serviços cognitivos versão 0.5.0: versão de Julho de 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Voz dos serviços cognitivos SDK versão 0.5.0: Versão de Julho de 2018
 
 **Novos recursos**
 
 * Plataforma Android de suporte (API 23: Android 6.0 Marshmallow ou superior). Veja a [guia de introdução Android](quickstart-java-android.md).
 * Suporta o .NET Standard 2.0 no Windows. Veja a [guia de introdução do .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Experimental: Suporte UWP no Windows (versão 1709 ou posterior).
+* Experimental: Suporta UWP no Windows (versão 1709 ou posterior).
   * Veja a [guia de introdução do UWP](quickstart-csharp-uwp.md).
-  * Nota: As aplicações UWP compiladas com o SDK de voz não ainda passam o Kit de certificação de aplicações de Windows (WACK).
+  * Nota: Aplicações do UWP criadas com o SDK de voz ainda não passam o Kit de certificação de aplicações de Windows (WACK).
 * Suporte a reconhecimento de execução longa com a nova ligação automática.
 
 **Alterações funcionais**
@@ -122,25 +163,25 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 
 **Alterações recentes**
 
-* Eventos de reconhecimento: tipo de evento NoMatch foi intercalado o evento de erro.
+* Eventos de reconhecimento: Tipo de evento NoMatch foi mesclado no evento de erro.
 * SpeechOutputFormat na linguagem c# foi mudado para OutputFormat para permanecer alinhado com o C++.
 * O tipo de retorno de alguns métodos do `AudioInputStream` interface ligeiramente alterado:
    * No Java, o `read` método agora devolve `long` em vez de `int`.
    * No c#, o `Read` método agora devolve `uint` em vez de `int`.
    * No C++, o `Read` e `GetFormat` métodos agora retorno `size_t` em vez de `int`.
-* C++: As instâncias de entrada dos fluxos de áudio agora podem ser transmitidas apenas como um `shared_ptr`.
+* C++: Instâncias de entrada dos fluxos de áudio agora podem ser transmitidas apenas como um `shared_ptr`.
 
 **Correções de erros**
 
 * Fixo de valores de retorno incorreto no resultado quando `RecognizeAsync()` exceder o tempo limite.
 * A dependência de bibliotecas de base de dados no Windows foi removida. O SDK utiliza agora as APIs de áudio de núcleo.
-* Correção da documentação: adicionado uma [regiões](regions.md) página para descrever as regiões suportadas.
+* Correção da documentação: Adicionado um [regiões](regions.md) página para descrever as regiões suportadas.
 
 **Problema conhecido**
 
 * O SDK de voz para Android não reporta os resultados de síntese de fala para a tradução. Este problema será corrigido na próxima versão.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de voz dos serviços cognitivos 0.4.0: versão de Junho de 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Voz dos serviços cognitivos SDK 0.4.0: Versão de Junho de 2018
 
 **Alterações funcionais**
 
@@ -176,6 +217,6 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 
 Mais exemplos foram adicionados e estão constantemente a ser atualizados. Para o conjunto mais recente de exemplos, consulte a [repositório de GitHub de exemplos do SDK de voz](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de voz dos serviços cognitivos 0.2.12733: versão de Maio de 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Voz dos serviços cognitivos SDK 0.2.12733: Versão de Maio de 2018
 
 Esta versão é a primeira versão de pré-visualização pública do SDK de voz dos serviços cognitivos.

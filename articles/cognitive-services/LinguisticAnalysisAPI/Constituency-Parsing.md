@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238629"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976601"
 ---
 # <a name="constituency-parsing"></a>Análise de grupos
 
 > [!IMPORTANT]
-> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
+> A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 O objetivo da análise (também conhecido como "frase estrutura análise") de grupos é identificar as frases no texto.
 Isso pode ser útil quando a extração de informações de texto.
@@ -61,11 +61,11 @@ Uma representação natural destas expressões é uma árvore, como o seguinte:
 ![Árvore](./Images/tree.png)
 
 Essa árvore, os ramos marcados como "NP" são frases substantivo.
-Existem vários desses frases: *eu*, *um automóvel híbrida novo*, *Bluetooth*, e *um automóvel híbrida novo com Bluetooth*.
+Existem vários desses frases: *Eu*, *um automóvel híbrida nova*, *Bluetooth*, e *um automóvel híbrida novo com Bluetooth*.
 
 ## <a name="phrase-types"></a>Tipos de expressão
 
-| Etiqueta | Descrição | Exemplo |
+| Label | Descrição | Exemplo |
 |-------|-------------|---------|
 |ADJP   | Frase adjective | "então, rude" |
 |ADVP   | Frase de adverb | "claro por meio de" |
@@ -97,4 +97,4 @@ Existem vários desses frases: *eu*, *um automóvel híbrida novo*, *Bluetooth*,
 
 ## <a name="specification"></a>Especificação
 
-Árvores aqui usam as expressões de S partir do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Árvores aqui usam as expressões de S partir do [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

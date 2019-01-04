@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 522561d8afcf6fe1bdd2887f7fd5180b79565a61
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aaab17f3ba9352e2ee9448acbbc2d2ca2b9d077
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874622"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607647"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de memória intermédia para eventos expandidos na base de dados SQL em anel
 
@@ -348,7 +348,7 @@ O tópico principal para eventos expandidos na base de dados do Azure SQL é:
 
 Outros tópicos de exemplo de código para eventos expandidos estão disponíveis nas seguintes ligações. No entanto, tem de verificar regularmente qualquer amostra para ver se o exemplo destina-se Microsoft SQL Server em comparação com a base de dados do Azure SQL. Em seguida, pode decidir se as alterações secundárias são necessários para executar o exemplo.
 
-* Exemplo de código para o Azure SQL Database: [código de destino de arquivo de eventos para eventos expandidos na base de dados SQL](sql-database-xevent-code-event-file.md)
+* Exemplo de código para a base de dados do Azure SQL: [Código de destino de ficheiro de evento para eventos expandidos na base de dados SQL](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

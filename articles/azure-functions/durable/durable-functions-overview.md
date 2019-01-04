@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344181"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718593"
 ---
 # <a name="durable-functions-overview"></a>Descrição geral de funções durável
 
-*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) e [WebJobs do Azure](../../app-service/web-sites-create-web-jobs.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
+*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) e [WebJobs do Azure](../../app-service/webjobs-create.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
 
 A extensão permite definir fluxos de trabalho com monitorização de estado num novo tipo de função chamada uma [ *função de orquestrador*](durable-functions-types-features-overview.md#orchestrator-functions). Aqui estão algumas das vantagens das funções do orchestrator:
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353344"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631520"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurar Aplicações Web do Serviço de Aplicações com o Gateway de Aplicação
+# <a name="configure-app-service-with-application-gateway"></a>Configurar o serviço de aplicações com o Gateway de aplicação
 
-O gateway de aplicação permite ter uma aplicação Web do Azure ou outro serviço multi-inquilino como membro do conjunto de back-end. Neste artigo, vai aprender a configurar uma aplicação Web do Azure com o Gateway de Aplicação. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
+Gateway de aplicação permite-lhe ter uma aplicação de serviço de aplicações ou outro serviço multi-inquilino como membro do conjunto de back-end. Neste artigo, vai aprender a configurar uma aplicação de serviço de aplicações com o Gateway de aplicação. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configurar uma aplicação Web por trás de um gateway de aplicação existente
 
@@ -163,4 +163,4 @@ Pode restringir o acesso às suas aplicações web de uma maneira é usar [restr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de Aplicação com o PowerShell](redirect-overview.md).
+Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de aplicação com o PowerShell](redirect-overview.md).

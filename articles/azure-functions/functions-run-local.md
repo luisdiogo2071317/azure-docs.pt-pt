@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409450"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976312"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -68,7 +68,7 @@ Os passos seguintes utilizam o Homebrew para instalar as ferramentas de núcleo 
 
     ```bash
     brew tap azure/functions
-    brew install azure-functions-core-tools 
+    brew install azure-functions-core-tools
     ```
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) com APT
@@ -195,12 +195,12 @@ Os valores de definições de aplicação de função também podem ser lidos em
 + [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
 + [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
 + [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables) 
++ [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Quando nenhuma cadeia de ligação de armazenamento válida é definida para **AzureWebJobsStorage** e o emulador não está a ser utilizado, é apresentada a seguinte mensagem de erro:  
+Quando nenhuma cadeia de ligação de armazenamento válida é definida para **AzureWebJobsStorage** e o emulador não está a ser utilizado, é apresentada a seguinte mensagem de erro:
 
-> Valor em falta para AzureWebJobsStorage em Settings. Isto é necessário para todos os disparadores diferente de HTTP. É possível executar ' func azure functionapp busca--definições da aplicação <functionAppName>' ou especifique uma cadeia de ligação no Settings.
+> Valor em falta para AzureWebJobsStorage em Settings. Isto é necessário para todos os disparadores diferente de HTTP. É possível executar ' func azure functionapp fetch-aplicação-settings \<functionAppName\>' ou especifique uma cadeia de ligação no Settings.
 
 ### <a name="get-your-storage-connection-strings"></a>Obter as cadeias de ligação de armazenamento
 
@@ -210,7 +210,7 @@ Mesmo ao usar o emulador de armazenamento para o desenvolvimento, talvez queira 
 
   ![Copie a cadeia de ligação do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Uso [Explorador de armazenamento do Azure](https://storageexplorer.com/) para ligar à sua conta do Azure. Na **Explorer**, expanda a sua subscrição, selecione a sua conta de armazenamento e copie a cadeia de ligação primária ou secundária. 
++ Uso [Explorador de armazenamento do Azure](https://storageexplorer.com/) para ligar à sua conta do Azure. Na **Explorer**, expanda a sua subscrição, selecione a sua conta de armazenamento e copie a cadeia de ligação primária ou secundária.
 
   ![Copie a cadeia de ligação do Explorador de armazenamento](./media/functions-run-local/storage-explorer.png)
 
@@ -298,16 +298,15 @@ O `host` comando apenas é necessária na versão 1.x.
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | Compile o projeto atual antes de executar. Versão 2.x e projetos do c# só. |
+| **`--no-build`** | Não fazer nenhum projeto atual da compilação antes de executar. Para projetos do dotnet apenas. Predefinição está definida como false. Versão 2.x apenas. |
 | **`--cert`** | O caminho para um ficheiro. pfx que contém uma chave privada. Só é utilizada com `--useHttps`. Versão 2.x apenas. |
+| **`--cors-credentials`** | Permitir pedidos autenticados de várias origens (ou seja, cookies e o cabeçalho de autenticação) versão 2.x apenas. |
 | **`--cors`** | Uma lista separada por vírgulas de origens CORS, sem espaços. |
-| **`--debug`** | É iniciado no anfitrião com a porta de depuração abrir para que pode anexar aos **func.exe** processos de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ou [Visual Studio 2017](functions-dotnet-class-library.md). Os valores válidos são `VSCode` e `VS`.  |
 | **`--language-worker`** | Argumentos para configurar a função de trabalho do idioma. Versão 2.x apenas. |
 | **`--nodeDebugPort -n`** | A porta para o depurador de nó utilizar. Predefinição: Um valor de Launch ou 5858. Versão 1.x apenas. |
 | **`--password`** | A palavra-passe ou um ficheiro que contém a palavra-passe para um ficheiro. pfx. Só é utilizada com `--cert`. Versão 2.x apenas. |
 | **`--port -p`** | A porta local a escutar. Valor predefinido: 7071. |
 | **`--pause-on-error`** | Colocar em pausa para entrada adicional antes de sair do processo. Utilizado apenas quando iniciar as ferramentas de núcleo de um ambiente de desenvolvimento integrado (IDE).|
-| **`--script-root --prefix`** | Utilizado para especificar o caminho para a raiz da aplicação de função que está a ser executado ou implantado. Isto é utilizado para os projetos compilados que geram ficheiros de projeto para uma subpasta. Por exemplo, quando criar uma biblioteca de classes do c# arquivos de projeto, o Host. JSON, Settings e Function são gerados numa *raiz* subpasta com um caminho como `MyProject/bin/Debug/netstandard2.0`. Neste caso, defina o prefixo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta é a raiz da aplicação de função quando em execução no Azure. |
 | **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
 | **`--useHttps`** | Vincular `https://localhost:{port}` em vez da `http://localhost:{port}`. Por predefinição, esta opção cria um certificado fidedigno no seu computador.|
 
@@ -324,13 +323,13 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Ao executar localmente, a autenticação não é imposta para pontos de extremidade HTTP. Isso significa que todos os pedidos HTTP locais são processados como `authLevel = "anonymous"`. Para obter mais informações, consulte a [artigo de enlace de HTTP](functions-bindings-http-webhook.md#authorization-keys). 
+>Ao executar localmente, a autenticação não é imposta para pontos de extremidade HTTP. Isso significa que todos os pedidos HTTP locais são processados como `authLevel = "anonymous"`. Para obter mais informações, consulte a [artigo de enlace de HTTP](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Passando dados de teste para uma função
 
 Para testar as suas funções localmente, [iniciar o host de funções](#start) e chamar pontos finais no servidor local com pedidos HTTP. O ponto final que chamar depende do tipo de função.
 
->[!NOTE]  
+>[!NOTE]
 > Exemplos neste tópico utilizam a ferramenta cURL para enviar pedidos de HTTP a partir do terminal ou uma linha de comandos. Pode usar uma ferramenta à sua escolha para enviar pedidos HTTP para o servidor local. A ferramenta cURL está disponível por predefinição em sistemas baseados em Linux. No Windows, primeiro tem de transferir e instalar o [ferramenta cURL](https://curl.haxx.se/).
 
 Para obter mais informações sobre testes de funções, consulte [estratégias para testar seu código nas funções do Azure](functions-test-a-function.md).
@@ -341,9 +340,9 @@ Chama o seguinte acionada de ponto final para executar localmente o HTTP e webho
 
     http://localhost:{port}/api/{function_name}
 
-Certifique-se utilizar o mesmo nome de servidor e a porta que está a escutar o anfitrião de funções. Verá isto no resultado gerado ao iniciar o anfitrião de função. Pode chamar este URL usando qualquer método HTTP suportado pelo acionador. 
+Certifique-se utilizar o mesmo nome de servidor e a porta que está a escutar o anfitrião de funções. Verá isto no resultado gerado ao iniciar o anfitrião de função. Pode chamar este URL usando qualquer método HTTP suportado pelo acionador.
 
-O seguinte cURL acionadores de comando a `MyHttpTrigger` função de início rápido de um pedido GET com o _nome_ parâmetro transmitido na cadeia de consulta. 
+O seguinte cURL acionadores de comando a `MyHttpTrigger` função de início rápido de um pedido GET com o _nome_ parâmetro transmitido na cadeia de consulta.
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -355,11 +354,11 @@ O exemplo seguinte é a mesma função de chamada a partir de um pedido POST pas
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Pode fazer pedidos de obtenção de um navegador da passagem de dados na cadeia de consulta. Para todos os outros métodos HTTP, tem de utilizar cURL, Fiddler, Postman ou uma ferramenta de teste HTTP semelhante.  
+Pode fazer pedidos de obtenção de um navegador da passagem de dados na cadeia de consulta. Para todos os outros métodos HTTP, tem de utilizar cURL, Fiddler, Postman ou uma ferramenta de teste HTTP semelhante.
 
 #### <a name="non-http-triggered-functions"></a>Funções de não-HTTP acionadas
 
-Para todos os tipos de funções diferentes de acionadores HTTP e webhooks, pode testar as suas funções localmente ao chamar um ponto de final de administração. Chamar este ponto final com um pedido HTTP POST no servidor local aciona a função. Opcionalmente, pode passar dados de teste para a execução no corpo da solicitação POST. Esta funcionalidade é semelhante para o **teste** separador no portal do Azure.  
+Para todos os tipos de funções diferentes de acionadores HTTP e webhooks, pode testar as suas funções localmente ao chamar um ponto de final de administração. Chamar este ponto final com um pedido HTTP POST no servidor local aciona a função. Opcionalmente, pode passar dados de teste para a execução no corpo da solicitação POST. Esta funcionalidade é semelhante para o **teste** separador no portal do Azure.
 
 Chamar o seguinte ponto de extremidade de administrador para acionar as funções de não-HTTP:
 
@@ -381,10 +380,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Usando o `func run` comando na versão 1.x
 
->[!IMPORTANT]  
+>[!IMPORTANT]
 > O `func run` comando não é suportado na versão 2.x das ferramentas. Para obter mais informações, consulte o tópico [como versões de tempo de execução de funções do Azure de destino](set-runtime-version.md).
 
-Também é possível invocar uma função diretamente, usando `func run <FunctionName>` e fornecer dados de entrada para a função. Este comando é semelhante à execução de uma função utilizando o **teste** separador no portal do Azure. 
+Também é possível invocar uma função diretamente, usando `func run <FunctionName>` e fornecer dados de entrada para a função. Este comando é semelhante à execução de uma função utilizando o **teste** separador no portal do Azure.
 
 `func run` suporta as seguintes opções:
 
@@ -410,9 +409,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Ferramentas de núcleo suporta dois tipos de implantação, implantação de arquivos de projeto de função diretamente para a aplicação de funções e implementar um contentor do Linux personalizado, que é suportado apenas na versão 2.x. Tem de ter já [criou uma aplicação de funções na sua subscrição do Azure](functions-cli-samples.md#create).
 
-Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados. 
+Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados.
 
-### <a name="project-file-deployment"></a>Implementação de ficheiros de projeto  
+### <a name="project-file-deployment"></a>Implementação de ficheiros de projeto
 
 O método de implementação mais comum envolve o uso de ferramentas de núcleo para seu projeto de aplicação de função, binários e dependências de pacote e implantar o pacote para a sua aplicação de função. Pode opcionalmente [executar as suas funções diretamente a partir do pacote de implementação](run-functions-from-deployment-package.md).
 
@@ -424,10 +423,10 @@ func azure functionapp publish <FunctionAppName>
 
 Este comando publica uma aplicação de função existente no Azure. Ocorre um erro quando o `<FunctionAppName>` não existe na sua subscrição. Para saber como criar uma aplicação de funções a partir da linha de comandos ou janela de terminal com a CLI do Azure, veja [criar uma aplicação de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md).
 
-O `publish` comando carrega o conteúdo do diretório do projeto de funções. Se eliminar ficheiros localmente, o `publish` comando não exclui-los do Azure. Pode eliminar ficheiros no Azure com o [ferramenta de Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) no [portal do Azure].  
+O `publish` comando carrega o conteúdo do diretório do projeto de funções. Se eliminar ficheiros localmente, o `publish` comando não exclui-los do Azure. Pode eliminar ficheiros no Azure com o [ferramenta de Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) no [portal do Azure].
 
->[!IMPORTANT]  
-> Quando cria uma aplicação de funções no portal do Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, siga as instruções em [é executado na versão 1.x](functions-versions.md#creating-1x-apps).  
+>[!IMPORTANT]
+> Quando cria uma aplicação de funções no portal do Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, siga as instruções em [é executado na versão 1.x](functions-versions.md#creating-1x-apps).
 > Não é possível alterar a versão de runtime para uma aplicação de função que tenha a funções existentes.
 
 Opções de publicar o projeto seguinte aplicam-se para as versões, 1.x e 2.x:
@@ -460,7 +459,7 @@ As funções permite-lhe implementar o projeto de função num contentor do Linu
 func deploy
 ```
 
-As seguintes opções de implementação do contentor personalizado estão disponíveis: 
+As seguintes opções de implementação do contentor personalizado estão disponíveis:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |

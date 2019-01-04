@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838757"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811567"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -108,23 +108,23 @@ As configurações das VMs sã capturadas uma vez no início da operação de cr
 
 O comando de criação de perfis gera vários ficheiros no diretório de criação de perfis. Não elimine nenhum dos ficheiros, pois tal eliminação afeta a geração de relatórios.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemplo 1: criar perfis para VMs durante 30 dias e encontrar o débito no local para o Azure
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemplo 1: Criar perfis de VMs durante 30 dias e encontrar o débito no local para o Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Exemplo 2: criar perfis para VMs durante 15 dias
+#### <a name="example-2-profile-vms-for-15-days"></a>Exemplo 2: Criar perfis de VMs durante 15 dias
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemplo 3: criar perfis para VMs durante 60 minutos, para um breve teste à ferramenta
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemplo 3: Criar perfis de VMs durante 60 minutos, para um breve teste à ferramenta
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemplo 4: criar perfis para VMs durante 2 horas para uma prova de conceito
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemplo 4: Criar perfis de VMs durante 2 horas para uma prova de conceito
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -137,6 +137,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 ## <a name="generate-report"></a>Gerar o relatório
 A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O nome do relatório é DeploymentPlannerReport_<unique numeric identifier>.xlsm, que é colocado no diretório especificado.
+
+>[!NOTE]
+>O relatório requer símbolo decimal configurado como "." para produzir estimativas de custo no servidor onde executar o planeador de implementação. No caso de ter de configuração "," como o símbolo decimal num computador Windows,. Vá para "Alteração de data, hora ou formatos de números" no painel de controlo e aceda a "Definições adicionais" para alterar o símbolo decimal para".".
 
 Depois de concluída a criação de perfis, pode executar a ferramenta no modo de geração de relatórios. A tabela seguinte contém a lista dos parâmetros obrigatórios e opcionais da ferramenta, para executá-la no modo de geração de relatórios.
 
@@ -160,7 +163,7 @@ Depois de concluída a criação de perfis, pode executar a ferramenta no modo d
 | -EndDate | (Opcional) A data e hora de fim, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *EndDate* tem de ser especificado juntamente com *StartDate*. Se EndDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expresso em percentagem. A predefinição é 30 por cento. |
 | -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. A predefinição é Sim. O número de máquinas virtuais para a colocação de uma conta de armazenamento única ser calculada considerando se a Ativação pós-falha/Ativação pós-falha de Teste de máquinas virtuais é realizada no disco gerido, em vez do disco não gerido. |
-|-SubscriptionId |(Opcional) A GUID da subscrição. Utilize este parâmetro para gerar o relatório de estimativa de custos com o preço mais recente com base na sua subscrição, a oferta está associada à sua subscrição e para a sua região de destino específica do Azure na moeda especificada.|
+|-SubscriptionId |(Opcional) A GUID da subscrição. Tenha em atenção que este parâmetro é necessário quando precisa gerar o relatório de estimativa de custos com o preço mais recente com base na sua subscrição, a oferta está associada à sua subscrição e do destino específico região do Azure no **especificado moeda**.|
 |-TargetRegion|(Opcional) A região do Azure para onde está direcionada a replicação. Dado que o Azure tem custos diferentes por região, para gerar um relatório com uma região de destino do Azure específica, utilize este parâmetro.<br>A predefinição é WestUS2 ou a última região de destino utilizada.<br>Consulte a lista de [regiões de destino suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada à subscrição em questão. A Predefinição é MS-AZR-0003P (Pay As You Go).|
 |-Currency|(Opcional) A moeda na qual os custos são mostrados no relatório gerado. A predefinição é o Dólar Norte-Americano ($) ou a última moeda utilizada.<br>Consulte a lista de [moedas suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -171,39 +174,41 @@ Por predefinição, a ferramenta está configurada para criar perfis e gerar rel
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar o relatório com valores predefinidos quando os dados de criação de perfis estão na unidade local
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: Gerar um relatório com valores predefinidos quando os dados de criação de perfis estão na unidade local
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemplo 2: gerar o relatório quando os dados de criação de perfis estão num servidor remoto
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemplo 2: Gerar um relatório quando os dados de criação de perfis estão num servidor remoto
 Deve ter acesso de leitura/escrita no diretório remoto.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemplo 3: gerar um relatório com largura de banda e objetivos específicos para concluir a replicação inicial no período especificado
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemplo 3: Gerar um relatório com uma largura de banda específica e objetivos para concluir a replicação inicial no período especificado
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemplo 4: gerar um relatório com um fator de crescimento de 5 por cento em vez dos 30 por cento predefinidos
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemplo 4: Gerar um relatório com um fator de crescimento de 5 por cento, em vez dos 30 por cento predefinidos
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemplo 5: gerar um relatório com um subconjunto de dados de criação de perfis
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemplo 5: Gerar um relatório com um subconjunto de dados de criação de perfis
 Por exemplo, tem 30 dias de dados de criação de perfis e quer gerar um relatório para apenas 20 dias.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemplo 6: gerar um relatório para um RPO de cinco minutos
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemplo 6: Gerar um relatório para que o RPO de 5 minutos
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemplo 7: gerar um relatório para a região do Azure do Sul da Índia com a Rúpia Indiana e uma ID de oferta específica
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemplo 7: Gerar um relatório para a região do Azure do Sul da Índia com a Rúpia indiana e ID de oferta específico
+
+Tenha em atenção que o ID de subscrição é necessária para gerar o relatório de custos numa moeda específica.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

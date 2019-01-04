@@ -1,20 +1,17 @@
 ---
 title: Descrição geral da continuidade comercial com a base de dados do Azure para MySQL
 description: Descrição geral da continuidade comercial com a base de dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714349"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554542"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Descrição geral da continuidade comercial com a base de dados do Azure para MySQL
 
@@ -49,7 +46,7 @@ Uma opção é aguardar que o servidor esteja novamente online quando a indispon
 A outra opção é usar a base de dados do Azure para a funcionalidade de restauro geográfico do MySQL que restaura o servidor através de cópias de segurança georredundante. Estas cópias de segurança estão acessíveis, mesmo quando o região do que seu servidor esteja hospedado no está offline. Pode restaurar a partir destas cópias de segurança em qualquer outra região e trazer o seu servidor novamente online.
 
 > [!IMPORTANT]
-> O restauro geográfico só é possível se aprovisionou o servidor com armazenamento de cópia de segurança georredundante. Se quiser mudar do localmente redundante para cópias de segurança georredundante para um servidor existente, tem de fazer um despejo pg_dump do seu servidor existente a utilizar e restaurá-lo para um servidor criado recentemente configurado com as cópias de segurança georredundante.
+> O restauro geográfico só é possível se aprovisionou o servidor com armazenamento de cópia de segurança georredundante. Se quiser mudar do localmente redundante para cópias de segurança georredundante para um servidor existente, tem de fazer um despejo utilizar mysqldump do seu servidor existente e restaurá-lo para um servidor criado recentemente configurado com as cópias de segurança georredundante.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034642"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789505"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
@@ -36,6 +36,7 @@ ms.locfileid: "47034642"
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -67,6 +68,7 @@ Leia primeiro o SAP Notes e os documentos seguintes:
 * A nota SAP [2243692] tem informações sobre o licenciamento de SAP no Linux no Azure.
 * A nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
 * A nota SAP [1999351] tem informações adicionais de resolução de problemas avançada de monitorização a extensão do Azure para SAP.
+* A nota SAP [401162] tem informações sobre como evitar "endereço já está em utilização" ao configurar o HANA System Replication.
 * [WIKI de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas de SAP necessária para Linux.
 * [SAP HANA certificadas plataformas IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure] [ planning-guide] guia.
@@ -84,9 +86,9 @@ Para assegurar elevada disponibilidade, o SAP HANA está instalado em duas máqu
 
 Utiliza a configuração do SAP HANA System Replication endereços um nome de anfitrião virtual dedicado e virtual IP. No Azure, um balanceador de carga é necessário utilizar um endereço IP virtual. A lista seguinte mostra a configuração de Balanceador de carga:
 
-* Configuração de front-end: o endereço IP 10.0.0.13 para hn1-db
-* Configuração de back-end: ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do HANA System Replication
-* Porta de sonda: Porta 62503
+* Configuração de front-end: Endereço IP 10.0.0.13 para hn1-db
+* Configuração de back-end: Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do HANA System Replication
+* Porta de pesquisa: Porta 62503
 * Regras de balanceamento de carga: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## <a name="deploy-for-linux"></a>Implementar para Linux
@@ -103,14 +105,14 @@ Para implementar o modelo, siga estes passos:
     O modelo de base de dados cria as regras de balanceamento de carga para apenas uma base de dados. O modelo convergido também cria as regras de balanceamento de carga para um ASCS/SCS e a instância ERS (apenas Linux). Se planear instalar um sistema baseado em SAP NetWeaver e que pretende instalar a instância do ASCS/SCS nos mesmos computadores, utilize o [modelo de convergência][template-converged].
 
 1. Introduza os seguintes parâmetros:
-    - **ID de sistema de SAP**: introduza o ID de sistema SAP do sistema SAP que pretende instalar. O ID é utilizado como um prefixo para os recursos que são implementados.
-    - **Tipo de pilha**: (este parâmetro só é aplicável se utilizar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
-    - **Tipo de SO**: selecione uma das distribuições de Linux. Para este exemplo, selecione **SLES 12**.
-    - **Tipo de BD**: selecione **HANA**.
-    - **Tamanho do sistema de SAP**: introduza o número de SAPS que irá fornecer o novo sistema. Se não tiver certeza SAPS quantos requer que o sistema, peça ao seu parceiro de tecnologia de SAP ou integrador de sistemas.
-    - **Disponibilidade do sistema**: selecione **HA**.
-    - **Nome de utilizador administrador e a palavra-passe de administrador**: um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
-    - **Novo ou existente na sub-rede**: determina se devem ser criadas uma nova rede virtual e uma sub-rede ou uma sub-rede existente utilizado. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
+    - **ID de sistema de SAP**: Introduza o ID de sistema SAP do sistema SAP que pretende instalar. O ID é utilizado como um prefixo para os recursos que são implementados.
+    - **Tipo de pilha**: (Este parâmetro só é aplicável se utilizar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
+    - **Tipo de SO**: Selecione uma das distribuições de Linux. Para este exemplo, selecione **SLES 12**.
+    - **Tipo de BD**: Selecione **HANA**.
+    - **Tamanho do sistema de SAP**: Introduza o número de SAPS que irá fornecer o novo sistema. Se não tiver certeza SAPS quantos requer que o sistema, peça ao seu parceiro de tecnologia de SAP ou integrador de sistemas.
+    - **Disponibilidade do sistema**: Selecione **HA**.
+    - **Nome de utilizador administrador e a palavra-passe de administrador**: Um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
+    - **Sub-rede nova ou existente**: Determina se devem ser criadas uma nova rede virtual e uma sub-rede ou uma sub-rede existente utilizado. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
     - **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >**.
 
 ### <a name="manual-deployment"></a>Implementação manual
@@ -199,9 +201,9 @@ Siga os passos em [Pacemaker no SUSE Linux Enterprise Server no Azure a configur
 ## <a name="install-sap-hana"></a>Instalar o SAP HANA
 
 Os passos nesta secção, utilize os prefixos seguintes:
-- **[A]** : O passo aplica-se a todos os nós.
+- **[A]** : A etapa se aplica a todos os nós.
 - **[1]** : A etapa se aplica ao nó 1 apenas.
-- **[2]** : A etapa se aplica ao nó 2 do cluster Pacemaker apenas.
+- **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)**.
 
@@ -269,7 +271,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Configurar o layout de disco: **discos simples**.
+1. **[A]**  Configurar o layout de disco: **Discos simples**.
 
    Para sistemas de demonstração, pode colocar os ficheiros de dados e de registo HANA num disco. Cria uma partição em /dev/disk/azure/scsi1/lun0 e formatá-lo com xfs:
 
@@ -314,31 +316,31 @@ Os passos nesta secção, utilize os prefixos seguintes:
 Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cenário de otimização de desempenho do SAP HANA SR](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]**  Executar o **hdblcm** programa a partir do DVD do HANA. Introduza os seguintes valores na linha de comandos:
-   * Escolha a instalação: introduza **1**.
-   * Selecione os componentes adicionais para a instalação: introduza **1**.
-   * Introduza o caminho de instalação [/ hana/partilhado]: selecione introduzir.
+   * Escolha a instalação: Introduza **1**.
+   * Selecione os componentes adicionais para a instalação: Introduza **1**.
+   * Introduza o caminho de instalação [/ hana/partilhado]: Selecione introduzir.
    * Introduza o nome de anfitrião Local [.]: Selecione introduzir.
-   * Deseja adicionar anfitriões adicionais no sistema? (y/n) [n]: selecione introduzir.
+   * Deseja adicionar anfitriões adicionais no sistema? (y/n) [n]: Selecione introduzir.
    * Introduza o ID de sistema do SAP HANA: Introduza o SID do HANA, por exemplo: **HN1**.
    * Introduza o número de instância [00]: Introduza o número de instância HANA. Introduza **03** se utilizar o modelo do Azure ou seguido a secção de implementação manual deste artigo.
    * Selecione o modo de base de dados / introduza índice [1]: Selecione introduzir.
-   * Selecionar a utilização do sistema / índice introduza [4]: selecione o valor de utilização do sistema.
-   * Introduza a localização de Volumes de dados [/ hana/dados/HN1]: selecione introduzir.
-   * Introduza a localização de Volumes de registo [/ hana/registo/HN1]: selecione introduzir.
-   * Restringir a alocação de memória máxima? [n]: selecione introduzir.
+   * Selecionar a utilização do sistema / introduza índice [4]: Selecione o valor de utilização do sistema.
+   * Introduza a localização de Volumes de dados [/ hana/dados/HN1]: Selecione introduzir.
+   * Introduza a localização de Volumes de registo [/ hana/registo/HN1]: Selecione introduzir.
+   * Restringir a alocação de memória máxima? [n]: Selecione introduzir.
    * Introduza o nome de anfitrião do certificado para o anfitrião "..." [...]: Selecione introduzir.
-   * Introduza a palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: introduza a palavra-passe de utilizador do agente de anfitrião.
-   * Confirmar palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: digite a senha de usuário do agente de anfitrião novamente para confirmar.
-   * Introduza o administrador de sistema (hdbadm) palavra-passe: introduza a palavra-passe de administrador do sistema.
-   * Confirmar (hdbadm) palavra-passe de administrador de sistema: introduza a palavra-passe de administrador do sistema novamente para confirmar.
-   * Administrador de sistema de ENTER Home diretório [/ usr/sap/HN1/home]: selecione introduzir.
-   * Introduza o Shell de início de sessão de administrador de sistema [/ bin/sh]: selecione introduzir.
+   * Introduza a palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: Introduza a palavra-passe de utilizador do agente de anfitrião.
+   * Confirme palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: Digite a senha de usuário do agente de anfitrião novamente para confirmar.
+   * Introduza o administrador de sistema (hdbadm) palavra-passe: Introduza a palavra-passe de administrador do sistema.
+   * Confirme (hdbadm) palavra-passe de administrador de sistema: Introduza a palavra-passe de administrador do sistema novamente para confirmar.
+   * Introduza o diretório de raiz de administrador de sistema [/ usr/sap/HN1/home]: Selecione introduzir.
+   * Introduza o Shell de início de sessão de administrador de sistema [/ bin/sh]: Selecione introduzir.
    * Introduza o ID de utilizador de administrador de sistema [1001]: Selecione introduzir.
-   * Introduza o ID do grupo de utilizadores (sapsys) [79]: selecione introduzir.
-   * Introduza a palavra-passe de utilizador de base de dados (sistema): Introduza a palavra-passe de utilizador de base de dados.
-   * Confirmar palavra-passe de utilizador de base de dados (sistema): Introduza a palavra-passe de utilizador de base de dados, novamente para confirmar.
-   * Reiniciar o sistema após o reinício do computador? [n]: selecione introduzir.
-   * Pretende continuar? (y/n): validar o resumo. Introduza **y** para continuar.
+   * Introduza o ID do grupo de utilizadores (sapsys) [79]: Selecione introduzir.
+   * Introduza a palavra-passe de utilizador (sistema) de base de dados: Introduza a palavra-passe de utilizador de base de dados.
+   * Confirme palavra-passe de utilizador (sistema) de base de dados: Introduza a palavra-passe de utilizador de base de dados, novamente para confirmar.
+   * Reiniciar o sistema após o reinício do computador? [n]: Selecione introduzir.
+   * Pretende continuar? (y/n): Valide o resumo. Introduza **y** para continuar.
 
 1. **[A]**  Atualize o agente de anfitrião do SAP.
 
@@ -351,9 +353,9 @@ Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cená
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : O passo aplica-se a todos os nós.
+* **[A]** : A etapa se aplica a todos os nós.
 * **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica ao nó 2 do cluster Pacemaker apenas.
+* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[1]**  Criar a base de dados do inquilino.
 
@@ -396,9 +398,9 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : O passo aplica-se a todos os nós.
+* **[A]** : A etapa se aplica a todos os nós.
 * **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica ao nó 2 do cluster Pacemaker apenas.
+* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[1]**  Criar usuários necessários.
 
@@ -688,7 +690,7 @@ Executa todos os casos de teste que estão listados no guia de cenário de otimi
 Os seguintes testes são uma cópia das descrições de teste do SAP HANA SR desempenho otimizado cenário SUSE Linux Enterprise Server para a guia SP1 de 12 de aplicações SAP. Para uma versão atualizada, leia sempre também o Guia em si. Sempre Certifique-se de que está em sincronização HANA antes de iniciar o teste e também certificar-se de que a configuração de Pacemaker está correta.
 
 As seguintes descrições de teste partimos do pressuposto PREFER_SITE_TAKEOVER = "true" e AUTOMATED_REGISTER = "false".
-Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e depende do Estado de saída dos testes anteriores.
+NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e depende do Estado de saída dos testes anteriores.
 
 1. TESTE 1: PARAR PRINCIPAL DA BASE DE DADOS NO NÓ 1
 
@@ -772,7 +774,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 3: PRINCIPAL DE FALHA BASE DE DADOS NO NÓ
+1. TESTE 3: PRIMÁRIO FALHA NO NÓ DE BASE DE DADOS
 
    Estado do recurso antes de iniciar o teste:
 
@@ -854,7 +856,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 5: NÓ DE SITE PRIMÁRIO DE FALHA (NÓ 1)
+1. TESTE 5: FALHA DE NÓ DE SITE PRIMÁRIO (NÓ 1)
 
    Estado do recurso antes de iniciar o teste:
 
@@ -905,7 +907,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TESTE 6: NÓ DE SITE SECUNDÁRIO DE FALHA (NÓ 2)
+1. 6 DE TESTE: FALHA DE NÓ DE SITE SECUNDÁRIO (NÓ 2)
 
    Estado do recurso antes de iniciar o teste:
 
@@ -956,7 +958,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 7: PARAR BASE DE DADOS SECUNDÁRIO NO NÓ 2
+1. 7 DE TESTE: PARAR A SECUNDÁRIA DA BASE DE DADOS NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -993,7 +995,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 8: FALHA BASE DE DADOS SECUNDÁRIO NO NÓ 2
+1. 8 DE TESTE: FALHA SECUNDÁRIO DA BASE DE DADOS NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -1030,7 +1032,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 9: BASE DE DADOS FALHA DE SITE SECUNDÁRIO EM EXECUÇÃO DE NÓ (NÓ 2) HANA SECUNDÁRIO
+1. 9 DE TESTE: BASE DE DADOS DO SITE SECUNDÁRIO EM EXECUÇÃO DE NÓ (NÓ 2) HANA SECUNDÁRIO DE FALHAS
 
    Estado do recurso antes de iniciar o teste:
 

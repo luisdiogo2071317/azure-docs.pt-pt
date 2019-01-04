@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582365"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545149"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de reencaminhamento do Azure no Azure Monitor (pré-visualização)
 Métricas de reencaminhamento do Azure dão-lhe o estado dos recursos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral dos seus recursos de reencaminhamento, não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado do reencaminhamento do Azure. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
@@ -33,7 +33,7 @@ O Azure Monitor fornece interfaces do usuário unificada para monitoramento em v
 
 O Azure Monitor proporciona várias formas de métricas de acesso. Pode qualquer uma das métricas de acesso através da [portal do Azure](https://portal.azure.com), ou utilize o Azure Monitor APIs (REST e .NET) e soluções de análise de como o Operation Management Suite e dos Hubs de eventos. Para obter mais informações, consulte [dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
+As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
@@ -60,16 +60,16 @@ Todos os valores de métricas são enviados para o Azure Monitor, a cada minuto.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| ListenerConnections-êxito (pré-visualização) | O número de conexões com êxito do serviço de escuta a reencaminhamento do Azure num determinado período. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ListenerConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ListenerConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-êxito (pré-visualização)|O número de ligações de remetente bem-sucedida efetuadas num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de remetente num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de remetente num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ListenerConnections-TotalRequests (pré-visualização)|O número total de ligações de serviço de escuta num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-TotalRequests (pré-visualização)|Os pedidos de ligação graças as remetentes num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ActiveConnections (pré-visualização)|O número de ligações ativas num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ActiveListeners (pré-visualização)|O número de serviços de escuta ativos durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| ListenerConnections-êxito (pré-visualização) | O número de conexões com êxito do serviço de escuta a reencaminhamento do Azure num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-êxito (pré-visualização)|O número de ligações de remetente bem-sucedida efetuadas num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de remetente num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de remetente num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-TotalRequests (pré-visualização)|O número total de ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-TotalRequests (pré-visualização)|Os pedidos de ligação graças as remetentes num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections (pré-visualização)|O número de ligações ativas num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveListeners (pré-visualização)|O número de serviços de escuta ativos durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerDisconnects (pré-visualização)|O número de serviços de escuta desligado num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderDisconnects (pré-visualização)|O número de remetentes desligados num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 

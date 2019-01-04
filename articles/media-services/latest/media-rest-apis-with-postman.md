@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215794"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604104"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o Postman para chamadas de API de REST dos serviços de multimédia
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como configurar **Postman** para que possa ser utilizada 
 - Obtenha informações necessárias para [aceder a APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Transferir ficheiros do Postman
 
@@ -75,7 +75,7 @@ Esta secção configura o Postman.
 
 Antes de começar a manipulação de recursos do AMS v3 terá de obter e definir o Token do Azure AD para autenticação do Principal de serviço.
 
-1. Na janela da esquerda do Postman, selecione "Passo 1: obter token de autorização do AAD".
+1. Na janela à esquerda do Postman, selecione "passo 1: Obter autenticação do AAD token".
 2. Em seguida, selecione "Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço".
 3. Prima **Enviar**.
 
@@ -85,7 +85,7 @@ Antes de começar a manipulação de recursos do AMS v3 terá de obter e definir
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. A resposta volta com o token e define a variável de ambiente "AccessToken" como o valor de token. Para ver o código que define "AccessToken", clique no separador **Testes**. 
+4. A resposta volta com o token e define a variável de ambiente "AccessToken" como o valor de token.  
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

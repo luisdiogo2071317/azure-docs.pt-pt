@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963747"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717196"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação no Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve os passos necessários adicionar um utilizador final ao Azure Stack, gerido por um fornecedor de serviços Cloud (CSP). Quando o novo inquilino utiliza recursos, o Azure Stack irá reportar utilização à respetiva subscrição do CSP.
 
@@ -53,7 +53,7 @@ Se o cliente final irão gerir a sua própria conta, crie um utilizador convidad
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Atualizar o registo com a subscrição do cliente final
 
-Atualize o registo com a nova subscrição do cliente. Utilização do cliente, a identidade do cliente de Central de parceiro a utilizar os relatórios do Azure. Este passo garante que é comunicada a utilização de cada cliente sob a subscrição do CSP individual do cliente. Isso muito mais fácil controlar a utilização de utilizador e de faturação.
+Atualize o registo com a nova subscrição do cliente. Relatórios de utilização do cliente usando a identidade do cliente a partir do Centro de parceiros do Azure. Este passo garante que é comunicada a utilização de cada cliente sob a subscrição do CSP individual do cliente. Isso muito mais fácil controlar a utilização de utilizador e de faturação.
 
 > [!Note]  
 > Para executar este passo, tem de ter [registado do Azure Stack](azure-stack-register.md).

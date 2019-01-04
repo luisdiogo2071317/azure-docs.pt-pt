@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849501"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723931"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a recuperação de fisaster de VMware para Azure com o CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a recuperação de desastre do VMware para o Azure com o CSP
 
 [O Azure Site Recovery](site-recovery-overview.md) suporta ambientes de multi-inquilinos para subscrições de inquilino. Também suporta vários inquilinos para subscrições de inquilino que são criadas e geridas através do programa de fornecedor de soluções Cloud (CSP) da Microsoft.
 
@@ -24,11 +24,11 @@ Este artigo fornece uma descrição geral da implementação e gestão de multi-
 
 Existem três modelos principais de multi-inquilinos:
 
-* **Partilhado do fornecedor de serviços de alojamento (HSP)**: O parceiro é o proprietário a infraestrutura física e utiliza partilhado recursos (vCenter, centros de dados, armazenamento físico e assim por diante) para alojar vários inquilinos VMs na mesma infraestrutura. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode ser proprietário recuperação após desastre como uma solução de self-service.
+* **Fornecedor de serviços de alojamento (HSP) partilhados**: O parceiro é o proprietário a infraestrutura física e utiliza partilhado recursos (vCenter, centros de dados, armazenamento físico e assim por diante) para alojar vários inquilinos VMs na mesma infraestrutura. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode ser proprietário recuperação após desastre como uma solução de self-service.
 
-* **Dedicado que aloja fornecedor de serviços**: O parceiro é proprietário a infraestrutura física, mas utiliza recursos dedicados (vários vCenters, arquivos de dados físicos e assim por diante) para hospedar VMs de cada inquilino numa infraestrutura separada. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode possuí-lo como uma solução de self-service.
+* **Fornecedor de serviços de alojamento de dedicado**: O parceiro é proprietário a infraestrutura física, mas usa recursos dedicados (vários vCenters, arquivos de dados físicos e assim por diante) para hospedar VMs de cada inquilino numa infraestrutura separada. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode possuí-lo como uma solução de self-service.
 
-* **Geridos pelo fornecedor de serviços (MSP)**: O cliente possui a infraestrutura física que aloja as VMs e o parceiro fornece gestão e de ativação de recuperação após desastre.
+* **Fornecedor de serviços (MSP) gerido**: O cliente possui a infraestrutura física que aloja as VMs e o parceiro fornece à habilitação da recuperação após desastre e gestão.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Fornecedor de serviços de hospedagem compartilhada (HSP)
 
@@ -56,9 +56,9 @@ Também é um servidor de processo de escalamento horizontal separado sob o cont
 
 Cada servidor de configuração no cenário de multi-inquilino utiliza duas contas:
 
-- **a conta de acesso do vCenter**: esta conta é utilizada para detetar VMs inquilinas. Ele tem as permissões de acesso do vCenter atribuídas ao mesmo. Para ajudar a evitar fugas de acesso, recomendamos que os parceiros introduza estas credenciais próprios na ferramenta de configuração.
+- **a conta de acesso do vCenter**: Esta conta é utilizada para detetar VMs inquilinas. Ele tem as permissões de acesso do vCenter atribuídas ao mesmo. Para ajudar a evitar fugas de acesso, recomendamos que os parceiros introduza estas credenciais próprios na ferramenta de configuração.
 
-- **Conta de acesso à máquina virtual**: esta conta é utilizada para instalar o agente do serviço de mobilidade num inquilino VMs, com um push automático. Normalmente, é uma conta de domínio que um inquilino poderão fornecer a um parceiro ou uma conta que o parceiro pode gerir diretamente. Se um inquilino não quer partilhar os detalhes com o parceiro diretamente, eles podem introduzir as credenciais por meio do acesso de tempo limitado para o servidor de configuração. Ou, com a assistência do parceiro, podem instalar o agente do serviço de mobilidade manualmente.
+- **Conta de acesso à máquina virtual**: Esta conta é utilizada para instalar o agente do serviço de mobilidade num inquilino VMs, com um push automático. Normalmente, é uma conta de domínio que um inquilino poderão fornecer a um parceiro ou uma conta que o parceiro pode gerir diretamente. Se um inquilino não quer partilhar os detalhes com o parceiro diretamente, eles podem introduzir as credenciais por meio do acesso de tempo limitado para o servidor de configuração. Ou, com a assistência do parceiro, podem instalar o agente do serviço de mobilidade manualmente.
 
 ## <a name="vcenter-account-requirements"></a>requisitos de conta do vCenter
 
@@ -75,11 +75,11 @@ Configure o servidor de configuração com uma conta que tenha um papel especial
 1. Criar uma nova função através da clonagem predefinidos *só de leitura* função e, em seguida, atribua um nome conveniente (por exemplo, Azure_Site_Recovery, conforme mostrado neste exemplo).
 2. Atribua as seguintes permissões a esta função:
 
-    * **Arquivo de dados**: alocar espaço, arquivo de dados de procura, as operações de arquivo de baixo nível, remover ficheiro, ficheiros de atualização de máquina virtual
-    * **Rede**: atribuir de rede
-    * **Recurso**: atribuir VM a agrupamento de recursos, migrar desligado da VM, para migrar com tecnologia na VM
-    * **Tarefas**: criar a tarefa, a tarefa de atualização
-    * **VM - configuração**: todos
+    * **Arquivo de dados**: Alocar espaço, arquivo de dados de procura, as operações de arquivo de nível baixo, remova o ficheiro, ficheiros de atualização de máquina virtual
+    * **Rede**: Atribuir rede
+    * **Recurso**: Atribuir VM a agrupamento de recursos, migrar desligado da VM, com tecnologia na VM para migrar
+    * **Tarefas**: Criar tarefa, a tarefa de atualização
+    * **VM - configuração**: Todos
     - **VM - interação** > responder a pergunta, ligação de dispositivos, suporte de dados de configurar o CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas do VMware
     - **VM - inventário** > criar a partir de existente, crie um novo, registar, anular o registo
     - **VM - aprovisionamento** > Permitir transferência de máquinas virtuais, o carregamento de ficheiros de máquina virtual de permitir

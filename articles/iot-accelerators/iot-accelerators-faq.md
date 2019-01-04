@@ -1,5 +1,5 @@
 ---
-title: Aceleradores de solução de IoT do Azure FAQ | Documentos da Microsoft
+title: Aceleradores de solução de IoT FAQ - Azure | Documentos da Microsoft
 description: Perguntas mais frequentes sobre os Aceleradores de solução de IoT
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253350"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608754"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre os Aceleradores de solução de IoT
 
@@ -40,7 +40,28 @@ Atualmente, apenas a solução de monitorização remota utiliza a arquitetura d
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>As vantagens que a nova aberto baseadas em microsserviços arquitetura fornece na atualização de novo?
 
-Nos últimos dois anos, arquitetura de nuvem bastante evoluiu. Microsserviços surgiram como um excelente padrão para alcançar dimensionamento e flexibilidade, sem sacrificar a rapidez do desenvolvimento. Este padrão de arquitetura é utilizado em vários serviços do Microsoft internamente com confiabilidade excelente e resultados de escalabilidade. Que estamos colocando estes de aprendizagem na prática, para que os nossos clientes beneficiam deles.
+Nos últimos dois anos, arquitetura de nuvem bastante evoluiu. Microsserviços surgiram como um excelente padrão para alcançar dimensionamento e flexibilidade, sem sacrificar a rapidez do desenvolvimento. Este padrão de arquitetura é utilizado em vários serviços do Microsoft internamente com confiabilidade excelente e resultados de escalabilidade. Microsoft é colocar esses aprendizados em prática no solution accelerators para que os clientes aproveitá-las.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Sou um administrador de serviço e gostaria de alterar o mapeamento de diretório entre a minha subscrição e específicas de uma inquilino do Azure AD. Como posso concluir esta tarefa?
+
+Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um administrador de serviços ou Coadministrador, ao iniciar sessão com uma conta institucional
+
+Consulte o artigo de suporte [alterar o administrador de serviços e Coadministrador ao iniciar sessão com uma conta institucional](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Porque estou a ver este erro? "A sua conta não tem as permissões adequadas para criar uma solução. Consulte o seu administrador de conta ou tente com uma conta diferente."
+
+Observe o diagrama a seguir para obter orientações sobre:
+
+![Fluxograma de permissões](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Se continuar a ver o erro depois de confirmar for um administrador global do inquilino do Azure AD e o coadministrador da subscrição, peça ao seu administrador de conta, remova o utilizador e reatribuir as permissões necessárias pela seguinte ordem. Primeiro, adicione o utilizador como administrador global e, em seguida, adicionar o utilizador como um coadministrador da subscrição do Azure. Se os problemas persistirem, contacte [ajuda e suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Porque estou a ver este erro quando tenho uma subscrição do Azure? "Uma subscrição do Azure é necessário para criar soluções pré-configuradas. Pode criar uma conta de avaliação gratuita em apenas alguns minutos."
+
+Se tiver a certeza de que tem uma subscrição do Azure, valide o mapeamento para a sua subscrição do inquilino e verificar que o inquilino correto está selecionado na lista pendente. Se confirmou que o inquilino está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e este inquilino do Azure AD.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Onde posso encontrar informações sobre a versão anterior da solução de monitorização remota?
 
@@ -52,7 +73,7 @@ Sim, a monitorização remota novos está disponível nas mesmas regiões geogr�
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>O que é a diferença entre a eliminação de um grupo de recursos no portal do Azure e clicar eliminar num acelerador de solução em azureiotsuite.com?
 
-* Se eliminar o solution accelerator na [azureiotsuite.com](https://www.azureiotsolutions.com/), eliminar todos os recursos que foram aprovisionados quando criou o solution accelerator. Se adicionou recursos adicionais para o grupo de recursos, esses recursos também são eliminados.
+* Se eliminar o solution accelerator na [azureiotsuite.com](https://www.azureiotsolutions.com/), estará a eliminar todos os recursos que foram implementados quando criou o solution accelerator. Se adicionou recursos adicionais para o grupo de recursos, esses recursos também são eliminados.
 * Se eliminar o grupo de recursos no [portal do Azure](https://portal.azure.com), só é eliminar os recursos nesse grupo de recursos. Também terá de eliminar a aplicação do Azure Active Directory associada com o solution accelerator.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Posso continuar a tirar partido do meu investimentos existentes em Aceleradores de solução de IoT do Azure?
@@ -78,7 +99,7 @@ Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para
 
 Atualmente, não é possível criar um acelerador de solução com um [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) conta. No entanto, pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que lhe permitem criar um acelerador de solução.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso eliminar um inquilino do AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como posso eliminar um inquilino do Azure AD?
 
 Consulte a postagem de blog de Eric Golpe [instruções de eliminação de um inquilino do Azure AD](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 

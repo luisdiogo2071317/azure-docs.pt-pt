@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133152"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993168"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com expressões de 1000 no portal do LUIS
 
@@ -48,7 +48,7 @@ Todas as entidades personalizadas no modelo de aparecem no filtro de entidades d
 
 O arquivo em lotes consiste em expressões. Cada expressão tem de ter uma previsão de intenção esperada, juntamente com quaisquer [entidades aprendidas por máquina](luis-concept-entity-types.md#types-of-entities) espera ser detetado. 
 
-## <a name="batch-syntax-template"></a>Modelo de sintaxe de batch
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de batch para objetivos com entidades
 
 Utilize o modelo seguinte para iniciar seu arquivo em lotes:
 
@@ -75,6 +75,22 @@ Utilize o modelo seguinte para iniciar seu arquivo em lotes:
 ```
 
 O ficheiro batch utiliza o **startPos** e **endPos** propriedades observar de início e no fim de uma entidade. Os valores não são baseado em zero e devem começar ou terminar num espaço. Isso é diferente dos registos de consulta, o que utilizar propriedades startIndex e endIndex. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Modelo de sintaxe de batch para objetivos sem entidades
+
+Utilize o modelo seguinte para iniciar seu arquivo em lotes sem entidades:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Se não desejar testar entidades, inclua o `entities` propriedade e defina o valor como uma matriz vazia, `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Importação de um lote de erros comuns

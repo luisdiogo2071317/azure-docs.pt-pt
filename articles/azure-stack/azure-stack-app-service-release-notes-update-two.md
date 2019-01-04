@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078805"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714496"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicações no notas de versão de atualização 2 do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Estas notas de versão descrevem as melhorias e correções no serviço de aplicações do Azure no Azure Stack atualização 2 e os problemas conhecidos. Problemas conhecidos são divididos em problemas diretamente relacionados com a implementação, o processo de atualização e a problemas com a compilação (após a instalação).
 
@@ -66,7 +66,7 @@ Serviço de aplicações do Azure no Azure Stack Update 2 inclui as seguintes me
   - Atualizado o .net Core componentes para ser consistente com o serviço de aplicações do Azure na nuvem pública.
   - Kudu atualizado
 
-- Ranhuras de troca automática da implementação de funcionalidade ativada - [configurando a troca automática](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Ranhuras de troca automática da implementação de funcionalidade ativada - [configurando a troca automática](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Teste de funcionalidade de produção ativada - [introdução ao teste na produção](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,13 +83,13 @@ Serviço de aplicações do Azure no Azure Stack Update 2 inclui as seguintes me
 - Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
 
 Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Origem: qualquer
+ * Origem: Qualquer
  * Intervalo de portas de origem: *
  * Destino: Endereços IP
- * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+ * Intervalo de endereços IP de destino: Intervalo de IPs para o servidor de ficheiros
  * Intervalo de portas de destino: 445
  * Protocolo: TCP
- * Ação: permitir
+ * Ação: Permitir
  * Prioridade: 700
  * Nome: Outbound_Allow_SMB445
 

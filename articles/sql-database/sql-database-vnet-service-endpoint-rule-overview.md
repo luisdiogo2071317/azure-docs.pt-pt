@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728130"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
 
 *Regras de rede virtual* são um recurso de segurança de firewall que controla se do Azure [base de dados SQL](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server aceita comunicações que são enviadas do sub-redes específicos em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção de forma segura que permite a comunicação para a sua base de dados do Azure SQL e SQL Data Warehouse.
 
-> [!NOTE]
-> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> [!IMPORTANT]
+> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure**.
 
 Para criar uma regra de rede virtual, tem primeiro de existir uma [ponto final de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra fazer referência.
 
@@ -64,9 +64,8 @@ Pode recuperá-los a opção de IP, obtendo uma *estático* endereço IP para a 
 
 No entanto, a abordagem IP estática pode se tornar difíceis de gerenciar, e é dispendioso, quando Feito em escala. Regras de rede virtual são mais fáceis de estabelecer e gerir.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Ainda não pode ter a base de dados SQL numa sub-rede
-
-Se o servidor de base de dados do Azure SQL era um nó numa sub-rede na sua rede virtual, todos os nós na rede virtual foi possível comunicar com a base de dados SQL. Neste caso, as suas VMs, foi possível comunicar com a base de dados SQL sem a necessidade de quaisquer regras IP ou regras de rede virtual.
+> [!NOTE]
+> Ainda não pode ter a base de dados SQL numa sub-rede. Se o servidor de base de dados do Azure SQL era um nó numa sub-rede na sua rede virtual, todos os nós na rede virtual foi possível comunicar com a base de dados SQL. Neste caso, as suas VMs, foi possível comunicar com a base de dados SQL sem a necessidade de quaisquer regras IP ou regras de rede virtual.
 
 No entanto a partir de Setembro de 2017, o serviço de base de dados do Azure SQL não é ainda entre os serviços que podem ser atribuídos a uma sub-rede.
 

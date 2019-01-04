@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51293213"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995760"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
 
@@ -169,15 +169,15 @@ Esta seção explora a arquitetura descrita anteriormente através a lente de mo
 
 Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemplo tenta atenuar várias ameaças diferentes entre os diferentes estágios/informações de dados existe na: processo, comunicação e armazenamento. Segue-se uma descrição geral dos mais comuns para a categoria de "processo", seguido de uma descrição geral de como essas ameaças podem ser mitigadas melhor:
 
-**(S) de spoofing**: um atacante pode extrair o material de chave criptográfica de um dispositivo, seja ao nível do software ou hardware e, em seguida, aceder ao sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave está a ser utilizado de. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
+**(S) de spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
 
-**Negação de serviço (D)**: um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
+**Negação de serviço (D)**: Um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
 
-**Adulteração (T)**: um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém a chave materiais estavam disponíveis para o programa ilícito. Por exemplo, um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
+**Adulteração (T)**: Um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito. Por exemplo, um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
 
-**Divulgação de informações (I)**: se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas. Por exemplo, um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
+**Divulgação de informações (I)**: Se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas. Por exemplo, um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
 
-**Elevação de privilégios (E)**: um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégios (E)**: Um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
 
 | **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
@@ -190,33 +190,33 @@ Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemp
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Spoofing**: um invasor pode extrair o material de chave criptográfica de um dispositivo, seja ao nível do software ou hardware, e, em seguida, o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de acesso tem foram tiradas de.
+**Spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica.
 
-**Negação de serviço**: um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
+**Negação de serviço**: Um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
 
-**Adulteração**: um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém a chave materiais estavam disponíveis para o programa ilícito.
+**Adulteração**: Um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito.
 
-**Adulteração**: uma câmera de vigilância que está a mostrar uma imagem de visível espectro de um corredor vazio pode ter o objetivo de uma fotografia de um corredor desse tipo. Pode comunicar-se um sensor fumaça ou fire de alguém que contém um mais sob a mesma. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas comunica informações manipuladas.
+**Adulteração**: Uma câmara de vigilância que está a mostrar uma imagem de visível espectro de um corredor vazio pode ter o objetivo de uma fotografia de um corredor desse tipo. Pode comunicar-se um sensor fumaça ou fire de alguém que contém um mais sob a mesma. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas comunica informações manipuladas.
 
-**Adulteração**: um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
+**Adulteração**: Um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
 
-**Adulteração**: um invasor pode parcial ou completamente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém material de chave estavam disponíveis para o programa ilícito.
+**Adulteração**: Um invasor pode parcial ou completamente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito.
 
-**Divulgação de informações**: se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas.
+**Divulgação de informações**: Se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas.
 
-**Divulgação de informações**: um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um controlador ou o campo de gateway ou o gateway de cloud para siphon desativar informações.
+**Divulgação de informações**: Um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
 
 **Negação de serviço**: O dispositivo pode ser desativado ou transformado num modo em que a comunicação não é possível (que é intencional no número de máquinas industrial).
 
 **Adulteração**: O dispositivo pode ser reconfigurado para funcionar num Estado desconhecido para o sistema de controle (fora de parâmetros de calibração conhecidos) e, portanto, fornecer dados que podem ser mal interpretados
 
-**Elevação de privilégios**: um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégios**: Um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
 
 **Negação de serviço**: O dispositivo pode ser transformado num Estado em que a comunicação não é possível.
 
 **Adulteração**: O dispositivo pode ser reconfigurado para funcionar num Estado desconhecido para o sistema de controle (fora de parâmetros de calibração conhecidos) e, portanto, fornecer dados que podem ser mal interpretados.
 
-**Spoofing/violação/rejeição**: Se não protegido (que raramente é o caso com controles remotos de consumidor), um invasor pode manipular o estado de um dispositivo de forma anónima. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
+**Spoofing/adulteração/rejeição**: Se não protegido (que raramente é o caso com controles remotos de consumidor), um invasor pode manipular o estado de um dispositivo de forma anónima. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
 
 #### <a name="communication"></a>Comunicação
 
@@ -232,9 +232,9 @@ Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Negação de serviço**: dispositivos restritos geralmente estiverem a ser ameaça DoS quando eles ativamente escutam ligações de entrada ou não solicitados os datagramas numa rede, uma vez que um invasor pode muitas ligações abertas em paralelo e não fornecê-las ou de serviço -las lenta, ou o dispositivo pode ser inundado de tráfego não solicitado. Em ambos os casos, o dispositivo com eficiência pode ser composto inoperável na rede.
+**Negação de serviço**: Dispositivos restritos geralmente estiverem a ser ameaça DoS quando eles ativamente escutam ligações de entrada ou não solicitados os datagramas numa rede, uma vez que um invasor pode muitas ligações abertas em paralelo e não fornecê-las ou fornecê-las lenta, ou o dispositivo pode ser enorme tráfego não solicitado. Em ambos os casos, o dispositivo com eficiência pode ser composto inoperável na rede.
 
-**Spoofing, divulgação de informações**: dispositivos restritos e dispositivos com objetivos especiais geralmente têm recursos de segurança de um-para-todos, como a palavra-passe ou a proteção de PIN, ou que dependem totalmente confiar na rede, que significa que eles concedem acesso a informações sobre quando um dispositivo estiver na mesma rede, e essa rede, muitas vezes, apenas é protegida por uma chave partilhada. Isso significa que, quando o segredo partilhado para o dispositivo ou de rede é divulgado, é possível controlar o dispositivo ou observar dados emitidos a partir do dispositivo.  
+**Spoofing, divulgação de informações**: Dispositivos restritos e dispositivos com objetivos especiais geralmente têm recursos de segurança de um-para-todos, como a palavra-passe ou proteção de PIN ou eles totalmente dependem de confiar na rede, que significa que eles concedem acesso às informações quando um dispositivo estiver na mesma rede e essa rede muitas vezes, só está protegido por uma chave partilhada. Isso significa que, quando o segredo partilhado para o dispositivo ou de rede é divulgado, é possível controlar o dispositivo ou observar dados emitidos a partir do dispositivo.  
 
 **Spoofing**: um atacante poderá interceptar ou parcialmente substituir a difusão e falsificar o originador (intermediário)
 
@@ -263,7 +263,7 @@ Gateway de nuvem é principalmente personalizados criados software em execução
 
 Um sistema de controle (ou o controlador) é uma solução de software que faz interface com um dispositivo, ou um gateway de campo ou o gateway de nuvem com o objetivo de controlar um ou vários dispositivos e/ou para recolher e/ou armazenar e/ou analisar os dados de dispositivo para apresentação, ou efeitos de controlo subsequentes. Sistemas de controle são as apenas as entidades no âmbito desta discussão que imediatamente pode facilitar a interação com as pessoas. As exceções são intermediários superfícies de controle físicos em dispositivos, como uma chave que permite que uma pessoa desativar o dispositivo ou alterar outras propriedades, e para que não existe nenhum equivalente funcional que pode ser acedido digitalmente.
 
-Intermediários superfícies de controle físicos são aqueles em que que regem a lógica restringe a função da superfície de controle física de forma a que uma função equivalente pode ser iniciada remotamente ou é possível evitar conflitos de entrada com entrada remoto – como, por exemplo intermediated conceitualmente, superfícies de controle são anexados a um sistema de controlo local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controlo remoto que o dispositivo pode ser anexado a em paralelo. Principais ameaças para a cloud pode ser lido de computação [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) página.
+Intermediários superfícies de controle físicos são aqueles em que que regem a lógica restringe a função da superfície de controle física de forma a que uma função equivalente pode ser iniciada remotamente ou é possível evitar conflitos de entrada com entrada remoto – como, por exemplo intermediated conceitualmente, superfícies de controle são anexados a um sistema de controlo local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controlo remoto que o dispositivo pode ser anexado a em paralelo. Principais ameaças para a cloud pode ser lido de computação [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) página.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

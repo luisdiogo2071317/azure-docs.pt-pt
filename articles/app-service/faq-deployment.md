@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389153"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549433"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>FAQs sobre a implementação de aplicações Web no Azure
 
@@ -36,7 +36,7 @@ Aqui estão algumas opções para a publicação de seu código de aplicação w
 *   Implante usando o Visual Studio. Se tiver a solução do Visual Studio, o projeto de aplicativo web com o botão direito e, em seguida, selecione **publicar**.
 *   Implemente com um cliente de FTP. No portal do Azure, transfira o perfil de publicação da aplicação web que pretende implementar o seu código. Em seguida, carregue os ficheiros para \site\wwwroot utilizando as mesmas credenciais FTP do perfil de publicação.
 
-Para obter mais informações, consulte [implementar a aplicação no serviço de aplicações](app-service-deploy-local-git.md).
+Para obter mais informações, consulte [implementar a aplicação no serviço de aplicações](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Vejo uma mensagem de erro ao tentar implementar a partir do Visual Studio. Como posso resolver isto?
 
@@ -51,7 +51,7 @@ O tutorial [criar a sua primeira aplicação web ASP.NET no Azure em cinco minut
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implementação?
 
-Serviço de aplicações suporta dois tipos de credenciais para a implementação de FTP/S e de implementação de Git local. Para obter mais informações sobre como configurar as credenciais de implementação, consulte [configurar as credenciais de implementação para o serviço de aplicações](app-service-deployment-credentials.md).
+Serviço de aplicações suporta dois tipos de credenciais para a implementação de FTP/S e de implementação de Git local. Para obter mais informações sobre como configurar as credenciais de implementação, consulte [configurar as credenciais de implementação para o serviço de aplicações](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>O que é a estrutura de arquivo ou diretório do meu aplicativo web do serviço de aplicações?
 
@@ -63,7 +63,7 @@ Se vir esta mensagem, é provável que se deparar com uma quota de disco no plan
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como posso configurar a implementação contínua para a minha aplicação web do serviço de aplicações?
 
-Pode configurar a implementação contínua a partir de vários recursos, incluindo o Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios de Git. Estas opções estão disponíveis no portal. [Implementação contínua no serviço de aplicações](app-service-continuous-deployment.md) é um tutorial útil que explica como configurar a implementação contínua.
+Pode configurar a implementação contínua a partir de vários recursos, incluindo o Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios de Git. Estas opções estão disponíveis no portal. [Implementação contínua no serviço de aplicações](deploy-continuous-deployment.md) é um tutorial útil que explica como configurar a implementação contínua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Como posso resolver problemas com implementação contínua a partir do GitHub e Bitbucket?
 
@@ -100,4 +100,4 @@ Implementação contínua de código para ambas estas opções depende de fluxos
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Como usar FTP ou FTPS para implementar a minha aplicação no serviço de aplicações?
 
-Para obter informações sobre como utilizar o FTP ou FTPS para implementar a aplicação web no serviço de aplicações, consulte [implementar a aplicação no serviço de aplicações através de FTP/S](app-service-deploy-ftp.md).
+Para obter informações sobre como utilizar o FTP ou FTPS para implementar a aplicação web no serviço de aplicações, consulte [implementar a aplicação no serviço de aplicações através de FTP/S](deploy-ftp.md).

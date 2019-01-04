@@ -4,19 +4,19 @@ description: Saiba mais sobre as limitações de migração/problemas conhecidos
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884515"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721653"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para MySQL
 
@@ -25,7 +25,7 @@ Problemas conhecidos e limitações associadas a migrações online do MySQL par
 ## <a name="online-migration-configuration"></a>Configuração de migração online
 - A versão do MySQL Server de origem tem de ser a versão 5.6.35, 5.7.18 ou posterior
 - Suporta a base de dados do Azure para MySQL:
-    - Edição de comunidade do MySQL
+    - Edição de Comunidade do MySQL
     - Motor InnoDB
 - Migração de versões do mesmo. Migrando MySQL 5.6 para a base de dados do Azure para MySQL 5.7 não é suportada.
 - Ativar o registo binário em My. ini (Windows) ou cnf (Unix)
@@ -53,29 +53,29 @@ Problemas conhecidos e limitações associadas a migrações online do MySQL par
       GROUP BY SchemaName;
     ```
 
-    Execute a chave estrangeira de soltar (que é a segunda coluna) no resultado da consulta.
+    Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 - Esquema na base de dados do Azure para MySQL destino não pode ter qualquer gatilhos. Para colocar acionadores na base de dados de destino:
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
-- **Limitação**: se houver um tipo de dados JSON à base de dados MySQL, migração irá falhar durante a sincronização contínua.
+- **Limitação**: Se houver um tipo de dados JSON à base de dados MySQL, migração irá falhar durante a sincronização contínua.
 
-    **Solução**: tipo de dados JSON de modificar a texto médio ou longtext base de dados MySQL.
+    **Solução**: Modificar o tipo de dados JSON para texto médio ou longtext base de dados MySQL.
 
 - **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua irá falhar.
  
-    **Solução**: definir temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
+    **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 Grandes colunas de objeto (LOB) são colunas que poderiam ter um aumento de tamanho grandes. Para o MySQL, texto médio, Longtext, BLOBs, Mediumblob, Longblob, etc. são alguns dos tipos de dados do LOB.
 
-- **Limitação**: os tipos de dados se LOB são utilizados como chaves primárias, a migração falhará.
+- **Limitação**: Se os tipos de dados LOB são utilizados como chaves primárias, a migração falhará.
 
-    **Solução**: substituir a chave primária com outros tipos de dados ou colunas que não são LOB.
+    **Solução**: Substitua a chave primária com outros tipos de dados ou colunas que não são LOB.
 
-- **Limitação**: se o comprimento da coluna de objeto grande (LOB) é maior do que 32 KB, os dados podem ser truncados no destino. Pode verificar o comprimento de coluna LOB usando esta consulta:
+- **Limitação**: Se o comprimento da coluna de objeto grande (LOB) é maior do que 32 KB, dados podem ser truncados no destino. Pode verificar o comprimento de coluna LOB usando esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```

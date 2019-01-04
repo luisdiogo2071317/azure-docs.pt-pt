@@ -10,40 +10,40 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323359"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975258"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
 ## <a name="configuration-problems"></a>Problemas de configuração
 *Estou a ter a definição de problemas na minha:*
 
-* [Aplicação .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitorização de uma aplicação já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Aplicação .NET](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Monitorização de uma aplicação já em execução](../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Aplicação Web Java](app-insights-java-troubleshoot.md)
+* [Aplicação Web Java](../azure-monitor/app/java-troubleshoot.md)
 
 *Posso obter não existem dados de meu servidor*
 
-* [Exceções de firewall de conjunto](app-insights-ip-addresses.md)
-* [Configurar um servidor do ASP.NET](app-insights-monitor-performance-live-website-now.md)
-* [Configurar um servidor de Java](app-insights-java-agent.md)
+* [Exceções de firewall de conjunto](../azure-monitor/app/ip-addresses.md)
+* [Configurar um servidor do ASP.NET](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Configurar um servidor de Java](../azure-monitor/app/java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Posso utilizar o Application Insights com...?
 
-* [Aplicações Web num servidor IIS - no local ou numa VM](app-insights-asp-net.md)
-* [Aplicações web Java](app-insights-java-get-started.md)
+* [Aplicações Web num servidor IIS - no local ou numa VM](../azure-monitor/app/asp-net.md)
+* [Aplicações web Java](../azure-monitor/app/java-get-started.md)
 * [Aplicações Node.js](app-insights-nodejs.md)
-* [Aplicações Web no Azure](app-insights-azure-web-apps.md)
-* [Serviços cloud no Azure](app-insights-cloudservices.md)
-* [Servidores de aplicações em execução no Docker](app-insights-docker.md)
-* [Aplicações web de página única](app-insights-javascript.md)
+* [Aplicações Web no Azure](../azure-monitor/app/azure-web-apps.md)
+* [Serviços cloud no Azure](../azure-monitor/app/cloudservices.md)
+* [Servidores de aplicações em execução no Docker](../azure-monitor/app/docker.md)
+* [Aplicações web de página única](../azure-monitor/app/javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Aplicação de ambiente de trabalho do Windows](app-insights-windows-desktop.md)
 * [Outras plataformas](app-insights-platforms.md)
@@ -60,7 +60,7 @@ O plano Enterprise incorre um encargo para cada dia em que cada nó do servidor 
 
 ## <a name="how-much-is-it-costing"></a>Quanto é ele custos?
 
-* Abra o **utilização e a página de custos estimados** página num recurso do Application Insights. Existe um gráfico de utilização recente. Pode definir um limite de volume de dados, se desejar.
+* Abra o **utilização e a página de custos estimados** num recurso do Application Insights. Existe um gráfico de utilização recente. Pode definir um limite de volume de dados, se desejar.
 * Abra o [painel de faturação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver as faturas em todos os recursos.
 
 ## <a name="q14"></a>O que modificar o Application Insights no meu projeto?
@@ -95,34 +95,33 @@ No Solution Explorer, clique com botão direito `ApplicationInsights.config` e e
 
 Uma aplicação de ambiente de trabalho que pode utilizar no seu servidor web do IIS para o ajudar a configurar o Application Insights nas aplicações web. Não recolhe telemetria: pode impedi-lo quando não estiver a configurar uma aplicação. 
 
-[Saiba mais](app-insights-monitor-performance-live-website-now.md#questions).
+[Saiba mais](../azure-monitor/app/monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Que telemetria é recolhida pelo Application Insights?
 
 A partir de aplicações do servidor web:
 
 * Pedidos HTTP
-* [Dependências](app-insights-asp-net-dependencies.md). Chamadas para: Bases de dados do SQL; Chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de BLOBs e filas. 
-* [Exceções](app-insights-asp-net-exceptions.md) e rastreios de pilha.
-* [Contadores de desempenho](app-insights-performance-counters.md) - se de que utiliza [Monitor de estado](app-insights-monitor-performance-live-website-now.md), [monitorização do Azure](app-insights-azure-web-apps.md) ou o [escritor do Application Insights recolhidos](app-insights-java-collectd.md).
-* [Métricas e eventos personalizados](app-insights-api-custom-events-metrics.md) que o código.
-* [Registos de rastreio](app-insights-asp-net-trace-logs.md) se configurar o recoletor apropriado.
+* [Dependências](../azure-monitor/app/asp-net-dependencies.md). Chamadas para: Bases de dados do SQL; Chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de BLOBs e filas. 
+* [Exceções](../azure-monitor/app/asp-net-exceptions.md) e rastreios de pilha.
+* [Contadores de desempenho](app-insights-performance-counters.md) - se de que utiliza [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md), [monitorização do Azure](../azure-monitor/app/azure-web-apps.md), ou o [escritor do Application Insights recolhidos](../azure-monitor/app/java-collectd.md).
+* [Métricas e eventos personalizados](../azure-monitor/app/api-custom-events-metrics.md) que o código.
+* [Registos de rastreio](../azure-monitor/app/asp-net-trace-logs.md) se configurar o recoletor apropriado.
 
-Partir [páginas da web cliente](app-insights-javascript.md):
+Partir [páginas da web cliente](../azure-monitor/app/javascript.md):
 
 * [Contagens de visualizações de página](app-insights-usage-overview.md)
-* [Chamadas AJAX](app-insights-asp-net-dependencies.md) pedidos efetuados a partir de um script em execução.
+* [Chamadas AJAX](../azure-monitor/app/asp-net-dependencies.md) pedidos efetuados a partir de um script em execução.
 * Dados de carga de vista de página
 * Contagens de utilizadores e de sessão
-* [IDs de utilizador autenticado](app-insights-api-custom-events-metrics.md#authenticated-users)
+* [IDs de utilizador autenticado](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
 
 De outras origens, se configurá-las:
 
 * [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Contentores do docker](app-insights-docker.md)
-* [Importar tabelas para análise](app-insights-analytics-import.md)
-* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
-* [Logstash](app-insights-analytics-import.md)
+* [Importá-la para análise](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Pode filtrar ou modificar alguma telemetria?
 
@@ -131,7 +130,7 @@ Sim, no servidor de podem escrever:
 * Processador de telemetria para filtrar ou adicionar propriedades a itens de telemetria selecionado antes de serem enviados a partir da sua aplicação.
 * Inicializador de telemetria para adicionar propriedades a todos os itens de telemetria.
 
-Saiba mais para [ASP.NET](app-insights-api-filtering-sampling.md) ou [Java](app-insights-java-filter-telemetry.md).
+Saiba mais para [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) ou [Java](../azure-monitor/app/java-filter-telemetry.md).
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Como são calculados as cidade, país e outros dados de localização geográfica?
 
@@ -148,9 +147,9 @@ Pode [utilizar o Power BI](app-insights-export-power-bi.md) para apresentar a te
 ## <a name="data"></a>O período de tempo são retidos os dados no portal do? É seguro?
 Dê uma olhada [retenção de dados e privacidade][data].
 
-## <a name="might-personally-identifiable-information-pii-be-sent-in-the-telemetry"></a>Poderão pessoal (PII) informações de identificação ser enviadas na telemetria?
+## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Foi possível enviar os dados pessoais na telemetria?
 
-Isto pode acontecer se o código envia esses dados. Também pode acontecer se variáveis em rastreios de pilha incluem PII. Sua equipe de desenvolvimento deve realizar avaliações de riscos para se certificar de que PII é corretamente processada. [Saiba mais sobre a retenção de dados e privacidade](app-insights-data-retention-privacy.md).
+Isto pode acontecer se o código envia esses dados. Também pode acontecer se as variáveis no rastreamentos de pilha incluem dados pessoais. Sua equipe de desenvolvimento deve realizar avaliações de riscos para garantir que os dados pessoais é corretamente processados. [Saiba mais sobre a retenção de dados e privacidade](../azure-monitor/app/data-retention-privacy.md).
 
 **Todos os** octetos do endereço de web cliente estão sempre definidos como 0 depois dos atributos de localização geográfica estão a ser pesquisados.
 
@@ -174,31 +173,31 @@ Nós não iniciar sessão automaticamente dados de POSTAGEM, mas pode usar uma c
 Utilize um único recurso para todos os componentes ou funções num sistema único de negócios. Utilize recursos separados para o desenvolvimento, teste e versões de lançamento e para aplicativos independentes.
 
 * [Consulte a discussão aqui](app-insights-separate-resources.md)
-* [Exemplo - serviço cloud com as funções de trabalho e web](app-insights-cloudservices.md)
+* [Exemplo - serviço cloud com as funções de trabalho e web](../azure-monitor/app/cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Como posso alterar dinamicamente a chave de instrumentação?
 
 * [Discussão aqui](app-insights-separate-resources.md)
-* [Exemplo - serviço cloud com as funções de trabalho e web](app-insights-cloudservices.md)
+* [Exemplo - serviço cloud com as funções de trabalho e web](../azure-monitor/app/cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>Quais são os utilizadores e a sessão de conta?
 
 * O JavaScript SDK define um cookie de utilizador do cliente da web, para identificar os utilizadores de devolução e um cookie de sessão para atividades de grupo.
 * Se não houver nenhum script do lado do cliente, pode [definir cookies no servidor](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Se um utilizador real utiliza o seu site em diferentes navegadores ou ao utilizar a navegação em privado/incognito ou computadores diferentes, em seguida, eles serão contadas mais de uma vez.
-* Para identificar um utilizador com sessão iniciada em máquinas e navegadores, adicione uma chamada para [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Para identificar um utilizador com sessão iniciada em máquinas e navegadores, adicione uma chamada para [setAuthenticatedUserContext()](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Eu ativou tudo no Application Insights?
 | O que verá | Como obtê-la | Por que deseja que ele |
 | --- | --- | --- |
-| Gráficos de disponibilidade |[Testes Web](app-insights-monitor-web-app-availability.md) |Saber a que sua aplicação web está ativo |
-| Desempenho de aplicações de servidor: tempos de resposta,... |[Adicionar o Application Insights ao seu projeto](app-insights-asp-net.md) ou [instalar Monitor de estado de IA no servidor](app-insights-monitor-performance-live-website-now.md) (ou escrever seu próprio código para [controlar as dependências](app-insights-api-custom-events-metrics.md#trackdependency)) |Detetar problemas de desempenho |
-| Telemetria de dependência |[Instale o Monitor de estado de IA no servidor](app-insights-monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
-| Obter rastreamentos de pilha de exceções |[Inserir chamadas de TrackException no seu código](app-insights-asp-net-exceptions.md) (mas algumas são reportadas automaticamente) |Detetar e diagnosticar exceções |
-| Rastreios de registos de pesquisa |[Adicionar uma placa de registo](app-insights-asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
-| Noções básicas de utilização do cliente: as vistas de página, sessões,... |[Inicializador de JavaScript em páginas da web](app-insights-javascript.md) |Análise de utilização |
-| Métricas personalizadas de cliente |[Controlo de chamadas em páginas da web](app-insights-api-custom-events-metrics.md) |Melhorar a experiência do utilizador |
-| Métricas personalizadas do servidor |[Chamadas de controlo no servidor](app-insights-api-custom-events-metrics.md) |Business intelligence |
+| Gráficos de disponibilidade |[Testes Web](../azure-monitor/app/monitor-web-app-availability.md) |Saber a que sua aplicação web está ativo |
+| Desempenho de aplicações de servidor: tempos de resposta,... |[Adicionar o Application Insights ao seu projeto](../azure-monitor/app/asp-net.md) ou [instalar Monitor de estado de IA no servidor](../azure-monitor/app/monitor-performance-live-website-now.md) (ou escrever seu próprio código para [controlar as dependências](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detetar problemas de desempenho |
+| Telemetria de dependência |[Instale o Monitor de estado de IA no servidor](../azure-monitor/app/monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
+| Obter rastreamentos de pilha de exceções |[Inserir chamadas de TrackException no seu código](../azure-monitor/app/asp-net-exceptions.md) (mas algumas são reportadas automaticamente) |Detetar e diagnosticar exceções |
+| Rastreios de registos de pesquisa |[Adicionar uma placa de registo](../azure-monitor/app/asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
+| Noções básicas de utilização do cliente: as vistas de página, sessões,... |[Inicializador de JavaScript em páginas da web](../azure-monitor/app/javascript.md) |Análise de utilização |
+| Métricas personalizadas de cliente |[Controlo de chamadas em páginas da web](../azure-monitor/app/api-custom-events-metrics.md) |Melhorar a experiência do utilizador |
+| Métricas personalizadas do servidor |[Chamadas de controlo no servidor](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Por que as contagens em gráficos de métricas e pesquisa são desiguais?
 
@@ -227,7 +226,7 @@ Não é possível configurar um relatório do Explorador de métricas ou configu
 
 ### <a name="querying-the-telemetry"></a>Consultar a telemetria
 
-Utilize o [REST API](https://dev.applicationinsights.io/) para ser executado [Analytics](app-insights-analytics.md) consultas.
+Utilize o [REST API](https://dev.applicationinsights.io/) para ser executado [Analytics](../azure-monitor/app/analytics.md) consultas.
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>Como definir um alerta num evento?
 
@@ -242,7 +241,7 @@ Isso não depende de onde está alojado o recurso do Application Insights. Depen
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Pode enviar telemetria ao portal do Application Insights?
 
-Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](app-insights-api-custom-events-metrics.md). Há variantes do SDK para várias [plataformas](app-insights-platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, repetições e assim por diante. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo do ponto de extremidade](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sejam públicos.
+Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](../azure-monitor/app/api-custom-events-metrics.md). Há variantes do SDK para várias [plataformas](app-insights-platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, repetições e assim por diante. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo do ponto de extremidade](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sejam públicos.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Pode monitorizar um servidor de web da intranet?
 
@@ -254,7 +253,7 @@ Permitir que o seu servidor web para enviar telemetria para nossos pontos de ext
 
 ### <a name="proxy"></a>Proxy
 
-Encaminhe o tráfego do seu servidor para um gateway na sua intranet, por overwritting estas definições no exemplo applicationinsights. config. Se estas propriedades de "Endpoint" não estão presentes na sua configuração, essas classes utilizará os valores predefinidos mostrados no exemplo abaixo.
+Encaminhar o tráfego do seu servidor para um gateway na sua intranet, ao substituir estas definições no exemplo applicationinsights. config. Se estas propriedades de "Endpoint" não estão presentes na sua configuração, essas classes utilizará os valores predefinidos mostrados no exemplo abaixo.
 
 #### <a name="example-applicationinsightsconfig"></a>Applicationinsights. config de exemplo:
 ```xml
@@ -283,22 +282,23 @@ http://<your.gateway.endpoint>/v2/track
 http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 ```
 
-
-
-
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Pode executar testes web de disponibilidade num servidor de intranet?
 
-Nosso [testes web](app-insights-monitor-web-app-availability.md) executar em pontos de presença que são distribuídos em todo o mundo. Existem duas soluções:
+Nosso [testes web](../azure-monitor/app/monitor-web-app-availability.md) executar em pontos de presença que são distribuídos em todo o mundo. Existem duas soluções:
 
-* Porta de firewall - permitir que os pedidos para o servidor em [longo e alterável lista de agentes de teste web](app-insights-ip-addresses.md).
+* Porta de firewall - permitir que os pedidos para o servidor em [longo e alterável lista de agentes de teste web](../azure-monitor/app/ip-addresses.md).
 * Escreva seu próprio código para enviar pedidos periódicos para o servidor em dentro de sua intranet. Pode executar testes web do Visual Studio para esta finalidade. O testador pode enviar os resultados para o Application Insights com a API de trackavailability ().
+
+## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Quanto tempo demora para telemetria recolha?
+
+A maioria dos dados do Application Insights tem uma latência de menos de 5 minutos. Alguns dados podem demorar mais tempo; Normalmente, ficheiros de registo maiores. Para obter mais informações, consulte a [SLA do Application Insights](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## <a name="more-answers"></a>Obter mais respostas
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

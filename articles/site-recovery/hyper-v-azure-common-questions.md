@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8ba188db87ffc0d428c7349c902cf60bec65d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875336"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788485"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -55,11 +55,11 @@ Sim, ambas as encriptação em trânsito e [encriptação no Azure](https://docs
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>O que posso fazer com o Hyper-V para replicação do Azure?
 
-- **Recuperação após desastre**: pode configurar a recuperação após desastre. Neste cenário, é possível replicar VMs de Hyper-V no local para o armazenamento do Azure:
+- **Recuperação após desastre**: Pode configurar a recuperação após desastre. Neste cenário, é possível replicar VMs de Hyper-V no local para o armazenamento do Azure:
     - Pode replicar VMs no Azure. Se a sua infraestrutura no local não estiver disponível, ativação pós-falha para o Azure.
     - Quando efetuar a ativação pós-falha, as VMs do Azure são criadas com os dados replicados. Pode aceder a aplicações e cargas de trabalho nas VMs do Azure.
     - Quando o seu datacenter no local estiver novamente disponível, pode reativação pós-falha do Azure para o seu site no local.
-- **Migração**: pode utilizar o Site Recovery para migrar VMs de Hyper-V no local para o armazenamento do Azure. Em seguida, efetuar a ativação pós-falha do local para o Azure. Após a ativação pós-falha, as suas aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
+- **Migração**: Pode utilizar o Site Recovery para migrar VMs de Hyper-V no local para o armazenamento do Azure. Em seguida, efetuar a ativação pós-falha do local para o Azure. Após a ativação pós-falha, as suas aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
 
 
 ### <a name="what-do-i-need-on-premises"></a>O que fazer, preciso no local?
@@ -197,8 +197,8 @@ Após a sua infraestrutura no local novamente em funcionamento, pode efetuar a r
 
 1. Pode iniciar uma ativação pós-falha planeada do Azure para o site no local com algumas opções diferentes:
 
-    - Minimizar o período de indisponibilidade: Se utilizar esta opção de recuperação de Site sincroniza os dados antes da ativação pós-falha. Ele verifica a existência de blocos de dados alterados e transfere-os para o site no local, enquanto mantém a VM do Azure em execução, minimizando o tempo de inatividade. Quando especificar manualmente que a ativação pós-falha deverá ser concluída, a VM do Azure é encerrada, quaisquer alterações de final delta são copiadas e inicia a ativação pós-falha.
-    - Transferência completa: com esta opção, os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
+    - Minimize o tempo de inatividade: Se utilizar esta opção de recuperação de Site sincroniza os dados antes da ativação pós-falha. Ele verifica a existência de blocos de dados alterados e transfere-os para o site no local, enquanto mantém a VM do Azure em execução, minimizando o tempo de inatividade. Quando especificar manualmente que a ativação pós-falha deverá ser concluída, a VM do Azure é encerrada, quaisquer alterações de final delta são copiadas e inicia a ativação pós-falha.
+    - Transferência completa: Com esta opção os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
 
 2. Pode selecionar a falha de volta para a mesma VM ou a uma VM alternativa. Pode especificar que a recuperação de Site deve criar a VM, se ainda não exista.
 3. Depois de concluída a sincronização inicial, selecione para concluir a ativação pós-falha. Depois de terminar, pode iniciar sessão na VM no local para verificar que tudo está a funcionar conforme esperado. No portal do Azure, pode ver que as VMs do Azure foram paradas.

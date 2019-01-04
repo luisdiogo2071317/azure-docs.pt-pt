@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955631"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598895"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
 
-Ao contrário da hospedagem de Web site estático, locais dinâmicos que dependem de código do lado do servidor são melhor alojados com [aplicações Web do Azure](/azure/app-service/app-service-web-overview).
+Ao contrário da hospedagem de Web site estático, locais dinâmicos que dependem de código do lado do servidor são melhor alojados com [App Service do Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Como funciona?
 Quando ativar o Web site estático de alojamento na sua conta de armazenamento, selecione o nome do seu ficheiro de padrão e, opcionalmente, indique um caminho para uma página 404 personalizada. Como a funcionalidade está ativada, um contentor com o nome *$web* é criada, se ainda não exista. 
@@ -109,7 +109,7 @@ Métodos disponíveis para implementar o conteúdo para um contentor de armazena
 
 - [AZCopy](../common/storage-use-azcopy.md)
 - [Explorador de armazenamento](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Pipelines do Azure](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
 - [Extensão do Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 Em todos os casos, certifique-se de que copiar ficheiros para o *$web* contentor.
@@ -161,6 +161,6 @@ Sim, o ponto final web diferencia maiúsculas de minúsculas tal como o ponto fi
 * [Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar um nome de domínio personalizado para o ponto final do blob ou web](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Aplicações Web do Azure](/azure/app-service/app-service-web-overview)
+* [Serviço de Aplicações do Azure](/azure/app-service/overview)
 * [Crie seu primeiro aplicativo da web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Alojar o seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutorial: Aloje o seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

@@ -1,7 +1,7 @@
 ---
 title: Criar, executar e monitorizar pipelines de ML
 titleSuffix: Azure Machine Learning service
-description: Criar e executar uma pipeline com o SDK do Azure Machine Learning de aprendizagem para Python.  Pipelines são utilizados para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML), como a preparação de dados, preparação de modelos, implementação do modelo e inferência.
+description: Criar e executar uma pipeline com o SDK do Azure Machine Learning de aprendizagem para Python. Utilize pipelines para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML). Estas fases incluem inferência, implementação do modelo, preparação de modelos e preparação de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,23 +11,23 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6c6472b824eefdd1954f3645c69090d1fb5455de
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269048"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754463"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
+# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
 Neste artigo, irá aprender a criar, publicar, executar e controlar um [pipeline de machine learning](concept-ml-pipelines.md) utilizando o [do Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Esses pipelines ajudam a criar e gerir os fluxos de trabalho que reunir várias fases de aprendizado de máquina. Cada fase de um pipeline, por exemplo, a preparação de dados e preparação de modelos, pode incluir um ou mais passos.
 
 Os pipelines que cria são visíveis para os membros do seu serviço Azure Machine Learning [área de trabalho](how-to-manage-workspace.md). 
 
-Pipelines usar destinos de computação remoto para computação e o armazenamento dos dados intermediários e finais associados a esse pipeline.  Pipelines podem ler e suporte de dados de escrita de e para [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) localizações.
+Pipelines usar destinos de computação remoto para computação e o armazenamento dos dados intermediários e finais associados a esse pipeline. Pipelines podem ler e suporte de dados de escrita de e para [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) localizações.
 
 >[!Note]
->Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+>Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,14 +50,14 @@ Crie os recursos necessários para executar um pipeline:
 
 * Configure um arquivo de dados usado para acessar os dados necessários nos passos de pipeline.
 
-* Configurar um `DataReference` objeto para apontar para dados que residem ou estão acessível a um arquivo de dados.
+* Configurar um `DataReference` de objeto para apontar para dados que residem na ou estão acessível num arquivo de dados.
 
 * Configurar o [destinos de computação](concept-azure-machine-learning-architecture.md#compute-target) em que executará as etapas do pipeline.
 
 ### <a name="set-up-a-datastore"></a>Configurar um arquivo de dados
-Um arquivo de dados armazena os dados para o pipeline aceder.  Cada área de trabalho tem um arquivo de dados padrão. Pode registrar os arquivos de dados adicionais. 
+Um arquivo de dados armazena os dados para o pipeline aceder. Cada área de trabalho tem um arquivo de dados padrão. Pode registrar os arquivos de dados adicionais. 
 
-Quando cria a área de trabalho, uma [armazenamento de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e uma [armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) estão anexados à área de trabalho, por predefinição.  O armazenamento de ficheiros do Azure é o "padrão arquivo de dados" para uma área de trabalho, mas também pode utilizar o armazenamento de BLOBs como um arquivo de dados.  Saiba mais sobre [opções de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Quando cria a área de trabalho, [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) estão anexados à área de trabalho, por predefinição. O Azure Files é o arquivo de dados predefinida para uma área de trabalho, mas também pode utilizar o armazenamento de BLOBs como um arquivo de dados. Para obter mais informações, consulte [decidindo quando usar os ficheiros do Azure, Blobs do Azure ou discos do Azure para](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -70,7 +70,7 @@ def_data_store = Datastore(ws, "workspacefilestore")
 def_blob_store = Datastore(ws, "workspaceblobstore")
 ```
 
-Carregar ficheiros de dados ou diretórios para o arquivo de dados para que sejam acessíveis a partir de seus pipelines.  Este exemplo utiliza a versão de armazenamento de Blobs do arquivo de dados:
+Carregar ficheiros de dados ou diretórios para o arquivo de dados para que sejam acessíveis a partir de seus pipelines. Este exemplo utiliza a versão de armazenamento de Blobs do arquivo de dados:
 
 ```python
 def_blob_store.upload_files(
@@ -79,7 +79,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-Um pipeline consiste num ou mais passos.  Um passo é uma unidade executada num destino de computação.  Passos podem consumir origens de dados e produzir dados de "intermediários". Um passo pode criar dados como um modelo, um diretório com o modelo e os arquivos dependentes ou dados temporários.  Estes dados, em seguida, estão disponíveis para outros passos mais tarde no pipeline.
+Um pipeline consiste num ou mais passos. Um passo é uma unidade executada num destino de computação. Passos podem consumir origens de dados e produzir dados de "intermediários". Um passo pode criar dados como um modelo, um diretório com o modelo e os arquivos dependentes ou dados temporários. Estes dados, em seguida, estão disponíveis para outros passos mais tarde no pipeline.
 
 ### <a name="configure-data-reference"></a>Configurar a referência de dados
 
@@ -92,7 +92,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Dados intermédios (ou de saída de um passo) é representada por um [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objeto. `output_data1` é produzido como a saída de um passo e utilizado como a entrada de um ou mais passos futuras.  `PipelineData` Apresenta uma dependência de dados entre passos e cria uma ordem de execução implícita no pipeline.
+Dados intermédios (ou de saída de um passo) é representada por um [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objeto. `output_data1` é produzido como o resultado de um passo e utilizado como entrada de um ou mais passos futuras. `PipelineData` Apresenta uma dependência de dados entre passos e cria uma ordem de execução implícita no pipeline.
 
 ```python
 output_data1 = PipelineData(
@@ -103,7 +103,7 @@ output_data1 = PipelineData(
 
 ### <a name="set-up-compute"></a>Configurar computação
 
-No Azure Machine Learning, computação (ou destino de computação) refere-se a computadores ou clusters que executará as etapas de computacionais no seu pipeline de machine learning. Por exemplo, pode criar uma computação do Azure Machine Learning para executar os passos.
+No Azure Machine Learning, o termo *computação* (ou *destino de computação*) refere-se a computadores ou clusters que executam os passos de computacionais no seu pipeline de machine learning. Por exemplo, pode criar uma computação do Azure Machine Learning para executar os passos.
 
 ```python
 compute_name = "aml-compute"
@@ -129,7 +129,7 @@ else:
 
 ## <a name="construct-your-pipeline-steps"></a>Construir suas etapas de pipeline
 
-Agora, está pronto para definir um passo de pipeline. Existem muitos passos internos disponível através do SDK do Azure Machine Learning. As mais básicas destes passos é uma `PythonScriptStep` que executa um script de Python num destino de computação especificado.
+Agora, está pronto para definir um passo de pipeline. Existem muitos passos internos disponível através do SDK do Azure Machine Learning. As mais básicas destes passos é uma `PythonScriptStep`, que executa um script de Python num destino de computação especificado.
 
 ```python
 trainStep = PythonScriptStep(
@@ -145,7 +145,7 @@ trainStep = PythonScriptStep(
 Depois de definir suas etapas, criar o pipeline com alguns ou todos esses passos.
 
 >[!NOTE]
->Nenhum ficheiro ou a dados são carregados para o serviço Azure Machine Learning ao definir os passos ou criar o pipeline.
+>Não existem dados ou ficheiro são carregados para o serviço Azure Machine Learning quando definir os passos ou criar o pipeline.
 
 ```python
 # list of steps to run
@@ -157,27 +157,27 @@ pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 
 ## <a name="submit-the-pipeline"></a>Submeter o pipeline
 
-Quando submete o pipeline, as dependências são verificadas para cada passo e um instantâneo da pasta especificado como o diretório de origem é carregado para o serviço Azure Machine Learning.  Se não for especificado nenhum diretório de origem, o atual diretório de local é carregado.
+Quando submete o pipeline, o serviço Azure Machine Learning verifica as dependências para cada passo e carrega um instantâneo do diretório de origem que especificou. Se não for especificado nenhum diretório de origem, o atual diretório de local é carregado.
 
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 ```
 
-Quando executa primeiro um pipeline:
+Quando executa primeiro um pipeline, o Azure Machine Learning:
 
-* O instantâneo de projeto é transferido para o destino de computação associado a área de trabalho de armazenamento de Blobs do.
-* Uma imagem do docker é criada a correspondente a cada etapa no pipeline.
-* A imagem do docker para cada passo é transferida para o destino de computação do container registry.
-* Se um `DataReference` objeto foi especificado um passo, o arquivo de dados está montado. Se não é suportada a montagem, os dados em vez disso, são copiados para o destino de computação.
-* O passo é executado no destino de computação especificado na definição do passo. 
-* Artefactos, tais como registos, stdout e stderr, métricas e especificado pelo passo de saída são criados. Estes artefactos, em seguida, são carregados e mantidos no armazenamento de dados do usuário padrão.
+* Transfere o instantâneo de projeto para o destino de computação do armazenamento de BLOBs associado com a área de trabalho.
+* Cria uma imagem do Docker correspondente a cada etapa no pipeline.
+* Transfere a imagem do docker para cada passo para o destino de computação do container registry.
+* Monta o arquivo de dados, se um `DataReference` objeto foi especificado um passo. Se não é suportada a montagem, os dados em vez disso, são copiados para o destino de computação.
+* Executa o passo no destino de computação especificado na definição do passo. 
+* Cria artefatos, como registos, stdout e stderr, métricas e especificado pelo passo de saída. Estes artefactos, em seguida, são carregados e mantidos no armazenamento de dados do usuário padrão.
 
-![executar uma experimentação como um pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Diagrama da execução de uma experimentação como um pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 ## <a name="publish-a-pipeline"></a>Publicar um pipeline
 
-Pode publicar um pipeline para executá-lo mais tarde com entradas diferentes. Para o ponto final REST de um pipeline já publicado para aceitar parâmetros, o pipeline tem de ser parametrizado antes da publicação. 
+Pode publicar um pipeline para executá-lo mais tarde com entradas diferentes. Para o ponto final REST de um pipeline já publicado para aceitar parâmetros, tem de parametrizar o pipeline antes de publicar. 
 
 1. Para criar um parâmetro de pipeline, utilize um [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) objeto com um valor predefinido.
 
@@ -209,9 +209,9 @@ published_pipeline1 = pipeline1.publish(
 
 ## <a name="run-a-published-pipeline"></a>Executar um pipeline publicado
 
-Todos os pipelines de publicação tem um ponto de final REST para invocar a execução do pipeline de sistemas externos, como os clientes não-Python. Este ponto final fornece uma forma para "gerida repetibilidade" no lote de classificação e cenários de reparametrização.
+Todos os pipelines de publicação tem um ponto final REST. Este ponto final invoca a execução do pipeline de sistemas externos, tais como clientes de não-Python. Este ponto final permite "geridos repetibilidade" no lote de classificação e cenários de reparametrização.
 
-Para invocar a execução do pipeline anterior, tem um token de cabeçalho de autenticação do Azure Active Directory conforme descrito no [AzureCliAuthentication classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
+Para invocar a execução do pipeline anterior, tem um token de cabeçalho de autenticação do Azure Active Directory, conforme descrito em [AzureCliAuthentication classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

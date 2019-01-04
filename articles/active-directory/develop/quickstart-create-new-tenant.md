@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963939"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975955"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Início rápido: Configurar um ambiente de desenvolvimento
 
-A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a utilizar a plataforma de identidade da Microsoft, irá aceder a um ambiente, também denominado inquilino do Azure AD, que pode registar e gerir aplicações, ter acesso a dados do Microsoft 365 e implementar restrições personalizadas de Acesso Condicional e de inquilino. 
+A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a utilizar a plataforma de identidade da Microsoft, terá acesso a um ambiente, também chamado de um inquilino do Azure AD, que pode registar e gerir aplicações, têm acesso a dados do Microsoft 365 e implementar restrições de acesso condicional e de inquilino personalizadas.
 
-Um inquilino é a representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. 
+Um inquilino é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
-Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD e tem sua própria representação de identidades profissionais e escolares, de identidades de consumidor (se for um inquilino do Azure AD B2C) e registos de aplicações. Um registo de aplicações dentro do seu inquilino pode permitir autenticações de contas apenas no seu inquilino ou em todos os inquilinos. 
+Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD e tem sua própria representação de identidades profissionais e escolares, de identidades de consumidor (se for um inquilino do Azure AD B2C) e registos de aplicações. Um registo de aplicações dentro do seu inquilino pode permitir autenticações de contas apenas no seu inquilino ou em todos os inquilinos.
 
 ## <a name="determining-environment-type"></a>Determinar o tipo de ambiente
 
@@ -69,9 +69,9 @@ Se ainda não tiver um inquilino do Azure AD ou se quiser criar um novo para des
 
 ## <a name="social-and-local-accounts"></a>Contas de redes sociais e locais
 
-Para começar a criar aplicações que iniciem sessão nas contas de redes sociais e locais, terá de criar um inquilino do Azure AD B2C. Para começar, siga [Criar um inquilino do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md). 
+Para começar a criar aplicações que iniciem sessão nas contas de redes sociais e locais, terá de criar um inquilino do Azure AD B2C. Para começar, siga [Criar um inquilino do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Experimente um início rápido de codificação e inicie a autenticação de utilizadores. 
 * Para obter amostras de código mais aprofundadas, consulte a secção **Tutoriais** da documentação.

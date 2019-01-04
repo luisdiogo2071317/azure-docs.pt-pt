@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427527"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791324"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligar ao Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligue-se para o Azure Data Box
 
 Este tutorial descreve como instalar os cabos, ligar e ativar o Azure Data Box.
 
@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
+1. Concluiu o [Tutorial: Encomendar do Azure Data Box](data-box-deploy-ordered.md).
 2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
     - Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
     - Algumas regiões na Europa, poderão receber o dispositivo empacotado numa caixa. Certifique-se de que descompactar o dispositivo e guardar a caixa para devolução.
@@ -69,7 +69,7 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 Execute os passos seguintes para configurar o dispositivo com a IU da Web local e a IU do portal.
 
 1. Configure o adaptador Ethernet no portátil que está a utilizar para ligar ao dispositivo com um endereço IP estático 192.168.100.5 e sub-rede 255.255.255.0. 
-2. Ligue à porta MGMT do seu dispositivo e aceda à respetiva IU da Web local em https://192.168.100.10. Este processo pode demorar até 5 minutos depois de ligar o dispositivo.
+2. Ligue a porta MGMT do seu dispositivo e aceder aos respetiva web local da interface do Usuário em https\:/ / 192.168.100.10. Este processo pode demorar até 5 minutos depois de ligar o dispositivo.
 3. Clique em **Details** (Detalhes) e, em seguida, clique em **Go on to the webpage** (Avançar para a página Web).
 
    ![Ligar à IU da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

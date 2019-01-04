@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338044"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548481"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
@@ -49,7 +49,7 @@ Não utilize o modo interativo da CLI para configurar Wildfly. Em vez disso, pod
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Carregar o script de inicialização para `/home/site/deployments/tools` na sua instância do serviço de aplicações. Ver [este documento](/azure/app-service/app-service-deployment-credentials#userscope) para obter instruções sobre como obter as suas credenciais FTP. 
+Carregar o script de inicialização para `/home/site/deployments/tools` na sua instância do serviço de aplicações. Ver [este documento](/azure/app-service/deploy-configure-credentials#userscope) para obter instruções sobre como obter as suas credenciais FTP. 
 
 Definir o **Script de inicialização** campo no portal do Azure para a localização do seu script de shell de inicialização, por exemplo `/home/site/deployments/tools/your-startup-script.sh`.
 

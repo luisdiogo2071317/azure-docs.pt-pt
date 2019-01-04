@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075885"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558809"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal do Cloudyn
 
@@ -29,7 +29,7 @@ Existem três tipos de relatórios do Cloudyn:
 
 - Relatórios de excesso de tempo. Por exemplo, o relatório de custo ao longo do tempo. Os relatórios de tempo excessiva mostram uma série de tempo dos dados ao longo de um intervalo selecionado com uma resolução predefinido e mostram uma resolução semanal para os últimos dois meses. Pode utilizar o agrupamento e filtragem de ampliar a vários pontos de dados.
   - Relatórios de excesso de tempo podem ajudá-lo a ver as tendências e detetar picos ou de anomalias.
-- Relatórios de análise. Por exemplo, a análise de custo repot. Estes relatórios mostram os dados agregados num período de que define e permitir que o agrupamento e filtragem nos dados.
+- Relatórios de análise. Por exemplo, o relatório de análise de custos. Estes relatórios mostram os dados agregados num período de que define e permitir que o agrupamento e filtragem nos dados.
   - Análise de relatórios podem ajudá-lo a ver picos e determinar as causas de raiz de anomalias e para mostrar a uma garantia de reparação pendente granular dos seus dados.
 - Relatórios de tabela. Pode ver qualquer relatório como uma tabela, mas alguns relatórios são visualizados apenas como uma tabela. Estes relatórios fornecem detalhadas listas de itens.
   - Recomendações são relatórios em tabela — não há nenhuma visualização para obter recomendações. No entanto, é possível visualizar os resultados de recomendação. Por exemplo, economia ao longo do tempo.
@@ -63,7 +63,7 @@ Muitos relatórios do Cloudyn mostram informações de orçamento, depois de ter
 
 ## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 
-Clouydn inclui os seguintes relatórios e os recursos de relatórios.
+O Cloudyn inclui os seguintes relatórios e os recursos de relatórios.
 
 ### <a name="cost-navigator-report"></a>Relatório de navegador de custos
 
@@ -208,7 +208,7 @@ Despesas personalizadas são apresentadas nos relatórios de custo. Por exemplo,
 
 Utilizar o Cost Allocation 360 para criar modelos de alocação de custos personalizado para atribuir os custos para recursos de cloud consumidos. Muitos relatórios apresentam informações a partir de modelos de custos personalizado que criou com modelos de custos personalizado. Além disso, alguns relatórios mostram apenas informações depois de criar um modelo de custos personalizado com alocação de custos.
 
-Para obter mais informações sobre a criação de modelos de custos personalizado, consulte [Tutorial: gerir os custos através do Cloudyn](tutorial-manage-costs.md).
+Para obter mais informações sobre a criação de modelos de custos personalizado, consulte [Tutorial: Gerir os custos através do Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Custos vs. Relatório de orçamento ao longo do tempo
 
@@ -448,7 +448,7 @@ O **utilização da CPU** seção fornece a utilização da CPU para a instânci
 
 Clique no gráfico para fazer uma busca detalhada e abrir o instância da CPU ao longo do tempo de relatório para ver uma análise detalhada das instâncias.
 
-- Uso **Mostrar/ocultar campos** para adicionar ou remover campos: Timestamp, a média da CPU, a CPU Mín, Máx. da CPU.
+- Uso **Mostrar/ocultar campos** para adicionar ou remover campos: Máximo de minutos de período de tempo médio de CPU, da CPU, da CPU.
 - Uso **intervalo de datas** para introduzir uma data ou um intervalo de datas e explorar uma InstanceID específico.
 - Uso **filtros expandidos** para mostrar todos os ou um ID de instância específico
 - Clique em **ampliar** para abrir o relatório de utilização da CPU

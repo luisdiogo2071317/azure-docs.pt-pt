@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398565"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633390"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure
 O armazenamento do Azure agora oferece a eliminação de forma recuperável para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.
@@ -170,26 +170,29 @@ Depois de anular a eliminação de instantâneos de um blob, pode clicar em **pr
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para ativar a eliminação de forma recuperável, Atualize as propriedades do serviço de um cliente de blob. O exemplo seguinte ativa a eliminação de forma recuperável para um subconjunto de contas numa subscrição:
 
 ```powershell
-Set-AzureRmContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+Set-AzContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 Pode verificar que essa eliminação de forma recuperável foi ativada com o seguinte comando:
 
 ```powershell
-$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Para recuperar blobs eliminados acidentalmente, chame desfazer a exclusão desses BLOBs. Lembre-se de que a chamada **anular a eliminação de BLOBs**, tanto em blobs eliminados de forma recuperável e Active Directory, irá restaurar instantâneos eliminados de forma recuperável todos os respectivos como ativa. O exemplo a seguir chama desfazer a exclusão em todos os soft eliminados e Active Directory blobs num contentor:
 ```powershell
 # Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Get the blobs in a given container and show their properties
-$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
 $Blobs.ICloudBlob.Properties
 
 # Undelete the blobs
@@ -198,8 +201,8 @@ $Blobs.ICloudBlob.Undelete()
 Para localizar a política de retenção de eliminação de forma recuperável currrent, utilize o seguinte comando:
 
 ```azurepowershell-interactive
-   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure 

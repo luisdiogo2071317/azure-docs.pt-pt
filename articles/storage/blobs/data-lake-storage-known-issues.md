@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: d42d05046f4ef133aa3dfb52bbe4e2b72255ccce
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bc6f59922286663435782623a72345c19adb494c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322897"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995041"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -66,10 +66,6 @@ O suporte é ao critério de cada fornecedor de aplicações de terceiros. Atual
 AzCopy versão 8 não suporta a geração 2 de armazenamento do Azure Data Lake.
 
 Em alternativa, utilize a versão de pré-visualização mais recente do AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) por oferecer suporte a pontos finais de geração 2 de armazenamento do Azure Data Lake.
-
-## <a name="oauth-authentication"></a>Autenticação OAuth
-
-Serviços como o HDInsight e Azure Data Factory ainda não integram com a autenticação de token de portador do OAuth do Azure Active Directory (Azure AD).
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 

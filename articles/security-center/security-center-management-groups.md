@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964122"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720820"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.
@@ -71,19 +71,19 @@ Um administrador de inquilino do Azure Active Directory não tem acesso direto �
 
    ![Propriedades do AD do Azure - captura de ecrã](./media/security-center-management-groups/aad-properties.png)
 
-3. Sob **Administrador Global pode gerir as subscrições do Azure e grupos de gestão**, defina o comutador para **Sim**.
+3. Sob **Access management para recursos do Azure**, defina o comutador para **Sim**.
 
    ![Administrador global pode gerir as subscrições do Azure e grupos de gestão - captura de ecrã](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Se definir a opção como **Sim**, a conta de Administrador Global (atualmente com sessão iniciada no utilizador) é adicionada à função de administrador de acesso de utilizador no RBAC do Azure no âmbito da raiz (`/`), que concede a acesso a exibição e o relatório em todas as subscrições Azure associadas com o inquilino do Azure AD.
+   - Quando definir a opção para Sim, são atribuídos a função de administrador de acesso de utilizador no RBAC do Azure no âmbito da raiz (/). Isso lhe concede permissão para atribuir funções em todas as subscrições do Azure e grupos de gestão associados a este diretório do Azure AD. Essa opção só está disponível para utilizadores que estão atribuídos a função de Administrador Global no Azure AD.
 
-   - Se definir a opção como **não**, sua conta de Administrador Global (atualmente com sessão iniciada no utilizador) é removida da função de administrador de acesso de utilizador no RBAC do Azure. Não pode ver todas as subscrições do Azure que estão associadas ao inquilino do Azure AD, e pode ver e gerir apenas as subscrições do Azure para o qual lhe foi concedido acesso.
+  - Ao definir a opção para não, a função de administrador de acesso de utilizador no Azure RBAC é removida da sua conta de utilizador. Já não pode atribuir funções em todas as subscrições do Azure e grupos de gestão que estão associados este diretório do Azure AD. Pode ver e gerir apenas as subscrições do Azure e os grupos de gestão ao qual lhe foi concedido acesso.
 
 4. Clique em **guardar** para salvar sua configuração.
 
     - Esta definição não é uma propriedade global e aplica-se apenas ao utilizador atualmente com sessão iniciado.
 
-5. Fazer as tarefas que precisam para fazer com o acesso elevado. Quando tiver terminado, defina o comutador para **não**.
+5. Execute as tarefas que precisa fazer no acesso elevado. Quando tiver terminado, defina o comutador para **não**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>Atribua funções RBAC a utilizadores

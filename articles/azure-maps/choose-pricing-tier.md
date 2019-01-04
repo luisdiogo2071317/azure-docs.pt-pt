@@ -3,17 +3,17 @@ title: Escolher o melhor de escalão de preço para o Azure Maps | Documentos da
 description: Saiba mais sobre oferecidos pelo Azure Maps de escalões de preço
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998371"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993965"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Escolher o direito de escalão de preço no Azure Maps
 
@@ -53,9 +53,8 @@ Consulte a tabela com **escalão de preço direcionados aos clientes** para ter 
 
 | Escalão de preço  |        Clientes de destinados                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>O escalão de preço S0 é para os clientes que são as empresas de pequenas ou médio porte. É um direito de escalão de preço para se não espera grandes volumes de utilizadores em simultâneo e os requisitos de serviço são satisfeitos pela geoespacial core APIs conforme indicado pela tabela abaixo. Esta camada está disponível em geral e é aplicável para aplicações em todas as fases de produção desde a prova de desenvolvimento do conceito e a fase inicial de teste para produção de aplicativo e a implantação.<p>|
+| S0            |    <p>O escalão de preço S0 é para os clientes que são as empresas de pequenas ou médio porte. É um direito de escalão de preço para se não espera grandes volumes de utilizadores em simultâneo e os requisitos de serviço são satisfeitos pela geoespacial principais APIs conforme indicado pela tabela acima. Esta camada está disponível em geral e é aplicável para aplicações em todas as fases de produção desde a prova de desenvolvimento do conceito e a fase inicial de teste para produção de aplicativo e a implantação.<p>|
 | S1            |    <p>O escalão de preço S1 é para os clientes que necessitam de suporte em grande escala empresarial, aplicativos de missão crítica, grandes volumes de utilizadores em simultâneo, ou requer serviços geoespaciais avançadas.</p>|
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

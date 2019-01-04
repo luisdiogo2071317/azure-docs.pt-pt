@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338163"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789761"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico de várias origens diferentes. Atualmente suportados são Web do serviço de Cloud do Azure (clássico) e funções de trabalho, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Ver [descrição geral da monitorização no Azure](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ A extensão de diagnóstico do Azure pode recolher os seguintes tipos de dados:
 ## <a name="data-storage"></a>Armazenamento de dados
 A extensão armazena os respetivos dados num [conta de armazenamento do Azure](diagnostics-extension-to-storage.md) que especificar.
 
-Também pode enviá-lo para [Application Insights](../../application-insights/app-insights-cloudservices.md). Outra opção é transmiti-lo para [Hub de eventos](../../event-hubs/event-hubs-about.md), que depois permite-lhe enviar para os serviços de monitorização não pertencente ao Azure.
+Também pode enviá-lo para [Application Insights](../../azure-monitor/app/cloudservices.md). Outra opção é transmiti-lo para [Hub de eventos](../../event-hubs/event-hubs-about.md), que depois permite-lhe enviar para os serviços de monitorização não pertencente ao Azure.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Tem também a opção de enviar seus dados para o Azure Monitor. Neste momento, este sink só é aplicável a contadores de desempenho. Permite-lhe enviar os contadores de desempenho recolhidos na sua VM, VMSS, ou serviço para o Azure Monitor, como métricas personalizadas em nuvem. Suporta o sink do Azure Monitor:
@@ -66,7 +66,7 @@ Escolha qual serviço está a tentar recolher diagnósticos em e utilize os segu
 
 Para tópicos mais avançados, consulte
 
-* [Utilizar o diagnóstico do Azure com o Application Insights para serviços em nuvem](../../application-insights/app-insights-cloudservices.md)
+* [Utilizar o diagnóstico do Azure com o Application Insights para serviços em nuvem](../../azure-monitor/app/cloudservices.md)
 * [Rastrear o fluxo de um aplicativo de serviços em nuvem com o diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Utilize o PowerShell para configurar diagnósticos nos serviços Cloud](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

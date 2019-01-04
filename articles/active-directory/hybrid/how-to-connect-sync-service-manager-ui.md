@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: da IU do Gestor do serviço de sincronização | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: IU do Gestor do serviço de sincronização | Documentos da Microsoft'
 description: Compreenda o Synchronization Service Manager para o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 877f41fb1d47bc8faf4ea1275c94cd492884bfb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 439535975c6e1b996bf888a1df7b6f2ae6732a6d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313251"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717540"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect da IU do Gestor do serviço de sincronização
 
@@ -32,9 +32,10 @@ O **Synchronization Service Manager** interface do Usuário é utilizado para co
 Iniciar o **Synchronization Service Manager** interface do Usuário a partir do menu Iniciar. É denominada **serviço de sincronização** e pode ser encontrado no **do Azure AD Connect** grupo.  
 ![Gestor do serviço de sincronização](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-Clique nas ligações na parte superior deste tópico para saber mais sobre os diferentes separadores na IU.
-
 ## <a name="next-steps"></a>Passos Seguintes
+
+Saiba mais sobre a interface do Usuário do Synchronization Service Manager, incluindo [Operations](how-to-connect-sync-service-manager-ui-operations.md), [conectores](how-to-connect-sync-service-manager-ui-connectors.md), [estruturador de Metaversos](how-to-connect-sync-service-manager-ui-mvdesigner.md), e [depesquisadeMetaversos](how-to-connect-sync-service-manager-ui-mvsearch.md) separadores.
+
 Saiba mais sobre o [do Azure AD Connect](how-to-connect-sync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

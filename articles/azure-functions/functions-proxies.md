@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139525"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538995"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -80,17 +80,17 @@ Por exemplo, se um proxy, tem um modelo de rota, como `/pets/{petId}`, o URL de 
 #### <a name="additional-request-parameters"></a>Parâmetros de pedido adicionais
 Além de parâmetros de modelo de rota, os seguintes valores podem ser utilizados em valores de configuração:
 
-* **{request.method}** : Método de HTTP o que é utilizado na solicitação original.
-* **{request.headers. \<HeaderName\>}**: um cabeçalho que pode ser lidos a partir do pedido original. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira ler. Se o cabeçalho não está incluído na solicitação, o valor será a cadeia vazia.
-* **{Request. QueryString. \<ParameterName\>}**: um parâmetro de cadeia de caracteres de consulta que pode ser lidos a partir do pedido original. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende ler. Se o parâmetro não está incluído na solicitação, o valor será a cadeia vazia.
+* **{request.method}** : O método HTTP que é utilizado na solicitação original.
+* **{request.headers. \<HeaderName\>}**: Um cabeçalho que pode ser lidos a partir do pedido original. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira ler. Se o cabeçalho não está incluído na solicitação, o valor será a cadeia vazia.
+* **{Request. QueryString. \<ParameterName\>}**: Um parâmetro de cadeia de caracteres de consulta que pode ser lidos a partir do pedido original. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende ler. Se o parâmetro não está incluído na solicitação, o valor será a cadeia vazia.
 
 ### <a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
 Parâmetros de resposta podem ser utilizados como parte de modificar a resposta ao cliente. Os seguintes valores podem ser utilizados em valores de configuração:
 
-* **{backend.response.statusCode}** : Código de estado de HTTP o que é devolvido na resposta de back-end.
-* **{backend.response.statusReason}** : Frase de razão de HTTP o que é devolvido na resposta de back-end.
-* **{backend.response.headers. \<HeaderName\>}**: um cabeçalho que pode ser lidos da resposta de back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que pretende ler. Se o cabeçalho não está incluído na resposta, o valor será a cadeia vazia.
+* **{backend.response.statusCode}** : O código de estado HTTP devolvido na resposta de back-end.
+* **{backend.response.statusReason}** : A frase de razão HTTP que é devolvida na resposta de back-end.
+* **{backend.response.headers. \<HeaderName\>}**: Um cabeçalho que pode ser lidos da resposta de back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que pretende ler. Se o cabeçalho não está incluído na resposta, o valor será a cadeia vazia.
 
 ### <a name="use-appsettings"></a>Definições da aplicação de referência
 
@@ -139,12 +139,12 @@ Os proxies que configurar são armazenados num *proxies* arquivo, o que está lo
 
 Cada proxy tem um nome amigável, como *proxy1* no exemplo anterior. O objeto de definição de proxy correspondente é definido pelas seguintes propriedades:
 
-* **matchCondition**: necessário – um objeto definindo os pedidos que acionam a execução desse proxy. Ele contém duas propriedades que são partilhadas com [acionadores HTTP]:
-    * _métodos_: uma matriz dos métodos HTTP que o proxy responde a. Se não for especificado, o proxy responde a todos os métodos HTTP na rota.
-    * _rota_: necessário – define o modelo de rota, controlar qual solicitação URLs seu proxy responde a. Ao contrário de acionadores HTTP, não existe nenhum valor predefinido.
+* **matchCondition**: É necessário – um objeto definindo os pedidos que acionam a execução desse proxy. Ele contém duas propriedades que são partilhadas com [acionadores HTTP]:
+    * _métodos_: Uma matriz dos métodos HTTP que o proxy responde a. Se não for especificado, o proxy responde a todos os métodos HTTP na rota.
+    * _rota_: Necessário – define o modelo de rota, controlar qual solicitação URLs seu proxy responde a. Ao contrário de acionadores HTTP, não existe nenhum valor predefinido.
 * **backendUri**: O URL do recurso de back-end para o qual o pedido deve ser transmitidas por proxy. Este valor pode referenciar as definições da aplicação e os parâmetros do pedido de cliente original. Se esta propriedade não está incluída, as funções do Azure responde com um HTTP 200 OK.
-* **requestOverrides**: um objeto que define as transformações para o pedido de back-end. Ver [definir um objeto de requestOverrides].
-* **responseOverrides**: um objeto que define as transformações de resposta do cliente. Ver [definir um objeto de responseOverrides].
+* **requestOverrides**: Um objeto que define as transformações para o pedido de back-end. Ver [definir um objeto de requestOverrides].
+* **responseOverrides**: Um objeto que define as transformações de resposta do cliente. Ver [definir um objeto de responseOverrides].
 
 > [!NOTE] 
 > O *rota* propriedade nos Proxies de funções do Azure não cumpra o *routePrefix* propriedade da configuração do anfitrião de aplicação de funções. Se quiser incluir um prefixo, como `/api`, tem de ser incluído nos *rota* propriedade.
@@ -161,7 +161,7 @@ Pode desativar os proxies individuais, adicionando `"disabled": true` para o pro
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -187,9 +187,9 @@ Ler todas as cadeias de caracteres sem interpretação, com exceção das chaves
 
 O objeto de requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
-* **backend.Request.Method**: método de HTTP o que é utilizado para chamar o back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada para o back-end. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende definir. Se não for fornecida a cadeia vazia, o parâmetro não está incluído no pedido de back-end.
-* **backend.Request.Headers. \<HeaderName\>**: um cabeçalho que pode ser definido para a chamada para o back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído no pedido de back-end.
+* **backend.Request.Method**: O método HTTP que é utilizado para chamar o back-end.
+* **backend.Request.QueryString. \<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada para o back-end. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende definir. Se não for fornecida a cadeia vazia, o parâmetro não está incluído no pedido de back-end.
+* **backend.Request.Headers. \<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada para o back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído no pedido de back-end.
 
 Valores podem referenciar as definições da aplicação e os parâmetros do pedido de cliente original.
 
@@ -218,10 +218,10 @@ Um exemplo de configuração pode ter um aspeto semelhante ao seguinte:
 
 O objeto de requestOverrides define as alterações efetuadas à resposta que é transmitida ao cliente. O objeto é definido pelas seguintes propriedades:
 
-* **response.statusCode**: código de estado de HTTP a ser retornado ao cliente.
-* **response.statusReason**: frase da razão o HTTP a ser devolvida ao cliente.
+* **response.statusCode**: O código de estado HTTP a ser devolvida ao cliente.
+* **response.statusReason**: A frase de razão HTTP a ser devolvida ao cliente.
 * **Response.body**: A representação de cadeia de caracteres do corpo a ser devolvida ao cliente.
-* **Response.Headers. \<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído na resposta.
+* **Response.Headers. \<HeaderName\>**: Um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído na resposta.
 
 Valores podem referenciar as definições da aplicação, parâmetros de pedido do cliente original e os parâmetros da resposta de back-end.
 

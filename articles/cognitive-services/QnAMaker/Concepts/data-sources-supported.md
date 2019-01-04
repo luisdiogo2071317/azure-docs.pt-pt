@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082242"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994135"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -25,9 +25,9 @@ A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são supo
 
 |Tipo de Fonte|Tipo de Conteúdo| Exemplos|
 |--|--|--|
-|do IdP|FAQs (fixa, com seções ou com uma home page de tópicos)|[FAQ simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [FAQ com links](https://www.microsoft.com/software-download/faq), [FAQ com home page de tópicos](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC|FAQs, manuais de produto, brochuras, documento, política de documentos, suporte a guia, QnA estruturados, etc.|[Estruturado QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Manual.pdf de produto de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [semiestruturados structured.doc de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [paper.pdf branco de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Ficheiro estruturado do QnA (incluindo RTF, HTML suportam)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|do IdP|FAQs<br> (Fixa, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Página única artigos de procedimentos, resolução de problemas de artigos, etc.)|[FAQ simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com ligações](https://www.microsoft.com/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://support.microsoft.com/products/windows?os=windows-10)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC|FAQs,<br> Manual de produto,<br> Brochuras,<br> Documento,<br> Política de documentos,<br> Guia de suporte,<br> QnA estruturado,<br> Etc.|[Estruturado QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual.pdf de produto de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semiestruturados structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Branco paper.pdf de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Ficheiro de QnA estruturado<br> (incluindo RTF, HTML suportam)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Ficheiro de QnA estruturado|[Exemplo chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
@@ -36,7 +36,7 @@ Apenas os URLs públicas são válidos para todas as origens de dados. Não se s
 
 ## <a name="faq-urls"></a>URLs de FAQ
 
-A ferramenta QnA Maker pode suportar FAQ páginas da web em 3 diferentes formatos: páginas de FAQ sem formatação, páginas de FAQ com links, páginas de FAQ com uma home page de tópicos.
+A ferramenta QnA Maker pode suportar FAQ páginas da web em 3 diferentes formatos: Páginas de FAQ sem formatação, páginas de FAQ com links, páginas de FAQ com uma home page de tópicos.
 
 ### <a name="plain-faq-pages"></a>Páginas de FAQ simples
 
@@ -65,6 +65,16 @@ Segue-se um exemplo de uma página de perguntas frequentes sobre onde uma home p
  ![Exemplo de página de perguntas frequentes sobre a ligação avançada para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
+### <a name="support-urls"></a>Urls de suporte
+
+A ferramenta QnA Maker pode processar suporte semiestruturados páginas da web, como artigos da web que descrevem como executar uma determinada tarefa, como diagnosticar e resolver um problema e quais são as melhores práticas para um determinado processo. Extração funciona melhor em conteúdo que tenha uma estrutura clara com cabeçalhos hierárquicas.
+
+> [!NOTE]
+> Extração de artigos de suporte é uma nova funcionalidade e nas fases iniciais. Ele funciona melhor para páginas simples, que são bem estruturadas e não contêm cabeçalhos/rodapés complexos.
+
+![A ferramenta QnA Maker suporta extração semiestruturados páginas da web onde é apresentada uma estrutura clara cabeçalhos hierárquicos](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+
+
 ## <a name="pdf-doc-files"></a>PDF / arquivos do documento
 
 A ferramenta QnA Maker pode processar o conteúdo semiestruturado num ficheiro PDF ou documentos e convertê-los QnAs. Um ficheiro de boa que pode ser extraído também é um em que o conteúdo está organizado em alguma forma estruturada e é representado nas secções bem definidas. As secções mais podem ser divididas em subsecções ou subtópicos. Extração funciona melhor em documentos que tenham uma estrutura clara com cabeçalhos hierárquicas.
@@ -84,7 +94,7 @@ Segue-se um exemplo de um manual com uma página de índice e conteúdo hierárq
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochuras, diretrizes, documentos e outros ficheiros
 
-Muitos outros tipos de documentos também podem ser processados para gerar pares de controle de qualidade, desde que tenham uma estrutura clara e o layout. Estes incluem: brochuras, diretrizes, relatórios, white papers, papers científicas, políticas, livros, etc. Ver um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Muitos outros tipos de documentos também podem ser processados para gerar pares de controle de qualidade, desde que tenham uma estrutura clara e o layout. Estas incluem: Brochuras, diretrizes, relatórios, white papers, papers científicas, políticas, livros, etc. Ver um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Segue-se um exemplo de um documento semiestruturado, sem um índice:
 

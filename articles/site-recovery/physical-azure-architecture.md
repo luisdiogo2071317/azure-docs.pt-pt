@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3f31fa8d26b0fb5f247a0b4c8c65abd50c5bc1e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5602e68e546c59e3ee43442fdf0cdf33b9cf6a29
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865306"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975037"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura da recuperação após desastre do Azure
 
@@ -63,14 +63,14 @@ Após a replicação está configurada e que já executou um teste de recuperaç
 - Depois de acionar a ativação pós-falha inicial, confirmá-lo a começar a aceder à carga de trabalho da VM do Azure.
 - Quando o site no local primário estiver novamente disponível, pode fazer a reativação pós-falha.
 - Terá de configurar uma infraestrutura de reativação pós-falha, incluindo:
-    - **Servidor de processo temporário no Azure**: para reativação pós-falha do Azure, configurar uma VM do Azure para atuar como um servidor de processos, para processar a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
-    - **Ligação VPN**: para efetuar a reativação pós-falha, terá de uma ligação de VPN (ou Azure ExpressRoute) da rede do Azure para o site no local.
-    - **Servidor de destino principal separado**: por predefinição, o servidor de destino mestre foi instalado com o servidor de configuração, sobre o VM, de VMware no local processa a reativação pós-falha. No entanto, se precisar de efetuar a ativação pós-falha grandes volumes de tráfego, deve configurar um servidor de destino principal independente no local para esta finalidade.
-    - **Política de reativação pós-falha**: para replicar de novo para o site no local, precisa de uma política de reativação pós-falha. Isso foi criado automaticamente quando criou a política de replicação no local para o Azure.
-    - **Infraestrutura do VMware**: precisará de uma infraestrutura do VMware para reativação pós-falha. Não pode efetuar a reativação pós-falha num servidor físico.
+    - **Servidor de processo temporário no Azure**: Para efetuar a ativação pós-falha do Azure, configurar uma VM do Azure para atuar como um servidor de processos, para processar a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
+    - **Ligação VPN**: Para efetuar a reativação pós-falha, terá uma ligação VPN (ou Azure ExpressRoute) da rede do Azure para o site no local.
+    - **Servidor de destino principal separado**: Por predefinição, o servidor de destino mestre foi instalado com o servidor de configuração, sobre o VM, de VMware no local processa a reativação pós-falha. No entanto, se precisar de efetuar a ativação pós-falha grandes volumes de tráfego, deve configurar um servidor de destino principal independente no local para esta finalidade.
+    - **Política de reativação pós-falha**: Para replicar para o seu site no local, terá de uma política de reativação pós-falha. Isso foi criado automaticamente quando criou a política de replicação no local para o Azure.
+    - **Infraestrutura do VMware**: Precisa de uma infraestrutura do VMware para reativação pós-falha. Não pode efetuar a reativação pós-falha num servidor físico.
 - Depois dos componentes estão em vigor, a reativação pós-falha ocorre em três fases:
     - Fase 1: Voltar a proteger as VMs do Azure para que eles replicar a partir do Azure para as VMs do VMware no local.
-    - Fase 2: Executar uma ativação pós-falha para o site no local.
+    - Fase 2: Execute uma ativação pós-falha para o site no local.
     - Fase 3: Depois de tem realizarão a reativação pós-falha cargas de trabalho, reativar a replicação.
 
 **Reativação pós-falha de VMware do Azure**

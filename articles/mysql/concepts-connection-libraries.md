@@ -1,20 +1,17 @@
 ---
 title: Bibliotecas de ligação para base de dados do Azure para MySQL
 description: Este artigo lista cada driver ou biblioteca que os programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 14515aefe9635160cf99a630b0742d23352532cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6ce0f2c761ede7d326f52f4d93d7f1b0bfa98cb2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985969"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543077"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de ligação para base de dados do Azure para MySQL
 Este artigo lista cada driver ou biblioteca que os programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL.

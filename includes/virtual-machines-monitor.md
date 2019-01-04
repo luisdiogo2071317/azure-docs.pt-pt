@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399960"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594256"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/application-insights/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -43,23 +43,23 @@ Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com 
 
 ## <a name="logs"></a>Registos
 
-O [registo de atividades do Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) é um registo de subscrição que fornece informações sobre os eventos de nível de assinatura que ocorreram no Azure. O registo de inclui uma variedade de dados, a partir de dados operacionais do Azure Resource Manager para as atualizações em eventos de estado de funcionamento do serviço. Pode clicar em registo de atividades no portal do Azure para ver o registo para a sua VM.
+O [registo de atividades do Azure](../articles/azure-monitor/platform/activity-logs-overview.md) é um registo de subscrição que fornece informações sobre os eventos de nível de assinatura que ocorreram no Azure. O registo de inclui uma variedade de dados, a partir de dados operacionais do Azure Resource Manager para as atualizações em eventos de estado de funcionamento do serviço. Pode clicar em registo de atividades no portal do Azure para ver o registo para a sua VM.
 
 Algumas das coisas que pode fazer com o registo de atividades incluem:
 
-- Criar uma [alertas num evento do registo de atividade](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-- [Stream-lo para um Hub de eventos](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
+- Criar uma [alertas num evento do registo de atividade](../articles/azure-monitor/platform/activity-logs-overview.md).
+- [Stream-lo para um Hub de eventos](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 - Analise-o no Power BI com o [pacote de conteúdos do Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Guarde-o para uma conta de armazenamento](../articles/azure-monitor/platform/archive-activity-log.md) para inspeção de arquivamento ou manual. Pode especificar o período de retenção (em dias) com o perfil de registo.
 
 Também pode acessar os dados de registo de atividade usando [do Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), o [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor), ou [APIs de REST do Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-[Registos de diagnóstico do Azure](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) registos emitidos pela sua VM, que fornecem dados avançados e frequentes sobre o respetivo funcionamento. Os registos de diagnóstico diferem do registo de atividades, fornecendo informações sobre operações executadas dentro da VM.
+[Registos de diagnóstico do Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) registos emitidos pela sua VM, que fornecem dados avançados e frequentes sobre o respetivo funcionamento. Os registos de diagnóstico diferem do registo de atividades, fornecendo informações sobre operações executadas dentro da VM.
 
 Algumas das coisas que pode fazer com os registos de diagnóstico incluem:
 
 - [Salvá-los numa conta de armazenamento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias) com as definições de diagnóstico de recursos.
-- [Stream-los para os Hubs de eventos](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
+- [Stream-los para os Hubs de eventos](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 - Analisá-los com [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada

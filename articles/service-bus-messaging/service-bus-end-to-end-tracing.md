@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283840"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790899"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
 
@@ -30,7 +30,7 @@ Quando um produtor envia uma mensagem através de uma fila, ele ocorre normalmen
 Mensagens do Service Bus do Microsoft Azure tem definido as propriedades de payload que produtores e consumidores, devem utilizar para passar esse contexto de rastreio.
 O protocolo se baseia a [protocolo HTTP correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome da propriedade        | Descrição                                                 |
+| Nome da Propriedade        | Descrição                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Id de diagnóstico       | Identificador exclusivo de uma chamada externa de produtor para a fila. Consulte a [Request-ID indicado no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 |  Contexto de correlação | Contexto de operação, que é propagado em todos os serviços envolvidos na operação em processamento. Para obter mais informações, consulte [correlação-contexto no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -45,9 +45,9 @@ A instrumentação permite que todas as chamadas para o barramento de serviço d
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fornece desempenho avançado, incluindo automagical pedido e rastreamento de dependências de capacidades de monitorização.
 
 Consoante o tipo de projeto, instale o SDK do Application Insights:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) -instalar a versão 2.5-beta2 ou superior
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) -instalar a versão 2.2.0-beta2 ou superior.
-Estas ligações fornecem detalhes sobre como instalar o SDK, criação de recursos e configurar o SDK (se necessário). Para aplicativos não são do ASP.NET, consulte [do Azure Application Insights para aplicações de consola](../application-insights/application-insights-console.md) artigo.
+- [ASP.NET](../azure-monitor/app/asp-net.md) -instalar a versão 2.5-beta2 ou superior
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) -instalar a versão 2.2.0-beta2 ou superior.
+Estas ligações fornecem detalhes sobre como instalar o SDK, criação de recursos e configurar o SDK (se necessário). Para aplicativos não são do ASP.NET, consulte [do Azure Application Insights para aplicações de consola](../azure-monitor/app/console.md) artigo.
 
 Se usar [padrão de manipulador de mensagem](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, terminar: todas as chamadas de Service Bus feitas pelo seu serviço são automaticamente controladas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o exemplo a seguir para o controlo de processamento de mensagens manual.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 Neste exemplo, `RequestTelemetry` é comunicada para cada mensagem processada, ter um timestamp, a duração e o resultado (êxito). A telemetria também tem um conjunto de propriedades de correlação.
 Aninhada rastreios e exceções reportadas durante o processamento de mensagem também são marcadas com propriedades de correlação, que representa-los como filhos do `RequestTelemetry`.
 
-No caso de fazer chamadas para componentes externos suportados durante o processamento da mensagem, são também automaticamente controladas e correlacionados. Consulte a [controlar operações personalizadas com o .NET SDK do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para o controlo manual e a correlação.
+No caso de fazer chamadas para componentes externos suportados durante o processamento da mensagem, são também automaticamente controladas e correlacionados. Consulte a [controlar operações personalizadas com o .NET SDK do Application Insights](../azure-monitor/app/custom-operations-tracking.md) para o controlo manual e a correlação.
 
 ### <a name="tracking-without-tracing-system"></a>Sem o sistema de rastreamento de controlo
 No caso de seu sistema de rastreamento não suporta automática de Service Bus de chamadas de controlo que esteja procurando para adicionar esse suporte num sistema de rastreamento ou na sua aplicação. Esta secção descreve os eventos de diagnóstico enviados pelo cliente .NET do Service Bus.  
@@ -141,7 +141,7 @@ Neste exemplo, o serviço de escuta registra a duração, o resultado, o identif
 
 #### <a name="events"></a>Eventos
 
-Para cada operação, dois eventos são enviados: 'Iniciar' e 'Stop'. Muito provavelmente, só estiver interessado em eventos 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
+Para cada operação, são enviados por dois eventos: 'Iniciar' e 'Stop'. Muito provavelmente, só estiver interessado em eventos 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
 
 Payload de evento fornece um serviço de escuta com o contexto da operação, ele replica os parâmetros de entrada de API e retornar o valor. Payload de evento 'Stop' tem todas as propriedades do payload do evento de "Iniciar", pelo que pode ignorar o evento de "Início" completamente.
 
@@ -155,27 +155,27 @@ Eis a lista completa das operações instrumentadas:
 
 | Nome da Operação | API controlada | Propriedades de Payload específico|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> mensagens – lista de mensagens sendo enviadas |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Mensagem de mensagem - mensagem a ser processado<br/>DateTimeOffset ScheduleEnqueueTimeUtc - desvio de mensagem agendada<br/>SequenceNumber longo - número de sequência de mensagem agendada ('Stop' payload do evento) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | SequenceNumber longo - número de sequência de mensagem de te de ser cancelada | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |Int RequestedMessageCount - o número máximo de mensagens que poderiam ser recebidas.<br/>IList<Message> mensagens - lista de mensagens recebidas ('Stop' payload do evento) |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | Int FromSequenceNumber - ponto de partida a partir da qual pretende procurar um lote de mensagens.<br/>Int RequestedMessageCount - o número de mensagens a obter.<br/>IList<Message> mensagens – lista de mensagens recebidas ('Stop' payload do evento) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - a lista que contém os números de sequência para receber.<br/>IList<Message> mensagens – lista de mensagens recebidas ('Stop' payload do evento) |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - a lista que contém os tokens de bloqueio das mensagens correspondentes para concluir.|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | cadeia de caracteres LockToken - o token de bloqueio da mensagem a abandonar correspondente. |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | cadeia de caracteres LockToken - o token de bloqueio da mensagem a diferir correspondente. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | cadeia de caracteres LockToken - o token de bloqueio da mensagem correspondente a entregues. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | LockToken - o token de bloqueio da mensagem correspondente para renovar bloqueio na cadeia de caracteres.<br/>DateTime LockedUntilUtc - nova data de expiração do token de bloqueio e a hora em formato UTC. ("Parar" payload do evento)|
-| Microsoft.Azure.ServiceBus.Process | Função de lambda de manipulador de mensagem fornecida no [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Mensagem de mensagem - mensagem a ser processado. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Função de lambda de manipulador de sessão de mensagem fornecida no [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Mensagem de mensagem - mensagem a ser processado.<br/>Sessão IMessageSession - sessão a ser processado |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | Regra de RuleDescription - a descrição da regra que fornece a regra para adicionar. |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | cadeia de caracteres RuleName - nome da regra para remover. |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> regras de regras a todos associadas à subscrição. (Apenas para payload "Parar") |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | cadeia de caracteres SessionId - sessionId presente nas mensagens. |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | cadeia de caracteres SessionId - sessionId presente nas mensagens.<br/>byte [] Estado - Estado da sessão ('Stop' payload do evento) |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | cadeia de caracteres SessionId - sessionId presente nas mensagens.<br/>byte [] Estado - Estado da sessão |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | cadeia de caracteres SessionId - sessionId presente nas mensagens. |
-| Microsoft.Azure.ServiceBus.Exception | qualquer API instrumentado| Exceção de exceção - instância de exceção |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lista de mensagens sendo enviadas |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Mensagem a ser processado<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Deslocamento de mensagem agendada<br/>`long SequenceNumber` -Número de sequência de mensagem agendada ('Stop' payload do evento) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` -Número de sequência de mensagem de te de ser cancelada | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` -O número máximo de mensagens que poderiam ser recebida.<br/>`IList<Message> Messages` -Lista de mensagens recebidas ('Stop' payload do evento) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` -O ponto de partida partir da qual pretende procurar um lote de mensagens.<br/>`int RequestedMessageCount` -O número de mensagens a obter.<br/>`IList<Message> Messages` -Lista de mensagens recebidas ('Stop' payload do evento) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` -A lista que contém os números de sequência para receber.<br/>`IList<Message> Messages` -Lista de mensagens recebidas ('Stop' payload do evento) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` -A lista que contém os tokens de bloqueio das mensagens correspondentes para concluir.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -O token de bloqueio da mensagem a abandonar correspondente. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -O token de bloqueio da mensagem a diferir correspondente. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -O token de bloqueio da mensagem correspondente a entregues. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -O token de bloqueio da mensagem para renovar bloqueio na correspondente.<br/>`DateTime LockedUntilUtc` -O bloqueio novo data de expiração do token e a hora no formato UTC. ("Parar" payload do evento)|
+| Microsoft.Azure.ServiceBus.Process | Função de lambda de manipulador de mensagem fornecida no [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -Mensagem a ser processado. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Função de lambda de manipulador de sessão de mensagem fornecida no [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -Mensagem a ser processado.<br/>`IMessageSession Session` -Sessão a ser processado |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -A descrição da regra que fornece a regra para adicionar. |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` -Nome da regra para remover. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` -Todas as regras associadas à subscrição. (Apenas para payload "Parar") |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` -SessionId presente nas mensagens. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` -SessionId presente nas mensagens.<br/>`byte [] State` -Estado de sessão ('Stop' payload do evento) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` -SessionId presente nas mensagens.<br/>`byte [] State` -Estado da sessão |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` -SessionId presente nas mensagens. |
+| Microsoft.Azure.ServiceBus.Exception | qualquer API instrumentado| `Exception Exception` -Instância de exceção |
 
 Cada evento, pode acessar `Activity.Current` que contém o contexto de operação atual.
 
@@ -227,6 +227,6 @@ Na presença de vários `DiagnosticSource` serviços de escuta para a mesma orig
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Correlação de informações da aplicação](../application-insights/application-insights-correlation.md)
-* [Monitorizar dependências do Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasar.
-* [Acompanhar operações personalizadas com o .NET SDK do Application Insights](../application-insights/application-insights-custom-operations-tracking.md)
+* [Correlação de informações da aplicação](../azure-monitor/app/correlation.md)
+* [Monitorizar dependências do Application Insights](../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasar.
+* [Acompanhar operações personalizadas com o .NET SDK do Application Insights](../azure-monitor/app/custom-operations-tracking.md)

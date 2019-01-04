@@ -10,16 +10,16 @@ ms.service: azure-functions; cosmos-db
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4c5d7c1ebf50103786aaf07f298b5b4d971ad955
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136210"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971959"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB enlaces das funções do Azure 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
@@ -33,7 +33,7 @@ Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverl
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Os enlaces do Cosmos DB do Azure só são suportados para utilização com a API de SQL. Para todas as outras APIs do Azure Cosmos DB, deve acessar o banco de dados da sua função com o cliente de estático para a sua API, incluindo [API do MongoDB](../cosmos-db/mongodb-introduction.md)] (... /cosmos-DB/mongodb-Introduction.MD), [API para Cassandra](../cosmos-db/cassandra-introduction.md), [API do Gremlin](../cosmos-db/graph-introduction.md), e [API de tabela](../cosmos-db/table-introduction.md).
+> Os enlaces do Cosmos DB do Azure só são suportados para utilização com a API de SQL. Para todas as outras APIs do Azure Cosmos DB, deve acessar o banco de dados da sua função com o cliente de estático para a sua API, incluindo [Azure Cosmos DB para a MongoDB API](../cosmos-db/mongodb-introduction.md)] (... /cosmos-DB/mongodb-Introduction.MD), [API para Cassandra](../cosmos-db/cassandra-introduction.md), [API do Gremlin](../cosmos-db/graph-introduction.md), e [API de tabela](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
@@ -198,8 +198,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**leaseAcquireInterval**| **leaseAcquireInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de disparar uma tarefa de computação se as partições são distribuídas uniformemente entre instâncias de host conhecidos. A predefinição é 13000 (13 segundos).
 |**leaseExpirationInterval**| **leaseExpirationInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo para o qual a concessão é criada numa concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. A predefinição é 60000 (60 segundos).
 |**leaseRenewInterval**| **leaseRenewInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantido por uma instância. A predefinição é 17000 (17 segundos).
-|**checkpointFrequency**| **checkpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. A predefinição é sempre após uma chamada de função efetuada com êxito.
+|**checkpointFrequency**| **checkpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. A predefinição é sempre após cada chamada de função.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (Opcional) Quando definida, personaliza a quantidade máxima de itens recebidas por chamada de função.
+|**startFromBeginning**| **StartFromBeginning**| (Opcional) Quando definido, ele instrui o acionador para começar a ler as alterações desde o início da história da coleção em vez da hora atual. Isso funciona apenas na primeira vez iniciada a acionador, tal como as execuções posteriores, os pontos de verificação já está armazenadas. Definir este tipo como `true` quando houver concessões criadas já não tem qualquer efeito.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

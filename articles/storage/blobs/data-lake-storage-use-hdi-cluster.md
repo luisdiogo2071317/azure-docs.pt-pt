@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b9f7a1144be21b425ff0bed9e2e6cb47315c13a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0b171c7ed13eab84d84bb797e154a3acec8fbac7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974900"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633683"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 
@@ -63,17 +63,17 @@ O custo de desempenho implícito de não ter clusters de cálculo e recursos de 
 
 Existem várias vantagens associadas ao armazenamento de dados no armazenamento do Azure em vez do HDFS:
 
-* **Partilha e reutilização de dados:** os dados no HDFS estão localizados dentro do cluster de cálculo. Apenas as aplicações que têm acesso ao cluster de cálculo podem utilizar os dados ao utilizar as APIs do HDFS. É possível aceder aos dados no armazenamento do Azure através das APIs do HDFS ou através das [APIs REST do Armazenamento de Blobs][blob-storage-restAPI]. Assim, pode-se utilizar um conjunto maior de ferramentas e aplicações (incluindo outros clusters do HDInsight) para produzir e consumir dados.
+* **Reutilização de dados e de partilha:** Os dados no HDFS estão localizados dentro do cluster de computação. Apenas as aplicações que têm acesso ao cluster de cálculo podem utilizar os dados ao utilizar as APIs do HDFS. É possível aceder aos dados no armazenamento do Azure através das APIs do HDFS ou através das [APIs REST do Armazenamento de Blobs][blob-storage-restAPI]. Assim, pode-se utilizar um conjunto maior de ferramentas e aplicações (incluindo outros clusters do HDInsight) para produzir e consumir dados.
 
-* **Arquivo de dados:** armazenar dados no armazenamento do Azure permite eliminar em segurança os clusters do HDInsight utilizados para o cálculo sem que haja perda de dados do utilizador.
+* **Arquivamento de dados:** Armazenamento de dados no armazenamento do Azure permite que os clusters do HDInsight utilizados para o cálculo a eliminar em segurança sem perda de dados de utilizador.
 
-* **Custo de armazenamento de dados:** armazenar dados o hdfs nativo a longo prazo é mais dispendiosa do que armazenar os dados no armazenamento do Azure, uma vez que o custo de um cluster de cálculo é superior ao custo de armazenamento do Azure. Além disso, uma vez que não é necessário recarregar os dados para cada geração de cluster de cálculo, também reduz os custos do carregamento de dados.
+* **Custo de armazenamento de dados:** Armazenamento de dados do hdfs nativo a longo prazo é mais dispendioso do que armazenar os dados no armazenamento do Azure, uma vez que o custo de um cluster de cálculo é superior ao custo de armazenamento do Azure. Além disso, uma vez que não é necessário recarregar os dados para cada geração de cluster de cálculo, também reduz os custos do carregamento de dados.
 
-* **Aumento horizontal elástico:** embora o HDFS forneça um sistema de ficheiros ampliado horizontalmente, o dimensionamento é determinado pelo número de nós que cria para o cluster. A alteração do dimensionamento pode tornar-se um processo mais complexo do que depender das capacidades de dimensionamento elástico que obtém automaticamente no armazenamento do Azure.
+* **Aumento horizontal elástico:** Embora o HDFS forneça um sistema de ficheiros de escalamento horizontal, o dimensionamento é determinado pelo número de nós que criar para o seu cluster. A alteração do dimensionamento pode tornar-se um processo mais complexo do que depender das capacidades de dimensionamento elástico que obtém automaticamente no armazenamento do Azure.
 
-* **Georreplicação:** seus dados de armazenamento do Azure podem ser georreplicado. Embora esta capacidade dá-lhe recuperação geográfica e redundância de dados, suporte gravemente a uma ativação pós-falha para a localização georreplicada afeta seriamente o desempenho e pode resultar em custos adicionais. Por conseguinte, escolha a georreplicação com cuidado e apenas se o valor dos dados é justificar o custo adicional.
+* **Georreplicação:** Os dados de armazenamento do Azure podem ser georreplicado. Embora esta capacidade dá-lhe recuperação geográfica e redundância de dados, suporte gravemente a uma ativação pós-falha para a localização georreplicada afeta seriamente o desempenho e pode resultar em custos adicionais. Por conseguinte, escolha a georreplicação com cuidado e apenas se o valor dos dados é justificar o custo adicional.
 
-* **Gerenciamento de ciclo de vida de dados:** todos os dados em qualquer sistema de arquivos passa pelo seu próprio ciclo de vida. Dados, muitas vezes, começa a ser muito valiosa e acedidos com frequência, faz a transição para sendo menos importantes e que necessitam de menos acesso e, por fim, necessita de arquivo ou de eliminação. Armazenamento do Azure fornece a criação de camadas de dados e o ciclo de vida de políticas de gestão que a camada de dados adequadamente para seu estágio do ciclo de vida.
+* **Gestão de ciclo de vida de dados:** Todos os dados em qualquer sistema de arquivos passa pelo seu próprio ciclo de vida. Dados, muitas vezes, começa a ser muito valiosa e acedidos com frequência, faz a transição para sendo menos importantes e que necessitam de menos acesso e, por fim, necessita de arquivo ou de eliminação. Armazenamento do Azure fornece a criação de camadas de dados e o ciclo de vida de políticas de gestão que a camada de dados adequadamente para seu estágio do ciclo de vida.
 
 Determinados pacotes e tarefas de MapReduce podem criar resultados intermédios que não quer realmente armazenar no armazenamento do Azure. Nesse caso, pode optar por armazenar os dados no HDFS local. Na verdade, o HDInsight utiliza a implementação nativa do HDFS (que é conhecida como DFS) para vários destes resultados intermédios nas tarefas do Hive e outros processos.
 
@@ -101,35 +101,39 @@ Quando criar um cluster do HDInsight a partir do Portal, tem as opções (confor
 
 ### <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Se [instalado e configurado o Azure PowerShell][powershell-install], pode utilizar o código seguinte prompt do PowerShell do Azure para criar uma conta de armazenamento e um contentor:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-    $SubscriptionID = "<Your Azure Subscription ID>"
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "WEST US 2"
+```azurepowershell
+$SubscriptionID = "<Your Azure Subscription ID>"
+$ResourceGroupName = "<New Azure Resource Group Name>"
+$Location = "WEST US 2"
 
-    $StorageAccountName = "<New Azure Storage Account Name>"
-    $containerName = "<New Azure Blob Container Name>"
+$StorageAccountName = "<New Azure Storage Account Name>"
+$containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubscriptionID
 
-    # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+# Create resource group
+New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
-    # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
-      -Name StorageAccountName `
-      -Location $Location `
-      -SkuName Standard_LRS `
-      -Kind StorageV2 
-      -HierarchialNamespace $True
+# Create default storage account
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
+  -Name StorageAccountName `
+  -Location $Location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 
+  -HierarchialNamespace $True
 
-    # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+# Create default blob containers
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+New-AzStorageContainer -Name $containerName -Context $destContext
+```
 
 > [!NOTE]
 > A criação de um contentor é sinônimo de criação de um sistema de ficheiros no Data Lake Storage Gen2.
@@ -209,7 +213,7 @@ Para obter mais informações, consulte:
 * [Configurar clusters do HDInsight com geração 2 de armazenamento do Azure Data Lake com o Hadoop, Spark, Kafka e muito mais](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Ingestão de dados na geração 2 de armazenamento do Azure Data Lake, utilizar o distcp](data-lake-storage-use-distcp.md)
 
-[powershell-install]: /powershell/azureps-cmdlets-docs
+[powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx

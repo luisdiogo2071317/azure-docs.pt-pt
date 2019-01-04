@@ -2,24 +2,27 @@
 title: Esquema de dispositivo na solução de monitorização remota - Azure | Documentos da Microsoft
 description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitorização remota.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338860"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635532"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
-Pode utilizar dispositivos simulados na solução de monitorização remota para testar o seu comportamento. Ao implementar a solução de monitorização remota, uma coleção de dispositivos simulados é aprovisionada automaticamente. Pode personalizar os dispositivos simulados existentes ou criar os seus próprios.
+Pode utilizar dispositivos simulados na solução de monitorização remota para testar o seu comportamento. A solução de monitorização remota inclui um serviço de simulação de dispositivo para executar os dispositivos simulados. Ao implementar a solução de monitorização remota, uma coleção de dispositivos simulados é aprovisionada automaticamente. Pode personalizar os dispositivos simulados existentes ou criar os seus próprios.
 
 Este artigo descreve o esquema do modelo de dispositivo Especifica as capacidades e comportamento de um dispositivo simulado. O modelo do dispositivo é armazenado num ficheiro JSON.
+
+> [!NOTE]
+> Este esquema de modelo do dispositivo é apenas para dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo físico, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
 
 Os artigos seguintes estão relacionados ao artigo atual:
 

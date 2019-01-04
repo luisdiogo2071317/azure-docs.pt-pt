@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495147"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787548"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters do Apache Hadoop no HDInsight com modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -31,8 +31,8 @@ Para seguir as instruções neste artigo, terá de:
 
 ### <a name="resource-manager-templates"></a>Modelos do Resource Manager
 Um modelo do Resource Manager torna mais fácil criar o resoruces seguintes para a sua aplicação numa operação única e coordenada:
-* Clusters do HDInsight e os recursos dependentes (por exemplo, a conta de armazenamento predefinida)
-* Outros recursos (como a base de dados do Azure SQL para utilizar [Apache Sqoop](http://sqoop.apache.org/))
+* Clusters do HDInsight e os recursos dependentes (por exemplo, a conta de armazenamento predefinida).
+* Outros recursos (como a base de dados do Azure SQL para utilizar [Apache Sqoop](https://sqoop.apache.org/)).
 
 O modelo, vai definir os recursos que são necessários para a aplicação. Também pode especificar parâmetros de implementação para introduzir os valores para diferentes ambientes. O modelo é constituído por JSON e expressões que utilizar para construir valores para a sua implementação.
 
@@ -47,9 +47,9 @@ Para obter mais informações sobre modelos do Resource Manager, consulte os art
 
 O Resource Manager permite-lhe exportar um modelo do Resource Manager a partir de recursos existentes na sua subscrição, utilizando ferramentas diferentes. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário.
 
-- Portal do Azure: veja [exportar um modelo Azure Resource Manager a partir de recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
-- O Azure PowerShell: Veja [modelos de exportar o Azure Resource Manager com o PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Clássico do Azure CLI: Veja [modelos de exportar o Azure Resource Manager com CLI clássica do Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Portal do Azure: Ver [exportar um modelo Azure Resource Manager a partir de recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
+- Azure PowerShell: Ver [modelos de exportar o Azure Resource Manager com o PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
+- CLI clássica do Azure: Ver [modelos de exportar o Azure Resource Manager com CLI clássica do Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Implementar com o portal
@@ -74,14 +74,14 @@ Para obter uma introdução ao uso do Visual Studio com grupos de recursos, cons
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-administer-use-portal-linux.md#create-clusters).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a várias formas de criar um cluster do HDInsight. Para obter mais informações, consulte os artigos seguintes:
 
 * Para obter mais HDInsight modelos relacionados, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para obter um exemplo de implementação de recursos por meio da biblioteca de cliente .NET, consulte [implementar recursos com bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para obter um exemplo de implantação de um aplicativo, consulte [aprovisionar e implementar microsserviços de forma previsível no Azure](../app-service/app-service-deploy-complex-application-predictably.md).
+* Para obter um exemplo de implantação de um aplicativo, consulte [aprovisionar e implementar microsserviços de forma previsível no Azure](../app-service/deploy-complex-application-predictably.md).
 * Para obter orientações sobre a implementação da sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e teste no Microsoft Azure](../solution-dev-test-environments.md).
 * Para saber mais sobre as secções do modelo do Azure Resource Manager, veja [criação de modelos](../azure-resource-manager/resource-group-authoring-templates.md).
 * Para obter uma lista das funções que pode usar num modelo Azure Resource Manager, consulte [funções de modelo](../azure-resource-manager/resource-group-template-functions.md).

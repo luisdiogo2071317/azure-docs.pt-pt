@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255606"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713969"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!Tip]
 > Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Todo o código neste tutorial está disponível na [repositório do GitHub de exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) e cada linha associada com este tutorial é Comentada com `//APPINSIGHT:`. 
+Todo o código neste tutorial está disponível na [repositório do GitHub do Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) e cada linha associada com este tutorial é Comentada com `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>Bot de aplicação Web com os LUIS
 Este tutorial parte do princípio de que tem o código que tem a seguinte aparência ou que concluiu o [outro tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md): 
@@ -51,11 +51,11 @@ Para capturar o LUIS solicitação e resposta, o bot de aplicação web tem o **
 
 1. No portal do Azure, no serviço de bot de aplicação web, selecione **crie** sob a **gestão de Bot** secção. 
 
-    ![Pesquisa para o app insights](./media/luis-tutorial-appinsights/build.png)
+    ![No portal do Azure, no serviço de bot de aplicação web, selecione "Build" na seção "Gerenciamento do Bot". ](./media/luis-tutorial-appinsights/build.png)
 
 2. Um novo separador do browser abre-se com o Editor de serviço de aplicações. Selecione o nome da aplicação na barra superior, em seguida, selecione **abra a consola Kudu**. 
 
-    ![Pesquisa para o app insights](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Selecione o nome da aplicação na barra superior, em seguida, selecione "Abra a consola Kudu". ](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Na consola, introduza o seguinte comando para instalar os pacotes de caráter de sublinhado e o Application Insights:
 
@@ -63,7 +63,7 @@ Para capturar o LUIS solicitação e resposta, o bot de aplicação web tem o **
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![Pesquisa para o app insights](./media/luis-tutorial-appinsights/npm-install.png)
+    ![Utilizar os comandos de npm para instalar os pacotes de caráter de sublinhado e o Application Insights](./media/luis-tutorial-appinsights/npm-install.png)
 
     Aguarde que os pacotes serem instalados:
 
@@ -112,9 +112,7 @@ Abrir o Application Insights para ver as entradas de LUIS.
 
 1. No portal, selecione **todos os recursos** , em seguida, filtrar por nome do bot da aplicação web. Clique no recurso com o tipo **Application Insights**. O ícone do Application Insights é uma lâmpada. 
 
-    ![Pesquisa para o app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
-
-
+    ! [[Pesquisa para o app insights no Portal do Azure](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. Quando o recurso for aberta, clique nas **pesquisa** ícone da Lupa no painel à extrema direita. Um novo painel para a direita apresenta. Dependendo de quantos dados de telemetria é encontrado, o painel poderão demorar um momento para apresentar. Procure `LUIS-results` e clique em Inserir no teclado. A lista é reduzida de modo a apenas LUIS os resultados da consulta adicionados com este tutorial.
 

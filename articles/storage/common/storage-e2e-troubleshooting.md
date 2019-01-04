@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262323"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634512"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Para configurar o registo e métricas para o seu armazenamento de contas utiliza
 
 **Via PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 1. Utilize o [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet para adicionar a sua conta de utilizador do Azure para a janela do PowerShell:
@@ -114,13 +116,13 @@ Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e co
 4. Ative o registo de armazenamento para o serviço de BLOBs:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Ativar as métricas de armazenamento para o serviço de BLOBs, certificar-se de que defina **- MetricsType** para `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o registo do lado do cliente de .NET
@@ -198,11 +200,11 @@ Analisador de mensagens inclui recursos para o armazenamento do Azure que o ajud
 2. Inicie o analisador de mensagens.
 3. Partir do **ferramentas** menu, selecione **Gestor do Asset Intelligence**. Na **Gestor do Asset Intelligence** caixa de diálogo, selecione **Downloads**, em seguida, filtre por **armazenamento do Azure**. Verá os recursos de armazenamento do Azure, conforme mostrado na imagem abaixo.
 4. Clique em **sincronização de todos os itens exibidos** para instalar os recursos de armazenamento do Azure. Os recursos disponíveis incluem:
-   * **Regras de cor de armazenamento do Azure:** as regras de cor de armazenamento do Azure permitem-lhe definir os filtros especiais que usar os estilos de cor, o texto e o tipo de letra para realçar mensagens que contêm informações específicas num rastreamento.
-   * **Gráficos de armazenamento do Azure:** os gráficos de armazenamento do Azure são gráficos predefinidos que criar um gráfico de dados de registo do servidor. Tenha em atenção que para utilizar gráficos de armazenamento do Azure neste momento, pode apenas carregar o registo de servidor para a grade de análise.
-   * **Analisadores de armazenamento do Azure:** os analisadores de armazenamento do Azure analisar registos de HTTP, servidor e cliente de armazenamento do Azure para exibi-las na grelha de análise.
-   * **Filtros de armazenamento do Azure:** filtros de armazenamento do Azure são os critérios predefinidos que pode utilizar para consultar os dados na grelha de análise.
-   * **Esquemas de vista de armazenamento do Azure:** esquemas de vista de armazenamento do Azure são layouts de coluna predefinida e os agrupamentos na grelha de análise.
+   * **Regras de cor de armazenamento do Azure:** As regras de cor de armazenamento do Azure permitem-lhe definir os filtros especiais que utilizam a cor, texto e estilos de tipo de letra para realçar mensagens que contêm informações específicas num rastreamento.
+   * **Gráficos de armazenamento do Azure:** Os gráficos de armazenamento do Azure são gráficos predefinidos que criar um gráfico de dados de registo do servidor. Tenha em atenção que para utilizar gráficos de armazenamento do Azure neste momento, pode apenas carregar o registo de servidor para a grade de análise.
+   * **Analisadores de armazenamento do Azure:** Os analisadores de armazenamento do Azure analisar registos de HTTP, servidor e cliente de armazenamento do Azure para exibi-las na grelha de análise.
+   * **Filtros de armazenamento do Azure:** Os filtros de armazenamento do Azure são os critérios predefinidos que pode utilizar para consultar os dados na grelha de análise.
+   * **Esquemas de vista de armazenamento do Azure:** Esquemas de vista de armazenamento do Azure são layouts de coluna predefinida e os agrupamentos na grelha de análise.
 5. Reinicie o Message Analyzer depois de instalar os ativos.
 
 ![Gestor do Asset Intelligence de analisador de mensagens](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

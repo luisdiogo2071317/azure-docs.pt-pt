@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 8132e2ad986bbdc5056d16714eab6dd8394f0f08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718576"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754412"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos de expressão comuns
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar os formatos de expressão de modelo padrão comuns
 
 Neste tutorial, vai utilizar padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação de correspondência de expressões e aprendizagem automática.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dá ao LUIS uma melhor compreensão de quais as expressões que se ajustam à intenção. 
 
 **Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente 
+> * Aplicação de exemplo de importação 
 > * Criar uma intenção
 > * Preparar
 > * Publicar
@@ -37,11 +37,11 @@ Neste tutorial, vai utilizar padrões para aumentar a predição de intenções 
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+Utilize os passos seguintes:
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 

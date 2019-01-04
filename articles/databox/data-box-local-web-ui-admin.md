@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/11/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 9dd519f8efc9700f7a747aa37a9c02414f3e1865
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: c0793cd4adc5359aaa2282eb2505c257315c056f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093889"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793398"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utilizar a IU da Web local para administrar o seu Azure Data Box
 
@@ -25,8 +25,7 @@ Este artigo inclui os seguintes tutoriais:
 
 - Gerar um pacote de Suporte
 - Encerrar ou reiniciar o dispositivo
-- Apagar dados do seu dispositivo de forma segura
-- Monitorizar capacidade disponível do dispositivo
+- Ver a capacidade disponível do dispositivo
 - Ignorar a validação da soma de verificação 
 
 ## <a name="generate-support-package"></a>Gerar Pacote de suporte
@@ -101,7 +100,7 @@ Recomendamos vivamente que não desative a soma de verificação, a não ser que
 2. **Desativar** validação da soma de verificação
 3. Clique em **Aplicar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Aprenda como [Gerir o Data Box através do portal do Azure](data-box-portal-admin.md).
 

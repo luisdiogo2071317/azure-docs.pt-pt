@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292406"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791830"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
-Este artigo mostra-lhe como pode incorporar widgets do Video Indexer nas suas aplicações. O Video Indexer suporta a incorporação de dois tipos de widgets na sua aplicação: **Cognitive Insights** e **Player**. 
+Este artigo mostra-lhe como pode incorporar widgets do Video Indexer nas suas aplicações. O Video Indexer suporta incorporação dois tipos de widgets na sua aplicação: **Insights cognitivos** e **Player**. 
+
+> [!NOTE]
+> A partir de 1 de Fevereiro de 2018, a versão 1 dos **Insights cognitivos** widget vai ser preterido. A versão de URL de incorporação será predefinido para `version=2`.
+
 ## <a name="widget-types"></a>Tipos de widget
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
@@ -27,8 +31,8 @@ Um widget **Cognitive Insights** inclui todas as informações visuais que foram
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|widgets|Cadeias separadas por vírgulas|Permite-lhe controlar as informações que pretende compor. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` irá compor apenas as informações de IU de marcas e pessoas<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Não suportado se o URL tiver o parâmetro version=2.<br/><br/>**Nota:** o parâmetro de URL **widgets** não é suportado caso seja utilizado o parâmetro **version=2**. |
-|version|Versões do widget **Cognitive Insights**|Para obter as atualizações mais recentes do widget de informações, adicione o parâmetro de consulta `?version=2` ao URL de incorporação. Por exemplo, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obter a versão mais antiga, remova o parâmetro `version=2` do URL.
+|widgets|Cadeias separadas por vírgulas|Permite-lhe controlar as informações que pretende compor. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` irá compor apenas as informações de IU de marcas e pessoas<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Não suportado se o URL tiver o parâmetro version=2.<br/><br/>**Nota:** O **widgets** param de URL não é suportada se **versão = 2** é utilizado. |
+|versão|Versões do widget **Cognitive Insights**|Para obter as informações mais recentes atualizações de widget, adicionar `?version=2` param para o URL de incorporação de consulta. Por exemplo, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obter a versão mais antiga, remova o parâmetro `version=2` do URL.
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -39,7 +43,7 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 |t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
 |captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|
 |showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: showCaptions=true|
-|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
+|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|"
 |autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: autoplay=false|
 |language|Código do idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: language=pt-PT|
 

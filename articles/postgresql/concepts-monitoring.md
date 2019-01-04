@@ -1,19 +1,17 @@
 ---
 title: Monitorizar e otimizar na base de dados do Azure para PostgreSQL
 description: Este artigo descreve a monitorização e otimização de recursos na base de dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843687"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540916"
 ---
 # <a name="monitor-and-tune"></a>Monitorizar e otimizar
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
@@ -36,7 +34,7 @@ Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQ
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
 |active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações Falhadas|Contagem|O número de ligações falhadas para o servidor.|
+|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
 |network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|

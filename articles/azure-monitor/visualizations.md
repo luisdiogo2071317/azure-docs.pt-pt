@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435451"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728351"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar a métrica dados armazenados no Azure Monitor e de registo.
@@ -32,7 +32,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 ### <a name="advantages"></a>Vantagens
 - Integração profunda no Azure. Visualizações podem ser afixadas em dashboards de várias páginas do Azure, incluindo a análise de métricas, do log analytics e Application Insights.
 - Oferece suporte a métricas e registos.
-- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), [consultas de análise de registo](../azure-monitor/log-query/log-query-overview.md), e [mapeia](../application-insights/app-insights-app-map.md) e [disponibilidade]()no Application Insights.
+- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), [consultas de análise de registo](../azure-monitor/log-query/log-query-overview.md), e [mapeia](../azure-monitor/app/app-map.md) e [disponibilidade]()no Application Insights.
 - Opção para dashboards pessoais ou partilhados. Integrado com o Azure [autenticação baseada em funções (RBAC)](../role-based-access-control/overview.md).
 - Atualização automática. Atualização de métricas depende do intervalo de tempo com o mínimo de cinco minutos. Registos de atualização num minuto.
 - Dashboards de métricas de Parametrized com timestamp e parâmetros personalizados.

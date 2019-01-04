@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/22/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 042be0b818ba448d64aa5e8631926420f00f4b5e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 367a9b2bd7b4a32d69974639a13f67340ea56518
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679669"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745011"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory? 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory?
 
-Com o [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), pode controlar o acesso de utilizadores autorizados como suas aplicações na cloud. Uma política de acesso condicional, vai definir a resposta ("fazê-lo") para o motivo para acionar a política ("quando isso acontece"). 
+Com o [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), pode controlar o acesso de utilizadores autorizados como suas aplicações na cloud. Uma política de acesso condicional, vai definir a resposta ("fazê-lo") para o motivo para acionar a política ("quando isso acontece").
 
 ![Controlo](./media/controls/10.png)
 
-
-No contexto do acesso condicional, 
+No contexto do acesso condicional,
 
 - "**Quando isso acontece**" é chamado **condições**
 
 - "**, Em seguida, fazer isso**" é chamado **controlos de acesso**
 
-
 A combinação de uma instrução de condição com os controles com representa uma política de acesso condicional.
 
 ![Controlo](./media/controls/61.png)
 
-Cada controle é um requisito que tem de ser cumprido pela pessoa ou sistema a iniciar sessão ou uma restrição sobre o que o utilizador pode fazer depois de iniciar sessão. 
+Cada controle é um requisito que tem de ser cumprido pela pessoa ou sistema a iniciar sessão ou uma restrição sobre o que o utilizador pode fazer depois de iniciar sessão.
 
-Existem dois tipos de controles: 
+Existem dois tipos de controles:
 
 - **Controlos de concessão** - para acesso de porta
 
@@ -56,24 +54,20 @@ Este tópico explica os vários controles que estão disponíveis no acesso cond
 
 Com controlos de concessão, pode bloquear totalmente o acesso ou permitir o acesso com requisitos adicionais ao selecionar os controles pretendidos. Para vários controlos, pode exigir:
 
-- Todos selecionados controlos para ser concluído (*AND*) 
+- Todos selecionados controlos para ser concluído (*AND*)
 - Um controle para ser concluído de selecionado (*ou*)
 
 ![Controlo](./media/controls/17.png)
 
-
-
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Pode utilizar este controlo para exigir autenticação multifator para aceder à aplicação em nuvem especificado. Esse controle suporta os seguintes fornecedores de multi-factor: 
+Pode utilizar este controlo para exigir autenticação multifator para aceder à aplicação em nuvem especificado. Esse controle suporta os seguintes fornecedores de multi-factor:
 
-- Multi-Factor Authentication do Azure 
+- Multi-Factor Authentication do Azure
 
 - Um fornecedor de autenticação multifator no local, combinados com serviços de Federação do Active Directory (AD FS).
- 
+
 Utilizar multi-factor authentication ajuda a proteger os recursos de que está sendo acessado por um utilizador não autorizado que poderá ter obtido acesso às credenciais de principal de um utilizador válido.
-
-
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
@@ -87,25 +81,18 @@ Exigir uma versão híbrida do Azure AD de dispositivo associado ao é outra op�
 
 Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
 
-
-
-
-
 ### <a name="approved-client-app"></a>Aplicação aprovada do cliente
 
 Uma vez que os funcionários utilizam dispositivos móveis para pessoais e tarefas de trabalho, pode querer ter a capacidade de proteger os dados da empresa acedidos através de dispositivos, mesmo no caso em que não são geridos por si.
 Pode usar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-
 Com as aplicações aprovadas do cliente, pode exigir uma aplicação de cliente tenta aceder às suas aplicações na cloud para suportar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, pode restringir o acesso ao Exchange Online para a aplicação Outlook. Uma política de acesso condicional que requer que as aplicações aprovadas do cliente também é conhecido como [política de acesso condicional com base na aplicação](app-based-conditional-access.md). Para obter uma lista de aplicações aprovadas do cliente suportados, consulte [aprovado requisito de aplicação de cliente](technical-reference.md#approved-client-app-requirement).
-
 
 ### <a name="terms-of-use"></a>Termos de Utilização
 
-Pode exigir que um utilizador no seu inquilino para aceitar os termos de utilização antes de lhes ser concedido acesso a um recurso. Como administrador, pode configurar e personalizar os termos de utilização através do carregamento de um documento PDF. Se um utilizador for abrangido pelo âmbito deste controlar o acesso a uma aplicação é concedido apenas se os termos de utilização tem sido combinado entre. 
+Pode exigir que um utilizador no seu inquilino para aceitar os termos de utilização antes de lhes ser concedido acesso a um recurso. Como administrador, pode configurar e personalizar os termos de utilização através do carregamento de um documento PDF. Se um utilizador for abrangido pelo âmbito deste controlar o acesso a uma aplicação é concedido apenas se os termos de utilização tem sido combinado entre.
 
-
-### <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização) 
+### <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
 Pode criar controles personalizados no acesso condicional que redirecionar os utilizadores a um serviço compatível para satisfazer mais requisitos fora do Azure Active Directory. Isso permite que use determinados externo multi-factor authentication e fornecedores de verificação para impor regras de acesso condicional, ou para criar seu próprio serviço personalizado. Para atender a esse controle, browser de um utilizador é redirecionado para o serviço externo, realiza qualquer autenticação necessária ou atividades de validação e, em seguida, é redirecionado para o Azure Active Directory. Se o utilizador com êxito foi autenticado ou validado, o usuário continua no fluxo de acesso condicional. 
 
@@ -121,6 +108,7 @@ Fornecedores atualmente fornecem um serviço de compatível incluem:
 - [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [A ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
@@ -138,9 +126,7 @@ A opção para criar um controle personalizado está no **Manage** secção a **
 
 Clicar **novo controle personalizado**, é aberto um painel com uma caixa de texto para os dados JSON de seu controle.  
 
-
 ![Controlo](./media/controls/81.png)
-
 
 ### <a name="deleting-custom-controls"></a>A eliminar a controles personalizados
 
@@ -156,9 +142,6 @@ Para eliminar um controle personalizado, primeiro tem de se certificar de que n�
 
 Para editar um controle personalizado, tem de eliminar o controlo atual e criar um novo controle com as informações atualizadas.
 
-
-
-
 ## <a name="session-controls"></a>Controlos de sessão
 
 Os controlos de sessão proporcionam uma experiência limitada dentro de uma aplicação na cloud. Os controlos de sessão são impostos por aplicações na cloud e dependem de informações adicionais fornecidas pelo Azure AD para a aplicação sobre a sessão.
@@ -171,15 +154,12 @@ Pode utilizar este controlo para exigir o Azure AD para passar as informações 
 
 Para saber mais, consulte:
 
-- [Ativar o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+- [Ativar o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
 - [Ativar o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
-
-
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
 
-- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja [Best practices for conditional access in Azure Active Directory](best-practices.md) (Melhores práticas do acesso condicional no Azure Active Directory). 
+- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja [Best practices for conditional access in Azure Active Directory](best-practices.md) (Melhores práticas do acesso condicional no Azure Active Directory).

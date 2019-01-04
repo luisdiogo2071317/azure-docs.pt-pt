@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: 05c089c0e92672b3602bd9c7bfb3263c56db76ef
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633304"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728045"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e dos manifestos dinâmicos
 
@@ -46,8 +46,8 @@ A tabela seguinte mostra alguns exemplos de URLs com filtros:
 
 |Protocolo|Exemplo|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Transmissão em Fluxo Uniforme|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -129,7 +129,7 @@ Use essa propriedade com o **Asset filtros**. Não é recomendado para definir a
 |**startTimestamp**|Aplica-se aos fluxos VoD ou em direto. O valor representa um ponto de início absoluto da transmissão em fluxo. O valor é arredondado para o próximo início de GOP mais próximo.<br/><br/>Uso **startTimestamp** e **endTimestamp** para cortar a lista de reprodução (manifesto). Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 irá gerar uma lista de reprodução que contém o suporte de dados entre StartTimestamp e EndTimestamp. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto.|
 |**escala temporal**|Aplica-se aos fluxos VoD ou em direto. A escala temporal utilizado pelos carimbos e durações especificadas acima. A escala temporal padrão é 10000000. Pode ser utilizada uma escala temporal alternativo. A predefinição é 10000000 HNS (nanossegundos centenas).|
 
-### <a name="tracks"></a>Roteiros
+### <a name="tracks"></a>roteiros
 
 Especifique uma lista de condições de propriedade de controle de filtro (FilterTrackPropertyConditions) com base no qual as faixas de sua transmissão em fluxo (Live ou vídeo a pedido) devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados com uma lógica **AND** e **ou** operação.
 
@@ -216,7 +216,7 @@ Os recursos podem incluir vários idiomas de áudio, como inglês, espanhol, fra
 ![Filtragem de faixas de idioma][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Remoção de início de um ativo
-Na maioria dos eventos de transmissão em fluxo em direto, os operadores de executam alguns testes antes do evento real. Por exemplo, eles podem incluir uma ficha, assim, antes do início do evento: "O programa vai começar momentaneamente". Se o programa é arquivar, o teste e os dados de imagem fixa são também arquivados e incluídos na apresentação. No entanto, estas informações não devem ser mostradas aos clientes. Com o manifesto dinâmico, pode criar um filtro de tempo de início e remove os dados indesejados de manifesto.
+Na maioria dos eventos de transmissão em fluxo em direto, os operadores de executam alguns testes antes do evento real. Por exemplo, eles podem incluir uma ficha, assim, antes do início do evento: "Programa vai começar momentaneamente". Se o programa é arquivar, o teste e os dados de imagem fixa são também arquivados e incluídos na apresentação. No entanto, estas informações não devem ser mostradas aos clientes. Com o manifesto dinâmico, pode criar um filtro de tempo de início e remove os dados indesejados de manifesto.
 
 ![Remoção de início][trim_filter]
 

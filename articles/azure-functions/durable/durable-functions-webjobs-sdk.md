@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343161"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713275"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
-[As funções do Azure](../functions-overview.md) e o [funções duráveis](durable-functions-overview.md) extensão são criadas com o [SDK de WebJobs](../../app-service/web-sites-create-web-jobs.md). O `JobHost` no SDK do WebJobs é o tempo de execução nas funções do Azure. Se precisar de controle `JobHost` comportamento de formas não é possíveis nas funções do Azure, pode desenvolver e executar funções duráveis com o SDK de WebJobs por conta própria. Em seguida, pode executar as suas funções duráveis na Web do Azure ou é executado em qualquer lugar de um aplicativo de console.
+[As funções do Azure](../functions-overview.md) e o [funções duráveis](durable-functions-overview.md) extensão são criadas com o [SDK de WebJobs](../../app-service/webjobs-create.md). O `JobHost` no SDK do WebJobs é o tempo de execução nas funções do Azure. Se precisar de controle `JobHost` comportamento de formas não é possíveis nas funções do Azure, pode desenvolver e executar funções duráveis com o SDK de WebJobs por conta própria. Em seguida, pode executar as suas funções duráveis na Web do Azure ou é executado em qualquer lugar de um aplicativo de console.
 
 O exemplo de funções duráveis encadeamento está disponível numa versão do SDK do WebJobs: Transfira ou clone a [repositório de funções duráveis](https://github.com/azure/azure-functions-durable-extension/) e navegue para o *exemplos\\webjobssdk\\encadeamento* pasta.
 

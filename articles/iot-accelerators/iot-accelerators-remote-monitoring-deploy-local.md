@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287613"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604776"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como executar os microsserviços no Visual Studio. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: serviços de IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights na cloud.
+Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como executar os microsserviços no Visual Studio. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights serviços na cloud.
 
 Se quiser executar o acelerador de solução de monitorização remota no Docker no seu computador local, veja [implementar o monitorização remota acelerador de soluções localmente - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -36,7 +36,7 @@ Para concluir a implementação de local, terá das seguintes ferramentas instal
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [NODE. js v8](https://nodejs.org/) -este software é um pré-requisito para a CLI de PCS que os scripts usam para criar recursos do Azure. Não utilize a v10 de node. js.
 
 > [!NOTE]
@@ -101,7 +101,7 @@ Configure um servidor de proxy inverso para ligar a aplicação web e os micross
 * Cópia a **nginx.conf** ficheiro a partir do **webui\scripts\localhost** pasta para o **nginx\conf** diretório de instalação.
 * Execute **nginx**.
 
-Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](http://nginx.org/en/docs/windows.html).
+Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Ligar ao dashboard
 

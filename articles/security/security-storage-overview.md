@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259144"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973133"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral da segurança de armazenamento do Azure
 
@@ -67,11 +67,11 @@ Encriptação em trânsito é um mecanismo de proteção de dados quando ele é 
 Saiba mais sobre a encriptação do lado do cliente:
 
 * [Encriptação do lado do cliente do armazenamento do Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Série de controles de segurança de cloud: encriptar os dados em trânsito](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Série de controles de segurança de cloud: Encriptação de dados em trânsito](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Encriptação inativa
 
-Para muitas organizações, [encriptação de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório no sentido de soberania de dados, conformidade e privacidade de dados. Três recursos do Azure fornecem criptografia de dados que estão inativos:
+Para muitas organizações, [encriptação de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório no sentido de soberania de dados, conformidade e privacidade de dados. Três recursos do Azure fornecem criptografia de dados que estão inativos:
 
 * [Encriptação do serviço de armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite-lhe pedido que o serviço de armazenamento encriptar dados automaticamente quando a escrevê-lo ao armazenamento do Azure.
 * [Encriptação do lado do cliente](../storage/common/storage-security-guide.md#client-side-encryption) também fornece a funcionalidade de encriptação em repouso.

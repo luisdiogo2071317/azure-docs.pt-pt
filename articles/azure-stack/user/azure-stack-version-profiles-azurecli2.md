@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969962"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726617"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utilizar perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -128,7 +128,6 @@ Utilize os seguintes passos para ligar ao Azure Stack:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Para registar o *utilizador* ambiente, utilize:
 
       ```azurecli
@@ -151,9 +150,22 @@ Utilize os seguintes passos para ligar ao Azure Stack:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. Para registar o utilizador num ambiente do AD FS, utilize:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Defina o ambiente do Active Directory com os seguintes comandos.
-
+   
    a. Para o *cloud administrativa* ambiente, utilize:
 
       ```azurecli
@@ -180,8 +192,8 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 
 1. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * Ambientes de AAD
-      * Inicie sessão como um *utilizador*: pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar com um browser. Precisa fazer a última opção se a sua conta tem a autenticação multifator ativada.
+    * Ambientes do Azure AD
+      * Inicie sessão como um *utilizador*: Pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar com um browser. Precisa fazer a última opção se a sua conta tem a autenticação multifator ativada.
 
       ```azurecli
       az login \
@@ -192,9 +204,9 @@ Utilize os seguintes passos para ligar ao Azure Stack:
       > [!NOTE]
       > Se a sua conta de utilizador tiver a autenticação multifator ativada, pode utilizar o `az login command` sem fornecer o `-u` parâmetro. Executar o comando dá-lhe um URL e um código que tem de utilizar a autenticação.
    
-      * Inicie sessão como um *principal de serviço*: antes de iniciar sessão, [criar um principal de serviço através do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, inicie sessão com o seguinte comando:
+      * Inicie sessão como um *principal de serviço*: Antes de iniciar sessão, [criar um principal de serviço através do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, inicie sessão com o seguinte comando:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Utilize os seguintes passos para ligar ao Azure Stack:
       ```
     * Ambientes do AD FS
 
-        * Inicie sessão como um *principal de serviço*: 
-          1.    Prepare o ficheiro. pem a ser utilizado para início de sessão principal de serviço.
-                * No computador cliente em que o principal foi criado, exporte o certificado de principal de serviço como um pfx com a chave privada (localizado em cert: \CurrentUser\My; o nome do certificado tem o mesmo nome que o principal).
+        * Inicie sessão como um utilizador usando um navegador da web:  
+              ```azurecli  
+              az login
+              ```
+        * Inicie sessão como um utilizador com um navegador da web com um código de dispositivo:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Executar o comando dá-lhe um URL e um código que tem de utilizar a autenticação.
 
-                *   Converta o pfx em pem (utilitário de OpenSSL do uso).
+        * Inicie sessão como um principal de serviço:
+        
+          1. Prepare o ficheiro. pem a ser utilizado para início de sessão principal de serviço.
 
-          1.    Início de sessão para a CLI. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * No computador cliente em que o principal foi criado, exporte o certificado de principal de serviço como um pfx com a chave privada (localizado em `cert:\CurrentUser\My;` o nome do certificado tem o mesmo nome que o principal).
+        
+            * Converta o pfx em pem (utilitário de OpenSSL do uso).
+
+          2.  Entrar para a CLI:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Testar a conectividade
 

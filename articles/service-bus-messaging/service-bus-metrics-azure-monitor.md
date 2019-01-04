@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821298"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548804"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
 
@@ -29,7 +29,7 @@ O Azure Monitor fornece interfaces do usuário unificada para monitoramento em v
 
 O Azure Monitor proporciona várias formas de métricas de acesso. Pode qualquer uma das métricas de acesso através da [portal do Azure](https://portal.azure.com), ou utilize o Azure Monitor APIs (REST e .NET) e soluções de análise de como o Log Analytics e Hubs de eventos. Para obter mais informações, consulte [dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este valor está configurado nas [das definições de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
+As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este valor está configurado nas [das definições de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
@@ -60,11 +60,11 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos com êxito (pré-visualização)|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de servidor (pré-visualização)|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de utilizador (pré-visualizar - veja a subsecção seguinte)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização foi excedida.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos com êxito (pré-visualização)|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de servidor (pré-visualização)|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de utilizador (pré-visualizar - veja a subsecção seguinte)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização foi excedida.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ### <a name="user-errors"></a>Erros de utilizador
 
@@ -78,18 +78,18 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para o Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-| Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Dimensão: EntityName |
-| ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Dimensão: EntityName |
+|Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para o Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Ligações aberto (pré-visualização)|O número de conexões abertas.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Ligações fechado (pré-visualização)|O número de conexões encerradas.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+|ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Ligações aberto (pré-visualização)|O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Ligações fechado (pré-visualização)|O número de conexões encerradas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de utilização de recursos
 
@@ -98,8 +98,8 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: por cento <br/> Tipo de agregação: máximo <br/> Dimensão: EntityName|
-|Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: por cento <br/> Tipo de agregação: máximo <br/> Dimensão: EntityName|
+|Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
@@ -123,7 +123,7 @@ O Azure Service Bus suporta as seguintes dimensões de métricas no Azure Monito
         ![Selecionar espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selecione **adicionar critérios**, e fazer as seguintes ações no **configurar lógica de sinal** página:
     1. Selecione **métricas** para **sinalizar tipo**. 
-    2. Selecione um sinal. Por exemplo: **erros (pré-visualização) do serviço**. 
+    2. Selecione um sinal. Por exemplo: **Erros (pré-visualização) do serviço**. 
 
         ![Selecione erros de servidor](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selecione **maior** para **condição**.

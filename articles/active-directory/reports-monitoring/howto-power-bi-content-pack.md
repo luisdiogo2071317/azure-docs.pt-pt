@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622975"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651457"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o pacote de conteúdos do Azure Active Directory Power BI
 
@@ -32,7 +32,7 @@ O Power BI conteúdo de pacote para o Azure Active Directory (Azure AD) contém 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma licença de premium (P1/P2) do Azure AD para utilizar o pacote de conteúdos. 
+Precisa de uma licença de premium (P1/P2) do Azure AD para utilizar o pacote de conteúdos. Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
 
 ## <a name="install-the-content-pack"></a>Instalar o pacote de conteúdos
 
@@ -42,9 +42,9 @@ Veja a [guia de introdução](quickstart-install-power-bi-content-pack.md) para 
 
 Os seguintes relatórios estão incluídos no pacote de conteúdos do Azure AD Power BI. Os relatórios contêm dados a partir da **últimos 30 dias**.
 
-**Relatório de utilização da aplicação e as tendências**: este relatório fornece informações sobre as aplicações utilizadas na sua organização. Pode obter uma lista dos aplicativos mais populares ou compreender como uma aplicação que tenha implementado recentemente na sua organização está a ser utilizada. Isto permite-lhe controlar e melhorar a utilização ao longo do tempo.
+**Relatório de utilização da aplicação e as tendências**:  Este relatório fornece informações sobre as aplicações utilizadas na sua organização. Pode obter uma lista dos aplicativos mais populares ou compreender como uma aplicação que tenha implementado recentemente na sua organização está a ser utilizada. Isto permite-lhe controlar e melhorar a utilização ao longo do tempo.
 
-**Inícios de sessão por localização e utilizadores**: este relatório fornece dados sobre todos os inícios de sessão executados usando a identidade do Azure. Com este relatório, pode desagregar para inícios de sessão individuais e responder a perguntas como:
+**Inícios de sessão por localização e utilizadores**: Este relatório fornece dados sobre todos os inícios de sessão executados usando a identidade do Azure. Com este relatório, pode desagregar para inícios de sessão individuais e responder a perguntas como:
 
 - Onde este utilizador inícios de sessão de?
 - Que utilizador iniciou sessão mais vezes e de onde é que o fez? 
@@ -52,34 +52,34 @@ Os seguintes relatórios estão incluídos no pacote de conteúdos do Azure AD P
  
 Também pode filtrar os resultados ao selecionar uma data ou localização específica.
 
-**Utilizadores exclusivos por aplicação**: este relatório fornece uma vista de todos os utilizadores exclusivos com uma determinada aplicação. Incluir apenas os utilizadores que têm "*com êxito*" conectado a uma aplicação.
+**Utilizadores exclusivos por aplicação**:  Este relatório fornece uma vista de todos os utilizadores exclusivos com uma determinada aplicação. Incluir apenas os utilizadores que têm "*com êxito*" conectado a uma aplicação.
 
-**Inícios de sessão de dispositivo**: este relatório ajuda-o a compreender os vários perfis de dispositivo utilizados na sua organização e determinar políticas de dispositivos com base na utilização. Ele fornece dados sobre o tipo de SO e os browsers utilizados para início de sessão para aplicações, juntamente com informações detalhadas sobre os utilizadores, incluindo:
+**Inícios de sessão de dispositivo**: Este relatório ajuda-o a compreender os vários perfis de dispositivo utilizados na sua organização e determinar políticas de dispositivos com base na utilização. Ele fornece dados sobre o tipo de SO e os browsers utilizados para início de sessão para aplicações, juntamente com informações detalhadas sobre os utilizadores, incluindo:
 
 - Nome de Utilizador
 - Endereço IP
 - Localização 
 - Estado de início de sessão 
 
-**Funil de SSPR**: este relatório ajuda-o a compreender como a ferramenta SSPR é utilizada na sua organização. Pode ver a palavra-passe quantas reposições foram tentadas com a ferramenta SSPR e quantas foram bem-sucedidas. Também pode aprofundar mais as falhas de reposições de palavra-passe e compreender por que motivo ocorreram determinadas falhas. 
+**Funil SSPR**: Este relatório ajuda a compreender como a ferramenta SSPR é utilizada na sua organização. Pode ver a palavra-passe quantas reposições foram tentadas com a ferramenta SSPR e quantas foram bem-sucedidas. Também pode aprofundar mais as falhas de reposições de palavra-passe e compreender por que motivo ocorreram determinadas falhas. 
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Personalizar o pacote de conteúdos de atividades do Azure AD
 
-**Alterar a Visualização**:pode clicar em **Editar Relatório** para alterar a visualização de um relatório e selecionar a visualização que pretende.
+**Alterar a visualização**:  Pode alterar uma visualização de relatório clicando **Editar relatório** e selecione a visualização que pretende.
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/09.png) 
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Incluir campos adicionais**: pode adicionar um campo ao relatório ou removê-lo ao selecionar o elemento visual ao qual quer adicionar/remover o campo. Por exemplo, pode adicionar o campo "sign-in status" para a exibição de tabela, conforme mostrado abaixo. 
+**Incluir campos adicionais**:  Pode adicionar um campo para o relatório ou removê-lo ao selecionar o elemento visual para o qual pretende adicionar ou remover o campo. Por exemplo, pode adicionar o campo "sign-in status" para a exibição de tabela, conforme mostrado abaixo. 
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Afixar visualizações ao dashboard**: pode personalizar o dashboard, incluindo as suas próprias visualizações ao relatório e afixá-lo ao dashboard. 
+**Afixar visualizações ao dashboard**:  Pode personalizar o seu dashboard, incluindo as suas próprias visualizações ao relatório e afixá-lo ao dashboard. 
 
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  
-**Partilhar o dashboard**: também pode partilhar o dashboard com os utilizadores na sua organização. Depois de partilhar o relatório, os utilizadores podem ver os campos que selecionou no relatório.
+**Partilhar o dashboard**: Também pode partilhar o dashboard com os utilizadores na sua organização. Depois de partilhar o relatório, os utilizadores podem ver os campos que selecionou no relatório.
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/14.png) 
 

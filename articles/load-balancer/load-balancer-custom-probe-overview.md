@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: f9ada3518c4354b112e9e288da89ee9659629b1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 51d781f331bcbc08642dc32c21baa150e9e5eee6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435128"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538690"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -201,7 +201,7 @@ Se não permitir a [IP de origem](#probesource) da sonda nas suas políticas de 
 
 Para a sonda de estado de funcionamento do Balanceador de carga marcar a sua instância, **tem** permitir que este endereço IP em qualquer serviço [grupos de segurança de rede](../virtual-network/security-overview.md) e políticas de local firewall.  Por predefinição, todos os grupos de segurança de rede incluem a [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer para permitir o tráfego de sonda de estado de funcionamento.
 
-Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um [grupos de segurança de rede](../virtual-network/security-overview.md) explícita para bloquear a sonda de estado de funcionamento (porta de destino ou [IP de origem](#probesource)) e simular o Falha de uma sonda.
+Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um [grupos de segurança de rede](../virtual-network/security-overview.md) para bloquear explicitamente a sonda de estado de funcionamento (porta de destino ou [IP de origem](#probesource)) e simular o Falha de uma sonda.
 
 Não configure a sua VNet com o Microsoft pertence o intervalo de endereços IP que contém 168.63.129.16.  Essas configurações irão entrar em conflito com o endereço IP da sonda de estado de funcionamento e podem fazer com que o seu cenário de falha.
 

@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 08fed2206d7d74d9ab6cb7f1462388486f999987
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983068"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718797"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores na sua organização podem convidar utilizadores convidados para uma aplicação
 
-Depois de um convidado utilizador foi adicionado para o diretório no Azure AD, um proprietário da aplicação pode enviar o utilizador convidado uma ligação direta para a aplicação que pretendem partilhar. Os administradores do Azure AD também podem configurar gestão self-service para que os proprietários dos aplicativos podem gerenciar seus próprios utilizadores convidados, mesmo que os utilizadores convidados ainda não foi ainda adicionados para o diretório. Quando uma aplicação está configurada para Self-Service, o proprietário da aplicação utiliza o seu painel de acesso para convidar um utilizador convidado a uma aplicação ou adicionar um utilizador convidado a um grupo que tenha acesso à aplicação. Gestão de aplicações self-service requer alguma configuração inicial, por um administrador. Segue-se um resumo dos passos de configuração (para obter instruções mais detalhadas, consulte [pré-requisitos](#prerequisites) posteriormente nesta página):
+Depois de um convidado utilizador foi adicionado para o diretório no Azure AD, um proprietário da aplicação pode enviar o utilizador convidado uma ligação direta para a aplicação que pretendem partilhar. Os administradores do Azure AD também podem configurar gestão self-service para aplicações baseadas em SAML no seu inquilino do Azure AD ou galeria. Desta forma, os proprietários do aplicativo podem gerir seus próprios utilizadores convidados, mesmo que os utilizadores convidados ainda não foi ainda adicionados para o diretório. Quando uma aplicação está configurada para Self-Service, o proprietário da aplicação utiliza o seu painel de acesso para convidar um utilizador convidado a uma aplicação ou adicionar um utilizador convidado a um grupo que tenha acesso à aplicação. Gestão de aplicações self-service para Galeria e aplicações baseadas em SAML requer alguma configuração inicial, por um administrador. Segue-se um resumo dos passos de configuração (para obter instruções mais detalhadas, consulte [pré-requisitos](#prerequisites) posteriormente nesta página):
 
  - Ativar a gestão de grupos self-service para o seu inquilino
  - Criar um grupo para atribuir à aplicação e tornar o utilizador proprietário
  - Configurar a aplicação para gestão personalizada e atribua o grupo para a aplicação
+
+> [!NOTE]
+> Este artigo descreve como configurar a gestão de self-service para a Galeria e aplicativos baseados em SAML que adicionou ao seu inquilino do Azure AD. Também pode [configure os grupos do Office 365 de Self-serviços](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para que os utilizadores podem gerir o acesso aos seus próprios grupos do Office 365. Para mais utilizadores de formas podem partilhar aplicações e ficheiros do Office com utilizadores convidados, consulte [acesso de convidado em grupos do Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [SharePoint partilhar ficheiros ou pastas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Convidar um utilizador convidado para uma aplicação a partir do painel de acesso
 
@@ -38,11 +41,11 @@ Depois de uma aplicação está configurada para Self-Service, os proprietários
    
    ![Painel de acesso, adicionar um utilizador](media/add-users-iw/access-panel-manage-app-add-user.png)
    
-4. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
+4. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Também tem a opção de incluir uma mensagem de boas-vindas.
    
    ![Convite de painel de acesso](media/add-users-iw/access-panel-invitation.png)
    
-5. Selecione **adicionar** para enviar um convite ao utilizador convidado. Depois de enviar o convite, a conta de utilizador é automaticamente adicionada ao diretório como convidado.
+5. Selecione **adicionar** para enviar um convite ao utilizador convidado. Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
 
 ## <a name="invite-someone-to-join-a-group-that-has-access-to-the-app"></a>Convidar alguém para aderir a um grupo que tenha acesso à aplicação
 Depois de uma aplicação está configurada para Self-Service, os proprietários de aplicativos podem convidar utilizadores convidados para os grupos que gerem e que tenham acesso às aplicações que pretendem partilhar. Os utilizadores convidados não tem de já existir no diretório. O proprietário da aplicação segue estes passos para convidar um utilizador convidado ao grupo, para que eles podem aceder à aplicação.
@@ -61,11 +64,11 @@ Depois de uma aplicação está configurada para Self-Service, os proprietários
    
    ![Grupos de painel de acesso ao adicionar um membro](media/add-users-iw/access-panel-groups-add-member.png)
    
-6. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
+6. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Também tem a opção de incluir uma mensagem de boas-vindas.
    
    ![Convite de grupo do painel de acesso](media/add-users-iw/access-panel-invitation.png)
    
-7. Selecione **adicionar** para enviar automaticamente o convite ao utilizador convidado. Depois de enviar o convite, a conta de utilizador é automaticamente adicionada ao diretório como convidado.
+7. Selecione **adicionar** para enviar automaticamente o convite ao utilizador convidado. Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -89,7 +92,7 @@ Gestão de aplicações self-service requer alguma configuração inicial, um Ad
 3. Selecione **grupos**.
 4. Selecione **novo grupo**.
 5. Sob **tipo de grupo**, selecione **segurança**.
-6. Introduza um **nome do grupo** e **descrição do grupo**.
+6. Introduza um **Nome do grupo** e uma **Descrição do grupo**.
 7. Sob **tipo de associação**, selecione **atribuído**.
 8. Selecione **Create**e feche o **grupo** página.
 9. Sobre o **grupos – todos os grupos** página, abra o grupo. 
@@ -102,6 +105,7 @@ Gestão de aplicações self-service requer alguma configuração inicial, um Ad
 4. Na lista de aplicações, localize e abra a aplicação.
 5. Sob **Manage**, selecione **início de sessão único**e configurar a aplicação para início de sessão único. (Para obter detalhes, consulte [como gerir o início de sessão único para aplicações empresariais de](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
 6. Sob **Manage**, selecione **self-service**e configurar o acesso de aplicação self-service. (Para obter detalhes, consulte [como utilizar o acesso da aplicação self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+
     > [!NOTE]
     > Para a definição **a que grupo devem os utilizadores atribuídos ser adicionados?** selecione o grupo que criou na secção anterior.
 7. Sob **Manage**, selecione **utilizadores e grupos**e certifique-se de que o grupo de gestão personalizada que criou é apresentada na lista.
@@ -114,4 +118,4 @@ Veja os artigos seguintes na colaboração B2B do Azure AD:
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Como é que os administradores do Azure Active Directory adicionar utilizadores de colaboração B2B?](add-users-administrator.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
-- [Licenciamento de colaboração B2B do AD do Azure](licensing-guidance.md)
+- [Licenciamento de colaboração B2B do Azure AD](licensing-guidance.md)

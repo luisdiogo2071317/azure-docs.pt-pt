@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315839"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597669"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Elevada disponibilidade dos seus dados com o Apache Kafka no HDInsight
 
@@ -26,7 +26,7 @@ Um domínio de falha é um agrupamento lógico de hardware subjacente num centro
 
 Cada região do Azure tem um número específico de domínios de falha. Para obter uma lista de domínios e o número de domínios de falha que contêm, consulte a documentação [Availability Sets](../../virtual-machines/windows/regions-and-availability.md#availability-sets) (Conjuntos de disponibilidade).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Kafka não está ciente dos domínios de falha. Quando cria um tópico no Kafka, pode armazenar todas as réplicas da partição no mesmo domínio de falha. Para resolver este problema, o HDInsight disponibiliza a [ferramenta de reequilíbrio de partições do Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
 ## <a name="when-to-rebalance-partition-replicas"></a>Quando deve reequilibrar as réplicas de partições
@@ -39,7 +39,7 @@ Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar
 
 ## <a name="replication-factor"></a>Fator de replicação
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > É recomendável utilizar uma região do Azure que contenha três domínios de falha e um fator de replicação de 3.
 
 Se tiver de utilizar uma região que contenha apenas dois domínios de falha, utilize um fator de replicação de 4 para distribuir as réplicas uniformemente entre os dois domínios de falha.

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569010"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546747"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um fornecedor de identidade para utilizadores convidados B2B
 
 Ao configurar a Federação com o Google, pode permitir que os utilizadores convidados iniciar sessão sua aplicações partilhadas e recursos com as suas contas do Google, sem precisar criar Accounts da Microsoft (Msa) ou contas do Azure AD.  
 > [!NOTE]
-> Os utilizadores de convidado do Google tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino, por exemplo `https://myapps.microsoft.com/?tenantid=<tenant id>`. Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro.
+> Os utilizadores de convidado do Google tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino, por exemplo `https://myapps.microsoft.com/<tenant id>`. Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>O que é a experiência do utilizador de Google?
 Quando envia um convite para um utilizador de Google Gmail, o utilizador convidado deve acessar seus recursos através de uma ligação que inclui o contexto do inquilino ou aplicações partilhadas. Sua experiência varia consoante se eles já sessão iniciados para a Google:
@@ -35,7 +35,7 @@ Se o utilizador convidado vê um erro de "cabeçalho demasiado longo", podem ten
 ## <a name="step-1-configure-a-google-developer-project"></a>Passo 1: Configurar um projeto de programador do Google
 Primeiro, crie um novo projeto na consola de programadores do Google para obter uma client ID e um segredo do cliente que pode adicionar mais tarde para o Azure AD. 
 1. Aceda às APIs do Google em https://console.developers.google.come inicie sessão com a sua conta do Google. Recomendamos que utilize uma equipe partilhada conta Google.
-2. Criar um novo projeto: no Dashboard, é select **criar projeto**e, em seguida, selecione **criar**. Na página de novo projeto, introduza um **nome do projeto**e, em seguida, selecione **criar**.
+2. Crie um novo projeto: No Dashboard, selecione **criar projeto**e, em seguida, selecione **criar**. Na página de novo projeto, introduza um **nome do projeto**e, em seguida, selecione **criar**.
    
    ![Novo projeto do Google](media/google-federation/google-new-project.png)
 
@@ -90,7 +90,7 @@ Agora definirá o cliente de Google ID e segredo do cliente, tanto pelo introduz
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Utilize o id de cliente e o cliente secreta da aplicação que criou no "passo 1: configurar um projeto do Google developer." Para obter mais informações, consulte a [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artigo. 
+   > Utilize o id de cliente e o cliente secreta da aplicação que criou no "passo 1: Configurar um projeto do Google developer." Para obter mais informações, consulte a [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artigo. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Como posso remover o Federação Google?
 É possível eliminar a configuração de Federação do Google. Se fizer isso, os utilizadores de convidado do Google que já tem resgatado o seu convite não será possível iniciar sessão, mas pode lhes dar acesso aos seus recursos novamente, excluí-los a partir do diretório e voltar a convidá-los. 

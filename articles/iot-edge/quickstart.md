@@ -4,17 +4,17 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96c261619a0e6930ea299b5e2a50050dca5471f8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554780"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972095"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo de Windows - pré-visualização
 
@@ -192,13 +192,16 @@ iotedge list
 
    ![Ver três módulos no seu dispositivo](./media/quickstart/iotedge-list-2.png)
 
-Veja as mensagens que estão a ser enviadas do módulo tempSensor para a cloud.
+Ver as mensagens do módulo do sensor de temperatura, que está a ser enviadas para a cloud.
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![Ver os dados a partir do seu módulo](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >Comandos do IoT Edge diferenciam maiúsculas de minúsculas quando nos Referimos a nomes de módulos.
+
+   ![Ver os dados a partir do seu módulo](./media/quickstart/iotedge-logs.png)
 
 Também pode ver as mensagens de chegar ao seu hub IoT utilizando o [extensão de Kit de ferramentas do Azure IoT Hub para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como extensão do Kit de ferramentas do Azure IoT). 
 
@@ -230,15 +233,18 @@ Remova o runtime do IoT Edge. Se pretender reinstalar o IoT Edge, omitir os `-De
 Quando o runtime do IoT Edge é removido, os contentores que ele criou são parados, mas continuam no seu dispositivo. Veja todos os contentores.
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. Altere o nome do contentor tempSensor, se o tiver chamado de outra forma.
+   >[!TIP]
+   >O **-H** sinalizador (anfitrião) nos comandos docker aponta para o mecanismo de moby que foi instalado, juntamente com o runtime do IoT Edge. Se utilizar o docker e moby na mesma máquina, o sinalizador de anfitrião permite-lhe especificar qual mecanismo estiver a utilizar para um determinado comando. Se apenas quiser utilizar moby, pode definir o **DOCKER_HOST** variável de ambiente para que apontem para npipe:///./pipe/iotedge_moby_engine.
+
+Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## <a name="next-steps"></a>Passos Seguintes

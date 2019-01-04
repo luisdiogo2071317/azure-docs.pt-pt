@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967900"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541562"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para alterações RBAC
 
-Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
+Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações que têm sessão iniciadas
 

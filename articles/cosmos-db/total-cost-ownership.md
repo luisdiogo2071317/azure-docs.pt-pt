@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263966"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555460"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Custo total de Ownership(TCO) com o Azure Cosmos DB
 
@@ -27,7 +27,7 @@ O modelo de aprovisionamento sem servidor do Azure Cosmos DB elimina a necessida
 
 * **Grande valor para o preço:** Os analistas de mercado, os clientes e parceiros confirmou que um valor maior de todas as funcionalidades do Azure Cosmos DB oferece para um preço muito mais reduzido em comparação comparado o que os clientes podem obter ao implementar estas soluções por conta própria ou através de outros fornecedores. A base de dados apresenta essa distribuição global, modelos de consistência de vários mestres, bem definidos e intuitiva, indexação automática são significativamente simplificada com o Azure Cosmos DB sem qualquer complexidade, sobrecarga, ou de indisponibilidade.
 
-* **Administração de devops não NoSQL é necessária:** Com o Azure Cosmos DB um não precisa empregar devops para gerir implementações, realizar a manutenção, o dimensionamento ou o patch. Pode executar as todas as cargas de trabalho que faria com sistemas operacionais NoSQL cluster alojado no local ou numa infraestrutura de cloud.
+* **Nenhuma administração de DevOps de NoSQL, é necessária:** Com o Azure Cosmos DB um não precisa empregar DevOps para gerir implementações, realizar a manutenção, o dimensionamento ou o patch. Pode executar as todas as cargas de trabalho que faria com sistemas operacionais NoSQL cluster alojado no local ou numa infraestrutura de cloud.
 
 ![Azure Cosmos DB custo de propriedade](./media/total-cost-ownership/tco.png)
 
@@ -37,7 +37,7 @@ O modelo de aprovisionamento sem servidor do Azure Cosmos DB elimina a necessida
 
 * **Otimizado para a cloud:** O Azure Cosmos DB foi concebido desde o início com o isolamento de vários inquilinos e de desempenho detalhado. Isto permite colocar ideal, a execução e a milhares de inquilinos e as cargas de trabalho de balanceamento em clusters e datacenters. Por outro lado, a geração atual de bases de dados NoSQL de OSS opere no local com toda a máquina virtual pressupõe-se para executar a carga de trabalho de um único inquilino. Esses bancos de dados são também não foi concebidos para tirar partido de infraestrutura e o hardware para a totalidade de um fornecedor de cloud. Por exemplo, atualizar de uma imagem de rotina um NoSQL de OSS motor de base de dados não conhece as diferenças entre uma máquina virtual para baixo do Vs ou o fato desse disco premium já está a ser trilateral replicados. Ele não é possível tirar partido destes benefícios e passar sobre os benefícios e economia para os clientes.
 
-* **Paga por hora:** Para cargas de trabalho em grande escala, que precisa Dimensionar em qualquer ponto anterior no tempo só são cobradas por hora. As cargas de trabalho num aplicativo normalmente variam entre horas do ano e os dados que isso é consultada. Com o Azure Cosmos DB, pode aumentar ou reduzir verticalmente à medida que precisa e paga apenas aquilo de que precisa. Com sistemas no local ou alojado no IaaS, não pode corresponder a esse modelo, porque não existe uma forma de descomissionar o hardware a cada hora. Nesses casos, pode potencialmente salvar entre 10 a 14 vezes numa média com o Azure Cosmos DB.
+* **Paga por hora:** Para cargas de trabalho em grande escala, que precisam para dimensionar em qualquer ponto no tempo, apenas são cobradas por hora. As cargas de trabalho num aplicativo normalmente variem nos tempos do ano e pelos dados que são consultados. Com o Azure Cosmos DB, pode aumentar ou reduzir verticalmente à medida que precisa e paga apenas aquilo de que precisa. Com sistemas no local ou alojado no IaaS, não pode corresponder a esse modelo, porque não existe uma forma de descomissionar o hardware a cada hora. Nesses casos, pode potencialmente salvar entre 10 a 14 vezes numa média com o Azure Cosmos DB.
 
 * **Obtenha gratuitamente o inúmeros recursos:** No Azure Cosmos DB, escreva cargas de trabalho são substancialmente barato em comparação com serviços de banco de dados alternativa. Além disso, do Azure Cosmos DB oferece recursos, como por exemplo, [indexação automática](indexing-policies.md), [Live (TTL) do tempo](time-to-live.md), [de Feed de alterações](change-feed.md) e outros sem quaisquer custos adicionais, algo que outros serviços de base de dados cobram habitualmente.
 

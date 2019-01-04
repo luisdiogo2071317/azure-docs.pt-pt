@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/09/2017
+ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b9d51cb4462f5f2fdf6126dfd7ecbcb6b255adc1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877603"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970734"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente – anomalias de falha
 [O Application Insights](app-insights-overview.md) notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos falhados. Detetar um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência são reportadas como falhado. Para pedidos, pedidos com falhas são geralmente aqueles com códigos de resposta de 400 ou superior. Para ajudar a fazer a triagem e diagnosticar o problema, uma análise das características da falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para diagnósticos adicionais. A funcionalidade não precisa nenhuma configuração nem a configuração, como ele utiliza algoritmos de machine learning para prever a taxa de falhas normal.
 
-Esta funcionalidade funciona para aplicações de web Java e ASP.NET, alojadas na cloud ou nos seus próprios servidores. Também funciona para qualquer aplicação que gera a telemetria de dependência ou a pedido - por exemplo, se tiver uma função de trabalho que chama [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](app-insights-api-custom-events-metrics.md#trackdependency).
+Esta funcionalidade funciona para aplicações de web Java e ASP.NET, alojadas na cloud ou nos seus próprios servidores. Também funciona para qualquer aplicação que gera a telemetria de dependência ou a pedido - por exemplo, se tiver uma função de trabalho que chama [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Depois de configurar [Application Insights para o seu projeto](app-insights-overview.md), e desde a sua aplicação gerar uma determinada quantia mínima de telemetria, deteção inteligente de anomalias de falha demora 24 horas para saber o comportamento normal da sua aplicação, antes de ser ativadas e que pode enviar alertas.
 
@@ -45,10 +45,10 @@ Tenha em atenção que ele diz a:
 * Ligações diretas relevantes pesquisas sobre a telemetria no Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Benefícios da deteção inteligente
-Comum [alertas de métricas](app-insights-alerts.md) informá-lo de que haja um problema. Mas a deteção inteligente começa o trabalho de diagnóstico para, executando muito a análise de outra forma, teria que fazer sozinho. Obtenha os resultados empacotados organizadamente, ajudando-o a começar rapidamente para a raiz do problema.
+Comum [alertas de métricas](../azure-monitor/app/alerts.md) informá-lo de que haja um problema. Mas a deteção inteligente começa o trabalho de diagnóstico para, executando muito a análise de outra forma, teria que fazer sozinho. Obtenha os resultados empacotados organizadamente, ajudando-o a começar rapidamente para a raiz do problema.
 
 ## <a name="how-it-works"></a>Como funciona
-Deteção inteligente monitoriza a telemetria recebida a partir da sua aplicação e, em particular as taxas de falhas. Esta regra conta o número de pedidos para o qual o `Successful request` propriedade é false, e o número de dependência chamadas para o qual o `Successful call` propriedade é false. Para pedidos, por predefinição, `Successful request == (resultCode < 400)` (a menos que escreveu código personalizado para [filtro](app-insights-api-filtering-sampling.md#filtering) ou gere as suas próprias [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) chamadas). 
+Deteção inteligente monitoriza a telemetria recebida a partir da sua aplicação e, em particular as taxas de falhas. Esta regra conta o número de pedidos para o qual o `Successful request` propriedade é false, e o número de dependência chamadas para o qual o `Successful call` propriedade é false. Para pedidos, por predefinição, `Successful request == (resultCode < 400)` (a menos que escreveu código personalizado para [filtro](../azure-monitor/app/api-filtering-sampling.md#filtering) ou gere as suas próprias [TrackRequest](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) chamadas). 
 
 Desempenho da sua aplicação tem um padrão típico de comportamento. Alguns pedidos ou chamadas de dependência será mais propensas a falhas do que outros; e a taxa de falhas gerais pode subir conforme a carga aumenta. Deteção inteligente utiliza machine learning para localizar estas anomalias.
 
@@ -56,11 +56,19 @@ Como telemetria vem para o Application Insights da sua aplicação web, deteçã
 
 Quando uma análise é disparada, o serviço executa uma análise de cluster na solicitação com falha, para tentar identificar um padrão de valores que caracterizam as falhas. No exemplo acima, a análise detetou que a maioria das falhas são sobre um código de resultado específico, o nome de pedido, o anfitrião do URL do servidor e a instância de função. Por outro lado, a análise detetou que a propriedade de sistema operativo do cliente é distribuída por vários valores e, portanto, não está listado.
 
-Quando seu serviço está equipado com essas chamadas de telemetria, o analyser procura uma exceção e uma falha de dependência que estão associados a pedidos do cluster que tiver identificado, juntamente com um exemplo de quaisquer registos de rastreio associado a esses pedidos.
+Quando seu serviço está equipado com essas chamadas de telemetria, o analisador de procura de uma exceção e uma falha de dependência que estão associados a pedidos do cluster que tiver identificado, juntamente com um exemplo de quaisquer registos de rastreio associado a esses pedidos.
 
 A análise resultante é enviada a como alerta, a menos que tenha configurado não.
 
-Como o [alerta definir manualmente](app-insights-alerts.md), pode inspecionar o estado do alerta e configurá-lo no painel de alertas de recurso do Application Insights. Mas, ao contrário de outros alertas, não é necessário configurar ou configurar a deteção inteligente. Se desejar, pode desativá-la ou alterar os respetivos endereços de e-mail de destino.
+Como o [alerta definir manualmente](../azure-monitor/app/alerts.md), pode inspecionar o estado do alerta e configurá-lo no painel de alertas de recurso do Application Insights. Mas, ao contrário de outros alertas, não é necessário configurar ou configurar a deteção inteligente. Se desejar, pode desativá-la ou alterar os respetivos endereços de e-mail de destino.
+
+### <a name="alert-logic-details"></a>Detalhes da lógica de alerta
+
+Os alertas são acionados pelo nosso proprietário algoritmo de machine learning, para que não é possível partilhar os detalhes de implementação exata. Dito isso, estamos cientes de que, às vezes, precisa saber mais sobre como funciona a lógica subjacente. São fatores principais que são avaliados para determinar se deve ser acionado um alerta: 
+
+* Análise da percentagem de falhas de pedidos/dependências numa janela de tempo sem interrupção de 20 minutos.
+* Uma comparação da percentagem de falhas dos últimos 20 minutos, a taxa de e nos últimos 40 minutos e nos últimos sete dias e está à procura de desvios significativos que excedem X vezes esse desvio padrão.
+* Utilizar um limite adaptável para a percentagem mínima de falha, que varia com base no volume da aplicação de pedidos/dependências.
 
 ## <a name="configure-alerts"></a>Configurar alertas
 Pode desativar a deteção inteligente, alterar os destinatários de e-mail, criar um webhook ou optar por mensagens de alerta mais detalhadas.
@@ -89,9 +97,9 @@ Em muitos casos, será capaz de diagnosticar o problema rapidamente desde o nome
 
 Existem algumas outras dicas. Por exemplo, a taxa de falhas de dependência neste exemplo é o mesmo que a taxa de exceção (89.3%). Isso sugere que a exceção surge diretamente a partir da falha de dependência - fornecendo a uma idéia clara de como começar a procurar no seu código.
 
-Para investigar melhor, as ligações em cada secção irão levá-lo diretamente para um [página de pesquisa](app-insights-diagnostic-search.md) filtrado para o relevantes pedidos, exceções, dependência ou rastreios. Ou pode abrir o [portal do Azure](https://portal.azure.com), navegue para o recurso do Application Insights para a sua aplicação e abrir o painel de falhas.
+Para investigar melhor, as ligações em cada secção irão levá-lo diretamente para um [página de pesquisa](../azure-monitor/app/diagnostic-search.md) filtrado para o relevantes pedidos, exceções, dependência ou rastreios. Ou pode abrir o [portal do Azure](https://portal.azure.com), navegue para o recurso do Application Insights para a sua aplicação e abrir o painel de falhas.
 
-Neste exemplo, clicar no link "Ver os detalhes de falhas de dependência" abre o painel de pesquisa do Application Insights. Mostra a instrução SQL que tem um exemplo sobre a causa raiz: nulos foram fornecidos em campos de preenchimento obrigatório e não passou na validação durante o salvamento operação.
+Neste exemplo, clicar no link "Ver os detalhes de falhas de dependência" abre o painel de pesquisa do Application Insights. Mostra a instrução SQL que tem um exemplo sobre a causa raiz: Valores nulos foram fornecidos em campos de preenchimento obrigatório e não passou na validação durante o salvamento operação.
 
 ![Pesquisa de diagnóstico](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -105,7 +113,7 @@ Clique em **deteção inteligente** para obter o alerta mais recente:
 ## <a name="whats-the-difference-"></a>Qual é a diferença...
 Deteção inteligente de anomalias de falha complementa outros semelhantes, mas distintos recursos do Application Insights.
 
-* [Alertas de métricas](app-insights-alerts.md) são definidos por si e pode monitorizar uma grande variedade de métricas, como a ocupação da CPU, taxas de pedidos, tempos de carregamento de página e assim por diante. Pode usá-los para avisá-lo, por exemplo, se precisa adicionar mais recursos. Por outro lado, o Smart deteção de anomalias de falha cobre uma variedade de pequenas de métricas críticas (atualmente apenas pedidos falhados taxa), projetada para notificar em quase tempo real de maneira assim que a sua aplicação web falhou pedido taxa aumenta significativamente em comparação com da aplicação web comportamento normal.
+* [Alertas de métricas](../azure-monitor/app/alerts.md) são definidos por si e pode monitorizar uma grande variedade de métricas, como a ocupação da CPU, taxas de pedidos, tempos de carregamento de página e assim por diante. Pode usá-los para avisá-lo, por exemplo, se precisa adicionar mais recursos. Por outro lado, o Smart deteção de anomalias de falha cobre uma variedade de pequenas de métricas críticas (atualmente apenas pedidos falhados taxa), projetada para notificar em quase tempo real de maneira assim que a sua aplicação web falhou pedido taxa aumenta significativamente em comparação com da aplicação web comportamento normal.
 
     Deteção inteligente ajusta automaticamente o respetivo limiar em resposta a condições atualidade.
 
@@ -123,7 +131,7 @@ Deteção inteligente de anomalias de falha complementa outros semelhantes, mas 
 
 *Então, vocês examinar meus dados?*
 
-* Não. O serviço é totalmente automático. Obter apenas as notificações. Os seus dados estão [privada](app-insights-data-retention-privacy.md).
+* Não. O serviço é totalmente automático. Obter apenas as notificações. Os seus dados estão [privada](../azure-monitor/app/data-retention-privacy.md).
 
 *É necessário que subscrever este alerta?*
 
@@ -145,10 +153,10 @@ Deteção inteligente de anomalias de falha complementa outros semelhantes, mas 
 Estas ferramentas de diagnóstico ajudá-lo inspecionar a telemetria da sua aplicação:
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
-* [Explorador de pesquisa](app-insights-diagnostic-search.md)
+* [Explorador de pesquisa](../azure-monitor/app/diagnostic-search.md)
 * [Análise - poderosa linguagem de consultas](../azure-monitor/log-query/get-started-portal.md)
 
 Deteções inteligentes são totalmente automáticas. Mas talvez deseje configurar alguns alertas mais?
 
-* [Alertas de métricas configurados manualmente](app-insights-alerts.md)
-* [Testes web de disponibilidade](app-insights-monitor-web-app-availability.md)
+* [Alertas de métricas configurados manualmente](../azure-monitor/app/alerts.md)
+* [Testes web de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md)

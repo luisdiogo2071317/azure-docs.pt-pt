@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337823"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994764"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -30,7 +30,7 @@ O diagrama seguinte descreve as principais funcionalidades de instância gerida:
 
 ![principais recursos](./media/sql-database-managed-instance/key-features.png)
 
-Instância de gerida de base de dados de SQL do Azure foi concebida para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada, ou no local ou ISV fornecido ambiente para o ambiente de nuvem de PaaS totalmente gerido, com como esforço de migração de baixa possível. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNet.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado.
+Instância de gerida de base de dados de SQL do Azure foi concebida para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada, ou no local ou ISV fornecido ambiente para o ambiente de nuvem de PaaS totalmente gerido, com como esforço de migração de baixa possível. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNet.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado.
 
 Ao disponibilidade geral, a instância gerida tem como objetivo fornecer próximo de compatibilidade de área de superfície de 100% com a última versão de SQL Server no local através de um plano de versão em etapas.
 
@@ -70,7 +70,7 @@ Os principais recursos de instância gerida são mostrados na tabela a seguir:
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
-O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na instância gerida dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na instância gerida dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 No modelo de vCore, pode escolher entre gerações de hardware.
 
@@ -146,7 +146,7 @@ Base de dados SQL do Azure fornece um conjunto de funcionalidades de segurança 
 - [Segurança de nível de linha](/sql/relational-databases/security/row-level-security) permite-lhe controlo de acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, com o contexto de associação ou execução de grupo). A segurança ao nível da linha (RLS) simplifica o design e a programação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. Por exemplo, garantindo que os funcionários possam acessar apenas as linhas de dados que são pertinentes para o departamento deles ou restringir o acesso a dados a apenas os dados relevantes.
 - [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encripta os ficheiros de dados de instância gerida da base de dados SQL do Azure, conhecidos como encriptar dados inativos. TDE realiza a encriptação em tempo real de e/s e a descriptografia dos ficheiros de dados e de registo. A encriptação utiliza uma chave de encriptação de base de dados (DEK), que é armazenada no registo de arranque da base de dados de disponibilidade durante a recuperação. Pode proteger todos os bancos de dados na instância gerida com encriptação de dados transparente. TDE é a do SQL Server comprovada tecnologia de encriptação em repouso, que é necessário por muitas normas de conformidade para proteger contra o roubo de mídias de armazenamento.
 
-Migração de uma base de dados encriptado para a instância gerida de SQL é suportada através do Azure Database Migration Service (DMS) ou o restauro nativo. Se planear migrar base de dados encriptado através de restauro nativo, a migração do certificado TDE existente do SQL Server no local ou VM do SQL Server para instância gerida é uma etapa necessária. Para obter mais informações sobre as opções de migração, consulte [migração de instância do SQL Server para instância gerida da base de dados SQL do Azure](sql-database-managed-instance-migrate.md).
+Migração de uma base de dados encriptado para a instância gerida de SQL é suportada através do Azure Database Migration Service (DMS) ou o restauro nativo. Se planear migrar uma base de dados encriptado através de restauro nativo, a migração do certificado TDE existente do SQL Server no local ou VM do SQL Server para instância gerida é uma etapa necessária. Para obter mais informações sobre as opções de migração, consulte [migração de instância do SQL Server para instância gerida da base de dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Integração do Azure Active Directory
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383600"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714020"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar o Apache Solr nos clusters do HDInsight Hadoop
 
@@ -28,12 +28,12 @@ Saiba como instalar o Apache Solr no Azure HDInsight ao utilizar a ação de Scr
 
 ## <a name="whatis"></a>O que é o Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) é uma plataforma de pesquisa empresarial que permite a poderosa pesquisa de texto completo em dados. Embora Hadoop permite armazenar e gerir grandes quantidades de dados, o Apache Solr fornece as capacidades de pesquisa para obter rapidamente os dados.
+[Apache Solr](https://lucene.apache.org/solr/features.html) é uma plataforma de pesquisa empresarial que permite a poderosa pesquisa de texto completo em dados. Embora Hadoop permite armazenar e gerir grandes quantidades de dados, o Apache Solr fornece as capacidades de pesquisa para obter rapidamente os dados.
 
 > [!WARNING]   
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportadas pela Microsoft.
 >
-> Componentes personalizados, por exemplo, Solr, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Suporte da Microsoft pode não ser capaz de resolver problemas com componentes personalizados. Terá de interagir com as Comunidades de código-fonte aberto para obter assistência. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados, por exemplo, Solr, recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Suporte da Microsoft pode não ser capaz de resolver problemas com componentes personalizados. Terá de interagir com as Comunidades de código-fonte aberto para obter assistência. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Também projetos Apache tem sites de projeto no [ https://apache.org ](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>O que faz o script
 
@@ -68,7 +68,7 @@ Para criar um cluster com o Solr instalado, utilize os passos a [clusters do HDI
 ## <a name="usesolr"></a>Como posso utilizar Solr no HDInsight
 
 > [!IMPORTANT]  
-> Os passos nesta secção demonstram a funcionalidade básica do Solr. Para obter mais informações sobre como utilizar Solr, consulte a [Apache Solr site](http://lucene.apache.org/solr/).
+> Os passos nesta secção demonstram a funcionalidade básica do Solr. Para obter mais informações sobre como utilizar Solr, consulte a [Apache Solr site](https://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Dados de índice
 

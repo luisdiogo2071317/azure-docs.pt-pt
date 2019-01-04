@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314164"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631905"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorizar um serviço de Azure Search no portal do Azure
 
@@ -70,7 +70,7 @@ Pode exportar os registos de operações para o seu serviço e os dados não pro
 
 
 ### <a name="enabling-monitoring"></a>A ativação da monitorização
-Abra o serviço Azure Search no [portal do Azure](http://portal.azure.com) sob a opção de ativar a monitorização.
+Abra o serviço Azure Search no [portal do Azure](https://portal.azure.com) sob a opção de ativar a monitorização.
 
 Escolha os dados que pretende exportar: Os registos, métricas ou ambos. Pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para o Log Analytics.
 

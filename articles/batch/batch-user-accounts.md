@@ -1,8 +1,8 @@
 ---
-title: Executar tarefas em contas de utilizador no Azure Batch | Microsoft Docs
-description: Configurar contas de utilizador para as tarefas em execução no Azure Batch
+title: Executar tarefas em contas de utilizador - Azure Batch | Documentos da Microsoft
+description: Configurar contas de utilizador para tarefas em execução no Azure Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,87 +13,88 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133036"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542837"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizador no Batch
 
-Uma tarefa no Azure Batch é sempre executado sob uma conta de utilizador. Por predefinição, as tarefas executadas em contas de utilizador padrão, sem permissões de administrador. Estas definições de conta de utilizador predefinidas são normalmente suficientes. No entanto, para certos cenários, é útil poder configurar a conta de utilizador onde pretende que uma tarefa para ser executada. Este artigo aborda os tipos de contas de utilizador e a forma como pode configurá-las para o seu cenário.
+Uma tarefa no Azure Batch é sempre executado sob uma conta de utilizador. Por predefinição, as tarefas executadas em contas de usuário padrão, sem permissões de administrador. Estas definições de conta de utilizador predefinidas são normalmente suficientes. No entanto, para determinados cenários, é útil poder configurar a conta de utilizador onde pretende que a execução de uma tarefa. Este artigo aborda os tipos de contas de utilizador e como pode configurá-las para o seu cenário.
 
 ## <a name="types-of-user-accounts"></a>Tipos de contas de utilizador
 
-O Azure Batch fornece dois tipos de contas de utilizador para as tarefas em execução:
+O Azure Batch fornece dois tipos de contas de utilizador para a execução de tarefas:
 
-- **Contas de utilizador automaticamente.** Contas de utilizador automática são contas de utilizador incorporado que são criadas automaticamente pelo serviço Batch. Por predefinição, as tarefas executadas sob uma conta de utilizador automaticamente. Pode configurar a especificação de utilizador automática para uma tarefa indicar que conta de utilizador automática deve executar uma tarefa. A especificação de auto-utilizador permite-lhe especificar o nível de elevação e o âmbito da conta de utilizador automática que irá executar a tarefa. 
+- **Contas de utilizador automaticamente.** As contas de utilizador automático são contas de utilizador incorporadas que são criadas automaticamente pelo serviço Batch. Por predefinição, as tarefas executadas numa conta de utilizador automaticamente. Pode configurar a especificação de auto-utilizador indicar sob que conta de utilizador automaticamente uma tarefa deve ser executada uma tarefa. A especificação de auto-utilizador permite-lhe especificar o nível de privilégio e o escopo da conta de utilizador automático que será executada a tarefa. 
 
-- **Uma conta de utilizador nomeado.** Pode especificar uma ou mais contas de utilizador nomeado para um conjunto quando criar o conjunto. Cada conta de utilizador é criada em cada nó do conjunto. Para além do nome da conta, especifique o utilizador conta palavra-passe, elevação nível e, para os conjuntos de Linux, a chave SSH privada. Quando adiciona uma tarefa, pode especificar a conta de utilizador nomeado sob as quais essa tarefa deve ser executada.
+- **Uma conta de utilizador nomeado.** Pode especificar uma ou mais contas de utilizador nomeado para um conjunto quando cria o conjunto. Cada conta de utilizador é criada em cada nó do conjunto. Além do nome de conta, especifique a senha da conta de utilizador, elevação de nível e, para os conjuntos de Linux, a chave privada SSH. Quando adiciona uma tarefa, pode especificar a conta de utilizador nomeado sob a qual deve executar essa tarefa.
 
 > [!IMPORTANT] 
-> A versão do serviço Batch 2017-01-01.4.0 apresenta uma alteração inovadora que requer que Atualize o código para chamar essa versão. Se estiver a migrar código a partir de uma versão mais antiga do Batch, tenha em atenção de que o **runElevated** propriedade já não é suportada em bibliotecas de cliente REST API ou lote. Utilize a nova **userIdentity** propriedade de uma tarefa para especificar o nível de elevação. Consulte a secção intitulada [Atualize o código para a biblioteca de cliente mais recente do Batch](#update-your-code-to-the-latest-batch-client-library) para rápido diretrizes para atualizar o código do Batch, se estiver a utilizar uma das bibliotecas de cliente.
+> A versão de serviço do Batch 2017-01-01.4.0 apresenta uma alteração de última hora que requer que atualizar seu código para chamar essa versão. Se estiver migrando o código de uma versão mais antiga do Batch, tenha em atenção de que o **runElevated** propriedade já não é suportada nas bibliotecas de cliente de REST API ou lote. Utilizar a nova **userIdentity** propriedade de uma tarefa para especificar o nível de elevação. Consulte a secção intitulada [atualizar seu código com a biblioteca de cliente mais recente do Batch](#update-your-code-to-the-latest-batch-client-library) para rápida diretrizes para atualizar seu código do Batch, se estiver a utilizar uma das bibliotecas de cliente.
 >
 >
 
 > [!NOTE] 
-> As contas de utilizador abordadas neste artigo não suportam o protocolo RDP (Remote Desktop Protocol) ou de Secure Shell (SSH), por motivos de segurança. 
+> As contas de utilizador discutidas neste artigo não suportam protocolo RDP (Remote Desktop) ou Secure Shell (SSH), por motivos de segurança. 
 >
-> Para ligar a um nó com a configuração de máquina virtual com Linux através de SSH, consulte [ambiente de trabalho remoto do utilização para uma VM com Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar a nós com o Windows através do RDP, consulte [ligar a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Para ligar a um nó com a configuração do serviço em nuvem através de RDP, consulte [ativar a ligação ao ambiente de trabalho remoto para uma função na Cloud Services do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Para ligar a um nó a executar a configuração de máquina virtual do Linux através de SSH, veja [ambiente de trabalho remoto do uso de uma VM do Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar a nós a executar o Windows através de RDP, veja [ligar a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para ligar a um nó a executar a configuração do serviço cloud através de RDP, veja [ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
-## <a name="user-account-access-to-files-and-directories"></a>Acesso de conta de utilizador aos ficheiros e diretórios
+## <a name="user-account-access-to-files-and-directories"></a>Conta de utilizador acesso a arquivos e diretórios
 
-Uma conta de utilizador automática e uma conta de utilizador nomeado tem acesso de leitura/escrita ao diretório de trabalho, o diretório partilhado e o diretório de tarefas de várias instâncias da tarefa. Ambos os tipos de contas de tem acesso de leitura para os diretórios de arranque e a tarefa de preparação.
+Uma conta de utilizador automático e uma conta de utilizador nomeado tem acesso de leitura/escrita ao diretório de trabalho, o diretório partilhado e o diretório de tarefas de várias instâncias da tarefa. Ambos os tipos de contas de tem acesso de leitura para os diretórios de preparação de tarefas e de inicialização.
 
-Se uma tarefa é executada sob a mesma conta que foi utilizada para executar uma tarefa de início, a tarefa tem acesso de leitura / escrita ao diretório da tarefa de início. Da mesma forma, se uma tarefa é executada sob a mesma conta que foi utilizada para executar uma tarefa de preparação, a tarefa tem acesso de leitura / escrita ao diretório de tarefas de preparação da tarefa. Se uma tarefa é executada sob uma conta diferente que a tarefa de início ou a tarefa de preparação, a tarefa tem acesso de leitura para o respetivo diretório.
+Se uma tarefa é executada na mesma conta que foi utilizada para executar uma tarefa de início, a tarefa tem acesso de leitura / escrita ao diretório da tarefa de início. Da mesma forma, se uma tarefa é executada na mesma conta que foi utilizada para executar uma tarefa de preparação, a tarefa tem acesso de leitura / escrita para o diretório de tarefas de preparação da tarefa. Se uma tarefa é executada sob uma conta diferente da tarefa de início ou a tarefa de preparação, em seguida, a tarefa tem acesso de leitura para o respetivo diretório.
 
-Para obter mais informações sobre aceder a ficheiros e diretórios a partir de uma tarefa, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md#files-and-directories).
+Para obter mais informações sobre como acessar arquivos e diretórios a partir de uma tarefa, consulte [soluções com o Batch de computação paralelas em grande escala de desenvolver](batch-api-basics.md#files-and-directories).
 
 ## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas 
 
-Nível de elevação a conta de utilizador indica se uma tarefa é executada com acesso elevado. Uma conta de utilizador automática e uma conta de utilizador nomeado podem executar com acesso elevado. As duas opções para o nível de elevação são:
+Nível de elevação da conta de utilizador indica se uma tarefa é executada com acesso elevado. Uma conta de utilizador automático e uma conta de utilizador nomeado podem executar com acesso elevado. As duas opções para o nível de elevação são:
 
-- **NonAdmin:** a tarefa é executada como um utilizador padrão sem acesso elevado. O nível de elevação de predefinido para uma conta de utilizador do Batch é sempre **NonAdmin**.
-- **Administrador:** a tarefa é executada como um utilizador com acesso elevado e funciona com todas as permissões de administrador. 
+- **NonAdmin:** A tarefa é executada como usuário padrão sem acesso elevado. O nível de elevação de predefinido para uma conta de utilizador do Batch é sempre **NonAdmin**.
+- **Administrador:** A tarefa é executado como um utilizador com acesso elevado e funciona com todas as permissões de administrador. 
 
-## <a name="auto-user-accounts"></a>Contas de utilizador automática
+## <a name="auto-user-accounts"></a>Contas de utilizador automático
 
-Por predefinição, tarefas são executadas no Batch com uma conta de utilizador automática, como um utilizador padrão sem acesso elevado e com âmbito de tarefas. Quando a especificação de auto-utilizador está configurada para o âmbito da tarefa, o serviço Batch cria uma conta de utilizador automática para essa tarefa apenas.
+Por predefinição, as tarefas executadas em Batch através de uma conta de utilizador automático, como usuário padrão sem acesso elevado e com o âmbito da tarefa. Quando a especificação de auto-utilizador está configurada para o âmbito de tarefa, o serviço Batch cria uma conta de utilizador automaticamente para essa tarefa apenas.
 
-A alternativa ao âmbito da tarefa é o âmbito de agrupamento. Quando a especificação de utilizador automática para uma tarefa está configurada para o âmbito de agrupamento, a tarefa é executada com uma conta de utilizador automática que está disponível para qualquer tarefa no conjunto. Para mais informações sobre o âmbito de conjunto, consulte a secção intitulada [executar uma tarefa que o utilizador automática com âmbito de agrupamento](#run-a-task-as-the-autouser-with-pool-scope).   
+A alternativa ao âmbito da tarefa é o âmbito de agrupamento. Quando a especificação de auto-utilizador para uma tarefa está configurada para o âmbito de agrupamento, a tarefa é executada sob uma conta de utilizador automaticamente que está disponível para qualquer tarefa no conjunto. Para obter mais informações sobre o âmbito de agrupamento, consulte a secção intitulada [executar uma tarefa que o utilizador automático com âmbito de agrupamento](#run-a-task-as-the-autouser-with-pool-scope).   
 
-O âmbito de predefinido é diferente em nós do Windows e Linux:
+O âmbito de padrão é diferente em nós do Windows e Linux:
 
-- Em nós do Windows, as tarefas são executadas no âmbito da tarefa por predefinição.
-- Nós do Linux executam sempre sob o âmbito de agrupamento.
+- Em nós do Windows, tarefas são executadas sob o escopo de tarefas por predefinição.
+- Nós do Linux ser executado sempre sob o âmbito de agrupamento.
 
-Existem quatro configurações possíveis para a especificação de utilizador automática, cada um dos quais corresponde a uma conta de utilizador exclusivo de automática:
+Existem quatro configurações possíveis para a especificação de auto-utilizador, cada uma delas corresponde a uma conta de utilizador exclusivo de automática:
 
-- Não-administrador acesso com âmbito de tarefas (a especificação de auto-utilizador predefinido)
-- Acesso de administrador (elevados) com o âmbito da tarefa
-- Não-administrador acesso com âmbito de conjunto
+- Acesso não-administrador com âmbito de tarefa (a especificação de auto-utilizador predefinido)
+- Acesso de administrador (elevados) com âmbito de tarefa
+- Acesso não-administrador com âmbito de conjunto
 - Acesso de administrador com âmbito de conjunto
 
 > [!IMPORTANT] 
-> As tarefas em execução no âmbito da tarefa não tem acesso de facto para outras tarefas num nó. No entanto, um utilizador mal intencionado com acesso à conta foi contornar esta restrição, submeter uma tarefa que é executado com privilégios de administrador e acede aos outros diretórios de tarefas. Um utilizador mal intencionado pode também utilizar RDP ou SSH para ligar a um nó. É importante proteger o acesso as chaves de conta de Batch para impedir o cenário. Se suspeitar a que sua conta poderá ter sido comprometida, lembre-se de que voltar a gerar as chaves.
+> Tarefas em execução sob o escopo de tarefas não têm acesso de fato para outras tarefas num nó. No entanto, um utilizador mal intencionado com acesso à conta de poderia contornar esta restrição ao submeter uma tarefa que é executado com privilégios de administrador e aceda aos outros diretórios de tarefa. Um utilizador mal intencionado pode também utilizar RDP ou SSH para ligar a um nó. É importante proteger o acesso para as chaves de conta do Batch para impedir que um cenário como esse. Se suspeitar de que sua conta poderá ter sido comprometida, certifique-se de que regenerar as chaves.
 >
 >
 
-### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Executar uma tarefa como um utilizador automática com acesso elevado
+### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Executar uma tarefa como um utilizador automático com acesso elevado
 
-Pode configurar a especificação de utilizador automática de privilégios de administrador quando tiver de executar uma tarefa com o acesso elevado. Por exemplo, uma tarefa de início pode precisar de acesso elevado para instalar software no nó.
+Pode configurar a especificação de auto-utilizador privilégios de administrador quando tiver de executar uma tarefa com acesso elevado. Por exemplo, uma tarefa de início poderá ter acesso elevado para instalar o software no nó.
 
 > [!NOTE] 
-> Em geral, é melhor utilizar o acesso elevado apenas quando necessário. Melhores práticas recomendado conceder o privilégio mínimo necessário para alcançar o resultado desejado. Por exemplo, se uma tarefa de início instala software para o utilizador atual, em vez de para todos os utilizadores, poderá conseguir Evite conceder acesso elevado para tarefas. Pode configurar a especificação de auto-utilizador para acesso de não administrador e o âmbito de agrupamento para todas as tarefas que necessitam de ser executado sob a mesma conta, incluindo a tarefa de início. 
+> Em geral, é melhor usar acesso elevado apenas quando necessário. Melhores práticas recomendado conceder o privilégio mínimo necessário para alcançar o resultado desejado. Por exemplo, se uma tarefa de início instala o software para o utilizador atual, em vez de para todos os utilizadores, pode conseguir evitar conceder o acesso elevado para tarefas. Pode configurar a especificação de auto-utilizador para acesso de âmbito e não-administrador de conjunto de todas as tarefas que precisa para ser executado sob a mesma conta, incluindo a tarefa de início. 
 >
 >
 
-Os fragmentos de código seguintes mostram como configurar a especificação do utilizador automaticamente. Os exemplos definido para a elevação `Admin` e o âmbito para `Task`. Âmbito da tarefa é a definição predefinida, embora esteja incluído aqui com vista à, exemplo.
+Os fragmentos de código seguintes mostram como configurar a especificação de auto-utilizador. Os exemplos definido para a elevação `Admin` e o escopo para `Task`. Âmbito da tarefa é a configuração padrão, mas é incluído aqui no exemplo.
 
 #### <a name="batch-net"></a>.NET do Batch
 
@@ -125,24 +126,24 @@ task = batchmodels.TaskAddParameter(
 batch_client.task.add(job_id=jobid, task=task)
 ```
 
-### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Executar uma tarefa como um utilizador automática com âmbito de conjunto
+### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Executar uma tarefa como um utilizador automático com âmbito de conjunto
 
-Quando um nó é aprovisionado, são criadas contas de dois em todo o conjunto de auto-utilizador em cada nó no conjunto, uma com acesso elevado e outro sem acesso elevado. Definir o âmbito do utilizador automaticamente ao âmbito de agrupamento para uma determinada tarefa é executada a tarefa sob uma destas duas contas de utilizador automática em todo o conjunto. 
+Quando um nó é aprovisionado, dois em todo o agrupamento automático as contas de usuários são criadas em cada nó no conjunto, uma com acesso elevado e outra sem acesso elevado. Definir o âmbito do utilizador automaticamente ao âmbito de agrupamento para uma determinada tarefa é executada a tarefa em uma destas duas contas de usuário automaticamente em todo o conjunto. 
 
-Quando especificar o âmbito de agrupamento para auto-utilizador, todas as tarefas executadas com acesso de administrador a ser executado sob a mesma conta de utilizador automática em todo o conjunto. Da mesma forma, tarefas que são executadas sem as permissões de administrador também ser executados com uma única em todo o conjunto de auto-conta de utilizador. 
+Quando especificar âmbito de conjunto para o auto-utilizador, todas as tarefas que são executados com acesso de administrador a ser executado sob a mesma conta de usuário automaticamente em todo o conjunto. Da mesma forma, tarefas que são executados sem permissões de administrador também são executadas numa única em todo o agrupamento automático-conta de utilizador. 
 
 > [!NOTE] 
-> As duas contas de utilizador automática ao nível do conjunto são contas separadas. As tarefas em execução sob a conta administrativa em todo o conjunto não podem partilhar os dados com as tarefas em execução sob a conta padrão e vice-versa. 
+> As duas contas de usuário automaticamente em todo o conjunto são contas separadas. Tarefas em execução sob a conta administrativa de todo o conjunto não podem partilhar dados com tarefas em execução sob a conta padrão e vice-versa. 
 >
 >
 
-A vantagem para em execução na mesma conta de utilizador automática é que as tarefas são capazes de partilhar os dados com outras tarefas em execução no mesmo nó.
+A vantagem à execução sob a mesma conta de utilizador automático é que as tarefas são capazes de partilhar dados com outras tarefas em execução no mesmo nó.
 
-Os segredos entre as tarefas de partilha é um cenário onde executar tarefas das duas contas de utilizador automática em todo o agrupamento é útil. Por exemplo, suponha que uma tarefa de início tem de aprovisionar um segredo no nó que podem utilizar outras tarefas. Pode utilizar a API de proteção de dados (DPAPI) do Windows, mas requer privilégios de administrador. Em vez disso, pode proteger o segredo ao nível do utilizador. As tarefas em execução na mesma conta de utilizador podem aceder ao segredo sem acesso elevado.
+Compartilhamento de segredos entre tarefas é um cenário em que a execução de tarefas em uma das duas contas de usuário automaticamente em todo o agrupamento é útil. Por exemplo, suponha que uma tarefa de início tem de aprovisionar um segredo para o nó que podem utilizar outras tarefas. Poderia usar a API de proteção de dados de Windows (DPAPI), mas ela requer privilégios de administrador. Em vez disso, pode proteger o segredo no nível do usuário. Tarefas em execução na mesma conta de usuário podem acessar o segredo sem acesso elevado.
 
-Outro cenário onde poderá executar tarefas com uma conta de utilizador automática com âmbito de conjunto é uma partilha de ficheiros de Interface de passagem de mensagens (MPI). Uma partilha de ficheiros MPI é útil quando os nós da tarefa de MPI precisam trabalhar os mesmos dados de ficheiro. O nó principal cria uma partilha de ficheiros que podem aceder aos nós subordinados, se estiverem a executar na mesma conta de utilizador automaticamente. 
+Outro cenário em que pode querer executar tarefas numa conta de utilizador automático com o âmbito de agrupamento é uma partilha de ficheiros de Message Passing Interface (MPI). Uma partilha de ficheiros MPI é útil quando os nós na tarefa MPI precisam para trabalhar com os mesmos dados de ficheiro. O nó principal cria uma partilha de ficheiros que os nós subordinados podem aceder, se estiverem a executar sob a mesma conta de utilizador automaticamente. 
 
-O seguinte fragmento de código define o âmbito do utilizador automaticamente ao âmbito de agrupamento para uma tarefa no .NET do Batch. O nível de elevação for omitido, para a tarefa seja executada sob a conta de auto-utilizador em todo o conjunto padrão.
+O seguinte trecho de código define o âmbito do utilizador automaticamente ao âmbito de agrupamento para uma tarefa no .NET do Batch. O nível de elevação for omitido, para a tarefa seja executada sob a conta de todo o agrupamento automático-usuário padrão.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
@@ -150,19 +151,19 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ## <a name="named-user-accounts"></a>Contas de utilizador nomeado
 
-Pode definir as contas de utilizador nomeado quando cria um conjunto. Uma conta de utilizador nomeado tem um nome e uma palavra-passe que fornecer. Pode especificar o nível de elevação de uma conta de utilizador nomeado. Para nós do Linux, pode também fornecer uma chave privada SSH.
+Pode definir as contas de utilizador nomeado quando cria um conjunto. Uma conta de utilizador nomeado tem um nome e uma palavra-passe que fornecer. Pode especificar o nível de elevação para uma conta de utilizador nomeado. Para nós do Linux, também pode fornecer uma chave privada SSH.
 
-Uma conta de utilizador nomeado existe em todos os nós no conjunto e está disponível para todas as tarefas a executar em nós. Pode definir qualquer número de utilizadores com o nome de um conjunto. Quando adiciona uma tarefa ou a coleção de tarefas, pode especificar que a tarefa é executada sob uma das contas de utilizador nomeado definidas no conjunto.
+Uma conta de utilizador nomeado existe em todos os nós no conjunto e está disponível para todas as tarefas em execução em nós. Pode definir qualquer número de utilizadores nomeados para um conjunto. Quando adiciona uma tarefa ou a coleção de tarefas, pode especificar que a tarefa é executada em uma das contas de utilizador nomeado definidas no conjunto.
 
-Uma conta de utilizador nomeado é útil quando pretender executar todas as tarefas numa tarefa sob a mesma conta de utilizador, mas isolá-los a partir de tarefas em execução nas outras tarefas ao mesmo tempo. Por exemplo, pode criar um utilizador com o nome de cada tarefa e executar tarefas de cada tarefa nessa conta de utilizador nomeado. Cada tarefa, em seguida, pode partilhar um segredo com as suas próprias tarefas, mas não com as tarefas em execução nas outras tarefas.
+Uma conta de utilizador nomeado é útil quando deseja executar todas as tarefas numa tarefa sob a mesma conta de utilizador, mas isolá-las a partir de tarefas em execução nas outras tarefas em simultâneo. Por exemplo, pode criar um utilizador com o nome de cada tarefa e executar tarefas de cada tarefa nessa conta de utilizador nomeado. Cada tarefa, em seguida, pode partilhar um segredo com suas próprias tarefas, mas não com tarefas em execução nas outras tarefas.
 
-Também pode utilizar uma conta de utilizador nomeado para executar uma tarefa que define as permissões de recursos externos, como partilhas de ficheiros. Com uma conta de utilizador nomeado, controlar a identidade do utilizador e pode utilizar essa identidade de utilizador para definir as permissões.  
+Também pode utilizar uma conta de utilizador nomeado para executar uma tarefa que define as permissões em recursos externos, como partilhas de ficheiros. Com uma conta de utilizador nomeado, controlar a identidade do usuário e pode utilizar essa identidade de utilizador para definir as permissões.  
 
-As contas de utilizador nomeado permitem sem palavra-passe SSH entre os nós do Linux. Pode utilizar uma conta de utilizador nomeado connosco do Linux que tem de executar tarefas de várias instâncias. Cada nó no conjunto pode executar tarefas com uma conta de utilizador definida no conjunto de todo. Para mais informações sobre tarefas de várias instâncias, consulte [utilizar várias\-instância tarefas a executar aplicações MPI](batch-mpi.md).
+As contas de utilizador nomeado permitem sem palavra-passe SSH entre os nós do Linux. Pode utilizar uma conta de utilizador nomeado connosco do Linux que precisam executar tarefas de várias instâncias. Cada nó no conjunto pode executar tarefas numa conta de usuário definidos no pool de todo. Para obter mais informações sobre tarefas de várias instâncias, consulte [utilizar várias\-tarefas para executar aplicações MPI de instância](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Criar contas de utilizador nomeado
 
-Para criar contas de utilizador nomeado no lote, adicione uma coleção de contas de utilizador para o conjunto. Os fragmentos de código seguinte mostram como criar contas de utilizador nomeado no .NET, Java e Python. Estes fragmentos de código mostram como criar admin e não com o nome contas num agrupamento de admin. Os exemplos criar agrupamentos utilizando a configuração do serviço em nuvem, mas utiliza a mesma abordagem ao criar um agrupamento do Windows ou Linux utilizando a configuração de máquina virtual.
+Para criar contas de utilizador nomeado no Batch, adicione uma coleção de contas de utilizador para o conjunto. Os fragmentos de código seguintes mostram como criar contas de utilizador nomeado no .NET, Java e Python. Estes trechos de código mostram como criar o administrador e não-administrador com o nome contas num agrupamento. Os exemplos criar conjuntos com a configuração do serviço em nuvem, mas utilize a mesma abordagem ao criar um agrupamento do Windows ou Linux utilizar a configuração de máquina virtual.
 
 #### <a name="batch-net-example-windows"></a>Exemplo de .NET do batch (Windows)
 
@@ -292,46 +293,46 @@ pool = batchmodels.PoolAddParameter(
 batch_client.pool.add(pool)
 ```
 
-### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa com uma conta de utilizador nomeado com acesso elevado
+### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa numa conta de utilizador nomeado com acesso elevado
 
-Para executar uma tarefa como um utilizador elevados, defina a tarefa **UserIdentity** propriedade para uma conta de utilizador com o nome que foi criada com o respetivo **ElevationLevel** propriedade definida como `Admin`.
+Para executar uma tarefa como um usuário elevado, defina a tarefa **UserIdentity** propriedade para uma conta de utilizador nomeado, que foi criada com seu **ElevationLevel** propriedade definida como `Admin`.
 
-Este fragmento de código especifica que a tarefa deve ser executado sob uma conta de utilizador nomeado. Esta conta de utilizador nomeado foi definida no conjunto quando o conjunto que foi criado. Neste caso, a conta de utilizador nomeado foi criada com permissões de administrador:
+Este fragmento de código especifica que a tarefa deve ser executado sob uma conta de utilizador nomeado. Esta conta de utilizador nomeado foi definida no conjunto, quando o conjunto foi criado. Neste caso, a conta de utilizador nomeado foi criada com permissões de administrador:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualize o código para a biblioteca de cliente mais recente do Batch
+## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualizar seu código com a biblioteca de cliente mais recente do Batch
 
-A versão do serviço Batch 2017-01-01.4.0 introduz uma alteração inovadora, substituindo o **runElevated** propriedade disponível em versões anteriores com a **userIdentity** propriedade. As tabelas seguintes fornecem um mapeamento simple que pode utilizar para atualizar o código de versões anteriores das bibliotecas de cliente.
+A versão de serviço do Batch 2017-01-01.4.0 introduz uma mudança fundamental, substituindo os **runElevated** propriedade disponível em versões anteriores com o **userIdentity** propriedade. As tabelas seguintes fornecem um mapeamento simple que pode utilizar para atualizar seu código de versões anteriores das bibliotecas de cliente.
 
 ### <a name="batch-net"></a>.NET do Batch
 
-| Se utiliza o seu código...                  | A atualização para...                                                                                                 |
+| Se utilizar o seu código...                  | Atualizá-la para...                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` Não foi especificado | Não existe nenhuma atualização necessária                                                                                               |
+| `CloudTask.RunElevated` Não foi especificado | Nenhuma atualização necessária                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
-| Se utiliza o seu código...                      | A atualização para...                                                                                                                       |
+| Se utilizar o seu código...                      | Atualizá-la para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` Não foi especificado | Não existe nenhuma atualização necessária                                                                                                                     |
+| `CloudTask.withRunElevated` Não foi especificado | Nenhuma atualização necessária                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
-| Se utiliza o seu código...                      | A atualização para...                                                                                                                       |
+| Se utilizar o seu código...                      | Atualizá-la para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
 | `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated` Não foi especificado | Não existe nenhuma atualização necessária                                                                                                                                  |
+| `run_elevated` Não foi especificado | Nenhuma atualização necessária                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).
+* Para uma descrição geral aprofundada do Batch, consulte [soluções com o Batch de computação paralelas em grande escala de desenvolver](batch-api-basics.md).

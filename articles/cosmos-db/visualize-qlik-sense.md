@@ -7,27 +7,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8b86f79cb5af34105a666613152acc0acfb08f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962840"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808932"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Ligar o Qlik Sense ao Azure Cosmos DB e visualize os seus dados
 
 Qlik Sense é uma ferramenta de visualização de dados que combina dados de diferentes origens numa única vista. Qlik Sense indexa todas as relações possíveis nos seus dados para que pode obter informações imediatas aos dados. É possível visualizar dados do Azure Cosmos DB com o Qlik Sense. Este artigo descreve os passos necessários para ligar o Azure Cosmos DB para Qlik Sense e visualize os seus dados. 
 
 > [!NOTE]
-> Qlik Sense a ligar ao Azure Cosmos DB é atualmente suportada para contas do Azure Cosmos DB SQL API e a API do MongoDB.
+> Qlik Sense a ligar ao Azure Cosmos DB é atualmente suportada para a API de API do SQL e do Azure Cosmos DB para apenas as contas do MongoDB.
 
 Pode ligar o Qlik Sense ao Azure Cosmos DB com:
 
 * Cosmos DB SQL API com o conector do ODBC.
 
-* API MongoDB cosmos DB ao utilizar o conector de Qlik sentido MongoDB (atualmente em pré-visualização).
+* API do Azure Cosmos DB para MongoDB ao utilizar o conector de Qlik sentido MongoDB (atualmente em pré-visualização).
 
-* API de MongoDB do cosmos DB e a API de SQL ao utilizar o conector de REST API no Qlik Sense.
+* API do Azure Cosmos DB para MongoDB e API de SQL ao utilizar o conector de REST API no Qlik Sense.
 
 * API cosmos DB Mongo DB ao utilizar o conector de gRPC para Qlik Core.
 Este artigo descreve os detalhes da ligação para a API de SQL do Cosmos DB ao utilizar o conector do ODBC.

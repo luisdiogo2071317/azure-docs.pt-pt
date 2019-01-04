@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079216"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754669"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
+# <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
 
-O objetivo da entidade composto consiste em Agrupar entidades relacionadas numa entidade da categoria principal. As informações existem como entidades separadas antes da criação de uma composição. Ele é semelhante à entidade hierárquica, mas pode conter diferentes tipos de entidades. 
+O objetivo da entidade composto consiste em Agrupar entidades relacionadas numa entidade da categoria principal. As informações existem como entidades separadas antes da criação de uma composição. Ele é semelhante a uma entidade hierárquica, mas pode conter diferentes tipos de entidades. 
 
 A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
@@ -33,7 +33,8 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utilizar a aplicação de tutorial existente
+> * Aplicação de exemplo de importação
+> * Criar uma intenção
 > * Adicionar entidade composta 
 > * Preparar
 > * Publicar
@@ -41,286 +42,139 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utilizar a aplicação existente
-Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+## <a name="import-example-app"></a>Aplicação de exemplo de importação
 
-Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
-
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) partir do tutorial de entidade de lista.
 
 2. Importe o JSON para uma nova aplicação.
 
 3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
-
 ## <a name="composite-entity"></a>entidade composta
-Crie uma entidade composta quando as entidades separadas podem ser agrupadas logicamente e este agrupamento lógico é útil para a aplicação cliente. 
 
-Nesta aplicação, o nome do funcionário é definido no **funcionário** listar entidade e inclui sinónimos de nome, endereço de e-mail, a extensão de telefone da empresa, número de telemóvel e dos EUA ID do imposto sobre Federal. 
+Nesta aplicação, o nome do departamento é definido no **departamento** listar entidade e inclui sinónimos. 
 
-O **MoveEmployee** intenção tem expressões de exemplo para pedir um funcionário ser movido de um edifício e do office para outro. Os nomes de construção são alfabéticos: "A", "B", etc. Embora escritórios sejam numéricos: "1234", "13245". 
+O **TransferEmployeeToDepartment** intenção tem expressões de exemplo para pedir um funcionário ser movida para um novo departamento. 
 
-Expressões com de exemplo no **MoveEmployee** intenção incluem:
+Expressões de exemplo incluem intenção:
 
 |Expressões de exemplo|
 |--|
-|Mova John W. Cardoso a-2345|
-|trocar x12345 para h-1234 amanhã|
+|mover o João Silva de W. para o departamento de contabilidade|
+|Transferir Jill Jones partir para p & D|
  
-O pedido de movimentação deve incluir o funcionário (usando qualquer sinónimos) e a localização final de criação e o office. O pedido também pode incluir o escritório de origem, bem como uma data que a movimentação deve acontecer. 
+O pedido de movimentação deve incluir o nome do departamento e o nome do funcionário. 
 
-Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-lo no `RequestEmployeeMove` composta entidade:
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Adicionar o PersonName entidade criados previamente para ajudar a extração do tipo de dados comuns
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+O LUIS oferece várias entidades pré-concebidas para extração de dados comuns. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selecione **crie** no painel de navegação superior, em seguida, selecione **entidades** no menu de navegação à esquerda.
 
-2. Sobre o **intenções** página, selecione **MoveEmployee** intenção. 
+1. Selecione o botão **Gerir entidade pré-concebida**.
 
-3. Selecione o ícone de lupa na barra de ferramentas para filtrar a lista de expressões. 
+1. Selecione **[PersonName](luis-reference-prebuilt-person.md)** da lista de entidades previamente concebidas, em seguida, selecione **feito**.
 
-    [![Captura de ecrã do LUIS na intenção de 'MoveEmployee' com o botão da Lupa realçado](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "captura de ecrã do LUIS na intenção de 'MoveEmployee' com o botão da Lupa realçado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. Introduza `tomorrow` na caixa de texto filtro para encontrar a expressão `shift x12345 to h-1234 tomorrow`.
+    Esta entidade ajuda-o a adicionar o reconhecimento de nome para a aplicação cliente.
 
-    [![Captura de ecrã do LUIS na intenção de 'MoveEmployee' com o filtro do 'futuro' realçado](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "captura de ecrã do LUIS na intenção de 'MoveEmployee' com o filtro do 'futuro' realçado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>Criar entidade composta a partir de expressões de exemplo
 
-    Outro método é filtrar a entidade por datetimeV2, selecionando **filtros de entidade** , em seguida, selecione **datetimeV2** da lista. 
+1. Selecione **Intenções** no painel de navegação esquerdo.
 
-5. Selecione a primeira entidade `Employee`, em seguida, selecione **encapsular na entidade composta** na lista de menu de pop-up. 
+1. Selecione **TransferEmployeeToDepartment** na lista de objetivos.
 
-    [![Captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-create-entity-1.png "captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. Na primeira expressão, selecione a entidade de personName `John Jackson`, em seguida, selecione **iniciar encapsulamento entidade composta** na lista de menu de pop-up para a seguinte expressão:
 
+    `place John Jackson in engineering`
 
-6. Em seguida, selecione imediatamente a última entidade `datetimeV2` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `RequestEmployeeMove` , em seguida, selecione introduzir. 
+1. Em seguida, selecione imediatamente a última entidade `engineering` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `TransferEmployeeInfo` , em seguida, selecione introduzir. 
 
-    [![Captura de ecrã do LUIS na intenção "MoveEmployee" selecionando a última entidade na composição e criar a entidade realçada](media/luis-tutorial-composite-entity/hr-create-entity-2.png "captura de ecrã do LUIS na intenção \"MoveEmployee\" selecionando a última entidade na composição e criar a entidade realçada")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. Na **o tipo de entidade que pretende criar?**, todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). 
 
-7. Na **o tipo de entidade que pretende criar?**, quase todos os campos necessários estão na lista. Apenas a localização de origem está em falta. Selecione **adicionar entidade subordinada**, selecione **Locations::Origin** da lista de entidades existentes, em seguida, selecione **feito**. 
-
-    Tenha em atenção que a entidade pré-criados, número, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
-
-    ![Captura de ecrã do LUIS na intenção "MoveEmployee" adicionar outra entidade na janela de pop-up](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Selecione a Lupa na barra de ferramentas para remover o filtro. 
-
-9. Remover a palavra `tomorrow` do filtro para que possa ver todas as expressões de exemplo novamente. 
+    Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Expressões com de exemplo de etiqueta com a entidade composta
 
 
 1. Em cada ocorrência de pronunciação de exemplo, selecione a entidade de mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
 
-    [![Captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-1.png "captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. Selecione a última palavra na entidade composta, em seguida, selecione **TransferEmployeeInfo** no menu de pop-up. 
 
-2. Selecione a última palavra na entidade composta, em seguida, selecione **RequestEmployeeMove** no menu de pop-up. 
+1. Certifique-se de que todas as expressões na intenção são rotuladas com a entidade composta. 
 
-    [![Captura de ecrã do LUIS na intenção "MoveEmployee" selecionando a última entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-2.png "captura de ecrã do LUIS na intenção \"MoveEmployee\" selecionando a última entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. Certifique-se de que todas as expressões na intenção são rotuladas com a entidade composta. 
-
-    [![Captura de ecrã do LUIS no MoveEmployee com todas as expressões com rotulado](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "captura de ecrã do LUIS no MoveEmployee com todas as expressões com o nome")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>Preparar
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL no endereço e introduza `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. O último parâmetro de cadeia de consulta é `q`, a consulta de expressão. 
+2. Vá para o final do URL no endereço e introduza `Move Jill Jones to DevOps`. O último parâmetro de cadeia de consulta é `q`, a consulta de expressão. 
 
     Uma vez que este teste é verificar que a composição é extraída corretamente, um teste ou pode incluir uma expressão de exemplo existente ou uma expressão de novo. É um bom teste incluir todas as entidades de subordinado na entidade composta.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -334,9 +188,18 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Informações relacionadas
+
+* [Tutorial de entidade de lista](luis-quickstart-intents-only.md)
+* [Entidade composta](luis-concept-entity-types.md) informações concetuais
+* [Como dar formação](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Também pode perguntar sobre outras logística do movesuch como um telefone físico. 
+Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Ele também pode perguntar sobre outras logística da transição, tal como um telemóvel físico. 
 
 > [!div class="nextstepaction"] 
 > [Saiba como adicionar uma entidade com uma lista de frase](luis-quickstart-primary-and-secondary-data.md)  

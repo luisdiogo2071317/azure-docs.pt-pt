@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868947"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972843"
 ---
 # <a name="smart-detection-in-application-insights"></a>Deteção inteligente no Application Insights
  Deteção inteligente automaticamente avisa-o de potenciais problemas de desempenho em seu aplicativo web. Ele faz uma análise de proativa de telemetria que a aplicação envia para o [Application Insights](app-insights-overview.md). Se houver um aumento súbito do taxas de falhas ou padrões anormais no desempenho do cliente ou servidor, será criado um alerta. Esta funcionalidade não precisa nenhuma configuração. Ele funciona se a sua aplicação enviar telemetria suficiente.
@@ -55,11 +55,11 @@ Existem três tipos de Deteção:
 Estas ferramentas de diagnóstico ajudá-lo inspecionar a telemetria da sua aplicação:
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
-* [Explorador de pesquisa](app-insights-diagnostic-search.md)
+* [Explorador de pesquisa](../azure-monitor/app/diagnostic-search.md)
 * [Análise - poderosa linguagem de consultas](../azure-monitor/log-query/get-started-portal.md)
 
 Deteção inteligente é totalmente automática. Mas talvez deseje configurar alguns alertas mais?
 
-* [Alertas de métricas configurados manualmente](app-insights-alerts.md)
-* [Testes web de disponibilidade](app-insights-monitor-web-app-availability.md) 
+* [Alertas de métricas configurados manualmente](../azure-monitor/app/alerts.md)
+* [Testes web de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) 
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362709"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742393"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -22,16 +22,16 @@ A solução de encaminhamento de aplicações de HTTP torna mais fácil de acede
 Quando o suplemento estiver ativado, cria uma zona DNS na sua subscrição. Para obter mais informações sobre o custo DNS, consulte [preços de DNS][dns-pricing].
 
 > [!CAUTION]
-> O suplemento de encaminhamento de aplicação de HTTP é concebido para lhe permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este suplemento não é recomendado para utilização em produção. Para oferecer suporte a implementações de entrada de prontos para produção, que incluem várias réplicas e TLS, consulte [criar um controlador de entrada HTTPS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
+> O suplemento de encaminhamento de aplicação de HTTP é concebido para lhe permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este suplemento não é recomendado para utilização em produção. Para oferecer suporte a implementações de entrada de prontos para produção, que incluem várias réplicas e TLS, consulte [criar um controlador de entrada HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Descrição geral de solução encaminhamento HTTP
 
 O suplemento implementa dois componentes: um [controlador de entradas de Kubernetes] [ ingress] e um [DNS externo] [ external-dns] controlador.
 
-- **Controlador de entradas**: controlador de entradas a é exposto à internet através de um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada, observa e implementa [recursos de entrada do Kubernetes][ingress-resource], que cria rotas para pontos finais da aplicação.
-- **Controlador de DNS externo**: controla Kubernetes recursos de entrada e cria A DNS de registos na zona DNS específicos do cluster.
+- **Controlador de entradas**: O controlador de entrada é exposto à internet através de um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada, observa e implementa [recursos de entrada do Kubernetes][ingress-resource], que cria rotas para pontos finais da aplicação.
+- **Controlador de DNS externo**: Monitoriza os recursos de entrada do Kubernetes e cria A DNS de registos na zona DNS específicos do cluster.
 
-## <a name="deploy-http-routing-cli"></a>Implementar o encaminhamento de HTTP: CLI
+## <a name="deploy-http-routing-cli"></a>Implemente o encaminhamento de HTTP: CLI
 
 O suplemento de encaminhamento de aplicativo HTTP pode ser ativado com a CLI do Azure ao implementar um cluster do AKS. Para tal, utilize o [criar az aks] [ az-aks-create] comando com o `--enable-addons` argumento.
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>Implementar o encaminhamento de HTTP: Portal
+## <a name="deploy-http-routing-portal"></a>Implemente o encaminhamento de HTTP: Portal
 
 O suplemento de encaminhamento de aplicativo HTTP pode ser ativado através do portal do Azure ao implementar um cluster do AKS.
 
@@ -174,6 +174,36 @@ A solução de roteamento de HTTP pode ser removida com a CLI do Azure. Para faz
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+Quando o suplemento de encaminhamento de aplicação de HTTP está desabilitado, alguns recursos do Kubernetes podem permanecer no cluster. Estes recursos incluem *configMaps* e *segredos*e são criados no *kube system* espaço de nomes. Para manter um cluster limpo, pode querer remover estes recursos.
+
+Procure *encaminhamento de addon http aplicativo* recursos utilizando os seguintes [kubectl obter] [ kubectl-get] comandos:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+O resultado de exemplo seguinte mostra configMaps que devem ser eliminados:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Para eliminar recursos, utilize o [eliminar kubectl] [ kubectl-delete] comando. Especifique o tipo de recurso, o nome do recurso e o espaço de nomes. O exemplo seguinte elimina um do configmaps anterior:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Repita o anterior `kubectl delete` passo para todos os *encaminhamento de addon http aplicações* recursos que restou no seu cluster.
+
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Utilize o [registos de kubectl] [ kubectl-logs] comando para ver os registos da aplicação para a aplicação de DNS externo. Os registos devem confirmar que um registo A e TXT DNS foram criados com êxito.
@@ -256,6 +286,7 @@ Para obter informações sobre como instalar um controlador de entrada HTTPS seg
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

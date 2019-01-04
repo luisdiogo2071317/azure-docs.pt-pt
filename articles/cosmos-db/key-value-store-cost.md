@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8e04439d63646a8aebe224adbf629491cc2dfbc6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134187"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547223"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custo
 
-O Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuída globalmente, para criar aplicativos altamente disponíveis, em grande escala facilmente. Por predefinição, o Azure Cosmos DB indexa automaticamente todos os dados que ingere, com eficiência. Isto permite uma rápida e consistente [SQL](how-to-sql-query.md) (e [JavaScript](programming.md)) consultas em qualquer tipo de dados. 
+O Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuída globalmente, para criar aplicativos altamente disponíveis, em grande escala facilmente. Por predefinição, o Azure Cosmos DB indexa automaticamente todos os dados que ingere, com eficiência. Isto permite uma rápida e consistente [SQL](how-to-sql-query.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) consultas em qualquer tipo de dados. 
 
 Este artigo descreve o custo do Azure Cosmos DB para escrita simple e operações de leitura quando é utilizado como um arquivo de chave/valor. Escreva operações incluem inserções, substitui, eliminações e upserts de documentos. Além de garantir uma 99,99% SLA de disponibilidade para todas as contas de região única e todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade de leitura em todas as contas de base de dados de várias regiões, a garantia de ofertas do Azure Cosmos DB < 10 ms de latência para lê e < 15 ms de latência para (indexadas), respectivamente, escreve no percentil 99. 
 

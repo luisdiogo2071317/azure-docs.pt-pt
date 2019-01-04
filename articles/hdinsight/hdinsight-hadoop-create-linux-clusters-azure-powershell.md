@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dbeeede58116b01f21db784b3e34970ace029f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863436"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792152"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight com o Azure PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "52863436"
 
 O Azure PowerShell é um ambiente de criação de scripts poderoso que pode utilizar para controlar e automatizar a implementação e gestão das cargas de trabalho no Microsoft Azure. Este documento fornece informações sobre como criar um cluster do HDInsight baseado em Linux com o Azure PowerShell. Ele também inclui um script de exemplo.
 
-> [!NOTE]
+> [!NOTE]  
 > O Azure PowerShell só está disponível nos clientes do Windows. Se estiver a utilizar um cliente Linux, Unix ou Mac OS X, consulte [criar um cluster do HDInsight baseado em Linux com a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obter informações sobre como utilizar a CLI clássica para criar um cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,7 +31,7 @@ Tem de ter o seguinte antes de iniciar este procedimento:
 * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O suporte do Azure PowerShell para gerir recursos do HDInsight com o Gestor de Serviços do Azure está **preterido**, e foi removido a 1 de janeiro de 2017. Os passos neste documento utilizam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
     >
     > Siga os passos em [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para instalar a versão mais recente do Azure PowerShell. Se tiver scripts que tenham de ser modificados para utilizar os novos cmdlets que funcionam com o Azure Resource Manager, veja [Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager para clusters do HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
@@ -55,14 +55,14 @@ Os valores que especificou para o início de sessão do cluster são utilizados 
 
 Os valores que especificou para o utilizador SSH são utilizados para criar o utilizador SSH para o cluster. Utilize esta conta para iniciar uma sessão remota do SSH no cluster e executar tarefas. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se planeja usar mais do que 32 nós de trabalho (seja durante a criação de cluster ou ao dimensionar o cluster após a criação), também tem de especificar um tamanho de nó principal com, pelo menos, 8 núcleos e 14 GB de RAM.
 >
 > Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Pode demorar até 20 minutos para criar um cluster.
 
-## <a name="create-cluster-configuration-object"></a>Criar cluster: objeto de configuração
+## <a name="create-cluster-configuration-object"></a>Crie cluster: Objeto de configuração
 
 Também pode criar um através de objeto de configuração do HDInsight `New-AzureRmHDInsightClusterConfig` cmdlet. Em seguida, pode modificar este objeto de configuração para ativar as opções de configuração adicionais para o seu cluster. Por último, utilize o `-Config` parâmetro do `New-AzureRmHDInsightCluster` cmdlet para utilizar a configuração.
 
@@ -70,7 +70,7 @@ O seguinte script cria um objeto de configuração para configurar um servidor R
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
-> [!WARNING]
+> [!WARNING]  
 > Não é suportada a utilizar uma conta de armazenamento numa localização diferente do que o cluster do HDInsight. Ao utilizar este exemplo, crie a conta de armazenamento adicional na mesma localização que o servidor.
 
 ## <a name="customize-clusters"></a>Personalizar clusters
@@ -84,7 +84,7 @@ O seguinte script cria um objeto de configuração para configurar um servidor R
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-administer-use-portal-linux.md#create-clusters).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -94,7 +94,7 @@ Agora que criou com êxito um cluster do HDInsight, utilize os seguintes recurso
 
 * [Utilizar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
 * [Utilizar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilizar o Apache HAdoop MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Utilizar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 
@@ -111,6 +111,6 @@ Agora que criou com êxito um cluster do HDInsight, utilize os seguintes recurso
 
 * [Criar uma aplicação autónoma com o Scala](spark/apache-spark-create-standalone-application.md)
 * [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
 

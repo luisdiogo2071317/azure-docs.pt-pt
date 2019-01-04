@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93d52101569e911c90377f26a9773d61eeaaf229
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237932"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653684"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Com o PowerShell para gerir o Gestor de tráfego
 
@@ -111,7 +111,7 @@ Em todos os três casos, os pontos de extremidade podem ser adicionados de duas 
 
 Pontos finais do Azure fazem referência a serviços alojados no Azure. Dois tipos de pontos finais do Azure são suportados:
 
-1. Aplicações Web do Azure
+1. Serviço de Aplicações do Azure
 2. Recursos PublicIpAddress do Azure (que podem ser anexados a um balanceador de carga ou uma máquina virtual NIC). O PublicIpAddress tem de ter um nome DNS atribuído a ser utilizado no Gestor de tráfego.
 
 Em cada caso:
@@ -121,9 +121,9 @@ Em cada caso:
 * A especificação de "Weight" é opcional. Pesos são utilizados apenas se o perfil está configurado para utilizar o método de encaminhamento de tráfego de 'Ponderado'. Caso contrário, serão ignoradas. Se for especificado, o valor tem de ser um número entre 1 e 1000. O valor predefinido é '1'.
 * A especificação de 'Priority' é opcional. As prioridades são utilizadas apenas se o perfil está configurado para utilizar o método de encaminhamento de tráfego de 'Priority'. Caso contrário, serão ignoradas. Valores válidos são entre 1 a 1000 com valores mais baixos que indica uma prioridade mais alta. Se especificada para um ponto final, tem de ser especificados para todos os pontos finais. Se for omitido, valores padrão a partir de '1' são aplicadas pela ordem em que os pontos finais estão listados.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos finais de aplicação Web com o `Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos finais de serviço de aplicações a utilizar `Add-AzureRmTrafficManagerEndpointConfig`
 
-Neste exemplo, vamos criar um perfil do Gestor de tráfego e dois pontos finais de aplicação Web através de adicionar o `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
+Neste exemplo, vamos criar um perfil do Gestor de tráfego e dois pontos finais de serviço de aplicações através de adicionar o `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -223,7 +223,7 @@ Existem duas maneiras de atualizar um ponto de extremidade existentes do Gestor 
 1. Obter o perfil do Gestor de tráfego utilizando `Get-AzureRmTrafficManagerProfile`, Atualize as propriedades de ponto final no perfil e consolidar as alterações usando `Set-AzureRmTrafficManagerProfile`. Este método tem a vantagem de ser possível atualizar a mais do que um ponto final numa única operação.
 2. Obter o ponto final do Gestor de tráfego utilizando `Get-AzureRmTrafficManagerEndpoint`, Atualize as propriedades do ponto final e consolidar as alterações usando `Set-AzureRmTrafficManagerEndpoint`. Esse método é mais simples, uma vez que não requer a indexação na matriz de pontos finais no perfil.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Atualizar pontos de extremidade usando `Get-AzureRmTrafficManagerProfile` e `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: A atualizar pontos de extremidade usando `Get-AzureRmTrafficManagerProfile` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, podemos modificar a prioridade em dois pontos finais dentro de um perfil existente.
 

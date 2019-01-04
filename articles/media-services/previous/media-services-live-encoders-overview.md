@@ -12,17 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/21/2018
 ms.author: juliako
-ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c0c7e2b8962cb757141b654c2956ed3ff5600c88
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665762"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787652"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os serviços de multimédia do Azure para criar transmissões em fluxo
 Este tópico lista os codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em direto de velocidade de transmissão única para canais de AMS (o que são a codificação em tempo real ativada) para processamento adicional. O tópico também contém ligações para tutoriais que mostram como configurar codificadores listadas.
+
+> [!NOTE]
+> Quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
 
 ## <a name="flash-media-live-encoder"></a>Codificador em direto de mídia Flash
 Para obter informações sobre como configurar o [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo em direto com velocidade de transmissão única para um canal de AMS, consulte [configurar FMLE](media-services-configure-fmle-live-encoder.md).
@@ -45,6 +48,7 @@ Para obter mais informações, consulte [Live elementar](http://www.elementaltec
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos Seguintes
+
 [Transmissão em fluxo através dos serviços de multimédia do Azure para criar transmissões em fluxo do Live](media-services-manage-live-encoder-enabled-channels.md).
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342396"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631860"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -589,7 +589,7 @@ Como gestão de atualizações executa enriquecimento de atualização na cloud,
 
 No entanto, a gestão de atualizações ainda podem comunicar que a máquina como estando em não conformidade porque tem informações adicionais sobre a atualização relevante.
 
-Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Este comportamento é uma limitação do zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização. Para verificar, verifique o registo de atualização.
+Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para implementar corretamente as atualizações para CentOS, selecione todas as classificações para garantir que as atualizações são aplicadas. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Este comportamento é uma limitação do zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização. Para verificar, verifique o registo de atualização.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

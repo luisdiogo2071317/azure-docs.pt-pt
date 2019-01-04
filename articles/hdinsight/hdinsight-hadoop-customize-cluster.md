@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871436"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722364"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters do HDInsight baseado em Windows com ação de Script
 **Ação de script** pode ser usado para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação de cluster para a instalação de software adicional num cluster.
 
 As informações neste artigo são específicas para clusters do HDInsight baseado em Windows. Para clusters baseados em Linux, consulte [HDInsight baseado em Linux personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 Clusters do HDInsight podem ser personalizados numa variedade de outras formas, por exemplo, incluindo contas de armazenamento do Azure adicionais, alterar os [Apache Hadoop](https://hadoop.apache.org/) arquivos de configuração (core-site, site do hive, etc.) ou adicionar partilhados bibliotecas (por exemplo, [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) em locais comuns no cluster. Estas personalizações podem ser feitas através do Azure PowerShell, o SDK de .NET do Azure HDInsight ou o portal do Azure. Para obter mais informações, consulte [Apache Hadoop criar clusters no HDInsight][hdinsight-provision-cluster].
@@ -35,7 +35,7 @@ Ação de script só é utilizada enquanto um cluster está no processo a ser cr
 
 Quando o script é executado, o cluster entra o **ClusterCustomization** estágio. Nesta fase, o script for executado sob a conta de administrador de sistema, em paralelo em todos os nós do cluster especificados e fornece privilégios totais de administrador em nós.
 
-> [!NOTE]
+> [!NOTE]  
 > Uma vez que tem privilégios de administrador em nós do cluster durante a **ClusterCustomization** fase, pode utilizar o script para realizar operações como parar e iniciar serviços, incluindo serviços relacionados com o Hadoop. Por isso, como parte do script, tem de se certificar de que os serviços do Ambari e outros serviços relacionados com o Hadoop estão em execução antes do script termina a respetiva execução. Estes serviços são necessários para determinar com êxito o estado de funcionamento e o estado do cluster enquanto ele está a ser criado. Se alterar qualquer configuração no cluster que afeta estes serviços, tem de utilizar as funções de programa auxiliar que são fornecidas. Para obter mais informações sobre funções auxiliares, consulte [scripts de desenvolver ações de Script para HDInsight][hdinsight-write-script].
 >
 >
@@ -288,10 +288,10 @@ Existem dois tipos de componentes de código-fonte aberto que estão disponívei
 
 Componentes internos são totalmente suportados e Support da Microsoft irá ajudar a isolar e resolver problemas relacionados com esses componentes.
 
-> [!WARNING]
+> [!WARNING]  
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportadas e Support da Microsoft irá ajudar a isolar e resolver problemas relacionados com esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isso pode resultar em resolver o problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isso pode resultar em resolver o problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Também projetos Apache tem sites de projeto no [ https://apache.org ](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 

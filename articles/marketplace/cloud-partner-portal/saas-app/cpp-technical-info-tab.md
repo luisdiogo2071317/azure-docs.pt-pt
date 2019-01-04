@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197488"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788558"
 ---
 # <a name="saas-application-technical-info-tab"></a>Separador de informações técnicas de aplicação SaaS
 
@@ -54,7 +54,7 @@ A tabela seguinte descreve os campos obrigatórios para venda por meio da Micros
 |     Instruções de introdução              |   Instruções para partilhar com os seus clientes para os ajudar a ligar à sua aplicação SaaS. Básicos tags de HTML são permitidas, por exemplo: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.                |
 |    URL da página de destino  |   O URL do site que irá ser direcionar seus clientes aterrar em depois de adquirir a partir do portal do Azure. Este URL também será o ponto final que irão receber a ligação de APIs para facilitar o comércio com a Microsoft.                |
 |  Webhook de ligação    |  Para todos os eventos assíncronos que a Microsoft tem de enviar a em nome do cliente (exemplo: Subscrição do Azure tornou-se inválida), pedimos que nos forneça um webhook da ligação. Se ainda não tiver um sistema de webhook no local, a configuração mais simples é fazer com uma aplicação de lógica de ponto final de HTTP que irá escutar quaisquer eventos que está a ser postados nele e, em seguida, manipulá-las adequadamente. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps</a>                |
-|  Inquilino do Azure AD ID e o ID de aplicação      |   No portal do Azure, é necessário que crie uma aplicação do Active Directory para que possamos validar a ligação entre nossos dois serviços estiver atrás de uma comunicação autenticada. Para estes campos, crie uma aplicação do AD e cole o Id de inquilino correspondente e o Id da aplicação necessária.               |
+|  Inquilino do Azure AD ID e o ID de aplicação      |   No portal do Azure, é necessário que crie uma aplicação do Active Directory para que possamos validar a ligação entre nossos dois serviços estiver atrás de uma comunicação autenticada. Para estes campos, crie uma aplicação do AD e cole o Id de inquilino correspondente e o Id da aplicação necessária. Tenha em atenção que o id da aplicação está associado à yoaur publisherID. Por conseguinte, certifique-se de que o mesmo ID da aplicação como em todas as ofertas.             |
 
 
 Por fim, se selecionar **venda através de Microsoft**, há outra guia nova oferta com o nome **planos**. 
@@ -77,4 +77,4 @@ Para obter mais informações sobre a chamada para opções de ação, consulte 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Separador planos (opcional)](./cpp-plans-tab.md)
-- [Separador de informações de canal](./cpp-channel-info-tab.md)
+- [Separador Informações de Canal](./cpp-channel-info-tab.md)

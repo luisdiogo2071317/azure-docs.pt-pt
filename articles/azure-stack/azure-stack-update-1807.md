@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260589"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714989"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve o conteúdo do pacote de atualização de 1807. Esta atualização inclui melhorias, correções e problemas conhecidos para esta versão do Azure Stack e onde pode transferir a atualização. Problemas conhecidos são divididos em problemas diretamente relacionados com o processo de atualização e problemas com a compilação (após a instalação).
 
@@ -162,9 +162,8 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Instalar o Azure Stack [1805 atualizar](azure-stack-update-1805.md) antes de aplicar a atualização do Azure Stack 1807.  Não ocorreu nenhuma atualização 1806.  
-
-- Instalar o mais recente disponível [atualização ou correção para a versão 1805](azure-stack-update-1805.md#post-update-steps).  
+- Instalar o Azure Stack [1805 atualizar](azure-stack-update-1805.md) antes de aplicar a atualização do Azure Stack 1807. Não ocorreu nenhuma atualização 1806.  
+ 
   > [!TIP]  
   > Subscrever o seguinte procedimento *RRS* ou *Atom* feeds para se manter atualizado com correções do Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
 
    #1 do alerta:
-   - NOME: Função de infraestrutura mau estado de funcionamento
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura mau estado de funcionamento
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de estado de funcionamento
-   - Descrição: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
+   - DESCRIÇÃO: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
 
   Alerta #2:
-   - NOME: Função de infraestrutura mau estado de funcionamento
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura mau estado de funcionamento
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de estado de funcionamento
-   - Descrição: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
+   - DESCRIÇÃO: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
 
   Ambos os alertas podem ser ignoradas com segurança e vai ser fechado automaticamente ao longo do tempo.  
 
@@ -262,9 +261,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - Poderá ver um alerta para **armazenamento** componente que tem os seguintes detalhes:
 
    - NOME: Erro de comunicação interno do serviço de armazenamento  
-   - GRAVIDADE: crítico  
-   - COMPONENTE: armazenamento  
-   - Descrição: Ocorreu um erro de comunicação interna do serviço de armazenamento quando enviar pedidos para os seguintes nós.  
+   - GRAVIDADE: Crítica  
+   - COMPONENTE: Armazenamento  
+   - DESCRIÇÃO: Ocorreu um erro de comunicação interna do serviço de armazenamento quando enviar pedidos para os seguintes nós.  
 
     O alerta pode ser ignorado com segurança, mas terá de fechar o alerta manualmente.
 
@@ -281,7 +280,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - Ao selecionar um tamanho de máquina virtual para uma implementação da máquina virtual, alguns tamanhos de VM da série F não estão visíveis como parte do Seletor de tamanho, ao criar uma VM. Os seguintes tamanhos VM não aparecem no Seletor de: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
   Como solução, utilize um dos seguintes métodos para implementar uma VM. Cada método, tem de especificar o tamanho da VM que pretende utilizar.
 
-  - **Modelo de Gestor de recursos do Azure:** quando utiliza um modelo, defina o *vmSize* no modelo para igual o tamanho da VM que pretende utilizar. Por exemplo, a entrada seguinte é utilizada para implementar uma VM que utiliza a *F32s_v2* tamanho:  
+  - **Modelo de Gestor de recursos do Azure:** Quando utiliza um modelo, definir o *vmSize* no modelo para igual o tamanho da VM que pretende utilizar. Por exemplo, a entrada seguinte é utilizada para implementar uma VM que utiliza a *F32s_v2* tamanho:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **CLI do Azure:** pode utilizar o [az vm crie](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e especifique o tamanho da VM como um parâmetro, semelhante a `--size "Standard_F32s_v2"`.
+  - **CLI do Azure:** Pode utilizar o [az vm crie](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e especifique o tamanho da VM como um parâmetro, semelhante a `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** com o PowerShell, pode usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) com o parâmetro que especifica o tamanho da VM, semelhante às `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** Com o PowerShell pode utilizar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) com o parâmetro que especifica o tamanho da VM, semelhante às `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

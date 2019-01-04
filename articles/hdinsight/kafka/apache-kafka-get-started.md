@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 02461f5002c048fcabcde21cd2e9881b94dd3be3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602839"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976771"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -49,7 +49,13 @@ Neste início rápido, vai aprender a criar um cluster do [Apache Kafka](https:/
 
 Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
-1. No [portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**, **Dados + Análise** e, em seguida, selecione **HDInsight**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+
+1. No menu à esquerda, selecione **+ criar um recurso**.
+
+1. Sob **do Azure marketplace**, selecione **Analytics**.
+
+1. Sob **em destaque**, selecione **HDInsight**.
    
     ![Criar um cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 

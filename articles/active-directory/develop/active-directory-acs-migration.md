@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 01781725e3224e2cab49a5e7cc7dcc33030ce9fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015777"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971557"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: migrar a partir do serviço de controle de acesso do Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
 Microsoft Azure controlo de acesso Service (ACS), um serviço do Azure Active Directory (Azure AD), será descontinuado a 7 de Novembro de 2018. Aplicações e serviços que a utilizam atualmente o controlo de acesso devem ser totalmente migrados para um mecanismo de autenticação diferentes até lá. Este artigo descreve as recomendações para os clientes atuais, à medida que planeia preterir a utilização do controlo de acesso. Se não utilizar atualmente o controlo de acesso, não precisa de tomar qualquer ação.
 
@@ -113,9 +113,9 @@ A partir de Novembro de 2017, todos os componentes de controlo de acesso são to
 
 Aqui está o agendamento para descontinuar os componentes de controlo de acesso:
 
-- **Novembro de 2017**: os administradores do Azure AD experiência no portal clássico do Azure [foi extinto](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste momento, a gestão de espaço de nomes para controlo de acesso está disponível um URL dedicado, novos: `https://manage.windowsazure.com?restoreClassic=true`. Utilize este URl para ver os espaços de nomes existentes, ativar e desativar espaços de nomes e eliminar espaços de nomes, caso pretenda.
-- **2 de Abril de 2018**: portal clássico do Azure completamente é extinguido, o que significa que a gestão de espaço de nomes do controlo de acesso já não está disponível através de qualquer URL. Neste momento, não é possível desativar ou ativar, eliminar ou enumerar os espaços de nomes do controlo de acesso. No entanto, o portal de gestão de controlo de acesso será totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes de controlo de acesso continuam a funcionar normalmente.
-- **7 de Novembro de 2018**: componentes de controlo de acesso de todos os permanentemente são encerrados. Isto inclui o portal de gestão de controlo de acesso, o serviço de gestão, STS e o motor de regras de transformação de token. Neste momento, todos os pedidos enviados para o controlo de acesso (localizado em \<espaço de nomes\>. accesscontrol.windows.net) falhar. Deve migração todas as aplicações e serviços existentes para outras tecnologias bem antes desta data.
+- **Novembro de 2017**:  Os administradores do Azure AD experiência no portal clássico do Azure [foi extinto](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste momento, a gestão de espaço de nomes para controlo de acesso está disponível um URL dedicado, novos: `https://manage.windowsazure.com?restoreClassic=true`. Utilize este URl para ver os espaços de nomes existentes, ativar e desativar espaços de nomes e eliminar espaços de nomes, caso pretenda.
+- **2 de Abril de 2018**: Portal clássico do Azure é completamente extinguido, que significa que a gestão de espaço de nomes do controlo de acesso já não está disponível através de qualquer URL. Neste momento, não é possível desativar ou ativar, eliminar ou enumerar os espaços de nomes do controlo de acesso. No entanto, o portal de gestão de controlo de acesso será totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes de controlo de acesso continuam a funcionar normalmente.
+- **7 de Novembro de 2018**: Todos os componentes de controlo de acesso permanentemente são encerrados. Isto inclui o portal de gestão de controlo de acesso, o serviço de gestão, STS e o motor de regras de transformação de token. Neste momento, todos os pedidos enviados para o controlo de acesso (localizado em \<espaço de nomes\>. accesscontrol.windows.net) falhar. Deve migração todas as aplicações e serviços existentes para outras tecnologias bem antes desta data.
 
 > [!NOTE]
 > Desativa a uma política de espaços de nomes não pediu um token para um período de tempo. A partir do início de Setembro de 2018, este período de tempo está atualmente em 14 dias de inatividade, mas isso vai ser baixou para 7 dias de inatividade nas próximas semanas. Se tiver espaços de nomes do controlo de acesso que estão atualmente desativados, pode [transferir e instalar o ACS PowerShell](#download-and-install-acs-powershell) para reativar o namespace(s).
@@ -151,7 +151,7 @@ Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo contro
 
 | Funcionalidade | Orientação |
 | ------- | -------- |
-| Autenticação de utilizadores do Azure AD | Anteriormente, do Azure AD não oferecia suporte necessários para o SharePoint para a autenticação de tokens de SAML 1.1 e o ACS foi utilizado como um intermediário que efetuou compatibile do SharePoint com o Azure AD token formata. Agora, pode [ligar o SharePoint diretamente ao Azure AD através do SharePoint de Galeria de aplicações do Azure AD na aplicação de local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autenticação de utilizadores do Azure AD | Anteriormente, o Azure AD não oferecia suporte necessários para o SharePoint para a autenticação de tokens de SAML 1.1 e o ACS foi utilizado como um intermediário que efetuou o SharePoint compatíveis com formatos de token do Azure AD. Agora, pode [ligar o SharePoint diretamente ao Azure AD através do SharePoint de Galeria de aplicações do Azure AD na aplicação de local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação da aplicação e a autenticação de servidor para servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não são afetados pela desativação de ACS; sem alterações necessárias. | 
 | [Autorização de fidedignidade baixa de SharePoint suplementos (fornecedor alojada e o SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não são afetados pela desativação de ACS; sem alterações necessárias. |
 | [Pesquisa do SharePoint na cloud híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não são afetados pela desativação de ACS; sem alterações necessárias. |
@@ -163,7 +163,7 @@ Para aplicativos da web que usam o controle de acesso para a autenticação de u
 - Integração profunda com o Windows Identity Foundation (WIF).
 - Federação com o Google, Facebook, Yahoo, Azure Active Directory, AD FS contas e e contas da Microsoft.
 - Suporte para os seguintes protocolos de autenticação: 13 de rascunho de OAuth 2.0, WS-Trust e Federação de serviços da Web (WS-Federation).
-- Suporte para os seguintes formatos de token: JSON Web Token (JWT), SAML 1.1, SAML 2.0 e simples Web Token (SWT).
+- Suporte para os seguintes formatos de token: JSON Web Token (JWT), SAML 1.1, SAML 2.0 e Simple Web Token (SWT).
 - Uma experiência de deteção de realm inicial, integrada no WIF, que permite aos utilizadores escolher o tipo de conta que utilizam para iniciar sessão. Esta experiência é hospedada pelo aplicativo web e é totalmente personalizável.
 - Token de transformação que permite a personalização avançada de afirmações recebidas pelo aplicativo web do controlo de acesso, incluindo:
     - Passar afirmações a partir de fornecedores de identidade.

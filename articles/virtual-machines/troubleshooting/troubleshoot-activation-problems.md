@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824307"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976369"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -40,7 +40,7 @@ Quando tenta ativar uma VM do Windows Azure, recebe um erro mensagem é semelhan
 **Erro: 0xC004F074 que o LicensingService de Software reportou que não foi possível ativar o computador. Foi possível contactar não ManagementService de chaves (KMS). Consulte o registo de eventos de aplicativo para obter informações adicionais.**
 
 ## <a name="cause"></a>Causa
-Em geral, os problemas de ativação de VM do Azure ocorrerem se a VM do Windows não está configurada, utilizando a chave de configuração de cliente KMS adequada ou se a VM do Windows tem um problema de conectividade ao serviço Azure KMS (kms.core.windows.net, porta 1668). 
+Em geral, os problemas de ativação de VM do Azure ocorrerem se a VM do Windows não está configurada, utilizando a chave de configuração de cliente KMS adequada ou se a VM do Windows tem um problema de conectividade ao serviço Azure KMS (kms.core.windows.net, porta 1688). 
 
 ## <a name="solution"></a>Solução
 
@@ -86,7 +86,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    O comando deverá devolver: nome da máquina de Key Management Service definido como kms.core.windows.net:1688 com êxito.
+    O comando deve retornar: Nome da máquina do serviço de gestão de chaves definida para kms.core.windows.net:1688 com êxito.
 
 4. Certifique-se ao utilizar o Psping que tem conetividade ao servidor do KMS. Mude para a pasta onde extraiu o download de Pstools.zip e, em seguida, execute o seguinte:
   
@@ -94,7 +94,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
     \psping.exe kms.core.windows.net:1688
     ```
   
-  Na linha segundo ao último da saída, certifique-se de que vê: enviados = 4, recebidos = 4, perdida = 0 (perda de 0%).
+  Na linha segundo ao último da saída, certifique-se de que consegue ver: Enviado = 4, recebidos = 4, perdida = 0 (perda de 0%).
 
   Se perdida for superior a 0 (zero), a VM tem conetividade ao servidor do KMS. Nesta situação, é capaz de resolver kms.core.windows.net se a VM estiver numa rede virtual e tiver um servidor DNS personalizado especificado, deve certificar-se de que o servidor DNS. Em alternativa, altere o servidor DNS de forma que resolver kms.core.windows.net.
 

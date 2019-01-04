@@ -16,17 +16,20 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095572"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583481"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
 ## <a name="overview"></a>Descrição geral
 Azure Active Directory (Azure AD), pode aprovisionar automaticamente os utilizadores e grupos a nenhum repositório de identidade ou de aplicação que é apoiado por um serviço da web com a interface definidos no [sistema para o protocolo de gestão de identidade entre domínios (SCIM) 2.0 especificação](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Azure Active Directory pode enviar pedidos para criar, modificar ou eliminar atribuídos a utilizadores e grupos para o serviço web. O serviço web, em seguida, pode converter essas solicitações em operações no arquivo de identidade de destino. 
+
+>[!IMPORTANT]
+>O comportamento da implementação do Azure AD SCIM foi atualizado pela última vez 18 de Dezembro de 2018. Para obter informações sobre o que foi alterado, consulte [SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
 ![][0]
 *Figura 1: Aprovisionamento do Azure Active Directory para um armazenamento de identidade através de um serviço web*
@@ -73,6 +76,10 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
 6. Na **URL de inquilino** campo, introduza o URL do ponto final SCIM do aplicativo. Exemplo: https://api.contoso.com/scim/v2/
 7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, o Azure AD incluído um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade pode validar este Azure AD-emitiu o token.
 8. Clique nas **Testar ligação** botão para que o Azure Active Directory tentar estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
+
+    >[!NOTE]
+    >**Testar ligação** consulta o ponto de extremidade SCIM para um utilizador que não existe, usando um GUID aleatório como a propriedade correspondente selecionada na configuração do Azure AD. A resposta correta esperada é HTTP 200 OK, com uma mensagem de SCIM ListResponse vazia. 
+
 9. Se as tentativas de estabelecer ligação com êxito a aplicação, em seguida, clique em **guardar** para guardar as credenciais de administrador.
 10. Na **mapeamentos** secção, existem dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de utilizador e uma para objetos de grupo. Selecione cada um para rever os atributos que são sincronizados a partir do Azure Active Directory para a sua aplicação. Os atributos selecionados como **correspondência** propriedades são usadas para fazer corresponder os utilizadores e grupos na sua aplicação para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
@@ -149,6 +156,10 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
 6. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou endereço IP de exposto http://<ip-address>:9000/, em que < endereço ip > é a internet.  
 7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, do Azure AD irá incluir um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade pode validar este Azure AD-emitiu o token.
 8. Clique nas **Testar ligação** botão para que o Azure Active Directory tentar estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
+
+    >[!NOTE]
+    >**Testar ligação** consulta o ponto de extremidade SCIM para um utilizador que não existe, usando um GUID aleatório como a propriedade correspondente selecionada na configuração do Azure AD. A resposta correta esperada é HTTP 200 OK, com uma mensagem de SCIM ListResponse vazia
+
 9. Se as tentativas de estabelecer ligação com êxito a aplicação, em seguida, clique em **guardar** para guardar as credenciais de administrador.
 10. Na **mapeamentos** secção, existem dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de utilizador e uma para objetos de grupo. Selecione cada um para rever os atributos que são sincronizados a partir do Azure Active Directory para a sua aplicação. Os atributos selecionados como **correspondência** propriedades são usadas para fazer corresponder os utilizadores e grupos na sua aplicação para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 11. Sob **configurações**, o **âmbito** campo define quais os utilizadores e ou grupos são sincronizados. Selecionar "Sincronização apenas atribuído aos utilizadores e grupos" (recomendado) só irá sincronizar os utilizadores e grupos atribuídos na **utilizadores e grupos** separador.
@@ -163,7 +174,7 @@ A verificar o exemplo a etapa final é abrir o ficheiro de TargetFile.csv na pas
 ### <a name="development-libraries"></a>Bibliotecas de programação
 Para desenvolver seu próprio serviço da web que está em conformidade com a especificação de SCIM, primeiro familiarize-se com as seguintes bibliotecas fornecidas pela Microsoft para ajudar a acelerar o processo de desenvolvimento: 
 
-1. Bibliotecas do Common Language Infrastructure (CLI) são oferecidas para utilização com linguagens com base em que a infraestrutura, como c#. Uma dessas bibliotecas, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração seguinte: um desenvolvedor usando as bibliotecas seria implementar a interface com uma classe que pode ser direcionada para, mais genericamente, como um fornecedor. As bibliotecas permitem aos programadores implementar um serviço web que está em conformidade com a especificação de SCIM. O serviço web pode ser hospedado em serviços de informação Internet ou qualquer executável assembly de infra-estrutura de linguagem comum. Pedido é convertido em chamadas para métodos do provedor, que poderiam ser programados pelo desenvolvedor para operar num armazenamento de identidade.
+1. Bibliotecas do Common Language Infrastructure (CLI) são oferecidas para utilização com linguagens com base em que a infraestrutura, como c#. Uma dessas bibliotecas, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração seguinte:  Um desenvolvedor que usa as bibliotecas seria implementar a interface com uma classe que pode ser direcionada para, mais genericamente, como um fornecedor. As bibliotecas permitem aos programadores implementar um serviço web que está em conformidade com a especificação de SCIM. O serviço web pode ser hospedado em serviços de informação Internet ou qualquer executável assembly de infra-estrutura de linguagem comum. Pedido é convertido em chamadas para métodos do provedor, que poderiam ser programados pelo desenvolvedor para operar num armazenamento de identidade.
   
    ![][3]
   
@@ -353,7 +364,7 @@ Recursos de utilizador são identificados pelo identificador de esquema, "urn: i
 
 Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos do http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group recursos.  
 
-### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento do atributo de utilizador de padrão
+### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Mapeamento de atributo de utilizador padrão
 
 | Utilizador do Active Directory do Azure | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -375,7 +386,7 @@ Grupo de recursos é identificados pelo identificador de esquema, http://schemas
 | Número de telefone |. Value de phoneNumbers [tipo eq "trabalho"] |
 | utilizador PrincipalName |userName |
 
-### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Mapeamento do atributo de grupo de padrão
+### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Mapeamento de atributo de grupo predefinido
 
 | Grupo do Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
@@ -456,7 +467,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
    * parâmetros. AlternateFilters.ElementAt(0). AttributePath: externalId""
    * parâmetros. AlternateFilters.ElementAt(0). ComparisonOperator: ComparisonOperator.Equals
    * parâmetros. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
 
 2. Se a resposta a uma consulta para o serviço web para um utilizador com um valor de atributo externalId que corresponde ao valor de atributo mailNickname de um utilizador não devolver quaisquer utilizadores, em seguida, Azure Active Directory solicita que o serviço aprovisionamento de um utilizador correspondente ao no Azure Active Directory.  Eis um exemplo de pedido: 
 
@@ -544,7 +555,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
 
    No exemplo de um pedido para obter o estado atual de um utilizador, os valores das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   
-   * Identificador de: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Se um atributo de referência está a ser atualizado, em seguida, o Azure Active Directory consulta o serviço para determinar se é ou não o valor atual do atributo de referência no arquivo de identidade apoiado pelo serviço já corresponde ao valor desse atributo no Active Directory do Azure Diretório. Para os utilizadores, o único atributo que o valor atual é consultado dessa maneira é o atributo de gestor. Eis um exemplo de um pedido para determinar se o atributo de Gestor de um objeto de utilizador em particular tem atualmente um determinado valor: 
@@ -561,10 +572,10 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
    * parâmetros. AlternateFilters.Count: 2
    * parâmetros. AlternateFilters.ElementAt(x). AttributePath: "ID"
    * parâmetros. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
-   * parâmetros. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parâmetros. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * parâmetros. AlternateFilters.ElementAt(y). AttributePath: "manager"
    * parâmetros. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
-   * parâmetros. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+   * parâmetros. AlternateFilter.ElementAt(y). ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
    * parâmetros. RequestedAttributePaths.ElementAt(0): "ID"
    * parâmetros. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
@@ -684,7 +695,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "manager"
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.Count: 1
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
+   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Valor: 2819c223-7f76-453A-919d-413861904646
 
 6. Desaprovisionar um utilizador de um arquivo de identidade apoiado por um serviço SCIM, do Azure AD envia um pedido, tais como: 
 
@@ -718,7 +729,7 @@ A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SC
 * Os pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre o atributo de membros.  
 
 ![][5]
-*Figura 6: Grupo provisionamento e desprovisionamento sequência*
+*Figura 6: Grupo de provisionamento e desprovisionamento sequência*
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)

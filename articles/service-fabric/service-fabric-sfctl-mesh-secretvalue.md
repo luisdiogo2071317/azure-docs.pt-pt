@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b8172ba50f7fec8f0aa1ba768c05d087ecabf8c8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 064aeaea47dd59a1dd75cf19ea4060d8f9c2c4bf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285418"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559064"
 ---
-# <a name="sfctl-mesh-secretvalue"></a>o sfctl secretvalue de malha
+# <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obter e eliminar recursos de secretvalue da malha.
 
 ## <a name="commands"></a>Comandos
@@ -29,8 +29,8 @@ Obter e eliminar recursos de secretvalue da malha.
 |Comando|Descrição|
 | --- | --- |
 | delete | Elimina o valor especificado do recurso secreto com nome. |
-| list | Listar nomes de todos os valores do o recurso de segredo especificado. |
-| Show | Obter o valor de uma versão especificada de um recurso secreta. |
+| list | Nomes da lista de todos os valores do recurso secreto especificado. |
+| mostrar | Obter o valor de uma versão especificada de um recurso secreta. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>o sfctl malha secretvalue delete
 Elimina o valor especificado do recurso secreto com nome.

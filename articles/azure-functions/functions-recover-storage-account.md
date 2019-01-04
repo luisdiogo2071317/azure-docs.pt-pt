@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887217"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604978"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 
@@ -92,5 +92,5 @@ Agora que a aplicação de função está operacional e volte a examinar as refe
   Descreve várias ferramentas e técnicas para testar as suas funções.
 * [Como dimensionar as Funções do Azure](functions-scale.md)  
   Aborda os planos de serviço disponíveis com as Funções do Azure, incluindo o plano de alojamento de Consumo e como escolher o plano adequado. 
-* [Saiba mais sobre o Azure App Service](../app-service/app-service-web-overview.md)  
+* [Saiba mais sobre o Azure App Service](../app-service/overview.md)  
   Funções do Azure melhora o Serviço de Aplicações do Azure para funcionalidades essenciais como implementações, variáveis de ambiente e diagnósticos. 

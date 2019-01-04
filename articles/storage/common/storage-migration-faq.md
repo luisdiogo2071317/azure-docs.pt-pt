@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416397"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632319"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -118,6 +118,8 @@ Para obter mais informações, consulte [transferir dados com AzCopy no Windows]
 
 **Como faço para mover os discos geridos para outra conta de armazenamento?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Siga estes passos.
 
 1.  Pare a máquina virtual que o disco gerido está ligado a.
@@ -125,15 +127,15 @@ Siga estes passos.
 2.  Copie o VHD de disco gerido de uma área para outra ao executar o seguinte script do Azure PowerShell:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Crie um disco gerido com o ficheiro VHD noutra região onde copiou o VHD. Para tal, execute o seguinte script do Azure PowerShell:  
@@ -151,9 +153,9 @@ Siga estes passos.
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Para obter mais informações sobre como implementar uma máquina virtual a partir de um disco gerido, consulte [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ Utilize o AzCopy para transferir os dados. Para obter mais informações, consul
 
 **Como posso alterar a localização secundária para a região da Europa para uma conta de armazenamento?**
 
-Quando criar uma conta de armazenamento, selecione a região primária para a conta. A seleção da região secundária baseia-se a região primária e não pode ser alterado. Para obter mais informações, consulte [armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure](storage-redundancy.md).
+Quando criar uma conta de armazenamento, selecione a região primária para a conta. A seleção da região secundária baseia-se a região primária e não pode ser alterado. Para obter mais informações, consulte [armazenamento georredundante (GRS): A replicação do armazenamento do Azure entre regiões](storage-redundancy.md).
 
 **Onde posso obter mais informações sobre a encriptação de serviço de armazenamento do Azure (SSE)?**  
   
@@ -234,7 +236,7 @@ Se tiver máquinas virtuais, tem de efetuar passos adicionais antes de migrar os
 
 **Como posso mover de uma conta de armazenamento clássica a uma conta de armazenamento do Azure Resource Manager?**
 
-Pode utilizar o **Move-AzureStorageAccount** cmdlet. Este cmdlet tem vários passos (validar, preparar, consolidar). Pode validar a movimentação antes de fazê-lo.
+Pode utilizar o **movimentação AzStorageAccount** cmdlet. Este cmdlet tem vários passos (validar, preparar, consolidar). Pode validar a movimentação antes de fazê-lo.
 
 Se tiver máquinas virtuais, tem de efetuar passos adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrar recursos de IaaS do clássico para o Azure Resource Manager com o Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -274,11 +276,11 @@ Para dar acesso a outras pessoas para os recursos de armazenamento:
 
 -   Se estiver a utilizar o armazenamento georredundante com acesso de leitura, pode aceder aos dados da região secundária em qualquer altura. Utilize um dos seguintes métodos:  
       
-    - **AzCopy**: acrescentar **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
+    - **AzCopy**: Acrescentar **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS token**: utilizar um token SAS para aceder a dados a partir do ponto final. Para obter mais informações, consulte [assinaturas de acesso partilhado do Using](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS token**: Utilize um token SAS para aceder a dados a partir do ponto final. Para obter mais informações, consulte [assinaturas de acesso partilhado do Using](storage-dotnet-shared-access-signature-part-1.md).
 
 **Como posso utilizar um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como me certifico de "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparecem como"https://www.contoso.com/images/image.gif"?**
 

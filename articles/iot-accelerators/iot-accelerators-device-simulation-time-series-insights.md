@@ -1,5 +1,5 @@
 ---
-title: Visualizar a telemetria de simulação de dispositivo com o Azure Time Series Insights | Documentos da Microsoft
+title: Visualizar a telemetria de simulação de dispositivo com o Time Series Insights - Azure | Documentos da Microsoft
 description: Saiba como configurar o ambiente de Time Series Insights, explorar e analisar a telemetria gerada pelo solution accelerator a simulação do dispositivo.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 49cecca4e5ebef9f43fdda16cfa1fdc2ad7b6f94
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: aea02cbde32d9485bd49ec39a6f300021c6ef927
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383201"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597703"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Utilizar o Time Series Insights para ver a telemetria enviada a partir do solution accelerator de simulação do dispositivo
 

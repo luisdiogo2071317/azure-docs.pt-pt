@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SuccessFactors | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com SuccessFactors | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SuccessFactors.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 89224b32efaecdf7a2797b034b1beac7ad191ee5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 467db4046c0600142338dcfa39e136f45255caba
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685230"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976754"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com SuccessFactors
+# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Active Directory do Azure com SuccessFactors
 
 Neste tutorial, saiba como integrar SuccessFactors com o Azure Active Directory (Azure AD).
 
@@ -150,7 +150,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<companyname>.sapsf.cn/<companyname>`|
          
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente SuccessFactors](https://www.successfactors.com/support.html) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) obter esses valores. 
 
 5. No **certificado de assinatura SAML** página, além da **certificado de assinatura SAML** secção, clique em **transferir** para transferir **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -261,7 +261,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 Para ativar a utilizadores do Azure AD iniciar sessão no SuccessFactors, tem de ser aprovisionados em SuccessFactors.  
 No caso de SuccessFactors, o aprovisionamento é uma tarefa manual.
 
-Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/support.html).
+Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

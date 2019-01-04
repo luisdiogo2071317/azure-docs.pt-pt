@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892466"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995155"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 
 Mapas de calor, também conhecido como ponto de mapas de densidade, são um tipo de visualização de dados utilizada para representar a densidade dos dados através de um intervalo de cores. Eles costumam ser usados para mostrar os dados "pontos de acesso" num mapa e são uma ótima maneira de processar grandes conjuntos de dados do ponto.  Por exemplo, processamento dezenas de milhares de pontos de dentro da vista do mapa, como símbolos cobrem a maior da área do mapa e resultaria em muitos símbolos que está a ser abrangidos por outras pessoas, tornando difícil obter mais informações sobre os dados. No entanto, visualizar esse mesmo conjunto de dados como um mapa térmico torna mais fácil ver onde os dados de ponto são o densest e a densidade relativa a outras áreas. Existem muitos cenários em que térmico mapas, são usados. Aqui estão alguns exemplos;
 
 * Dados de temperatura normalmente são processados como mapa térmico, pois fornece aproximações para que a temperatura entre dois pontos de dados.
-* Compor os dados de sensores de ruído como um mapa térmico não só mostra insanity de ruído em que é o sensor, mas também pode fornecer informações sobre a dissipação através de uma distância. O nível de ruído em qualquer um site pode não ser alto, no entanto, se a área de cobertura de ruído de vários sensores sobrepõe-se, é possível que esta área de sobreposição poderá experienciar níveis mais altos de ruído e, portanto, seria visível no mapa térmico.
+* Compor os dados de sensores de ruído como um mapa térmico não só mostra a intensidade de ruído em que é o sensor, mas também pode fornecer informações sobre a dissipação através de uma distância. O nível de ruído em qualquer um site pode não ser alto, no entanto, se a área de cobertura de ruído de vários sensores sobrepõe-se, é possível que esta área de sobreposição poderá experienciar níveis mais altos de ruído e, portanto, seria visível no mapa térmico.
 * Visualizar um GPS o rastreamento, que inclui a velocidade como um mapa de altura de peso onde a intensidade de cada ponto de dados baseia-se na velocidade de é uma ótima maneira de ver rapidamente onde foi acelerando o veículo.
 
 > [!TIP]
-> Camadas de bolhas, por predefinição processará as coordenadas de todas as geometrias numa origem de dados. Para limitar a camada de forma que ele só processa geometria de ponto de conjunto de funcionalidades a `filter` propriedade da camada para `['==', '$type', 'Point']`
+> Camadas de bolhas, por predefinição processará as coordenadas de todas as geometrias numa origem de dados. Para limitar a camada para que ele só de recursos de geometria, do ponto de composições definido o `filter` propriedade da camada para `['==', '$type', 'Point']`
 
 ## <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 

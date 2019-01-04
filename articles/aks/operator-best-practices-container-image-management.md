@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109964"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605556"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para gerenciamento de imagens de contentor e de segurança no Azure Kubernetes Service (AKS)
-
-À medida que desenvolve e executar aplicações no Azure Kubernetes Service (AKS), a segurança dos seus contentores é uma consideração fundamental. Os contentores que incluem imagens base Desatualizadas ou tempo de execução do aplicativo apresentam um risco de segurança e o vetor de ataque possíveis. Para minimizar esses riscos, deve integrar ferramentas que procurar e remediar problemas nos seus contentores.
 
 À medida que desenvolve e executar aplicações no Azure Kubernetes Service (AKS), a segurança dos contentores e imagens de contentor é uma consideração fundamental. Imagens de base de contentores que incluem Desatualizadas ou tempos de execução do aplicativo sem patch apresentam um risco de segurança e o vetor de ataque possíveis. Para minimizar esses riscos, deve integrar ferramentas que procurar e remediar problemas nos seus contentores no momento da compilação, bem como tempo de execução. Quanto mais cedo no processo que a vulnerabilidade ou a imagem base desatualizada é capturada, mais seguro do cluster. Neste artigo, *contentores* significa que ambas as imagens de contentor armazenadas num registo de contentor e os contentores em execução.
 

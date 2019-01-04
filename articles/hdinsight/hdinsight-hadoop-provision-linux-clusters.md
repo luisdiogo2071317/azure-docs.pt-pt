@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386881"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790846"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -107,12 +107,12 @@ Não precisa especificar explicitamente a localização do cluster: O cluster es
 
 ## <a name="storage-endpoints-for-clusters"></a>Pontos finais de armazenamento para clusters
 
-Embora uma instalação local do Hadoop utiliza o Hadoop Distributed File System (HDFS) para o armazenamento no cluster, na cloud é usar pontos de extremidade de armazenamento ligados ao cluster. Utilizam clusters do HDInsight [do Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) ou [blobs no armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md). Utilizar o armazenamento do Azure ou o Data Lake Store, significa que pode eliminar em segurança os clusters do HDInsight utilizados para o cálculo ao mesmo tempo retendo os dados. 
+Embora uma instalação local do Hadoop utiliza o Hadoop Distributed File System (HDFS) para o armazenamento no cluster, na cloud é usar pontos de extremidade de armazenamento ligados ao cluster. Utilizam clusters do HDInsight [armazenamento do Azure Data Lake](hdinsight-hadoop-use-data-lake-store.md) ou [blobs no armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md). Utilizar o armazenamento do Azure ou o armazenamento do Data Lake, significa que pode eliminar em segurança os clusters do HDInsight utilizados para o cálculo ao mesmo tempo retendo os dados. 
 
 > [!WARNING]  
 > Não é suportada através de uma conta de armazenamento adicional numa localização diferente do HDInsight cluster.
 
-Durante a configuração, para o ponto final de armazenamento de predefinido Especifique um contentor de BLOBs de uma conta de armazenamento do Azure ou um Store de Lake de dados. O armazenamento predefinido contém o aplicativo e sistema de registos. Opcionalmente, pode especificar contas de armazenamento do Azure ligadas adicionais e contas de Data Lake Store que o cluster pode aceder. O cluster do HDInsight e as contas de armazenamento dependente tem de ser na mesma localização do Azure.
+Durante a configuração, para o ponto final de armazenamento de predefinido é especificar um contentor de BLOBs de uma conta de armazenamento do Azure ou o armazenamento do Data Lake. O armazenamento predefinido contém o aplicativo e sistema de registos. Opcionalmente, pode especificar contas de armazenamento do Azure ligadas adicionais e contas de armazenamento do Data Lake que o cluster pode aceder. O cluster do HDInsight e as contas de armazenamento dependente tem de ser na mesma localização do Azure.
 
 ![Definições de armazenamento de cluster: Pontos finais de armazenamento compatível com HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Para obter um exemplo do uso de dois tipos de cluster dentro de uma rede virtual
 
 ## <a name="troubleshoot-access-control-issues"></a>Resolver problemas de controlo de acesso
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-administer-use-portal-linux.md#create-clusters).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485678"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638800"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Cópia de segurança e recuperação após desastre para discos IaaS do Azure
 
@@ -65,7 +65,7 @@ Suas considerações de DR podem incluir os seguintes aspetos:
 
 - Elevada disponibilidade: A capacidade da aplicação para continuar em execução em bom estado de funcionamento, sem períodos de indisponibilidade significativos. Por *bom estado de funcionamento*, este estado significa que a aplicação está a responder e os utilizadores podem ligar à aplicação e interagir com ele. Determinados aplicativos de missão crítica e bases de dados poderão ser necessários para estar sempre disponível, mesmo quando existem falhas na plataforma. Estas cargas de trabalho, poderá ter de planear a redundância para o aplicativo, bem como os dados.
 
-- Durabilidade de dados: em alguns casos, a principal consideração consiste em garantir que os dados são preservados se ocorrer um desastre. Por conseguinte, poderá ter uma cópia de segurança dos seus dados num site diferente. Para essas cargas de trabalho, poderá não ter redundância total para o aplicativo, mas apenas uma cópia de segurança normal dos discos.
+- Durabilidade de dados: Em alguns casos, a principal consideração é garantir que os dados são preservados se ocorrer um desastre. Por conseguinte, poderá ter uma cópia de segurança dos seus dados num site diferente. Para essas cargas de trabalho, poderá não ter redundância total para o aplicativo, mas apenas uma cópia de segurança normal dos discos.
 
 ## <a name="backup-and-dr-scenarios"></a>Cenários de cópia de segurança e DR
 
@@ -92,11 +92,11 @@ Vamos examinar a carga de trabalho de aplicação de IaaS. Por exemplo, esta apl
 
 Outro exemplo é um servidor de relatórios que extrai dados de outras origens e gera relatórios agregados. A perda desta VM ou os discos pode levar à perda dos relatórios. No entanto, é possível voltar a executar o processo de geração de relatórios e voltar a gerar a saída. Nesse caso, realmente não tem uma perda de dados, mesmo que o servidor de relatórios é atingido com um desastre. Como resultado, poderá ter um nível mais elevado de tolerância de perda de parte dos dados no servidor de relatórios. Nesse caso, as cópias de segurança menos freqüentes são uma opção para reduzir os custos.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Cenário de 4: Problemas de dados de aplicativos de IaaS
+### <a name="scenario-4-iaas-application-data-issues"></a>Cenário 4: Problemas de dados de aplicativos de IaaS
 
 Problemas de IaaS de dados de aplicativo são outra possibilidade. Considere um aplicativo que computa, mantém e serve dados comerciais críticos, como informações sobre preços. Uma nova versão do seu aplicativo tinha um bug de software que incorretamente calculados os preços e danificado os dados de comércio existentes fornecidos pela plataforma. Aqui, o melhor curso de ação é reverter para a versão anterior da aplicação e os dados. Para ativar esta opção, efetue cópias de segurança periódicas do seu sistema.
 
-## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação após desastre: cópia de segurança do Azure 
+## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastres: Azure Backup 
 
 [O Azure Backup](https://azure.microsoft.com/services/backup/) é utilizado para cópias de segurança e DR, e funciona com [discos geridos](../articles/virtual-machines/windows/managed-disks-overview.md) , bem como [discos não geridos](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Pode criar uma tarefa de cópia de segurança com cópias de segurança baseados no tempo, fácil restauro de VM e políticas de retenção de cópia de segurança. 
 
@@ -152,7 +152,7 @@ Utilize os seguintes passos para ativar as cópias de segurança das suas VMs ao
 
 1.  Configurar a política de cópia de segurança e selecione a VM na mesma interface de Usuário.
 
-1.  Certificar-se de que o agente de cópia de segurança está instalado na VM. Se a VM é criada utilizando uma imagem da galeria do Azure, o agente de cópia de segurança já está instalado. Caso contrário (ou seja, se utilizar uma imagem personalizada), utilize as instruções para [instalar o agente VM numa máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Certificar-se de que o agente de cópia de segurança está instalado na VM. Se a VM é criada utilizando uma imagem da galeria do Azure, o agente de cópia de segurança já está instalado. Caso contrário (ou seja, se utilizar uma imagem personalizada), utilize as instruções para [instalar o agente VM numa máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Certifique-se de que a VM possibilita a conectividade de rede para o serviço de cópia de segurança para a função. Siga as instruções para [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Para obter mais informações, consulte as instruções para [utilizar o portal 
 
 Também pode utilizar o PowerShell para o [restaurar uma VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) ou para [criar uma nova VM a partir de restaurar discos](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: instantâneos consistentes com
+## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: Instantâneos consistentes com
 
 Se não for possível utilizar a cópia de segurança do Azure, pode implementar seu próprio mecanismo de cópia de segurança através de instantâneos. Criação de instantâneos consistentes para todos os discos utilizados por uma VM e, em seguida, replicar esses instantâneos para outra região é complicado. Por esse motivo, o Azure considera a utilizar o serviço de cópia de segurança como uma opção melhor que a criação de uma solução personalizada. 
 

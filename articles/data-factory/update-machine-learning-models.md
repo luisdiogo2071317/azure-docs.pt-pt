@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957468"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969306"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar os modelos do Azure Machine Learning, utilizando a atividade de recursos de atualização
-Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo. 
+Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo. 
 
 ## <a name="overview"></a>Descrição geral
 Como parte do processo de operacionalização de modelos do Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis.
@@ -93,7 +93,7 @@ Para o serviço ligado do Azure Machine Learning segundo, a configuração é di
 Se o serviço web é o novo tipo de serviço web que expõe um ponto de final do Azure Resource Manager, não é necessário adicionar o segundo **não predefinidas** ponto final. O **updateResourceEndpoint** no serviço ligado tem o formato: 
 
 ```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
 Pode obter os valores para espaços reservados no URL ao consultar o serviço web no [Portal do Azure Machine Learning Web Services](https://services.azureml.net/). 
@@ -118,7 +118,7 @@ Esta é uma definição de serviço ligado de exemplo:
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
             },
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",

@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631826"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
-SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](http://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
+SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
 
 Não apenas o projeto de SCP portado Storm no Windows, mas também o projeto adicionado extensões e personalização para o ecossistema do Windows. As extensões incluem a experiência do desenvolvedor .NET e bibliotecas, a personalização inclui a implantação com base em Windows. 
 
@@ -346,7 +346,7 @@ Em termos gerais, os plug-ins do SCP podem ser executadas em dois modos aqui:
         }
 
 ## <a name="topology-specification-language"></a>Linguagem de especificação de topologia
-Especificação de topologia do SCP é uma linguagem específica do domínio para descrever e configurar topologias de SCP. Baseia-se no Clojure DSL do Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e é estendido pelo SCP.
+Especificação de topologia do SCP é uma linguagem específica do domínio para descrever e configurar topologias de SCP. Baseia-se no Clojure DSL do Storm (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e é estendido pelo SCP.
 
 Especificações de topologia, podem ser submetidas diretamente ao cluster do storm para execução através de ***runspec*** comando.
 

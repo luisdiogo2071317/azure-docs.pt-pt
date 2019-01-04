@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386433"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792854"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -50,6 +50,9 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
 Instalador de plataforma Web (WebPI) é a forma recomendada de instalar o SDK e ferramentas. Se receber erros de tempo de execução através de WebPI, também pode encontrar ligações diretas para os programas de instalação nas notas de versão para uma versão específica do Service Fabric. As notas de versão podem ser encontradas nos vários anúncios de lançamento no [blogue da equipa do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
+> [!NOTE]
+> Atualizações do cluster de desenvolvimento de Service Fabric locais não são suportadas.
+
 ### <a name="to-use-visual-studio-2017"></a>Para utilizar o Visual Studio 2017
 As Ferramentas do Service Fabric fazem parte da carga de trabalho de Desenvolvimento do Azure no Visual Studio 2017. Ative esta carga de trabalho como parte da instalação do Visual Studio.
 Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK, utilizando o Instalador de Plataforma Web.
@@ -66,8 +69,8 @@ Se apenas precisa do SDK, pode instalar este pacote:
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
-* Service Fabric SDK e ferramentas 3.3.617
-* Runtime do Service Fabric 6.4.617
+* Service Fabric SDK e ferramentas 3.3.622
+* Runtime do Service Fabric 6.4.622
 * Ferramentas do Service Fabric para Visual Studio 2015 2.4.11116.1
 * 15.9 de 2017 do Visual Studio inclui as ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260757"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971533"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache do Azure para Redis.
@@ -83,7 +83,7 @@ As perguntas frequentes nesta secção sobre monitorização e resolução de pr
 * [Qual das ofertas da Cache do Azure é melhor para mim?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>O que é a Cache de Redis do Azure?
-A Cache de Redis do Azure baseia-se o código aberto popular [a Cache de Redis do Azure](http://redis.io). Ele fornece acesso a uma Cache de Azure segura, dedicada para Redis, gerida pela Microsoft e acessível a partir de qualquer aplicação no Azure. Para obter uma descrição mais detalhada, consulte a [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/) página de produto no Azure.com.
+A Cache de Redis do Azure baseia-se o software de código aberto popular [Redis](https://redis.io/). Ele fornece acesso a uma Cache de Azure segura, dedicada para Redis, gerida pela Microsoft e acessível a partir de qualquer aplicação no Azure. Para obter uma descrição mais detalhada, consulte a [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/) página de produto no Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Como posso começar a utilizar com a Cache do Azure para Redis?
 Existem várias formas, que pode começar a utilizar a Cache do Azure para Redis.
@@ -174,7 +174,7 @@ Sim, a Cache de Redis do Azure está disponível no Azure Government Cloud, Azur
 Para obter mais informações sobre considerações ao utilizar o Azure Cache de Redis com outras clouds, consulte os links a seguir.
 
 - [Bases de dados do Azure Government - a Cache de Redis do Azure](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [O Azure na China Cloud - a Cache de Redis do Azure](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [O Azure na China Cloud - a Cache de Redis do Azure](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)
 
 Para obter informações sobre como utilizar o Azure Cache de Redis com o PowerShell no Azure Government Cloud, Azure China Cloud e no Microsoft Azure Alemanha, consulte [como ligar a outras clouds - Cache do Azure para Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).

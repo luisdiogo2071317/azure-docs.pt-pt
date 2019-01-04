@@ -10,21 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240873"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792395"
 ---
-# <a name="demo-password-reset"></a>Demonstração: Reposição de palavra-passe
-Essa demonstração ilustra um bot de suporte técnico simples que pode ajudar na reposições de palavra-passe. 
-
-Ele mostra como o aprendiz de conversação pode aprender fluxos de caixa de diálogo não trivial, ative a multi sequências, incluindo uma classe de fora do domínio. Esta demonstração não utiliza qualquer código ou entidades.
+# <a name="demo-password-reset"></a>Demonstração: Reposição de palavras-passe
+Este tutorial demonstra um bot de suporte técnico simples que pode ajudar na reposições de palavra-passe com tecnologia de aprendiz de conversação. Modelo do bot pode saber mais fluxos de caixa de diálogo não trivial e ative a multi sequências incluindo um classes de fora do domínio. A tarefa pode ser feita sem código ou entidades.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de palavra-passe de demonstração](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![Pré-visualização de palavra-passe de demonstração](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot de reposição de palavra-passe está em execução
@@ -37,41 +35,48 @@ Na lista de modelo da IU da web, clique na reposição de palavra-passe de demon
 
 ### <a name="actions"></a>Ações
 
-Criámos o conjunto de ações em que o utilizador está à procura de ajuda com a palavra-passe, incluindo soluções.
+O modelo contém um conjunto de ações concebido para ajudar utilizadores a resolver problemas comuns de palavra-passe.
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### <a name="training-dialogs"></a>Caixas de diálogo de treinamento
 
-Há uma série de caixas de diálogo de treinamento. Também existem demonstrações de um fora da classe de domínio – por exemplo, pedidos de utilizador, como 'informações' estão fora do domínio; o bot, deu os exemplos de algumas fora de solicitações de domínio e pode responder com "Eu não pode ajudar com isso."
+O modelo também contém vários Train caixas de diálogo, incluindo algumas que demonstram fora de treinamento de classe de domínio. Por exemplo, os utilizadores que podem pedir, como obter referências de local. O bot de exemplo foi treinado em algumas para fins de demonstração, e simplesmente responde por que ele diz "não pode ajudar com isso." A lista de caixas de diálogo de Train existente é encontrada em "Caixas de diálogo Train" no painel esquerdo.
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-Por exemplo, vamos tentar uma sessão de ensino.
+1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
+2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "perdeu minha palavra-passe de i."
+3. Clique no botão "Pontuação ações".
+4. Selecione a resposta, "Isso é para a sua conta local ou uma conta Microsoft?"
+5. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "local da conta."
+6. Clique no botão "Pontuação ações".
+7. Selecione a resposta, "qual versão do Windows tem?"
+8. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "windows xp"
+9. Clique no botão "Pontuação ações".
+10. Clique em de "+ de ação" botão.
+11. No "do Bot de resposta...", digite "solução: Como repor palavra-passe no Windows XP..."
+12. Clique no botão "Criar".
 
-1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
-1. Introduza "Eu perdi minha palavra-passe".
-2. Clique em ação de pontuação.
-3. Clique para selecionar "Isso é para a sua conta local ou uma conta Microsoft?"
-4. Introduza "Conta Local".
-5. Clique em ações de pontuação.
-3. Clique para selecionar "qual versão do Windows tem?"
-4. Introduza "Windows 8'.
-5. Clique em ações de pontuação.
-6. Selecione "solução: como repor a palavra-passe no Windows 8."
-4. Clique em concluído ensino.
+### <a name="training-dialogs-for-out-of-domain-scenarios"></a>Caixas de diálogo de treinamento para cenários de fora do domínio
 
-Vamos experimentar como o bot pode aprender uma classe de fora do domínio.
-
-1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
-1. Introduza "pesquisa na web".
-    - Este é um exemplo da classe de fora do domínio. 
-2. Clique em ação de pontuação.
-3. Clique para selecionar "Lamentamos, mas eu não pode ajudar com isso."
-    - Tenha em atenção que a classificação para esta opção é baixa. Mas, após um pouco mais de infância, a pontuação obterá superior.
-4. Clique em concluído ensino.
-
-Agora viu como criar uma demonstração de suporte técnico básico, e como pode saber fornecer soluções e também lidar com fora de consultas de exemplo.
+1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, o existente "brinquedo lojas" Train caixa de diálogo.
+2. No painel de bate-papo, clique a expressão "brinquedo lojas".
+3. No campo de "Adicionar alternativo input...", tipo "pesquisa na web" e clique em Inserir.
+4. No campo de "Adicionar alternativo input...", reservas tipo"voo" e clique em Inserir.
+5. Clique no botão "Guardar alterações".
+6. Clique no botão "Editar guardar".
+7. No painel esquerdo, clique em "Caixas de diálogo Log", em seguida, no botão "Registo caixa de diálogo Novo".
+8. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "i não é possível encontrar a minha palavra-passe"
+9. No painel de bate-papo, em que se lê "... sua mensagem de tipo", tipo de "Conta Microsoft"
+10. No painel de bate-papo, em que se lê "... sua mensagem de tipo", tipo de "Obrigado"
+11. Clique no botão "Testar feito".
+12. Clique em diálogo de registo "i não é possível encontrar a minha palavra-passe" da vista de grelha.
+13. No painel de bate-papo, clique em incorretamente processado "solução: Resposta de como repor uma palavra-passe da conta do Microsoft".
+14. Clique em de "+ de ação" botão.
+15. No "do Bot de resposta...", digite "é boas-vindas"
+16. Clique no botão "Criar".
+17. Clique no botão "Guardar como Train caixa de diálogo".
 
 ## <a name="next-steps"></a>Passos Seguintes
 

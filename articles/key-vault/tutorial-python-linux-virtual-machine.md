@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 480957dd0700c898c85b15702905919483d0de68
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607494"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720580"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Azure Máquina Virtual do Linux em Python
 
@@ -160,7 +160,7 @@ Pode seguir esta [tutorial](https://docs.microsoft.com/azure/virtual-machines/wi
 
 ## <a name="create-and-run-sample-python-app"></a>Criar e executar a aplicação Python de exemplo
 
-A seguir é apenas um ficheiro de exemplo com o nome "Sample.py". Ele usa [pedidos](http://docs.python-requests.org/master/) biblioteca para fazer chamadas HTTP GET.
+A seguir é apenas um ficheiro de exemplo com o nome "Sample.py". Ele usa [pedidos](https://pypi.org/project/requests/2.7.0/) biblioteca para fazer chamadas HTTP GET.
 
 ## <a name="edit-samplepy"></a>Editar Sample.py
 Depois de criar Sample.py, abra o ficheiro e copie o abaixo código
