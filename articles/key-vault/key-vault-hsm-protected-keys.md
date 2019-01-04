@@ -1,5 +1,5 @@
 ---
-title: Como gerar e transferir chaves protegidas por HSM para o Azure Key Vault | Documentos da Microsoft
+title: Como gerar e transferir chaves protegidas por HSM para o Azure Key Vault, Azure Key Vault | Documentos da Microsoft
 description: Utilize este artigo para o ajudar a planejar, gerar e, em seguida, transferir as suas próprias chaves protegidas por HSM para utilizar com o Azure Key Vault. Também conhecida como BYOK ou traga a sua própria chave.
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 2294e65a552b0bf0a428e5272610abc1f63229e6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44c1406c8ecd8c5ff103fed4d105ecd64d16c358
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308295"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002472"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
@@ -46,7 +46,7 @@ Obter mais informações sobre como gerar e transferir uma chave protegida por H
 
 Da Thales e-Security é um fornecedor global líder de encriptação de dados e soluções de segurança de cibersegurança para os serviços financeiros, tecnológicos, fabrico, administração pública e setores de tecnologia. Com informações de administração pública e de 40 anos registro de rastreamento de proteger empresarial, as soluções da Thales são utilizadas por quatro das cinco maiores energia e espaço aéreo empresas. Suas soluções também são utilizadas pelo 22 países da NATO e proteger mais de 80 por cento de transações de pagamento em todo o mundo.
 
-A Microsoft tem colaborado com a Thales para melhorar o estado da arte para HSMs. Estas melhorias permitem-lhe obter as vantagens típicas dos serviços alojados sem abdicar do controlo sobre as suas chaves. Especificamente, estas melhorias permitem que Microsoft gerencie os HSMs para que não é necessário. Como um serviço cloud, Azure Key Vault ajusta-se com rapidez para satisfazer picos de utilização da sua organização. Ao mesmo tempo, a chave é protegida no interior dos HSMs da Microsoft: mantém o controlo sobre o ciclo de vida de chave uma vez que gerar a chave e transferi-la para HSMs da Microsoft.
+A Microsoft tem colaborado com a Thales para melhorar o estado da arte para HSMs. Estas melhorias permitem-lhe obter as vantagens típicas dos serviços alojados sem abdicar do controlo sobre as suas chaves. Especificamente, estas melhorias permitem que Microsoft gerencie os HSMs para que não é necessário. Como um serviço cloud, Azure Key Vault ajusta-se com rapidez para satisfazer picos de utilização da sua organização. Ao mesmo tempo, a chave é protegida no interior dos HSMs da Microsoft: Mantém o controlo sobre o ciclo de vida da chave uma vez que gerar a chave e transferi-la para HSMs da Microsoft.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementando traga a sua própria chave (BYOK) para o Azure Key Vault
 
@@ -61,7 +61,7 @@ Consulte a tabela seguinte para obter uma lista de pré-requisitos para traga a 
 | Uma subscrição do Azure |Para criar um Azure Key Vault, precisa de uma subscrição do Azure: [Inscreva-se a versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | A camada de serviços do Azure Key Vault Premium para suportar chaves protegidas por HSM |Para obter mais informações sobre as camadas de serviços e capacidades para Azure Key Vault, consulte a [preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) Web site. |
 | HSM da Thales, smart cards e software de suporte |Tem de ter acesso a um módulo de Hardware de segurança da Thales e conhecimentos operacionais básicos dos Hmss da Thales. Ver [módulo de Hardware de segurança da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se não tiver uma. |
-| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e da Thales software nShield, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Tenha em atenção que nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Tenha em atenção que nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
+| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e da Thales software nShield, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gerar e transferir a chave para o HSM do Azure Key Vault
 
@@ -209,7 +209,7 @@ Para validar a integridade dos seus transferido conjunto de ferramentas BYOK, da
    Get-FileHash KeyVault-BYOK-Tools-*.zip
    ```
 
-O conjunto de ferramentas inclui o seguinte:
+O conjunto de ferramentas inclui:
 
 * Um pacote de chave de troca de chaves (KEK) que tem um nome que começa com **BYOK-KEK - pkg-.**
 * Um pacote de universo de segurança que tem um nome que começa com **BYOK-SecurityWorld - pkg-.**
@@ -332,13 +332,13 @@ Para validar o pacote transferido:
      > O software da Thales inclui o python em %NFAST_HOME%\python\bin
      >
      >
-2. Confirme que vê o seguinte, que indica uma validação com êxito: **resultado: êxito**
+2. Confirme que vê o seguinte, que indica uma validação com êxito: **Resultado: ÊXITO**
 
 Este script valida a cadeia de signatário até a chave de raiz da Thales. O hash desta chave de raiz é incorporado no script e respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Pode também confirmar este valor separadamente ao aceder a [Web site da Thales](http://www.thalesesec.com/).
 
 Agora, está pronto para criar uma nova chave.
 
-### <a name="step-35-create-a-new-key"></a>Passo 3.5: Criar uma nova chave
+### <a name="step-35-create-a-new-key"></a>Passo 3.5: Criar uma chave nova
 
 Gerar uma chave com a Thales **generatekey** programa.
 
@@ -414,11 +414,11 @@ Abra uma nova linha de comandos e altere o diretório atual para a localização
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
-Quando executar este comando, substitua *contosokey* com o mesmo valor que especificou no **passo 3.5: criar uma nova chave** partir os [gerar a chave de](#step-3-generate-your-key) passo.
+Quando executar este comando, substitua *contosokey* com o mesmo valor que especificou no **passo 3.5: Criar uma nova chave** partir de [gerar a chave de](#step-3-generate-your-key) passo.
 
 É-lhe perguntado para conectar seus cartões de administrador do mundo de segurança.
 
-Quando o comando estiver concluído, verá **resultado: êxito** e a cópia da sua chave com permissões reduzidas estão no ficheiro denominado key_xferacid _<contosokey>.
+Quando o comando estiver concluído, verá **resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estão no ficheiro denominado key_xferacid _<contosokey>.
 
 Pode inspeciona a através de ACLS seguintes comandos usando os utilitários da Thales:
 
@@ -428,7 +428,7 @@ Pode inspeciona a através de ACLS seguintes comandos usando os utilitários da 
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  Quando executar estes comandos, substitua contosokey com o mesmo valor que especificou no **passo 3.5: criar uma nova chave** partir a [gerar a chave de](#step-3-generate-your-key) passo.
+  Quando executar estes comandos, substitua contosokey com o mesmo valor que especificou no **passo 3.5: Criar uma nova chave** partir de [gerar a chave de](#step-3-generate-your-key) passo.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Passo 4.2: Encriptar a chave, utilizando a chave de troca de chave da Microsoft
 
@@ -479,13 +479,13 @@ Execute um dos seguintes comandos, dependendo da sua região geográfica e a ins
 
 Quando executar este comando, utilize estas instruções:
 
-* Substitua *contosokey* com o identificador utilizado para gerar a chave no **passo 3.5: criar uma nova chave** partir o [gerar a chave de](#step-3-generate-your-key) passo.
-* Substitua *SubscriptionID* com o ID da subscrição do Azure que contém o seu Cofre de chaves. Que obteve este valor anteriormente, no **passo 1.2: obter o seu ID de subscrição do Azure** partir a [preparar a estação de trabalho ligada à Internet](#step-1-prepare-your-internet-connected-workstation) passo.
+* Substitua *contosokey* com o identificador utilizado para gerar a chave no **passo 3.5: Criar uma nova chave** partir de [gerar a chave de](#step-3-generate-your-key) passo.
+* Substitua *SubscriptionID* com o ID da subscrição do Azure que contém o seu Cofre de chaves. Que obteve este valor anteriormente, no **passo 1.2: Obter o seu ID de subscrição do Azure** partir de [preparar a estação de trabalho ligada à Internet](#step-1-prepare-your-internet-connected-workstation) passo.
 * Substitua *ContosoFirstHSMKey* com uma etiqueta que é utilizada para o seu nome de ficheiro de saída.
 
-Quando isso for concluída com êxito, ele exibe **resultado: êxito** e não há um novo ficheiro na pasta atual, que tem o seguinte nome: KeyTransferPackage -*ContosoFirstHSMkey*. byok
+Quando isso for concluída com êxito, ele exibe **resultado: ÊXITO** e há um novo ficheiro na pasta atual, que tem o seguinte nome: KeyTransferPackage -*ContosoFirstHSMkey*. byok
 
-### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passo 4.3: Copiar o pacote de transferência da chave para a estação de trabalho ligada à Internet
+### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passo 4.3: Copie o pacote de transferência da chave para a estação de trabalho ligada à Internet
 
 Utilize uma unidade USB ou outro armazenamento portátil para copiar o ficheiro de saída do passo anterior (KeyTransferPackage-ContosoFirstHSMkey.byok) para a estação de trabalho ligada à Internet.
 

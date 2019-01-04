@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 63e35a32cb4a031ea9848486c4ecda7058707914
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599898"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001469"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
 
@@ -104,7 +104,7 @@ Repita os passos para [Criar uma aplicação de funções](https://docs.microsof
     | Campo | Valor da amostra | Descrição |
     |---|---|---|
     | Nome | HelloProxy | Um nome amigável utilizado apenas para gestão |
-    | Modelo de rota | /api/hello | Determina qual a rota utilizada para invocar este proxy |
+    | Modelo de rota | / api/remotehello | Determina qual a rota utilizada para invocar este proxy |
     | URL de back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto final para o qual o pedido deve ser transmitido por proxy |
     
 1. Tenha em atenção que os Proxies não fornecem o prefixo do caminho de base `/api`; este tem de ser incluído no modelo de rota.
@@ -112,9 +112,9 @@ Repita os passos para [Criar uma aplicação de funções](https://docs.microsof
 1. Clique em **Criar**.
 1. Pode experimentar o novo proxy ao copiar o URL do Proxy e testá-lo no browser ou com o seu cliente HTTP favorito.
     1. Para uma função anónima, utilize:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. Para uma função com autorização, utilize:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Criar uma API fictícia
 
@@ -132,7 +132,7 @@ Se acompanhou até aqui o início rápido, o ficheiro proxies.json deve ter um a
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Em seguida, vai adicionar a API fictícia. Substitua o ficheiro proxies.json pel
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

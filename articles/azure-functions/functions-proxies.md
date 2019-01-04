@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538995"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017111"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -47,13 +47,13 @@ Com os Proxies de funções do Azure, pode modificar as solicitações e respost
 
 Por predefinição, o pedido de back-end é inicializado como uma cópia do pedido original. Além de definir o URL de back-end, pode efetuar alterações para o método HTTP, cabeçalhos e os parâmetros de cadeia de caracteres de consulta. Podem referenciar os valores modificados [Definições da aplicação] e [parâmetros do pedido de cliente original].
 
-Pedidos de back-end podem ser modificados no portal pelo expading a *substituição do pedido* secção da página de detalhes do proxy. 
+Pedidos de back-end podem ser modificados no portal, expandindo a *substituição do pedido* secção da página de detalhes do proxy. 
 
 ### <a name="modify-response"></a>Modificar a resposta
 
 Por predefinição, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Pode efetuar alterações ao código de estado, frase da razão, cabeçalhos e corpo da resposta. Podem referenciar os valores modificados [Definições da aplicação], [parâmetros do pedido de cliente original], e [parâmetros da resposta de back-end].
 
-Pedidos de back-end podem ser modificados no portal pelo expading a *substituição de resposta* secção da página de detalhes do proxy. 
+Pedidos de back-end podem ser modificados no portal, expandindo a *substituição de resposta* secção da página de detalhes do proxy. 
 
 ## <a name="using-variables"></a>Utilizar variáveis
 
@@ -176,12 +176,13 @@ O comportamento de proxy pode ser controlado por várias configurações de apli
 
 ### <a name="reservedChars"></a> Carateres reservados (cadeia de caracteres de formatação)
 
-Ler todas as cadeias de caracteres sem interpretação, com exceção das chaves e barras de proxies
+Proxies ler todas as cadeias de caracteres fora de um JSON de ficheiros, usando \ como um símbolo de escape. Os proxies também interpretam chavetas. Ver um conjunto completo de exemplos abaixo.
 
 |Caráter|Caráter de escape|Exemplo|
 |-|-|-|
 |{ou}|{{ou}}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definir um objeto de requestOverrides
 
