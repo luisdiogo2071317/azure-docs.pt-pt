@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 39c4a6108f4a5133e2c77904dcd67bf235801956
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0d6a370884e6648aaf131892759ee45b29ed3693
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265139"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001656"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Restaurar a cópia de segurança online e dados a pedido no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Com o Azure Cosmos DB, não apenas seus dados, mas também as cópias de seguran
 As cópias de segurança são efetuadas sem afetar o desempenho ou disponibilidade da sua aplicação. O Azure Cosmos DB executa a cópia de segurança de dados em segundo plano sem consumir qualquer débito aprovisionado adicional (RUs) ou que afetam o desempenho e a disponibilidade da base de dados.
 
 O Azure Cosmos DB armazena cópias de segurança automáticas no armazenamento de Blobs do Azure, ao passo que os dados reais residem localmente no Azure Cosmos DB. Para garantir a baixa latência, o instantâneo da cópia de segurança é armazenado no armazenamento de Blobs do Azure na mesma região que a região de escrita atual (ou uma das regiões de escrita, se tiver uma configuração de vários mestre) do seu Cosmos DB conta de base de dados. Para resiliência contra desastre regional, cada instantâneo dos dados de cópia de segurança no armazenamento de Blobs do Azure novamente é replicado para outra região, através do armazenamento georredundante (GRS). A região para que a cópia de segurança é replicada baseia-se a sua região de origem e o par regional associado com a região de origem. Para obter mais informações, consulte a [lista de pares georredundante de regiões do Azure](../best-practices-availability-paired-regions.md) artigo. Não pode aceder diretamente a esta cópia de segurança. O Azure Cosmos DB irá utilizar esta cópia de segurança apenas se um restauro de cópia de segurança é iniciado.
-A imagem seguinte mostra como um contentor do Cosmos do Azure com todas as partições de recurso principal três na região E.U.A. oeste é uma cópia de segurança numa conta de armazenamento de Blobs do Azure remota na região E.U.A. oeste e, em seguida, replicado para E.U. a leste:
+A imagem seguinte mostra como um contentor do Cosmos do Azure com todas as três principais físicos partições na região E.U.A. oeste é uma cópia de segurança numa conta de armazenamento de Blobs do Azure remota na região E.U.A. oeste e, em seguida, replicado para E.U. a leste:
 
 ![Cópias de segurança completas periódicas de todas as entidades do Cosmos DB GRS do armazenamento do Azure](./media/online-backup-and-restore/automatic-backup.png)
 

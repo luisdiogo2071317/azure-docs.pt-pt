@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: 03344cf989e1381f97b108e82b8d63e9c4653404
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809812"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999004"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Ativar a autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -61,9 +61,6 @@ Antes de ativar o Azure AD através de SMB para ficheiros do Azure, certifique-s
 4.  **Selecione ou crie uma partilha de ficheiros do Azure.**
 
     Selecione uma partilha de ficheiros de novo ou existente que está associada à mesma subscrição que o inquilino do Azure AD. Para obter informações sobre como criar uma nova partilha de ficheiros, consulte [criar uma partilha de ficheiros nos ficheiros do Azure](storage-how-to-create-file-share.md). 
-
-    O inquilino do Azure AD tem de ser implementado para uma região suportada para a pré-visualização do Azure AD através de SMB. A pré-visualização está disponível em todas as regiões públicas, exceto para: E.U.A. oeste, E.U.A. oeste 2, EUA Centro-Sul, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, Centro-Norte, leste da Austrália, Europa Ocidental, Europa do Norte.
-
     Para um desempenho ideal, a Microsoft recomenda que a partilha de ficheiros está na mesma região que a VM a partir do qual pretende aceder à partilha.
 
 5.  **Verifique a conectividade de ficheiros do Azure ao montar partilhas de ficheiros do Azure com a sua chave de conta de armazenamento.**

@@ -1,19 +1,19 @@
 ---
 title: Limites do serviço de pré-visualização do Azure duplos Digital pública | Documentos da Microsoft
-description: Compreender os que limites do serviço de pré-visualização do Azure duplos Digital pública
+description: Compreenda que limites do serviço de pré-visualização de duplos Digital do Azure público.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961760"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020630"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de pré-visualização pública
 
@@ -35,21 +35,25 @@ Durante a pré-visualização pública, cada subscrição do Azure pode criar ou
 
 Por sua vez, cada instância de duplos Digital do Azure pode ter:
 
-- Um **IoTHub** recursos.
-- Um **EventHub** ponto final para o tipo de evento **DeviceMessage**.
+- Exatamente um **IoTHub** recursos.
+- Exatamente um **EventHub** ponto final para o tipo de evento **DeviceMessage**.
 - Até três **EventHub**, **ServiceBus**, ou **EventGrid** pontos finais do tipo de evento **SensorChange**, **SpaceChange** , **TopologyOperation**, ou **UdfCustom**.
 
-## <a name="management-api-limits"></a>Limites de API de gestão
+> [!NOTE]
+> Alguns parâmetros que normalmente estão definidos na criação de entidades do Azure IoT acima não são necessários durante a pré-visualização pública.
+> - Consulte a [documentação de referência do Swagger](./how-to-use-swagger.md) para as especificações de API mais recentes.
 
-Os limites de velocidade do pedido para a API de gestão são:
+## <a name="azure-digital-twins-management-api-limits"></a>Limites de API de gestão de duplos Digital do Azure
 
-- 100 pedidos por segundo para a API de gestão.
-- Até 1000 objetos devolvidos por uma única consulta de API de gestão. 
+Os limites de velocidade do pedido para a API de gestão de duplos Digital do Azure são:
+
+- 100 pedidos por segundo para a API de gestão de duplos Digital do Azure.
+- Até 1000 objetos devolvidos por uma única consulta de API de gestão do Azure Digital duplos.
 
 > [!IMPORTANT]
 > Se ultrapassar o limite de 1.000-object, recebe um erro e deve simplificar a sua consulta.
 
-## <a name="udf-rate-limits"></a>Limites de velocidade UDF
+## <a name="user-defined-functions-rate-limits"></a>Limites de velocidade de funções definidas pelo utilizador
 
 Os seguintes limites definir o número total de todas as chamadas de função definida pelo utilizador feita à sua instância de duplos Digital do Azure:
 
@@ -59,7 +63,7 @@ Os seguintes limites definir o número total de todas as chamadas de função de
 > [!NOTE]
 > As seguintes ações podem fazer com que os limites de velocidade adicionais a serem aplicadas temporariamente:
 > - Edições feitas para os metadados do objeto de topologia
-> - Atualizações feitas a definição de UDF
+> - Atualizações feitas a definição de função definida pelo utilizador
 > - Dispositivos que enviam telemetria pela primeira vez
 
 ## <a name="device-telemetry-limits"></a>Limites de telemetria do dispositivo

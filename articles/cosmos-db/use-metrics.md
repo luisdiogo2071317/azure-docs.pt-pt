@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957594"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999446"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitor e de depuração com métricas na Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Pode fazer com que uma distribuição desigual de débito *frequente* partiçõe
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento em várias partições
 
-Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer contentor particionado dividida por partições, vá para o painel de métricas no [portal do Azure](https://portal.azure.com). No separador de débito, a divisão de armazenamento é mostrada no RU/segundo máximos consumidos por cada gráfico de partição física. O gráfico seguinte ilustra uma distribuição fraco de dados, conforme exibido a partição distorcida mais à esquerda.
+Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de armazenamento de qualquer contentor particionado dividida por partições, vá para o painel de métricas no [portal do Azure](https://portal.azure.com). No separador de armazenamento, a divisão de armazenamento é mostrada nos dados + armazenamento consumido pelo gráfico de chaves de partição principais de índice. O gráfico seguinte ilustra uma distribuição fraco de armazenamento de dados, conforme exibido a partição distorcida mais à esquerda.
 
 ![Exemplo de distribuição de dados fraca](media/use-metrics/metrics-07.png)
 

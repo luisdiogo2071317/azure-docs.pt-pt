@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409582"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015088"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +72,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 >[!IMPORTANT]
 >Quando copiar dados com o Salesforce, o padrão do Runtime de integração do Azure não pode ser utilizado para executar a cópia. Em outras palavras, se a sua origem associada serviço não tem um runtime de integração especificado explicitamente [criar um Runtime de integração do Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto de sua instância do Salesforce. Associe o serviço ligado do Salesforce como no exemplo seguinte.
 
-**Exemplo: Store credenciais no Data Factory**
+**Exemplo: Credenciais de Store no Data Factory**
 
 ```json
 {
@@ -99,7 +98,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 }
 ```
 
-**Exemplo: Store credenciais no Key Vault**
+**Exemplo: Credenciais de Store no Cofre de chaves**
 
 ```json
 {
@@ -168,7 +167,7 @@ Para copiar dados de e para o Salesforce, defina a propriedade de tipo de conjun
 ```
 
 >[!NOTE]
->Para compatibilidade com versões anteriores: Quando copia dados do Salesforce, se usar o conjunto de dados do tipo "RelationalTable" anterior, que mantém a funcionar, apesar de ver uma sugestão para mudar para o novo tipo de "SalesforceObject".
+>Para compatibilidade com versões anteriores: Quando copiar dados do Salesforce, se usar o conjunto de dados do tipo "RelationalTable" anterior, que mantém a funcionar, apesar de ver uma sugestão para mudar para o novo tipo de "SalesforceObject".
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -227,7 +226,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 ```
 
 >[!NOTE]
->Para compatibilidade com versões anteriores: Quando copia dados do Salesforce, se utilizar a cópia do tipo "RelationalSource" anterior, a origem mantém a trabalhar, apesar de ver uma sugestão para mudar para o novo tipo de "SalesforceSource".
+>Para compatibilidade com versões anteriores: Quando copiar dados do Salesforce, se utilizar a cópia do tipo "RelationalSource" anterior, a origem mantém a trabalhar, apesar de ver uma sugestão para mudar para o novo tipo de "SalesforceSource".
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce como um tipo de sink
 
@@ -239,9 +238,9 @@ Para copiar dados para o Salesforce, defina o tipo de sink na atividade de cópi
 | WriteBehavior | O comportamento de escrita para a operação.<br/>Valores permitidos são **inserir** e **Upsert**. | Não (a predefinição é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação de upsert. O campo especificado tem de ser definido como "Campo de Id externo" no objeto Salesforce. Ele não pode ter valores nulos os dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados escritos para o Salesforce em cada lote. | Não (a predefinição é 5.000) |
-| ignoreNullValues | Indica se a ignorar valores NULL de dados de entrada durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: deixe os dados no objeto de destino inalterados quando faz uma operação de upsert ou atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: atualizar os dados no objeto de destino como NULL quando o fizer uma operação de upsert ou atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
+| ignoreNullValues | Indica se a ignorar valores NULL de dados de entrada durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert ou atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert ou atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
 
-**Exemplo: Sink de Salesforce numa atividade de cópia**
+**Exemplo: Salesforce sink na atividade de cópia**
 
 ```json
 "activities":[
@@ -314,15 +313,15 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 |:--- |:--- |
 | Número de automática |Cadeia |
 | Caixa de verificação |Booleano |
-| Moeda |decimal |
+| Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
 | Email |Cadeia |
 | Id |Cadeia |
 | Relação de referência |Cadeia |
 | Lista de opções de seleção múltipla |Cadeia |
-| Number |decimal |
-| Percentagem |decimal |
+| Number |Decimal |
+| Percentagem |Decimal |
 | Telefone |Cadeia |
 | Lista de opções |Cadeia |
 | Texto |Cadeia |

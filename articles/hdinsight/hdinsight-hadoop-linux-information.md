@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: e78f456a7c69e308257b450a7572f6317dfa6eec
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715448"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001928"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -106,7 +106,7 @@ Ao utilizar o HDInsight, os ficheiros de dados são armazenados numa forma escal
 * Acessibilidade de serviços externos, como Web sites, utilitários de carregamento/transferência de ficheiro, vários SDKs de idioma e navegadores da web.
 * Capacidade de ficheiros grandes e grande armazenamento escalável.
 
-Para obter mais informações, consulte [blobs compreensão](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [armazenamento do Data Lake](https://azure.microsoft.com/services/data-lake-store/).
+Para obter mais informações, consulte [blobs compreensão](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [armazenamento do Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 Ao utilizar o armazenamento do Azure ou o armazenamento do Data Lake, não precisa de fazer nada de especial do HDInsight para aceder aos dados. Por exemplo, o comando seguinte lista os ficheiros no `/example/data` pasta, independentemente de se ele é armazenado no armazenamento do Azure ou no armazenamento do Data Lake:
 
@@ -177,7 +177,7 @@ Há uma várias formas de aceder a dados a partir de fora do cluster do HDInsigh
 Se utilizar __armazenamento do Azure__, consulte as seguintes ligações para formas que pode aceder aos seus dados:
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Comandos de interface de linha de comandos para trabalhar com o Azure. Depois de instalar, utilizar o `az storage` comando para obter ajuda sobre como utilizar o armazenamento, ou `az storage blob` para comandos específicos de Blobs.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Um script de python para trabalhar com blobs no armazenamento do Azure.
+* [blobxfer.PY](https://github.com/Azure/blobxfer): Um script de python para trabalhar com blobs no armazenamento do Azure.
 * Vários SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

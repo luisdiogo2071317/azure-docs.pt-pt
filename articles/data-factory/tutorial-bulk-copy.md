@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: c15c79e90b69fd72ed6b8968d35be95da50f838b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090938"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023877"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -108,7 +107,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
         ```
 
     * Para criar instâncias do Data Factory, tem de ser Contribuidor ou Administrador da subscrição do Azure.
-    * Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+    * Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
@@ -116,7 +115,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados do Azure de origem
 
-1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: (crie a pasta ADFv2TutorialBulkCopy, caso ainda não exista.)
+1. Crie um ficheiro JSON com o nome **Azuresqldatabaselinkedservice** na **C:\ADFv2TutorialBulkCopy** pasta com o seguinte conteúdo: (Crie a pasta ADFv2TutorialBulkCopy caso ainda não exista.)
 
     > [!IMPORTANT]
     > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; pelos valores da sua Base de Dados SQL do Azure antes de guardar o ficheiro.
@@ -138,7 +137,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
 
 2. No **Azure PowerShell**, mude para a pasta **ADFv2TutorialBulkCopy**.
 
-3. Execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
+3. Executar o **Set-AzureRmDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -175,7 +174,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
     }
     ```
 
-2. Para criar o serviço ligado: **AzureSqlDWLinkedService**, execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService**.
+2. Para criar o serviço ligado: **AzureSqlDWLinkedService**, execute o **Set-AzureRmDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -214,7 +213,7 @@ Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de tes
     }
     ```
 
-2. Para criar o serviço ligado: **AzureStorageLinkedService**, execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService**.
+2. Para criar o serviço ligado: **AzureStorageLinkedService**, execute o **Set-AzureRmDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -253,7 +252,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset**, execute o cmdlet **Set-AzureRmDataFactoryV2Dataset**.
+2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset**, execute o **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -271,7 +270,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Criar um conjunto de dados para o SQL Data Warehouse de sink
 
-1. Crie um ficheiro JSON com o nome **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy**, com o seguinte conteúdo: "tableName" está definido como um parâmetro; mais à frente, a atividade de cópia que faz referência a este conjunto de dados transmite o valor real para o conjunto de dados.
+1. Crie um ficheiro JSON com o nome **Azuresqldwdataset** no **C:\ADFv2TutorialBulkCopy** pasta, com o seguinte conteúdo: "tableName" está definido como um parâmetro, mais tarde a atividade de cópia que faz referência a este conjunto de dados transmite o valor real para o conjunto de dados.
 
     ```json
     {
@@ -297,7 +296,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDWDataset**, execute o cmdlet **Set-AzureRmDataFactoryV2Dataset**.
+2. Para criar o conjunto de dados: **AzureSqlDWDataset**, execute o **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -389,7 +388,7 @@ Este pipeline aceita uma lista de tabelas como parâmetro. Para cada tabela na l
     }
     ```
 
-2. Para criar o pipeline: **IterateAndCopySQLTables**, execute o cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
+2. Para criar o pipeline: **IterateAndCopySQLTables**, execute o **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -465,7 +464,7 @@ Este pipeline executa dois passos:
     }
     ```
 
-2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, execute o cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
+2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, execute o **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
@@ -581,7 +580,7 @@ Este pipeline executa dois passos:
 
 3. Ligue ao Azure SQL Data Warehouse de sink e confirme se os dados foram copiados corretamente da Base de Dados SQL do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

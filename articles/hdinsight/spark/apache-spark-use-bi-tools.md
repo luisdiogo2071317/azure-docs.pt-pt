@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 688aab6c6e67b259931e4e2331e2d632e87f1db9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651474"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999276"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark no HDInsight com o Power BI 
 
@@ -103,7 +103,7 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 
         O diagrama tem o seguinte aspeto:
 
-        ![Utilizar o Apache Spark BI para criar visualizações de dados do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Utilizar o Apache Spark BI para criar visualizações de dados do Spark")
+        ![Utilizar o Apache Spark BI para criar visualizações de dados do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Utilizar o Apache Spark BI para criar visualizações de dados do Spark")
 
         Por predefinição, a visualização mostra a soma de **ActualTemp** e **TargetTemp**. Clique na seta para baixo junto a **ActualTemp** e **TragetTemp**, no painel Visualizations, e pode ver que **Sum** (Soma) está selecionado.
 
@@ -113,7 +113,7 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 
         A visualização de dados deverá ser semelhante à da captura de ecrã. Mova o cursor sobre a visualização para obter sugestões de contexto com dados relevantes.
 
-        ![Utilizar o Apache Spark BI para criar visualizações de dados do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Utilizar o Apache Spark BI para criar visualizações de dados do Spark")
+        ![Utilizar o Apache Spark BI para criar visualizações de dados do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Utilizar o Apache Spark BI para criar visualizações de dados do Spark")
 
 7. Clique em **File** (Ficheiro), em seguida, em **Save** (Guardar) e introduza o nome para o ficheiro `BuildingTemperature.pbix`. 
 

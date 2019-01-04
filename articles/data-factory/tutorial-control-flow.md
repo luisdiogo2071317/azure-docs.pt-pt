@@ -9,21 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262153"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025832"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow/overview.png)
+Uma visão geral do cenário: ![Descrição geral](media/tutorial-control-flow/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -95,7 +94,7 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione estas variáveis estáticas à **Classe do programa**. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Adicione estas variáveis estáticas à **Classe do programa**. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     ```csharp
         // Set variables
@@ -204,7 +203,7 @@ Adicione o código seguinte ao método **Main** que cria um **conjunto de dados 
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados do Blob refere-se ao serviço ligado de Armazenamento do Microsoft Azure que criou no passo anterior e descreve:
 
-- A localização do blob a partir da qual copiar: **FolderPath** e **FileName**;
+- A localização do blob a copiar de: **FolderPath** e **FileName**;
 - Repare na utilização de parâmetros para FolderPath. "sourceBlobContainer" é o nome do parâmetro e a expressão é substituída pelos valores transmitidos na execução do pipeline. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
 Crie uma função “SourceBlobDatasetDefinition” no ficheiro Program.cs
@@ -258,13 +257,13 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>Criar uma classe C#: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Criar um C# classe: EmailRequest
 No projeto C#, crie uma classe com o nome **EmailRequest**. Esta classe define as propriedades que o pipeline envia no corpo do pedido ao enviar uma mensagem de e-mail. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
 
 - **Mensagem**: o corpo da mensagem de e-mail. No caso de uma cópia com êxito, esta propriedade contém detalhes da execução (número de dados escritos). No caso de uma cópia falhada, esta propriedade contém detalhes do erro.
 - **Nome da fábrica de dados**: o nome da fábrica de dados
 - **Nome do pipeline**: o nome do pipeline
-- **Recetor**: o parâmetro que é passado. Esta propriedade especifica o recetor do e-mail.
+- **Recetor**: Parâmetro é transmitido. Esta propriedade especifica o recetor do e-mail.
 
 ```csharp
     class EmailRequest
@@ -734,7 +733,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

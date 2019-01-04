@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a6390203ecc4ae672f968b19d83eafc8a552ec3a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994855"
+ms.locfileid: "54002064"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -42,7 +42,7 @@ São suportadas as seguintes ligações em vários locais:
 * Ponto a Site – ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Esta ligação não requer um dispositivo VPN. Para obter mais informações, consulte [Point-to-Site (Ponto a Site)](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet a VNet – este tipo de ligação é igual a uma configuração Site a Site. A ligação VNet a VNet é uma ligação VPN através de IPsec (IKE v1 e IKE v2). Não requer um dispositivo VPN. Para obter mais informações, consulte [VNet-to-VNet (VNet a VNet)](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multilocal – é uma variação de uma configuração Site a Site que lhe permite ligar vários sites no local a uma rede virtual. Para obter mais informações, consulte [Multi-Site (Vários Sites)](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* ExpressRoute – o ExpressRoute é uma ligação direta ao Azure a partir da sua WAN e não através ligação VPN da Internet pública. Para obter mais informações, consulte [ExpressRoute Technical Overview (Descrição Geral Técnica do ExpressRoute)](../expressroute/expressroute-introduction.md) e as [ExpressRoute FAQ (FAQ do ExpressRoute)](../expressroute/expressroute-faqs.md).
+* ExpressRoute – o ExpressRoute é uma ligação privada para o Azure da sua WAN e não uma ligação de VPN na Internet pública. Para obter mais informações, consulte [ExpressRoute Technical Overview (Descrição Geral Técnica do ExpressRoute)](../expressroute/expressroute-introduction.md) e as [ExpressRoute FAQ (FAQ do ExpressRoute)](../expressroute/expressroute-faqs.md).
 
 Para obter mais informações sobre as ligações do gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 

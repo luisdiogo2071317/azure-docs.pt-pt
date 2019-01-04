@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089706"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000568"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implementar aplicações lógicas
 
@@ -27,11 +27,11 @@ Para mais informações sobre modelos do Resource Manager, consulte [criar model
 
 Uma aplicação lógica possui três componentes básicos:
 
-* **Recurso de aplicação lógica**: contém informações sobre coisas como preços do plano, localização e a definição de fluxo de trabalho.
-* **Definição de fluxo de trabalho**: descreve os passos de fluxo de trabalho da sua aplicação lógica e como o motor do Logic Apps deve executar o fluxo de trabalho.
+* **Recurso de aplicação lógica**: Contém informações sobre coisas como preços do plano, localização e a definição de fluxo de trabalho.
+* **Definição de fluxo de trabalho**: Descreve os passos de fluxo de trabalho da sua aplicação lógica e como o motor do Logic Apps deve executar o fluxo de trabalho.
 Pode ver essa definição na sua aplicação lógica **vista de código** janela.
 No recurso de aplicação lógica, pode encontrar esta definição no `definition` propriedade.
-* **Ligações**: refere-se para separar os recursos que armazenam metadados sobre todas as ligações conector, como uma cadeia de ligação e um token de acesso em segurança.
+* **Ligações**: Refere-se para separar os recursos que armazenam metadados sobre todas as ligações conector, como uma cadeia de ligação e um token de acesso em segurança.
 No recurso da aplicação lógica, a aplicação lógica faz referência a esses recursos no `parameters` secção.
 
 Pode ver todas essas peças de logic apps existentes utilizando uma ferramenta como o [Explorador de recursos do Azure](http://resources.azure.com).
@@ -187,7 +187,7 @@ Existe um script de exemplo no GitHub sob o [LogicAppConnectionAuth](https://git
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Pipelines do Azure de DevOps do Azure
 
-Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como Pipelines do Azure no DevOps do Azure, com um modelo de implementação de aplicação lógica. DevOps do Azure inclui um [implementar o grupo de recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) tarefas que pode adicionar a qualquer compilação ou pipeline de versões. Tem de ter uma [principal de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para autorização para implementar e, em seguida, pode gerar o pipeline de lançamento.
+Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como Pipelines do Azure no DevOps do Azure, com um modelo de implementação de aplicação lógica. DevOps do Azure inclui um [implementar o grupo de recursos do Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) tarefas que pode adicionar a qualquer compilação ou pipeline de versões. Tem de ter uma [principal de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para autorização para implementar e, em seguida, pode gerar o pipeline de lançamento.
 
 1. Nos Pipelines do Azure, selecione **vazio** para que criar um pipeline vazio.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744212"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000526"
 ---
 # <a name="creating-filters-with-cli"></a>Criar filtros com o CLI 
 
@@ -78,7 +78,8 @@ Filtros definidos no RESTANTE, incluem o objeto JSON do wrapper de "Propriedades
 
 O seguinte procedimento [filtro de conta do ams az](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) comando cria um filtro de conta com filtro seleções de controle que foram [definidas anteriormente](#define-a-filter). 
 
-O seguinte comando permite que uma opção `--tracks` que aceita um ficheiro. Se estiver a utilizar a CLI do Azure localmente, especifique o caminho de ficheiro completo:
+O comando permite que passe opcional `--tracks` parâmetro que contém o JSON que representa as seleções de controle.  Utilize @{file} para carregar o JSON de um arquivo. Se estiver a utilizar a CLI do Azure localmente, especifique o caminho de ficheiro completo:
+
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json

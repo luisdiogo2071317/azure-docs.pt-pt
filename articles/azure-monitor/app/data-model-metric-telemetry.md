@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: c365eea0465eab5fec134f270dab41e62cba2f1d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812225"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999193"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: Modelo de dados do Application Insights
 
@@ -75,4 +75,4 @@ Métrica com a propriedade personalizada `CustomPerfCounter` definido como `true
 
 - Aprenda a usar [API do Application Insights para métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
 - Ver [modelo de dados](data-model.md) para o modelo de tipos e dados do Application Insights.
-- Confira [plataformas](../../application-insights/app-insights-platforms.md) suportada pelo Application Insights.
+- Confira [plataformas](../../azure-monitor/app/platforms.md) suportada pelo Application Insights.

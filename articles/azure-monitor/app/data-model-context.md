@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812221"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015479"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados do Application Insights
 
@@ -84,7 +84,7 @@ Comprimento máximo: 64
 
 Id de utilizador anónimo. Representa o utilizador final do aplicativo. Quando a telemetria é enviada a partir de um serviço, o contexto de utilizador é sobre o utilizador que iniciou a operação no serviço.
 
-[Amostragem](../../application-insights/app-insights-sampling.md) é uma das técnicas para minimizar a quantidade de telemetria recolhida. Algoritmo de amostragem tenta de qualquer exemplo dentro ou para fora de toda a telemetria correlacionada. Id de usuário anônimo é utilizado para geração de pontuação de amostragem. Id de utilizador anónimo deve ser um valor aleatório suficiente. 
+[Amostragem](../../azure-monitor/app/sampling.md) é uma das técnicas para minimizar a quantidade de telemetria recolhida. Algoritmo de amostragem tenta de qualquer exemplo dentro ou para fora de toda a telemetria correlacionada. Id de usuário anônimo é utilizado para geração de pontuação de amostragem. Id de utilizador anónimo deve ser um valor aleatório suficiente. 
 
 Utilizar o id de utilizador anónimo para armazenar o nome de utilizador é um uso indevido do campo. Utilize o id de utilizador autenticado.
 

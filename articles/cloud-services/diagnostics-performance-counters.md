@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788701"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000245"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recolher contadores de desempenho para o seu serviço Cloud do Azure
 
@@ -116,7 +116,7 @@ O Application Insights recolhe automaticamente os seguintes contadores de desemp
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Para obter mais informações, consulte [contadores de desempenho do sistema no Application Insights](../application-insights/app-insights-performance-counters.md) e [Application Insights para serviços Cloud do Azure](../azure-monitor/app/cloudservices.md#performance-counters).
+Para obter mais informações, consulte [contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md) e [Application Insights para serviços Cloud do Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
@@ -295,6 +295,6 @@ Conforme indicado anteriormente, os contadores de desempenho que pretende recolh
 ## <a name="more-information"></a>Mais informações
 
 - [Application Insights para serviços Cloud do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Contadores de desempenho do sistema no Application Insights](../application-insights/app-insights-performance-counters.md)
+- [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
 - [Especificar um caminho de contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Esquema de diagnóstico do Azure - contadores de desempenho](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

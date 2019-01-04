@@ -1,5 +1,5 @@
 ---
-title: Gerir com a CLI do Azure Key Vault | Documentos da Microsoft
+title: Gerir o Azure Key Vault com a CLI - Azure Key Vault | Documentos da Microsoft
 description: Utilize este artigo para automatizar tarefas comuns no Key Vault com a CLI do Azure
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256461"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000313"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 
@@ -133,8 +133,8 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 O resultado deste comando mostra as propriedades do Cofre de chaves que criou. As duas propriedades mais importantes são:
 
-* **nome**: no exemplo, o nome é ContosoKeyVault. Irá utilizar este nome para outros comandos do Key Vault.
-* **vaultUri**: no exemplo, o URI é https://contosokeyvault.vault.azure.net. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **Nome**: No exemplo, o nome é ContosoKeyVault. Irá utilizar este nome para outros comandos do Key Vault.
+* **vaultUri**: No exemplo, o URI é https://contosokeyvault.vault.azure.net. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Até o momento, está autorizado mais ninguém.
 
@@ -228,18 +228,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-update) para ativar políticas avançadas para o Cofre de chaves. 
 
- Ativar o Key Vault para a implementação: permite que as máquinas virtuais obter certificados armazenados como segredos do cofre.
+ Ative o Key Vault para a implementação: Permite que as máquinas virtuais obter certificados armazenados como segredos do cofre.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-Ativar o Key Vault para encriptação de disco: é necessário quando utilizar o cofre para a encriptação de disco do Azure.
+Ative o Key Vault para encriptação de disco: É necessário quando utilizar o cofre para a encriptação de disco do Azure.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Ativar o Key Vault para implementação do modelo: permite que o Resource Manager para obter segredos a partir do cofre.
+Ative o Key Vault para implementação do modelo: Permite que o Resource Manager para obter segredos a partir do cofre.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

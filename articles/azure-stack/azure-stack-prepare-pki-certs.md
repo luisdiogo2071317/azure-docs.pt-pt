@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021140"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparar os certificados PKI de pilha do Azure para utilização na implementação ou de rotação
 Os ficheiros de certificado [obtido a partir de sua autoridade de certificação à escolha](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes a requisitos de certificado do Azure Stack.
@@ -73,7 +73,14 @@ Abra a consola do Gestor de certificados do MMC e ligue-se para o arquivo de cer
 
 1. Selecione **Sim, exportar a chave privada**e, em seguida, clique em **próxima**.
 
-1. Na secção de exportar formato de ficheiro, selecione **exportar todas as propriedades expandidas** e, em seguida, clique em **próxima**.
+1. Na secção exportar formato de ficheiro:
+    
+    - Selecione **incluir todos os certificados no certificado, se possível**.  
+    - Selecione **exportar todas as propriedades expandidas**.  
+    - Selecione **ativar privacidade de certificado**.  
+    - Clique em **Seguinte**.  
+    
+    ![Assistente de exportação de certificado com opções de selecionado](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Selecione **palavra-passe** e fornecer uma palavra-passe para os certificados. Lembre-se desta palavra-passe como ele é usado como um parâmetro de implementação. Selecione **Seguinte**.
 
@@ -82,4 +89,5 @@ Abra a consola do Gestor de certificados do MMC e ligue-se para o arquivo de cer
 1. Selecione **Concluir**.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 [Validar certificados PKI](azure-stack-validate-pki-certs.md)

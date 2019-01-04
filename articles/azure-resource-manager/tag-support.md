@@ -4,14 +4,14 @@ description: Mostra os tipos de recursos do Azure suportam etiquetas. Fornece de
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ef365cdf0a5df168c438abd0428e41200b07756c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753783"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000296"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-using-tags.md).
@@ -24,15 +24,20 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="ad-hybrid-health-service"></a>Serviço de estado de funcionamento do AD híbrido
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| services | Não | 
-| addsservices | Não | 
-| configuração | Não | 
-| agentes | Não | 
+| addsservices | Não |
 | aadsupportcases | Não | 
-| relatórios | Não | 
-| servicehealthmetrics | Não | 
-| registos | Não | 
+| agentes | Não | 
 | anonymousapiusers | Não | 
+| configuração | Não | 
+| registos | Não | 
+| relatórios | Não | 
+| services | Não | 
+| servicehealthmetrics | Não | 
+
+## <a name="aks"></a>AKS
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| managedClusters | Sim | 
 
 ## <a name="analysis-services"></a>Analysis Services
 | Tipo de recurso | Suporta etiquetas |
@@ -43,11 +48,11 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | apiManagementAccounts | Não | 
-| apiManagementAccounts/connectionProviders | Não | 
-| apiManagementAccounts/ligações | Não | 
-| apiManagementAccounts/connectionAcls | Não | 
-| apiManagementAccounts/connectionProviderAcls | Não | 
 | apiManagementAccounts/apis | Não | 
+| apiManagementAccounts/connectionAcls | Não | 
+| apiManagementAccounts/connectionProviders | Não | 
+| apiManagementAccounts/connectionProviderAcls | Não | 
+| apiManagementAccounts/ligações | Não | 
 
 ## <a name="api-management"></a>Gestão de API
 | Tipo de recurso | Suporta etiquetas |
@@ -58,11 +63,48 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | AutomationAccounts | Sim | 
-| automationAccounts/runbooks | Sim | 
 | automationAccounts/configurações | Sim | 
-| automationAccounts/webhooks | Não | 
-| automationAccounts/softwareUpdateConfigurations | Não | 
 | automationAccounts/tarefas | Não | 
+| automationAccounts/runbooks | Sim | 
+| automationAccounts/softwareUpdateConfigurations | Não | 
+| automationAccounts/webhooks | Não | 
+
+## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| servidores | Sim | 
+| / configurações de servidores | Não |
+| bases de dados/servidores | Não |
+| servidores/firewallRules | Não |
+| servidores/recoverableServers | Não | 
+| servidores/securityAlertPolicies | Não |
+| servidores/virtualNetworkRules | Não | 
+
+## <a name="azure-database-for-mysql"></a>Base de Dados do Azure para MySQL
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| servidores | Sim | 
+| / configurações de servidores | Não |
+| bases de dados/servidores | Não |
+| servidores/firewallRules | Não |
+| servidores/recoverableServers | Não | 
+| servidores/securityAlertPolicies | Não |
+| servidores/virtualNetworkRules | Não | 
+
+## <a name="azure-database-for-postgresql"></a>Base de Dados do Azure para PostgreSQL
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| servidores | Sim | 
+| servidores/consultores | Não | 
+| / configurações de servidores | Não |
+| bases de dados/servidores | Não |
+| servidores/firewallRules | Não |
+| servidores/queryTexts | Não | 
+| servidores/recoverableServers | Não | 
+| servidores/securityAlertPolicies | Não |
+| servidores/topQueryStatistics | Não | 
+| servidores/virtualNetworkRules | Não | 
+| servidores/waitStatistics | Não | 
 
 ## <a name="batch"></a>Batch
 | Tipo de recurso | Suporta etiquetas |
@@ -87,12 +129,12 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="cdn"></a>CDN
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
+| edgenodes | Não | 
 | Perfis | Sim | 
 | perfis/pontos finais | Sim | 
-| perfis/pontos finais/origens | Não | 
 | perfis/pontos finais/customdomains | Não | 
+| perfis/pontos finais/origens | Não | 
 | validateProbe | Não | 
-| edgenodes | Não | 
 
 ## <a name="classic-compute"></a>Computação Clássica
 | Tipo de recurso | Suporta etiquetas |
@@ -114,8 +156,8 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | redes virtuais | Não | 
-| redes virtuais/virtualNetworkPeerings | Não | 
 | redes virtuais/remoteVirtualNetworkPeeringProxies | Não | 
+| redes virtuais/virtualNetworkPeerings | Não | 
 
 ## <a name="classic-storage"></a>Armazenamento clássico
 | Tipo de recurso | Suporta etiquetas |
@@ -127,23 +169,23 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | availabilitySets | Sim | 
-| virtualMachines | Sim | 
-| virtualMachines/extensões | Sim | 
-| virtualMachineScaleSets | Sim | 
-| virtualMachineScaleSets/extensões | Não | 
-| virtualMachineScaleSets/virtualMachines | Não | 
-| virtualMachineScaleSets/networkInterfaces | Não | 
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | Não | 
-| virtualMachineScaleSets/publicIPAddresses | Não | 
+| Discos | Sim | 
+| imagens | Sim | 
 | restorePointCollections | Sim | 
 | restorePointCollections/restorePoints | Não | 
-| virtualMachines/diagnosticSettings | Não | 
-| virtualMachines/metricDefinitions | Não | 
 | sharedVMImages | Sim | 
 | sharedVMImages/versões | Sim | 
-| Discos | Sim | 
 | instantâneos | Sim | 
-| imagens | Sim | 
+| virtualMachines | Sim | 
+| virtualMachines/diagnosticSettings | Não | 
+| virtualMachines/extensões | Sim | 
+| virtualMachines/metricDefinitions | Não | 
+| virtualMachineScaleSets | Sim | 
+| virtualMachineScaleSets/extensões | Não | 
+| virtualMachineScaleSets/networkInterfaces | Não | 
+| virtualMachineScaleSets/publicIPAddresses | Não | 
+| virtualMachineScaleSets/virtualMachines | Não | 
+| virtualMachineScaleSets/virtualMachines/networkInterfaces | Não | 
 
 ## <a name="container"></a>Contentor
 | Tipo de recurso | Suporta etiquetas |
@@ -155,6 +197,14 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | containerGroups | Sim | 
 | serviceAssociationLinks | Não | 
+
+## <a name="container-registry"></a>Registo de Contentor
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| registos | Sim | 
+| replicações/registos | Sim |
+| registos/tarefas | Sim |
+| registos/webhooks | Sim |
 
 ## <a name="container-service"></a>Serviço de Contentor
 | Tipo de recurso | Suporta etiquetas |
@@ -177,6 +227,11 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | Conectores | Sim | 
 
+## <a name="data-box"></a>Data Box
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| tarefas | Sim | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | dataFactories | Sim | 
-| fábricas | Sim | 
-| fábricas/integrationRuntimes | Não | 
 | dataFactories/diagnosticSettings | Não | 
 | dataFactories/metricDefinitions | Não | 
 | dataFactorySchema | Não | 
+| fábricas | Sim | 
+| fábricas/integrationRuntimes | Não | 
 
 ## <a name="devices"></a>Dispositivos
 | Tipo de recurso | Suporta etiquetas |
@@ -218,9 +273,24 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | Laboratórios | Sim | 
-| Agendas | Sim | 
-| laboratórios/virtualMachines | Sim | 
+| laboratórios/artifactsources | Sim |
+| laboratórios/custos | Sim |
+| laboratórios/customimages | Sim |
+| laboratórios/fórmulas | Sim |
+| laboratórios/notificationchannels | Sim |
+| laboratórios/policysets/políticas | Sim |
+| laboratórios/agendas | Sim |
 | laboratórios/serviceRunners | Sim | 
+| laboratórios/utilizadores | Sim |
+| laboratórios/utilizadores/discos | Sim |
+| laboratórios/utilizadores/ambientes | Sim |
+| laboratórios/utilizadores/segredos | Sim |
+| laboratórios/utilizadores/servicefabrics | Sim |
+| laboratórios/utilizadores/servicefabrics/agendas | Sim |
+| laboratórios/virtualMachines | Sim | 
+| laboratórios/virtualmachines/agendas | Sim |
+| laboratórios/redes virtuais | Sim |
+| Agendas | Sim | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Tipo de recurso | Suporta etiquetas |
@@ -232,18 +302,23 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="event-grid"></a>Event Grid
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| eventSubscriptions | Não | 
-| Tópicos | Sim | 
 | domínios | Sim | 
 | domínios/tópicos | Não | 
-| topicTypes | Não | 
+| eventSubscriptions | Não | 
 | extensionTopics | Não | 
+| Tópicos | Sim | 
+| topicTypes | Não | 
 
 ## <a name="event-hub"></a>Hub de Eventos
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| espaços de nomes | Sim | 
 | Clusters | Sim | 
+| espaços de nomes | Sim | 
+| espaços de nomes/AuthorizationRules | Não |
+| espaços de nomes/disasterRecoveryConfigs | Não |
+| espaços de nomes/eventhubs | Não |
+| espaços de nomes/eventhubs/authorizationRules | Não |
+| espaços de nomes/eventhubs/consumergroups | Não |
 
 ## <a name="hana-on-azure"></a>Hana no Azure
 | Tipo de recurso | Suporta etiquetas |
@@ -265,28 +340,31 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | actionGroups | Sim |
-| Componentes | Sim | 
-| componentes/consulta | Não | 
-| componentes/métricas | Não | 
-| componentes/eventos | Não | 
-| testes Web | Sim | 
-| consultas de | Não | 
-| scheduledqueryrules | Sim | 
-| componentes/pricingPlans | Não | 
-| migrateToNewPricingModel | Não | 
-| rollbackToLegacyPricingModel | Não | 
+| activityLogAlerts | Sim |
+| alertrules | Sim |
 | automatedExportSettings | Não | 
-| pastas de trabalho | Sim | 
-| myWorkbooks | Não | 
+| Componentes | Sim | 
+| componentes/eventos | Não | 
+| componentes/métricas | Não | 
+| componentes/pricingPlans | Não | 
+| componentes/consulta | Não | 
 | registos | Não | 
+| metricAlerts | Sim |
+| migrateToNewPricingModel | Não | 
+| myWorkbooks | Não | 
+| consultas de | Não | 
+| rollbackToLegacyPricingModel | Não | 
+| scheduledqueryrules | Sim | 
+| testes Web | Sim | 
+| pastas de trabalho | Sim | 
 
 ## <a name="key-vault"></a>Cofre de Chaves
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| cofres | Sim | 
-| Cofres/segredos | Não | 
-| cofres/accessPolicies | Não | 
 | deletedVaults | Não | 
+| cofres | Sim | 
+| cofres/accessPolicies | Não | 
+| Cofres/segredos | Não | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Tipo de recurso | Suporta etiquetas |
@@ -296,8 +374,8 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="logic"></a>Lógica
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| Fluxos de trabalho | Sim | 
 | integrationAccounts | Sim | 
+| Fluxos de trabalho | Sim | 
 
 ## <a name="machine-learning-services"></a>Machine Learning Services
 | Tipo de recurso | Suporta etiquetas |
@@ -310,13 +388,6 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | Identidades | Não | 
 | userAssignedIdentities | Sim | 
-
-## <a name="mariadb"></a>MariaDB
-| Tipo de recurso | Suporta etiquetas |
-| ------------- | ----------- |
-| servidores | Sim | 
-| servidores/recoverableServers | Não | 
-| servidores/virtualNetworkRules | Não | 
 
 ## <a name="marketplace-apps"></a>Aplicações do Marketplace
 | Tipo de recurso | Suporta etiquetas |
@@ -333,64 +404,57 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | mediaservices | Sim | 
+| mediaservices/accountFilters | Não | 
 | mediaservices/ativos | Não | 
+| mediaservices/ativos/assetFilters | Não | 
 | mediaservices/contentKeyPolicies | Não | 
-| mediaservices/streamingLocators | Não | 
-| mediaservices/streamingPolicies | Não | 
 | mediaservices/eventGridFilters | Não | 
-| mediaservices/transformações | Não | 
-| mediaservices/transformações/tarefas | Não | 
-| mediaservices/pontos finais | Sim | 
+| mediaservices/liveEventOperations | Não | 
 | mediaservices/liveEvents | Sim | 
 | mediaservices/liveEvents/liveOutputs | Não | 
-| mediaservices/streamingEndpointOperations | Não | 
-| mediaservices/liveEventOperations | Não | 
 | mediaservices/liveOutputOperations | Não | 
-| mediaservices/ativos/assetFilters | Não | 
-| mediaservices/accountFilters | Não | 
-
-## <a name="mysql"></a>MySQL
-| Tipo de recurso | Suporta etiquetas |
-| ------------- | ----------- |
-| servidores | Sim | 
-| servidores/recoverableServers | Não | 
-| servidores/virtualNetworkRules | Não | 
+| mediaservices/pontos finais | Sim | 
+| mediaservices/streamingEndpointOperations | Não | 
+| mediaservices/streamingLocators | Não | 
+| mediaservices/streamingPolicies | Não | 
+| mediaservices/transformações | Não | 
+| mediaservices/transformações/tarefas | Não | 
 
 ## <a name="network"></a>Rede
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| redes virtuais | Sim | 
-| publicIPAddresses | Sim | 
-| networkInterfaces | Sim | 
+| applicationGateways | Sim | 
+| applicationSecurityGroups | Sim | 
+| azureFirewalls | Sim | 
+| ligações | Sim | 
+| ddosProtectionPlans | Sim | 
+| expressRouteCircuits | Sim | 
+| frontdoors | Sim | 
+| frontdoorWebApplicationFirewallPolicies | Sim | 
 | interfaceEndpoints | Sim | 
 | balanceadores de carga | Sim | 
-| networkSecurityGroups | Sim | 
-| applicationSecurityGroups | Sim | 
-| serviceEndpointPolicies | Sim | 
+| localNetworkGateways | Sim | 
 | networkIntentPolicies | Sim | 
-| routeTables | Sim | 
-| publicIPPrefixes | Sim | 
+| networkInterfaces | Sim | 
+| networkProfiles | Sim | 
+| networkSecurityGroups | Sim | 
 | networkWatchers | Sim | 
 | networkWatchers/connectionMonitors | Sim | 
 | networkWatchers/lentes | Sim | 
 | networkWatchers/pingMeshes | Sim | 
-| virtualNetworkGateways | Sim | 
-| localNetworkGateways | Sim | 
-| ligações | Sim | 
-| applicationGateways | Sim | 
-| expressRouteCircuits | Sim | 
-| routeFilters | Sim | 
-| virtualWans | Sim | 
-| vpnSites | Sim | 
-| virtualHubs | Sim | 
-| vpnGateways | Sim | 
-| azureFirewalls | Sim | 
-| virtualNetworkTaps | Sim | 
 | privateLinkServices | Sim | 
-| ddosProtectionPlans | Sim | 
-| networkProfiles | Sim | 
-| frontdoors | Sim | 
-| frontdoorWebApplicationFirewallPolicies | Sim | 
+| publicIPAddresses | Sim | 
+| publicIPPrefixes | Sim | 
+| routeFilters | Sim | 
+| routeTables | Sim | 
+| serviceEndpointPolicies | Sim | 
+| virtualHubs | Sim | 
+| redes virtuais | Sim | 
+| virtualNetworkGateways | Sim | 
+| virtualNetworkTaps | Sim | 
+| virtualWans | Sim | 
+| vpnGateways | Sim | 
+| vpnSites | Sim | 
 | webApplicationFirewallPolicies | Sim | 
 
 ## <a name="notification-hubs"></a>Hubs de Notificação
@@ -398,6 +462,20 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | espaços de nomes | Sim | 
 | espaços de nomes/notificationHubs | Sim | 
+
+## <a name="operational-insights"></a>Informações Operacionais
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| áreas de trabalho | Sim |
+| áreas de trabalho/origens de dados | Sim |
+| áreas de trabalho/linkedServices | Sim |
+| áreas de trabalho/savedSearches | Não |
+| áreas de trabalho/storageInsightConfigs | Sim |
+
+## <a name="operations-management"></a>Gestão de Operações
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| soluções | Não |
 
 ## <a name="portal"></a>Portal
 | Tipo de recurso | Suporta etiquetas |
@@ -409,17 +487,6 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | rootResources | Sim | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Tipo de recurso | Suporta etiquetas |
-| ------------- | ----------- |
-| servidores | Sim | 
-| servidores/recoverableServers | Não | 
-| servidores/virtualNetworkRules | Não | 
-| servidores/topQueryStatistics | Não | 
-| servidores/queryTexts | Não | 
-| servidores/waitStatistics | Não | 
-| servidores/consultores | Não | 
-
 ## <a name="power-bi"></a>Power BI
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
@@ -428,8 +495,8 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="recovery-services"></a>Serviços de Recuperação
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| cofres | Sim | 
 | backupProtectedItems | Não | 
+| cofres | Sim | 
 
 ## <a name="relay"></a>Reencaminhamento
 | Tipo de recurso | Suporta etiquetas |
@@ -451,8 +518,8 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="search"></a>Pesquisa
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| searchServices | Sim | 
 | resourceHealthMetadata | Não | 
+| searchServices | Sim | 
 
 ## <a name="security"></a>Segurança
 | Tipo de recurso | Suporta etiquetas |
@@ -495,6 +562,64 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | applicationDefinitions | Sim | 
 | jitRequests | Sim | 
 
+## <a name="sql"></a>SQL
+| Tipo de recurso | Suporta etiquetas |
+| ------------- | ----------- |
+| localizações/instanceFailoverGroups | Não |
+| managedInstances | Sim |
+| managedInstances/bases de dados | Sim |
+| bases de dados/managedInstances/backupShortTermRetentionPolicies | Não |
+| bases de dados/managedInstances/esquemas/colunas/tabelas/sensitivityLabels | Não |
+| bases de dados/managedInstances/vulnerabilityAssessments | Não |
+| managedInstances/bases de dados/vulnerabilityAssessments/regras/linhas de base | Não |
+| managedInstances/encryptionProtector | Não |
+| managedInstances/chaves | Não |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não |
+| managedInstances/vulnerabilityAssessments | Não |
+| servidores | Sim |
+| servidores/administradores | Não |
+| servidores/consultores | Não |
+| servidores/auditingSettings | Não |
+| servidores/backupLongTermRetentionVaults | Não |
+| servidores/communicationLinks | Não |
+| servidores/connectionPolicies | Não |
+| bases de dados/servidores | Sim |
+| bases de dados/servidores/consultores | Não |
+| bases de dados/servidores/auditingSettings | Não |
+| bases de dados/servidores/backupLongTermRetentionPolicies | Não |
+| bases de dados/servidores/backupShortTermRetentionPolicies | Não |
+| bases de dados/servidores/connectionPolicies | Não |
+| bases de dados/servidores/dataMaskingPolicies | Não |
+| servidores/bases de dados/dataMaskingPolicies/regras | Não |
+| bases de dados/servidores/extendedAuditingSettings | Não |
+| bases de dados/servidores/extensões | Não |
+| bases de dados/servidores/geoBackupPolicies | Não |
+| bases de dados/servidores/esquemas/colunas/tabelas/sensitivityLabels | Não |
+| bases de dados/servidores/securityAlertPolicies | Não |
+| bases de dados/servidores/syncGroups | Não |
+| servidores/bases de dados/syncGroups/syncMembers | Não |
+| bases de dados/servidores/transparentDataEncryption | Não |
+| bases de dados/servidores/vulnerabilityAssessments | Não |
+| servidores/bases de dados/vulnerabilityAssessments/regras/linhas de base | Não |
+| servidores/disasterRecoveryConfiguration | Não |
+| servidores/dnsAliases | Não |
+| servidores/elasticPools | Sim |
+| servidores/encryptionProtector | Não |
+| servidores/extendedAuditingSettings | Não |
+| servidores/failoverGroups | Sim |
+| servidores/firewallRules | Não |
+| servidores/jobAgents | Sim |
+| servidores/jobAgents/credenciais | Não |
+| servidores/jobAgents/tarefas | Não |
+| servidores/jobAgents/tarefas/execuções | Não |
+| servidores/jobAgents/tarefas/passos | Não |
+| servidores/jobAgents/targetGroups | Não |
+| servidores/chaves | Não |
+| servidores/securityAlertPolicies | Não |
+| servidores/syncAgents | Não |
+| servidores/virtualNetworkRules | Não |
+| servidores/vulnerabilityAssessments | Não |
+
 ## <a name="sql-virtual-machine"></a>Máquina virtual do SQL
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
@@ -505,20 +630,20 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | ------------- | ----------- |
 | storageAccounts | Sim | 
 | storageAccounts/blobServices | Não | 
-| storageAccounts/tableServices | Não | 
-| storageAccounts/queueServices | Não | 
 | storageAccounts/fileServices | Não | 
+| storageAccounts/queueServices | Não | 
 | storageAccounts/serviços | Não | 
 | serviços/storageAccounts/metricDefinitions | Não | 
+| storageAccounts/tableServices | Não | 
 
 ## <a name="storage-sync"></a>Sincronização de armazenamento
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | storageSyncServices | Sim | 
+| storageSyncServices/registeredServers | Não | 
 | storageSyncServices/syncGroups | Não | 
 | storageSyncServices/syncGroups/cloudEndpoints | Não | 
 | storageSyncServices/syncGroups/serverEndpoints | Não | 
-| storageSyncServices/registeredServers | Não | 
 | storageSyncServices/fluxos de trabalho | Não | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -548,53 +673,50 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | conta | Sim | 
-| conta/projeto | Sim | 
 | extensão da conta / | Sim | 
-| conta | Sim | 
 | conta/projeto | Sim | 
-| extensão da conta / | Sim | 
 
 ## <a name="web"></a>Web
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| sites/instâncias | Não | 
-| sites/ranhuras/instâncias | Não | 
-| sites/instâncias/extensões | Não | 
-| sites/ranhuras/instâncias/extensões | Não | 
-| publishingUsers | Não | 
-| Validar | Não | 
-| sourceControls | Não | 
-| sites/hostNameBindings | Não | 
-| sites/domainOwnershipIdentifiers | Não | 
-| sites/ranhuras/hostNameBindings | Não | 
+| apiManagementAccounts | Não | 
+| apiManagementAccounts/apiAcls | Não | 
+| apiManagementAccounts/apis | Não | 
+| apiManagementAccounts/apis/apiAcls | Não | 
+| apiManagementAccounts/apis/connectionAcls | Não | 
+| apiManagementAccounts/apis/ligações | Não | 
+| apiManagementAccounts/apis/ligações/connectionAcls | Não | 
+| apiManagementAccounts/apis/localizedDefinitions | Não | 
+| apiManagementAccounts/connectionAcls | Não | 
+| apiManagementAccounts/ligações | Não | 
+| billingMeters | Não | 
 | certificados | Sim | 
+| connectionGateways | Sim | 
+| ligações | Sim | 
+| customApis | Sim | 
+| deletedSites | Não | 
+| functions | Não | 
+| hostingEnvironments | Sim | 
+| hostingEnvironments/métricas | Não | 
+| hostingEnvironments/multiRolePools | Não | 
+| hostingEnvironments/workerPools | Não | 
+| publishingUsers | Não | 
 | serverFarms | Sim | 
 | serverFarms/funções de trabalho | Não | 
 | Sites | Sim | 
-| sites/ranhuras | Sim | 
+| sites/domainOwnershipIdentifiers | Não | 
+| sites/hostNameBindings | Não | 
+| sites/instâncias | Não | 
+| sites/instâncias/extensões | Não | 
 | sites/métricas | Não | 
-| sites/ranhuras/métricas | Não | 
 | sites/premieraddons | Sim | 
-| hostingEnvironments | Sim | 
-| hostingEnvironments/multiRolePools | Não | 
-| hostingEnvironments/workerPools | Não | 
-| hostingEnvironments/métricas | Não | 
-| functions | Não | 
-| deletedSites | Não | 
-| apiManagementAccounts | Não | 
-| apiManagementAccounts/ligações | Não | 
-| apiManagementAccounts/connectionAcls | Não | 
-| apiManagementAccounts/apis/ligações/connectionAcls | Não | 
-| apiManagementAccounts/apis/connectionAcls | Não | 
-| apiManagementAccounts/apiAcls | Não | 
-| apiManagementAccounts/apis/apiAcls | Não | 
-| apiManagementAccounts/apis | Não | 
-| apiManagementAccounts/apis/localizedDefinitions | Não | 
-| apiManagementAccounts/apis/ligações | Não | 
-| ligações | Sim | 
-| customApis | Sim | 
-| connectionGateways | Sim | 
-| billingMeters | Não | 
+| sites/ranhuras | Sim | 
+| sites/ranhuras/hostNameBindings | Não | 
+| sites/ranhuras/instâncias | Não | 
+| sites/ranhuras/instâncias/extensões | Não | 
+| sites/ranhuras/métricas | Não | 
+| sourceControls | Não | 
+| Validar | Não | 
 | verifyHostingEnvironmentVnet | Não | 
 
 ## <a name="xrm"></a>XRM

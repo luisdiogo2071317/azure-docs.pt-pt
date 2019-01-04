@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b870383634412c5b095738e2a7f79b9cf4dcf78a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744416"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018216"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -36,7 +36,7 @@ Para concluir este tutorial:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../azure-monitor/app/asp-net.md).
-- [Ativar o gerador de perfis do Application Insights](app-insights-profiler.md#installation) para a sua aplicação.
+- [Ativar o gerador de perfis do Application Insights](../azure-monitor/app/profiler.md#installation) para a sua aplicação.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -61,7 +61,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 
     ![Distribuição da duração](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Pode ver rapidamente que a chamada para Tabelas do Azure Fabrikamaccount é a que mais contribui para a duração total da transação. Também pode ver uma exceção causou a falha. Pode clicar em qualquer item na lista para ver os respetivos detalhes no lado direito. [Saiba mais sobre a experiência de transação de diagnósticos](app-insights-transaction-diagnostics.md)
+5.  Pode ver rapidamente que a chamada para Tabelas do Azure Fabrikamaccount é a que mais contribui para a duração total da transação. Também pode ver uma exceção causou a falha. Pode clicar em qualquer item na lista para ver os respetivos detalhes no lado direito. [Saiba mais sobre a experiência de transação de diagnósticos](../azure-monitor/app/transaction-diagnostics.md)
 
     ![Detalhes da operação](media/app-insights-tutorial-performance/operation-details.png)
     

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638247"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014901"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory ao Data Factory versão 1
 Este artigo compara o Data Factory ao Data Factory versão 1. Para obter uma introdução ao Data Factory, veja [Introdução ao Data Factory](introduction.md). Para obter uma introdução ao Data Factory versão 1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -68,7 +67,7 @@ Os pipelines podem ser adicionados a pedido (baseados em eventos, ou seja, mensa
 A [atividade Executar Pipeline](control-flow-execute-pipeline-activity.md) permite que um pipeline do Data Factory invoque outro pipeline.
 
 ### <a name="delta-flows"></a>Fluxos delta
-Um caso de utilização-chave em padrões ETL é "cargas-delta", na qual apenas os dados que foram alterados desde a última iteração de um pipeline são carregados. As novas funcionalidades na versão atual, tais como [atividade de pesquisa](control-flow-lookup-activity.md), agendamento flexível e fluxo de controlo permitem este caso de utilização de forma natural. Para um tutorial com instruções passo a passo, consulte [Tutorial: Cópia incremental](tutorial-incremental-copy-powershell.md).
+Um caso de utilização-chave em padrões ETL é "cargas-delta", na qual apenas os dados que foram alterados desde a última iteração de um pipeline são carregados. As novas funcionalidades na versão atual, tais como [atividade de pesquisa](control-flow-lookup-activity.md), agendamento flexível e fluxo de controlo permitem este caso de utilização de forma natural. Para obter um tutorial com instruções passo a passo, consulte [Tutorial: Cópia incremental](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Outras atividades de fluxo de controlo
 Seguem-se mais algumas atividades de fluxo de controlo suportadas pela versão atual do Data Factory. 
@@ -117,13 +116,13 @@ Para mais informações, veja [Diferença entre a atividade personalizada no Dat
 ## <a name="sdks"></a>SDKs
  A versão atual do Data Factory fornece um melhor conjunto de SDKs que podem ser utilizados para criar, gerir e monitorizar pipelines.
 
-- **SDK .NET**: o SDK .NET é atualizado na versão atual.
+- **SDK DE .NET**: O SDK do .NET é atualizado na versão atual.
 
-- **PowerShell**: os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets da versão atual têm **DataFactoryV2** no nome, por exemplo: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: Os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets para a versão atual têm **DataFactoryV2** o nome, por exemplo: Get-AzureRmDataFactoryV2. 
 
-- **SDK Python**: este SDK é novo na versão atual.
+- **Python SDK**: Este SDK é novo na versão atual.
 
-- **API REST**: a API REST é atualizada na versão atual. 
+- **REST API**: A API REST é atualizada na versão atual. 
 
 Os SDKs que são atualizados na versão atual não são compatíveis com versões anteriores com clientes V1. 
 
@@ -146,5 +145,5 @@ A função de Contribuidor do Data Factory versão 1 pode ser utilizada para cri
 Na versão atual, também pode monitorizar fábricas de dados ao utilizar o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell suportam a monitorização de [tempos de execução de integração](monitor-integration-runtime.md). Ambos o V1 e V2 suportam monitorização visual através de uma aplicação de monitorização que pode ser aberta a partir do portal do Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como criar uma fábrica de dados com as instruções passo a passo nos inícios rápidos: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 

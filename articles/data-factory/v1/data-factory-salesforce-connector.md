@@ -9,17 +9,16 @@ ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9dba65591479033a892615ff053eebd0862851e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b4485344f0bb85cb5dd2a2d621833d0fed15a8e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125675"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022483"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +34,7 @@ Este artigo descreve como pode utilizar a atividade de cópia de uma fábrica de
 O Azure Data Factory suporta atualmente apenas mover dados do Salesforce para [arquivos de dados de sink suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats), mas não suporte a mover dados de outros dados armazena ao Salesforce.
 
 ## <a name="supported-versions"></a>Versões suportadas
-Este conector suporta as seguintes edições do Salesforce: Developer Edition, Professional Edition, Enterprise Edition ou edição ilimitado. E ele suporta copiar do Salesforce produção, área de segurança e o domínio personalizado.
+Este conector suporta as seguintes edições do Salesforce: Developer Edition, Professional Edition, Enterprise Edition ou edição ilimitada. E ele suporta copiar do Salesforce produção, área de segurança e o domínio personalizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Permissão de API tem de estar ativada. Consulte [como ativar o acesso à API no Salesforce por conjunto de permissões?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -52,9 +51,9 @@ Também poderá receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. C
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados do Salesforce ao utilizar ferramentas/APIs diferentes.
 
-A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
 
@@ -62,7 +61,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
 3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados do Salesforce, veja [exemplo de JSON: copiar dados do Salesforce para BLOBs do Azure](#json-example-copy-data-from-salesforce-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados do Salesforce, consulte [exemplo de JSON: Copiar dados do Salesforce para BLOBs do Azure](#json-example-copy-data-from-salesforce-to-azure-blob) seção deste artigo. 
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas ao Salesforce: 
 
@@ -71,7 +70,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **Salesforce**. |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância de URL do Salesforce. <br><br> -Predefinição é "https://login.salesforce.com". <br> -Para copiar dados de proteção de segurança, especifique "https://test.salesforce.com". <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador. |Sim |
@@ -125,7 +124,7 @@ Para consultar registos soft eliminados da Reciclagem Salesforce, pode especific
 * Para consultar apenas os registos eliminados, especificar "selecionar * de MyTable__c **onde IsDeleted = 1**"
 * Para consultar todos os registos, incluindo o existente e o eliminado, especificar "selecionar * de MyTable__c **onde IsDeleted = 0 ou IsDeleted = 1**"
 
-## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Exemplo de JSON: copiar dados do Salesforce para BLOBs do Azure
+## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Exemplo JSON: Copiar dados do Salesforce para BLOBs do Azure
 O exemplo seguinte fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Salesforce para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.   
 
 Aqui estão os artefactos do Data Factory que terá de criar para implementar o cenário. As seções a seguir lista fornecem detalhes sobre estes passos.
@@ -289,15 +288,15 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | --- | --- |
 | Número de automática |Cadeia |
 | Caixa de verificação |Booleano |
-| Moeda |decimal |
+| Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
 | Email |Cadeia |
 | Id |Cadeia |
 | Relação de referência |Cadeia |
 | Lista de opções de seleção múltipla |Cadeia |
-| Number |decimal |
-| Percentagem |decimal |
+| Number |Decimal |
+| Percentagem |Decimal |
 | Telefone |Cadeia |
 | Lista de opções |Cadeia |
 | Texto |Cadeia |

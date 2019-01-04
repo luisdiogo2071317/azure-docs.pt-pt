@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c0f68304a73f8489668fafb98c51bd1e78b7588f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972656"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021888"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](../../application-insights/app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -96,7 +96,7 @@ Depois de criar um dashboard, pode partilhá-lo com outros utilizadores.
 
 ![No cabeçalho de dashboard, clique em partilha](./media/app-insights-dashboards/41.png)
 
-Saiba mais sobre [funções e controlo de acesso](../../application-insights/app-insights-resources-roles-access-control.md).
+Saiba mais sobre [funções e controlo de acesso](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## <a name="create-dashboards-programmatically"></a>Criar dashboards programaticamente
 Pode automatizar a criação de dashboard usando [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) e um simple editor de JSON.
@@ -109,7 +109,7 @@ O painel de descrição geral é o gateway para obter mais informações sobre a
 ### <a name="overview-blade-buttons"></a>Botões do painel de descrição geral
 ![Barra de navegação superior do painel de descrição geral](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Explorador de métricas** ](../../application-insights/app-insights-metrics-explorer.md) -criar seus próprios gráficos de desempenho e utilização.
+* [**Explorador de métricas** ](../../azure-monitor/app/metrics-explorer.md) -criar seus próprios gráficos de desempenho e utilização.
 * [**Pesquisa** ](../../azure-monitor/app/diagnostic-search.md) - investigar instâncias específicas de eventos, tais como pedidos, exceções, ou rastreios de registo.
 * [**Análise** ](../../azure-monitor/app/analytics.md) -consultas eficientes através de sua telemetria.
 * **Intervalo de tempo** -ajustar a amplitude exibida por todos os gráficos no painel.
@@ -123,14 +123,14 @@ O painel de descrição geral é o gateway para obter mais informações sobre a
 
 * **Descrição geral** -regressar ao painel de descrição geral da aplicação.
 * **Registo de atividades** -alertas e eventos administrativos do Azure.
-* [**Controlo de acesso** ](../../application-insights/app-insights-resources-roles-access-control.md) -fornecem acesso aos membros da Equipe e outras pessoas.
+* [**Controlo de acesso** ](../../azure-monitor/app/resources-roles-access-control.md) -fornecem acesso aos membros da Equipe e outras pessoas.
 * [**As etiquetas** ](../../azure-resource-manager/resource-group-using-tags.md) -utilizar etiquetas para agrupar a sua aplicação com outras pessoas.
 
 INVESTIGAR
 
 * [**Mapa da aplicação** ](app-map.md) -Active Directory mapa que mostra os componentes do seu aplicativo, derivada das informações de dependência.
 * [**Deteção inteligente** ](../../application-insights/app-insights-proactive-diagnostics.md) -rever os alertas de desempenho recentes.
-* [**Live Stream** ](../../application-insights/app-insights-live-stream.md) – um fixo de conjunto de métricas de quase imediata, útil ao implementar uma nova compilação ou a depurar.
+* [**Live Stream** ](../../azure-monitor/app/live-stream.md) – um fixo de conjunto de métricas de quase imediata, útil ao implementar uma nova compilação ou a depurar.
 * [**Disponibilidade / testes Web** ](../../azure-monitor/app/monitor-web-app-availability.md) -enviar pedidos regulares para a aplicação web a partir em todo o world.*
 * [**Falhas de desempenho** ](../../application-insights/app-insights-web-monitor-performance.md) -exceções, taxas de falhas e tempos de resposta para pedidos à sua aplicação e para pedidos a partir da sua aplicação para [dependências](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Desempenho** ](../../application-insights/app-insights-web-monitor-performance.md) -tempo de resposta, os tempos de resposta de dependência.
@@ -145,14 +145,14 @@ CONFIGURAR
 * [Alertas](../../azure-monitor/app/alerts.md) -configuração de alerta de métrica.
 * [A exportação contínua](../../azure-monitor/app/export-telemetry.md) -configurar a exportação de telemetria para o armazenamento do Azure.
 * [Testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) -configurar uma carga sintética no seu Web site.
-* [Preços e quota](../../application-insights/app-insights-pricing.md) e [amostragem de ingestão](../../application-insights/app-insights-sampling.md).
+* [Preços e quota](../../azure-monitor/app/pricing.md) e [amostragem de ingestão](../../azure-monitor/app/sampling.md).
 * **Acesso à API** -crie [anotações da versão](annotations.md) e para a API de acesso de dados.
 * [**Itens de trabalho** ](../../azure-monitor/app/diagnostic-search.md#create-work-item) -ligar a um sistema de controlo, para que possa criar bugs ao inspecionar o telemetria de trabalho.
 
 DEFINIÇÕES
 
 * [**Bloqueia** ](../../azure-resource-manager/resource-group-lock-resources.md) -bloquear recursos do Azure
-* [**Script de automação** ](../../application-insights/app-insights-powershell.md) -exportar uma definição do recurso do Azure, para que possa utilizar como um modelo para criar novos recursos.
+* [**Script de automação** ](../../azure-monitor/app/powershell.md) -exportar uma definição do recurso do Azure, para que possa utilizar como um modelo para criar novos recursos.
 
 
 ## <a name="video"></a>Vídeo
@@ -163,6 +163,6 @@ DEFINIÇÕES
 
 |  |  |
 | --- | --- |
-| [Explorador de métricas](../../application-insights/app-insights-metrics-explorer.md)<br/>Métricas de filtrar e segmentar |![Exemplo de pesquisa](./media/app-insights-dashboards/64.png) |
+| [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md)<br/>Métricas de filtrar e segmentar |![Exemplo de pesquisa](./media/app-insights-dashboards/64.png) |
 | [Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)<br/>Localizar e Inspecione os eventos, eventos relacionados e criar bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png) |
 | [Análise](../../azure-monitor/app/analytics.md)<br/>Poderosa linguagem de consultas |![Exemplo de pesquisa](./media/app-insights-dashboards/63.png) |

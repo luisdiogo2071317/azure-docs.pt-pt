@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138250"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999361"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -179,7 +179,7 @@ Por predefinição, os proxies de funções utilizará um atalho para enviar as 
 
 |Chave|Valor|Descrição|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com um url de back-end que aponta para uma função na função local já não serão enviadas diretamente para a função e, em vez disso, serão direcionadas para o front-end HTTP para a aplicação de funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com um url de back-end que aponta para uma função no local a aplicação de função deixarão de ser enviada diretamente para a função e em vez disso, será direcionada para o front-end HTTP para a aplicação de funções|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um url de back-end que aponta para uma função no local a aplicação de função será reencaminhada diretamente para essa função|
 
 

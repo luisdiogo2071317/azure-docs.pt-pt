@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: a3af54b01de1966240484c7266e7906490d7db4e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981055"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013813"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis algumas sugestões.
@@ -48,7 +48,7 @@ Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis al
 * Está à procura no recurso de IA correto? Corresponde, a iKey do seu aplicativo para o recurso onde está esperando a telemetria. Deve ser o mesmo.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu estou esperando
-* Abra a utilização e estimado se a página de custo e de verificação [amostragem](../../application-insights/app-insights-sampling.md) está em operação. (transmissão de 100% significa que a amostragem não está em operação). O serviço Application Insights pode ser definido para aceitar apenas uma fração de telemetria que são recebidos a partir da sua aplicação. Isto ajuda a manter-se dentro da sua quota mensal de telemetria.
+* Abra a utilização e estimado se a página de custo e de verificação [amostragem](../../azure-monitor/app/sampling.md) está em operação. (transmissão de 100% significa que a amostragem não está em operação). O serviço Application Insights pode ser definido para aceitar apenas uma fração de telemetria que são recebidos a partir da sua aplicação. Isto ajuda a manter-se dentro da sua quota mensal de telemetria.
 * Tem amostragem de SDK ativada? Se Sim, os dados seriam amostragem a taxa especificada para todos os tipos de aplicável.
 * Está executando uma versão mais antiga do SDK de Java? A partir da versão 2.0.1, introduzimos mecanismo de tolerância a falhas para lidar com intermitente da rede e falhas de back-end, bem como a persistência de dados em unidades locais.
 * Obter limitados devido a excesso telemetria? Se ativar o registo de informações, verá um log de mensagem "A aplicação é limitada". Nosso limite atual é 32 telemetria de mil itens/segundo.
@@ -165,7 +165,7 @@ O Application Insights utiliza `org.apache.http`. Isso é realocado dentro do Ap
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md
 [usage]: javascript.md
 

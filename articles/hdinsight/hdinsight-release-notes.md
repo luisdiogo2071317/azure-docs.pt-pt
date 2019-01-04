@@ -2,19 +2,19 @@
 title: Notas de versão do Azure HDInsight
 description: Notas de versão mais recente do Azure HDInsight. Obtenha dicas de desenvolvimento e detalhes para Hadoop, Spark, R Server, do Hive e muito mais.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976975"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000088"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de versão do Azure HDInsight
 
@@ -1308,6 +1308,16 @@ Problemas de fixos representam selecionados problemas que foram anteriormente re
 |**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desativar o scheduler |**Componente afetado:** Servidor do Zeppelin<br /><br />**Comportamento anterior:** Nas versões anteriores do Zeppelin, não havia nenhuma opção para desativar o scheduler.<br /><br />**Novo comportamento:** Por predefinição, os utilizadores já não verá agendador, porque está desativada por predefinição.<br /><br />**Ação de cliente de solução/esperado:** Se pretender ativar o scheduler, terá de adicionar azeppelin.notebook.cron.enable com valor de true em site zeppelin personalizado nas definições de Zeppelin do Ambari.|
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
+-   **Integração do HDInsight com o ADLS Gen 2** há dois problemas em clusters do HDInsight ESP através do Azure Data Lake Storage Gen 2 com diretórios de usuário e permissões:
+   
+   1. Diretórios raiz para os utilizadores não são introdução criados no Head nó 1. Como solução, crie manualmente os diretórios e alterar a propriedade para o respetivo UPN dos utilizadores.
+   
+   2. Permissões no diretório de /hdp não está atualmente configurado para 751. Isso precisa ser definido como 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **2.3 do Spark**
 

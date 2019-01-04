@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a8bb5e7ca71a24f36b102938668d57bdccd0b0b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101811"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023804"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar dados de Eloqua Oracle com o Azure Data Factory (pré-visualização)
 
@@ -45,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Eloqua Oracle ligad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **Eloqua** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Eloqua** | Sim |
 | endpoint | O ponto final do servidor Eloqua. Eloqua oferece suporte a vários centros de dados, para determinar o ponto final, o início de sessão https://login.eloqua.com com a credencial, em seguida, copie o **URL de base** parte da URL redirecionada com o padrão de `xxx.xxx.eloqua.com`. | Sim |
 | o nome de utilizador | O nome do site e o nome de utilizador da sua conta de Eloqua sob a forma: `SiteName\Username` por exemplo, `Eloqua\Alice`.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -80,7 +79,7 @@ Para copiar dados do Oracle Eloqua, defina a propriedade de tipo de conjunto de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **EloquaObject** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **EloquaObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

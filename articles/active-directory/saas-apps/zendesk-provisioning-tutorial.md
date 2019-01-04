@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322777"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999327"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para aprovisionamento automático de utilizadores
 
@@ -168,6 +168,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="connector-limitations"></a>Limitações de conector
 * Zendesk oferece suporte a utilização de grupos para os utilizadores com apenas as funções do agente. Para obter mais informações, consulte [documentação do Zendesk](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Quando uma função personalizada é atribuída a um utilizador e/ou grupo, o utilizador automático do Azure AD do serviço de aprovisionamento também atribuirá a função predefinida **agente**. Apenas **agentes** pode ser atribuída uma função personalizada. Para obter mais informações, consulte este [documentação da API do Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
