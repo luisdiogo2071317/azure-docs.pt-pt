@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7580089782eb9330d5b533588265d156213f397f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b81a555111ff49fcf2e14a75afdce81835d151bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000585"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038554"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
 Depois de ter [adicionado o Application Insights ao seu código ASP.NET](../../azure-monitor/app/asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
@@ -25,7 +25,7 @@ Depois de ter [adicionado o Application Insights ao seu código ASP.NET](../../a
 | Ação | O que obtém|
 |---|---|
 |(Servidores IIS) [Instalar o Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](../../azure-monitor/app/performance-counters.md)<br/>[**Exceções** ](asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](../../azure-monitor/app/asp-net-dependencies.md)|
-|[Adicione o fragmento do JavaScript às suas páginas web](../../azure-monitor/app/javascript.md)|[Página desempenho](../../application-insights/app-insights-usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|
+|[Adicione o fragmento do JavaScript às suas páginas web](../../azure-monitor/app/javascript.md)|[Página desempenho](../../azure-monitor/app/usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|
 |[Criar testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)|Obtenha alertas se o seu site ficar indisponível|
 |[Certifique-se de buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) é gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Escrever métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md)|Contagem de métricas e eventos de negócios, controlar a utilização detalhada e muito mais.|

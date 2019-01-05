@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087938"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053539"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerir dados exportados
+# <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
 Se leu o tutorial de Análise de Custos, está familiarizado com a transferência manual dos dados do Cost Management. No entanto, pode criar uma tarefa periódica que exporta automaticamente os seus dados de gestão de custos para o armazenamento do Azure numa base diária, semanal ou mensal. Os dados exportados estão no formato CSV e contêm todas as informações recolhidas pelo Cost Management. Pode utilizar os dados exportados no armazenamento do Azure com sistemas externos e combiná-los com os seus dados personalizados. E pode utilizar os dados exportados num sistema externo, como um dashboard ou outro sistema financeiro.
 
@@ -61,6 +61,22 @@ Reveja os detalhes de exportação e clique em **criar**.
 A nova exportação é apresentada na lista de exportações. Por predefinição, são ativadas exportações de novo. Se pretender desativar ou eliminar uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desativar** ou **Eliminar**.
 
 Inicialmente, pode demorar uma ou duas horas para que a exportação seja executada. No entanto, pode demorar até quatro horas antes de os dados serem apresentados nos ficheiros exportados.
+
+### <a name="export-schedule"></a>Agenda de exportação
+
+Exportações agendadas são afetadas pela hora e dia da semana de quando criar inicialmente a exportação. Quando cria uma exportação agendada, a exportação é executada em simultâneo do dia para cada ocorrência de exportação subsequentes. Por exemplo, vai criar uma exportação diária em 1 21 horas. A seguinte exportação é executada às 1:21 horas do dia seguinte. A hora atual afeta todos os outros tipos de exportação da mesma forma, eles sempre executarem em simultâneo do dia, como quando criou inicialmente a exportação. Num exemplo diferente, é possível criar uma exportação semanal em que, na segunda-feira. O relatório seguinte é executada das 16H00 o seguinte segunda-feira. *Os dados exportados estão disponíveis dentro de quatro horas de tempo de execução.*
+
+Cada exportação cria um novo arquivo, para que as exportações mais antigas não são substituídas.
+
+Existem três tipos de opções de exportação:
+
+**Exportação diária dos custos de mês até à data** – a exportação inicial é executada imediatamente. Exportações subsequentes executam no dia seguinte, ao mesmo tempo em que a exportação inicial. Os dados mais recentes são agregados de exportações diárias anteriores.
+
+**Os custos de semanais para os últimos sete dias** – a exportação inicial é executada imediatamente. Exportações subsequentes executam no dia da semana e ao mesmo tempo em que a exportação inicial. Os custos são para os últimos sete dias.
+
+**Custom** – permite-lhe agendar semanal e mensal exporta com opções de semana até à data e mês até à data. *A exportação inicial será executado imediatamente.*
+
+![Nova exportação - separador de noções básicas que mostra uma seleção de semana até à data semanal personalizada](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verificar se os dados são recolhidos
 

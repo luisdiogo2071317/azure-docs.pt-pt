@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 1c657fd7b3059dcf46a371b133a5d078e02f0599
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014204"
+ms.locfileid: "54054293"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade Web no Azure Data Factory
-A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
+A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
 
 ## <a name="syntax"></a>Sintaxe
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -92,10 +92,10 @@ A tabela seguinte mostra os requisitos para o conteúdo JSON:
 Se a autenticação não é necessária, não inclua a propriedade de "autenticação".
 
 ### <a name="basic"></a>Básica
-Especifique o nome de utilizador e palavra-passe para utilizar com a autenticação básica. 
+Especifique o nome de utilizador e palavra-passe para utilizar com a autenticação básica.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -103,12 +103,12 @@ Especifique o nome de utilizador e palavra-passe para utilizar com a autenticaç
 ```
 
 ### <a name="client-certificate"></a>Certificado de cliente
-Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-passe. 
+Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-passe.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -125,7 +125,7 @@ Especifique o uri do recurso para o qual o token de acesso será será solicitad
 ```
 
 ## <a name="request-payload-schema"></a>Esquema do payload de pedido
-Quando utiliza o método POST/PUT, a propriedade body representa o payload que é enviado para o ponto final. Pode passar os serviços ligados e conjuntos de dados como parte da carga. Este é o esquema para o payload de: 
+Quando utiliza o método POST/PUT, a propriedade body representa o payload que é enviado para o ponto final. Pode passar os serviços ligados e conjuntos de dados como parte da carga. Este é o esquema para o payload de:
 
 ```json
 {
@@ -144,11 +144,11 @@ Quando utiliza o método POST/PUT, a propriedade body representa o payload que �
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. Ele passa um serviço ligado SQL do Azure e um conjunto de dados SQL do Azure para o ponto final. O ponto final REST, utiliza a cadeia de ligação de SQL do Azure para ligar ao servidor SQL do Azure e devolve o nome da instância do SQL server. 
+Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. Ele passa um serviço ligado SQL do Azure e um conjunto de dados SQL do Azure para o ponto final. O ponto final REST, utiliza a cadeia de ligação de SQL do Azure para ligar ao servidor SQL do Azure e devolve o nome da instância do SQL server.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -242,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory:
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)

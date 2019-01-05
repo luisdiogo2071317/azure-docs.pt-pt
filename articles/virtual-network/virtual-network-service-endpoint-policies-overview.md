@@ -3,24 +3,20 @@ title: Políticas de ponto final de serviço da Rede Virtual do Azure | Microsof
 description: Saiba como utilizar Políticas de Ponto Final de Serviço para filtrar o tráfego da Rede Virtual para os recursos de serviços do Azure
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433298"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051316"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -28,7 +24,7 @@ Com as políticas de ponto final de serviço da Rede Virtual (VNet), pode filtra
 
 Esta funcionalidade está disponível na __pré-visualização__ para os seguintes serviços e regiões do Azure:
 
-__Armazenamento do Azure__: E.U.A. Centro-Oeste, E.U.A. Oeste 2.
+__O armazenamento do Azure__: WestCentralUS, WestUS2.
 
 Para obter as notificações mais atualizadas para pré-visualização, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -123,13 +119,13 @@ As políticas de ponto final de serviço da rede virtual oferecem as seguintes v
      - Gateway de Aplicação do Azure (Clássica)
      - Gateway de VPN do Azure (Clássico)
 
-- Armazenamento do Azure: as contas de armazenamento clássicas não são suportadas nas políticas de ponto final. Por predefinição, as políticas recusarão o acesso a todas estas contas. Se a sua aplicação precisar de acesso a contas de armazenamento Azure Resource Manager e clássicas, não devem ser utilizadas políticas de ponto final para esse tráfego. 
+- Armazenamento do Azure: Contas de armazenamento clássicas não são suportadas nas políticas de ponto final. Por predefinição, as políticas recusarão o acesso a todas estas contas. Se a sua aplicação precisar de acesso a contas de armazenamento Azure Resource Manager e clássicas, não devem ser utilizadas políticas de ponto final para esse tráfego. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>NSGs com Políticas de Ponto Final de Serviço
 - Por predefinição, os NSGs permitem o tráfego de saída da Internet, incluindo o tráfego da rede virtual para os serviços do Azure.
 - Se quiser recusar todo o tráfego de saída da Internet e permitir apenas o tráfego para serviços específicos do Azure: 
 
-  Passo 1: Utilizar as *etiquetas de serviços do Azure* para configurar os NSGs para permitirem o tráfego de saída apenas para os serviços do Azure em regiões do ponto final. Para obter mais informações, veja [Etiquetas de serviços para NSGs.](https://aka.ms/servicetags)
+  Passo 1: Configure os NSGs para permitir o tráfego de saída apenas para serviços do Azure em regiões de ponto final, usando *etiquetas de serviço do Azure*. Para obter mais informações, veja [Etiquetas de serviços para NSGs.](https://aka.ms/servicetags)
       
   Por exemplo, as regras de grupos de segurança de rede que restringem o acesso a apenas regiões do ponto final têm o seguinte aspeto:
 
@@ -139,18 +135,18 @@ As políticas de ponto final de serviço da rede virtual oferecem as seguintes v
   Deny all
   ```
 
-  Passo 2: Aplicar a política de ponto final de serviço com acesso apenas a recursos de serviços do Azure específicos.
+  Passo 2: Aplica a política de ponto final de serviço com acesso a apenas os recursos de serviço do Azure específico.
 
   > [!WARNING]  
   > Se o grupo de segurança de rede não estiver configurado para limitar o acesso a um serviço do Azure por parte de uma rede virtual, pode aceder aos recursos do serviço noutras regiões, mesmo que a política de ponto final de serviço seja aplicada.
 
 ## <a name="scenarios"></a>Cenários
 
-- **Redes virtuais em peering, ligadas ou múltiplas redes virtuais**: para filtrar o tráfego em redes virtuais em peering, as políticas de ponto final devem ser aplicadas individualmente às mesmas.
-- **Filtrar o tráfego da Internet com Dispositivos de Rede ou o Azure Firewall**: filtre o tráfego dos serviços do Azure com políticas, através de pontos finais, e filtre o resto do tráfego da Internet ou do Azure através de dispositivos ou do Azure Firewall. 
-- **Filtrar o tráfego em serviços do Azure implementados em Redes Virtuais**: durante a pré-visualização, as políticas de pontos finais não são suportadas em nenhum serviço do Azure gerido que esteja implementado na rede virtual. 
+- **Em modo de peering, ligadas ou várias redes virtuais**: Para filtrar o tráfego nas redes virtuais em modo de peering, as políticas de ponto final devem ser aplicadas individualmente a estas redes virtuais.
+- **Filtragem de tráfego de Internet com aplicações de rede ou Firewall do Azure**: Filtrar o tráfego de serviço do Azure com as políticas, através de pontos de extremidade e filtrar o restante do tráfego de Internet ou do Azure através de aplicações ou de Firewall do Azure. 
+- **Filtragem de tráfego em serviços do Azure implementadas em redes virtuais**: Durante a pré-visualização, as políticas de ponto final de serviço não são suportadas para quaisquer serviços do Azure geridos que são implementados na sua rede virtual. 
  Relativamente a serviços específicos, veja as [limitações.](#Limitations)
-- **Filtrar o tráfego para serviços do Azure no local**: as políticas de ponto final de serviço só se aplicam ao tráfego das sub-redes associadas a essas políticas. Para permitir o acesso a recursos de serviços do Azure no local, o tráfego deve ser filtrado mediante a utilização de dispositivos de rede virtual ou de firewalls.
+- **Filtragem de tráfego para serviços do Azure no local**: Políticas de ponto final de serviço aplicam-se apenas ao tráfego de sub-redes associadas às políticas. Para permitir o acesso a recursos de serviços do Azure no local, o tráfego deve ser filtrado mediante a utilização de dispositivos de rede virtual ou de firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Registo e resolução de problemas
 Não estão disponíveis registos centralizados para as políticas de ponto final de serviço. Relativamente a registos de diagnósticos de serviço, veja [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) (Registo de pontos finais de serviço).
@@ -192,7 +188,7 @@ São aplicados os limites seguintes às políticas de ponto final de serviço:
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Saiba [como configurar políticas de ponto final de serviço de rede virtual](virtual-network-service-endpoint-policies-portal.md)
 - Saiba mais sobre os [Pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md)

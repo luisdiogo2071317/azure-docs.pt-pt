@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016550"
+ms.locfileid: "54052160"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas de desempenho de aplicações lenta no serviço de aplicações do Azure
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta na [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Cada aplicação de serviço de aplicações fornece um ponto de final de gestã
 - Gostam de editores de código fonte [do Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gestão para recursos ligados, tais como a base de dados MySQL ligado a uma aplicação.
 
-[O Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é um extensão de site que também está disponível de monitorização do desempenho. Para utilizar o Application Insights, reconstrua o seu código com um SDK. Também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar a utilização e o desempenho da sua aplicação em mais detalhes. Para obter mais informações, consulte [monitorizar o desempenho em aplicativos web](../application-insights/app-insights-web-monitor-performance.md).
+[O Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é um extensão de site que também está disponível de monitorização do desempenho. Para utilizar o Application Insights, reconstrua o seu código com um SDK. Também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar a utilização e o desempenho da sua aplicação em mais detalhes. Para obter mais informações, consulte [monitorizar o desempenho em aplicativos web](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 

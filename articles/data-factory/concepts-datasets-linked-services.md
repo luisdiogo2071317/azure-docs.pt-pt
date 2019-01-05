@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019134"
+ms.locfileid: "54044251"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-create-datasets.md)
 > * [Versão atual](concepts-datasets-linked-services.md)
 
-Este artigo descreve os conjuntos de dados são, como são definidas no formato JSON, e como são utilizados no Azure Data Factory pipelines. 
+Este artigo descreve os conjuntos de dados são, como são definidas no formato JSON, e como são utilizados no Azure Data Factory pipelines.
 
-Se estiver familiarizado com o Data Factory, veja [introdução ao Azure Data Factory](introduction.md) para uma descrição geral. 
+Se estiver familiarizado com o Data Factory, veja [introdução ao Azure Data Factory](introduction.md) para uma descrição geral.
 
 ## <a name="overview"></a>Descrição geral
 Uma fábrica de dados pode ter um ou mais pipelines. R **pipeline** é um agrupamento lógico de **atividades** que em conjunto, realizam uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um servidor de SQL no local para o armazenamento de Blobs do Azure. Em seguida, poderá utilizar uma atividade do Hive que executa um script do Hive num cluster do Azure HDInsight para processar dados de armazenamento de BLOBs para produzir os dados de saída. Por fim, pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, sobre o relatórios de business intelligence (BI) soluções foram concebidas. Para obter mais informações sobre os pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
@@ -70,7 +70,7 @@ typeProperties | As propriedades de tipo são diferentes para cada arquivo de da
 connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não
 
 ## <a name="linked-service-example"></a>Exemplo de serviço ligado
-O serviço ligado seguinte é um serviço ligado do armazenamento do Azure. Tenha em atenção que o tipo está definido como AzureStorage. As propriedades de tipo para o serviço ligado do armazenamento do Azure incluem uma cadeia de ligação. O serviço Data Factory utiliza esta cadeia de ligação para ligar ao arquivo de dados em tempo de execução. 
+O serviço ligado seguinte é um serviço ligado do armazenamento do Azure. Tenha em atenção que o tipo está definido como AzureStorage. As propriedades de tipo para o serviço ligado do armazenamento do Azure incluem uma cadeia de ligação. O serviço Data Factory utiliza esta cadeia de ligação para ligar ao arquivo de dados em tempo de execução.
 
 ```json
 {
@@ -101,7 +101,7 @@ Um conjunto de dados no Data Factory é definido no formato JSON, da seguinte fo
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -136,7 +136,7 @@ No exemplo a seguir, o conjunto de dados representa uma tabela chamada MyTable n
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -166,9 +166,9 @@ No exemplo na secção anterior, o tipo do conjunto de dados está definido como
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -218,14 +218,14 @@ Pode criar conjuntos de dados ao utilizar uma destas ferramentas ou SDKs: [.NET 
 
 ## <a name="current-version-vs-version-1-datasets"></a>Versão atual do vs. conjuntos de dados de versão 1
 
-Aqui estão algumas diferenças entre a fábrica de dados e conjuntos de dados do Data Factory versão 1: 
+Aqui estão algumas diferenças entre a fábrica de dados e conjuntos de dados do Data Factory versão 1:
 
 - A propriedade externa não é suportada na versão atual. Ele é substituído por um [acionador](concepts-pipeline-execution-triggers.md).
 - As propriedades de política e a disponibilidade não são suportadas na versão atual. A hora de início para um pipeline depende [acionadores](concepts-pipeline-execution-triggers.md).
-- Conjuntos de dados de âmbito (conjuntos de dados definidos num pipeline) não são suportados na versão atual. 
+- Conjuntos de dados de âmbito (conjuntos de dados definidos num pipeline) não são suportados na versão atual.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Veja o tutorial seguinte para obter instruções passo a passo para a criação de pipelines e conjuntos de dados ao utilizar uma destas ferramentas ou SDKs. 
+Veja o tutorial seguinte para obter instruções passo a passo para a criação de pipelines e conjuntos de dados ao utilizar uma destas ferramentas ou SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Início rápido: criar uma fábrica de dados com .NET)
 - [Início rápido: criar uma fábrica de dados com o PowerShell](quickstart-create-data-factory-powershell.md)

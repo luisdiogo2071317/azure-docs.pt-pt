@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf0ffa6069cf8882a541b2a0a82ad96bfb4043ee
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025626"
+ms.locfileid: "54040239"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
@@ -202,7 +202,7 @@ Não existem dados? Se seu aplicativo estiver numa rede protegida: Stream de mé
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Monitorizar a utilização com o Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Monitorizar a utilização com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Utilizar a pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Gerador de perfis](../../azure-monitor/app/profiler.md)
 * [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)

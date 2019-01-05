@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634435"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050494"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster de vFXT - paralelas de dados de ingestão 
 
@@ -19,7 +19,7 @@ Depois de criar um novo cluster de vFXT, sua primeira tarefa pode ser mover dado
 
 Uma vez que o cluster de vFXT Avere é uma cache de cliente multi dimensionável, é a forma mais rápida e mais eficiente para copiar dados para ele com vários clientes. Essa técnica processa a ingestão de ficheiros e objetos.
 
-![Diagrama que mostra vários clientes com múltiplos threads de dados: na parte superior esquerda, um ícone para o armazenamento de hardware no local tem setas vários provenientes do mesmo. As setas apontam para quatro máquinas de cliente. De cada computador cliente três setas pontos em direção a vFXT Avere. Com Avere vFXT, setas vários apontam-se ao armazenamento de Blobs.](media/avere-vfxt-parallel-ingest.png) 
+![Diagrama que mostra o movimento de dados de vários clientes, com múltiplos threads: Na parte superior esquerda, um ícone para o armazenamento de hardware no local tem setas vários provenientes do mesmo. As setas apontam para quatro máquinas de cliente. De cada computador cliente três setas pontos em direção a vFXT Avere. Com Avere vFXT, setas vários apontam-se ao armazenamento de Blobs.](media/avere-vfxt-parallel-ingest.png) 
 
 O ``cp`` ou ``copy`` comandos comumente usadas para a utilizar para transferir dados do sistema de um armazenamento para outra são processos de thread único de mensagens em fila que copie apenas um ficheiro de cada vez. Isso significa que o servidor de ficheiros está a ingerir apenas um ficheiro de cada vez - o que é um desperdício de recursos do cluster.
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Criar ficheiro de manifestos
 
-Depois de compreender as abordagens acima (vários cópia-threads por destino, vários destinos por cliente, vários clientes por sistema de ficheiros de origem acessível através da rede), considere esta recomendação: criar o ficheiro de manifestos e, em seguida, utilizá-los com cópia comandos por vários clientes.
+Depois de compreender as abordagens acima (vários cópia-threads por destino, vários destinos por cliente, vários clientes por sistema de ficheiros de origem acessível através da rede), considere esta recomendação: Criar ficheiro de manifestos e, em seguida, utilizá-los com os comandos de cópia por vários clientes.
 
 Este cenário utiliza o UNIX ``find`` comando para criar os manifestos de arquivos ou diretórios:
 
@@ -272,7 +272,7 @@ Para utilizar msrsync para preencher um volume de cloud do Azure com um cluster 
 1. Instalar msrsync e seus pré-requisitos (rsync e Python 2.6 ou posterior)
 1. Determine o número total de ficheiros e diretórios a serem copiados.
 
-   Por exemplo, utilize o utilitário de Avere ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponível por baixar o url https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Por exemplo, utilize o utilitário de Avere ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponível por baixar o url https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Se não utilizar ``prime.py``, é possível calcular o número de itens com a Gnu ``find`` ferramenta da seguinte forma:
 

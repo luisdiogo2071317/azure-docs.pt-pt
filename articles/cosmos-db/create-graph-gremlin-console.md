@@ -1,21 +1,20 @@
 ---
-title: 'Tutorial do Azure Cosmos DB: criar, consultar e percorrer na consola Apache TinkerPops Gremlin'
+title: 'Tutorial do Azure Cosmos DB: Criar, consultar e percorrer na consola Apache TinkerPops Gremlin'
 description: Um início rápido do Azure Cosmos DB para criar vértices, margens e consultas com a Gremlin API do Azure Cosmos DB.
-services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b3077920f08688d2cc84997ef8712183e8d7a09a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e94d52cc920759b0ddf462b7fb5d20b86ab61e6c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098071"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032181"
 ---
-# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: criar, consultar e percorrer gráficos na consola Gremlin
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>o Azure Cosmos DB: Criar, consultar e percorrer gráficos na consola do Gremlin
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -63,9 +62,9 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/). Util
     connectionPool|{enableSsl: true}|A definição do conjunto de ligações para SSL.
     serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Defina como este valor e elimine eventuais quebras de linha `\n` quando colar o valor.
 
-    No valor Anfitriões, copie o valor **Gremlin URI** a partir da página **Descrição Geral**: ![Ver e copiar o valor do URI de Gremlin na página Descrição Geral no portal do Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
+    No valor anfitriões, copie os **URI de Gremlin** partir dos **descrição geral** página: ![Ver e copiar o valor do URI do Gremlin na página Descrição Geral no portal do Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    No valor Palavra-passe, copie a **Chave Primária** a partir da página **Chaves**: ![Ver e copiar a chave primária no portal do Azure, página Chaves](./media/create-graph-gremlin-console/keys.png)
+    O valor de palavra-passe, copie o **chave primária** partir a **chaves** página: ![Ver e copiar a chave primária no portal, página chaves do Azure](./media/create-graph-gremlin-console/keys.png)
 
 O ficheiro remote-secure.yaml deve ter o seguinte aspeto:
 
@@ -301,7 +300,7 @@ g.E().drop()
 g.V().drop()
 ```
 
-Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
+Parabéns! Concluiu este Azure Cosmos DB: Tutorial de API do gremlin!
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

@@ -4,17 +4,17 @@ description: Neste tutorial, vai desenvolver do Azure funcionar como um módulo 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081885"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053370"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
@@ -51,13 +51,13 @@ Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Ferramentas de IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). 
 * [O SDK .NET Core 2.1](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Neste tutorial, vai utilizar a extensão Azure IoT Edge para Visual Studio Code para criar um módulo e criar um **imagem de contentor** dos arquivos. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
+Neste tutorial, vai utilizar as ferramentas de IoT do Azure para Visual Studio Code para criar um módulo e criar um **imagem de contentor** dos arquivos. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
 
 Pode utilizar qualquer registo compatível com o Docker para armazenar as imagens de contentor. São dois populares serviços de registo de Docker [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Azure Container Registry. 
 
@@ -84,13 +84,13 @@ Pode utilizar qualquer registo compatível com o Docker para armazenar as imagen
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
 
-A extensão do Azure IoT Edge para Visual Studio Code que instalou nos pré-requisitos oferece capacidades de gestão, bem como alguns modelos de código. Nesta secção, vai utilizar o Visual Studio Code para criar uma solução do IoT Edge que contém uma função do Azure. 
+As ferramentas de IoT do Azure para Visual Studio Code instalado nos pré-requisitos fornece capacidades de gestão, bem como alguns modelos de código. Nesta secção, vai utilizar o Visual Studio Code para criar uma solução do IoT Edge que contém uma função do Azure. 
 
 1. Abra o Visual Studio Code no computador de desenvolvimento.
 
 2. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 
-3. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Siga as instruções na paleta de comandos para criar a sua solução.
+3. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução de IoT Edge**. Siga as instruções na paleta de comandos para criar a sua solução.
 
    | Campo | Valor |
    | ----- | ----- |
@@ -221,13 +221,13 @@ O Visual Studio Code apresenta uma mensagem de êxito quando a imagem de content
 
 ## <a name="deploy-and-run-the-solution"></a>Implementar e executar a solução
 
-Pode utilizar o portal do Azure para implementar o seu módulo de função num dispositivo IoT Edge, como fez nos inícios rápidos. Também pode implementar e monitorizar os módulos a partir do Visual Studio Code. As secções seguintes utilizam a extensão do Azure IoT Edge para o VS Code, que foi listado nos pré-requisitos. Instale a extensão agora, se ainda não o tiver feito. 
+Pode utilizar o portal do Azure para implementar o seu módulo de função num dispositivo IoT Edge, como fez nos inícios rápidos. Também pode implementar e monitorizar os módulos a partir do Visual Studio Code. As secções seguintes utilizam as ferramentas de IoT do Azure para VS Code, que foi descritas nos pré-requisitos. Instale a extensão agora, se ainda não o tiver feito. 
 
 1. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 
-2. Procure e execute o comando **Azure: Iniciar sessão**. Siga as instruções para iniciar sessão na conta do Azure. 
+2. Procure e execute o comando **Azure: Inicie sessão no**. Siga as instruções para iniciar sessão na conta do Azure. 
 
-3. Na paleta de comandos, procure e execute o comando **Hub IoT do Azure: Selecionar Hub IoT**. 
+3. Na paleta de comandos, procure e execute o comando **IoT Hub do Azure: Selecione o IoT Hub**. 
 
 4. Selecione a subscrição que tem o seu hub IoT e, em seguida, selecione o hub IoT ao qual quer aceder.
 
@@ -243,11 +243,11 @@ Pode utilizar o portal do Azure para implementar o seu módulo de função num d
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
-Pode ver todas as mensagens que chegam ao seu hub IoT ao executar **Hub IoT do Azure: Iniciar Monitorização de Mensagem D2C** na paleta de comandos.
+Pode ver todas as mensagens que chegam ao IoT hub através da execução **IoT Hub do Azure: Iniciar a monitorização de mensagem de D2C** na paleta de comandos.
 
 Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a partir de um dispositivo específico. Clique com o botão direito do rato na secção **Dispositivos do Hub IoT do Azure** e selecione **Iniciar Monitorização de Mensagens D2C**.
 
-Para parar a monitorização de mensagens, execute o comando **Azure IoT Hub: Stop monitoring D2C message** na paleta de comandos. 
+Para parar a monitorização de mensagens, execute o comando **IoT Hub do Azure: Parar a monitorização de mensagens D2C** na paleta de comandos. 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 139bf169a00f1c529e95499124358c447d0de8c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603952"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044676"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Descrição geral de consulta elástica do Azure SQL Database (pré-visualização)
 
@@ -108,11 +108,11 @@ Com uma consulta elástica para fazer tarefas de criação de relatórios atrav�
 
 Consultas de bases de dados elásticas para cenários de criação de partições horizontais que exigem acesso a um conjunto de tabelas localizadas em (normalmente) vários remotos bases de dados SQL de configurar os seguintes passos:
 
-* [Criar chave MESTRA](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
+* [Criar chave MESTRA](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * Criar uma [mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md) que representa sua camada de dados usando a biblioteca de cliente da base de dados elástica.
-* [ORIGEM de dados externa CREATE/DROP](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource do tipo **SHARD_MAP_MANAGER**
-* [TABELA externa de CREATE/DROP](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [ORIGEM de dados externa CREATE/DROP](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource do tipo **SHARD_MAP_MANAGER**
+* [TABELA externa de CREATE/DROP](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 Depois de ter de efetuar estes passos, pode acessar a tabela particionada horizontalmente "mytable" como se fosse uma tabela local. Base de dados SQL do Azure automaticamente abre-se várias ligações paralelas para as bases de dados remotos onde as tabelas fisicamente são armazenadas, processa as solicitações nas bases de dados remotos e retorna os resultados.
 Obter mais informações sobre os passos necessários para o cenário de criação de partições horizontal pode ser encontrado na [consulta elástica para a criação de partições horizontais](sql-database-elastic-query-horizontal-partitioning.md).

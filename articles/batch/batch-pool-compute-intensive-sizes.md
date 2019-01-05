@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584467"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051701"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilizar o RDMA ou GPU instâncias em conjuntos do Batch
 
@@ -100,7 +100,7 @@ Para configurar um tamanho de VM especializado para o seu conjunto do Batch, tem
 
 Para executar aplicativos de CUDA num conjunto de nós de NC do Windows, terá de instalar os controladores de NVDIA GPU. Os seguintes passos de exemplo utilizam um pacote de aplicação para instalar os controladores de GPU da NVIDIA. Poderá escolher esta opção se a sua carga de trabalho depende de uma versão específica de controladores GPU.
 
-1. Transferir um pacote de configuração para os controladores GPU no Windows Server 2016 a partir da [Web site da NVIDIA](http://us.download.nvidia.com/Windows/) , por exemplo, [versão 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde o ficheiro localmente com um nome abreviado como *GPUDriverSetup.exe*.
+1. Transferir um pacote de configuração para os controladores GPU no Windows Server 2016 a partir da [Web site da NVIDIA](https://www.nvidia.com/Download/index.aspx) , por exemplo, [versão 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde o ficheiro localmente com um nome abreviado como *GPUDriverSetup.exe*.
 2. Crie um ficheiro zip do pacote.
 3. Carregar o pacote para a sua conta do Batch. Para obter os passos, consulte a [pacotes de aplicações](batch-application-packages.md) orientações. Especifique um id de aplicação, como *GPUDriver*e uma versão como *411.82*.
 1. Utilizar as APIs do Batch ou o portal do Azure, crie um conjunto na configuração da máquina virtual com o número pretendido de nós e dimensionamento. A tabela seguinte mostra as definições de exemplo para instalar os controladores de NVIDIA GPU silenciosamente usando uma tarefa de início:

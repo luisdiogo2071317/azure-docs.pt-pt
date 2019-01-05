@@ -1,13 +1,9 @@
 ---
-title: Medidas de utilizador real no Traffic Manager do Azure | Microsoft Docs
-description: Introdução ao utilizador Real medidas no Gestor de tráfego
+title: Medições de utilizador reais no Gestor de tráfego do Azure
+description: Introdução ao medições de utilizador reais no Gestor de tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,33 +12,33 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178118"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052824"
 ---
-# <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral de medidas de utilizador reais do Gestor de tráfego
+# <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral de medidas de utilizadores reais do Gestor de tráfego
 
-Quando configurar um perfil do Traffic Manager para utilizar o método de encaminhamento de desempenho, o serviço procura onde os pedidos de consulta DNS são feitos e toma decisões de encaminhamento para direcionar os requerentes para a região do Azure fornece-lhes a latência mais baixa. Isto é conseguido utilizando o intelligence de latência de rede que mantém o Gestor de tráfego para redes de outro utilizador final.
+Quando configurar um perfil do Gestor de tráfego para utilizar o método de encaminhamento de desempenho, o serviço analisa em que os pedidos de consulta DNS são provenientes e toma decisões de encaminhamento para direcionar os requerentes na região do Azure que lhes dá a menor latência. Isto é conseguido ao utilizar a análise da latência de rede que mantém do Gestor de tráfego para redes de utilizador final diferentes.
 
-Medidas de utilizador reais permite-lhe medir medidas de latência de rede para regiões do Azure, das aplicações de cliente que aos utilizadores finais utilizarem, e ter Gestor de tráfego considere essas informações, bem como quando decisões de encaminhamento. Ao escolher esta opção utilizar os valores reais do utilizador, pode aumentar a precisão do encaminhamento de pedidos feitos essas redes onde residem os utilizadores finais. 
+Medidas de utilizadores reais permite-lhe medir medições de latência de rede para regiões do Azure, as aplicações de cliente que seus utilizadores finais utilizam, e ter o Gestor de tráfego considere essas informações também quando tomar decisões de encaminhamento. Ao optar por utilizar medidas de utilizadores reais, pode aumentar a precisão de encaminhamento para pedidos provenientes dessas redes onde residem os seus utilizadores finais. 
 
-## <a name="how-real-user-measurements-work"></a>Como funcionam os valores reais do utilizador
+## <a name="how-real-user-measurements-work"></a>Como funcionam as medições de utilizador Real
 
-Medidas de utilizador reais de trabalho, fazendo com que a latência de medidas de aplicações de cliente para regiões do Azure visto que é das redes de utilizador final no qual são utilizados. Por exemplo, se tiver uma página web que são acedidos por utilizadores em localizações diferentes (por exemplo, em regiões Norte American), pode tirar partido potência de medidas de utilizador reais ao utilizar o método de encaminhamento de desempenho para esforçar-nos para a região do Azure melhor no qual a aplicação de servidor está alojada.
+Medidas de utilizadores reais funcionam por ter a latência de medida de aplicativos de cliente de regiões do Azure que ele é visto das redes em que são utilizadas pelo utilizador final. Por exemplo, se tiver uma página da web que são acedidos por utilizadores em localizações diferentes (por exemplo, nas regiões da América do Norte), pode utilizar medidas de utilizadores reais com o método de encaminhamento de desempenho para obtê-los para a região do Azure melhor em que o servidor aplicativo está hospedado.
 
-Começa por incorporar um JavaScript fornecido do Azure (com uma chave exclusiva no mesmo) nas suas páginas web. Depois de o fazer, sempre que um utilizador aceder a essa página Web, o JavaScript consulta o Gestor de tráfego para obter informações sobre regiões do Azure deve medir. O serviço devolve um conjunto de pontos finais para o script que, em seguida, medidas, estas regiões consecutivamente ao transferir uma imagem de pixel único alojada essas regiões do Azure e a pena realçar a latência entre o momento o pedido foi enviado e a hora quando foi recebido o primeiro byte . Estas medidas, em seguida, são reportadas novamente para o serviço do Gestor de tráfego.
+Ele começa ao incorporar um JavaScript fornecido do Azure (com uma chave exclusiva no mesmo) nas suas páginas web. Feito isso, sempre que um usuário visitar essa página da Web, o JavaScript consulta o Gestor de tráfego para obter informações sobre as regiões do Azure deve medir. O serviço devolve um conjunto de pontos de extremidade para o script que, em seguida, medida nestas regiões consecutivamente baixando uma imagem de pixel único hospedado nessas regiões do Azure e observar a latência entre a hora o pedido foi enviado e a hora quando o primeiro byte foi recebido . Essas medidas, em seguida, são informadas de volta ao serviço Gestor de tráfego.
 
-Ao longo do tempo, isto acontece demasiadas vezes e em redes muitos esquerda ao Gestor de tráfego de obter informações mais precisos sobre as características de latência das redes na qual residem os utilizadores finais. Estas informações começa a obter a ser incluído nas decisões de encaminhamento efetuadas pelo Gestor de tráfego. Como resultado, leva a maior precisão nessas decisões são baseada em medidas de utilizador reais enviados.
+Ao longo do tempo, isso ocorre muitas vezes e em muitas redes que leva ao Gestor de tráfego de obter informações mais precisas sobre as características de latência das redes no qual residem os utilizadores finais. Estas informações começa a obter a serem incluídos nas decisões de encaminhamento realizadas pelo Gestor de tráfego. Como resultado, isso leva a maior precisão nessas decisões com base em medidas de utilizadores reais enviados.
 
-Quando utilizar medidas de utilizador reais, é-lhe cobrada com base no número de valores enviados para o Gestor de tráfego. Para obter mais detalhes sobre os preços, visite o [Gestor de tráfego a página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Quando utiliza medidas de utilizadores reais, é cobrado com base no número de medidas de enviados para o Gestor de tráfego. Para obter mais detalhes sobre os preços, visite o [Gestor de tráfego, página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba como utilizar [Real de utilizador de medidas com páginas web](traffic-manager-create-rum-web-pages.md)
+- Saiba como utilizar [medidas de utilizadores reais com páginas da web](traffic-manager-create-rum-web-pages.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Saiba mais sobre o [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) suportada pelo Gestor de tráfego
-- Saiba como [criar um perfil de Gestor de tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gestor de tráfego](traffic-manager-create-profile.md)
 

@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/14/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb3d19d35a15d5476594948b035a39ae703f1c3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5eb896978e9b04a6ad87fe1f669d9155e9cc1433
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053216"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos do Azure IoT Edge
 
@@ -31,7 +31,7 @@ Para módulos de escrita em C#, node. js ou Java, existem duas formas para depur
 
 Instale [Visual Studio Code](https://code.visualstudio.com/) primeiro e, em seguida, adicione as seguintes extensões:
 
-- [Extensão Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+- [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Extensão do docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extensão ou extensões específicas para o idioma que está desenvolvendo em:
   - C#, incluindo as funções do Azure: [Extensão c#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -73,7 +73,7 @@ A menos que esteja a desenvolver o seu módulo em C, terá também de baseados e
 
 ## <a name="create-a-new-solution-template"></a>Criar um novo modelo de solução
 
-Os passos seguintes mostram como criar um módulo do IoT Edge no seu idioma preferencial de desenvolvimento (incluindo funções do Azure, escritas em C#) com o Visual Studio Code e a extensão Azure IoT Edge. Comece por criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter vários módulos.
+Os passos seguintes mostram como criar um módulo do IoT Edge no seu idioma preferencial de desenvolvimento (incluindo funções do Azure, escritas em C#) com o Visual Studio Code e as ferramentas de IoT do Azure. Comece por criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter vários módulos.
 
 1. Selecione **View** > **paleta de comandos**.
 

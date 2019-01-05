@@ -3,17 +3,17 @@ title: Dimensionar aplicações web do serviço de aplicações do Azure com o A
 description: Saiba como utilizar o Ansible para criar uma aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, serviço de aplicações do Azure, aplicação Web, dimensionamento, o Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a63289c3dec41217725199614420935532a04aa4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601870"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051684"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Dimensionar aplicações web do serviço de aplicações do Azure com o Ansible
 [Aplicações de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas aplicativos da Web) anfitriões e aplicações web, REST APIs, back-end móvel. Pode desenvolver no seu idioma favorito&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.

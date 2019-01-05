@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879393"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053198"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Suporte de plataformas de SDKs do IoT do Azure
 
@@ -20,9 +20,9 @@ O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas 
 
 A Microsoft suporta uma variedade de plataformas/sistemas operativos/estruturas e pode ser estendido com o SDK de C do Azure IoT. Algumas são suportadas oficialmente pela equipe, agrupada em camadas que representam o nível de suporte, os usuários podem esperar. *Plataformas suportadas totalmente* significa que a Microsoft:
 
-    * Cria e executa testes de ponto a ponto contra o mestre e as versões LTS suportado continuamente.  Para fornecer a cobertura do teste nas diferentes versões, Testamos geralmente contra a versão mais recente do LTS e a versão mais popular.  Outras versões da plataforma mesmo poderão ser suportadas por meio de compatibilidade de versões da plataforma.
-    * Fornece diretrizes sobre a instalação ou pacotes, se aplicável.
-    * Totalmente compatível com as plataformas no GitHub.
+- Cria e executa testes de ponto a ponto contra o mestre e as versões LTS suportado continuamente.  Para fornecer a cobertura do teste nas diferentes versões, Testamos geralmente contra a versão mais recente do LTS e a versão mais popular.  Outras versões da plataforma mesmo poderão ser suportadas por meio de compatibilidade de versões da plataforma.
+- Fornece diretrizes sobre a instalação ou pacotes, se aplicável.
+- Totalmente compatível com as plataformas no GitHub.
 
 Além disso, uma lista de parceiros tem portado nosso SDK de C para mais plataformas e que estão mantendo a camada de abstração de plataforma (PAL). [Catálogo de dispositivos do IoT Azure Certified for](https://catalog.azureiotsolutions.com/) também funcionalidades de uma lista de plataformas de SO os vários SDKs tem sido testada relativamente. Os SDKs também regularmente criar nessas plataformas, com teste limitado e suportam:
 
@@ -88,7 +88,7 @@ Existem várias plataformas suportadas.
 
 Os clientes podem expandir o nosso suporte de plataforma ao portar o SDK de C do IoT do Azure, especificamente, criando a camada de abstração de plataforma (PAL) do SDK. A Microsoft trabalha com parceiros para fornecer suporte alargado. Uma lista de parceiros tem portado o SDK de C para mais plataformas e a manter a PAL.
 
-| Partner             | Dispositivos                            | Ligação                     | Suporte |
+| Parceiro             | Dispositivos                            | Ligação                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para o SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

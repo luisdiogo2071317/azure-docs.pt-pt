@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f828ebf9131be014d2ea572b3314b1aacd630d14
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017519"
+ms.locfileid: "54050356"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicações .NET
 
@@ -99,7 +99,7 @@ Se tiver efetuado personalizações no ApplicationInsights.config, guarde uma c�
     `<InstrumentationKey>` *a chave de instrumentação que copiou* `</InstrumentationKey>`
 * Certifique-se de que as propriedades de ApplicationInsights.config no Explorador de Soluções estão definidas para **Ação de Compilação = Conteúdo, Copiar para o Diretório de Saída = Copiar**.
 
-É útil definir a chave de instrumentação no código, se quiser [mudar a chave de diferentes configurações de compilações](app-insights-separate-resources.md). Se definir a chave no código, não tem de defini-la no ficheiro `.config`.
+É útil definir a chave de instrumentação no código, se quiser [mudar a chave de diferentes configurações de compilações](../azure-monitor/app/separate-resources.md). Se definir a chave no código, não tem de defini-la no ficheiro `.config`.
 
 ## <a name="run"></a> Executar o projeto
 Utilize **F5** para executar e experimentar a aplicação: abra páginas diferentes para gerar alguma telemetria.
@@ -115,13 +115,13 @@ Procure dados nos gráficos Descrição Geral. Inicialmente, verá apenas um ou 
 
 ![Clicar para mais dados](./media/app-insights-windows-services/12-first-perf.png)
 
-Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.](app-insights-web-monitor-performance.md)
+Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.](../azure-monitor/app/web-monitor-performance.md)
 
 ### <a name="no-data"></a>Não existem dados?
 * Utilize a aplicação, abrindo páginas diferentes, de modo a gerar alguma telemetria.
 * Abra o mosaico [Pesquisa](../azure-monitor/app/diagnostic-search.md) para ver eventos individuais. Por vezes, os eventos demoram um pouco mais de tempo a chegar ao pipeline de métricas.
 * Aguarde alguns segundos e clique em **Atualizar**. Os gráficos atualizam-se periodicamente, mas pode atualizá-los manualmente se estiver à espera que apareçam alguns dados.
-* Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
+* Veja [Resolução de Problemas](../azure-monitor/app/troubleshoot-faq.md).
 
 ## <a name="publish-your-app"></a>Publicar a aplicação
 Em seguida, implemente a aplicação no servidor ou no Azure e veja os dados a acumularem.

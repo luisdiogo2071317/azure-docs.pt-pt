@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629230"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034092"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
 
 Existem várias opções de onde configura a política de indexação para um caminho. Pode especificar uma ou mais definições de indexação para cada caminho:
 
-- **Tipo de dados:** cadeia, número, ponto, polígono ou LineString (pode conter apenas uma entrada por tipo de dados por caminho).
+- **Tipo de dados:** Cadeia de caracteres, número, ponto, polígono ou LineString (pode conter apenas uma entrada por tipo de dados por caminho).
 
-- **Tipo de índice:** Hash (consultas de igualdade), intervalo (igualdade, intervalo ou ORDER BY consultas) ou Geográ (consultas espaciais).
+- **Tipo de índice:** O hash (consultas de igualdade), intervalo (igualdade, intervalo ou ORDER BY consultas) ou Geográ (consultas espaciais).
 
-- **Precisão:** para um índice de Hash, isso varia de 1 a 8 para cadeias de caracteres e números e o valor predefinido é 3. Para um índice do intervalo, o valor de precisão máxima é de -1. Ele pode variar entre 1 e 100 (precisão máxima) para a cadeia de caracteres ou valores numéricos.
+- **Precisão:** Para um índice de Hash, isso varia de 1 a 8 para cadeias de caracteres e números e o valor predefinido é 3. Para um índice do intervalo, o valor de precisão máxima é de -1. Ele pode variar entre 1 e 100 (precisão máxima) para a cadeia de caracteres ou valores numéricos.
 
 ## <a name="index-kind"></a>Tipo de índice
 
@@ -39,7 +39,7 @@ Seguem-se exemplos de consultas de Hash, intervalo, e os índices espaciais pode
 | ---------- | ---------------- |
 | Hash  | Hash sobre/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>Hash sobre/propriedades / [] /? (ou / ou/propriedades /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECIONAR etiqueta de coleção c associação marca IN c.props marca onde = 5  |
 | Intervalo  | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>SELECT FROM c coleção onde c.prop > 5<br><br>SELECIONAR a partir de coleção c ORDER BY c.prop   |
-| Espacial     | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c de coleção<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECIONE de coleção c onde ST_WITHIN(c.prop, {"type": "Polygon",...}) – indexação nos pontos ativados<br><br>SELECIONE de coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com indexação de polígonos ativados.     |
+| Espacial     | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c de coleção<br><br>ONDE ST_DISTANCE (c.prop, {"type": "Point", "coordenadas": [0,0, 10.0]}) < 40<br><br>SELECIONAR a partir de coleção c onde ST_WITHIN(c.prop, {"type": "Polígono",...}) – indexação nos pontos ativados<br><br>SELECIONAR a partir de coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com indexação de polígonos ativados.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportamento predefinido de tipos de índice
 

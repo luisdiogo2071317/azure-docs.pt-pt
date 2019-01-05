@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 4096cf3a44b7c32ed94fdd2ef5dcbad9db08a386
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3f7d44a2a34f6b52c2229cf6491e99c65d5bb525
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055586"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052994"
 ---
 # <a name="pen-testing"></a>Testes de intrusão
 Uma das vantagens da utilização do Azure para teste de aplicativos e a implantação é que pode obter rapidamente ambientes criados.  Não precisa se preocupar sobre requisitioning, aquisição e "montagens e empilhamentos" seu próprio hardware no local.
@@ -40,7 +40,7 @@ A partir de 15 de Junho de 2017, a Microsoft já não requer aprovação prévia
 Pode realizar de testes padrão incluem:
 
 * Testes nos seus pontos finais para descobrir o [Open Web Application Security Project (OWASP) top 10 vulnerabilidades](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-* [Teste de difusão](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) dos seus pontos finais
+* [Teste de difusão](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) dos seus pontos finais
 * [Verificação de porta](https://en.wikipedia.org/wiki/Port_scanner) dos seus pontos finais
 
 É de um tipo de teste que não é possível executar qualquer tipo de [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) ataque. Isto inclui a iniciar um ataque em si, ou realização de testes relacionados que possam determinar, demonstrar ou simular qualquer tipo de ataque DoS.

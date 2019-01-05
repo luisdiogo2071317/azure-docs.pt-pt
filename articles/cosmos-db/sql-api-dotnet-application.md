@@ -1,24 +1,21 @@
 ---
-title: 'Tutorial de ASP.NET MVC para o Azure Cosmos DB: programação de aplicações Web'
+title: 'Tutorial de ASP.NET MVC para o Azure Cosmos DB: Desenvolvimento de aplicativos Web'
 description: Tutorial de ASP.NET MVC para criar uma aplicação Web de MVC com o Azure Cosmos DB. Irá armazenar dados de acesso e JSON a partir de uma aplicação de tarefas alojada no em Web Sites do Azure – tutorial ASP NET MVC passo a passo.
-keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter, vs-azure
-ms.openlocfilehash: b0c8d46e74eec4bad7b7e664682c97eb0f0068b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098731"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041412"
 ---
-# <a name="_Toc395809351"></a>Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB
+# <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativos Web com o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -61,7 +58,7 @@ Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta SQL par
 <br/>
 Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a partir do zero. 
 
-## <a name="_Toc395637762"></a>Passo 2: criar uma nova aplicação ASP.NET MVC
+## <a name="_Toc395637762"></a>Passo 2: Criar uma nova aplicação ASP.NET MVC
 
 1. No Visual Studio, no menu **Ficheiro**, aponte para **Novo** e, em seguida, clique em **Projeto**. Aparece a caixa de diálogo **Novo Projeto**.
 
@@ -84,7 +81,7 @@ Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a parti
    
     Vamos ignorar a execução local do projeto, pois tenho a certeza de que já todos vimos a aplicação “Olá, Mundo” do ASP.NET. Passemos diretamente à adição do Azure Cosmos DB a este projeto e à criação da nossa aplicação.
 
-## <a name="_Toc395637767"></a>Passo 3: adicionar o Azure Cosmos DB ao seu projeto de aplicação Web MVC
+## <a name="_Toc395637767"></a>Passo 3: Adicionar o Azure Cosmos DB ao seu projeto de aplicação web MVC
 Agora que temos a maior parte da estrutura do ASP.NET MVC necessária para esta solução, vamos abordar o verdadeiro objetivo deste tutorial: adicionar o Azure Cosmos DB à nossa aplicação Web MVC.
 
 1. O SDK .NET do Azure Cosmos DB é compactado e distribuído como um pacote NuGet. Para colocar o pacote NuGet no Visual Studio, utilize o gestor de pacotes NuGet no Visual Studio ao clicar no projeto no **Explorador de Soluções** e, em seguida, clicar em **Gerir Pacotes NuGet**.
@@ -106,7 +103,7 @@ Agora que temos a maior parte da estrutura do ASP.NET MVC necessária para esta 
    
     ![Captura de ecrã das duas referências adicionadas ao projeto de dados JSON no Explorador de Soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Passo 4: configurar a aplicação ASP.NET MVC
+## <a name="_Toc395637763"></a>Passo 4: Configurar a aplicação ASP.NET MVC
 Agora vamos adicionar os modelos, as vistas e os controladores a esta aplicação MVC:
 
 * [Adicionar um modelo](#_Toc395637764).
@@ -216,7 +213,7 @@ Finalmente, adicione uma última vista para editar um **Item** da mesma forma qu
 
 Assim que esta operação esteja concluída, feche todos os documentos cshtml no Visual Studio, pois podemos voltar a estas vistas mais tarde.
 
-## <a name="_Toc395637769"></a>Passo 5: Ligações do Azure Cosmos DB
+## <a name="_Toc395637769"></a>Passo 5: Preparar o Azure Cosmos DB
 Agora que já tratámos das coisas básicas do MVC, vamos adicionar o código para o Azure Cosmos DB. 
 
 Nesta secção, vamos adicionar código para tratar do seguinte:
@@ -414,9 +411,9 @@ Vamos adicionar algum código ao Azure Cosmos DBRepository e a ItemController pa
    
     Este código liga-se ao DocumentDBRepository e utiliza o método CreateItemAsync para manter o novo item de tarefa na base de dados. 
    
-    **Nota de Segurança**: o atributo **ValidateAntiForgeryToken** é utilizado aqui para ajudar a proteger esta aplicação contra ataques de falsificação de pedidos entre sites. Não basta apenas adicionar este atributo, as suas vistas também têm de trabalhar com este token antifalsificação. Para obter mais informações sobre o assunto e exemplos sobre como implementar este atributo corretamente, veja [Preventing Cross-Site Request Forgery (Prevenir Falsificação de Pedidos Entre Sites)][Preventing Cross-Site Request Forgery]. O código de origem fornecido no [GitHub][GitHub] tem a implementação completa no local.
+    **Nota de segurança**: O **ValidateAntiForgeryToken** atributo é utilizado aqui para ajudar a proteger esta aplicação contra ataques de falsificação de solicitação entre sites. Não basta apenas adicionar este atributo, as suas vistas também têm de trabalhar com este token antifalsificação. Para obter mais informações sobre o assunto e exemplos sobre como implementar este atributo corretamente, veja [Preventing Cross-Site Request Forgery (Prevenir Falsificação de Pedidos Entre Sites)][Preventing Cross-Site Request Forgery]. O código de origem fornecido no [GitHub][GitHub] tem a implementação completa no local.
    
-    **Nota de Segurança**: também utilizamos o atributo **Vincular** no parâmetro do método para ajudar a proteger contra ataques de publicação excessiva. Para obter mais detalhes, veja [Basic CRUD Operations in ASP.NET MVC (Operações CRUD Básicas no ASP.NET MVC)][Basic CRUD Operations in ASP.NET MVC].
+    **Nota de segurança**: Também utilizamos a **vincular** atributo no parâmetro do método para ajudar a proteger contra ataques de publicação excessiva. Para obter mais detalhes, veja [Basic CRUD Operations in ASP.NET MVC (Operações CRUD Básicas no ASP.NET MVC)][Basic CRUD Operations in ASP.NET MVC].
 
 Assim concluímos o código necessário para adicionar novos Itens à nossa base de dados.
 
@@ -494,7 +491,7 @@ Assim concluímos o código necessário para adicionar novos Itens à nossa base
 
 Já está. Isto é tudo o que é necessário para executar a nossa aplicação, indicar **Itens** incompletos numa lista, adicionar novos **Itens** e editar **Itens**.
 
-## <a name="_Toc395637773"></a>Passo 6: executar a aplicação localmente
+## <a name="_Toc395637773"></a>Passo 6: Executar a aplicação localmente
 Para testar a aplicação no seu computador local, faça o seguinte:
 
 1. Prima F5 no Visual Studio para criar a aplicação no modo de depuração. Este deve compilar a aplicação e iniciar um browser com a página de grelha vazia que vimos anteriormente:
@@ -516,7 +513,7 @@ Para testar a aplicação no seu computador local, faça o seguinte:
     ![Captura de ecrã da vista Índice com a caixa de Concluído selecionada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Assim que já tiver testado a aplicação, prima Ctrl+F5 para parar a depuração da aplicação. Está pronto para implementar!
 
-## <a name="_Toc395637774"></a>Passo 7: implementar a aplicação no Serviço de Aplicações do Azure 
+## <a name="_Toc395637774"></a>Passo 7: Implementar a aplicação no App Service do Azure 
 Agora que a sua aplicação completa funciona corretamente no Azure Cosmos DB, iremos implementar esta aplicação Web no Serviço de Aplicações do Azure.  
 
 1. Para publicar esta aplicação tem apenas de clicar com o botão direito do rato no projeto no **Explorador de Soluções** e clicar em **Publicar**.

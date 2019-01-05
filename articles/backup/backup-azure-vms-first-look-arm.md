@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044404"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Fazer cópias de segurança de VMs do Azure com o serviço de cópia de segurança do Azure
 
@@ -290,7 +290,7 @@ Para executar a tarefa de cópia de segurança inicial:
   As notificações de implementação permitem-lhe saber se a tarefa de cópia de segurança foi acionada e que pode acompanhar o progresso da tarefa na página Tarefas de cópias de segurança. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
   > [!NOTE]
-  > Todos os dados a cópia de segurança pelo Azure Backup são encriptados em descanso através da [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  > - Todos os dados a cópia de segurança pelo Azure Backup são encriptados em descanso através da [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ O custo de fazer cópias de segurança das VMs do Azure baseia-se no número de 
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Gerir](backup-azure-manage-vms.md) as cópias de segurança.
-

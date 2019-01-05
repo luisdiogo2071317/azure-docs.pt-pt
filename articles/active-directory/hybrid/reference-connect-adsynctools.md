@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure AD Connect: Referência do PowerShell ADSyncTools | Documentos da Microsoft'
+title: 'Azure AD Connect: Referência do PowerShell ADSyncTools | Documentos da Microsoft'
 description: Este documento fornece informações de referência para o módulo do ADSyncTools.psm1 PowerShell.
 author: billmath
 manager: mtillman
@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054968"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Do Azure AD Connect: Referência do PowerShell ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADSyncTools
 A seguinte documentação fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que está incluído com o Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Devolve um objeto do AD para fazer: suporte de floresta múltiplos
+Devolve um objeto do AD para fazer: Suporte a várias florestas
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -470,7 +470,7 @@ Para obter mais informações, veja about_CommonParameters (https://go.microsoft
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>SINOPSE
-Obter histórico de execução de Connnect do AAD
+Get AAD Connect histórico de execuções
 
 ### <a name="syntax"></a>SINTAXE
 
@@ -479,7 +479,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Função que retorna o histórico de execuções do AAD Connnect no formato XML
+Função que retorna o histórico de execuções de ligar para AAD no formato XML
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Função consulta o histórico de execuções do AAD Connnect e exporta todos os utilizadores de relatórios de erro: "o atributo SourceAnchor foi alterado."
+Consultas de AAD Connect histórico de execuções de função e exporta todos os utilizadores de relatórios de erro: "O atributo SourceAnchor foi alterado."
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -593,7 +593,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Gera um ficheiro com todos os utilizadores do Azure AD sincronizado que contém o valor de ImmutableID no formato GUID requisitos: módulo PowerShell do MSOnline
+Gera um ficheiro com todos os utilizadores do Azure AD sincronizado que contém o valor de ImmutableID no formato GUID requisitos: Módulo PowerShell do MSOnline
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Este script usa todos os objetos de um unidade organizacional de destino no seu domínio do Active Directory - filtrado por classe de objeto (utilizador/computador) e elimina todos os certificados expirados presentes no atributo UserCertificate.
 Por predefinição (BackupOnly modo), que ele será apenas de cópia de segurança de certificados para um ficheiro expiraram e não efetuar quaisquer alterações no AD.
 Se usar - BackupOnly $false, em seguida, qualquer certificado expirado presente no atributo UserCertificate para esses objetos será removido do AD após ser copiado para o ficheiro.
-Cada certificado irá ser copiado para um nome de ficheiro separado: ObjectClass_ObjectGUID_CertThumprint.cer o script também irá criar um ficheiro de registo no formato CSV, que mostra todos os utilizadores com certificados que o são válidos ou expirados, incluindo a ação real tomada ( Ignorada/exportado/eliminado).
+Cada certificado será efetuado num nome de ficheiro separado: ObjectClass_ObjectGUID_CertThumprint.cer o script também irá criar um ficheiro de registo no formato CSV que mostra todos os utilizadores com certificados que quer estão válido ou expirados, incluindo a ação real tomada (ignorados/exportados/Deleted).
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Os utilizadores de atualizações com o novo valor de ConsistencyGuid (ImmutableId) obtidas a partir da função ConsistencyGuid relatório este suporta a mudança de WhatIf Nota: ConsistencyGuid relatório têm de ser importado com separador Demiliter
+Atualiza os utilizadores com o novo valor de ConsistencyGuid (ImmutableId.) retirado da ConsistencyGuid relatório este suporta a função a opção de WhatIf observação: Relatório de ConsistencyGuid têm de ser importado com separador Demiliter
 
 ### <a name="examples"></a>EXEMPLOS
 

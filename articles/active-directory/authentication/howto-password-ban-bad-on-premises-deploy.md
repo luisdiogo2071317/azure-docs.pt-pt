@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011498"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033609"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavra-passe do Azure AD
+# <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar proteção de palavras-passe do Azure AD
 
 |     |
 | --- |
@@ -85,6 +85,9 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
 2. Instale o software do serviço de Proxy de política de palavra-passe através do pacote AzureADPasswordProtectionProxy.msi MSI.
    * A instalação de software não requer um reinício. A instalação de software pode ser automatizada com procedimentos MSI padrão, por exemplo: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
+
+      > [!NOTE]
+      > O serviço de Firewall do Windows tem de ser executado antes de instalar o pacote AzureADPasswordProtectionProxy.msi MSI, caso contrário, ocorrerá um erro de instalação. Se a Firewall do Windows está configurada para não executar, a solução alternativa é temporariamente ativar e iniciar o serviço de Firewall do Windows durante o processo de instalação. O software de proxy não tem nenhuma dependência específica sobre o software de Firewall do Windows após a instalação. Se estiver a utilizar uma firewall de terceiros, ele ainda deve ser configurado para satisfazer os requisitos de implementação (permitir acesso de entrada para a porta 135 e o proxy RPC porta do servidor se dinâmico ou estático). [Consulte os requisitos de implementação](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
 
 3. Abra uma janela do PowerShell como administrador.
    * A proteção de palavra-passe do Azure AD software de Proxy inclui um novo módulo do PowerShell com o nome AzureADPasswordProtection. Os seguintes passos baseiam-se sobre como executar vários cmdlets deste módulo do PowerShell e partem do princípio de que abriu uma nova janela do PowerShell e importou o novo módulo da seguinte forma:

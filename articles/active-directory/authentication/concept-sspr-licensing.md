@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159003"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043044"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 
-Azure Active Directory (Azure AD) é fornecido em quatro edições: gratuito, básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) é fornecido em quatro edições: Gratuito, básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Compare as edições e funcionalidades
 
@@ -41,7 +41,7 @@ O Azure AD self-service palavra-passe reposição é licenciada por usuário, pa
    * Esta funcionalidade está incluída no Azure AD Premium P1 ou Premium P2 edições.
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento **não suportam a repetição de escrita de palavra-passe** e necessitam do Azure AD Premium P1 ou Premium P2 edições para esta funcionalidade para trabalhar.
+> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e requerem um plano que inclui o Azure AD Premium P1 ou Premium P2 edições para essa funcionalidade para trabalho.
 >
 
 Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas nas seguintes páginas:

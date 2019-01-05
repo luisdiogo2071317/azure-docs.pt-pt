@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268449"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053981"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 
@@ -51,9 +51,7 @@ Para obter mais informações sobre a atribuição de permissão para dados de g
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de recursos.
-
-No portal do Azure, navegue até **gestão de custos + faturação** &gt; **subscrições** &gt; selecionar uma subscrição &gt; **orçamentos**. Neste exemplo, é o orçamento que criar para a subscrição que selecionou.
+Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de recursos. Por exemplo, no portal do Azure, navegue até **subscrições** &gt; Selecione uma subscrição &gt; **orçamentos**. Neste exemplo, é o orçamento que criar para a subscrição que selecionou. Se quiser criar um orçamento para um grupo de recursos, navegue para **grupos de recursos** > selecione um grupo de recursos > **orçamentos**.
 
 Depois de criar orçamentos, mostram uma simples exibição de seus gastos atual contra eles.
 

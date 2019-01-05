@@ -6,40 +6,40 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 61b923b278d13bdcf97e05859c36b14bf9edba6e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227168"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051001"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às Máquinas Virtuais para o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-O Azure Stack oferece-lhe as máquinas virtuais (VMs) como um tipo de um recurso de computação a pedido e dimensionável. Pode escolher uma VM quando precisar de mais controlo sobre o ambiente informático que as outras opções. Este artigo fornece detalhes antes de criar a VM.
+O Azure Stack oferece máquinas virtuais (VMs) como um tipo de um recurso de computação a pedido e dimensionável. Pode escolher uma VM quando precisar de mais controlo sobre o ambiente de computação. Este artigo fornece detalhes antes de criar a sua primeira VM.
 
 VM do Azure Stack dá-lhe a flexibilidade da virtualização, sem a necessidade de gerir clusters ou máquinas individuais. No entanto, ainda tem de manter a VM a realizar tarefas como a configuração, aplicação de patches e instalar o software que é executado no mesmo.
 
 Pode utilizar as máquinas virtuais do Azure Stack de várias formas. Por exemplo:
 
 - **Desenvolvimento e teste**  
-    VMs de pilha do Azure oferecem uma forma rápida e fácil para criar um computador com uma configuração específica necessária para codificar e testar uma aplicação.
+    VMs de pilha do Azure permitem-lhe criar um computador com uma configuração específica necessária para codificar e testar uma aplicação.
 
 - **Aplicações na cloud**  
-    Uma vez que pode variar a pedido para a sua aplicação, poderá fazer sentido em termos económico executá-lo numa VM no Azure Stack. Paga pelas VMs adicionais quando precisar delas e encerra-as quando não precisar.
+    Uma vez que pode variar a pedido para a sua aplicação, poderá fazer sentido em termos económico executá-lo numa VM no Azure Stack. Paga pelas VMs adicionais quando precisar delas e encerrá-las quando não o fizer.
 
 - **Datacenter expandido**  
-    Máquinas virtuais numa rede virtual do Azure Stack podem ser facilmente ligadas à rede da sua organização ou para o Azure.
+    Máquinas virtuais numa rede virtual do Azure Stack podem ser ligadas à rede da sua organização ou para o Azure.
 
-As VMs que o aplicativo usar pode dimensionar vertical ou aumentar horizontalmente para tudo o que é necessário para atender às suas necessidades.
+As VMs que o aplicativo usar pode dimensionar vertical ou aumentar horizontalmente, para tudo o que é necessário para atender às suas necessidades.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>O que é preciso ter em conta antes de criar uma VM?
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>O que é necessário pensar antes de criar uma VM
 
-Sempre há várias considerações de design ao criar uma infraestrutura de aplicação no Azure Stack. Esses aspectos de uma VM são importantes a considerar antes de começar a criar a sua infraestrutura:
+Sempre há considerações de design ao criar uma infraestrutura de aplicação no Azure Stack. Esses aspectos de uma VM são importantes a considerar antes de começar a criar a sua infraestrutura:
 
 - Os nomes dos recursos da aplicação.
 - O tamanho da VM.
@@ -52,30 +52,29 @@ Sempre há várias considerações de design ao criar uma infraestrutura de apli
 
 Uma máquina virtual tem um nome atribuído à mesma e ter um nome de computador configurado como parte do sistema operativo. O nome de uma VM pode ter até 15 carateres.
 
-Se utilizar o Azure Stack para criar o disco do sistema operativo, o nome do computador e o nome da máquina virtual são os mesmos. Se carrega e usar sua própria imagem que contém um sistema de operativo configurado anteriormente e utilizá-lo para criar uma máquina virtual, os nomes podem ser diferentes. Ao carregar o seu próprio ficheiro de imagem, tornar o nome do computador no sistema operativo e a máquina virtual nome o mesmo, como melhor prática.
+Se utilizar o Azure Stack para criar o disco do sistema operativo, o nome do computador e o nome da máquina virtual são os mesmos. Se carrega e usar sua própria imagem que contém um sistema de operativo configurado anteriormente e utilizá-lo para criar uma máquina virtual, os nomes podem ser diferentes. Ao carregar o seu próprio ficheiro de imagem, como melhor prática, certifique-se o nome do computador do sistema operativo e o nome de máquina virtual são os mesmos.
 
 ### <a name="vm-size"></a>Tamanho da VM
 
-O tamanho da VM que utiliza é determinado pela carga de trabalho que pretende executar. O tamanho que escolher determina fatores como o poder de processamento, a memória e capacidade de armazenamento. O Azure Stack oferece uma ampla variedade de tamanhos para suportar muitos tipos de utilizações.
+O tamanho da VM que utiliza é determinado pela carga de trabalho que pretende executar. O tamanho que escolher determina fatores como o poder de processamento, a memória e capacidade de armazenamento. O Azure Stack oferece uma variedade de tamanhos para suportar muitos tipos de utilizações.
 
 ### <a name="vm-limits"></a>Limites de VM
 
-A sua subscrição tem limites de quota predefinidos que pode afetar a implementação de muitas VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região.
+A sua subscrição tem limites de quota predefinidos num local que pode afetar a implementação de VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região.
 
 ### <a name="operating-system-disks-and-images"></a>Discos do sistema operativo e imagens
 
-As máquinas virtuais utilizam discos rígidos virtuais (VHDs) para armazenar o respetivo sistema operativo (SO) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO.
-O Azure Stack fornece um mercado para utilizar com diversas versões e tipos de sistemas operativos. Imagens do Marketplace são identificadas pelo publicador da imagem, oferta, sku e versão (normalmente versão está especificada como a versão mais recente.)
+As máquinas virtuais utilizam discos rígidos virtuais (VHDs) para armazenar o respetivo sistema operativo (SO) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. O Azure Stack fornece um mercado para utilizar com diversas versões e tipos de sistemas operativos. Imagens do Marketplace são identificadas pelo publicador da imagem, oferta, SKU e versão (normalmente, a versão é especificada como **mais recente**.)
 
-A tabela seguinte mostra algumas formas que pode encontrar as informações de uma imagem:
+A tabela seguinte mostra como localizar as informações de uma imagem:
 
 |Método|Descrição|
 |---------|---------|
 |Portal do Azure Stack|Os valores são especificados automaticamente ao selecionar uma imagem a utilizar.|
 |Azure Stack do PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|APIs REST     |[Listar publicadores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Listar ofertas da imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Listar SKUs de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|APIs REST     |[Listar publicadores de imagem](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Listar ofertas da imagem](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Listar SKUs de imagem](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-Pode optar por carregar e utilizar a sua própria imagem. Se o fizer, o nome do publicador, oferta, sku e não são utilizadas.
+Pode optar por carregar e utilizar a sua própria imagem. Se o fizer, o nome do publicador, oferta, SKU e não são utilizados.
 
 ### <a name="extensions"></a>Extensões
 
@@ -93,8 +92,7 @@ Estas tarefas comuns podem ser realizadas com extensões:
 
 ### <a name="related-resources"></a>Recursos relacionados
 
-Os recursos na tabela seguinte são utilizados pela VM e tem de existir ou ser criados quando a VM é criada.
-
+Os recursos na tabela seguinte são utilizados pela VM e tem de existir ou ser criados quando a VM é criada:
 
 |Recurso|Necessário|Descrição|
 |---------|---------|---------|
@@ -107,9 +105,7 @@ Os recursos na tabela seguinte são utilizados pela VM e tem de existir ou ser c
 
 ## <a name="create-your-first-vm"></a>Criar a sua primeira VM
 
-Existem várias opções para criar uma VM. À sua escolha depende do seu ambiente.
-A tabela seguinte fornece informações para ajudá-lo ao criar a sua VM.
-
+Existem várias opções para criar uma VM. À sua escolha depende do seu ambiente. A tabela seguinte fornece informações para ajudar a começar a criar a sua VM:
 
 |Método|Artigo|
 |---------|---------|
@@ -131,14 +127,13 @@ Pode gerir VMs com um portal baseada no browser, ferramentas de linha de comando
 
 A tabela seguinte mostra algumas das formas de que obter informações sobre uma VM.
 
-
 |Método|Descrição|
 |---------|---------|
 |Portal do Azure Stack|No hub menu, clique em máquinas virtuais e, em seguida, selecione a VM a partir da lista. Na página para a VM, terá acesso a informações de descrição geral, valores de definição e métricas de monitorização.|
-|Azure PowerShell|Gerir VMs é semelhante no Azure e o Azure Stack. Para obter mais informações sobre como utilizar o PowerShell, consulte o tópico do Azure seguinte:<br>[Criar e gerir VMs do Windows com o módulo Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|SDKs do Cliente|Utilizar c# para gerir VMs é semelhante no Azure e o Azure Stack. Para obter mais informações, consulte o tópico do Azure seguinte:<br>[Criar e gerir VMs do Windows no Azure com c#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Gerir VMs é semelhante no Azure e o Azure Stack. Para obter mais informações sobre como utilizar o PowerShell, consulte o tópico do Azure seguinte:<br>[Criar e gerir VMs do Windows com o módulo Azure PowerShell](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
+|SDKs do Cliente|Utilizar c# para gerir VMs é semelhante no Azure e o Azure Stack. Para obter mais informações, consulte o tópico do Azure seguinte:<br>[Criar e gerir VMs do Windows no Azure com c#](../../virtual-machines/windows/csharp.md)|
 
-### <a name="connect-to-your-vm"></a>Ligar à sua VM
+### <a name="connect-to-your-vm"></a>Ligar à VM
 
 Pode utilizar o **Connect** botão no portal do Azure Stack para ligar à sua VM.
 

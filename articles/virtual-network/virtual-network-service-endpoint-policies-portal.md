@@ -1,13 +1,10 @@
 ---
-title: Criar e associar políticas de ponto final de serviço - portal do Azure | Documentos da Microsoft
+title: Criar e associar políticas de ponto final de serviço - portal do Azure
+titlesuffix: Azure Virtual Network
 description: Neste artigo, saiba como configurar e políticas de ponto final de serviço associado com o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054440"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço com o portal do Azure
 
@@ -47,9 +44,9 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 3. Introduza ou selecione as seguintes informações na **Noções básicas** 
 
    - Subscrição: Selecione a sua subscrição para a política.    
-   - Grupo de recursos: selecione **criar novo** e introduza *myResourceGroup*.     
+   - Grupo de recursos: Selecione **Criar novo** e introduza *myResourceGroup*.     
    - Nome: myEndpointPolicy
-   - Localização: Oeste dos E.U.A.     
+   - Localização: EUA Centro-Oeste     
  
    ![Criar ponto final de serviço Noções básicas de política](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -58,15 +55,15 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
    - Clique em **+ adicionar um recurso**, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e clique em **Add**.  
    - Âmbito: Selecione **única conta** ou **todas as contas na subscrição** ou **todas as contas do grupo de recursos**.    
    - Subscrição: Selecione a sua subscrição para a conta de armazenamento. Contas de armazenamento e de política podem ser em subscrições diferentes.   
-   - Grupo de recursos: selecione o grupo de recursos. Necessário se o âmbito será definido como "Todas as contas no grupo de recursos" ou "Conta única".  
+   - Grupo de recursos: Selecione o grupo de recursos. Necessário se o âmbito será definido como "Todas as contas no grupo de recursos" ou "Conta única".  
    - Recurso: mystorageaccountportal    
    - Clique em **+ adicionar um recurso** para continuar a adicionar mais recursos.
    
    ![Criar definições de políticas de ponto final de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Opcional: Introduza ou selecione as seguintes informações em **etiquetas**:
+5. Opcional: Introduza ou selecione as seguintes informações na **etiquetas**:
    
-   - Chave: Selecione a chave para a política. Por exemplo: departamento     
+   - Chave: Selecione a sua chave para a política. Por exemplo: Departamento     
    - Valor: Introduza o par de valor da chave. Por exemplo: Finanças
 
 6. Selecione **rever + criar**. Validar as informações e clique em **criar**. Para tornar ainda mais as edições, clique em **Previous**. 
@@ -102,8 +99,8 @@ Antes de poder associar uma política a uma sub-rede, tem de criar uma rede virt
    - Nome: myVirtualNetwork      
    - Espaço de endereços: 10.0.0.0/16      
    - Subscrição: Selecione a sua subscrição. Política deve ser na mesma subscrição que a VNet     
-   - Grupo de recursos: selecione **utilizar existente** e, em seguida, selecione *myResourceGroup*     
-   - Localização: Oeste dos E.U.A.     
+   - Grupo de recursos: Selecione **utilizar existente** e, em seguida, selecione *myResourceGroup*     
+   - Localização: EUA Centro-Oeste     
    - Nome da sub-rede: privada     
    - Intervalo de endereços: 10.0.0.0/24
      

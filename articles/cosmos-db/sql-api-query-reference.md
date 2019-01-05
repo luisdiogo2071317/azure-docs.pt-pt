@@ -1,19 +1,19 @@
 ---
 title: Sintaxe de linguagem SQL no Azure Cosmos DB
 description: Este artigo explica a sintaxe de linguagem de consulta SQL utilizada no Azure Cosmos DB, diferentes operadores e palavras-chave disponíveis neste idioma.
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142563"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044387"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Referência de linguagem do Azure Cosmos DB SQL 
 
@@ -474,7 +474,7 @@ ORDER BY <sort_specification>
 |**Categoria**|**Detalhes**|  
 |-|-|  
 |**Operações aritméticas**|Operador espera input(s) ser número (s). Saída também é um número. Se qualquer uma das entradas estiver **indefinido** ou o tipo que não seja o número, em seguida, o resultado é **indefinido**.|  
-|**bit a bit**|Operador espera input(s) como inteiro de 32 bits assinado número (s). Saída também é inteiro de 32 bits assinado número.<br /><br /> Qualquer valor não inteiro será arredondado. Um valor positivo será arredondado para baixo, negativos valores arredondados.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32-bits da notação de complemento do suas duas.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** o comportamento acima é compatível com o comportamento do operador bit a bit de JavaScript.|  
+|**bit a bit**|Operador espera input(s) como inteiro de 32 bits assinado número (s). Saída também é inteiro de 32 bits assinado número.<br /><br /> Qualquer valor não inteiro será arredondado. Um valor positivo será arredondado para baixo, negativos valores arredondados.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32-bits da notação de complemento do suas duas.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** O comportamento acima é compatível com o comportamento do operador bit a bit de JavaScript.|  
 |**logical**|Operador espera input(s) ser Boolean(s). Saída também é um booleano.<br />Se qualquer uma das entradas estiver **indefinido** ou escreva senão Boolean, em seguida, o resultado será **indefinido**.|  
 |**comparison**|Operador espera input(s) para ter o mesmo tipo e não será definida. O resultado é um booleano.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou as entradas têm diferentes tipos, em seguida, o resultado é **indefinido**.<br /><br /> Ver **ordenação de valores para comparação** tabela para ordenação detalhes de valor.|  
 |**string**|Operador espera input(s) ser String(s). Saída também é uma cadeia de caracteres.<br />Se qualquer uma das entradas estiver **indefinido** ou escreva senão a cadeia de caracteres, em seguida, o resultado é **indefinido**.|  
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  O expoente de um número é a constante **i** elevado à potência do número. Por exemplo, EXP(1.0) = e ^ 1.0 = 2.71828182845905 e EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n. E o logaritmo natural de exponencial de um número é o número em si: registo (EXP (n)) = n.  
+ Exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n. E o logaritmo natural de exponencial de um número é o número em si: REGISTO (EXP (n)) = n.  
   
  **Exemplos**  
   
@@ -1108,7 +1108,7 @@ LOG (<numeric_expression> [, <base>])
   
  O logaritmo natural é o logaritmo para a base **i**, onde **i** é uma constante irracional aproximadamente igual a 2.718281828.  
   
- O logaritmo natural de exponencial de um número é o número em si: registo (EXP (n)) = n. E exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n.  
+ O logaritmo natural de exponencial de um número é o número em si: REGISTO (EXP (n)) = n. E exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n.  
   
  **Exemplos**  
   

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 87bef3568e45f3d966d90d980403c83c96aa461f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7e320bdc98de75141aed4783d343571971287f37
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300873"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052541"
 documentType: LandingData
 title: Documentação do Chef Software no Azure
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: O Chef Software fornece uma plataforma de automatização DevOps para Linux e Windows que permite gerir configurações de servidor tanto físicas como virtuais. Saiba como utilizar os produtos Chef Software para automatizar receitas de Infraestrutura como código (IaC) e gerir e implementar máquinas virtuais no Azure com guias de introdução e tutoriais.
   ms.service: chef
   keywords: chef, azure, devops, tutorials, samples, reference
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing page

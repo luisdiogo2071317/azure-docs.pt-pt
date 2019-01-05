@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042347"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](../../application-insights/app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Insira o script imediatamente antes da etiqueta `</head>` de todas as páginas que quer controlar. Se o seu site tiver uma página mestra, pode colocar aí o script. Por exemplo:
 
 * Num projeto MVC do ASP.NET, coloca-lo-ia em `View\Shared\_Layout.cshtml`
-* Num site do SharePoint, no painel de controlo, abra [Definições do site / Página mestra](../../application-insights/app-insights-sharepoint.md).
+* Num site do SharePoint, no painel de controlo, abra [Definições do site / Página mestra](../../azure-monitor/app/sharepoint.md).
 
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights. 
 
@@ -118,7 +118,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Definições, Browser](./media/javascript/03.png)
 
-Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](../../application-insights/app-insights-troubleshoot-faq.md).
+Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](../../azure-monitor/app/troubleshoot-faq.md).
 
 O painel Browser é um [painel do Explorador de Métricas](../../azure-monitor/app/metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 
@@ -227,7 +227,7 @@ O nome da página pode conter os mesmos carateres que um URL, mas qualquer cará
 ## <a name="usage-tracking"></a>Controlo de utilização
 Quer descobrir o que os utilizadores fazem com a sua aplicação?
 
-* [Saiba mais sobre as ferramentas de análise de comportamento do utilizador](../../application-insights/app-insights-usage-overview.md)
+* [Saiba mais sobre as ferramentas de análise de comportamento do utilizador](../../azure-monitor/app/usage-overview.md)
 * [Saiba mais sobre a API de métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vídeo
@@ -238,7 +238,7 @@ Quer descobrir o que os utilizadores fazem com a sua aplicação?
 
 
 ## <a name="next"></a> Passos seguintes
-* [Controlar a utilização](../../application-insights/app-insights-usage-overview.md)
+* [Controlar a utilização](../../azure-monitor/app/usage-overview.md)
 * [Métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../application-insights/app-insights-usage-overview.md)
+* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
 

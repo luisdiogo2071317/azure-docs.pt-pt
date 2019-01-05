@@ -12,23 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050171"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Discos geridos do Azure Stack: Diferenças e considerações
-Este artigo resume as diferenças conhecidas entre Managed Disks do Azure Stack e Managed Disks do Azure. Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
 
-Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas de armazenamento](/azure/azure-stack/azure-stack-manage-storage-accounts) associadas aos discos VM.
+Este artigo resume as diferenças conhecidas entre [Managed Disks do Azure Stack](azure-stack-manage-vm-disks.md) e [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
+
+Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas de armazenamento](../azure-stack-manage-storage-accounts.md) associadas aos discos VM.
 
 > [!Note]  
-> Discos geridos no Azure Stack está disponível a partir 1808.
+> Discos geridos no Azure Stack está disponível na versão 1808.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Referência rápida: Gerido diferenças de disco
@@ -46,30 +47,34 @@ Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas d
 |Tamanho do disco  |Disco Premium do Azure: P4 (32 GiB) para P80 (32 TiB)<br>Disco SSD Standard do Azure: E10 (128 GiB) para E80 (32 TiB)<br>Disco HDD padrão do Azure: S4 (32 GiB) para S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 giB |
 |Cópia do instantâneo de discos|Tire um instantâneo do Azure discos geridos anexados a uma VM em execução suportada|Ainda não é suportado |
 |Análise de desempenho de discos |Agregar as métricas e por métrica de disco suportada |Ainda não é suportado |
-|Migração      |Fornecer ferramenta para migrar de não gerido do Azure Resource Manager VMs existentes sem a necessidade de recriar a VM  |Ainda não é suportado |
+|Migração      |Fornecer ferramenta para migrar de não geridos do Azure Resource Manager VMs existentes sem a necessidade de recriar a VM  |Ainda não é suportado |
 
-> [!Note]  
+> [!NOTE]  
 > IOPs de discos geridos e o débito no Azure Stack é um número de limite, em vez de um número aprovisionado, que pode ser afetado pelo hardware e cargas de trabalho em execução no Azure Stack.
 
-
 ## <a name="metrics"></a>Métricas
+
 Também existem diferenças com métricas de armazenamento:
-- Com o Azure Stack, os dados de transação nas métricas de armazenamento não distingue a largura de banda de rede internos ou externos.
+
+- Com o Azure Stack, os dados de transação nas métricas de armazenamento não distinguem largura de banda de rede internos ou externos.
 - Dados de transação de pilha do Azure nas métricas de armazenamento não incluem o acesso à máquina virtual para os discos montados.
 
-
 ## <a name="api-versions"></a>Versões da API
+
 Pilha de Managed Disks do Azure suporta as seguintes versões de API:
+
 - 2017-03-30
 
 ## <a name="known-issues"></a>Problemas Conhecidos
-Depois de aplicar o 1809 de atualização, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
 
-   - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
-      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
-      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
-   - Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+Depois de aplicar a [1811 atualizar](../azure-stack-update-1811.md), poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
+
+- Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+   1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+   2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+- Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre as máquinas virtuais do Azure Stack](azure-stack-compute-overview.md)
+
+- [Saiba mais sobre as máquinas virtuais do Azure Stack](azure-stack-compute-overview.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a68b312d4b2a35bdaf2f2973c403c750645352b9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018760"
+ms.locfileid: "54054936"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -84,7 +84,7 @@ Na janela de Pesquisa do Visual Studio Application Insights, verá os dados da a
 > [!Tip]
 > Se não existirem quaisquer dados, certifique-se de que o intervalo de tempo está correto e clique no ícone de Pesquisa.
 
-[Saiba mais sobre as ferramentas do Application Insights no Visual Studio](../../application-insights/app-insights-visual-studio.md).
+[Saiba mais sobre as ferramentas do Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Consulte a telemetria no portal Web
@@ -106,7 +106,7 @@ Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics
 
 A telemetria acumula-se no portal do Application Insights, onde pode monitorizar métricas, pesquisar a sua telemetria e configurar [dashboards](../../azure-monitor/app/app-insights-dashboards.md). Também pode utilizar a avançada [Linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage) para analisar a utilização e o desempenho ou para encontrar eventos específicos.
 
-Também pode continuar a analisar a sua telemetria no [Visual Studio](../../application-insights/app-insights-visual-studio.md) com ferramentas como a pesquisa de diagnóstico e as [tendências](../../application-insights/app-insights-visual-studio-trends.md).
+Também pode continuar a analisar a sua telemetria no [Visual Studio](../../azure-monitor/app/visual-studio.md) com ferramentas como a pesquisa de diagnóstico e as [tendências](../../azure-monitor/app/visual-studio-trends.md).
 
 > [!NOTE]
 > Se a sua aplicação enviar telemetria suficiente para se aproximar dos [limites de monitorização](../../azure-monitor/app/pricing.md#limits-summary), é ativada a [amostragem](../../azure-monitor/app/sampling.md) automática. A amostragem reduz a quantidade de telemetria enviada pela sua aplicação, conservando os dados correlacionados para efeitos de diagnóstico.
@@ -147,14 +147,14 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 
 ### <a name="analysis"></a>Análise
 
-* **[Trabalhar com o Application Insights no Visual Studio](../../application-insights/app-insights-visual-studio.md)**<br/>Inclui informações sobre depuração com telemetria, pesquisa de diagnóstico e exploração do código.
+* **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Inclui informações sobre depuração com telemetria, pesquisa de diagnóstico e exploração do código.
 * **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Inclui informações sobre dashboards, ferramentas avançadas de diagnóstico e análise, alertas, um mapa de dependência em direto da aplicação e exportação da telemetria.
 * **[Análise](../../azure-monitor/log-query/get-started-portal.md)** - a linguagem de consulta poderosa.
 
 ### <a name="alerts"></a>Alertas
 
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para se certificar de que o site está visível na web.
-* [Diagnóstico inteligente](../../application-insights/app-insights-proactive-diagnostics.md): Esses testes são executados automaticamente, para que não tenha de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
+* [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Esses testes são executados automaticamente, para que não tenha de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
 * [Alertas de métricas](../../azure-monitor/app/alerts.md): Defina estes para o avisar se uma métrica ultrapassa um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
 
 ### <a name="automation"></a>Automatização

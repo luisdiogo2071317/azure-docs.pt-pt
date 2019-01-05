@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 9482b1a33caaf73838101431dfc1faac7020ee42
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: cd4871e3e4613973a50c8ee0994fe0440150eddf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235031"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044030"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo de Gestor de recursos de cluster do Service Fabric
 
@@ -258,6 +258,14 @@ O diagrama seguinte ilustra onde o seu Cofre de chaves e a configuração do Azu
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que tem um modelo para o seu cluster, saiba como [implementar o cluster para o Azure](service-fabric-cluster-creation-via-arm.md).  Se ainda não o tiver feito, leia os [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md) antes de implementar um cluster de produção.
 
+Para saber mais sobre a sintaxe JSON e propriedades para os recursos implementados neste artigo, consulte:
+
+* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Network/virtualnetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Network/loadbalancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

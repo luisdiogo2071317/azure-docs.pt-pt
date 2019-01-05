@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 77fe6846a056bcdd5a62f1c7d0c7640bae892a75
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719851"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044166"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
 
@@ -169,4 +169,4 @@ Para eliminar o recurso do Application Insights:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Understand how customers are using your app](app-insights-usage-overview.md) (Saber como é que os clientes estão a utilizar a sua aplicação)
+> [Understand how customers are using your app](../azure-monitor/app/usage-overview.md) (Saber como é que os clientes estão a utilizar a sua aplicação)

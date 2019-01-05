@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343807"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052552"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 
@@ -203,4 +203,4 @@ Agora, aprendeu a utilizar métodos diretos, poderá estar interessado no seguin
 Se quiser experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado no tutorial seguinte do IoT Hub:
 
 * [Utilizar métodos diretos](quickstart-control-device-node.md)
-* [Gestão de dispositivos com o Kit de ferramentas do Azure IoT Hub para o VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Gestão de dispositivos com ferramentas de IoT do Azure para VS Code](iot-hub-device-management-iot-toolkit.md)

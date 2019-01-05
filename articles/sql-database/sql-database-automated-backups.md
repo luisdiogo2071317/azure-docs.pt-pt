@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001282"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035428"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -42,7 +42,7 @@ Pode utilizar estas cópias de segurança para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem
 
-Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende o [modelo de compra e a camada de serviços](#pitr-retention-period). Pode atualizar o período de retenção de cópia de segurança para uma base de dados num servidor lógico do Azure. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
+Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende do modelo de compra e a camada de serviços. Pode atualizar a cópia de segurança) período de retenção para uma base de dados num servidor lógico do Azure. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 
@@ -109,7 +109,7 @@ Pode alterar o período de retenção de cópia de segurança de PITR predefinid
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Alterar o período de retenção de cópia de segurança de PITR no portal do Azure
 
-Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no Portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando. 
+Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no Portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Alteração PITR para um servidor lógico
 

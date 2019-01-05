@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306668"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051446"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar dados com o Power BI
 Este tutorial mostra como utilizar o Power BI para ligar ao SQL Data Warehouse e criar algumas visualizações básicas.
@@ -77,7 +77,7 @@ Está agora pronto para utilizar o Power BI para analisar os dados de exemplo da
 
 Pode guardar o seu progresso em qualquer altura, clicando em **Ficheiro** e selecionando **Guardar**.
 
-## <a name="using-direct-connnect"></a>Usando Connnect direto
+## <a name="using-direct-connect"></a>Utilizar o Direct Connect
 Como com a base de dados SQL do Azure, SQL Data Warehouse direto ligar permite lógica propagação juntamente com as capacidades de análises do Power BI. Com ligar em direto, consultas são enviadas para o Azure SQL Data Warehouse em tempo real à medida que explora os dados.  Esta funcionalidade, combinada com a escala do SQL Data Warehouse, permite-lhe criar relatórios dinâmicos em minutos referentes a terabytes de dados. Além disso, a introdução do abrir no botão do Power BI permite que os utilizadores liguem diretamente o Power BI ao seu SQL Data Warehouse sem a recolher informações de outras partes do Azure.
 
 Ao utilizar a ligação direta:

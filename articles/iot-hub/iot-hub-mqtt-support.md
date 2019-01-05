@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000262"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052041"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
 
@@ -81,9 +81,9 @@ Se um dispositivo não é possível utilizar os SDKs do dispositivo, ainda pode 
 
   Para obter mais informações sobre como gerar SAS tokens, consulte a secção de dispositivo de [tokens de segurança a utilizar o IoT Hub][lnk-sas-tokens].
 
-  Ao testar, também pode utilizar para várias plataformas [extensão de Kit de ferramentas do Azure IoT Hub para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como extensão do Kit de ferramentas do Azure IoT) ou o [Device Explorer] [ lnk-device-explorer]ferramenta para gerar um token SAS que pode copiar e colar no seu próprio código rapidamente:
+  Ao testar, também pode utilizar para várias plataformas [ferramentas de IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou o [Device Explorer] [ lnk-device-explorer] ferramenta para gerar um token SAS que pode copiar rapidamente e cole no seu próprio código:
 
-Para o Kit de ferramentas do Hub IoT do Azure:
+Para ferramentas de IoT do Azure:
 
   1. Expanda a **dispositivos do AZURE IOT HUB** separador no canto inferior esquerdo do Visual Studio Code.
   2. O dispositivo com o botão direito e selecione **gerar Token SAS, para o dispositivo**.

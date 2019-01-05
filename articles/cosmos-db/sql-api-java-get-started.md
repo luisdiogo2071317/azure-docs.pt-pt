@@ -1,23 +1,21 @@
 ---
-title: 'NoSQL tutorial: API de SQL para o SDK de Java do Azure Cosmos DB'
+title: 'NoSQL tutorial: API de SQL para o Azure Cosmos DB Java SDK'
 description: Um tutorial NoSQL que cria uma base de dados online e uma aplicação de consola Java com a API do SQL para o Azure Cosmos DB. O SQL do Azure é uma base de dados NoSQL para JSON.
-keywords: tutorial nosql, base de dados online, aplicação de consola java
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093031"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044047"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial NoSQL: Compilar uma aplicação de consola Java de API do SQL
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL tutorial: Criar uma aplicação de consola Java de API de SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -174,7 +172,7 @@ Eliminar a base de dados criada remove a base de dados e todos os recursos subor
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>Passo 11: Executar a sua aplicação de consola Java em conjunto!
+## <a id="Run"></a>Passo 11: Execute o Java todas as ferramentas de aplicação de consola!
 Para executar a aplicação a partir da consola, navegue para a pasta do projeto e compile com o Maven:
     
     mvn package

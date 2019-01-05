@@ -1,21 +1,21 @@
 ---
 title: Como fazer consultas com SQL na Azure Cosmos DB?
 description: Saiba como fazer consultas com SQL na Azure Cosmos DB
-services: cosmos-db
 author: rafats
 ms.author: rafats
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.openlocfilehash: 7f8c3f6d11ba7551cb0d0c9398b46bb001b9b75b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 329f50341649c353fae21d92e8d5f25b1e45a632
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832637"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043588"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB com a API de SQL
 
 A [API do SQL](documentdb-introduction.md) da Azure Cosmos DB suporta a consulta de documentos utilizando o SQL. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
@@ -121,7 +121,7 @@ A seguinte consulta devolve todos os nomes de elementos subordinados na família
 
 **Resultados**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+[{"givenName": "Jesse"}, {"givenName": "Lisa"}]
 
 
 ## <a name="next-steps"></a>Passos Seguintes

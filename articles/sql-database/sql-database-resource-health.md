@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604553"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039100"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
@@ -77,6 +77,6 @@ Reconfigurações são consideradas condições transitórias e espera-se de tem
 
 - Saiba mais sobre [repetir a lógica para erros transitórios](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md) (Resolver problemas, diagnosticar e evitar erros de ligação do SQL)
-- Saiba mais sobre [configurar alertas de estado de funcionamento do recurso](/articles/service-health/resource-health-alert-arm-template-guide.md)
-- Obtenha uma visão geral de [Resource Health](/articles/service-health/resource-health-overview.md)
-- [FAQ do Estado de funcionamento do recurso](/articles/service-health/resource-health-faq.md)
+- Saiba mais sobre [configurar alertas de estado de funcionamento do recurso](../service-health/resource-health-alert-arm-template-guide.md)
+- Obtenha uma visão geral de [Resource Health](../service-health/resource-health-overview.md)
+- [FAQ do Estado de funcionamento do recurso](../service-health/resource-health-faq.md)

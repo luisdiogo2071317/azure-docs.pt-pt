@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: Tutorial de introdução à API SQL'
+title: 'o Azure Cosmos DB: API de SQL tutorial de introdução'
 description: Um tutorial que cria uma base de dados online e uma aplicação de consola C# com a API SQL.
-keywords: tutorial nosql, base de dados online, aplicações de consola em c#
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867534"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043452"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Tutorial de introdução à API SQL
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>o Azure Cosmos DB: API de SQL tutorial de introdução
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -60,7 +58,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Passo 2: Configurar a sua Solução Visual Studio
+## <a id="SetupVS"></a>Passo 2: Configurar a sua solução do Visual Studio
 1. Abra o **Visual Studio 2017** no seu computador.
 2. No menu **Ficheiro**, selecione **Novo**, e, em seguida, escolha **Projeto**.
 3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C#** / **Aplicação de Consola**, atribua um nome ao projeto e, em seguida, clique em **OK**.
@@ -495,7 +493,7 @@ Prima **F5** para executar a sua aplicação.
 
 Parabéns! Eliminou bases de dados do Azure Cosmos DB com êxito.
 
-## <a id="Run"></a>Passo 11: Executar a sua aplicação de consola C# em conjunto!
+## <a id="Run"></a>Passo 11: Executar o C# aplicação de consola tudo!
 Prima F5 no Visual Studio para criar a aplicação no modo de depuração.
 
 Deverá ver o resultado da sua aplicação Introdução numa janela da consola. O resultado apresentará os resultados das consultas que adicionámos e deverá corresponder ao texto de exemplo abaixo.
@@ -538,7 +536,7 @@ Já está, basta criar e está pronto!
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Quer um tutorial ASP.NET MVC mais complexo? Veja o [Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB](sql-api-dotnet-application.md).
+* Quer um tutorial ASP.NET MVC mais complexo? Consulte [Tutorial do ASP.NET MVC: Desenvolvimento de aplicação com o Azure Cosmos DB Web](sql-api-dotnet-application.md).
 * Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Veja [Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorizar pedidos, utilização e armazenamento do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

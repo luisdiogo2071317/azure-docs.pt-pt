@@ -1,19 +1,17 @@
 ---
 title: Segurança de base de dados - Azure Cosmos DB
 description: Saiba como o Azure Cosmos DB fornece segurança de dados e proteção de base de dados para os seus dados.
-keywords: nosql de base de dados segurança, segurança de informações, segurança de dados, a encriptação de base de dados, proteção de base de dados, as políticas de segurança, testes de segurança
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093425"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038777"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Azure Cosmos DB
 
@@ -78,11 +76,11 @@ Vamos examinar cada um em detalhes.
 |Encriptação inativa|Todos os dados armazenados no Azure Cosmos DB são encriptados em descanso. Saiba mais em [do Azure Cosmos DB a encriptação inativa](./database-encryption-at-rest.md)|
 |Servidores corrigidas|Como uma base de dados gerida, o Azure Cosmos DB elimina a necessidade de gerenciar e aplicar um patch servidores, que tem feito para, automaticamente.|
 |Contas administrativas com palavras-passe fortes|É difícil de acreditar, ainda precisamos de mencionar esse requisito, mas ao contrário de alguns dos nossos concorrentes, é impossível ter uma conta administrativa com nenhuma palavra-passe no Azure Cosmos DB.<br><br> Segurança através de SSL e HMAC autenticação baseada em segredo está embutida por predefinição.|
-|Certificações de proteção de dados e segurança|Para mais até a lista de dados das certificações geral, consulte [site de conformidade do Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) , bem como a disponibilidade mais recente [documentos de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (procure Cosmos). Para mais focalizada confira a postagem de dia 25 de Abril de 2018, leia [#CosmosDB do Azure: seguras, privadas e compatível](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) que inclui SOCS 1/2 tipo 2, HITRUST, PCI DSS nível 1, ISO 27001, HIPAA, FedRAMP elevado e muitos outros.
+|Certificações de proteção de dados e segurança|Para mais até a lista de dados das certificações geral, consulte [site de conformidade do Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) , bem como a disponibilidade mais recente [documentos de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (procure Cosmos). Para mais focalizada, leia confira a postagem de dia 25 de Abril de 2018 [#CosmosDB do Azure: Seguro, privadas e em conformidade](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) que inclui SOCS 1/2 tipo 2, HITRUST, PCI DSS nível 1, ISO 27001, HIPAA, FedRAMP elevado e muitos outros.
 
-Captura de ecrã seguinte mostra a integração do Active Directory (RBAC) com o controlo de acesso (IAM) no portal do Azure: ![controlo de acesso (IAM) no portal do Azure - segurança da base de dados de demonstração](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+Captura de ecrã seguinte mostra a integração do Active Directory (RBAC) com o controlo de acesso (IAM) no portal do Azure: ![Controlo de acesso (IAM) no portal do Azure - segurança da base de dados de demonstração](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
-Captura de ecrã seguinte mostra como pode utilizar os registos de atividade e registo de auditoria para monitorizar a sua conta: ![registos de atividades para o Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+Captura de ecrã seguinte mostra como pode utilizar os registos de atividade e registo de auditoria para monitorizar a sua conta: ![Registos de atividades para o Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

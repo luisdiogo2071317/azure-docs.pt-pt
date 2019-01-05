@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794554"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055154"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -145,11 +145,13 @@ Um Estado de funcionamento do ponto final de servidor de "Sem atividade" signifi
 
 Um ponto final do servidor não poderá iniciar a atividade de sincronização pelos seguintes motivos:
 
-- O servidor atingiu o número máximo de sessões de sincronização em simultâneo. Atualmente, o Azure File Sync suporta 2 sessões de sincronização do Active Directory por processador ou um máximo de 8 sessões de sincronização do Active Directory por servidor.
+- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto final do servidor, os outros pontos de extremidade do servidor no mesmo volume não é possível iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
 
-- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto final do servidor, os outros pontos de extremidade do servidor no servidor não é possível iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+    Para verificar a atividade de sincronização atual num servidor, consulte [como posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Para verificar a atividade de sincronização atual num servidor, consulte [como posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- O servidor atingiu o número máximo de sessões de sincronização em simultâneo. 
+    - Versão do agente 4.x e posterior: Limite varia com base nos recursos de sistema disponíveis.
+    - Versão do agente 3.x: 2 sessões de sincronização do Active Directory por processador ou um máximo de 8 sessões de sincronização do Active Directory por servidor.
 
 > [!Note]  
 > Se o estado do servidor no painel servidores registados é "Aparece Offline", execute os passos documentados no [ponto final do servidor tem um Estado de funcionamento de "Sem atividade" ou "Pendente" e o estado do servidor no painel servidores registados é "Aparece offline" ](#server-endpoint-noactivity) secção.
@@ -244,13 +246,14 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 **Registo de ItemResults - erros de sincronização por item**  
 | HRESULT | HRESULT (decimal) | Cadeia do erro | Problema | Remediação |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | O ficheiro tiver produzido persistentes erros durante a sincronização e por isso somente ocorrerá a sincronização uma vez por dia. O erro subjacente pode ser encontrado num log de eventos anterior. | Nos agentes R2 (2.0) e superior, o erro original em vez deste um é exibido. Atualizar para o agente mais recente para ver o erro subjacente ou examinar logs de eventos anteriores para encontrar a causa do erro original. |
-| 0x7B | 123 | ERROR_INVALID_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [ficheiros do Azure, diretrizes de nomenclatura](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e a lista de carateres não suportados abaixo. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [ficheiros do Azure, diretrizes de nomenclatura](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e a lista de carateres não suportados abaixo. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | É necessária nenhuma ação. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | É necessária nenhuma ação. |
+| 0x7B | 123 | ERROR_INVALID_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | É necessária nenhuma ação. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer se o ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS) ou o ficheiro tem uma exclusão estado pendente. | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | É necessária nenhuma ação. |
 
 #### <a name="handling-unsupported-characters"></a>Carateres de tratamento não suportado
@@ -872,5 +875,5 @@ Se o problema não for resolvido, execute a ferramenta de AFSDiag:
 
 ## <a name="see-also"></a>Consulte também
 - [Perguntas mais frequentes sobre os ficheiros do Azure](storage-files-faq.md)
-- [Resolução de problemas de ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

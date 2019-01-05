@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1a5f756c4fac92260e77b24ca2cde6abccf0797a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015071"
+ms.locfileid: "54042789"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
@@ -65,7 +65,7 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Atualizar o relatório manualmente em intervalos ou configurar uma atualização agendada na página de opções.
 
 ### <a name="export-a-funnel"></a>Exportar um funil
-1. [Tornar seu funil](usage-funnels.md).
+1. [Tornar seu funil](../azure-monitor/app/usage-funnels.md).
 2. Selecione **do Power BI**.
 
    ![Botão de captura de ecrã do Power BI](./media/app-insights-export-power-bi/button.png)

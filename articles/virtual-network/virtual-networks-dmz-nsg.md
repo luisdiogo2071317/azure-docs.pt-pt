@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457294"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052398"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemplo 1 – criar um DMZ simple com NSGs com um modelo Azure Resource Manager
 [Regressar à página de práticas recomendada de segurança limites][HOME]
@@ -51,8 +49,8 @@ Na seção referências, há um link para um modelo do Azure Resource Manager qu
 
 **Para criar este ambiente** (instruções detalhadas estão na seção referências deste documento);
 
-1. Implementar o modelo Azure Resource Manager em: [modelos de início rápido do Azure][Template]
-2. Instalar a aplicação de exemplo em: [Script de aplicação de exemplo][SampleApp]
+1. Implemente o modelo Azure Resource Manager em: [Modelos de início rápido do Azure][Template]
+2. Instale a aplicação de exemplo em: [Script de aplicação de exemplo][SampleApp]
 
 >[!NOTE]
 >Para estabelecer o RDP para quaisquer servidores de back-end nesta instância, o servidor IIS é utilizado como um "jumpbox." Primeira RDP para o servidor IIS e, em seguida, para o RDP do servidor de IIS para o servidor de back-end. Em alternativa um IP público pode ser associado a cada NIC para RDP mais fácil de servidor.

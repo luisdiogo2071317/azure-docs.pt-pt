@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363128"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053522"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Implementar modelos com o portal do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode utilizar o portal para implementar os modelos Azure Resource Manager para o Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Para implementar um modelo
 
 1. Inicie sessão no portal, selecione **+ criar um recurso**e, em seguida, selecione **personalizado**.
-2. Selecione **implementação do modelo**.
+2. Selecione **Implementação de modelo**.
 3. Selecione **Editar modelo**e, em seguida, cole o código de modelo JSON para a janela de código. Selecione **Guardar**.
 4. Selecione **Editar parâmetros**, forneça valores para os parâmetros que são apresentados e, em seguida, selecionam **OK**.
 5. Selecione **subscrição**. Escolha a subscrição que pretende utilizar e, em seguida, selecione **OK**.
@@ -40,6 +40,6 @@ Pode utilizar o portal para implementar os modelos Azure Resource Manager para o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a implementação de modelos, veja:
+Para saber mais sobre a implementação de modelos, consulte o artigo seguinte:
 
-[Implementar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
+- [Implementar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)

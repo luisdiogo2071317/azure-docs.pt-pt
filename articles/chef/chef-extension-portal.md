@@ -3,31 +3,31 @@ title: Instalar o cliente do Chef no portal do Azure
 description: Saiba como implementar e configurar o cliente do Chef no portal do Azure
 keywords: Azure, o chef, o devops, o cliente, o instalar, o portal
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378657"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051333"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente do Chef no portal do Azure
 Ao criar ou modificar uma máquina virtual Linux ou Windows no portal do Azure, pode adicionar a extensão do Chef para a máquina virtual. Este artigo orienta-o durante esse processo usando uma nova máquina virtual de Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Chef**: Se não tiver uma conta ativa do Chef, inscreva-se para uma [gratuitos a versão de avaliação do Chef alojado](https://manage.chef.io/signup). Para seguir as instruções neste artigo, terá os seguintes valores da sua conta do Chef: 
+- **Chef**: Se não tiver uma conta ativa do Chef, inscreva-se para uma [versão de avaliação do Chef alojado gratuita](https://manage.chef.io/signup). Para seguir as instruções neste artigo, terá os seguintes valores da sua conta do Chef: 
     - chave de organization_validation
     - RB
     - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instalar a extensão do Chef na nova máquina virtual do Linux
-Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux. Durante o processo, também verá como instalar a extensão da Chef sobre a nova máquina virtual.
+Nesta secção, primeiro utiliza o portal do Azure para criar uma máquina Linux. Durante o processo, verá também como instalar a extensão da Chef sobre a nova máquina virtual.
 
 1. Navegue para o [portal do Azure](http://portal.azure.com).
 
@@ -53,7 +53,7 @@ Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux.
 
     - **Nome** -introduza um nome para a nova máquina virtual.
     - **Tipo de disco VM** -especifique **SSD** ou **HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre os tipos de disco da máquina virtual no Azure, consulte o artigo [High-performance Premium Storage e os discos geridos para VMs](/azure/virtual-machines/windows/premium-storage).
-    - **Nome de utilizador** -introduza um nome de utilizador que é concedido privilégios de administrador na máquina virtual.
+    - **Nome de utilizador** -introduza um nome de utilizador concedido privilégios de administrador na máquina virtual.
     - **Tipo de autenticação** - selecione **palavra-passe**. Também pode selecionar **chave pública SSH**e fornecer um valor de chave público SSH. Para fins desta demonstração (e nas capturas de ecrã), **palavra-passe** está selecionada.
     - **Palavra-passe** e **Confirmar palavra-passe** -introduza uma palavra-passe do utilizador.
     - **Inicie sessão com o Azure Active Directory** - selecione **desativado**.
@@ -65,7 +65,7 @@ Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux.
 
 1. Sobre o **escolher um tamanho** separador, selecione o tamanho da máquina virtual e, em seguida, selecione **selecione**.
 
-1. Sobre o **definições** guia, a maioria dos valores será preenchido para com base nos valores que selecionou no separadores anteriores. Selecione **extensões**.
+1. Sobre o **definições** guia, a maioria dos valores são preenchidos para com base nos valores que selecionou no separadores anteriores. Selecione **Extensions** (Extensões).
 
     ![As extensões são adicionadas a máquinas virtuais através do separador de definições](./media/chef-extension-portal/add-vm-select-extensions.png)
 
@@ -87,7 +87,7 @@ Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux.
     - **Nome do cliente de validação** -introduza o nome do cliente de validação da Chef. Por exemplo, *tarcher validador*.
     - **Chave de validação** -selecione um ficheiro que contém a chave de validação utilizada quando as máquinas de inicialização. 
     - **Ficheiro de configuração de cliente** -selecione um ficheiro de configuração para o cliente do chef. Isso pode ser deixado em branco.
-    - **Versão do cliente do chef** -introduza a versão do cliente do chef para instalar. Isso pode ser deixado em branco. Um valor em branco fará com que a versão mais recente ser instalado. 
+    - **Versão do cliente do chef** -introduza a versão do cliente do chef para instalar. Isso pode ser deixado em branco. Um valor em branco resulta na versão mais recente que está a ser instalado. 
     - **Modo de verificação de SSL** -selecione **None** ou **ponto a ponto**. *Nenhum* tiver sido selecionada para a demonstração.
     - **Ambiente do chef** -introduza o ambiente do Chef este nó deve ser um membro do. Isso pode ser deixado em branco.
     - **Encriptados Databag segredo** -selecione um ficheiro que contém o segredo para a Databag encriptados nesta máquina devem ter acesso a. Isso pode ser deixado em branco.

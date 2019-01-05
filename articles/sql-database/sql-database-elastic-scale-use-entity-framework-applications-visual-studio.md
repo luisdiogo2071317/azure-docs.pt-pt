@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 71f024c81983fcb9c3e99bdf633a5bde306452b8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873245"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051242"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com Entity Framework
 Este documento mostra as alterações de aplicação do Entity Framework que são necessários para integrar com o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md). O foco está na composição [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md) e [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com o Entity Framework **Code First** abordagem. O [Code-First - nova base de dados](https://msdn.microsoft.com/data/jj193542.aspx) tutorial para o EF funciona como o exemplo em execução em todo este documento. O código de exemplo que acompanha este documento é parte das ferramentas de bases de dados elásticas conjunto de exemplos nos exemplos de código do Visual Studio.
@@ -42,7 +42,7 @@ Depois de criar esses bancos de dados, preencha os espaços reservados no **Prog
 ## <a name="entity-framework-workflows"></a>Fluxos de trabalho do Entity Framework
 Os desenvolvedores do Entity Framework se baseiam em um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência para objectos da aplicação: 
 
-* **Code First (nova base de dados)**: desenvolvedor o EF cria o modelo no código da aplicação e, em seguida, o EF gera a base de dados do mesmo. 
+* **Code First (nova base de dados)**: O desenvolvedor do EF cria o modelo no código da aplicação e, em seguida, o EF gera a base de dados do mesmo. 
 * **Code First (base de dados existente)**: O desenvolvedor permite que o EF gerar o código do aplicativo para o modelo a partir de uma base de dados existente.
 * **Modelar primeiro**: O desenvolvedor cria o modelo no EF designer e, em seguida, o EF cria a base de dados do modelo.
 * **Base de dados primeiro**: O desenvolvedor usa o EF de ferramentas para inferir o modelo de uma base de dados existente. 
@@ -59,9 +59,9 @@ O Gestor de mapas de partições horizontais protege os usuários de vistas inco
 ## <a name="requirements"></a>Requisitos
 Ao trabalhar com a biblioteca de cliente de bases de dados elásticas e a APIs do Entity Framework, em que pretenda manter as seguintes propriedades: 
 
-* **Escalamento horizontal**: para adicionar ou remover bases de dados a partir da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. Isso significa que o controle sobre a criação e eliminação de bases de dados e utilizar o Gestor de mapas de partições horizontais de bases de dados elásticas APIs para gerir bases de dados e mapeamentos de shardlets. 
+* **Escalamento horizontal**: Para adicionar ou remover bases de dados a partir da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. Isso significa que o controle sobre a criação e eliminação de bases de dados e utilizar o Gestor de mapas de partições horizontais de bases de dados elásticas APIs para gerir bases de dados e mapeamentos de shardlets. 
 * **Consistência**: A aplicação utiliza a fragmentação e utiliza as capacidades de encaminhamento dependente de dados da biblioteca de clientes. Para evitar corrupção ou os resultados da consulta errado, as ligações são mediadas através do Gestor de mapas de partições horizontais. Isso também mantém validação e consistência.
-* **Code First**: para manter a conveniência do paradigma de primeiro de código do EF. No Code First, classes do aplicativo são mapeados forma transparente para as estruturas de base de dados subjacente. O código do aplicativo interage com DbSets mascarar a maioria dos aspectos envolvidos no processamento da base de dados subjacente.
+* **Code First**: Para manter a conveniência do paradigma de primeiro de código do EF. No Code First, classes do aplicativo são mapeados forma transparente para as estruturas de base de dados subjacente. O código do aplicativo interage com DbSets mascarar a maioria dos aspectos envolvidos no processamento da base de dados subjacente.
 * **Esquema**: Entity Framework processa a criação de esquema de base de dados inicial e a evolução de esquema subsequentes através de migrações. Ao manter estas capacidades, adaptando-se a sua aplicação é fácil à medida que os dados evolui. 
 
 As seguintes orientações instrui como satisfazer os requisitos seguintes para o Code First aplicativos usando ferramentas de bases de dados elásticas. 
@@ -189,7 +189,7 @@ Os exemplos de código acima ilustram o padrão construtor reescreverá necessá
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Implementação do esquema de partição horizontal através de migrações do EF
 Gestão de esquemas automática é uma conveniência fornecida pelo Entity Framework. No contexto de aplicativos usando ferramentas de bases de dados elásticas, que pretenda manter esta capacidade para aprovisionar automaticamente o esquema de partições horizontais recentemente criados quando as bases de dados são adicionados à aplicação em partição horizontal. É o principal motivo aumentar a capacidade em camada de dados para aplicações em partição horizontal com o EF. Contar com capacidades do EF para gestão de esquemas reduz o esforço de administração de banco de dados com uma aplicação em partição horizontal baseada no EF. 
 
-Implementação do esquema por meio de migrações do EF funciona melhor em **por abrir ligações**. Isso contrasta com o cenário para encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é o requisito de consistência: Embora seja desejável para garantir a consistência para todas as ligações de encaminhamento dependente de dados para proteção contra manipulação de mapa de partições horizontais em simultâneo, não é uma preocupação inicial base de dados de implementação do esquema para um novo tem ainda não foi registado no mapa de partições horizontais e ainda não foi alocado para conter os shardlets. Portanto, pode contar com ligações de base de dados regular para este cenário, em vez de encaminhamento dependente de dados.  
+Implementação do esquema por meio de migrações do EF funciona melhor em **por abrir ligações**. Isso contrasta com o cenário para encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é o requisito de consistência: Embora seja desejável para garantir a consistência para todas as ligações de encaminhamento dependente de dados para proteção contra manipulação de mapa de partições horizontais em simultâneo, não é uma preocupação com a implementação do esquema inicial para uma nova base de dados que tenha ainda não foi registado no mapa de partições horizontais e ainda não foi alocado para conter os shardlets. Portanto, pode contar com ligações de base de dados regular para este cenário, em vez de encaminhamento dependente de dados.  
 
 Isso nos leva a uma abordagem em que a implementação do esquema por meio de migrações do EF está intimamente ligada com o registo da nova base de dados como uma partição horizontal no mapa de partições horizontais da aplicação. Isso depende dos seguintes pré-requisitos: 
 
@@ -236,13 +236,13 @@ Este exemplo mostra o método **RegisterNewShard** que registra a partição hor
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 Um pode ter usado a versão do construtor herdada da classe base. Mas o código precisa para se certificar de que o inicializador padrão do EF é utilizado ao estabelecer ligação. Curto, por conseguinte, desvio para o método estático antes de chamar o construtor de classe base com a cadeia de ligação. Tenha em atenção que o registo de partições horizontais deve ser executados num domínio aplicacional diferente ou o processo para garantir que as definições do inicializador para o EF não entram em conflito. 

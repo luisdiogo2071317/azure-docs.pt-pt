@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.openlocfilehash: df4f6066a4bf03f6b09777f3556c52a237501592
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ba1e310234485d972646320f082d8b882a3d43f1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497659"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052347"
 ---
 # <a name="using-dns-in-azure-stack"></a>Através de DNS no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack suporta as seguintes funcionalidades do sistema de nomes de domínio (DNS):
 
@@ -33,7 +33,7 @@ O Azure Stack suporta as seguintes funcionalidades do sistema de nomes de domín
 
 Pode especificar uma etiqueta de nome de domínio DNS para recursos de IP público. Utiliza o Azure Stack **domainnamelabel.location.cloudapp.azurestack.external** para o nome de etiqueta e o maps-o para o endereço IP público no Azure Stack geridos servidores DNS.
 
-Por exemplo, se criar um recurso IP público com **contoso** como uma etiqueta de nome de domínio na localização do Azure Stack local, o [nome de domínio completamente qualificado (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.local.cloudapp.azurestack.external** é resolvido para o endereço IP público do recurso.   Pode utilizar este FQDN para criar um registo CNAME que aponta para o endereço IP público no Azure Stack de domínio personalizado.
+Por exemplo, se criar um recurso IP público com **contoso** como uma etiqueta de nome de domínio na localização do Azure Stack local, o [nome de domínio completamente qualificado (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.local.cloudapp.azurestack.external** é resolvido para o endereço IP público do recurso. Pode utilizar este FQDN para criar um registo CNAME que aponta para o endereço IP público no Azure Stack de domínio personalizado.
 
 Para saber mais sobre a resolução de nomes, veja a [resolução de DNS](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) artigo.
 
@@ -58,23 +58,19 @@ A infra-estrutura de DNS do Azure Stack é mais compacta do que o Azure. O taman
 
 ## <a name="comparison-with-azure-dns"></a>Comparação com o DNS do Azure
 
-DNS no Azure Stack é semelhante ao DNS no Azure, mas há exceções importantes:
+DNS no Azure Stack é semelhante ao DNS no Azure, mas existem algumas exceções importantes:
 
-* **Não oferece suporte a registros AAAA**
+* **Não oferece suporte a registros AAAA**: O Azure Stack não suporta a registros AAAA porque o Azure Stack não suporta endereços IPv6. Esta é a principal diferença entre o DNS no Azure e o Azure Stack.
 
-    O Azure Stack não suporta a registros AAAA porque o Azure Stack não suporta endereços IPv6. Esta é a principal diferença entre o DNS no Azure e o Azure Stack.
-* **Não é a multi-inquilino**
+* **Não é multi-inquilino**: O serviço de DNS no Azure Stack não é a multi-inquilino. Cada inquilino não é possível criar a mesma zona DNS. Apenas a primeira assinatura tenta criar a zona for concluída com êxito e os pedidos subsequentes irão falhar. Esta é a principal diferença entre o Azure e o DNS do Azure Stack.
 
-    O serviço de DNS no Azure Stack não é a multi-inquilino. Cada inquilino não é possível criar a mesma zona DNS. Apenas a primeira assinatura tenta criar a zona for concluída com êxito e os pedidos subsequentes irão falhar. Esta é a principal diferença entre o Azure e o DNS do Azure Stack.
-* **As etiquetas, metadados e Etags**
-
-    Existem pequenas diferenças na forma como o Azure Stack processa etiquetas, metadados, Etags e limites.
+* **As etiquetas, metadados e Etags**: Existem pequenas diferenças na forma como o Azure Stack processa etiquetas, metadados, Etags e limites.
 
 Para saber mais sobre o DNS do Azure, veja [zonas e registos DNS](../../dns/dns-zones-records.md).
 
 ### <a name="tags"></a>Etiquetas
 
-O DNS do Azure Stack oferece suporte a utilizar etiquetas do Azure Resource Manager nos recursos de zona DNS. Não suporta etiquetas em conjuntos de registos de DNS, embora como alternativa, "metadados" é suportado em conjuntos de registos DNS, conforme explicado em seguida.
+O DNS do Azure Stack oferece suporte a utilizar etiquetas do Azure Resource Manager nos recursos de zona DNS. Não suporta etiquetas em conjuntos de registos de DNS, embora, como alternativa, **metadados** é suportado em conjuntos de registos de DNS, conforme explicado na próxima seção.
 
 ### <a name="metadata"></a>Metadados
 
@@ -86,7 +82,7 @@ Suponha que duas pessoas ou dois processos tentam modificar um registo DNS ao me
 
 Utiliza o DNS do Azure Stack *Etags* com segurança lidar com alterações simultâneas para o mesmo recurso. Etags são diferentes do Azure Resource Manager *etiquetas*. Cada recurso DNS (zona ou conjunto de registos) tem uma Etag associada a ele. Quando um recurso é recuperado, o respetivo Etag também é recuperado. Ao atualizar um recurso, pode optar por transmitir volta a Etag para que o DNS do Azure Stack pode verificar se a Etag as correspondências de servidor. Uma vez que cada atualização a um recurso resulta em Etag estão a ser regenerada, um erro de correspondência de Etag indica que tiver ocorrido uma alteração em simultâneo. Etags pode também ser utilizadas ao criar um novo recurso para se certificar de que o recurso ainda não existir.
 
-Por predefinição, os cmdlets do PowerShell de DNS do Azure Stack utilizar Etags para bloquear as alterações em simultâneo a zonas e conjuntos de registos. O opcional **-substituir** comutador pode ser utilizado para suprimir as verificações de Etag, caso em que qualquer simultâneas alterações que ocorreram são substituídas.
+Por predefinição, os cmdlets do PowerShell de DNS do Azure Stack utilizar Etags para bloquear as alterações em simultâneo a zonas e conjuntos de registos. Pode usar o opcional `-Overwrite` mudar para suprimir as verificações de Etag, que faz com que quaisquer alterações simultâneas que ocorreram sejam substituídas.
 
 Ao nível da API de REST de DNS do Azure Stack, Etags são especificadas usando os cabeçalhos HTTP. O comportamento é descrito na tabela a seguir:
 
@@ -109,4 +105,4 @@ Os limites predefinidos seguintes aplicam-se ao utilizar o DNS do Azure Stack:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Introdução ao iDNS para o Azure Stack](azure-stack-understanding-dns.md)
+- [Introdução ao iDNS para o Azure Stack](azure-stack-understanding-dns.md)

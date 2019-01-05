@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 12/31/2018
+ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: dd4873017105db190f9a468ec1f1f77f4e8c9c0e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 019d6120f8f3769d2d974270d575278da0370ef0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977156"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057413"
 ---
 Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar módulos nos seus dispositivos do IoT Edge a partir da cloud. Os módulos do IoT Edge são pacotes executáveis que são implementados como contentores. Nesta secção, vamos implementar um módulo previamente criado a partir da [seção de módulos do IoT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Este módulo gera telemetria simulada para o seu dispositivo IoT Edge.
 
@@ -21,13 +21,13 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
 
    ![Sensor de temperatura simulada na pesquisa de portal do Azure](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. Escolha um dispositivo IoT Edge para receber este módulo. Na **dispositivos de destino para o módulo do IoT Edge**, forneça as seguintes informações:
+2. Escolha um dispositivo IoT Edge para receber este módulo. Sobre o **dispositivos de destino para o módulo do IoT Edge** página, forneça as seguintes informações:
 
    1. **Subscrição**: selecione a subscrição que contém o hub IoT que está a utilizar.
 
    2. **IoT Hub**: selecione o nome do hub IoT que está a utilizar.
 
-   3. **Nome de dispositivo do IoT Edge**: Se tiver utilizado o nome do dispositivo sugerido anteriormente neste início rápido, introduza **myEdgeDevice**. Em alternativa, selecione **localizar dispositivo** para escolher a partir de uma lista de dispositivos no IoT hub. 
+   3. **Nome de dispositivo do IoT Edge**: Se tiver utilizado o nome do dispositivo sugerido anteriormente neste início rápido, introduza **myEdgeDevice**. Em alternativa, selecione **localizar dispositivo** para escolher a partir de uma lista de dispositivos do IoT Edge no seu IoT hub. 
    
    4. Selecione **Criar**.
 

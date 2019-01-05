@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f0f1464adde2c80706fbced7309877447644d19e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022959"
+ms.locfileid: "54040443"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
 A pesquisa é uma funcionalidade do [Application Insights](../../application-insights/app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
@@ -166,4 +166,4 @@ Nós não iniciar sessão automaticamente os dados de POSTAGEM, mas pode usar [c
 * [Escrever consultas complexas no Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Enviar registos e telemetria personalizada para o Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurar a disponibilidade e testes de capacidade de resposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Resolução de problemas](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Resolução de problemas](../../azure-monitor/app/troubleshoot-faq.md)

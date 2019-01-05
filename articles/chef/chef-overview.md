@@ -1,30 +1,30 @@
 ---
-title: Utilizar Chef com o Azure
-description: Introdução à utilização Chef para configurar e testar a sua infraestrutura do Azure
+title: Utilizar o Chef com o Azure
+description: Introdução à utilização do Chef para configurar e testar a sua infraestrutura do Azure
 ms.service: virtual-machines-linux
-keywords: Azure chef, devops, máquinas virtuais, a descrição geral, automatizar
-author: tomarcher
+keywords: Azure, chef, devops, máquinas virtuais, visão geral, automatizar
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 345dc1c608eabb2d1108a337c0fffc7f86b9460e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0e37aee06ed7066dab2ab25915edcc471993b996
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260160"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050273"
 ---
-# <a name="using-chef-with-azure"></a>Utilizar Chef com o Azure
-[Chef](http://www.chef.io) é uma plataforma de automatização poderosas que transforma a infraestrutura de máquina virtual no Azure em código. Chef automatiza como infraestrutura é configurada, implementada e gerida através da rede, independentemente do seu tamanho.
+# <a name="using-chef-with-azure"></a>Utilizar o Chef com o Azure
+[Chef](http://www.chef.io) é uma plataforma de automação poderoso que transforma a infraestrutura de máquina virtual no Azure em código. Chef automatiza como infraestrutura é configurada, implementada e gerenciada na sua rede, independentemente do seu tamanho.
 
-Este artigo descreve as vantagens de utilizar Chef para gerir a infraestrutura do Azure.
+Este artigo descreve as vantagens de utilizar o Chef para gerir a infraestrutura do Azure.
 
-## <a name="automate-infrastructure-apps-and-compliance-with-one-platform"></a>Automatizar a infraestrutura, aplicações e a conformidade com uma plataforma
-As empresas requerem velocidade, itens e segurança para competem ter no digital marketplace. Em conjunto Chef e Microsoft ajudam indivíduos, equipas e as empresas realizar estas coisas. Com uma plataforma, Chef automatizar, pode agora automatizar e fornecer continuamente a sua infraestrutura, aplicações e conformidade, mesmo que através da propriedade da Microsoft.
+## <a name="automate-infrastructure-apps-and-compliance-with-one-platform"></a>Automatize a infraestrutura, aplicações e conformidade com uma plataforma
+As empresas exigem a velocidade, a velocidade e a segurança para competir no mercado digital. Em conjunto Chef e a Microsoft ajudam a indivíduos, equipes e empresas realizar todas essas coisas. Com uma plataforma, Chef Automate, pode automatizar e fornecer continuamente sua infraestrutura, aplicativos e até mesmo compatibilidade entre o seu património de Microsoft.
 
-## <a name="test-drive-chef-automate-on-azure"></a>Experimente a automatizar Chef no Azure
-Suportado pelo Chef, o [solução Chef automatizar Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate) permite-lhe criar, implementar e gerir a sua infraestrutura e aplicações em equipa. Um clique obtém acesso instantânea para todas as funcionalidades comerciais incluído com Chef automatizar; ganhar visibilidade de ponto a ponto entre a frota de toda, ative a compatibilidade contínuas e gerir todas as alterações com um fluxo de trabalho unificada.
+## <a name="test-drive-chef-automate-on-azure"></a>Test drive do Chef Automate no Azure
+Suportado pelo Chef, o [solução Chef automatizar o Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate) permite-lhe criar, implementar e gerir a sua infraestrutura e aplicações de forma colaborativa. Um único clique permite-lhe acesso instantâneo a todas as funcionalidades comerciais incluídas no Chef Automate; ganhar visibilidade de ponta a ponta em toda a sua frota, permite a conformidade contínua e gere todas as alterações com um fluxo de trabalho unificado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Criar uma máquina virtual do Windows no Azure utilizando Chef](/azure/virtual-machines/windows/chef-automation)
+* [Criar uma máquina virtual do Windows no Azure utilizando o Chef](/azure/virtual-machines/windows/chef-automation)

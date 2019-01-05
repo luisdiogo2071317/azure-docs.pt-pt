@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 41ba0816dde63bc611dcb5be544609b88dfe9158
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997518"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052648"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure a partir do Azure Logic Apps, por meio de um ambiente de serviço de integração (ISE)
 
@@ -110,8 +110,8 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    | **Nome do ambiente de serviço de integração** | Sim | <*nome do ambiente*> | O nome para dar o seu ambiente | 
    | **Localização** | Sim | <*Região do datacenter do Azure*> | A região do datacenter do Azure onde pretende implementar o seu ambiente | 
    | **Capacidade** | Sim | 0, 1, 2, 3 | O número de unidades de processamento para utilizar para este recurso do ISE | 
-   | **Rede virtual** | Sim | <*Azure---nome de rede virtual*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, pode criar uma aqui. <p>**Importante**: pode *apenas* realizar este injeção quando cria seu ISE. No entanto, antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps](#vnet-access). | 
-   | **Sub-redes** | Sim | <*Intervalo de endereços IP*> | Um ISE requer quatro *vazio* sub-redes. Estas sub-redes são undelegated a qualquer serviço e são usadas para criar recursos no seu ambiente. *Não é possível alterar* estes intervalos IP depois de criar o seu ambiente. <p><p>Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet). Cada sub-rede tem de cumprir estes critérios: <p>-Não pode existir no mesmo intervalo de endereços para a sua rede virtual selecionada nem quaisquer outros endereços IP privados em que a rede virtual está ligada. <br>-Utiliza um nome que não começa com um número ou um hífen. <br>-Consome os [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Requer um espaço de endereços de classe B. <br>-Inclui um `/27`. Por exemplo, cada sub-rede aqui Especifica um intervalo de endereços de 32 bits: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, e `10.0.0.96/27`. <br>-Pode estar vazio. |
+   | **Rede virtual** | Sim | <*Azure---nome de rede virtual*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, pode criar uma aqui. <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. No entanto, antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps](#vnet-access). | 
+   | **Sub-redes** | Sim | <*Intervalo de endereços IP*> | Um ISE requer quatro *vazio* sub-redes. Estas sub-redes são undelegated a qualquer serviço e são usadas para criar recursos no seu ambiente. *Não é possível alterar* estes intervalos IP depois de criar o seu ambiente. <p><p>Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet). Cada sub-rede tem de cumprir estes critérios: <p>-Utiliza um nome que não começa com um número ou um hífen. <br>-Consome os [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Requer um espaço de endereços de classe B. <br>-Inclui um `/27`. Por exemplo, cada sub-rede aqui Especifica um intervalo de endereços de 32 bits: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, e `10.0.0.96/27`. <br>-Pode estar vazio. |
    |||||
 
    <a name="create-subnet"></a>
@@ -129,7 +129,7 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    1. Sobre o **adicionar sub-rede** painel, indique estas informações.
 
       * **Nome**: O nome para a sua sub-rede
-      * **Intervalo de endereços (bloco CIDR)**: intervalo da sua sub-rede na sua rede virtual e no formato CIDR
+      * **Intervalo de endereços (bloco CIDR)**: Intervalo da sua sub-rede na sua rede virtual e no formato CIDR
 
       ![Adicionar detalhes da sub-rede](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3d2aa78ef853903263b4b497f0e399241ac8ce9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017060"
+ms.locfileid: "54050834"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -29,7 +29,7 @@ Existem três tipos de alertas:
 
 * **Alertas de métricas** informá-lo quando uma métrica ultrapassa um valor de limiar durante um determinado período - por exemplo, tempos de resposta, contagens de exceção, utilização da CPU ou vistas de página. 
 * [**Testes Web** ] [ availability] informá-lo quando o site estiver disponível na internet ou está a responder lentamente. [Saiba mais][availability].
-* [**Diagnósticos proativos** ](../../application-insights/app-insights-proactive-diagnostics.md) são automaticamente configurados para notificá-lo sobre os padrões de desempenho invulgar.
+* [**Diagnósticos proativos** ](../../azure-monitor/app/proactive-diagnostics.md) são automaticamente configurados para notificá-lo sobre os padrões de desempenho invulgar.
 
 Vamos nos concentrar nos alertas de métricas neste artigo.
 
@@ -102,7 +102,7 @@ Não se esqueça de que [diagnóstico de taxa de falha proativos](../../azure-mo
 ## <a name="see-also"></a>Consulte também
 * [Testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
-* [Diagnósticos proativos](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Diagnósticos proativos](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

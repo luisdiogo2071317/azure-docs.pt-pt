@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 31ab9f37bcb4ea32caa48edf9460fa7ffcdf764d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998238"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052075"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que razão necessito de Application Insights?
@@ -94,7 +94,7 @@ O real Madrid utiliza o módulo de Power BI para ver a sua telemetria.
 ![Modo de exibição do Power BI de telemetria do Application Insights](./media/app-insights-devops/080.png)
 
 ## <a name="smart-detection"></a>Deteção inteligente
-[Diagnósticos proativos](app-insights-proactive-diagnostics.md) é uma funcionalidade recente. Sem nenhuma configuração especial por si, o Application Insights automaticamente Deteta e alerta-o sobre aumentos invulgares na taxas de falhas na sua aplicação. É inteligente o suficiente para ignorar um plano de fundo de falhas ocasionais e também aumenta é simplesmente proporcional para um aumento nos pedidos. Por exemplo, se ocorrer uma falha dos serviços que depende, ou se criar o novo que acabou de implementar não está a funcionar tão bem, em seguida, terá conhecimento assim que examinar o seu e-mail. (E há webhooks para que pode disparar outras aplicações.)
+[Diagnósticos proativos](../azure-monitor/app/proactive-diagnostics.md) é uma funcionalidade recente. Sem nenhuma configuração especial por si, o Application Insights automaticamente Deteta e alerta-o sobre aumentos invulgares na taxas de falhas na sua aplicação. É inteligente o suficiente para ignorar um plano de fundo de falhas ocasionais e também aumenta é simplesmente proporcional para um aumento nos pedidos. Por exemplo, se ocorrer uma falha dos serviços que depende, ou se criar o novo que acabou de implementar não está a funcionar tão bem, em seguida, terá conhecimento assim que examinar o seu e-mail. (E há webhooks para que pode disparar outras aplicações.)
 
 Outro aspecto esse recurso executa uma análise detalhada diária da sua telemetria, procurando invulgares padrões de desempenho que são difíceis de detetar. Por exemplo, encontrará um desempenho lento associado uma área geográfica específica ou com uma versão de browser específico.
 
