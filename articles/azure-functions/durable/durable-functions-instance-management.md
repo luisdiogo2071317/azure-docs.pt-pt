@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343943"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042466"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias de funções durável (funções do Azure)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Gerir instâncias de funções duráveis no Azure
 
 [Funções duráveis](durable-functions-overview.md) instâncias de orquestração podem ser iniciadas, terminadas, consultadas e enviadas eventos de notificação. Todo o gerenciamento de instância é feito com o [ligação do cliente de orquestração](durable-functions-bindings.md). Este artigo vai os detalhes de cada operação de gestão de instância.
 
@@ -464,7 +464,7 @@ Sistemas externos podem comunicar com funções duráveis por meio dos URLs de w
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) e `createHttpManagementPayload` ter um parâmetro:
 
-* **instanceId**: O ID exclusivo da instância.
+* **InstanceId**: O ID exclusivo da instância.
 
 Os métodos de retornam uma instância de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) ou um objeto (JavaScript) com as seguintes propriedades de cadeia de caracteres:
 
@@ -520,7 +520,7 @@ Pode ser uma instância da orquestração com falhas *rewound* num anteriormente
 > [!NOTE]
 > Esta API não se destina a ser uma substituição para o tratamento de erros adequado e políticas de repetição. Em vez disso, destina-se a ser usado apenas em casos em que as instâncias de orquestração falharem por motivos de inesperado. Para obter mais detalhes sobre políticas de repetição e manipulação de erro, consulte a [tratamento de erros](durable-functions-error-handling.md) tópico.
 
-Um exemplo utilizar maiúsculas e minúsculas para *Retroceder* é um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-overview.md#pattern-5-human-interaction). Suponhamos que haja uma série de funções de atividade que notifique a pessoa que é necessária a sua aprovação e aguarde que a resposta em tempo real. Afinal de contas da aprovação, actividades recebeu as respostas ou o tempo limite, a falha de outra atividade devido a um erro de configuração do aplicativo, como uma cadeia de ligação de base de dados inválido. O resultado é uma falha de orquestração profundamente o fluxo de trabalho. Com o `RewindAsync` (.NET) ou `rewindAsync` (API de JavaScript), o administrador de uma aplicação pode corrigir o erro de configuração e *Retroceder* a orquestração com falha de volta para o estado de imediatamente antes da falha. Nenhum dos passos de interação humana tem de ser aprovado novamente e a orquestração pode agora ser concluída com êxito.
+Um exemplo utilizar maiúsculas e minúsculas para *Retroceder* é um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-concepts.md#human). Suponhamos que haja uma série de funções de atividade que notifique a pessoa que é necessária a sua aprovação e aguarde que a resposta em tempo real. Afinal de contas da aprovação, actividades recebeu as respostas ou o tempo limite, a falha de outra atividade devido a um erro de configuração do aplicativo, como uma cadeia de ligação de base de dados inválido. O resultado é uma falha de orquestração profundamente o fluxo de trabalho. Com o `RewindAsync` (.NET) ou `rewindAsync` (API de JavaScript), o administrador de uma aplicação pode corrigir o erro de configuração e *Retroceder* a orquestração com falha de volta para o estado de imediatamente antes da falha. Nenhum dos passos de interação humana tem de ser aprovado novamente e a orquestração pode agora ser concluída com êxito.
 
 > [!NOTE]
 > O *Retroceder* funcionalidade não suporta e instâncias de orquestração de avanço rápido, que utilizam os temporizadores duráveis.

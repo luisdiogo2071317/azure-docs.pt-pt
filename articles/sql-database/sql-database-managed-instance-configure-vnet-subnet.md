@@ -11,26 +11,27 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 53aba5192ddf57598965fcfe0db5f2b18423c7e9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/03/2019
+ms.openlocfilehash: 1718177a0902bc7049eb6986e5a1d128eeb3f233
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346609"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040963"
 ---
 # <a name="configure-an-existing-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet já existente para a instância gerida da base de dados SQL do Azure
 
-Instância de gerida de base de dados de SQL do Azure tem de ser implementada dentro do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) e a sub-rede dedicada apenas para instâncias geridas. Pode utilizar a VNet existente e a sub-rede, se ele é configurado de acordo com o [requisitos de VNet de instância gerida](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
+Instância de gerida de base de dados de SQL do Azure tem de ser implementada dentro do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) e a sub-rede dedicada apenas para instâncias geridas. Pode utilizar a VNet existente e a sub-rede, se ele é configurado de acordo com o [requisitos de VNet de instância gerida](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-Se tiver uma nova sub-rede que ainda não está configurada, não estiver certo a sub-rede está alinhada com o [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements), ou se pretender verificar é a sub-rede ainda em conformidade com o [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) depois algumas alterações que efetuou, poderá validar e modificar a sua rede usando o script explicado nesta secção. 
+Se tiver uma nova sub-rede que ainda não está configurada, não estiver certo a sub-rede está alinhada com o [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements), ou se pretender verificar é a sub-rede ainda em conformidade com o [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) depois algumas alterações que efetuou, poderá validar e modificar a sua rede usando o script explicado nesta secção.
 
   > [!Note]
-  > Só pode criar uma instância gerida em redes virtuais do Resource Manager. As VNets do Azure implementadas utilizando o modelo de implementação clássica não é suportado. Certifique-se de que calcula o tamanho de sub-rede, seguindo as diretrizes a [determinar o tamanho da sub-rede para instâncias geridas](#determine-the-size-of-subnet-for-managed-instances) secção, porque a sub-rede não pode ser redimensionada depois de implementar os recursos no interior.
+  > Só pode criar uma instância gerida em redes virtuais do Resource Manager. As VNets do Azure implementadas utilizando o modelo de implementação clássica não é suportado. Certifique-se de que calcula o tamanho de sub-rede, seguindo as diretrizes a [determinar o tamanho da sub-rede para instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md) artigo, porque a sub-rede não pode ser redimensionada depois de implementar os recursos no interior.
 
-## <a name="validate-and-modify-an-existing-virtual-network"></a>Validar e modificar uma rede virtual existente 
+## <a name="validate-and-modify-an-existing-virtual-network"></a>Validar e modificar uma rede virtual existente
 
 Se quiser criar uma instância gerida dentro de uma sub-rede existente, recomendamos o seguinte script do PowerShell para preparar a sub-rede:
+
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
 
@@ -43,6 +44,7 @@ $parameters = @{
 
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
+
 Preparação de sub-rede é feita em três passos simples:
 
 1. Validar - rede virtual selecionada e a sub-rede são validadas para a instância gerida, requisitos de rede.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 385a2890159d99b2aa91b7227895dfd830056a06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021956"
+ms.locfileid: "54042738"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,6 +38,8 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
 Para saber mais sobre os modelos do Azure Resource Manager, veja [Authoring Azure Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md) (Criar Modelos do Azure Resource Manager). 
 
 A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template).
+
+Para saber mais sobre a sintaxe JSON e propriedades de recursos do Data Factory num modelo, veja [tipos de recursos de DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>JSON do Data Factory 
 Crie um ficheiro JSON com o nome **ADFTutorialARM.json** na pasta **C:\ADFTutorial** com o conteúdo abaixo:

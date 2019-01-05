@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972197"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041293"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
 
@@ -63,7 +63,7 @@ Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com at�
 O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD gerido os discos fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da cópia de segurança de VM do Azure stack V2.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Vamos criar uma VM com um disco WA do acelerador de escrita ativado?
-Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos WA-ativada é suportada apenas para subscrições atualizadas para a pilha de cópia de segurança do Azure VM V2. Para atualizar para a pilha de cópia de segurança do Azure VM V2, consulte [artigo](backup-upgrade-to-vm-backup-stack-v2.md). Esta funcionalidade está atualmente disponível no Leste do Japão, Europa do Norte, Sudeste asiático, E.U.A. leste, E.u.a. oeste2, Europa Ocidental e e.u.a. Leste 2.
+Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos WA-ativada é suportada apenas para subscrições atualizadas para a pilha de cópia de segurança do Azure VM V2. Para atualizar para a pilha de cópia de segurança do Azure VM V2, veja este [artigo](backup-upgrade-to-vm-backup-stack-v2.md). Esta funcionalidade está atualmente disponível no Leste do Japão, Europa do Norte, Sudeste asiático, E.U.A. leste, E.u.a. oeste2, Europa Ocidental e e.u.a. Leste 2.
 
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?

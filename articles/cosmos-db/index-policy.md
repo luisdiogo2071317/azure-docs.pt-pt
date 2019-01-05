@@ -6,32 +6,32 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0fb2c3daf19ce07d9641cbc5504cb3b598ad5b0d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848005"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034460"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Política de indexação no Azure Cosmos DB
 
 Pode substituir a predefinição de política num contentor do Cosmos do Azure de indexação ao configurar os seguintes parâmetros:
 
-* **Incluir ou excluir itens e os caminhos do índice**: pode excluir ou incluir itens específicos no índice ao inserir ou substituir os itens dentro de um contêiner. Também pode incluir ou excluir caminhos/propriedades específicas ser indexados em contentores. Caminhos podem incluir padrões de carateres universais, por exemplo, *.
+* **Incluir ou excluir itens e os caminhos do índice**: Pode excluir ou incluir itens específicos no índice ao inserir ou substituir os itens dentro de um contêiner. Também pode incluir ou excluir caminhos/propriedades específicas ser indexados em contentores. Caminhos podem incluir padrões de carateres universais, por exemplo, *.
 
 * **Configurar tipos de índice**: Além para variar caminhos indexados, pode adicionar outros tipos de índices, tais como espaciais.
 
-* **Configurar os modos de índice**: ao utilizar a política de indexação num contentor, pode configurar diferentes modos de indexação, como *consistência* ou *nenhum*.
+* **Configurar os modos de índice**: Ao utilizar a política de indexação num contentor, pode configurar diferentes modos de indexação, como *consistência* ou *nenhum*.
 
 ## <a name="indexing-modes"></a>Modos de indexação 
 
 O Azure Cosmos DB suporta dois modos de indexação que pode configurar num contentor do Cosmos do Azure. Pode configurar os seguintes dois modos indexação através da política de indexação: 
 
-* **Consistente**: se a política de um contentor Cosmos do Azure estiver definida para consistência, as consultas num contêiner específico, siga o mesmo nível de consistência que foi especificado para leituras de ponto (por exemplo, sólido, prescrição vinculada, sessão ou eventual). 
+* **Consistente**: Se a política de um contentor Cosmos do Azure estiver definida para consistência, as consultas num contêiner específico, siga o mesmo nível de consistência que foi especificado para leituras de ponto (por exemplo, sólido, prescrição vinculada, sessão ou eventual). 
 
   O índice é atualizado de forma síncrona como os itens de atualização. Por exemplo, inserir, substituir, atualização e eliminar operações num item resultará na atualização do índice. Indexação consistente suporta consultas consistentes ao custo de afetar o débito de escrita. A redução no débito de escrita depende "caminhos incluído na indexação" e o "nível de consistência". Consistência de modo a indexação foi concebida para escrita rapidamente e consulta imediatamente cargas de trabalho.
 
-* **Nenhum**: um contentor que tem um nenhum modo de índice não tem nenhum índice associado ao mesmo. Isto é normalmente utilizado se a base de dados do Cosmos do Azure é utilizado como um armazenamento de chave-valor e itens são acedidos apenas por sua propriedade de ID.
+* **Nenhum**: Um contentor que tem um nenhum modo de índice não tem nenhum índice associado ao mesmo. Isto é normalmente utilizado se a base de dados do Cosmos do Azure é utilizado como um armazenamento de chave-valor e itens são acedidos apenas por sua propriedade de ID.
 
   > [!NOTE]
   > Configurar o modo de indexação como um None tem o efeito colateral de remover qualquer índice existente. Deve utilizar esta opção se os padrões de acesso requerem o ID ou Self-apenas a ligação.

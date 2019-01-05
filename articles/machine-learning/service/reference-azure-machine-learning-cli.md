@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f85934b0c800ca354cc9cff02132a40c8eccea57
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014850"
+ms.locfileid: "54053130"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
 
@@ -119,11 +119,15 @@ Os comandos seguintes demonstram como utilizar a CLI para trabalhar com experiê
     az ml project attach --experiment-name myhistory
     ```
 
-* Inicie uma execução da sua experimentação. Quando utilizar este comando, especifique um destino de computação. Neste exemplo, `local` utiliza o computador local para treinar o modelo ao utilizar o `train.py` script:
+* Inicie uma execução da sua experimentação. Quando utilizar este comando, especifique o nome do `.runconfig` ficheiro que contém a configuração de execução. O destino de computação utiliza a configuração de execução para criar o ambiente de treinamento para o modelo. Neste exemplo, a configuração de execução é carregada a partir do `./aml_config/myrunconfig.runconfig` ficheiro.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Predefinido `.runconfig` ficheiros com o nome `docker.runconfig` e `local.runconfig` são criados quando anexa um projeto com o `az ml project attach` comando. Terá de modificar esses antes de os utilizar para preparar um modelo. 
+
+    Também pode criar uma configuração de execução por meio de programação com o [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) classe. Depois de criado, em seguida, pode utilizar o `save()` método para criar o `.runconfig` ficheiro.
 
 * Ver uma lista de experimentações submetidas:
 

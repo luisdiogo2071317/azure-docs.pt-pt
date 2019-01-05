@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4bc1d72cd08d47e9699acf8c20b03307dbda97af
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003857"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035258"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
 
@@ -62,7 +62,7 @@ Para navegar de volta para a experiência de descrição geral, basta selecionar
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Funis](../../application-insights/usage-funnels.md)
-- [Retenção](../../application-insights/app-insights-usage-retention.md)
-- [Fluxos do Utilizador](../../application-insights/app-insights-usage-flows.md)
+- [Funis](../../azure-monitor/app/usage-funnels.md)
+- [Retenção](../../azure-monitor/app/usage-retention.md)
+- [Fluxos do Utilizador](../../azure-monitor/app/usage-flows.md)
 - [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)

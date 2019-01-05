@@ -1,19 +1,18 @@
 ---
 title: Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 description: Este artigo descreve como feed de alterações pode ser utilizado por uma empresa de revenda para compreender os padrões de utilizador, efetuar a análise de dados em tempo real e visualização.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090759"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037111"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 
@@ -31,7 +30,7 @@ O diagrama abaixo representa o fluxo de dados e componentes envolvidos na soluç
 
 ![Projeto visual](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Geração de dados:** simulador de dados é usado para gerar dados de revenda que representa os eventos como um utilizador de um item de exibição, adicionando um item ao seu carrinho e compra de um item. Pode gerar grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerado contém documentos no seguinte formato:
+1. **Geração de dados:** Simulador de dados é utilizado para gerar dados de revenda que representa os eventos como um utilizador de um item de exibição, adicionando um item ao seu carrinho e compra de um item. Pode gerar grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerado contém documentos no seguinte formato:
    
    ```json
    {      
@@ -42,15 +41,15 @@ O diagrama abaixo representa o fluxo de dados e componentes envolvidos na soluç
    }
    ```
 
-2. **O cosmos DB:** dos dados gerados são lojas numa coleção do Azure Cosmos DB.  
+2. **Cosmos DB:** Os dados gerados são lojas numa coleção do Azure Cosmos DB.  
 
-3. **Feed de alterações:** irá escutar o feed de alterações na coleção do Azure Cosmos DB. Sempre que um novo documento é adicionado à coleção (que é quando um evento ocorre como um utilizador visualizar um item, adicionando um item ao seu carrinho, ou de um item), a alteração feed irá acionar um [função do Azure](../azure-functions/functions-overview.md).  
+3. **Feed de alterações:** O feed de alterações ouvirá as alterações à coleção do Azure Cosmos DB. Sempre que um novo documento é adicionado à coleção (que é quando um evento ocorre como um utilizador visualizar um item, adicionando um item ao seu carrinho, ou de um item), a alteração feed irá acionar um [função do Azure](../azure-functions/functions-overview.md).  
 
-4. **Função do Azure:** a função do Azure processa os novos dados e envia-o para uma [Hub de eventos do Azure](../event-hubs/event-hubs-about.md).  
+4. **Função do Azure:** A função do Azure processa os novos dados e envia-o para uma [Hub de eventos do Azure](../event-hubs/event-hubs-about.md).  
 
-5. **Hub de eventos:** Hub de eventos do Azure armazena estes eventos e envia-lhes [do Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para efetuar a análise.  
+5. **Hub de eventos:** O Hub de eventos do Azure armazena estes eventos e envia-lhes [do Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para efetuar a análise.  
 
-6. **O Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e realizar análises de dados em tempo real. Estes dados, em seguida, são enviados para [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **O Azure Stream Analytics:** O Azure Stream Analytics define consultas para processar os eventos e realizar análises de dados em tempo real. Estes dados, em seguida, são enviados para [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI é utilizado para visualizar os dados enviados pelo Azure Stream Analytics. Pode criar um dashboard para ver como as métricas de alteram em tempo real.  
 
@@ -317,7 +316,7 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
 
    ![visualizações](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualize com um site de comércio eletrónico
+## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualizar com um site de comércio eletrónico
 
 Agora irá observar como pode utilizar a nova ferramenta de análise de dados para estabelecer ligação com um site de comércio eletrônico real. Para criar o site de comércio eletrónico, utilize uma base de dados do Azure Cosmos DB para armazenar a lista de categorias de produtos (feminino, masculino, Unisex), o catálogo de produtos e uma lista dos itens mais populares.
 

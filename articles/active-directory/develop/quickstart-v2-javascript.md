@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317352"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043894"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação do JavaScript
 
@@ -31,9 +31,20 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 ![Como funciona a aplicação de exemplo gerada por este Início Rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registar a sua aplicação e transferir a aplicação do início rápido
+> ## <a name="register-and-download-your-quickstart-application"></a>Registre-se e transferir a aplicação de início rápido
+> Tem duas opções para iniciar a aplicação de início rápido:
+> * [Express] [Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
+>
+> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Introduza um nome para a sua aplicação e clique em **Registar**.
+> 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo
+>
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 >
 > 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
@@ -55,7 +66,7 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
 
-#### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
+#### <a name="step-2-download-the-project"></a>Passo 2: Transfira o projeto
 
 Pode escolher uma destas opções adequadas ao seu ambiente de desenvolvimento.
 * [Transferir os ficheiros de projeto core - para um servidor web, como o node. js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)

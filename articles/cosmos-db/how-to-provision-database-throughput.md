@@ -1,18 +1,17 @@
 ---
 title: Aprovisionar débito da base de dados no Azure Cosmos DB
 description: Aprenda a aprovisionar o débito ao nível da base de dados no Azure Cosmos DB
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4eba0381eb302ca4400fb5669b486fb3ad337993
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7c253141e0e6e76f845d08e68a1d79949fe811e8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262527"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034238"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Aprovisione o débito para a base de dados no Azure Cosmos DB
 
@@ -62,7 +61,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=10000);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja os seguintes artigos para saber mais sobre o aprovisionamento de débito no Cosmos DB:
 

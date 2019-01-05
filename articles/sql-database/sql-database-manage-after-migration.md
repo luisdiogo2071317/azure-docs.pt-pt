@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 7b40496d22ffed8096ac40efcb96ec55a8ba63ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652800"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052722"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -108,7 +108,7 @@ Existem várias técnicas à sua disposição que pode utilizar para a competên
 
 Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir apenas acesso de entidades específicas ao seu servidor lógico. Por predefinição, todas as ligações e bases de dados no interior do servidor lógico não são permitidas, exceto ligações proveniente de outros serviços do Azure. Com uma regra de firewall é possível abrir o acesso ao seu servidor apenas para entidades (por exemplo, uma máquina de programador), aprovar, ao permitir que o endereço IP do computador através da firewall. Ele também permite-lhe especificar um intervalo de IPs que gostaria de permitir o acesso ao servidor lógico. Por exemplo, endereços IP de máquinas do programador na sua organização podem ser adicionados ao mesmo tempo, especificando um intervalo na página de definições de Firewall.
 
-Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem ser criadas através do Azure no portal ou com o SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [Criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
+Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem ser criadas através do Azure no portal ou com o SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [Criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Pontos finais de serviço
 
@@ -130,11 +130,11 @@ Porta 1433. Base de dados SQL comunica através desta porta. Para ligar a partir
 
 #### <a name="sql-database-auditing"></a>A auditoria de base de dados SQL
 
-Base de dados SQL, pode ativar a auditoria para controlar eventos de base de dados. [A auditoria de base de dados SQL](sql-database-auditing.md) registra os eventos de base de dados e escreve-as num arquivo de log de auditoria na sua conta de armazenamento do Azure. A auditoria é especialmente útil se pretende obter informações sobre potenciais violações de segurança e a política, manter a conformidade regulamentar etc. Permite-lhe definir e configurar determinadas categorias de eventos que acredita que precisa de auditoria e com base no que pode obter relatórios pré-configurados e um dashboard para obter uma descrição geral dos eventos que ocorrem na sua base de dados. Pode aplicar estas políticas de auditorias ao nível da base de dados ou ao nível do servidor. Um guia sobre como ativar a auditoria para o servidor/base de dados, consulte: [Ativar a base de dados SQL auditoria](sql-database-security-tutorial.md#enable-sql-database-auditing-if-necessary).
+Base de dados SQL, pode ativar a auditoria para controlar eventos de base de dados. [A auditoria de base de dados SQL](sql-database-auditing.md) registra os eventos de base de dados e escreve-as num arquivo de log de auditoria na sua conta de armazenamento do Azure. A auditoria é especialmente útil se pretende obter informações sobre potenciais violações de segurança e a política, manter a conformidade regulamentar etc. Permite-lhe definir e configurar determinadas categorias de eventos que acredita que precisa de auditoria e com base no que pode obter relatórios pré-configurados e um dashboard para obter uma descrição geral dos eventos que ocorrem na sua base de dados. Pode aplicar estas políticas de auditorias ao nível da base de dados ou ao nível do servidor. Um guia sobre como ativar a auditoria para o servidor/base de dados, consulte: [Ativar a base de dados SQL auditoria](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Deteção de Ameaças
 
-Com o [deteção de ameaças](sql-database-threat-detection.md), tem a capacidade de agir de acordo com as violações de política de segurança ou detetadas pela auditoria muito facilmente. Não precisa de ser um especialista em para resolver potenciais ameaças ou violações de seu sistema de segurança. Deteção de ameaças também tem algumas capacidades incorporadas, como deteção de Injeção de SQL. Injeção de SQL é uma tentativa de alterar ou comprometer os dados e uma maneira bastante comum de atacar um aplicativo de banco de dados em geral. Deteção de ameaças da base de dados de SQL executa vários conjuntos de algoritmos que detetar potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso anómalos da base de dados (por exemplo, o acesso a partir de uma localização invulgar ou por um principal invulgar). Responsáveis pela segurança ou outros administradores designados recebem uma notificação por e-mail, se uma ameaça é detetada na base de dados. Cada notificação fornece detalhes sobre a atividade suspeita e recomendações sobre como investigar e mitigar a ameaça. Para saber como ativar a deteção de ameaças, consulte: [Ativar a deteção de ameaças da base de dados SQL](sql-database-security-tutorial.md#enable-sql-database-threat-detection).
+Com o [deteção de ameaças](sql-database-threat-detection.md), tem a capacidade de agir de acordo com as violações de política de segurança ou detetadas pela auditoria muito facilmente. Não precisa de ser um especialista em para resolver potenciais ameaças ou violações de seu sistema de segurança. Deteção de ameaças também tem algumas capacidades incorporadas, como deteção de Injeção de SQL. Injeção de SQL é uma tentativa de alterar ou comprometer os dados e uma maneira bastante comum de atacar um aplicativo de banco de dados em geral. Deteção de ameaças da base de dados de SQL executa vários conjuntos de algoritmos que detetar potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso anómalos da base de dados (por exemplo, o acesso a partir de uma localização invulgar ou por um principal invulgar). Responsáveis pela segurança ou outros administradores designados recebem uma notificação por e-mail, se uma ameaça é detetada na base de dados. Cada notificação fornece detalhes sobre a atividade suspeita e recomendações sobre como investigar e mitigar a ameaça. Para saber como ativar a deteção de ameaças, consulte: [Ativar a deteção de ameaças da base de dados SQL](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Como posso proteger meus dados em geral na base de dados SQL
 

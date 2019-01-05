@@ -1,20 +1,19 @@
 ---
 title: Ligar uma aplicação MongoDB ao Azure Cosmos DB
 description: Saiba como ligar a sua aplicação MongoDB ao Azure Cosmos DB.
-keywords: cadeia de ligação do mongodb
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9a6cbc551704541f3e4ead40567f272205b71325
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040324"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
 Saiba como ligar a sua aplicação MongoDB ao Azure Cosmos DB ao utilizar uma cadeia de ligação do MongoDB. Em seguida, pode utilizar uma base de dados do Azure Cosmos DB como os dados de arquivo para a sua aplicação MongoDB. 

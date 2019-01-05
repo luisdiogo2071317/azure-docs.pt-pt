@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 77b278d939b7d2676ade03af75e48c1e2df184f9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028956"
+ms.locfileid: "54054525"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção inteligente – anomalias de desempenho
 
@@ -108,7 +108,7 @@ Onde está o problema? É o servidor lento responder, é a página muito longas 
 
 Abra o painel de métrico de navegadores. A exibição segmentada de onde será o tempo dos programas de tempo de carga para página browser. 
 
-* Se **enviar o pedido de tempo** é alto, o servidor está a responder lentamente ou o pedido é uma mensagem com uma grande quantidade de dados. Examinar os [métricas de desempenho](../../application-insights/app-insights-web-monitor-performance.md#metrics) para investigar os tempos de resposta.
+* Se **enviar o pedido de tempo** é alto, o servidor está a responder lentamente ou o pedido é uma mensagem com uma grande quantidade de dados. Examinar os [métricas de desempenho](../../azure-monitor/app/web-monitor-performance.md#metrics) para investigar os tempos de resposta.
 * Configurar [rastreamento de dependências](../../azure-monitor/app/asp-net-dependencies.md) se a lentidão é devido a serviços externos ou a sua base de dados.
 * Se **receber resposta** é predominante, sua página e suas partes dependentes - JavaScript, CSS, imagens e assim por diante (mas não assincronamente carregados dados) são longos. Configurar uma [teste de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)e não se esqueça de definir a opção carregar componentes dependentes. Ao obter alguns resultados, abra os detalhes de um resultado e expanda-o para ver os tempos de carregamento de ficheiros diferentes.
 * Alta **tempo de processamento de cliente** sugere scripts estão em execução lenta. Se o motivo pelo qual não é óbvio, considere adicionar um código de tempo e enviar as horas em trackMetric chamadas.

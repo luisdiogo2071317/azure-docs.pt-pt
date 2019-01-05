@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994645"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033813"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -175,7 +175,7 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
   Quando é criada uma nova instância, um id exclusivo é automaticamente gerado como a zona DNS e incluído no nome DNS da instância. Um domínio multi (SAN) de certificado para esta instância é aprovisionada com o campo de SAN na forma de `zone_id.database.windows.net`. Este certificado pode ser utilizado para autenticar as ligações de cliente para uma instância na mesma zona de DNS. Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Isso é feito ao especificar um `DNS Zone Partner` parâmetro opcional com o portal do Azure, PowerShell ou a API REST.
 
-  Para obter mais informações sobre como criar a segunda instância na mesma zona de DNS como a instância principal, consulte [gerenciamento de grupos de ativação pós-falha com instâncias de geridas (pré-visualização)](#managing-failover-groups-with-managed-instances-preview).
+  Para obter mais informações sobre como criar a segunda instância na mesma zona de DNS como a instância principal, consulte [gerenciamento de grupos de ativação pós-falha com instâncias de geridas (pré-visualização)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Ativar o tráfego de replicação entre duas instâncias**
 
@@ -349,7 +349,7 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 | API | Descrição |
 | --- | --- |
 | [Criar ou atualizar o grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Cria ou atualiza um grupo de ativação pós-falha |
-| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Remove o grupo de ativação pós-falha do servidor |
+| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove o grupo de ativação pós-falha do servidor |
 | [Ativação pós-falha (planeada)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Efetua a ativação pós-falha do servidor primário atual para este servidor. |
 | [Permitir a ativação pós-falha forçada perda de dados](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |aflige através do servidor primário atual para este servidor. Esta operação poderá resultar em perda de dados. |
 | [Obter grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de ativação pós-falha. |

@@ -1,21 +1,19 @@
 ---
 title: Tutorial de desenvolvimento de aplicações de Java utilizando o Azure Cosmos DB
 description: Este tutorial de aplicação Web do Java mostra-lhe como utilizar o Azure Cosmos DB e a API de SQL para armazenar e aceder a dados a partir de uma aplicação Java alojada em sites do Azure.
-keywords: Desenvolvimento de aplicações, tutorial sobre bases de dados, aplicação java, tutorial sobre aplicações web java, azure, Microsoft azure
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086544"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039814"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Criar uma aplicação Web Java com o Azure Cosmos DB e a API de SQL
 
@@ -52,16 +50,16 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 * [IDE Eclipse para Programadores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um tempo de execução em ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
 
-Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece instruções do processo de instalação na secção Início Rápido do respetivo artigo [Tutorial: Instalar TomCat7 e utilizá-lo com o Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece instruções do processo de instalação na seção de início rápido do respetivo [Tutorial: Instalar TomCat7 e utilizá-lo com o Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artigo.
 
-## <a id="CreateDB"></a>Passo 1: criar uma conta do Azure Cosmos DB
-Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar a aplicação Java JSP](#CreateJSP).
+## <a id="CreateDB"></a>Passo 1: Criar uma conta do Azure Cosmos DB
+Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o emulador do Azure Cosmos DB para este tutorial, pode avançar para [passo 2: Criar a aplicação Java JSP](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>Passo 2: criar a aplicação de Java JSP
+## <a id="CreateJSP"></a>Passo 2: Criar a aplicação Java JSP
 Para criar a aplicação JSP:
 
 1. Em primeiro lugar, iremos começar por criar um projeto de Java. Abra o Eclipse e clique em **Ficheiro**, **Novo**, e, em seguida, clique em **Dynamic Web Project**. Se não vir **Dynamic Web Project** listado como um projeto disponível, faça o seguinte: clique em **Ficheiro**, **Novo**, clique em **Projeto**..., expanda **Web**, clique em **Dynamic Web Project**, e clique em **Seguinte**.
@@ -83,7 +81,7 @@ Para criar a aplicação JSP:
    
     ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Passo 3: instalar o SDK de SQL Java
+## <a id="InstallSDK"></a>Passo 3: Instalar o SQL de Java SDK
 A forma mais fácil para obter o SDK do SQL Java e as respetivas dependências é através do [Apache Maven](https://maven.apache.org/).
 
 Para tal, terá de converter o seu projeto em projeto maven, realizando os seguintes passos:
@@ -106,7 +104,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
 6. Clique em **OK** e o Maven irá instalar o SDK de SQL Java.
 7. Guarde o ficheiro pom.xml.
 
-## <a id="UseService"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de Java
+## <a id="UseService"></a>Passo 4: Utilizar o serviço do Azure Cosmos DB numa aplicação de Java
 1. Em primeiro lugar, definamos o objeto TodoItem em TodoItem.java:
    
         @Data
@@ -340,7 +338,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
             return true;
         }
 
-## <a id="Wire"></a>Passo 5: fazer a ligação do restante projeto de desenvolvimento de aplicações de Java
+## <a id="Wire"></a>Passo 5: Fazer a ligação do restante do de projeto de desenvolvimento de aplicações Java em conjunto
 Agora que concluímos a parte divertida - apenas falta criar uma interface de utilizador rápida e associá-la ao nosso DAO.
 
 1. Em primeiro lugar, comecemos por criar um controlador para chamar o nosso DAO:
@@ -712,7 +710,7 @@ Agora que concluímos a parte divertida - apenas falta criar uma interface de ut
 5. Fantástico! Agora, só falta testar a aplicação. Execute localmente a aplicação e adicione alguns itens Todo ao indicar o nome e a categoria do item. De seguida, clique em **Adicionar Tarefa**.
 6. Assim que o item for apresentado, pode atualizar se estiver concluído desativar a caixa de verificação e ao clicar em **Atualizar Tarefas**.
 
-## <a id="Deploy"></a>Passo 6: implementar a sua aplicação Java nos Sites do Azure
+## <a id="Deploy"></a>Passo 6: Implementar a sua aplicação de Java para Web Sites do Azure
 Os Sites do Azure tornam a implementação de aplicações Java tão simples como a exportação da sua aplicação com um ficheiro WAR e ao carregá-lo através do controlo de código fonte (por exemplo, Git) ou FTP.
 
 1. Para exportar a sua aplicação como um ficheiro WAR, clique com o botão direito do rato no seu projeto em **Explorador de Projeto**, clique em **Exportar**, e, em seguida, clique em **Ficheiro WAR**.

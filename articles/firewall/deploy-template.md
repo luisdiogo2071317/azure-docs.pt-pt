@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865839"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038964"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar o Firewall do Azure através de um modelo
 
@@ -39,10 +39,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. No portal, sobre o **criar uma configuração de proteção de segurança de AzureFirewall** página, escreva ou selecione os seguintes valores:
    
-   - **Grupo de recursos**: selecione **criar novo**, escreva um nome para o grupo de recursos e selecione **OK**. 
-   - **Nome de rede virtual**: escreva um nome para a nova VNet. 
-   - **Nome de utilizador administrador**: escreva um nome de utilizador da conta de utilizador de administrador.
-   - **Palavra-passe de administrador**: escreva uma palavra-passe de administrador. 
+   - **Grupo de recursos**: Selecione **criar novo**, escreva um nome para o grupo de recursos e selecione **OK**. 
+   - **Nome da rede virtual**: Escreva um nome para a nova VNet. 
+   - **Nome de utilizador administrador**: Escreva um nome de utilizador da conta de utilizador de administrador.
+   - **Palavra-passe de administrador**: Escreva uma palavra-passe de administrador. 
    
 1. Leia os termos e condições e, em seguida, selecione **concordo com os termos e condições indicados acima**.
    
@@ -51,6 +51,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    Irá demorar alguns minutos para criar os recursos. 
    
 1. Explore os recursos que foram criados com o firewall. 
+
+Para saber mais sobre a sintaxe JSON e propriedades de uma firewall num modelo, veja [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -66,4 +68,4 @@ Não remova o grupo de recursos e o firewall ainda, se pretender avançar para o
 Em seguida, pode monitorizar os registos de Firewall do Azure:
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)

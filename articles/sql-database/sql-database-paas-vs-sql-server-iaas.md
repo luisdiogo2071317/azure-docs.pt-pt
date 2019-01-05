@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995002"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033456"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Escolher o melhor opção de SQL Server no Azure - PaaS ou IaaS
 
@@ -87,10 +87,11 @@ A tabela seguinte resume as principais caraterísticas da Base de Dados SQL e do
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivações comerciais para escolher a Base de Dados SQL do Azure ou o SQL Server em VMs do Azure
 
 Existem vários fatores que podem influenciar a sua decisão para escolher o PaaS ou IaaS para alojar bases de dados SQL:
+
 - [Custo](#cost) -opção de IaaS e PaaS tanto incluir a base de preço que descrevem a infraestrutura subjacente e licenciamento. No entanto, com a opção de IaaS terá de investir mais tempo e recursos para gerir a sua base de dados, enquanto no PaaS estiver a obter estas funcionalidades de administração incluídas no preço. Opção de IaaS permite-lhe encerrar seus recursos enquanto não estiver a utilizá-los para reduzir os custos, enquanto a versão de PaaS está sempre em execução, a menos que se remover e recriar os recursos que são necessários.
 - [Administração](#administration) -opções de PaaS reduzem a quantidade de tempo que terá de investir para administrar a base de dados. No entanto, ele também impede a realizar algumas tarefas de administração personalizado que podem melhorar o desempenho da carga de trabalho.
 - [Contrato de nível de serviço](#service-level-agreement-sla) -tanto de IaaS e PaaS fornecer alto, o SLA padrão da indústria. Opção de PaaS garante SLA de 99,99%, enquanto o IaaS garantias de SLA de 99,95% para a infraestrutura, o que significa que precisa implementar mecanismos adicionais para garantir a disponibilidade dos seus bancos de dados. Em casos extremos, se pretender implementar a solução de alta disponibilidade que é a correspondência PaaS, poderá ter de criar adicionais do SQL Server numa VM e configurar grupos de Disponibilidade AlwaysOn, o que poderão double o custo da base de dados.
-- [Tempo para mover para a cloud](#time-to-move-to-cloud) -SQL Server numa VM do Azure é a correspondência exata do seu ambiente, para que a migração no local para a VM de SQL do Azure não é diferente do que mover as bases de dados a partir de um servidor no local para outro. Instância gerida permite também a migração extremamente fácil; No entanto, poderão existir algumas alterações que tem de aplicar antes de migrar para a instância gerida.
+- [Tempo para mover para o Azure](#market) -SQL Server numa VM do Azure é a correspondência exata do seu ambiente, para que a migração no local para a VM de SQL do Azure não é diferente do que mover as bases de dados a partir de um servidor no local para outro. Instância gerida permite também a migração extremamente fácil; No entanto, poderão existir algumas alterações que tem de aplicar antes de migrar para a instância gerida.
 
 Esses fatores serão discutidos em mais detalhes nas seções a seguir.
 
@@ -102,10 +103,8 @@ Quer seja uma start-up com problemas de liquidez ou uma equipa numa empresa esta
 
 Atualmente, **base de dados SQL** é vendido como um serviço e está disponível em vários escalões de serviço com diferentes preços para os recursos, as quais são cobradas à hora a um preço fixo com base no escalão de serviço e do tamanho de computação que escolher.
 Com a base de dados SQL, pode escolher uma camada de serviços que se adeque às suas necessidades de uma vasta gama de preços a partir de 5$ / mês para o escalão básico.
-Com a instância de gerida de base de dados de SQL, também pode trazer a sua própria licença. Para obter mais informações sobre bring-your-own licenciamento, consulte [mobilidade de licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilize [Calculadora do benefício híbrido do Azure](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) para ver como **Poupe até 40%**.
+Com a instância de gerida de base de dados de SQL, também pode trazer a sua própria licença. Para obter mais informações sobre bring-your-own licenciamento, consulte [mobilidade de licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilize [Calculadora do benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) para ver como **Poupe até 40%**.
 Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Pode ajustar os escalões de serviço e tamanhos de forma a satisfazer necessidades variadas de débito de seu aplicativo de computação dinamicamente. Para as últimas informações sobre o atual suportado escalões de serviço, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Também pode criar [conjuntos elásticos](sql-database-elastic-pool.md) partilhar recursos entre instâncias da base de dados para reduzir os custos e a utilização de acomodar picos.
-
-
 
 Com a **Base de Dados SQL**, o software de base de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, as capacidades de [cópia de segurança incorporada](sql-database-automated-backups.md) permitem-lhe obter uma redução significativa de custos, sobretudo quando tem um número elevado de bases de dados.
 

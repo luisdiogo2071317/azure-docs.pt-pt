@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: b5cc0004edf105d8875ff83240b659e210b18e41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2afed85c0c86e541c281f579294676fa889d4f27
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019950"
+ms.locfileid: "54041446"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do .NET no Application Insights
 Se usar o NLog, log4Net ou Trace para rastreamento de diagnóstico no seu aplicativo ASP.NET, pode ter os registos enviados para o [do Azure Application Insights][start], onde pode explorar e procurar -los. Os registos serão intercalados com a outra telemetria provenientes de seu aplicativo, para que possa identificar os rastreios associados com cada pedido de utilizador de manutenção e correlacioná-los com outros eventos e os relatórios de exceções.
@@ -206,5 +206,5 @@ Se a aplicação enviar uma grande quantidade de dados e estiver a utilizar o Ap
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [start]: ../../application-insights/app-insights-overview.md

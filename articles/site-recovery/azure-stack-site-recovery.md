@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039474"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
 
@@ -142,7 +142,7 @@ Para cada máquina que pretende replicar, encontre o endereço IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Passo 2: Criar um cofre e selecione um objetivo de replicação
 
-1. No portal do Azure, selecione **Criar um recurso** > **Monitorização + Gestão** > **Backup e Site Recovery**.
+1. No portal do Azure, selecione **criar um recurso** > **ferramentas de gestão** > **cópia de segurança e recuperação de Site**.
 2. Em **Nome**, introduza um nome amigável para identificar o cofre. 
 3. Na **grupo de recursos**, crie ou selecione um grupo de recursos. Estamos a utilizar **contosoRG**.
 4. Na **localização**, introduza a região do Azure. estamos a utilizar **Europa Ocidental**.

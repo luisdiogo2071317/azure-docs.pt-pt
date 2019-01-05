@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 066ae6ffba64c7dd71c982172f7cd15a881809b4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713236"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036805"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnósticos no funções duráveis (funções do Azure)
+# <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnósticos no funções duráveis no Azure
 
 Existem várias opções para diagnosticar problemas com [funções duráveis](durable-functions-overview.md). Algumas dessas opções são os mesmos para funções regulares e alguns deles são exclusivos de funções duráveis.
 

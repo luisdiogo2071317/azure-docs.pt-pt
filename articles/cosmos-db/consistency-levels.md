@@ -1,20 +1,17 @@
 ---
 title: Níveis de consistência no Azure Cosmos DB
 description: Azure Cosmos DB tem cinco níveis de consistência para o ajudar a equilibrar eventual consistência, disponibilidade e latência vantagens e desvantagens.
-keywords: a consistência eventual, do azure cosmos db, do azure, do Microsoft azure
-services: cosmos-db
-author: aliuy
-ms.author: andrl
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089739"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034969"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -42,20 +39,20 @@ Os SLAs abrangentes fornecidos pela garantia do Azure Cosmos DB que 100 por cent
 
 A semântica dos níveis de cinco consistência é descrita aqui:
 
-- **Forte**: oferece consistência forte um [transação atómica](https://aphyr.com/posts/313-strong-consistency-models) garantir. As leituras são garantidas para devolver a versão mais recente de compromisso de um item. Um cliente nunca vê uma gravação não consolidada ou parcial. Os utilizadores garantidos para ler a escrita mais recente confirmada.
+- **Forte**: Consistência forte oferece uma [transação atómica](https://aphyr.com/posts/313-strong-consistency-models) garantir. As leituras são garantidas para devolver a versão mais recente de compromisso de um item. Um cliente nunca vê uma gravação não consolidada ou parcial. Os utilizadores garantidos para ler a escrita mais recente confirmada.
 
-- **Estagnação limitada**: as leituras são garantidas para honrar a garantia de prefixo consistente. As poderão desfasamento de leituras escritas por no máximo versões de "K" (ou seja, "atualizações") de um item ou por intervalo de tempo de "t". Ao escolher estagnação limitada, o "envelhecimento" pode ser configurado de duas formas: 
+- **Estagnação limitada**: As leituras são garantidas para honrar a garantia de prefixo consistente. As poderão desfasamento de leituras escritas por no máximo versões de "K" (ou seja, "atualizações") de um item ou por intervalo de tempo de "t". Ao escolher estagnação limitada, o "envelhecimento" pode ser configurado de duas formas: 
 
   * O número de versões (K) do item
   * O intervalo de tempo (t) através do qual as poderão desfasamento de leituras as gravações 
 
   Estagnação limitada ofertas total global do pedido, exceto dentro da "janela limitada". As garantias de leitura monotónica existem dentro de uma região dentro e fora da janela de limitada. Consistência forte tem a mesma semântica que as oferecidas pelo estagnação limitada. A janela de envelhecimento é igual a zero. Estagnação limitada é também referida como o atraso de tempo de transação atómica. Quando um cliente executa operações de leitura numa região que aceita escritas, as garantias fornecidas pelo consistência de estagnação limitada são idênticas essas garantias com a consistência forte.
 
-- **Sessão**: as leituras são garantidas para honrar o prefixo consistente (supondo que uma sessão de escritor"única"), leituras monotónicas, escritas monotónica, leia-your-escritas e escrita de acordo com leituras garante. Consistência da sessão é confinada a uma sessão de cliente.
+- **Sessão**: As leituras são garantidas para honrar o prefixo consistente (supondo que uma sessão de escritor"única"), leituras monotónicas, escritas monotónica, garantias de leitura-your-escritas e escrita de acordo com leituras. Consistência da sessão é confinada a uma sessão de cliente.
 
-- **Prefixo consistente**: atualizações que são devolvidas contêm alguns prefixos de todas as atualizações, sem intervalos. Prefixo consistente garante que leituras nunca veem escritas fora de ordem.
+- **Prefixo consistente**: Atualizações que são devolvidas contêm alguns prefixos de todas as atualizações, sem intervalos. Prefixo consistente garante que leituras nunca veem escritas fora de ordem.
 
-- **Eventual**: não é garantido ordenação para leituras. Na ausência de qualquer escrita adicional, as réplicas no final de convergência.
+- **Eventual**: Não há nenhuma garantia de ordenação para leituras. Na ausência de qualquer escrita adicional, as réplicas no final de convergência.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Níveis de consistência explicadas através do basebol
 
@@ -71,8 +68,8 @@ Um contentor do Azure Cosmos DB mantém dos visitantes e equipe principal execut
 | **Nível de consistência** | **Pontuações** |
 | - | - |
 | **Forte** | 2 a 5 |
-| **Estagnação limitada** | As classificações que têm mais de um inning desatualizado: 2 e 3, 2 a 4, 2 a 5 |
-| **Sessão** | <ul><li>Para o escritor: 2 a 5</li><li> para qualquer pessoa que não seja o escritor: 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5</li><li>Depois de ler 1 a 3: 1 a 3, 1 a 4, 1 a 5, 2 e 3, 2 a 4, 2 a 5</li> |
+| **Estagnação limitada** | Classificações que têm mais de um inning desatualizado: 2 a 3, 2 a 4, 2 a 5 |
+| **Sessão** | <ul><li>Para o gravador de: 2 a 5</li><li> Para qualquer pessoa que não seja o escritor: 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5</li><li>Depois de ler 1 a 3: 1 a 3, 1 a 4, 1 a 5, 2 e 3, 2 a 4, 2 a 5</li> |
 | **Prefixo consistente** | 0 de 0, 0-1, 1-1, 1 a 2, 1 a 3, 2 e 3, 2 a 4, 2 a 5 |
 | **Eventual** | 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5 |
 
@@ -84,7 +81,7 @@ Para saber mais sobre os conceitos de consistência, leia os artigos seguintes:
 - [Replicados dados consistência explicado por meio de Beisebol (vídeo) por Doug Tiago](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replicados dados consistência explicado por meio de Beisebol (documento técnico) por Doug Tiago](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Garantias de sessão para os dados replicados consistentes tem rigidez](https://dl.acm.org/citation.cfm?id=383631)
-- [Vantagens e desvantagens de consistência no moderno Design de sistemas de banco de dados distribuído: limite é apenas uma parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Vantagens e desvantagens de consistência no moderno distribuídas de Design de sistemas de banco de dados: Extremidade é apenas uma parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente consistente - Revisitada](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

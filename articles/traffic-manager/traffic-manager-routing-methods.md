@@ -1,8 +1,7 @@
 ---
-title: Métodos de encaminhamento de tráfego do Gestor de tráfego do Azure - | Documentos da Microsoft
+title: Gestor de tráfego do Azure - métodos de encaminhamento de tráfego
 description: Artigos de ajuda a que compreender os métodos de encaminhamento de tráfego diferentes utilizados pelo Gestor de tráfego
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139348"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054729"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -24,12 +23,12 @@ O Gestor de tráfego do Azure suporta seis métodos de encaminhamento de tráfeg
 
 Os métodos de encaminhamento de tráfego seguintes estão disponíveis no Gestor de tráfego:
 
-* **[Prioridade](#priority):** selecionar **prioridade** quando pretender utilizar um ponto de extremidade de serviço principal para todo o tráfego e fornecer cópias de segurança no caso da primária ou os pontos finais de cópia de segurança não estão disponíveis.
-* **[Ponderado](#weighted):** selecionar **ponderado** quando deseja distribuir o tráfego por um conjunto de pontos de extremidade, uniformemente ou, de acordo com pesos, que defina.
-* **[Desempenho](#performance):** selecionar **desempenho** quando têm pontos finais em localizações geográficas diferentes e pretender que os utilizadores finais utilizem o ponto final "mais próximo" em termos a menor latência de rede.
-* **[Geográfica](#geographic):** selecionar **geográfica** para que os utilizadores são direcionados para os pontos finais (do Azure, externas ou aninhados) com base nas localizações geográficas em suas consultas DNS são originados. Isso capacita os clientes do Gestor de tráfego para ativar cenários em que conhecer a região geográfica de um utilizador e encaminhamento-los com base no que são importante. Os exemplos incluem o cumprimento mandatos de soberania de dados, a localização da experiência de utilizador e de conteúdo e medir o tráfego a partir de regiões diferentes.
-* **[Multivalue](#multivalue):** selecionar **MultiValue** para perfis do Gestor de tráfego que podem ter apenas endereços IPv4/IPv6, como pontos finais. Quando uma consulta é recebida para este perfil, são devolvidos todos os pontos finais de bom estado de funcionamento.
-* **[Sub-rede](#subnet):** selecionar **sub-rede** método de encaminhamento de tráfego de mensagens em fila para mapear os conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil do Gestor de tráfego. Quando é recebido um pedido, o ponto final devolvido será a que é mapeada para o endereço IP de origem esse pedido. 
+* **[Prioridade](#priority):** Selecione **prioridade** quando pretender utilizar um ponto de extremidade de serviço principal para todo o tráfego e fornecer cópias de segurança no caso da primária ou os pontos finais de cópia de segurança não estão disponíveis.
+* **[Ponderada](#weighted):** Selecione **ponderado** quando deseja distribuir o tráfego por um conjunto de pontos de extremidade, uniformemente ou, de acordo com pesos, que defina.
+* **[Desempenho](#performance):** Selecione **desempenho** quando têm pontos finais em localizações geográficas diferentes e pretender que os utilizadores finais utilizem o ponto final "mais próximo" em termos a menor latência de rede.
+* **[Geográfica](#geographic):** Selecione **Geographic** para que os utilizadores são direcionados para os pontos finais (do Azure, externas ou aninhados) com base nas localizações geográficas em suas consultas DNS são originados. Isso capacita os clientes do Gestor de tráfego para ativar cenários em que conhecer a região geográfica de um utilizador e encaminhamento-los com base no que são importante. Os exemplos incluem o cumprimento mandatos de soberania de dados, a localização da experiência de utilizador e de conteúdo e medir o tráfego a partir de regiões diferentes.
+* **[Multivalue](#multivalue):** Selecione **MultiValue** para perfis do Gestor de tráfego que podem ter apenas endereços IPv4/IPv6, como pontos finais. Quando uma consulta é recebida para este perfil, são devolvidos todos os pontos finais de bom estado de funcionamento.
+* **[Sub-rede](#subnet):** Selecione **sub-rede** método de encaminhamento de tráfego de mensagens em fila para mapear os conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil do Gestor de tráfego. Quando é recebido um pedido, o ponto final devolvido será a que é mapeada para o endereço IP de origem esse pedido. 
 
 
 Todos os perfis do Gestor de tráfego incluem a monitorização de estado de funcionamento do ponto final e ativação pós-falha do ponto de extremidade automática. Para obter mais informações, consulte [monitorização de ponto final do Gestor de tráfego](traffic-manager-monitoring.md). Um único perfil do Gestor de tráfego pode utilizar apenas um método de encaminhamento de tráfego. Pode selecionar um método de encaminhamento de tráfego diferentes para o seu perfil em qualquer altura. As alterações são aplicadas num minuto e, sem períodos de indisponibilidade é incorrido. Métodos de encaminhamento de tráfego podem ser combinados utilizando perfis do Gestor de tráfego aninhados. Aninhamento permite sofisticadas e flexíveis configurações de encaminhamento de tráfego que satisfazem as necessidades das aplicações grandes e complexas. Para obter mais informações, consulte [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md).
@@ -51,15 +50,15 @@ O método de encaminhamento de tráfego de mensagens em fila "Ponderado" permite
 
 ![O Azure Traffic Manager método da 'Ponderado' Encaminhamento de tráfego](media/traffic-manager-routing-methods/weighted.png)
 
-O método de encaminhamento de tráfego ponderado, vai atribuir uma ponderação para cada ponto de extremidade na configuração de perfil do Gestor de tráfego. O peso é um número inteiro entre 1 a 1000. Este parâmetro é opcional. Se for omitido, os gestores de tráfego utiliza um peso padrão de '1'. O peso mais alto, maior será a prioridade.
+O método de encaminhamento de tráfego ponderado, vai atribuir uma ponderação para cada ponto de extremidade na configuração de perfil do Gestor de tráfego. A ponderação é um número inteiro entre 1 e 1000. Este parâmetro é opcional. Se for omitido, os gestores de tráfego utiliza um peso padrão de '1'. O peso mais alto, maior será a prioridade.
 
 Para cada consulta DNS recebida, o Gestor de tráfego escolhe aleatoriamente um ponto de extremidade disponível. A probabilidade de escolher um ponto de extremidade baseia-se os pesos atribuídos a todos os pontos de extremidade disponíveis. Em todos os pontos de extremidade resulta numa distribuição de tráfego até mesmo a utilizar a mesma importância. Usar os pesos superiores ou inferiores em pontos de extremidade específicos, faz com que esses pontos de extremidade seja retornado mais ou menos frequência nas respostas DNS.
 
 O método ponderado permite alguns cenários úteis:
 
-* Atualização gradual de aplicativos: alocar uma percentagem de tráfego para encaminhar para um novo ponto final e aumentar gradualmente o tráfego ao longo do tempo para 100%.
-* Migração de aplicativos para o Azure: criar um perfil com pontos finais do Azure e externos. Ajuste o peso de pontos de extremidade para dar preferência os novos pontos de extremidade.
-* Segurança da cloud para capacidade adicional: Expandir rapidamente uma implementação no local para a nuvem, colocando-o por trás de um perfil do Gestor de tráfego. Quando precisar de capacidade extra na cloud, pode adicionar ou ativar mais pontos finais e especifique a que parte do tráfego vai para cada ponto de extremidade.
+* Atualização gradual de aplicativos: Alocar uma percentagem de tráfego para encaminhar para um novo ponto final e aumentar gradualmente o tráfego ao longo do tempo para 100%.
+* Migração de aplicativos para o Azure: Crie um perfil com pontos finais do Azure e externos. Ajuste o peso de pontos de extremidade para dar preferência os novos pontos de extremidade.
+* Segurança na cloud para capacidade adicional: Expanda rapidamente uma implementação no local para a nuvem, colocando-o por trás de um perfil do Gestor de tráfego. Quando precisar de capacidade extra na cloud, pode adicionar ou ativar mais pontos finais e especifique a que parte do tráfego vai para cada ponto de extremidade.
 
 Além de utilizar o portal do Azure, pode configurar os pesos usando o Azure PowerShell, CLI e as APIs REST.
 

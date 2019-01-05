@@ -14,28 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057409"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
-
-Existem várias formas de registar uma aplicação. Selecione a opção que melhor se adequa às suas necessidades:
-* [Modo expresso - utilizar o guia de introdução do SPA para configurar a aplicação](#option-1-register-your-application-express-mode)
-* [Modo - avançado, configurar manualmente as definições da aplicação](#option-2-register-your-application-advanced-mode)
-
-### <a name="option-1-register-your-application-express-mode"></a>Opção 1: Registar a sua aplicação (modo de Express)
-
-1. Inicie sessão para o [registo de aplicação do portal do Azure (pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) registar uma aplicação.
-1. Sobre o **registar uma aplicação** página, introduza um nome para a sua aplicação.
-1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
-1. Quando terminar, selecione **Registar**.
-1. Siga as instruções de início rápido para transferir e configurar automaticamente o seu novo aplicativo para num só clique.
-
-### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registar a sua aplicação (modo avançado)
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.

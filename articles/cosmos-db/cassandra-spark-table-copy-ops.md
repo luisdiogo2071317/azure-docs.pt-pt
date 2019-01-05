@@ -1,20 +1,19 @@
 ---
 title: Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark.
 description: Este artigo fornece detalhes sobre como copiar dados entre tabelas na API de Cassandra do Azure Cosmos DB
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227134"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034167"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark
 
@@ -147,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- * Introdução ao [criar uma conta da API de Cassandra, base de dados e uma tabela](create-cassandra-api-account-java.md) através de uma aplicação de Java.
- * [Carregar dados de exemplo para a tabela Cassandra API](cassandra-api-load-data.md) através de uma aplicação de Java.
- * [Consultar dados a partir da conta de API para Cassandra](cassandra-api-query-data.md) através de uma aplicação de Java.
+ * Começar a [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java.
+ * [Carregar dados de exemplo para a tabela da API para Cassandra](cassandra-api-load-data.md) ao utilizar uma aplicação Java.
+ * [Consultar dados da conta da API para Cassandra](cassandra-api-query-data.md) ao utilizar uma aplicação Java.

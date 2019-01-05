@@ -1,12 +1,10 @@
 ---
-title: Peering da Rede Virtual do Azure | Microsoft Docs
+title: Peering de rede Virtual do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba mais sobre o peering de rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 1085be57583762e8f1d419e2aacc699032340d90
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362896"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054559"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -94,7 +92,7 @@ Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize 
 
 O trânsito do gateway é uma propriedade de peering que permite a uma rede virtual utilizar um gateway de VPN na rede virtual no modo de peering e, assim, permitir a conetividade entre vários locais ou VNet a VNet. O tráfego que passa através de um gateway remoto neste cenário está sujeito a [custos de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e não incorre em [custos de VNet peering](https://azure.microsoft.com/pricing/details/virtual-network). Por exemplo, se a VNetA tiver um gateway de VPN para conectividade no local e a VNetB estiver ligada à VNetA com as propriedades adequadas configuradas, o tráfego da VNetB no local apenas é cobrado por gateway VPN. Não se aplicam custos de VNet peering. Saiba como [configurar o trânsito do gateway de VPN para peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 

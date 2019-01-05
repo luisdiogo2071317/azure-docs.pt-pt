@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835513"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041905"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Usando a alteração do Azure Cosmos DB biblioteca processador do feed
 
@@ -32,17 +33,17 @@ Se tiver duas funções de Azure sem servidor o mesmo contentor de monitorizaç�
 
 Existem quatro componentes principais de implementar o biblioteca processador do feed de alterações: 
 
-1. **O contentor monitorizado:** o contentor monitorizado tem os dados a partir do qual o feed de alterações é gerado. Qualquer inserções e as alterações para o contentor monitorizado são refletidas no feed de alterações do contentor.
+1. **O contentor monitorizado:** O contentor monitorizado tem os dados a partir do qual o feed de alterações é gerado. Qualquer inserções e as alterações para o contentor monitorizado são refletidas no feed de alterações do contentor.
 
-1. **O contentor da concessão:** as coordenadas de contentor da concessão o feed de alterações em várias funções de trabalho de processamento. Um contentor separado é utilizado para armazenar as concessões com uma concessão por partição. É vantajoso para armazenar este contentor de concessão numa conta diferente com a região de escrita mais perto de onde está a executar o processador do feed de alterações. Um objeto de concessão contém os seguintes atributos:
+1. **O contentor da concessão:** O contentor da concessão coordena o feed de alterações em várias funções de trabalho de processamento. Um contentor separado é utilizado para armazenar as concessões com uma concessão por partição. É vantajoso para armazenar este contentor de concessão numa conta diferente com a região de escrita mais perto de onde está a executar o processador do feed de alterações. Um objeto de concessão contém os seguintes atributos:
 
    * Proprietário: Especifica o host que detém a concessão.
 
    * Continuação: Especifica a posição (token de continuação) na alteração do feed para uma determinada partição.
 
-   * Timestamp: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada.
+   * Carimbo de data/hora: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada.
 
-1. **O anfitrião do processador:** cada anfitrião determina quantas partições para o processo com base no número de outro instâncias de anfitriões tem concessões ativas.
+1. **O anfitrião do processador:** Cada anfitrião determina quantas partições para processar com base no número de outro instâncias de anfitriões tem concessões ativas.
 
    * Quando um anfitrião é iniciado, ele adquire concessões a balancear a carga de trabalho em todos os anfitriões. Um anfitrião renova periodicamente concessões, para que as concessões permanecem ativas.
 
@@ -52,7 +53,7 @@ Existem quatro componentes principais de implementar o biblioteca processador do
 
    Atualmente, o número de anfitriões não pode ser superior ao número de partições (concessões).
 
-1. **Os consumidores:** consumidores ou funções de trabalho, são os threads nos quais realizar o processamento de feed de alterações iniciado por cada anfitrião. Cada anfitrião do processador pode ter vários consumidores. Cada consumidor lê a alteração do feed da partição que está atribuída a e notifica o seu host de alterações e expirado concessões.
+1. **Os consumidores:** Os consumidores, ou funções de trabalho, são os threads que executam o processamento de feed de alterações iniciado por cada anfitrião. Cada anfitrião do processador pode ter vários consumidores. Cada consumidor lê a alteração do feed da partição que está atribuída a e notifica o seu host de alterações e expirado concessões.
 
 Para compreender melhor como essas quatro elementos de feed de alterações trabalho de processador em conjunto, vamos examinar um exemplo no diagrama seguinte. A coleção monitorizada Armazena os documentos e "Cidade" como a chave de partição. Podemos ver que a partição azul contém documentos com o campo "Cidade" de "A E" e assim por diante. Existem dois anfitriões, cada uma com dois os consumidores de leitura de quatro partições em paralelo. As setas mostram os consumidores de leitura a partir de um ponto específico no feed de alterações. A primeira partição, a azul mais escura representa as alterações não lidas enquanto o azul claro representa as alterações de leitura já no feed de alterações. Os anfitriões usam a coleção de concessão para armazenar um valor de "continuação" para controlar a posição atual de leitura para cada consumidor.
 

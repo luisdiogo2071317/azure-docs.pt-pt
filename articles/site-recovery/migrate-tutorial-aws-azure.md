@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793075"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042058"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -33,12 +33,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Certifique-se de que as VMs que quer migrar têm uma versão suportada do SO. As versões suportadas incluem: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - a versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
-  - Red Hat Enterprise Linux 6.7 (apenas instâncias HVM virtualizadas), com um controlador Citrix PV ou AWS PV. As instâncias que executem controladores RedHat PV *não são* suportadas.
- - O Serviço de mobilidade tem de ser instalado em cada VM que queira replicar. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - a versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
+      - Red Hat Enterprise Linux 6.4 para 6.10, 7.1 a 7,6 (instâncias virtualizadas de HVM) *(instâncias que executem controladores RedHat PV não são suportadas).*
+      - CentOS 6.4 para 6.10, 7.1 a 7,6 (instâncias virtualizadas de HVM)
+ 
+- O Serviço de mobilidade tem de ser instalado em cada VM que queira replicar. 
 
     > [!IMPORTANT]
     > O Site Recovery instala este serviço automaticamente quando a replicação para a VM é ativada. Para a instalação automática, te de preparar uma conta nas instâncias EC2 que o Site Recovery vai utilizar para aceder à VM. Pode utilizar um domínio ou uma conta local. 

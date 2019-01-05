@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: c77cdf23e73a174ca68744ea543a41ce0a1de9f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095708"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033286"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Criar um balanceador de carga público com um modelo
 
@@ -80,3 +80,5 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)
 
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
+
+Para a sintaxe JSON e propriedades de um balanceador de carga num modelo, consulte [Network/loadbalancers](/azure/templates/microsoft.network/loadbalancers).

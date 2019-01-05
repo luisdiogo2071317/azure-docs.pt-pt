@@ -1,19 +1,18 @@
 ---
 title: Suporte do Azure Cosmos DB Gremlin
 description: Saiba mais sobre a linguagem Gremlin no Apache TinkerPop. Saiba que funcionalidades e passos estão disponíveis no Azure Cosmos DB
-services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080406"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034527"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
 O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](https://tinkerpop.apache.org), o [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
@@ -29,17 +28,17 @@ Vamos utilizar um gráfico de exemplo para compreender como as consultas podem s
 
 Este gráfico tem os seguintes tipos de vértices (denominados "label" [etiqueta] no Gremlin):
 
-- Pessoas: o gráfico tem três pessoas, Robin, Thomas e Ben
-- Interesses: neste exemplo, o interesse é o jogo Football (futebol)
-- Dispositivos: os dispositivos que as pessoas utilizam
-- Sistemas Operativos: os sistemas operativos em que os dispositivos são executados
+- Pessoas: O gráfico tem três pessoas, Round Robin, Thomas e Ben
+- Interesses: Seus interesses, neste exemplo, o jogo de futebol americano
+- Dispositivos: Os dispositivos que as pessoas a utilização
+- Sistemas operativos: Os sistemas operativos que os dispositivos a executar em
 
 Representamos as relações entre estas entidades através das seguintes etiquetas/tipos de limites:
 
-- Knows (Conhece): por exemplo, "Thomas knows Robin" (O Thomas conhece a Robin)
-- Interested (Interesses): para representar os interesses das pessoas no nosso gráfico, por exemplo, "Ben is interested in Football" (O Ben tem interesse por futebol)
-- RunsOS (Sistema Operativo): o portátil executa o SO Windows
-- Uses (Utilização): para representar que dispositivo uma pessoa utiliza. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
+- Sabe: Por exemplo, "Thomas sabe Round Robin"
+- Está interessado: Para representar os interesses das pessoas em nosso gráfico, por exemplo, "Ben está interessado em Football"
+- RunsOS: Computador portátil executa o SO Windows
+- Utiliza: Para representar que tipo de dispositivo utiliza uma pessoa. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
 
 Vamos executar algumas operações em relação a este gráfico com a [Consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET).  Antes de vermos o que é suportado no Azure Cosmos DB, vamos ver alguns exemplos para se familiarizar com a sintaxe.
 
@@ -81,7 +80,7 @@ A tabela seguinte indica as funcionalidades do TinkerPop implementadas pelo Azur
 | Funcionalidades de limite | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criação, modificação e eliminação de limites |
 | Funcionalidades de propriedades de limites | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criação, modificação e eliminação de propriedades de limites |
 
-## <a name="gremlin-wire-format-graphson"></a>Formato de transferência do Gremlin: GraphSON
+## <a name="gremlin-wire-format-graphson"></a>Formato de conexão do gremlin: GraphSON
 
 O Azure Cosmos DB utiliza o [formato GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) ao devolver resultados das operações do Gremlin. GraphSON é o formato padrão do Gremlin para representar vértices, limites e propriedades (propriedades com um valor e com múltiplos valores) com JSON. 
 

@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339591"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043962"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Função de encadeamento de funções duráveis - exemplo de sequência de Hello
 
-Encadeamento de função refere-se para o padrão de uma seqüência de funções em execução numa determinada ordem. Muitas vezes, a saída de uma função tem de ser aplicadas para a entrada de outra função. Este artigo descreve a sequência de encadeamento que criou quando conclui o guia de introdução de funções durável ([ C# ](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Para obter mais informações sobre as funções durável, consulte [descrição geral das funções duráveis](durable-functions-overview.md).
+Encadeamento de função refere-se para o padrão de uma seqüência de funções em execução numa determinada ordem. Muitas vezes, a saída de uma função tem de ser aplicadas para a entrada de outra função. Este artigo descreve a sequência de encadeamento que criou quando conclui o guia de introdução de funções durável ([ C# ](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Para obter mais informações sobre as funções durável, consulte [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Como pode ver, o `runtimeStatus` da instância está *Completed* e o `output` co
 > [!NOTE]
 > O ponto final de HTTP POST que iniciou a função de orquestrador é implementado na aplicação de exemplo como um HTTP acionar a função com o nome "HttpStart". Pode implementar a lógica de arranque semelhantes para outros tipos de Acionador, como `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
 
-Consulte os registos de execução de função. O `E1_HelloSequence` função iniciados e concluídos várias vezes devido ao comportamento de repetição descrito o [descrição geral](durable-functions-overview.md). Por outro lado, houve apenas três execuções de `E1_SayHello` , uma vez que essas execuções de função não obter repetidas.
+Consulte os registos de execução de função. O `E1_HelloSequence` função iniciados e concluídos várias vezes devido ao comportamento de repetição descrito o [descrição geral](durable-functions-concepts.md). Por outro lado, houve apenas três execuções de `E1_SayHello` , uma vez que essas execuções de função não obter repetidas.
 
 ## <a name="visual-studio-sample-code"></a>Código de exemplo do Visual Studio
 

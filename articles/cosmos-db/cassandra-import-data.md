@@ -5,19 +5,19 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: ed86ce20a6230d487dfbd968a31507953400fab6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100473"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037485"
 ---
-# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os seus dados para a conta da API de Cassandra na Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os dados para a conta da API de Cassandra na Azure Cosmos DB
 
 Como desenvolvedor, pode ter cargas de trabalho Cassandra existentes que estão em execução no local ou na cloud, e poderá pretender migrá-los para o Azure. É possível migrar essas cargas de trabalho para uma conta da API de Cassandra na Azure Cosmos DB. Este tutorial fornece instruções sobre diferentes opções disponíveis para migrar dados do Apache Cassandra para a conta de API para Cassandra na Azure Cosmos DB.
 
@@ -33,13 +33,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites-for-migration"></a>Pré-requisitos de migração
 
-* **Calcular as necessidades de débito:** antes de migrar dados para a API de Cassandra de contas no Azure Cosmos DB, deve determinar as necessidades de débito da sua carga de trabalho. Em geral, recomenda-se começar com o débito médio necessário para as operações CRUD e, em seguida, incluir o débito adicional necessário para operações ETL (Extrair Transformar Carregar) ou grandes. Precisa dos seguintes detalhes para planear a migração: 
+* **Calcule as que necessidades de débito da sua:** Antes de migrar dados para a API de Cassandra de contas no Azure Cosmos DB, deve determinar as necessidades de débito da sua carga de trabalho. Em geral, recomenda-se começar com o débito médio necessário para as operações CRUD e, em seguida, incluir o débito adicional necessário para operações ETL (Extrair Transformar Carregar) ou grandes. Precisa dos seguintes detalhes para planear a migração: 
 
-   * **Tamanho dos dados existentes ou o tamanho estimado dos dados:** define o requisito de tamanho e débito de base de dados mínimos. Se estiver a calcular o tamanho dos dados para uma nova aplicação, pode pressupor que os dados são distribuídos uniformemente nos registos e calcular o valor ao multiplicar o tamanho de dados. 
+   * **Tamanho de dados existente ou o tamanho estimado dos dados:** Define o requisito de tamanho e o débito de base de dados mínimo. Se estiver a calcular o tamanho dos dados para uma nova aplicação, pode pressupor que os dados são distribuídos uniformemente nos registos e calcular o valor ao multiplicar o tamanho de dados. 
 
-   * **Taxa de transferência necessária:** fazer uma aproximação de leitura (get/consulta) e a taxa de débito de escrita (update/delete/insert). Este valor é necessário para calcular as unidades de pedido necessárias, juntamente com o tamanho de dados no estado estável.  
+   * **Taxa de transferência necessária:** Fazer uma aproximação de leitura (get/consulta) e escrever a taxa de débito (update/delete/insert). Este valor é necessário para calcular as unidades de pedido necessárias, juntamente com o tamanho de dados no estado estável.  
 
-   * **O esquema:** ligar ao seu cluster do Cassandra existente por meio de cqlsh e exportar o esquema do Cassandra: 
+   * **O esquema:** Ligar ao cluster do Cassandra existente por meio de cqlsh e exporte o esquema do Cassandra: 
 
      ```bash
      cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
    Depois de identificar os requisitos da sua carga de trabalho existente, deve criar uma conta do Cosmos do Azure, base de dados e contentores, de acordo com os requisitos de débito recolhidos.  
 
-   * **Determinar a taxa de RU uma operação:** pode determinar o RUs utilizando qualquer um dos SDKs suportados pela API do Cassandra. Este exemplo mostra a versão do .NET dos encargos de obter RU.
+   * **Determine a taxa de RU uma operação:** Pode determinar o RUs utilizando qualquer um dos SDKs suportados pela API do Cassandra. Este exemplo mostra a versão do .NET dos encargos de obter RU.
 
      ```csharp
      var tableInsertStatement = table.Insert(sampleEntity);
@@ -61,13 +61,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
        }
      ```
 
-* **Alocar o débito necessário:** o Azure Cosmos DB pode dimensionar automaticamente o armazenamento e débito à medida que os requisitos aumentam. Pode calcular as necessidades de débito com a [Calculadora de unidades de pedido do Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
+* **Atribua a taxa de transferência necessária:** O Azure Cosmos DB pode dimensionar automaticamente o armazenamento e débito à medida que aumentam os seus requisitos. Pode calcular as necessidades de débito com a [Calculadora de unidades de pedido do Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 
-* **Criar tabelas na conta de API para Cassandra:** antes de começar a migração de dados, criar previamente todas as tabelas do portal do Azure ou a partir de cqlsh. Se estiver a migrar para uma conta do Cosmos do Azure que tenha o débito de nível de base de dados, certifique-se fornecer uma chave de partição quando criar os contentores do Azure Cosmos.
+* **Crie tabelas na conta de API para Cassandra:** Antes de começar a migração de dados, crie previamente todas as tabelas do portal do Azure ou a partir de cqlsh. Se estiver a migrar para uma conta do Cosmos do Azure que tenha o débito de nível de base de dados, certifique-se fornecer uma chave de partição quando criar os contentores do Azure Cosmos.
 
-* **Aumentar o débito:** a duração da migração de dados depende da quantidade de débito que aprovisionou para as tabelas no Azure Cosmos DB. Aumente o débito durante o período de migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Após concluir a migração, reduza o débito para reduzir os custos. É também recomendado para que a conta do Cosmos do Azure na mesma região que a sua base de dados de origem. 
+* **Aumente o débito:** A duração da sua migração de dados depende da quantidade de débito aprovisionado para as tabelas no Azure Cosmos DB. Aumente o débito durante o período de migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Após concluir a migração, reduza o débito para reduzir os custos. É também recomendado para que a conta do Cosmos do Azure na mesma região que a sua base de dados de origem. 
 
-* **Ativar o SSL:** o Azure Cosmos DB tem requisitos e normas de segurança estritos. Lembre-se de ativar o SSL quando interagir com a sua conta. Quando utilizar o CQL com SSH, tem a opção de fornecer informações SSL.
+* **Ative o SSL:** Azure Cosmos DB tem requisitos de segurança rigorosas e padrões. Lembre-se de ativar o SSL quando interagir com a sua conta. Quando utilizar o CQL com SSH, tem a opção de fornecer informações SSL.
 
 ## <a name="options-to-migrate-data"></a>Opções de migração de dados
 

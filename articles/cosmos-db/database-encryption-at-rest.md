@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140324"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040222"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Azure Cosmos DB em repouso
 
@@ -36,26 +36,26 @@ O fluxo básico de um pedido de utilizador é o seguinte:
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: como muito mais custa armazenamento do Azure se estiver ativada a encriptação do serviço de armazenamento?
-R: não existe nenhum custo adicional.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Quanto mais custa armazenamento do Azure se estiver ativada a encriptação do serviço de armazenamento?
+R: Não existe nenhum custo adicional.
 
-### <a name="q-who-manages-the-encryption-keys"></a>P: quem gere as chaves de encriptação?
-R: as chaves são geridas pela Microsoft.
+### <a name="q-who-manages-the-encryption-keys"></a>P: Quem gere as chaves de encriptação?
+R: As chaves são geridas pela Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>P: a frequência com que são revezadas de chaves de encriptação?
-R: Microsoft tem um conjunto de diretrizes internas para encriptação rotação de chaves, que segue o Cosmos DB. As diretrizes específicas não são publicadas. Microsoft publicar os [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interno e tem práticas úteis para desenvolvedores.
+### <a name="q-how-often-are-encryption-keys-rotated"></a>P: A frequência com que são revezadas de chaves de encriptação?
+R: A Microsoft tem um conjunto de diretrizes internas para encriptação rotação de chaves, que segue o Cosmos DB. As diretrizes específicas não são publicadas. Microsoft publicar os [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interno e tem práticas úteis para desenvolvedores.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso utilizar minhas própria chaves de encriptação?
-R: cosmos DB é um serviço PaaS e Trabalhamos duro para manter o serviço fácil de usar. Já Reparámos que essa pergunta, muitas vezes, é pedida como uma pergunta de proxy para atender um requisito de conformidade, como PCI-DSS. Como parte da criação desta funcionalidade, trabalhámos com auditores de conformidade para garantir que os clientes que utilizam o Cosmos DB cumprir os respetivos requisitos sem a necessidade de gerir chaves propriamente ditas.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Pode utilizar as minhas chaves de encriptação?
+R: O cosmos DB é um serviço PaaS e Trabalhamos duro para manter o serviço fácil de usar. Já Reparámos que essa pergunta, muitas vezes, é pedida como uma pergunta de proxy para atender um requisito de conformidade, como PCI-DSS. Como parte da criação desta funcionalidade, trabalhámos com auditores de conformidade para garantir que os clientes que utilizam o Cosmos DB cumprir os respetivos requisitos sem a necessidade de gerir chaves propriamente ditas.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>P: quais regiões tem a encriptação ativada?
-R: todos regiões do Azure Cosmos DB tem a encriptação ativada para todos os dados de utilizador.
+### <a name="q-what-regions-have-encryption-turned-on"></a>P: O que regiões tem a encriptação ativada?
+R: Todas as regiões do Azure Cosmos DB tem a encriptação ativada para todos os dados de utilizador.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>P: encriptação afeta a latência de desempenho e débito SLAs?
-R: não existe impacto ou alterações no desempenho SLAs agora que a encriptação inativa está ativada para todas as contas novas e existentes. Pode ler mais sobre o [SLA para o Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) página para ver as garantias de mais recente.
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>P: Encriptação afeta a latência de desempenho e débito SLAs?
+R: Não existe impacto ou alterações no desempenho SLAs agora que a encriptação inativa está ativada para todas as contas novas e existentes. Pode ler mais sobre o [SLA para o Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) página para ver as garantias de mais recente.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: o emulador local suporta a encriptação em repouso?
-R: o emulador é uma ferramenta de desenvolvimento/teste autónoma e não utiliza os serviços de gestão de chaves que utiliza o serviço gerido do Cosmos DB. Nossa recomendação é ativar o BitLocker em unidades em que estiver armazenando dados de teste do emulador confidenciais. O [emulador oferece suporte a alterar o diretório de dados predefinido](local-emulator.md) , bem como através de um local conhecido.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: O emulador local suporta a encriptação em repouso?
+R: O emulador é uma ferramenta de desenvolvimento/teste autónoma e não utiliza os serviços de gestão de chaves que utiliza o serviço gerido do Cosmos DB. Nossa recomendação é ativar o BitLocker em unidades em que estiver armazenando dados de teste do emulador confidenciais. O [emulador oferece suporte a alterar o diretório de dados predefinido](local-emulator.md) , bem como através de um local conhecido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

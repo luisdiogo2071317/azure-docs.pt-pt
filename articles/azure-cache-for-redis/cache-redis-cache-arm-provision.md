@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 34f69340e0e7cad583ba0b8797a076a4fd6e3097
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020024"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038590"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar uma Cache do Azure para Redis com um modelo
 Neste tópico, saiba como criar um modelo do Azure Resource Manager que implementa uma Cache do Azure para Redis. O cache pode ser utilizado com uma conta de armazenamento existente para manter os dados de diagnóstico. Também aprenderá como definir quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
 Atualmente, as definições de diagnóstico são partilhadas para todos os caches na mesma região para uma subscrição. A atualizar uma cache na região afeta todos os outros caches na região.
 
-Para obter mais informações sobre a criação de modelos, consulte [criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, veja [tipos de recursos Microsoft. cache](/azure/templates/microsoft.cache/allversions).
 
 Para o modelo completo, consulte [Cache do Azure para o modelo de Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 

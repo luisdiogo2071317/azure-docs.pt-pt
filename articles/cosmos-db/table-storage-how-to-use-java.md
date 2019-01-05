@@ -1,20 +1,19 @@
 ---
 title: Como utilizar o armazenamento de tabelas do Azure ou a API de tabela do Azure Cosmos DB do Java
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 62e94d1551efed5acc8dbd93bc941a4f9aeceb25
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079318"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044693"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -455,7 +454,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Consultar um subconjunto de propriedades de entidade
-Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Pode saber mais sobre a projeção na [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta]. Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
+Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Pode saber mais sobre a projeção na [as tabelas do Azure: Apresentação do Upsert e da projeção da consulta] [tabelas do Azure: Apresentação do Upsert e da projeção da consulta]. Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
 
 ```java
 try
@@ -497,7 +496,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Inserir ou Substituir uma entidade
-Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Pode saber mais sobre inserir ou substituir e insert ou intercalação neste [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta].
+Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Pode saber mais sobre inserir ou substituir e insert ou intercalação neste [as tabelas do Azure: Apresentação do Upsert e da projeção da consulta] [tabelas do Azure: Apresentação do Upsert e da projeção da consulta].
 
 ```java
 try

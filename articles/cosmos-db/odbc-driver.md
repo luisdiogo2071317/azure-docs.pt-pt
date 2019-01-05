@@ -1,19 +1,17 @@
 ---
 title: Ligar ao Azure Cosmos DB com ferramentas de análise de BI
 description: Saiba como utilizar o controlador ODBC do Azure Cosmos DB para criar tabelas e vistas, de modo a que dados normalizados podem ser visualizados no software de análise de dados e BI.
-keywords: ODBC, o controlador odbc
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034477"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC
 
@@ -50,7 +48,7 @@ Vamos começar com o controlador ODBC.
 
     ![Administrador de fonte de dados ODBC do Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Passo 2: Ligar a sua base de dados do Azure Cosmos DB
+## <a id="connect"></a>Passo 2: Ligar à base de dados do Azure Cosmos DB
 
 1. Após [instalar o controlador ODBC do Azure Cosmos DB](#install), na **administrador de fonte de dados de ODBC** janela, clique em **Add**. Pode criar um utilizador ou o DSN de sistema. Neste exemplo, está a criar um DSN de utilizador.
 
@@ -60,18 +58,18 @@ Vamos começar com o controlador ODBC.
 
     ![Janela de configuração de DSN de controladores de ODBC do DB Cosmos do Azure](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nome da origem de dados**: O nome amigável para o DSN ODBC. Este nome é exclusivo para a sua conta do Azure Cosmos DB, portanto, um nome adequadamente se tiver várias contas.
-    - **Descrição**: uma breve descrição da origem de dados.
+    - **Descrição**: Uma breve descrição da origem de dados.
     - **Anfitrião**: URI para a sua conta do Azure Cosmos DB. Pode obter isso da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
-    - **Chave de acesso**: A chave primária ou secundária, leitura e escrita ou só de leitura das chaves do Azure Cosmos DB página no portal do Azure, conforme mostrado na captura de ecrã seguinte. Recomendamos que utilize a chave só de leitura se o DSN é utilizado para processamento de dados só de leitura e de relatórios.
+    - **Chave de acesso**: A chave primária ou secundária, leitura e escrita ou só de leitura da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. Recomendamos que utilize a chave só de leitura se o DSN é utilizado para processamento de dados só de leitura e de relatórios.
     ![Página do Azure Cosmos DB chaves](./media/odbc-driver/odbc-driver-keys.png)
-    - **Encriptar a chave de acesso para**: selecione a melhor opção com base nos utilizadores desta máquina. 
+    - **Encriptar a chave de acesso para**: Selecione a melhor opção com base nos utilizadores desta máquina. 
     
 1. Clique nas **teste** para verificar se pode ligar a sua conta do Azure Cosmos DB. 
 
 1. Clique em **opções avançadas** e defina os seguintes valores:
-    - **Consultar de consistência**: selecione o [nível de consistência](consistency-levels.md) das suas operações. A predefinição é de sessão.
-    - **Número de tentativas**: introduza o número de vezes a repetir uma operação, se o pedido inicial não for concluída devido a limitação de velocidade de serviço.
-    - **Ficheiro de esquema**: tem várias opções aqui.
+    - **Consultar de consistência**: Selecione o [nível de consistência](consistency-levels.md) das suas operações. A predefinição é de sessão.
+    - **Número de tentativas**: Introduza o número de vezes a repetir uma operação, se o pedido inicial não for concluída devido a limitação de velocidade de serviço.
+    - **Ficheiro de esquema**: Tem várias opções aqui.
         - Por padrão, deixando esta entrada como está (em branco), o driver analisa a primeira página de dados para todas as coleções determinar o esquema de cada coleção. Isso é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controlador e pode resultar num tempo de inicialização mais elevado de um aplicativo usando o DSN. Recomendamos que sempre associar um ficheiro de esquema para um DSN.
         - Se já tiver um ficheiro de esquema (possivelmente uma que criou utilizando o [Editor de esquema](#schema-editor)), pode clicar em **procurar**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
         - Se quiser criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para o [Editor de esquema](#schema-editor) informações. Depois de criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela para incluir o ficheiro de esquema recém-criado.

@@ -10,29 +10,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380221"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036244"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do fornecedor de recursos suportadas pelo perfis no Azure Stack
 
 Pode encontrar o fornecedor de recursos e os números de versão para cada perfil de API utilizada pelo Azure Stack neste artigo. As tabelas neste artigo listam as versões suportadas para cada fornecedor de recursos e as versões de API dos perfis. Cada fornecedor de recursos contém um conjunto de tipos de recursos e os números de versão específica.
 
 O perfil de API utiliza três convenções de nomenclatura:
- - mais recente
- - Aaaa-mm-dd-híbrida
- - aaaa-mm-dd-perfil
+
+ - **latest**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 Para obter uma explicação de perfis de API e cadência de lançamento de versão para o Azure Stack, veja [perfis de versão de API de gerir no Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> O **mais recente** perfil de API contém a versão mais recente da versão de API do fornecedor de recursos e não está listado neste artigo.
+> O **mais recente** perfil de API contém a versão mais recente da API do fornecedor de recursos e não está listado neste artigo.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Descrição geral de 2018 – 03-01-híbrida
 
@@ -76,13 +77,13 @@ Para mais uma lista das versões para cada tipo de recurso para os fornecedores 
 | Resources_Locks | 2016-09-01 |
 | Subscrições | 2016-06-1 |
 
-Para mais uma lista das versões para cada tipo de recurso para os fornecedores no perfil de api, consulte [detalhes para a definição de 2018-03-01-híbrida](#details-for-the-2018-03-01-hybrid)
+Para obter uma lista das versões de cada tipo de recurso para os fornecedores no perfil de API, consulte a secção seguinte.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes para a definição de 2018-03-01-híbrida
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Utilize o controlo de acesso baseado em funções para gerir as ações que os utilizadores na sua organização podem executar nos recursos. Este conjunto de operações permite-lhe definir funções, atribuir funções a utilizadores ou grupos e obter informações sobre permissões. Para obter mais informações, consulte [autorização](https://docs.microsoft.com/rest/api/authorization/).
+Utilize o controlo de acesso baseado em funções para gerir as ações que os utilizadores na sua organização podem executar nos recursos. Este conjunto de operações permite-lhe definir funções, atribuir funções a utilizadores ou grupos e obter informações sobre permissões. Para obter mais informações, consulte [autorização](/rest/api/authorization/).
 
 | Tipos de Recurso | Versões de API |
 |---------------------|--------------------|
@@ -108,7 +109,7 @@ Utilize o controlo de acesso baseado em funções para gerir as ações que os u
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-As APIs de computação do Azure dão-lhe acesso programático a máquinas virtuais e seus recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
+As APIs de computação do Azure dão-lhe acesso programático a máquinas virtuais e seus recursos de suporte. Para obter mais informações, consulte [computação do Azure](/rest/api/compute/).
 
 | Tipo de Recurso | Versão da API |
 |---------------------------------------------------------------|-------------|
@@ -155,7 +156,7 @@ As APIs de computação do Azure dão-lhe acesso programático a máquinas virtu
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Gestão da chave de cofres dos, bem como as chaves, segredos e certificados em seus cofres de chaves. Para obter mais informações, consulte [referência de API de REST do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/).
+Gestão da chave de cofres dos, bem como as chaves, segredos e certificados em seus cofres de chaves. Para obter mais informações, consulte a [referência de API de REST do Cofre de chaves do Azure](/rest/api/keyvault/).
 
 | Tipos de Recurso | Versões de API |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ Gestão da chave de cofres dos, bem como as chaves, segredos e certificados em s
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Resultado da chamada de operações é uma representação da lista de operações de cloud de rede disponíveis. Para obter mais informações, consulte [operação REST API](https://docs.microsoft.com/rest/api/operation/).
+O resultado de chamada de operações é uma representação da lista de operações de rede disponível na cloud. Para obter mais informações, consulte [operação REST API](/rest/api/operation/).
 
 | Tipos de Recurso | Versões de API |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ Resultado da chamada de operações é uma representação da lista de operaçõ
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para as suas soluções do Azure. Organizar os recursos relacionados em grupos de recursos e implementar os recursos com modelos JSON. Para obter uma introdução para implementar e gerir recursos com o Resource Manager, consulte [descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para as suas soluções do Azure. Organizar os recursos relacionados em grupos de recursos e implementar os recursos com modelos JSON. Para obter uma introdução para implementar e gerir recursos com o Resource Manager, consulte a [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 | Tipos de Recurso | Versões de API |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para a
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de armazenamento e as chaves através de programação. Para obter mais informações, consulte [os referência do API de REST do fornecedor de recursos do Azure Storage](https://docs.microsoft.com/rest/api/storagerp/).
+O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de armazenamento e as chaves através de programação. Para obter mais informações, consulte a [referência de API de REST de fornecedor de recursos de armazenamento do Azure](/rest/api/storagerp/).
 
 | Tipos de Recurso | Versões de API |
 |-------------------------|--------------|
@@ -228,7 +229,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
 | Utilizações | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes para a definição de 2018-03-01-híbrida
@@ -323,7 +324,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
 | Utilizações | 2016-01-01 |
 
 ## <a name="next-steps"></a>Passos Seguintes

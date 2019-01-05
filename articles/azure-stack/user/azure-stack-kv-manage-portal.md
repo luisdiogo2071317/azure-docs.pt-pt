@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/04/201
 ms.author: sethm
-ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 89a9a5418e0eab210c1132570beda20a39635677
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713940"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034667"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gerir o Cofre de chaves no Azure Stack com o portal
 
-Pode gerir o Cofre de chaves no Azure Stack com o portal do Azure Stack. Este artigo ajuda-o a começar a utilizar para criar e gerir um cofre de chaves no Azure Stack.
+Pode gerir o Cofre de chaves no Azure Stack com o portal do Azure Stack. Este artigo descreve como criar e gerir um cofre de chaves no Azure Stack.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,19 +33,17 @@ Tem de subscrever uma oferta que inclui o serviço Azure Key Vault.
 
 1. Inicie sessão para o [portal de utilizador](https://portal.local.azurestack.external).
 
-2. A partir do dashboard, selecione **+ criar um recurso** > **segurança + identidade** > **Key Vault**.
+2. A partir do dashboard, selecione **+ criar um recurso**, em seguida, **segurança + identidade**, em seguida, **Key Vault**.
 
     ![Ecrã do Key Vault](media/azure-stack-kv-manage-portal/image1.png)
 
-3. Na **criar Key Vault** painel, atribuir um **nome** para o cofre. Nomes de cofre podem conter apenas carateres alfanuméricos e o caráter especial de hífen (-). Eles não devem começar com um número.
+3. Na **criar Key Vault** painel, atribuir um **nome** para o cofre. Nomes de cofre podem conter apenas carateres alfanuméricos e o caráter de hífen (-). Não deve começar com um número.
 
 4. Escolher uma **subscrição** na lista de subscrições disponíveis. Todas as subscrições que oferecem o serviço de Key Vault são apresentadas na lista pendente.
 
-5. Selecione um **Grupo de Recursos** existente ou crie um novo.
+5. Selecione um existente **grupo de recursos**, ou criar um novo.
 
-6. Selecione o **escalão de preço**.
-    >[!NOTE]
-    > Chave cofres no suporte do Azure Stack Development Kit **padrão** apenas SKUs.
+6. Selecione o **escalão de preço**. No Azure Stack Development Kit (ASDK), suporte de cofres de chaves **padrão** apenas SKUs.
 
 7. Escolha uma das existentes **políticas de acesso** ou criar um novo. Uma política de acesso permite-lhe conceder permissões de um utilizador, aplicação ou um grupo de segurança executar operações com este cofre.
 
@@ -55,7 +53,7 @@ Tem de subscrever uma oferta que inclui o serviço Azure Key Vault.
 
 ## <a name="manage-keys-and-secrets"></a>Gerir chaves e segredos
 
-Depois de criar um cofre, utilize os seguintes passos para criar e gerir chaves e segredos no cofre.
+Depois de criar um cofre, utilize o procedimento seguinte para criar e gerir chaves e segredos no cofre.
 
 ### <a name="create-a-key"></a>Criar uma chave
 
@@ -67,7 +65,7 @@ Depois de criar um cofre, utilize os seguintes passos para criar e gerir chaves 
 
 4. Na **crie uma chave** painel, na lista de **opções**, escolha o método que pretende utilizar para criar uma chave. Pode **gerar** uma nova chave **carregar** existente de chaves ou utilizar **restaurar cópia de segurança** para selecionar uma cópia de segurança de uma chave.
 
-5. Introduza um **nome** para a sua chave. O nome da chave pode conter apenas carateres alfanuméricos e o hífen (-) de caráter especial.
+5. Introduza um **nome** para a sua chave. O nome da chave pode conter apenas carateres alfanuméricos e o caráter de hífen (-).
 
 6. Opcionalmente, configure as **definir data de ativação** e **definir data de expiração** valores para a sua chave.
 
@@ -80,13 +78,14 @@ Depois da chave for criada com êxito, pode selecionar-o para baixo **chaves** e
 ### <a name="create-a-secret"></a>Criar um segredo
 
 1. Inicie sessão para o [portal de utilizador](https://portal.local.azurestack.external).
+
 2. A partir do dashboard, selecione **todos os recursos**, selecione o Cofre de chaves que criou anteriormente e, em seguida, selecione a **segredos** mosaico.
 
 3. Sob **segredos**, selecione **Add**.
 
-4. Sob **criar um segredo**, na lista de **opções de carregamento**, escolha uma opção através do qual pretende criar um segredo. Pode criar um segredo **manualmente** se introduzir um valor para o segredo ou o carregamento de um **certificado** do seu computador local.
+4. Sob **criar um segredo**, na lista de **opções de carregamento**, escolha uma opção com a qual pretende criar um segredo. Pode criar um segredo **manualmente** se introduzir um valor para o segredo ou o carregamento de um **certificado** do seu computador local.
 
-5. Introduza um **nome** para o segredo. O nome secreto pode conter apenas carateres alfanuméricos e o hífen (-) de caráter especial.
+5. Introduza um **nome** para o segredo. O nome secreto pode conter apenas carateres alfanuméricos e o caráter de hífen (-).
 
 6. Opcionalmente, especifique a **tipo de conteúdo**e configurar os valores para **definir data de ativação** e **definir data de expiração** para o segredo.
 

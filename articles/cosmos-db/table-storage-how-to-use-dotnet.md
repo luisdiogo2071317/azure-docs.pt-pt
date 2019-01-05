@@ -1,20 +1,19 @@
 ---
 title: Introdução ao Armazenamento de tabelas do Azure e à API de Tabela do Azure Cosmos DB com .NET
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
-services: cosmos-db
-author: SnehaGunda
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.author: sngun
-ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103001"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044421"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabelas do Azure Cosmos DB com .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -78,7 +77,7 @@ Há três pacotes recomendados a que tem de fazer referência no seu projeto par
 
 * [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de Tabelas do Azure ou conta da API de Tabelas do Azure Cosmos DB. Esta biblioteca está atualmente disponível apenas para o .NET Standard, ainda não está disponível para .NET Core.
 
-* [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
+* [Biblioteca do Gestor de configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação está em execução.
 
 Para obter os pacotes NuGet, siga estes passos:
 

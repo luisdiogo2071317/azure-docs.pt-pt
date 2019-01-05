@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: ea2e0513ef2674fdbe6d28f77c4f709848a0d2eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c7b9485d9a7da6479e65689fbcab67e10dec5cb2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016380"
+ms.locfileid: "54052279"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -61,7 +61,7 @@ As falhas aparecem como pontos vermelhos no gráfico dos testes Web:
 Mas mais importante, é enviado por e-mail um alerta de qualquer falha para a equipa de desenvolvimento. Desta forma, os membros já estão a par da mesma antes de quase todos os clientes.
 
 ## <a name="monitor-performance"></a>Monitorizar o Desempenho
-Na página de descrição geral do Application Insights, está um gráfico que mostra uma variedade de [métricas-chave](../../application-insights/app-insights-web-monitor-performance.md).
+Na página de descrição geral do Application Insights, está um gráfico que mostra uma variedade de [métricas-chave](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Captura de ecrã dos gráficos de KPI de desempenho de descrição geral](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ As exceções e os eventos aparecem no painel [Pesquisa de Diagnósticos](diagno
 
 
 ## <a name="monitor-proactively"></a>Monitorizar proativamente
-A Marcela não se limita a ficar de braços cruzados à espera dos alertas. Logo após cada implementação, olha para os [tempos de resposta](../../application-insights/app-insights-web-monitor-performance.md), quer para a imagem geral e a tabela dos pedidos mais lentos, bem como para as contagens de exceções.  
+A Marcela não se limita a ficar de braços cruzados à espera dos alertas. Logo após cada implementação, olha para os [tempos de resposta](../../azure-monitor/app/web-monitor-performance.md), quer para a imagem geral e a tabela dos pedidos mais lentos, bem como para as contagens de exceções.  
 
 ![Gráfico de tempos de resposta e grelha dos tempos de resposta do servidor.](./media/detect-triage-diagnose/response-time.png)
 
@@ -215,7 +215,7 @@ Independentemente dos motivos, os dados ajudam a equipa a saber o que os utiliza
 
 A equipa começa a habituar-se a ter informações sobre a atividade dos utilizadores. Hoje em dia, sempre que cria uma funcionalidade nova, tenta perceber como pode obter feedback sobre a utilização da mesma. Integra chamadas de acompanhamento na funcionalidade desde o início. Utiliza o feedback para melhorar a funcionalidade em cada ciclo de desenvolvimento.
 
-[Saiba mais sobre o acompanhamento da utilização](../../application-insights/app-insights-usage-overview.md).
+[Saiba mais sobre o acompanhamento da utilização](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>Aplicar o ciclo de DevOps
 É então assim que uma equipa utiliza o Application Insights não só para corrigir problemas individuais, mas também para melhorar o ciclo de vida de desenvolvimento. Esperamos que lhe tenhamos dado algumas ideias quanto às formas como o Application Insights o pode ajudar a gerir o desempenho das suas próprias aplicações.

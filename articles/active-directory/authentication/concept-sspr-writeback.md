@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319377"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040545"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -30,16 +30,16 @@ Repetição de escrita de palavra-passe é suportada em ambientes que usam:
 > [!WARNING]
 > Repetição de escrita de palavra-passe deixarão de funcionar para os clientes que estão a utilizar o Azure AD Connect versões 1.0.8641.0 e mais antigo quando o [o serviço de controlo de acesso do Azure (ACS) é descontinuado a 7 de Novembro de 2018](../develop/active-directory-acs-migration.md). O Azure AD Connect versões 1.0.8641.0 e mais antigos deixará de permitir repetição de escrita de palavra-passe neste momento porque dependem de ACS para obter essa funcionalidade.
 >
-> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 Fornece a repetição de escrita de palavra-passe:
 
-* **Imposição de políticas de palavra-passe do Active Directory no local**: quando um utilizador repõe a palavra-passe, é verificado para assegurar cumpre a política do Active Directory no local antes de consolidá-lo para esse diretório. Esta revisão inclui a verificação do histórico, complexidade, idade, filtros de palavra-passe e outras restrições de palavra-passe que definiu no local Active Directory.
-* **Comentários de atraso de zero**: repetição de escrita de palavra-passe é uma operação síncrona. Os utilizadores são notificados imediatamente se a palavra-passe não cumpria a política ou não foi possível ser repor ou alterada por qualquer motivo.
-* **Palavra-passe de suporta muda de painel de acesso e do Office 365**: quando federadas ou sincronizados de hash de palavra-passe vêm os utilizadores para alterar as palavras-passe expiradas ou não expirada, as senhas são repetidas para seu ambiente do Active Directory local.
-* **Oferece suporte a repetição de escrita de palavra-passe quando um administrador repõe-los a partir do portal do Azure**: sempre que um administrador repõe a palavra-passe de um usuário na [portal do Azure](https://portal.azure.com), se esse utilizador está federado ou a palavra-passe de hash de palavra-passe sincronizado, é repetição de escrita no local. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
-* **Não requer quaisquer regras de firewall de entrada**: repetição de escrita de palavra-passe utiliza um reencaminhamento do Service bus do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída através da porta 443.
+* **Imposição de políticas de palavra-passe do Active Directory no local**: Quando um utilizador repõe a palavra-passe, ele é verificado para assegurar cumpre a política do Active Directory no local antes de consolidá-lo para esse diretório. Esta revisão inclui a verificação do histórico, complexidade, idade, filtros de palavra-passe e outras restrições de palavra-passe que definiu no local Active Directory.
+* **Comentários de atraso de zero**: Repetição de escrita de palavra-passe é uma operação síncrona. Os utilizadores são notificados imediatamente se a palavra-passe não cumpria a política ou não foi possível ser repor ou alterada por qualquer motivo.
+* **Palavra-passe de suporta muda de painel de acesso e do Office 365**: Quando federadas ou sincronizados de hash de palavra-passe vêm os utilizadores para alterar as palavras-passe expiradas ou não expirada, as senhas são repetidas para seu ambiente do Active Directory local.
+* **Oferece suporte a repetição de escrita de palavra-passe quando um administrador repõe-los a partir do portal do Azure**: Sempre que um administrador repõe a palavra-passe de um usuário na [portal do Azure](https://portal.azure.com), se esse utilizador está federado ou sincronizados de hash de palavra-passe, a palavra-passe é gravada no local. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
+* **Não requer quaisquer regras de firewall de entrada**: Repetição de escrita de palavra-passe utiliza um reencaminhamento do Service bus do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída através da porta 443.
 
 > [!Note]
 > Não não possível utilizar contas de utilizador que existem em grupos protegidos no Active Directory no local com repetição de escrita de palavra-passe. Para obter mais informações sobre grupos protegidos, consulte [protegidos a contas e grupos no Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
@@ -57,10 +57,10 @@ Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das segu
 * Enterprise Mobility + Security E5 ou A5
 * O Microsoft 365 E3 ou A3
 * O Microsoft 365 E5 ou A5
-* O Microsoft 365 F1
+* Microsoft 365 F1
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento *não suportam a repetição de escrita de palavra-passe* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
+> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
 >
 
 ## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavra-passe
@@ -121,10 +121,10 @@ Repetição de escrita de palavra-passe é um serviço altamente seguro. Para ga
 
 Depois de um utilizador submete uma reposição de palavra-passe, o pedido de reposição passa por vários passos de encriptação antes de chegarem no seu ambiente no local. Estes passos de encriptação garantem a fiabilidade do serviço máximo e a segurança. Estes modelos são descritos da seguinte forma:
 
-* **Passo 1: Encriptação de palavra-passe com a chave RSA de 2048 bits**: depois de um utilizador submete uma palavra-passe para a repetição de escrita no local, a palavra-passe submetida em si é encriptado com uma chave RSA de 2048 bits.
-* **Passo 2: Encriptação de nível de pacote com o AES-GCM**: todo o pacote, a palavra-passe e os metadados necessários, ainda é encriptado utilizando AES-GCM. Esta encriptação impede que qualquer pessoa com acesso direto para o canal de ServiceBus subjacente visualizar ou violação com o conteúdo.
-* **Passo 3: Toda a comunicação ocorre através de TLS/SSL**: toda a comunicação com o ServiceBus ocorre num canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
-* **Agregação de chave automática ao longo de cada seis meses**: todas as chaves são acumuladas a cada seis meses ou cada repetição de escrita de palavra-passe de tempo está desativada e, em seguida, novamente ativada no Azure AD Connect, para garantir a segurança do serviço máximo e a segurança.
+* **Passo 1: Encriptação de palavra-passe com a chave RSA de 2048 bits**: Depois de um utilizador submete uma palavra-passe para a repetição de escrita no local, a palavra-passe submetida em si é encriptado com uma chave RSA de 2048 bits.
+* **Passo 2: Encriptação de nível de pacote com o AES-GCM**: Todo o pacote, a palavra-passe e os metadados necessários, ainda é encriptado utilizando AES-GCM. Esta encriptação impede que qualquer pessoa com acesso direto para o canal de ServiceBus subjacente visualizar ou violação com o conteúdo.
+* **Passo 3: Toda a comunicação ocorre através de TLS/SSL**: Toda a comunicação com o ServiceBus ocorre num canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
+* **Agregação de chave automática ao longo de cada seis meses**: Todas as chaves de agregação ao longo de cada seis meses ou sempre que a repetição de escrita de palavra-passe está desativada e, em seguida, novamente ativada no Azure AD Connect, para garantir a segurança do serviço máximo e a segurança.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilização de largura de banda de repetição de escrita de palavra-passe
 
@@ -169,4 +169,4 @@ Palavras-passe são *não* repetição de escrita em qualquer uma das seguintes 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ativar a repetição de escrita de palavra-passe com o Tutorial: [repetição de escrita de palavra-passe de ativação](tutorial-enable-writeback.md)
+Ative a repetição de escrita de palavra-passe com o Tutorial: [Ativar a repetição de escrita de palavra-passe](tutorial-enable-writeback.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135360"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043197"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Desempenho e dimensionamento testes com o Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Se estiver à procura de opções de configuração do lado do cliente melhorar 
 ## <a name="run-the-performance-testing-application"></a>Executar o aplicativo de teste de desempenho
 A forma mais rápida para começar a utilizar é compilar e executar o exemplo de .NET, conforme descrito nos passos seguintes. Também pode rever o código-fonte e implementar configurações semelhantes no seus próprios aplicativos de cliente.
 
-**Passo 1:** transfira o projeto de [exemplo o teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), ou bifurcar o repositório do GitHub.
+**Passo 1:** Transfira o projeto de [exemplo de teste de desempenho de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), ou bifurcar o repositório do GitHub.
 
-**Passo 2:** modificar as definições para EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) no App. config.
+**Passo 2:** Modifica as definições para EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) no App. config.
 
 > [!NOTE]
 > Antes de aprovisionar coleções com um débito elevado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar os custos por coleção. O Azure Cosmos DB cobra o armazenamento e débito de forma independente numa base horária. Pode poupar eliminando ou reduzir o débito de seus conjuntos do Azure Cosmos DB após os testes.
 > 
 > 
 
-**Passo 3:** compilar e executar a aplicação de consola da linha de comando. Deverá ver um resultado semelhante ao seguinte:
+**Passo 3:** Compile e execute a aplicação de consola da linha de comando. Deverá ver um resultado semelhante ao seguinte:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ A forma mais rápida para começar a utilizar é compilar e executar o exemplo d
     Press any key to exit...
 
 
-**Passo 4 (se necessário):** o débito comunicado (RU/s) a partir da ferramenta deve ser igual ou maior do que o débito aprovisionado da coleção ou um conjunto de coleções. Se não for, aumentando a DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se o débito da sua aplicação de cliente plateaus, inicie várias instâncias da aplicação em máquinas de cliente adicionais. Se precisar de ajuda com este passo, envie um e-mail askcosmosdb@microsoft.com ou enviar um pedido de suporte do [portal do Azure](https://portal.azure.com).
+**Passo 4 (se necessário):** O débito comunicado (RU/s) a partir da ferramenta deve ser igual ou maior do que o débito aprovisionado da coleção ou um conjunto de coleções. Se não for, aumentando a DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se o débito da sua aplicação de cliente plateaus, inicie várias instâncias da aplicação em máquinas de cliente adicionais. Se precisar de ajuda com este passo, envie um e-mail askcosmosdb@microsoft.com ou enviar um pedido de suporte do [portal do Azure](https://portal.azure.com).
 
 Depois de ter a aplicação em execução, pode experimentar diferentes [políticas de indexação](index-policy.md) e [níveis de consistência](consistency-levels.md) para compreender seu impacto no débito e latência. Também pode rever o código-fonte e implementar configurações semelhantes para seus próprios pacotes de testes ou aplicações de produção.
 

@@ -3,17 +3,17 @@ title: Tutorial para desenvolver uma aplicação web do ASP.NET MVC com o Azure 
 description: Este tutorial descreve como criar um ASP .net MVC aplicação web com o Azure Cosmos DB. Irá armazenar e aceder a dados JSON a partir de uma aplicação de tarefas alojada no Azure.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101335"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037128"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutorial: Desenvolver uma aplicação web do ASP.NET MVC com o Azure Cosmos DB com a pré-visualização de .net SDK 
 
@@ -47,7 +47,7 @@ Este tutorial aborda:
 
 Antes de seguir as instruções deste artigo, certifique-se de que tem os seguintes recursos:
 
-* **Uma conta do Azure Active Directory:** se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+* **Uma conta do Azure Active Directory:** Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -67,7 +67,7 @@ Vamos começar por criar uma conta do Cosmos do Azure. Se já tiver uma conta do
 
 A secção seguinte, vai criar uma nova aplicação ASP.NET MVC. 
 
-## <a name="create-a-new-mvc-application"></a>Passo 2: criar uma nova aplicação ASP.NET MVC
+## <a name="create-a-new-mvc-application"></a>Passo 2: Criar uma nova aplicação ASP.NET MVC
 
 1. No Visual Studio, do **arquivo** menu, escolha **New**e, em seguida, selecione **projeto**. Aparece a caixa de diálogo **Novo Projeto**.
 
@@ -85,7 +85,7 @@ A secção seguinte, vai criar uma nova aplicação ASP.NET MVC.
 
 7. Assim que o Visual Studio tenha terminado de criar a aplicação MVC de texto clichê, terá uma aplicação ASP.NET vazia que pode ser executado localmente.
 
-## <a name="add-nuget-packages"></a>Passo 3: Adicionar o pacote NuGet do Azure Cosmos DB ao projeto
+## <a name="add-nuget-packages"></a>Passo 3: Adicione o pacote NuGet do Azure Cosmos DB ao projeto
 
 Agora que temos a maior parte do código de estrutura do ASP.NET MVC que precisamos para esta solução, vamos adicionar os pacotes de NuGet necessários para ligar ao Azure Cosmos DB.
 
@@ -103,7 +103,7 @@ Agora que temos a maior parte do código de estrutura do ASP.NET MVC que precisa
 
 3. Depois do pacote está instalado, a sua solução Visual Studio deve conter as duas novas referências de biblioteca para Microsoft.Azure.Cosmos.Client e, newtonsoft.
   
-## <a name="set-up-the-mvc-application"></a>Passo 4: configurar a aplicação ASP.NET MVC
+## <a name="set-up-the-mvc-application"></a>Passo 4: Configurar a aplicação ASP.NET MVC
 
 Agora vamos adicionar os modelos, vistas e os controladores a esta aplicação MVC:
 
@@ -244,7 +244,7 @@ Se criar e executar agora este projeto, deverá ver algo semelhante a isto.
 ![Captura de ecrã da aplicação Web ToDo List criada por este tutorial de base de dados](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
-## <a name="run-the-application"></a>Passo 6: executar a aplicação localmente
+## <a name="run-the-application"></a>Passo 6: Executar a aplicação localmente
 
 Para testar a aplicação no seu computador local, utilize os seguintes passos:
 

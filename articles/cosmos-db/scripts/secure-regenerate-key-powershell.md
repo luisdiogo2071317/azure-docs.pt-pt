@@ -1,20 +1,20 @@
 ---
 title: Chave da conta do Azure PowerShell-regenerar de Script do Azure Cosmos DB
 description: Exemplo do Script do Azure PowerShell - Regenerar chave da conta do Azure Cosmos DB
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
-ms.openlocfilehash: b06d95ada39a544b02409cacd333c3c2583ebdda
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 2712e4d13895a9dbd10f0f0d5053015c6e0a25a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965194"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034068"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>Regenerar uma chave da conta do Azure Cosmos DB com o Azure PowerShell
 

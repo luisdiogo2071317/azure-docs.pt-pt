@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336532"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037281"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Descrição geral dos tipos de função e funcionalidades para funções duráveis (funções do Azure)
 
@@ -37,7 +37,7 @@ Obter mais informações e exemplos podem ser encontrados no [artigo de associa�
 
 ### <a name="orchestrator-functions"></a>Funções do Orchestrator
 
-As funções do Orchestrator são o coração de uma função durável.  As funções do Orchestrator descrevem a forma e a ordem ações são executadas.  As funções do Orchestrator descrevem a orquestração no código (c# ou JavaScript), conforme mostrado na [descrição geral das funções duráveis](durable-functions-overview.md).  Uma orquestração pode ter vários tipos de ações, como [funções de atividade](#activity-functions), [orquestrações secundárias](#sub-orchestrations), [aguardar por eventos externos](#external-events), e [ temporizadores](#durable-timers).  
+As funções do Orchestrator são o coração de uma função durável.  As funções do Orchestrator descrevem a forma e a ordem ações são executadas.  As funções do Orchestrator descrevem a orquestração no código (C# ou JavaScript) como mostra o [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md).  Uma orquestração pode ter vários tipos de ações, como [funções de atividade](#activity-functions), [orquestrações secundárias](#sub-orchestrations), [aguardar por eventos externos](#external-events), e [ temporizadores](#durable-timers).  
 
 Uma função de orquestrador tem de ser acionada por um [acionador de orquestração](durable-functions-bindings.md#orchestration-triggers).
 

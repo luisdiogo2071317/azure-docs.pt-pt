@@ -1,19 +1,17 @@
 ---
 title: Implementar uma aplicação web com um modelo - Azure Cosmos DB
 description: Saiba como implementar uma conta do Azure Cosmos DB, aplicações de Web do serviço de aplicações do Azure e um exemplo de aplicação web com um modelo Azure Resource Manager.
-services: cosmos-db, app-service\web
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076739"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041021"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar o Azure Cosmos DB e o Azure App Service Web Apps com um modelo de Gestor de recursos do Azure
 Este tutorial mostra-lhe como utilizar um modelo Azure Resource Manager para implementar e integrar [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), uma [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) aplicação web e um exemplo de aplicação web.
@@ -124,7 +122,7 @@ Parabéns! Implementar o Azure Cosmos DB, aplicação web do serviço de aplica�
 * Para saber mais sobre os modelos Azure Resource Manager, clique em [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia da alteração de Web sites para o App Service, consulte: [App Service do Azure e o Respetivo Impacto nos Serviços do Azure Existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração de Web sites para o serviço de aplicações, consulte: [Serviço de aplicações do Azure e o respetivo impacto nos serviços do Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://go.microsoft.com/fwlink/?LinkId=523751), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.

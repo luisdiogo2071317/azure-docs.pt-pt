@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 952a87d05cb4040aa4d9aa652f8aeb814396549f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028716"
+ms.locfileid: "54051191"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Aplicações web de ASP.NET Core Azure Linux de perfil com o Application Insights Profiler
 
@@ -31,7 +31,7 @@ Depois de concluir este passo a passo, a sua aplicação pode recolher rastreios
 ## <a name="prerequisites"></a>Pré-requisitos
 As instruções seguintes aplicam-se a todos os ambientes de desenvolvimento Windows, Linux e Mac:
 
-* Instalar o [.NET Core SDK 2.1.2 ou posterior](https://www.microsoft.com/net/download/windows/build).
+* Instalar o [.NET Core SDK 2.1.2 ou posterior](https://dotnet.microsoft.com/download/archives).
 * Instalar o Git, seguindo as instruções em [introdução - instalar o Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## <a name="set-up-the-project-locally"></a>Configurar o projeto localmente

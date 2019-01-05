@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021888"
+ms.locfileid: "54052484"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](../../application-insights/app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -129,12 +129,12 @@ O painel de descrição geral é o gateway para obter mais informações sobre a
 INVESTIGAR
 
 * [**Mapa da aplicação** ](app-map.md) -Active Directory mapa que mostra os componentes do seu aplicativo, derivada das informações de dependência.
-* [**Deteção inteligente** ](../../application-insights/app-insights-proactive-diagnostics.md) -rever os alertas de desempenho recentes.
+* [**Deteção inteligente** ](../../azure-monitor/app/proactive-diagnostics.md) -rever os alertas de desempenho recentes.
 * [**Live Stream** ](../../azure-monitor/app/live-stream.md) – um fixo de conjunto de métricas de quase imediata, útil ao implementar uma nova compilação ou a depurar.
 * [**Disponibilidade / testes Web** ](../../azure-monitor/app/monitor-web-app-availability.md) -enviar pedidos regulares para a aplicação web a partir em todo o world.*
-* [**Falhas de desempenho** ](../../application-insights/app-insights-web-monitor-performance.md) -exceções, taxas de falhas e tempos de resposta para pedidos à sua aplicação e para pedidos a partir da sua aplicação para [dependências](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Desempenho** ](../../application-insights/app-insights-web-monitor-performance.md) -tempo de resposta, os tempos de resposta de dependência.
-* [Servidores](../../application-insights/app-insights-web-monitor-performance.md) -contadores de desempenho. Disponível se [instalar o Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Falhas de desempenho** ](../../azure-monitor/app/web-monitor-performance.md) -exceções, taxas de falhas e tempos de resposta para pedidos à sua aplicação e para pedidos a partir da sua aplicação para [dependências](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Desempenho** ](../../azure-monitor/app/web-monitor-performance.md) -tempo de resposta, os tempos de resposta de dependência.
+* [Servidores](../../azure-monitor/app/web-monitor-performance.md) -contadores de desempenho. Disponível se [instalar o Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Browser** -página vista e o desempenho de AJAX. Disponível se [instrumentar suas páginas da web](../../azure-monitor/app/javascript.md).
 * **Utilização** -contagens de sessões, utilizadores e visualizações de página. Disponível se [instrumentar suas páginas da web](../../azure-monitor/app/javascript.md).
 

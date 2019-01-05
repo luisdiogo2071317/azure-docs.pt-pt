@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 33b1d5c947d658147e6e59fa37b6ca505f48fb15
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003228"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044098"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Tutorial: Aprovisionar uma base de dados do Azure para o servidor MySQL através de modelos do Azure Resource Manager
 
@@ -32,7 +32,7 @@ Neste tutorial, vai utilizar modelos do Azure do Azure Resource Manager e outros
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Criar uma base de dados do Azure para o servidor MySQL com o ponto final de serviço de VNet com o modelo Azure Resource Manager
 
-Para obter a referência de modelo JSON para uma base de dados do Azure para o servidor MySQL, aceda a referência de modelo de servidores de Microsoft.DBforMySQL (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Segue-se o modelo de JSON de exemplo que pode ser utilizado para criar um novo servidor a executar a base de dados do Azure para MySQL com o ponto final de serviço da VNet.
+Para obter a referência de modelo JSON para uma base de dados do Azure para o servidor MySQL, aceda a [Microsoft.DBforMySQL servidores](/azure/templates/microsoft.dbformysql/servers) referência de modelo. Segue-se o modelo de JSON de exemplo que pode ser utilizado para criar um novo servidor a executar a base de dados do Azure para MySQL com o ponto final de serviço da VNet.
 ```json
 {
   "apiVersion": "2017-12-01",

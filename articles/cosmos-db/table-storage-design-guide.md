@@ -1,21 +1,21 @@
 ---
 title: Criar tabelas do Azure Cosmos DB para suportar o dimensionamento e desempenho
-description: 'Manual de criação do tabela de armazenamento do Azure: Desenvolvendo dimensionável e a tabelas de alto desempenho no Azure Cosmos DB e tabelas de armazenamento do Azure'
-author: SnehaGunda
-ms.author: sngun
+description: 'Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e tabelas de alto desempenho no Azure Cosmos DB e tabelas de armazenamento do Azure'
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140953"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044183"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e de elevado desempenho tabelas
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e de tabelas de alto desempenho
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -132,7 +132,7 @@ O nome de conta, o nome da tabela, e **PartitionKey** em conjunto identificam a 
 
 No serviço tabela, um nó individual dos serviços de um ou mais concluir as partições e as escalas de serviço por dinamicamente balanceamento de carga partições entre nós. Se for um nó sob carga, o serviço de tabela pode *dividir* o intervalo de partições atendidos por esse nó em diferentes nós; quando o tráfego diminua, o serviço pode *intercalação* os intervalos de partição de nós silencioso num único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço tabela e, em particular, como o serviço gere as partições, consulte o documento [armazenamento do Microsoft Azure: A altamente disponível serviço armazenamento na Cloud com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço tabela e, em particular, como o serviço gere as partições, consulte o documento [armazenamento do Microsoft Azure: Um serviço de armazenamento de Cloud de elevada disponibilidade com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Transações do grupo de entidade
 No serviço tabela, transações de grupo de entidades (EGTs) são o mecanismo interno apenas para a realização de atualizações atómicas em múltiplas entidades. EGTs são também denominados *do batch transações* em alguma documentação. EGTs só pode funcionar em entidades armazenadas na mesma partição (partilhar a mesma chave de partição numa determinada tabela), isso sempre que necessitar de comportamento transacional atómico em múltiplas entidades, que certifique-se de que essas entidades estão na mesma partição. Isto é, muitas vezes, um motivo para manter os vários tipos de entidade na mesma tabela (e partição) e não a utilizar várias tabelas para tipos de entidade diferentes. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneas para processamento, é importante certificar-se de que esses EGTs não funciona em entidades que são comuns em EGTs como outra forma de processamento pode ser atrasada.
@@ -582,11 +582,11 @@ Para ativar a pesquisa por apelido com a estrutura de entidade mostrada acima, t
 * Crie entidades de índice na mesma partição que as entidades de funcionários.  
 * Crie entidades de índice numa partição separada ou a tabela.  
 
-<u>Opção #1: Armazenamento de Blobs do uso</u>  
+<u>Opção #1: Utilizar o armazenamento de BLOBs</u>  
 
 Para a primeira opção, crie um blob para cada nome de última exclusivo e, em cada armazenamento de BLOBs uma lista do **PartitionKey** (department) e **RowKey** valores (identificação do funcionário) para os funcionários que tenham esse nome passado. Quando adicionar ou eliminar um funcionário, deve garantir que o conteúdo do blob relevante é eventualmente consistente com as entidades de funcionários.  
 
-<u>Opção #2:</u> criar entidades de índice na mesma partição  
+<u>Opção #2:</u> Criar entidades de índice na mesma partição  
 
 Para a segunda opção, utilize entidades de índice que armazenam os dados seguintes:  
 
@@ -608,7 +608,7 @@ Os passos seguintes descrevem o processo que deve seguir quando precisar de pesq
 2. Analisar a lista de Ids no campo EmployeeIDs do funcionário.  
 3. Se precisar de informações adicionais sobre cada uma destes funcionários (por exemplo, os endereços de e-mail), obter cada uma dessas entidades employee usando **PartitionKey** valor "Sales" e **RowKey** valores do lista de funcionários que obteve no passo 2.  
 
-<u>Opção #3:</u> criar entidades de índice numa partição separada ou de uma tabela  
+<u>Opção #3:</u> Criar entidades de índice numa partição separada ou de uma tabela  
 
 Para a terceira opção, utilize entidades de índice que armazenam os dados seguintes:  
 
@@ -1300,7 +1300,7 @@ O resto desta secção descreve alguns dos recursos na biblioteca de cliente de 
 #### <a name="retrieving-heterogeneous-entity-types"></a>Obter tipos de entidade heterogênea
 Se estiver a utilizar a biblioteca de cliente de armazenamento, tem três opções para trabalhar com vários tipos de entidade.  
 
-Se souber o tipo da entidade armazenado com um específico **RowKey** e **PartitionKey** valores, em seguida, pode especificar o tipo de entidade ao obter a entidade, conforme mostrado nos dois exemplos anteriores que obter entidades do tipo **EmployeeEntity**: [executa uma consulta de ponto usando a biblioteca de cliente de armazenamento](#executing-a-point-query-using-the-storage-client-library) e [obter várias entidades usando o LINQ](#retrieving-multiple-entities-using-linq).  
+Se souber o tipo da entidade armazenado com um específico **RowKey** e **PartitionKey** valores, em seguida, pode especificar o tipo de entidade ao obter a entidade, conforme mostrado nos dois exemplos anteriores que obter entidades do tipo **EmployeeEntity**: [Execução de uma consulta de ponto usando a biblioteca de cliente de armazenamento](#executing-a-point-query-using-the-storage-client-library) e [recuperar várias entidades usando o LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção consiste em utilizar o **DynamicTableEntity** tipo (uma matriz de propriedades), em vez de um tipo de entidade POCO concreto (esta opção também pode melhorar o desempenho porque não é necessário para serializar e desserializar a entidade para tipos .NET). O seguinte código c# potencialmente obtém várias entidades de diferentes tipos de tabela, mas retorna todas as entidades como **DynamicTableEntity** instâncias. Em seguida, utiliza a **EntityType** propriedade para determinar o tipo de cada entidade:  
 

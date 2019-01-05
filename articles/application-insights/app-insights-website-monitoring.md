@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 856ffe050fce204d52d6666025a7284788bb0893
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bee48efd52a6ead6896691683c4605fcf833e2b6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022245"
+ms.locfileid: "54033707"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -121,11 +121,11 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Gráficos de métricas de servidor](./media/app-insights-website-monitoring/browser-performance.png)
 
-4. Para começar a explorar as [ferramentas de análise de comportamento do utilizador](app-insights-usage-overview.md), no menu principal do Application Insights, selecione [**Utilizadores**](app-insights-usage-segmentation.md) no cabeçalho **Utilização**. Como estamos a testar a partir de uma única máquina, vemos apenas os dados de um utilizador. Para um site em direto, a distribuição de utilizadores será semelhante à seguinte:
+4. Para começar a explorar as [ferramentas de análise de comportamento do utilizador](../azure-monitor/app/usage-overview.md), no menu principal do Application Insights, selecione [**Utilizadores**](../azure-monitor/app/usage-segmentation.md) no cabeçalho **Utilização**. Como estamos a testar a partir de uma única máquina, vemos apenas os dados de um utilizador. Para um site em direto, a distribuição de utilizadores será semelhante à seguinte:
 
      ![Gráfico de utilizadores](./media/app-insights-website-monitoring/usage-users.png)
 
-5. Se tivéssemos instrumentado um site mais complexo com múltiplas páginas, outra ferramenta útil seria os [**Fluxos de Utilizador**](app-insights-usage-flows.md). Com os **Fluxos de Utilizador**, pode controlar o caminho seguido pelos visitantes nas várias partes do seu site.
+5. Se tivéssemos instrumentado um site mais complexo com múltiplas páginas, outra ferramenta útil seria os [**Fluxos de Utilizador**](../azure-monitor/app/usage-flows.md). Com os **Fluxos de Utilizador**, pode controlar o caminho seguido pelos visitantes nas várias partes do seu site.
 
   ![Visualização dos Fluxos de Utilizador](./media/app-insights-website-monitoring/user-flows.png)
 

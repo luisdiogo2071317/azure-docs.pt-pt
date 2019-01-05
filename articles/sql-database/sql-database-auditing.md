@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/03/2019
+ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973207"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034034"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -224,10 +224,10 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 
 **Cmdlets do PowerShell (incluindo suporte de cláusula WHERE para filtrar adicionais)**:
 
-- [Criar ou atualizar o Blob de base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Criar ou atualizar o Blob de servidor (conjunto-AzSqlServerAuditing) de política de auditoria](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
-- [Obter política de auditoria de base de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Obter política de auditoria de BLOBs de servidor (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
+- [Criar ou atualizar o Blob de base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Criar ou atualizar o Blob de servidor (conjunto-AzSqlServerAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Obter política de auditoria de base de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Obter política de auditoria de BLOBs de servidor (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Para obter um exemplo de script, consulte [configurar a deteção de ameaças e auditoria com o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -249,7 +249,7 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 
 ## <a id="subheading-10"></a>Gerir a auditoria de base de dados SQL através de modelos ARM
 
-Pode gerenciar a auditoria de base de dados de SQL do Azure através de [do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) modelos, conforme mostrado nestes exemplos:
+Pode gerenciar a auditoria de base de dados de SQL do Azure através de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos, conforme mostrado nestes exemplos:
 
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para o Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)

@@ -1,21 +1,19 @@
 ---
 title: 'o Azure Cosmos DB: SQL .NET Core API, SDK e recursos'
 description: Saiba tudo sobre a API de núcleo de .NET de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413511"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053556"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 * Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes CosmosDatabases, CosmosContainers e CosmosItems relevantes.
 * Suporte para fluxos.
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Melhoria na lógica de repetição durante a ativação pós-falha para o StoredProcedure executar chamadas.
+
+* Feitas DocumentClientEventSource singleton. 
+
+* Corrija o tempo limite de GatewayAddressCache não respeitar ConnectionPolicy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](https
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 de Dezembro de 2018 |--- |
 | [2.2.0](#2.2.0) |07 de Dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de Outubro de 2018 |--- |

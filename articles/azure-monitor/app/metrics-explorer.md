@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: aaa34d27e73c1691e69ea2f6860226639217f0c6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6341ffe33984a7f40f9d4120ca6726a082463474
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003545"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039712"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.
@@ -200,7 +200,7 @@ A partir de um gráfico de métricas, pode clicar no ícone de análise para ir 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Monitorizar a utilização com o Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Monitorizar a utilização com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Utilizar a pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->

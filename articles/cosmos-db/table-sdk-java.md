@@ -1,23 +1,21 @@
 ---
 title: API de tabela do Azure Cosmos DB para Java
 description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
-services: cosmos-db
-author: yarong
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: yaronyg
-ms.custom: ''
-ms.openlocfilehash: 67d4da0a57e38863cc73faab1e3ed8d4b271ceb3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 724f0b9eb09b9eecad5b0a360d9301616d1494f1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864167"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035149"
 ---
-# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Cosmos DB do Azure para Java: notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB API de tabela para Java: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -29,7 +27,7 @@ ms.locfileid: "52864167"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[Opções de download](https://github.com/azure/azure-storage-java#download)|
-|**Documentação da API**|[Documentação de referência da API de Java](http://azure.github.io/azure-storage-java/)|
+|**Documentação da API**|[Documentação de referência da API de Java](https://azure.github.io/azure-storage-java/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

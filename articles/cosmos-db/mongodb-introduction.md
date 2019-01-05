@@ -1,22 +1,20 @@
 ---
 title: Introdução à API do Azure Cosmos DB para MongoDB
 description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes quantidades de dados com a API do Azure Cosmos DB do MongoDB.
-keywords: API do Azure Cosmos DB para o MongoDB
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: f17d8f46bc14297c70c21919abe236fc544facfa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: d0f61afaba094a1e499a91f9937a31554438759e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787618"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042177"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para o MongoDB
+# <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
 O [Azure Cosmos DB](introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. O Azure Cosmos DB proporciona [distribuição global chave na mão](distribute-data-globally.md), [dimensionamento elástico de débito e de armazenamento](partition-data.md) em todo o mundo, latências de milissegundos de um só dígito no percentil 99 e elevada disponibilidade garantida, tudo com o suporte de [SLA líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente os dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem que tenha de lidar com a gestão de esquemas e índices. É multimodal e suporte modelos de dados em documentos, chaves-valores, gráficos e em colunas. Por predefinição, pode interagir com o Cosmos DB com a API de SQL. Além disso, o serviço Cosmos DB implementa os protocolos de transmissão para APIs de NoSQL comuns, incluindo, Cassandra, MongoDB, Gremlin e armazenamento de tabelas do Azure. Isto permite-lhe utilizar o seu controlador de cliente familiar do NoSQL e as ferramentas para interagir com a base de dados do Cosmos.
 
@@ -26,7 +24,7 @@ O Azure Cosmos DB implementa os protocolos de transmissão de bases de dados do 
 
 Por predefinição, a API do Azure Cosmos DB para o MongoDB é compatível com a versão 3.2 do protocolo de transmissão do MongoDB. Recursos ou adicionados na versão 3.4 do protocolo de transmissão de operadores de consulta estão atualmente disponíveis como uma funcionalidade de pré-visualização. Qualquer controlador de cliente do MongoDB que entende essas versões de protocolo deve ser capaz de forma nativa a ligar ao Cosmos DB.
 
-![API do Azure Cosmos DB para o MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![API do Azure Cosmos DB para MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 ## <a name="key-benefits"></a>Principais vantagens
 

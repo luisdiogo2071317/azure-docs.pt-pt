@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715907"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038216"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -26,18 +26,17 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 > [!IMPORTANT]
 > **[Alteração futura] Para ligações de ponto final de serviço para servidores SQL do Azure, um `Default` comportamento de conectividade é alterado para `Redirect`.**
 >
-> Alteração já está em vigor a partir de 10 de Novembro de 2018 para sul do Brasil e Europa Ocidental. Para todas as outras regiões alteração entrará em vigor a partir de 2 de Janeiro de 2019.
+> Alteração está em vigor para todas as regiões em ou antes de 2 de Janeiro de 2019.
 >
 > Para impedir a conectividade através de um ponto de extremidade de serviço do usuário em ambientes existentes, como resultado desta alteração, podemos usar fazer de telemetria o seguinte:
 > - Para servidores que detectamos que foram acedidos através de pontos finais de serviço antes da alteração, vamos mudar o tipo de ligação para `Proxy`.
 > - Para todos os outros servidores, podemos mudar a ligação irá mudar para o tipo `Redirect`.
 >
-> Os utilizadores do ponto final de serviço ainda poderão ser afetados nos seguintes cenários: 
-> - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos 
-> - Lógica de implementação automatizada cria um servidor lógico, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy` 
+> Os utilizadores do ponto final de serviço ainda poderão ser afetados nos seguintes cenários:
+> - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos
+> - Lógica de implementação automatizada cria um servidor lógico, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
 >
 > Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
-
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Para alterar a política de ligação de base de dados do Azure SQL para um serv
 
 > [!IMPORTANT]
 > Este script requer os [módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
->
 
 O script do PowerShell seguinte mostra como alterar a diretiva de conexão.
 

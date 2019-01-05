@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033762"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexação no Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Um nó de raiz de pseudo-autenticação é criado um elemento principal para os 
 
 O Azure Cosmos DB projetos itens como documentos JSON e o índice como árvores. Em seguida, pode otimizar para as políticas para caminhos de dentro da árvore. Pode optar por incluir ou excluir caminhos da indexação. Isso pode oferecer um desempenho melhorado de escrita e diminuir o armazenamento de índice para cenários em que os padrões de consulta são conhecidos em frente. Para obter mais informações, consulte [caminhos de índice](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indexação: nos bastidores
+## <a name="indexing-under-the-hood"></a>Indexação: Nos bastidores
 
 Base de dados do Cosmos do Azure aplica-se a indexação automática para os dados, onde cada caminho numa árvore é indexado a menos que configure a excluir determinados caminhos.
 

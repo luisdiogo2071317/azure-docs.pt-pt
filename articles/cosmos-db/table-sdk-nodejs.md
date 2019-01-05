@@ -1,23 +1,21 @@
 ---
 title: API de tabela do Azure Cosmos DB para node. js
 description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
-services: cosmos-db
-author: yarong
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: yaronyg
-ms.custom: ''
-ms.openlocfilehash: 7ffcf656762c82d81c86eb394b028722566dafdb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043724"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Cosmos DB do Azure para node. js: notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB API de tabela para node. js: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -29,7 +27,7 @@ ms.locfileid: "52864422"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Documentação da API**|[Documentação de referência de API node. js](http://azure.github.io/azure-storage-node/)|
+|**Documentação da API**|[Documentação de referência de API node. js](https://azure.github.io/azure-storage-node/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
