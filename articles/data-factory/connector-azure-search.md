@@ -21,7 +21,7 @@ ms.locfileid: "54023350"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice da Azure Search utilizando o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-azure-search-connector.md)
 > * [Versão atual](connector-azure-search.md)
 
