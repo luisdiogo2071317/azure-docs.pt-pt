@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1dc312598fa9bbacedc085480b0771adeb2d182a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731726"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017009"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Resolver problemas de Análise no Application Insights
 Problemas com [Analytics do Application Insights](analytics.md)? Comece aqui. A análise é a ferramenta de pesquisa poderosa do Azure Application Insights.
@@ -78,7 +78,7 @@ Recurso de aplicação foi eliminado do Application Insights e t de não estiver
 
 Não tem permissão para abrir esta aplicação no Analytics.
 
-* Recebeu a ligação de outra pessoa? Peça-lhe para certificar-se de que se encontra o [leitores ou contribuidores para este grupo de recursos](../../application-insights/app-insights-resources-roles-access-control.md).
+* Recebeu a ligação de outra pessoa? Peça-lhe para certificar-se de que se encontra o [leitores ou contribuidores para este grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md).
 * Tiver guardado o link com credenciais diferentes? Abra o [portal do Azure](https://portal.azure.com), termine sessão e, em seguida, tente esta ligação novamente, fornecendo as credenciais corretas.
 
 ## <a name="html-storage"></a>403 ... Armazenamento HTML5

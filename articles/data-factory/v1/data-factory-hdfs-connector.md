@@ -9,17 +9,16 @@ ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ac9ba682079f735aa2fdd416070c5d206d526ad4
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e8af817c942a28cfd28d1b13303aebfcc10d31ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629706"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016059"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +46,9 @@ Embora possa instalar o gateway no mesmo computador no local ou VM do Azure como
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados de uma origem HDFS ao utilizar ferramentas/APIs diferentes.
 
-A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager **, **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -57,7 +56,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
 3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do HDFS, veja [exemplo de JSON: copiar dados do HDFS no local para BLOBs do Azure](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) seção deste artigo.
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do HDFS, veja [exemplo de JSON: Copiar dados do HDFS no local para BLOBs do Azure](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON utilizadas para definir entidades do Data Factory específicas ao HDFS:
 
@@ -66,7 +65,7 @@ Os serviços ligados ligam um arquivo de dados para uma fábrica de dados. Vai c
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **Hdfs** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **Hdfs** |Sim |
 | Url |URL para o HDFS |Sim |
 | authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
 | userName |Autenticação de nome de utilizador para Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
@@ -122,8 +121,8 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Exemplo: folderPath parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > nome de ficheiro e fileFilter não podem ser utilizadas em simultâneo.
@@ -175,7 +174,7 @@ Para a atividade de cópia, quando a origem é do tipo **FileSystemSource** as s
 ## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 Ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo em detalhes.
 
-## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Exemplo de JSON: copiar dados do HDFS no local para BLOBs do Azure
+## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Exemplo JSON: Copiar dados do HDFS no local para BLOBs do Azure
 Este exemplo mostra como copiar dados de um HDFS no local para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** a qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
 O exemplo fornece definições de JSON para as seguintes entidades do Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do HDFS para armazenamento de Blobs do Azure, utilizando [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
@@ -190,7 +189,7 @@ O exemplo copia dados de um HDFS no local para um blob do Azure a cada hora. As 
 
 Como primeiro passo, configure o gateway de gestão de dados. As instruções a [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo.
 
-**Serviço ligado do HDFS:** este exemplo utiliza a autenticação do Windows. Ver [serviço ligado do HDFS](#linked-service-properties) secção para diferentes tipos de autenticação, pode utilizar.
+**Serviço ligado do HDFS:** Este exemplo utiliza a autenticação do Windows. Ver [serviço ligado do HDFS](#linked-service-properties) secção para diferentes tipos de autenticação, pode utilizar.
 
 ```JSON
 {
@@ -224,7 +223,7 @@ Como primeiro passo, configure o gateway de gestão de dados. As instruções a 
 }
 ```
 
-**Conjunto de dados de entrada do HDFS:** este conjunto de dados refere-se para a pasta HDFS DataTransfer/UnitTest /. O pipeline copia todos os ficheiros nesta pasta para o destino.
+**Dataset de entrada do HDFS:** Este conjunto de dados refere-se para a pasta HDFS DataTransfer/UnitTest /. O pipeline copia todos os ficheiros nesta pasta para o destino.
 
 A definição "externo": "true" informa o serviço Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
@@ -350,10 +349,10 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar e
 
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Utilizar a autenticação Kerberos para o conector do HDFS
 Existem duas opções para configurar o ambiente no local de modo a utilizar a autenticação Kerberos no conector HDFS. Pode escolher que o melhor se adequa a seu caso.
-* Opção 1: [máquina de gateway de associação no Kerberos realm](#kerberos-join-realm)
-* Opção 2: [permitir confiança mútua entre o domínio do Windows e o Kerberos realm](#kerberos-mutual-trust)
+* Opção 1: [Junte-se a máquina de gateway no Kerberos realm](#kerberos-join-realm)
+* Opção 2: [Ativar a fidedignidade bidirecional entre o domínio do Windows e o Kerberos realm](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Opção 1: Associar a máquina de gateway no Kerberos realm
+### <a name="kerberos-join-realm"></a>Opção 1: Junte-se a máquina de gateway no Kerberos realm
 
 #### <a name="requirement"></a>Requisito:
 
@@ -434,7 +433,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
   **Reiniciar** o serviço KDC após a configuração.
 
-2.  Preparar um principal com o nome ** krbtgt/REALM.COM@AD.COM ** no servidor KDC com o seguinte comando:
+2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor KDC com o seguinte comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -447,7 +446,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabelece confiança de domínio do Windows para o Realm de Kerberos. [senha] é a palavra-passe para o principal ** krbtgt/REALM.COM@AD.COM **.
+2.  Estabelece confiança de domínio do Windows para o Realm de Kerberos. [senha] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
@@ -455,7 +454,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
     1. Aceda ao Gestor de servidor > Gestão de política de grupo > domínio > objetos de política de grupo > padrão ou política de domínio Active Directory e editar.
 
-    2. Na **Editor de gerenciamento de diretiva de grupo** janela de pop-up, aceda a configuração do computador > políticas > definições do Windows > definições de segurança > Políticas locais > Opções de segurança e configurar **rede segurança: configurar os tipos de encriptação permitidos para Kerberos**.
+    2. Na **Editor de gerenciamento de diretiva de grupo** janela de pop-up, aceda a configuração do computador > políticas > definições do Windows > definições de segurança > Políticas locais > Opções de segurança e configurar **rede segurança: Configurar tipos de encriptação permitidos para Kerberos**.
 
     3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode simplesmente selecionar todas as opções.
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de HDFS utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de uma origem HDFS nuvem ou no local para os arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados do HDFS com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados de uma origem HDFS na cloud ou no local para os arquivos de dados de sink suportado com uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,56 +9,55 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019865"
 ---
-# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados de HDFS utilizando o Azure Data Factory
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-hdfs-connector.md)
 > * [Versão atual](connector-hdfs.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do HDFS. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do HDFS. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados do HDFS para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do HDFS para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector HDFS suporta:
 
-- Copiar ficheiros utilizando **Windows** (Kerberos) ou **anónimo** autenticação.
-- Copiar ficheiros utilizando **webhdfs** protocolo ou **DistCp incorporada** suportar.
-- Copiar ficheiros como-está ou ficheiros com a análise/gerar o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
+- Copiar ficheiros usando **Windows** (Kerberos) ou **anónimo** autenticação.
+- Copiar ficheiros usando **webhdfs** protocolo ou **DistCp incorporado** suportar.
+- Copiar ficheiros como-é ou análise/gerar arquivos com o [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados de um HDFS que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](concepts-integration-runtime.md) artigo para obter detalhes.
+Para copiar dados de um HDFS que não está acessível ao público, terá de configurar um Runtime de integração autoalojado. Ver [Integration Runtime autoalojado](concepts-integration-runtime.md) artigo para saber mais detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o HDFS entidades do Data Factory específicas.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas no HDFS.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **Hdfs**. | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Hdfs**. | Sim |
 | url |URL para o HDFS |Sim |
-| authenticationType | Valores permitidos são: **anónimo**, ou **Windows**. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
-| userName |Autenticação de nome de utilizador do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
-| palavra-passe |Palavra-passe para autenticação do Windows. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (para autenticação do Windows) |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| authenticationType | Valores permitidos são: **Anónimo**, ou **Windows**. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
+| userName |Autenticação de nome de utilizador para Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
+| palavra-passe |Palavra-passe para a autenticação do Windows. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (para autenticação do Windows) |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo: utilizar a autenticação anónima**
 
@@ -80,7 +79,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 }
 ```
 
-**Exemplo: através da autenticação Windows**
+**Exemplo: utilizar a autenticação do Windows**
 
 ```json
 {
@@ -106,20 +105,20 @@ As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados do HDFS.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do HDFS.
 
-Para copiar dados de HDFS, defina a propriedade de tipo do conjunto de dados para **FileShare**. São suportadas as seguintes propriedades:
+Para copiar dados do HDFS, defina a propriedade de tipo de conjunto de dados para **partilha de ficheiros**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **partilha de ficheiros** |Sim |
-| folderPath | Caminho para a pasta. Filtro de caráter universal não é suportado. Por exemplo: pasta/subpasta / |Sim |
-| fileName |  **Filtro de nome ou o caráter universal** para os ficheiros em especificado "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos são de carateres universais: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou único caráter).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para o escape se o nome de ficheiro real tem carateres universais ou este caráter de escape no interior. |Não |
-| Formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
-| compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
+| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **Partilha de ficheiros** |Sim |
+| folderPath | Caminho para a pasta. Não é suportado o filtro de carateres universais. Por exemplo: pasta/subpasta / |Sim |
+| fileName |  **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
+| Formato | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Ideal** e **mais rápida**. |Não |
 
 >[!TIP]
->Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um nome específico, especifique **folderPath** com parte de pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros de uma pasta, especifique **folderPath** com parte de pasta e **fileName** com filtro de caráter universal.
+>Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro de carateres universais.
 
 **Exemplo:**
 
@@ -151,22 +150,22 @@ Para copiar dados de HDFS, defina a propriedade de tipo do conjunto de dados par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem HDFS.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem HDFS.
 
 ### <a name="hdfs-as-source"></a>HDFS como origem
 
-Para copiar dados de HDFS, defina o tipo de origem na atividade de cópia para **HdfsSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do HDFS, defina o tipo de origem na atividade de cópia para **HdfsSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **HdfsSource** |Sim |
-| recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
-| distcpSettings | Grupo de propriedade ao utilizar o HDFS DistCp. | Não |
-| resourceManagerEndpoint | O ponto final Yarn ResourceManager | Sim, se utilizar o DistCp |
-| tempScriptPath | Um caminho de pasta utilizado para armazenar o script de comando DistCp temp. O ficheiro de script é gerado pelo Data Factory e será removido após a conclusão da tarefa de cópia. | Sim, se utilizar o DistCp |
-| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HdfsSource** |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção quando recursiva é definida como true e de sink é baseada em ficheiros de arquivo, vazia pasta/subutilização-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **true** (predefinição), **FALSO** | Não |
+| distcpSettings | Grupo de propriedades quando utilizar o DistCp do HDFS. | Não |
+| resourceManagerEndpoint | O ponto de extremidade de ResourceManager do Yarn | Sim, se utilizar o DistCp |
+| tempScriptPath | Um caminho de pasta utilizado para armazenar o script de comando DistCp temp. O ficheiro de script é gerado por fábrica de dados e será removido após a conclusão da tarefa de cópia. | Sim, se utilizar o DistCp |
+| distcpOptions | Opções adicionais fornecidas para o comando DistCp. | Não |
 
-**Exemplo: Origem do HDFS na atividade de cópia com o descarregamento**
+**Exemplo: Origem de HDFS na atividade de cópia com o descarregamento**
 
 ```json
 "source": {
@@ -179,31 +178,31 @@ Para copiar dados de HDFS, defina o tipo de origem na atividade de cópia para *
 }
 ```
 
-Saiba mais sobre como utilizar o DistCp para copiar dados de HDFS eficiente da secção seguinte.
+Saiba mais sobre como utilizar o DistCp para copiar dados do HDFS com eficiência a partir da secção seguinte.
 
-## <a name="use-distcp-to-copy-data-from-hdfs"></a>Utilizar o DistCp para copiar dados de HDFS
+## <a name="use-distcp-to-copy-data-from-hdfs"></a>Utilizar o DistCp para copiar dados do HDFS
 
-[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é um Hadoop de ferramenta de linha de comandos nativo para fazer a cópia distribuída num cluster de Hadoop. Quando executar um comando Distcp, primeiro lista todos os ficheiros para ser copiado, crie várias tarefas de mapa para o cluster do Hadoop e cada tarefa de mapa irá efetuar a cópia binária de origem para sink.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é uma Hadoop de ferramenta de linha de comandos nativa para fazer a cópia distribuída num cluster do Hadoop. Quando executar um comando Distcp, ele primeiro listará todos os arquivos copiados, criar várias tarefas de mapa no cluster do Hadoop, e cada tarefa de mapa irá executar a cópia de binária de origem para o sink.
 
-Copiar utilizando o DistCp para copiar ficheiros como o suporte de atividade-esteja no Blob do Azure (incluindo [testado cópia](copy-activity-performance.md) ou do Azure Data Lake Store, caso em que totalmente pode aproveitar energia do cluster em vez de executar no tempo de execução de integração Self-hosted . Este irá fornecer melhorar o débito de cópia, especialmente se o cluster for muito poderoso. Com base na sua configuração no Azure Data Factory, atividade de cópia automaticamente construir um comando distcp, submeter ao cluster do Hadoop e monitorizar o estado da cópia.
+Copie a utilizar o DistCp para copiar ficheiros como o suporte de atividade-é em BLOBs do Azure (incluindo [cópia faseada](copy-activity-performance.md) ou do Azure Data Lake Store, caso em que ele pode aproveitar totalmente power do seu cluster em vez de em execução no Runtime de integração autoalojado . Irá fornecer um melhor débito de cópia especialmente se o cluster é muito poderoso. Com base na sua configuração no Azure Data Factory, atividade de cópia automaticamente construir um comando distcp, enviar para o seu cluster do Hadoop e monitorizar o estado de cópia.
 
 ### <a name="prerequsites"></a>Prerequsites
 
-Para utilizar o DistCp para copiar ficheiros como-é de HDFS ao Blob do Azure (incluindo cópia faseada) ou do Azure Data Lake Store, certifique-se o cluster de Hadoop cumpre abaixo requisitos:
+Utilizar o DistCp para copiar os ficheiros como-é do HDFS para BLOBs do Azure (incluindo a cópia faseada) ou do Azure Data Lake Store, certifique-se o cluster de Hadoop cumpre abaixo requisitos:
 
 1. Serviços de MapReduce e o Yarn estão ativados.
 2. Versão do yarn é 2.5 ou superior.
-3. Servidor do HDFS está integrado com o arquivo de dados de destino - BLOBs do Azure ou do Azure Data Lake Store:
+3. Servidor HDFS é integrada com o seu armazenamento de dados de destino - BLOBs do Azure ou do Azure Data Lake Store:
 
-    - Sistema de ficheiros de Blob do Azure é suportado nativamente desde 2.7 do Hadoop. Só tem de especificar o caminho de jar na configuração de env do Hadoop.
-    - Sistema de ficheiros do Azure Data Lake Store é empacotado começando 3.0.0-alpha1 do Hadoop. Se o cluster de Hadoop é inferior ao que a versão, terá de importar manualmente ADLS relacionadas com jar pacotes (azure-datalake-store.jar) num cluster de [aqui](https://hadoop.apache.org/releases.html)e especifique o caminho de jar na configuração de env do Hadoop.
+    - Sistema de ficheiros Blob do Azure é suportado nativamente desde 2.7 do Hadoop. Só precisa de especificar o caminho de jar na configuração de env do Hadoop.
+    - Sistema de ficheiros do Azure Data Lake Store é empacotado a partir de 3.0.0-alpha1 do Hadoop. Se o seu cluster do Hadoop é inferior essa versão, terá de importar manualmente o ADLS relacionados com o jar pacotes (azure-datalake-store.jar) em cluster a partir de [aqui](https://hadoop.apache.org/releases.html)e especifique o caminho de jar na configuração de env do Hadoop.
 
-4. Prepare uma pasta temporária do HDFS. Esta pasta temporária é utilizada para armazenar o script de shell DistCp, pelo que vai ocupar espaço ao nível da KB.
-5. Certifique-se a conta de utilizador fornecida no serviço ligado do HDFS tem permissão para um) submeter a aplicação no Yarn; b) tem permissão para criar subpasta, os ficheiros em acima pasta temporária de leitura/escrita.
+4. Prepare-se uma pasta temporária no HDFS. Esta pasta temporária é utilizada para armazenar o script de shell DistCp, para que ele será ocupam o espaço de nível de KB.
+5. Certifique-se a conta de utilizador fornecida no serviço ligado do HDFS tem permissão para um) submeter a aplicação no Yarn; b) tem permissão para criar a subpasta, ler/escrever ficheiros em acima pasta temporária.
 
 ### <a name="configurations"></a>Configurações
 
-Abaixo está um exemplo de configuração de atividade de cópia para copiar dados de HDFS ao Blob do Azure utilizando o DistCp:
+Segue-se um exemplo de configuração de atividade de cópia para copiar dados do HDFS para BLOBs do Azure, utilizar o DistCp:
 
 **Exemplo:**
 
@@ -243,55 +242,55 @@ Abaixo está um exemplo de configuração de atividade de cópia para copiar dad
 
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Utilizar a autenticação Kerberos para o conector do HDFS
 
-Existem duas opções para configurar o ambiente no local, de modo a utilizar a autenticação Kerberos no conector do HDFS. Pode escolher a melhor se adequa a maiúsculas e minúsculas.
-* Opção 1: [máquina associação Self-hosted integração Runtime Kerberos realm](#kerberos-join-realm)
-* Opção 2: [ativar a fidedignidade mútua entre o domínio do Windows e Kerberos realm](#kerberos-mutual-trust)
+Existem duas opções para configurar o ambiente no local de modo a utilizar a autenticação Kerberos no conector HDFS. Pode escolher que o melhor se adequa a seu caso.
+* Opção 1: [Junte-se a máquina do Integration Runtime autoalojado no Kerberos realm](#kerberos-join-realm)
+* Opção 2: [Ativar a fidedignidade bidirecional entre o domínio do Windows e o Kerberos realm](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Opção 1: Associar a máquina de tempo de execução de integração de Self-hosted no Kerberos realm
+### <a name="kerberos-join-realm"></a>Opção 1: Junte-se a máquina do Integration Runtime autoalojado no Kerberos realm
 
 #### <a name="requirements"></a>Requisitos
 
-* A máquina de tempo de execução do Self-hosted integração tem de associar o realm Kerberos e não é possível associar a qualquer domínio Windows.
+* A máquina de Runtime de integração autoalojado tem de associar o realm de Kerberos e não é possível associar a qualquer domínio Windows.
 
 #### <a name="how-to-configure"></a>Como configurar
 
-**Na máquina de tempo de execução do Self-hosted integração:**
+**No computador do Runtime de integração autoalojado:**
 
-1.  Execute o **Ksetup** utilitário para configurar o servidor do KDC do Kerberos e realm.
+1.  Executar o **Ksetup** utilitário para configurar o servidor de KDC do Kerberos e realm.
 
-    A máquina tem de ser configurada como um membro do grupo de trabalho, uma vez que um realm Kerberos é diferente de um domínio Windows. Isto pode ser alcançado ao definir o realm Kerberos e adicionar um servidor do KDC da seguinte forma. Substitua *REALM.COM* com o seus respetivo realm conforme necessário.
+    A máquina tem de ser configurada como membro do grupo de trabalho, uma vez que um realm de Kerberos é diferente de um domínio Windows. Isso pode ser conseguido ao definir o realm de Kerberos e adicionar um servidor KDC da seguinte forma. Substitua *REALM.COM* com seu respectivo realm conforme necessário.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-    **Reiniciar** máquina depois de executar estes 2 comandos.
+    **Reiniciar** o computador depois de executar estes 2 comandos.
 
-2.  Verificar a configuração com **Ksetup** comando. O resultado deve ser, como:
+2.  Certifique-se a configuração com o **Ksetup** comando. O resultado deve ser, como:
 
             C:> Ksetup
             default realm = REALM.COM (external)
             REALM.com:
                 kdc = <your_kdc_server_address>
 
-**De Azure Data Factory:**
+**Na fábrica de dados do Azure:**
 
-* Configurar o conector do HDFS utilizando **autenticação do Windows** juntamente com o nome principal Kerberos e a palavra-passe para ligar à origem de dados de HDFS. Verifique [propriedades de serviço ligado do HDFS](#linked-service-properties) secção nos detalhes de configuração.
+* Configure a através do conector HDFS **autenticação do Windows** juntamente com seu nome principal Kerberos e a palavra-passe para ligar à origem de dados de HDFS. Verifique [propriedades de serviço ligado do HDFS](#linked-service-properties) seção sobre detalhes de configuração.
 
-### <a name="kerberos-mutual-trust"></a>Opção 2: Ativar a fidedignidade mútua entre o domínio do Windows e Kerberos realm
+### <a name="kerberos-mutual-trust"></a>Opção 2: Ativar a fidedignidade bidirecional entre o domínio do Windows e o Kerberos realm
 
 #### <a name="requirements"></a>Requisitos
 
-*   A máquina de tempo de execução do Self-hosted integração tem de associar um domínio Windows.
+*   A máquina de Runtime de integração autoalojado tem de associar um domínio Windows.
 *   Necessita de permissão para atualizar as definições do controlador de domínio.
 
 #### <a name="how-to-configure"></a>Como configurar
 
 > [!NOTE]
-> Substitua REALM.COM e AD.COM no tutorial seguinte com os seus respetivo realm e o controlador de domínio, conforme necessário.
+> Substitua REALM.COM e AD.COM no tutorial seguinte com seu próprio realm respectivo e o controlador de domínio, conforme necessário.
 
 **No servidor do KDC:**
 
-1.  Edite a configuração do KDC em **krb5.conf** ficheiro para permitir que o KDC confiança de domínio do Windows que faça referência ao modelo de configuração seguintes. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
+1.  Editar a configuração de KDC no **krb5.conf** arquivo para permitir que o KDC confiar no domínio do Windows que faça referência ao modelo de configuração seguintes. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -329,60 +328,60 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
 
   **Reiniciar** o serviço KDC após a configuração.
 
-2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor do KDC com o seguinte comando:
+2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor KDC com o seguinte comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  No **hadoop.security.auth_to_local** a configuração do serviço HDFS do ficheiro, adicione `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  Na **hadoop.security.auth_to_local** configuração do serviço HDFS do ficheiro, adicione `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **No controlador de domínio:**
 
-1.  Execute o seguinte **Ksetup** comandos para adicionar uma entrada do realm:
+1.  Execute o seguinte **Ksetup** comandos para adicionar uma entrada de realm:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabelece confiança do domínio do Windows para Kerberos Realm. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
+2.  Estabelece confiança de domínio do Windows para o Realm de Kerberos. [senha] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
 3.  Selecione o algoritmo de encriptação utilizado no Kerberos.
 
-    1. Aceda ao Gestor de servidor > Gestão de política de grupo > domínio > objetos de política de grupo > predefinido ou política de domínio do Active Directory e editar.
+    1. Aceda ao Gestor de servidor > Gestão de política de grupo > domínio > objetos de política de grupo > padrão ou política de domínio Active Directory e editar.
 
-    2. No **Editor de gestão de políticas de grupo** janela de pop-up, aceda a configuração do computador > políticas > definições do Windows > definições de segurança > Políticas locais > Opções de segurança e configurar **rede segurança: configurar os tipos de encriptação permitidos para Kerberos**.
+    2. Na **Editor de gerenciamento de diretiva de grupo** janela de pop-up, aceda a configuração do computador > políticas > definições do Windows > definições de segurança > Políticas locais > Opções de segurança e configurar **rede segurança: Configurar tipos de encriptação permitidos para Kerberos**.
 
-    3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode selecionar simplesmente todas as opções.
+    3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode simplesmente selecionar todas as opções.
 
         ![Tipos de encriptação de configuração de Kerberos](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Utilize **Ksetup** comandos para especificar o algoritmo de encriptação a utilizar sobre o REALM específico.
+    4. Uso **Ksetup** comando para especificar o algoritmo de encriptação a utilizar sobre o REALM específico.
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Crie o mapeamento entre a conta de domínio e um principal de Kerberos, para poder utilizar o Kerberos principal no domínio Windows.
+4.  Crie o mapeamento entre a conta de domínio e o principal de Kerberos, para poder utilizar o principal de Kerberos no domínio do Windows.
 
-    1. Iniciar as ferramentas administrativas > **computadores e utilizadores do Active Directory**.
+    1. Iniciar as ferramentas administrativas > **Active Directory Users and Computers**.
 
-    2. Configurar funcionalidades avançadas clicando **vista** > **funcionalidades avançadas**.
+    2. Configurar funcionalidades avançadas clicando **View** > **funcionalidades avançadas**.
 
-    3. Localizar a conta à qual pretende criar mapeamentos e faça duplo clique para ver **mapeamentos de nome** > clique **Kerberos nomes** separador.
+    3. Localize a conta à qual pretende criar mapeamentos e, com o botão direito para ver **mapeamentos de nome** > clique em **Kerberos nomes** separador.
 
-    4. Adicione um principal do realm.
+    4. Adicione um principal de território.
 
         ![Identidade de segurança do mapa](media/connector-hdfs/map-security-identity.png)
 
-**Na máquina de tempo de execução do Self-hosted integração:**
+**No computador do Runtime de integração autoalojado:**
 
-* Execute o seguinte **Ksetup** comandos para adicionar uma entrada do realm.
+* Execute o seguinte **Ksetup** comandos para adicionar uma entrada de realm.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-**De Azure Data Factory:**
+**Na fábrica de dados do Azure:**
 
-* Configurar o conector do HDFS utilizando **autenticação do Windows** juntamente com a sua conta de domínio ou Principal de Kerberos para ligar à origem de dados de HDFS. Verifique [propriedades de serviço ligado do HDFS](#linked-service-properties) secção nos detalhes de configuração.
+* Configure a através do conector HDFS **autenticação do Windows** juntamente com a sua conta de domínio ou Principal de Kerberos para ligar à origem de dados de HDFS. Verifique [propriedades de serviço ligado do HDFS](#linked-service-properties) seção sobre detalhes de configuração.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
