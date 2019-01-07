@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ce887c6d9e4e625d8fe08ee3acfc179cd903d187
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633763"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054066"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar a sua primeira função com o Visual Studio Code
 
@@ -27,7 +27,7 @@ Neste artigo, vai aprender a utilizar a [Extensão das Funções do Azure para o
 
 ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Atualmente, a extensão suporta funções de C#, JavaScript e Java. Os passos neste artigo podem variar consoante a sua escolha de linguagem para o projeto das Funções do Azure. A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
+Atualmente totalmente compatível com a extensão C#, funções de JavaScript e Java, com suporte de Python atualmente em pré-visualização. Os passos neste artigo podem variar consoante a sua escolha de linguagem para o projeto das Funções do Azure. A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Para concluir este guia de início rápido:
 
 ## <a name="create-an-http-triggered-function"></a>Criar uma função acionada por HTTP
 
-1. Em **Azure: Funções**, escolha o ícone Criar Função.
+1. De **Azure: As funções**, escolha o ícone de Create Function.
 
     ![Criar uma função](./media/functions-create-first-function-vs-code/create-function.png)
 
