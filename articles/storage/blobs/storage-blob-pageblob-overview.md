@@ -1,35 +1,35 @@
 ---
-title: Recursos exclusivos de blobs de páginas do Azure | Documentos da Microsoft
-description: Uma visão geral dos blobs de páginas do Azure e seus benefícios, incluindo casos de uso com scripts de exemplo.
+title: Descrição geral dos blobs de páginas do Azure | Documentos da Microsoft
+description: Uma visão geral dos blobs de páginas do Azure e suas vantagens, incluindo casos de uso com scripts de exemplo.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022693"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063939"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Recursos exclusivos de blobs de páginas do Azure
+# <a name="overview-of-azure-page-blobs"></a>Descrição geral dos blobs de páginas do Azure
 
-O armazenamento do Azure oferece três tipos de armazenamento de BLOBs: Blobs de blocos, Blobs de acréscimo e blobs de páginas. Blobs de blocos são compostos de blocos e são ideais para armazenar texto ou arquivos binários e para carregar ficheiros grandes de forma eficiente. Acrescentar blobs são também constituídos por blocos, mas estão otimizados para operações de acréscimo, tornando-os ideal para cenários de registo. Blobs de páginas são constituídos por páginas de 512 bytes cópia de segurança para 8 TB de tamanho total e são desenvolvidos para operações de leitura/escrita aleatórias frequentes. Blobs de páginas são a base de discos de IaaS do Azure. Este artigo se concentra em explicar os recursos e benefícios de blobs de página.
+O armazenamento do Azure oferece três tipos de armazenamento de BLOBs: Blobs de página, Blobs de acréscimo e Blobs de blocos. Blobs de blocos são compostos de blocos e são ideais para armazenar texto ou arquivos binários e para carregar ficheiros grandes de forma eficiente. Acrescentar blobs são também constituídos por blocos, mas estão otimizados para operações de acréscimo, tornando-os ideal para cenários de registo. Blobs de páginas são constituídos por páginas de 512 bytes cópia de segurança para 8 TB de tamanho total e são desenvolvidos para operações de leitura/escrita aleatórias frequentes. Blobs de páginas são a base de discos de IaaS do Azure. Este artigo se concentra em explicar os recursos e benefícios de blobs de página.
 
 Blobs de páginas são uma coleção de páginas de 512 bytes, que fornecem a capacidade de leitura/escrita arbitrários intervalos de bytes. Por conseguinte, os blobs de páginas são ideais para armazenar as estruturas de dados de com base no índice e esparsos, como o SO e discos de dados para máquinas virtuais e bases de dados. Por exemplo, BD SQL do Azure utiliza os blobs de páginas como o armazenamento persistente subjacente para seus bancos de dados. Além disso, os blobs de páginas também geralmente são utilizados para os ficheiros com atualizações baseado em intervalo.  
 
-As principais funcionalidades de blobs de páginas do Azure são a REST interface, a durabilidade de armazenamento subjacente e os recursos de migração perfeita para o Azure. Estas funcionalidades são abordadas mais detalhadamente na secção seguinte. Além disso, os blobs de páginas do Azure atualmente são suportados em dois tipos de armazenamento: o armazenamento Premium e o armazenamento Standard. O armazenamento Premium foi concebido especificamente para cargas de trabalho que requerem consistente de alto desempenho e latência baixa, tornando os blobs de páginas premium ideal para bases de dados de armazenamento de dados de elevado desempenho.  Armazenamento Standard é mais rentável para executar cargas de trabalho insensível à latência.
+As principais funcionalidades de blobs de páginas do Azure são a REST interface, a durabilidade de armazenamento subjacente e os recursos de migração perfeita para o Azure. Estas funcionalidades são abordadas mais detalhadamente na secção seguinte. Além disso, os blobs de páginas do Azure atualmente são suportados em dois tipos de armazenamento: Armazenamento Premium e o armazenamento Standard. O armazenamento Premium foi concebido especificamente para cargas de trabalho que requerem consistente de alto desempenho e latência baixa, tornando os blobs de páginas premium ideal para bases de dados de armazenamento de dados de elevado desempenho.  Armazenamento Standard é mais rentável para executar cargas de trabalho insensível à latência.
 
 ## <a name="sample-use-cases"></a>Casos de utilização de exemplo
 
 Vamos discutir alguns casos de utilização para blobs de páginas, começando com discos de IaaS do Azure. Blobs de páginas do Azure são a estrutura principal da plataforma de discos virtuais de IaaS do Azure. SO do Azure e discos de dados são implementados como discos virtuais onde os dados são mantidos de maneira duradoura na plataforma do armazenamento do Azure e, em seguida, entregue para as máquinas virtuais para um desempenho máximo. Discos do Azure são mantidos no Hyper-V [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) e armazenados como um [BLOBs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) no armazenamento do Azure. Além de utilizar discos virtuais para VMs IaaS do Azure, blobs de páginas também ativar cenários de PaaS e DBaaS como o serviço de BD SQL do Azure, que utiliza atualmente a blobs de páginas para armazenar dados SQL, permitindo a operações de leitura-escrita aleatórias rápida para a base de dados. Outro exemplo seria se tiver um serviço de PaaS para acesso de suporte de dados partilhado para aplicações de edição de vídeo colaborativos, blobs de páginas permitem um acesso rápido em locais aleatórios no suporte de dados. Também permite a rápida e eficiente edição e intercalação do mesmo suporte de dados por vários utilizadores. 
 
 Microsoft serviços proprietários, como o Azure Site Recovery, cópia de segurança do Azure, bem como muitos desenvolvedores de terceiros implementaram inovações líderes da indústria, usando a interface REST do blob de páginas. Seguem-se alguns dos cenários exclusivos implementados no Azure: 
-* Gestão de aplicações direcionadas instantâneo incremental: aplicações podem tirar partido de instantâneos de blob de página e REST APIs para salvar os pontos de verificação do aplicativo sem incorrer em duplicação dispendiosa de dados. O armazenamento do Azure suporta os instantâneos locais para blobs de páginas, que não necessitam de copiar o blob inteiro. Estes instantâneos pública APIs também permitem aceder e copiar de deltas entre os instantâneos.
-* Migração direta de aplicações e dados do local para a cloud: copiar os dados no local e utilizar REST APIs para escrever diretamente para um blob de página do Azure, enquanto a VM no local continua a ser executado. Assim que o destino detetou, pode rapidamente ativação pós-falha para VM do Azure com esses dados. Dessa forma, pode migrar as suas VMs e discos virtuais do local para a cloud com o tempo de inatividade mínimo, uma vez que a migração de dados ocorre em segundo plano enquanto continua a utilizar a VM e o tempo de inatividade necessário para a ativação pós-falha será curtos (em minutos).
+* Gestão de aplicações direcionadas instantâneo incremental: Aplicativos podem tirar partido dos instantâneos de blob de página e REST APIs para salvar os pontos de verificação do aplicativo sem incorrer em duplicação dispendiosa de dados. O armazenamento do Azure suporta os instantâneos locais para blobs de páginas, que não necessitam de copiar o blob inteiro. Estes instantâneos pública APIs também permitem aceder e copiar de deltas entre os instantâneos.
+* Migração em direto da aplicação e dados do local para a cloud: Copiar os dados no local e utilizar REST APIs para escrever diretamente para um blob de página do Azure, enquanto a VM no local continua a ser executado. Assim que o destino detetou, pode rapidamente ativação pós-falha para VM do Azure com esses dados. Dessa forma, pode migrar as suas VMs e discos virtuais do local para a cloud com o tempo de inatividade mínimo, uma vez que a migração de dados ocorre em segundo plano enquanto continua a utilizar a VM e o tempo de inatividade necessário para a ativação pós-falha será curtos (em minutos).
 * [Baseado em SAS](../common/storage-dotnet-shared-access-signature-part-1.md) acesso, o que permite cenários como vários leitores e único e redator com suporte para controlo de simultaneidade partilhado.
 
 ## <a name="page-blob-features"></a>Funcionalidades de blob de página

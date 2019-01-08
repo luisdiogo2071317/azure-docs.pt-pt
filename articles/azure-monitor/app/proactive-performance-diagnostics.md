@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054525"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076630"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção inteligente – anomalias de desempenho
 
@@ -80,7 +80,7 @@ E-mails sobre anomalias de desempenho de detecções inteligente estão limitado
 
   * Ainda não, mas pode:
     * [Configure alertas](../../azure-monitor/app/alerts.md) que informá-lo quando uma métrica ultrapassa um limiar.
-    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou [para o Power BI](../../application-insights/app-insights-export-power-bi.md), onde pode analisá-lo por conta própria.
+    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou [para o Power BI](../../azure-monitor/app/export-power-bi.md ), onde pode analisá-lo por conta própria.
 * *A frequência com que a análise é executada?*
 
   * Vamos executar a análise diária da telemetria do dia anterior (dia completo no fuso horário UTC).

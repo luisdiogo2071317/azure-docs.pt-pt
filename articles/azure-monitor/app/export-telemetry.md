@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025271"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076778"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -27,7 +27,7 @@ Antes de configurar a exportação contínua, existem algumas alternativas que t
 * O botão de exportação na parte superior do painel de métricas ou de pesquisa permite-lhe transferir as tabelas e gráficos para uma planilha do Excel.
 
 * [Análise](../../azure-monitor/app/analytics.md) fornece uma linguagem de consulta poderosa para a telemetria. Ele também pode exportar os resultados.
-* Se pretende [explorar os seus dados no Power BI](../../application-insights/app-insights-export-power-bi.md), pode fazer isso sem utilizar a exportação contínua.
+* Se pretende [explorar os seus dados no Power BI](../../azure-monitor/app/export-power-bi.md ), pode fazer isso sem utilizar a exportação contínua.
 * O [REST API de acesso a dados](https://dev.applicationinsights.io/) permite-lhe aceder programaticamente a sua telemetria.
 * Também pode acessar o programa de configuração [exportação contínua através do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 

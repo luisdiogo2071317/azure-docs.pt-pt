@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 32def80b1118d6ef57db8f1543f770fc51ff568e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 84c1c814838c0d59a522de4afe061d76e7419fd4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051922"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079192"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -72,7 +72,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 | [**Analytics**](../azure-monitor/app/analytics.md) (Análise)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../azure-monitor/app/visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Depurador de instantâneos**](../azure-monitor/app/snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
-| [**Power BI**](app-insights-export-power-bi.md)<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
+| [**Power BI**](../azure-monitor/app/export-power-bi.md )<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/) (API REST)<br/>Escreva código para executar consultas nas métricas e nos dados não processados.| ![API REST](./media/app-insights-overview/rest-tn.png) |
 | [**Continuous export**](../azure-monitor/app/export-telemetry.md) (Exportação contínua)<br/>Exportação em massa de dados não processados para armazenamento, assim que são recebidos. |![Exportar](./media/app-insights-overview/export-tn.png) |
 
@@ -114,7 +114,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [Node.js](../azure-monitor/app/nodejs.md)
   * [Outras plataformas](../azure-monitor/app/platforms.md)
 * **[Instrumente as suas páginas Web](../azure-monitor/app/javascript.md)** para visualização de páginas, AJAX e outra telemetria do lado do cliente.
-* **[Analise a utilização da aplicação móvel](app-insights-mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
+* **[Analise a utilização da aplicação móvel](../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
 
@@ -148,13 +148,13 @@ Introdução no momento de programação com:
 
 <!--Link references-->
 
-[android]: app-insights-mobile-center-quickstart.md
+[android]: ../azure-monitor/learn/mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
 [client]: ../azure-monitor/app/javascript.md
 [desktop]: ../azure-monitor/app/windows-desktop.md
 [detect]: ../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
-[ios]: app-insights-mobile-center-quickstart.md
+[ios]: ../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ../azure-monitor/app/platforms.md

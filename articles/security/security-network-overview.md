@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548930"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065686"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -104,7 +104,7 @@ Por exemplo, pode ter uma aplicação de segurança de rede virtual na sua rede 
 
 [Túnel forçado](https://www.petri.com/azure-forced-tunneling) é um mecanismo que pode utilizar para se certificar de que os seus serviços não têm permissão para iniciar uma ligação para dispositivos na internet. Tenha em atenção que isto é diferente da aceitar ligações de entrada e, em seguida, responder a elas. Servidores web front-end tem de responder a pedidos a partir de anfitriões da internet e, então, obtido de internet o tráfego é permitido de entrada para estes servidores web e os servidores web estão autorizados a responder.
 
-O que deseja don t permitir que é um servidor web front-end para iniciar um pedido de saída. Esses pedidos podem representar um risco de segurança, uma vez que estas ligações podem ser utilizadas para transferir o software maligno. Mesmo se quiser que estes servidores front-end para iniciar pedidos de saída à internet, pode querer forçá-los para ir até os proxies da web no local. Isto permite-lhe tirar partido do URL de filtragem e de registo.
+O que não quiser que é um servidor web front-end para iniciar um pedido de saída. Esses pedidos podem representar um risco de segurança, uma vez que estas ligações podem ser utilizadas para transferir o software maligno. Mesmo se quiser que estes servidores front-end para iniciar pedidos de saída à internet, pode querer forçá-los para ir até os proxies da web no local. Isto permite-lhe tirar partido do URL de filtragem e de registo.
 
 Em vez disso, gostaria de utilizar o túnel forçado para evitar esta situação. Quando ativar o protocolo de túnel forçado, são forçadas todas as ligações à internet através do gateway no local. Pode configurar o túnel forçado, aproveitando as UDRs.
 
@@ -127,7 +127,7 @@ Por exemplo, os seus requisitos de segurança podem incluir:
 * Controlo de acesso de aplicações
 * Proteção contra DDoS adicional (acima da proteção de DDoS fornecida pelos recursos de infraestrutura do Azure em si)
 
-Pode acessar esses recursos de segurança de rede aprimorada com uma solução de parceiro do Azure. Pode encontrar a rede de parceiros do Azure mais recente soluções de segurança ao aceder a [do Azure Marketplace](https://azure.microsoft.com/marketplace/)e ao procurar por segurança e segurança de rede.
+Pode acessar esses recursos de segurança de rede aprimorada com uma solução de parceiro do Azure. Pode encontrar a rede de parceiros do Azure mais recente soluções de segurança ao aceder a [do Azure Marketplace](https://azure.microsoft.com/marketplace/)e ao procurar por "security" e "segurança de rede".
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -171,7 +171,7 @@ Saiba mais:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Ligar a sua rede no local a uma rede virtual com uma VPN
 
-Pode querer ligar-se a toda a rede corporativa ou partes do mesmo, a uma rede virtual. Isso é comum em TI híbridos cenários, em que as organizações [expandir o datacenter no local para o Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Em muitos casos, as organizações alojam partes de um serviço no Azure e partes no local. Por exemplo, eles podem fazê-lo quando uma solução inclui servidores web front-end no Azure e bases de dados do back-end no local. Esses tipos de ligações entre locais também tornam a gestão do Azure localizado recursos mais seguro e permitir cenários como expandir os controladores de domínio do Active Directory para o Azure.
+Pode querer ligar-se a toda a rede corporativa ou partes do mesmo, a uma rede virtual. Isso é comum em TI híbridos cenários, em que as organizações [expandir o datacenter no local para o Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Em muitos casos, as organizações alojam partes de um serviço no Azure e partes no local. Por exemplo, eles podem fazê-lo quando uma solução inclui servidores web front-end no Azure e bases de dados do back-end no local. Esses tipos de ligações "entre locais" também tornam a gestão do Azure localizado recursos mais seguro e permitir cenários como expandir os controladores de domínio do Active Directory para o Azure.
 
 Uma forma para realizar isso é utilizar um [VPN site a site](https://www.techopedia.com/definition/30747/site-to-site-vpn). A diferença entre uma VPN de site a site e uma VPN ponto a site é que o último liga-se um único dispositivo a uma rede virtual. Uma VPN de site a site liga-se uma rede inteira (por exemplo, a sua rede no local) a uma rede virtual. VPNs de site a site a uma rede virtual, utilize o modo de encapsulamento IPsec protocolo VPN altamente seguro.
 
@@ -199,7 +199,7 @@ Saiba mais:
 
 É possível usar diversas redes virtuais para as suas implementações. Existem vários motivos por que pode fazer isso. Talvez queira simplificar a gestão ou, talvez tenha uma maior segurança. Independentemente da motivação para colocar recursos em redes virtuais diferentes, haverá ocasiões em que desejará recursos em cada uma das redes para se ligar entre si.
 
-Uma opção é para os serviços numa rede virtual para ligar aos serviços em outra rede virtual, por um loop através da internet. A ligação inicia numa rede virtual, passa pela internet e, em seguida, volta para a rede virtual de destino. Esta opção expõe a ligação para os problemas de segurança inerentes a qualquer comunicação baseado na internet.
+Uma opção é para os serviços numa rede virtual para ligar aos serviços em outra rede virtual, por "novamente um loop" através da internet. A ligação inicia numa rede virtual, passa pela internet e, em seguida, volta para a rede virtual de destino. Esta opção expõe a ligação para os problemas de segurança inerentes a qualquer comunicação baseado na internet.
 
 Uma opção melhor seria criar uma VPN de site a site que estabelece ligação entre duas redes virtuais. Este método utiliza o mesmo [modo de encapsulamento IPSec](https://technet.microsoft.com/library/cc786385.aspx) protocolo da ligação de VPN de site a site em vários locais mencionadas acima.
 
@@ -213,7 +213,7 @@ Outra forma de ligar as suas redes virtuais é [VNET peering](../virtual-network
 
 ## <a name="availability"></a>Disponibilidade
 
-Disponibilidade é um componente fundamental de qualquer programa de segurança. Se os utilizadores e de sistemas pode t acessar o que precisam de aceder através da rede, o serviço pode ser considerado comprometido. O Azure tem as tecnologias de rede que suportam os seguintes mecanismos de elevada disponibilidade:
+Disponibilidade é um componente fundamental de qualquer programa de segurança. Se os utilizadores e os sistemas não é possível acessar o que precisam de aceder através da rede, o serviço pode ser considerado comprometido. O Azure tem as tecnologias de rede que suportam os seguintes mecanismos de elevada disponibilidade:
 
 * Balanceamento de carga baseado em HTTP
 * Balanceamento de carga ao nível de rede
@@ -222,7 +222,7 @@ Disponibilidade é um componente fundamental de qualquer programa de segurança.
 Balanceamento de carga é um mecanismo projetado para distribuir igualmente conexões entre vários dispositivos. Os objetivos de balanceamento de carga são:
 
 * Para aumentar a disponibilidade. Quando carrega o saldo ligações em vários dispositivos, um ou mais dos dispositivos podem se tornar indisponível sem comprometer o serviço. Os serviços em execução nos restantes dispositivos online podem continuar a servir o conteúdo do serviço.
-* Para aumentar o desempenho. Quando carrega o saldo ligações em vários dispositivos, um único dispositivo tem de lidar com todo o processamento. Em vez disso, as necessidades de processamento e memória para satisfazer as necessidades o conteúdo é distribuído por vários dipositivos.
+* Para aumentar o desempenho. Quando carrega o saldo ligações em vários dispositivos, um único dispositivo não tem de lidar com todo o processamento. Em vez disso, as necessidades de processamento e memória para satisfazer as necessidades o conteúdo é distribuído por vários dipositivos.
 
 ### <a name="http-based-load-balancing"></a>Balanceamento de carga baseado em HTTP
 
@@ -231,7 +231,7 @@ As organizações que executam serviços baseados na web, muitas vezes, vontade 
 O Gateway de aplicação do Azure fornece para os seus serviços baseados na web de balanceamento de carga baseado em HTTP. Gateway de aplicação suporta:
 
 * Afinidade de sessão baseada em cookies. Esta capacidade torna-se de que as ligações estabelecidas para um dos servidores por trás do Balanceador de carga que permanece intacta entre o cliente e servidor. Isto garante a estabilidade de transações.
-* Descarga de SSL. Quando um cliente liga-se com o Balanceador de carga, essa sessão é encriptada utilizando o protocolo HTTPS (SSL). No entanto, para aumentar o desempenho, pode utilizar o protocolo HTTP (não encriptada) para estabelecer ligação entre o Balanceador de carga e o servidor de web por trás do Balanceador de carga. Isto é referido como descarga do SSL, porque os servidores web por trás de don de Balanceador de carga t experiência da sobrecarga de processador envolvida com a encriptação. Os servidores web, por conseguinte, podem atender solicitações mais rapidamente.
+* Descarga de SSL. Quando um cliente liga-se com o Balanceador de carga, essa sessão é encriptada utilizando o protocolo HTTPS (SSL). No entanto, para aumentar o desempenho, pode utilizar o protocolo HTTP (não encriptada) para estabelecer ligação entre o Balanceador de carga e o servidor de web por trás do Balanceador de carga. Isto é referido como "Descarga de SSL", porque os servidores web por trás do Balanceador de carga não experienciar a sobrecarga de processador envolvida com a encriptação. Os servidores web, por conseguinte, podem atender solicitações mais rapidamente.
 * Com base no URL de encaminhamento de conteúdo. Esta funcionalidade torna possível para o Balanceador de carga para tomar decisões sobre onde para ligações de encaminhamento com base no URL de destino. Isto proporciona flexibilidade muito mais que as soluções que tornam a carregar balanceamento decisões com base em endereços IP.
 
 Saiba mais:
@@ -256,7 +256,7 @@ Saiba mais:
 
 ### <a name="global-load-balancing"></a>Balanceamento de carga global
 
-Algumas organizações esperam o nível mais elevado de disponibilidade possível. Uma forma de alcançar esse objetivo é para alojar as aplicações em datacenters globalmente distribuídos. Quando um aplicativo está alojado em datacenters localizados em todo o mundo, ele possível para toda uma região geopolítica para se tornar indisponível e continuará a ter o aplicativo em funcionamento.
+Algumas organizações esperam o nível mais elevado de disponibilidade possível. Uma forma de alcançar esse objetivo é para alojar as aplicações em datacenters globalmente distribuídos. Quando um aplicativo está alojado em datacenters localizados em todo o mundo, é possível que toda uma região geopolítica se tornar indisponível, e ainda ter a aplicação de cópia de segurança e em execução.
 
 Esta estratégia de balanceamento de carga também pode trazer benefícios de desempenho. Pode direcionar os pedidos para o serviço para o datacenter que estejam mais próximos do dispositivo que está fazendo a solicitação.
 
@@ -268,11 +268,11 @@ Saiba mais:
 
 ## <a name="name-resolution"></a>Resolução de nomes
 
-Resolução de nomes é uma função essencial para todos os serviços que alojar no Azure. Da perspectiva de segurança, o comprometimento da função de resolução de nome pode levar a um atacante redirecionar pedidos de seus sites para um site do invasor s. Resolução de nome seguro é um requisito para todos os seus serviços de cloud alojada.
+Resolução de nomes é uma função essencial para todos os serviços que alojar no Azure. Da perspectiva de segurança, o comprometimento da função de resolução de nome pode levar a um atacante redirecionar pedidos de seus sites para o site de um atacante. Resolução de nome seguro é um requisito para todos os seus serviços de cloud alojada.
 
 Existem dois tipos de resolução de nomes que tem de cumprir:
 
-* Resolução de nomes interna. Isto é utilizado pelos serviços em suas redes virtuais, as redes no local ou ambos. Os nomes utilizados para a resolução do nome interno não estão acessíveis através da internet. Para garantir a segurança, ele s importante que o esquema de resolução de nome interno não está acessível a utilizadores externos.
+* Resolução de nomes interna. Isto é utilizado pelos serviços em suas redes virtuais, as redes no local ou ambos. Os nomes utilizados para a resolução do nome interno não estão acessíveis através da internet. Para garantir a segurança, é importante que o esquema de resolução de nome interno não está acessível a utilizadores externos.
 * Resolução de nomes externos. Isto é utilizado por pessoas e dispositivos fora de suas redes no local e redes virtuais. Estes são os nomes que estão visíveis para a internet e são utilizados para direcionar a ligação aos seus serviços com base na cloud.
 
 Para a resolução do nome interno, tem duas opções:
@@ -292,7 +292,7 @@ Para resolução de nomes externos, tem duas opções:
 
 Muitas organizações de grandes alojam o seus próprio DNS servidores no local. Eles podem fazer isso porque têm o conhecimento de rede e a presença global para fazê-lo.
 
-Na maioria dos casos, ele s melhor alojar o seu DNS nome serviços de resolução com um fornecedor de serviços. Esses provedores de serviço tem o conhecimento de rede e a presença global para muito elevada disponibilidade dos seus serviços de resolução de nome. Disponibilidade é essencial para os serviços DNS, porque se falharem a seus serviços de resolução de nome, ninguém será capaz de alcançar com acesso a serviços à internet.
+Na maioria dos casos, é melhor alojar os serviços de resolução de nome DNS com um fornecedor de serviços. Esses provedores de serviço tem o conhecimento de rede e a presença global para muito elevada disponibilidade dos seus serviços de resolução de nome. Disponibilidade é essencial para os serviços DNS, porque se falharem a seus serviços de resolução de nome, ninguém será capaz de alcançar com acesso a serviços à internet.
 
 O Azure disponibiliza uma elevada disponibilidade e elevado desempenho externa DNS solução sob a forma de DNS do Azure. Esta solução de resolução de nome externo tira partido da infraestrutura de DNS do Azure em todo o mundo. Permite-lhe alojar o seu domínio no Azure, com as mesmas credenciais, APIs, ferramentas e de faturação dos outros serviços do Azure. Como parte do Azure, também herda os controlos de segurança forte incorporados na plataforma.
 
@@ -303,7 +303,7 @@ Saiba mais:
 
 ## <a name="perimeter-network-architecture"></a>Arquitetura de rede de perímetro
 
-Muitas organizações de grandes utilizam redes de perímetro para segmentar as suas redes e criar uma zona de memória intermédia entre a internet e seus serviços. A parte de perímetro da rede é considerada uma zona de segurança baixa, e não existem recursos de elevado valor são colocados nesse segmento de rede. Será apresentado normalmente ver dispositivos de segurança de rede que têm uma interface de rede no segmento de rede de perímetro. Outra interface de rede está ligado a uma rede que tenha máquinas virtuais e serviços que aceitam ligações de entrada da internet.
+Muitas organizações de grandes utilizam redes de perímetro para segmentar as suas redes e criar uma zona de memória intermédia entre a internet e seus serviços. A parte de perímetro da rede é considerada uma zona de segurança baixa, e não existem recursos de elevado valor são colocados nesse segmento de rede. Verá, normalmente, dispositivos de segurança de rede que têm uma interface de rede no segmento de rede de perímetro. Outra interface de rede está ligado a uma rede que tenha máquinas virtuais e serviços que aceitam ligações de entrada da internet.
 
 Pode criar redes de perímetro de diversas formas diferentes. A decisão de implementar uma rede de perímetro e, em seguida, o tipo de perímetro de rede a utilizar se optar por utilizar um, depende dos requisitos de segurança da rede.
 
@@ -313,7 +313,7 @@ Saiba mais:
 
 ## <a name="azure-ddos-protection"></a>Proteção contra DDoS do Azure
 
-Os ataques de Denial of Service distribuído (DDoS) são algumas das maiores preocupações de disponibilidade e segurança relativamente aos clientes que estão a mover as suas aplicações para a cloud. Um ataque de DDoS tenta a esgotar os recursos de s um aplicativo, que a aplicação disponível para os usuários legítimos. Os ataques de DDoS podem ser direcionadas para qualquer ponto final que esteja publicamente acessível através da internet.
+Os ataques de Denial of Service distribuído (DDoS) são algumas das maiores preocupações de disponibilidade e segurança relativamente aos clientes que estão a mover as suas aplicações para a cloud. Um ataque de DDoS tenta a esgotar os recursos de um aplicativo, que a aplicação disponível para os usuários legítimos. Os ataques de DDoS podem ser direcionadas para qualquer ponto final que esteja publicamente acessível através da internet.
 A Microsoft fornece proteção contra DDoS, conhecida como **básica** como parte da plataforma Azure. Isto é fornecido sem custos e inclui sempre na monitorização e em tempo real mitigação de ataques de nível de rede comuns. Além de proteções incluídas com a proteção contra DDoS **básica** pode habilitar o **padrão** opção. Funcionalidades padrão do DDoS Protection incluem:
 
 * **Integração de plataforma nativa:** Integrado de forma nativa no Azure. Inclui a configuração através do portal do Azure. Padrão de proteção contra DDoS compreende os recursos e a configuração do recurso.
@@ -321,10 +321,10 @@ A Microsoft fornece proteção contra DDoS, conhecida como **básica** como part
 * **Monitorização de tráfego sempre ativa:** Os padrões de tráfego de aplicativo são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques de DDoS. Atenuação é executada quando as políticas de proteção são excedidas.
 * **Relatórios de mitigação de ataque** relatórios de mitigação de ataque utilizar dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques destinados a seus recursos.
 * **Registos de fluxo de mitigação de ataque** registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado, tráfego reencaminhado e outros dados de ataque em tempo quase real durante um ataque de DDoS Active Directory.
-* **Otimização adaptável:** A criação de perfis de tráfego inteligente aprende o seu tráfego de s da aplicação ao longo do tempo e seleciona e atualiza o perfil que é mais adequado para o seu serviço. O perfil ajusta à medida tráfego muda ao longo do tempo. Camada 3 para proteção de camada 7: Fornece proteção contra DDoS de pilha completa, quando utilizado com uma firewall de aplicações web.
+* **Otimização adaptável:** A criação de perfis de tráfego inteligente aprende o tráfego da aplicação ao longo do tempo e seleciona e atualiza o perfil que é mais adequado para o seu serviço. O perfil ajusta à medida tráfego muda ao longo do tempo. Camada 3 para proteção de camada 7: Fornece proteção contra DDoS de pilha completa, quando utilizado com uma firewall de aplicações web.
 * **Escala de atenuação extenso:** Mais de 60 tipos de ataques diferentes podem ser atenuados com capacidade global, para proteger contra os ataques de DDoS conhecidos maior.
 * **Métricas de ataque:** Métricas resumidas de cada ameaça são acessíveis através do Azure Monitor.
-* **Alertas de ataque:** Alertas podem ser configurados no início e paragem de um ataque e ao longo da duração do ataque s, uso de métricas de ataque incorporada. Alertas de integrar o seu software operacional, como o Microsoft Azure Log Analytics, o Splunk, o armazenamento do Azure, o E-Mail e o portal do Azure.
+* **Alertas de ataque:** Alertas podem ser configurados no início e paragem de um ataque e ao longo da duração do ataque, uso de métricas de ataque incorporada. Alertas de integrar o seu software operacional, como o Microsoft Azure Log Analytics, o Splunk, o armazenamento do Azure, o E-Mail e o portal do Azure.
 * **Garantia de custo:**  Transferência de dados e aplicações créditos de serviço de escalamento horizontal para ataques de DDoS documentados.
 * **Rápida de DDoS reativa** clientes DDoS Protection padrão têm agora acesso a equipe de resposta rápida durante um ataque de Active Directory. DRR pode ajudar a investigação de ataque, atenuações personalizadas durante um ataque e a análise de pós ataque de.
 

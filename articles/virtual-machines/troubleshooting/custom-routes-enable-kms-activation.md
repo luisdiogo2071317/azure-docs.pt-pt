@@ -1,6 +1,6 @@
 ---
 title: Utilizar rotas personalizadas do Azure para ativar a ativação do KMS com túnel forçado | Documentos da Microsoft
-description: Mostra como utilizar rotas personalizadas do Azure para ativar a ativação do KMS com túnel forçado no Azure.
+description: Mostra como utilizar rotas personalizadas do Azure para ativar a ativação do KMS quando utilizar o túnel no Azure forçado.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: f1e2ab6a954361a7807d78dc2baf5d24af52a679
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 71330e72ef27b62472622472b37e2ec8c78211d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798090"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075571"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Falha de ativação do Windows no cenário de túnel forçado
 
-Este artigo descreve como resolver o problema de ativação do KMS que podem ocorrer quando ativou forçado túnel numa ligação de VPN de site a site ou ExpressRoute cenários.
+Este artigo descreve como resolver o problema de ativação do KMS que podem ocorrer quando ativar forçado túnel numa ligação de VPN de site a site ou ExpressRoute cenários.
 
 ## <a name="symptom"></a>Sintoma
 
-Ativar [túnel forçado](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) sobre o Azure sub-redes da rede virtual para direcionar todo o tráfego vinculado à Internet de volta para a sua rede no local. Neste cenário, as máquinas virtuais (VM) do Azure que executem o Windows Server 2012 R2 ou versões posteriores com êxito pode ativar o Windows. No entanto, as VMs que executam a versão anterior do Windows não ativar o Windows. 
+Ativar [túnel forçado](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) no Azure sub-redes da rede virtual para direcionar todo o tráfego vinculado à Internet de volta para a sua rede no local. Neste cenário, as máquinas virtuais (VMs) do Azure que executam o Windows Server 2012 R2 (ou versões posteriores do Windows) com êxito pode ativar Windows. No entanto, as VMs que executam a versão anterior do Windows não ativar o Windows.
 
 ## <a name="cause"></a>Causa
 
-As VMs do Windows Azure tem de ligar ao servidor do Azure KMS para ativação do Windows. A ativação exige que o pedido de ativação tem de ser um endereço IP público do Azure. O cenário de túnel forçado, a ativação falhará porque o pedido de ativação é da sua rede no local em vez de partir de um IP público do Azure. 
+As VMs do Windows Azure tem de ligar ao servidor do Azure KMS para ativação do Windows. A ativação exige que o pedido de ativação é proveniente de um endereço IP público do Azure. O cenário de túnel forçado, a ativação falha porque o pedido de ativação é proveniente de sua rede no local em vez de partir de um endereço IP público do Azure.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, utilize o tráfego de ativação de rota à rota personalizada do Azure para o servidor do KMS do Azure (23.102.135.246). 
+Para resolver este problema, utilize o tráfego de ativação de rota à rota personalizada do Azure para o servidor do KMS do Azure.
 
-O endereço IP 23.102.135.246 é o endereço IP do servidor KMS para a nuvem Global do Azure. O nome DNS é kms.core.windows.net. Se usar outras plataformas do Azure, como o Azure Alemanha, tem de utilizar o endereço IP do servidor KMS correspond. Para obter mais informações, consulte a tabela seguinte:
+O endereço IP do servidor KMS para a cloud do Azure Global é 23.102.135.246. O nome DNS é kms.core.windows.net. Se usar outras plataformas do Azure, como o Azure Alemanha, tem de utilizar o endereço IP do servidor KMS correspondente. Para obter mais informações, consulte a tabela seguinte:
 
 |Plataforma| DNS DO KMS|IP DE KMS|
 |------|-------|-------|
@@ -55,11 +55,11 @@ Para adicionar a rota personalizada, siga estes passos:
 2. Execute os seguintes comandos:
 
     ```powershell
-    # First, we will get the virtual network hosts the VMs that has activation problems. In this case, I get virtual network ArmVNet-DM in Resource Group ArmVNet-DM
+    # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
 
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
 
-    # Next, we create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out
+    # Next, create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out:
 
     $RouteTable = New-AzureRmRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "centralus"
 
@@ -67,7 +67,7 @@ Para adicionar a rota personalizada, siga estes passos:
 
     Set-AzureRmRouteTable -RouteTable $RouteTable
     ```
-3. Vá para a VM que tem o problema de ativação, utilize [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se ele pode contactar o servidor KMS:
+3. Vá para a VM que tem problemas de ativação. Uso [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se ele pode contactar o servidor do KMS:
 
         psping kms.core.windows.net:1688
 
@@ -79,21 +79,21 @@ Para adicionar a rota personalizada, siga estes passos:
 2. Execute os seguintes comandos:
 
     ```powershell
-    # First, we will create a new route table
+    # First, create a new route table:
     New-AzureRouteTable -Name "VNet-DM-KmsRouteGroup" -Label "Route table for KMS" -Location "Central US"
 
-    # Next, get the routetable that was created
+    # Next, get the route table that was created:
     $rt = Get-AzureRouteTable -Name "VNet-DM-KmsRouteTable"
 
-    # Next, create a route
+    # Next, create a route:
     Set-AzureRoute -RouteTable $rt -RouteName "AzureKMS" -AddressPrefix "23.102.135.246/32" -NextHopType Internet
 
-    # Apply KMS route table to the subnet that host the problem VMs (in this case, I will apply it to the subnet named Subnet-1)
+    # Apply the KMS route table to the subnet that hosts the problem VMs (in this case, we apply it to the subnet that's named Subnet-1):
     Set-AzureSubnetRouteTable -VirtualNetworkName "VNet-DM" -SubnetName "Subnet-1" 
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Vá para a VM que tem o problema de ativação, utilize [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se ele pode contactar o servidor KMS:
+3. Vá para a VM que tem problemas de ativação. Uso [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se ele pode contactar o servidor do KMS:
 
         psping kms.core.windows.net:1688
 

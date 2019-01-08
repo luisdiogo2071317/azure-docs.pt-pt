@@ -4,17 +4,17 @@ description: Utilize o Terraform com o Azure Cloud Shell para simplificar a aute
 services: terraform
 ms.service: terraform
 keywords: terraform, programadores, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: a5f44edf201ce9a2e2c0da6b5da9031958a11fdc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: af71cf07ea12e605f57d34b530fcbcd61838128b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959313"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074550"
 ---
 # <a name="terraform-cloud-shell-development"></a>Desenvolvimento do Terraform com o Cloud Shell 
 
@@ -48,7 +48,7 @@ Os ficheiros e estados de shell são mantidos no Armazenamento do Azure entre se
 A CLI do Azure está disponível no Cloud Shell e é uma ótima ferramenta para testar configurações e verificar o seu trabalho depois de concluído um `terraform apply` ou `terraform destroy`.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md) (Criar um pequeno cluster de VM com o Registo do Módulo)
 [Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md) (Criar um pequeno cluster de VM com HCL personalizado)

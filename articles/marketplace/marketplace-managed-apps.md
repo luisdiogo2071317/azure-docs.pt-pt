@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144596"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078801"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações do Azure: Oferta de aplicação gerida guia de publicação
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações do Azure: Guia de publicação de oferta de aplicação gerida
 
 Uma aplicação gerida é uma das principais formas que publicar uma solução no mercado. Utilize este guia para compreender os requisitos para esta oferta. 
 
@@ -41,17 +41,17 @@ Utilizar a aplicação do Azure: geridos o tipo de oferta de aplicação quando 
 |Implementado a subscrição de um cliente do Azure | Aplicações geridas, tem de ser implementadas numa subscrição do cliente e podem ser geridas por uma entidade de 3 | 
 |Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. Máquinas de virtuais de pay as you go (em PAYGO) será transacionadas com o cliente através da Microsoft, cobrado por meio da subscrição do cliente do Azure (em PAYGO) 
 No caso de bring-your-own-license, embora a Microsoft irá cobrar os custos de infraestrutura da subscrição de cliente, será transact seu software diretamente de taxas para o cliente de licenciamento        |
-|Compatível com o Azure de disco rígido virtual (VHD)    |   As VMs devem ser criadas no Windows ou Linux.<ul> <li>Para obter mais informações sobre a criação de um VHD do Linux, visite o criar um VHD compatível com o Azure (baseado em Linux) secção localizado em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-Compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obter mais informações sobre a criação de um VHD do Windows, visite o criar um VHD compatível com o Azure secção (baseados em Windows), localizado em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-Compatible-VHD-Windows-Based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul>      |
+|Compatível com o Azure de disco rígido virtual (VHD)    |   As VMs devem ser criadas no Windows ou Linux.<ul> <ul> <li>Para obter mais informações sobre a criação de um VHD do Linux, consulte [distribuições do Linux apoiadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Aplicações geridas tem de ser implementáveis através do Marketplace. Se a comunicação de cliente é uma preocupação, em seguida, deve entrar em contacto para clientes interessados depois de ter ativado a partilha de oportunidades potenciais.  
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Se ainda não fez isso, 
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
 
 Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

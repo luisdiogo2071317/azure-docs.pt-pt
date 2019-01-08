@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296555"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074058"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -27,7 +26,7 @@ O Azure Key Vault suporta o formato JSON solicitações e respostas. Pedidos par
 
 Este tópico aborda informações específicas para o serviço Azure Key Vault. Para obter informações gerais sobre como utilizar as interfaces REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL do pedido  
+## <a name="request-url"></a>URL do Pedido  
  Operações de gestão de chaves utilizam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes utilizam HTTP POST. Os clientes que não é possível suportar a verbos HTTP específicos também podem utilizar o HTTP POST com o cabeçalho de pedido de HTTP X para especificar o verbo pretendido; pedidos que normalmente não requerem um corpo devem incluir um corpo vazio ao utilizar o HTTP POST, por exemplo, quando a utilização do POST, em vez de eliminar.  
 
  Para trabalhar com objetos no Azure Key Vault, seguem URLs de exemplo:  
@@ -65,13 +64,13 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 ## <a name="error-responses"></a>Respostas de erro  
  Tratamento de erros irá utilizar códigos de estado HTTP. Resultados de comuns são:  
 
--   2xx – êxito: utilizado para operação normal. O corpo da resposta irá conter o resultado esperado  
+-   2xx – êxito: Utilizado para operação normal. O corpo da resposta irá conter o resultado esperado  
 
--   3xx – redirecionamento: 304 o "não modificado" pode ser devolvido para satisfazer um GET condicional. Outros códigos 3xx podem ser utilizados no futuro para indicar as alterações DNS e o caminho.  
+-   3xx – redirecionamento: O 304 "Não modificado" podem ser devolvido para satisfazer um GET condicional. Outros códigos 3xx podem ser utilizados no futuro para indicar as alterações DNS e o caminho.  
 
--   4xx – erro do cliente: utilizado para pedidos incorretos, chaves em falta, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta irá conter a explicação de erro detalhadas.  
+-   4xx – erro do cliente: Utilizado para pedidos incorretos, chaves em falta, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta irá conter a explicação de erro detalhadas.  
 
--   5XX – erro de servidor: utilizado para erros de servidor interno. O corpo da resposta irá conter informações de erro resumido.  
+-   5XX – erro de servidor: Utilizado para erros de servidor interno. O corpo da resposta irá conter informações de erro resumido.  
 
  O sistema foi concebido para funcionar por trás de uma firewall ou proxy. Por conseguinte, um cliente pode receber outros códigos de erro.  
 
@@ -115,7 +114,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
  Os parâmetros no cabeçalho WWW-Authenticate são:  
 
--   autorização: O endereço do serviço de autorização de OAuth2 que pode ser utilizado para obter um token de acesso para o pedido.  
+-   Autorização: O endereço do serviço de autorização de OAuth2 que pode ser utilizado para obter um token de acesso para o pedido.  
 
 -   recurso: O nome do recurso a utilizar no pedido de autorização.  
 

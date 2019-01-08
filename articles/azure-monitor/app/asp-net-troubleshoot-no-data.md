@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050817"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076047"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -58,7 +58,7 @@ CORREÇÃO:
 * Verifique que forneceu as credenciais de início de sessão para a conta do Azure certo. 
 * No seu browser, verifique se tem acesso para o [portal do Azure](https://portal.azure.com). Abra as definições e verificar se existe qualquer restrição.
 * [Adicionar o Application Insights ao seu projeto existente](../../azure-monitor/app/asp-net.md): No Solution Explorer, clique com o botão direito do rato em seu projeto e escolha "Adicionar Application Insights."
-* Se ainda não está funcionando, siga os [procedimento manual](../../application-insights/app-insights-windows-services.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
+* Se ainda não está funcionando, siga os [procedimento manual](../../azure-monitor/app/windows-services.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
 
 ## <a name="emptykey"></a>Recebo uma mensagem de erro "chave de instrumentação não pode estar vazio"
 Parece que ocorreu um erro enquanto foram a instalar o Application Insights ou talvez um adaptador de registo.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 287f67ff9eb0ecc214bd8e8fd3c27660cea185c7
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055069"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065822"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -86,7 +86,7 @@ O Azure Marketplace proporciona o IoT Edge módulos que podem ser implementados 
       >[!IMPORTANT]
       >O Azure IoT Edge diferencia maiúsculas de minúsculas, quando fazer chamadas para módulos e o SDK de armazenamento por predefinição em minúsculas. Para garantir que as suas ligações para o armazenamento de Blobs do Azure no módulo do IoT Edge não sejam interrompidas, dar ele um nome em minúsculas. 
 
-   2. A predefinição **opções de criar contentor** os enlaces de porta que precisa do seu contentor, mas também tem de adicionar as informações da conta de armazenamento e uma ligação para o diretório de armazenamento no seu dispositivo. Substituir o JSON no portal com o JSON abaixo:
+   2. A predefinição **opções de criar contentor** os enlaces de porta que precisa do seu contentor, mas também tem de adicionar as informações da conta de armazenamento e uma ligação para o diretório de armazenamento no seu dispositivo. Substitua o JSON no portal com o JSON abaixo:
     
       ```json
       {

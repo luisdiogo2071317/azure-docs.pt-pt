@@ -1,58 +1,50 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o SAML SSO para confluência pela resolução GmbH | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o SAML SSO para confluência pela resolução GmbH | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o SAML SSO para confluência pela resolução GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/18/2017
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: c1a1126026f3d2618a0669e4bd69a84cc1c6c54c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46c4389d92dfdaed9abdbe383b56708a3e8b5a73
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431628"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064615"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SAML SSO para confluência pela resolução GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Active Directory do Azure com o SAML SSO para confluência pela resolução GmbH
 
 Neste tutorial, saiba como integrar o SSO SAML para confluência pela resolução GmbH com o Azure Active Directory (Azure AD).
-
 Integrar o SSO SAML para confluência pela resolução GmbH com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao SAML SSO para confluência pela resolução GmbH
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para SAML SSO para confluência pela resolução GmbH (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao SAML SSO para confluência pela resolução GmbH.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para SAML SSO para confluência pela resolução GmbH (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o SAML SSO para confluência pela resolução GmbH, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um SAML SSO para confluência pela resolução GmbH início de sessão único na subscrição ativada
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* SAML SSO para confluência pela resolução GmbH logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando SAML SSO para confluência pela resolução GmbH da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* SAML SSO para confluência pela resolução suporta GmbH **SP** e **IDP** iniciada SSO
 
 ## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-the-gallery"></a>Adicionando SAML SSO para confluência pela resolução GmbH da Galeria
 
@@ -60,122 +52,118 @@ Para configurar a integração de SAML SSO para confluência pela resolução Gm
 
 **Adicionar SAML SSO para confluência através da resolução GmbH a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **SAML SSO para confluência pela resolução GmbH**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
+4. Na caixa de pesquisa, escreva **SAML SSO para confluência pela resolução GmbH**, selecione **SAML SSO para confluência pela resolução GmbH** no painel de resultados, em seguida, clique em **Add** botão Adicionar a aplicação.
 
-1. No painel de resultados, selecione **SAML SSO para confluência pela resolução GmbH**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![SAML SSO para confluência pela resolução GmbH, na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-
-Nesta secção, configurar e testar o Azure AD início de sessão único com o SAML SSO para confluência pela resolução que GmbH com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa de saber o que o equivalente utilizador no SAML SSO para confluência pela resolução GmbH for para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SAML SSO para confluência pela resolução GmbH deve ser estabelecido.
-
-No SAML SSO para confluência pela resolução GmbH, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com o SAML SSO para confluência pela resolução GmbH com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SAML SSO para confluência pela resolução GmbH deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com o SAML SSO para confluência pela resolução GmbH, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um SAML SSO para confluência por utilizador de teste de GmbH de resolução](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  - para ter um equivalente da Eduarda Almeida no SAML SSO para confluência pela resolução GmbH que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar o SSO SAML para confluência através da resolução GmbH Single Sign-On](#configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar SAML SSO para confluência por utilizador de teste de GmbH de resolução](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  - para ter um equivalente da Eduarda Almeida no SAML SSO para confluência pela resolução GmbH que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua SAML SSO para confluência pela resolução GmbH aplicação.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com o SAML SSO para confluência pela resolução GmbH, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com o SAML SSO para confluência pela resolução GmbH, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **SAML SSO para confluência pela resolução GmbH** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **SAML SSO para confluência pela resolução GmbH** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **SAML SSO para confluência pela resolução GmbH domínio e URLs** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção execute os seguintes passos, se desejar configurar a aplicação na **IDP** iniciado pelo modo:
+
+    ![Informações de início de sessão de único SAML SSO para confluência pela resolução GmbH domínio e URLs](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Verifique **Mostrar definições de URL avançadas**. Se desejar configurar a aplicação no **SP** iniciada pelo modo:
+    c. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação no modo de SP iniciado:
 
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
+    ![Informações de início de sessão de único SAML SSO para confluência pela resolução GmbH domínio e URLs](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
-     
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de SAML SSO para confluência pela resolução GmbH cliente](https://www.resolution.de/go/support) obter esses valores. 
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de SAML SSO para confluência pela resolução GmbH cliente](https://www.resolution.de/go/support) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
+4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Clique em **guardar** botão.
+    ![O link de download de certificado](common/metadataxml.png)
 
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_general_400.png)    
-    
+### <a name="configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on"></a>Configurar o SSO SAML para confluência através da resolução GmbH Single Sign-On
+
 1. Numa janela do browser web diferente, inicie sessão no seu **SAML SSO para confluência pelo portal de administração do resolução GmbH** como administrador.
 
-1. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
+2. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon1.png)
 
-1. Será redirecionado à página de acesso de administrador. Introduza a palavra-passe e clique em **confirmar** botão.
+3. Será redirecionado à página de acesso de administrador. Introduza a palavra-passe e clique em **confirmar** botão.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon2.png)
 
-1. Sob **ATLASSIAN MARKETPLACE** separador, clique em **encontrar novos suplementos**. 
+4. Sob **ATLASSIAN MARKETPLACE** separador, clique em **encontrar novos suplementos**. 
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon.png)
 
-1. Pesquisa **SAML único início de sessão (SSO) para confluência** e clique em **instalar** botão para instalar o novo plug-in SAML.
+5. Pesquisa **SAML único início de sessão (SSO) para confluência** e clique em **instalar** botão para instalar o novo plug-in SAML.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon7.png)
 
-1. A instalação de plug-in será iniciado. Clique em **Fechar**.
+6. A instalação de plug-in será iniciado. Clique em **Fechar**.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon8.png)
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon9.png)
 
-1.  Clique em **Gerir**.
+7.  Clique em **Gerir**.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon10.png)
     
-1. Clique em **configurar** para configurar o plug-in de novo.
+8. Clique em **configurar** para configurar o plug-in de novo.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon11.png)
 
-1. Este novo plug-in também pode ser encontrado na **utilizadores e segurança** separador.
+9. Este novo plug-in também pode ser encontrado na **utilizadores e segurança** separador.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon3.png)
     
-1. No **configuração de plug-in SAML SingleSignOn** página, clique em **adicionar IdP novo** botão para configurar as definições do fornecedor de identidade.
+10. No **configuração de plug-in SAML SingleSignOn** página, clique em **adicionar IdP novo** botão para configurar as definições do fornecedor de identidade.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon4.png)
 
-1. No **escolha o fornecedor de identidade de SAML** página, execute os seguintes passos:
+11. No **escolha o fornecedor de identidade de SAML** página, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon5a.png)
  
@@ -187,11 +175,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     
     d. Clique em **Seguinte**.
     
-1. No **configuração do fornecedor de identidade** página, clique em **próxima** botão.
+12. No **configuração do fornecedor de identidade** página, clique em **próxima** botão.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon5b.png)
 
-1. No **importação SAML IdP metadados** página, execute os seguintes passos:
+13. No **importação SAML IdP metadados** página, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon5c.png)
 
@@ -203,57 +191,74 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     
     d. Clique em **seguinte** botão.
     
-1. No **atributo de ID de utilizador e a transformação** página, clique em **próxima** botão.
+14. No **atributo de ID de utilizador e a transformação** página, clique em **próxima** botão.
 
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon5d.png)
     
-1. No **criação do utilizador e de atualização** página, clique em **Save & seguinte** ao guardar as definições.    
+15. No **criação do utilizador e de atualização** página, clique em **Save & seguinte** ao guardar as definições.   
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon6a.png)
     
-1. No **testar suas configurações** página, clique em **ignorar teste e configurar manualmente** para ignorar o teste de utilizador por agora. Este será executada na próxima seção e requer algumas definições no portal do Azure. 
+16. No **testar suas configurações** página, clique em **ignorar teste e configurar manualmente** para ignorar o teste de utilizador por agora. Este será executada na próxima seção e requer algumas definições no portal do Azure. 
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon6b.png)
     
-1. Na leitura de caixa de diálogo apprearing **a ignorar os meios de teste...** , clique em **OK**.
+17. Na leitura de caixa de diálogo apprearing **a ignorar os meios de teste...** , clique em **OK**.
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon6c.png)
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/samlssoconfluence-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a>Criar um SAML SSO para confluência por utilizador de teste de GmbH de resolução
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para SAML SSO para confluência pela resolução GmbH.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **SAML SSO para confluência pela resolução GmbH**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicativos, escreva e selecione **SAML SSO para confluência pela resolução GmbH**.
+
+    ![O SSO SAML para confluência pela ligação de GmbH resolução na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a>Criar SAML SSO para confluência por utilizador de teste de GmbH de resolução
 
 Para ativar a utilizadores do Azure AD iniciar sessão no SAML SSO para confluência pela resolução GmbH, eles têm de ser aprovisionados no SAML SSO para confluência pela resolução GmbH.  
 No SAML SSO para confluência pela resolução GmbH, aprovisionamento é uma tarefa manual.
@@ -262,11 +267,11 @@ No SAML SSO para confluência pela resolução GmbH, aprovisionamento é uma tar
 
 1. Inicie sessão na sua SAML SSO para confluência pelo site de empresa resolução GmbH como administrador.
 
-1. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
+2. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
 
     ![Adicionar o funcionário](./media/samlssoconfluence-tutorial/user1.png) 
 
-1. Na secção utilizadores, clique em **adicionar utilizadores** separador. Sobre o **"Adicionar um utilizador"** caixa de diálogo página, execute os seguintes passos:
+3. Na secção utilizadores, clique em **adicionar utilizadores** separador. Sobre o **"Adicionar um utilizador"** caixa de diálogo página, execute os seguintes passos:
 
     ![Adicionar o funcionário](./media/samlssoconfluence-tutorial/user2.png) 
 
@@ -280,63 +285,19 @@ No SAML SSO para confluência pela resolução GmbH, aprovisionamento é uma tar
 
     e. Clique em **Confirmar palavra-passe** Reintroduza a palavra-passe.
     
-    f. Clique em **adicionar** botão.    
+    f. Clique em **adicionar** botão.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para SAML SSO para confluência pela resolução GmbH.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir Eduarda Almeida a SAML SSO para confluência pela resolução GmbH, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **SAML SSO para confluência pela resolução GmbH**.
-
-    ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar o SAML SSO para confluência por mosaico de GmbH resolução no painel de acesso, deve obter automaticamente com sessão iniciada para sua SAML SSO para confluência pela resolução GmbH aplicação.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar o SAML SSO para confluência por mosaico de GmbH resolução no painel de acesso, deve ser automaticamente sessão iniciada no SAML SSO para confluência por GmbH de resolução para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/samlssoconfluence-tutorial/tutorial_general_01.png
-[2]: ./media/samlssoconfluence-tutorial/tutorial_general_02.png
-[3]: ./media/samlssoconfluence-tutorial/tutorial_general_03.png
-[4]: ./media/samlssoconfluence-tutorial/tutorial_general_04.png
-
-[100]: ./media/samlssoconfluence-tutorial/tutorial_general_100.png
-
-[200]: ./media/samlssoconfluence-tutorial/tutorial_general_200.png
-[201]: ./media/samlssoconfluence-tutorial/tutorial_general_201.png
-[202]: ./media/samlssoconfluence-tutorial/tutorial_general_202.png
-[203]: ./media/samlssoconfluence-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

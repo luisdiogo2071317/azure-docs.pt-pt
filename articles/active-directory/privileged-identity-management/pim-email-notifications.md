@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846900"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065346"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por e-mail no PIM
 
@@ -43,16 +43,15 @@ PIM envia mensagens de correio eletrónico quando ocorrem os seguintes eventos p
 
 - Quando uma ativação de função com privilégios está com aprovação pendente
 - Quando um pedido de ativação de função com privilégios é concluído
-- Quando uma função com privilégios é atribuída como elegíveis
 - Quando está ativado o Azure AD PIM
 
 Quem receberá estes e-mails para funções do Azure AD depende de sua função, o evento e as notificações de definição:
 
-| Utilizador | Ativação de função está com aprovação pendente | Conclusão do pedido de ativação de função | Função é atribuída elegíveis | PIM está ativada |
-| --- | --- | --- | --- | --- |
-| Administrador de Função com Privilégios </br>(Ativado/elegíveis) | Sim</br>(apenas se nenhum aprovadores explícitos são especificados) | Sim* | Sim | Sim |
-| Administrador de Segurança</br>(Ativado/elegíveis) | Não | Sim* | Sim | Sim |
-| Administrador Global</br>(Ativado/elegíveis) | Não | Sim* | Sim | Sim |
+| Utilizador | Ativação de função está com aprovação pendente | Conclusão do pedido de ativação de função | PIM está ativada |
+| --- | --- | --- | --- |
+| Administrador com Função Privilegiada</br>(Ativado/elegíveis) | Sim</br>(apenas se nenhum aprovadores explícitos são especificados) | Sim* | Sim |
+| Administrador de Segurança</br>(Ativado/elegíveis) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/elegíveis) | Não | Sim* | Sim |
 
 \* Se o [ **notificações** definição](pim-how-to-change-default-settings.md#notifications) está definida como **ativar**.
 
@@ -68,7 +67,7 @@ Um e-mail de resumo de semanal PIM para funções do Azure AD é enviado para os
 
 O e-mail inclui quatro mosaicos:
 
-| mosaico | Descrição |
+| Dispor em Mosaico | Descrição |
 | --- | --- |
 | **Utilizadores ativados** | Número de vezes que os utilizadores ativado a respetiva função elegível dentro do inquilino. |
 | **Tornar-se permanentes de usuários** | Número de vezes que os utilizadores com uma atribuição elegível é tornar-se permanentes. |

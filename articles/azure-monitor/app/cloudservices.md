@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 710b584777abc312388c3857ced06ce196416a31
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 170ba8e85318ab3774aef95b0a62e452bc2c5e24
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042942"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077866"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -217,7 +217,7 @@ Para obter uma visão geral do seu sistema, pode reunir os gráficos-chave de mo
 
 Se o seu sistema utilizar outros serviços do Azure, como o Stream Analytics, inclua também os gráficos de monitorização dos mesmos. 
 
-Se tiver uma aplicação móvel cliente, utilize o [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Crie consultas no [Analytics](../../azure-monitor/app/analytics.md) para apresentar as contagens de eventos e afixá-las ao dashboard.
+Se tiver uma aplicação móvel cliente, utilize o [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../../azure-monitor/app/analytics.md) para apresentar as contagens de eventos e afixá-las ao dashboard.
 
 ## <a name="example"></a>Exemplo
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitoriza um serviço que tem uma função da Web e duas funções de trabalho.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993824"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074547"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -674,6 +674,10 @@ No c# e de outras linguagens .NET, pode usar um padrão de enlace imperativa, em
 ## <a name="functionjson-file-schema"></a>esquema de ficheiro Function
 
 O *Function* esquema de ficheiro está disponível no [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Enlaces de testes
+
+Ao desenvolver funções localmente, pode testar as suas ligações com o Visual Studio 2017 ou Visual Studio Code. Para obter mais informações, consulte [estratégias para testar seu código nas funções do Azure](functions-test-a-function.md). Também é possível invocar as associações não HTTP com REST APIs. Para obter mais informações, consulte [executar manualmente uma função não acionada por HTTP](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Tratamento de erros de ligação
 

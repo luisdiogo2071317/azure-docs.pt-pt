@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098308"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076812"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como *alain@contoso.com*.
@@ -63,7 +63,7 @@ Depois de criar o seu diretório, pode adicionar o seu nome de domínio personal
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Adicione as suas informações de DNS para a entidade de registo do domínio
 Depois de adicionar o seu nome de domínio personalizado para o Azure AD, tem de voltar à sua entidade de registo do domínio e adicione as informações de DNS do Azure AD a partir do ficheiro TXT copiado. Criar este TXT registo para o seu domínio "verifica" propriedade do seu nome de domínio.
 
--  Voltar para a entidade de registo do domínio, crie um novo registo TXT para o seu domínio com base nas suas informações de DNS copiadas, definir o **TTL** (tempo de duração) como 60 minutos e, em seguida, guarde as informações.
+-  Voltar para a entidade de registo do domínio, crie um novo registo TXT para o seu domínio com base nas suas informações de DNS copiadas, definir o **TTL** (tempo de duração) para 3600 segundos (60 minutos) e, em seguida, guarde as informações.
 
     >[!Important]
     >Pode registrar os nomes de domínio como quiser. No entanto, cada domínio obtém seu próprio registo TXT do Azure AD. Tenha cuidado ao introduzir as suas informações de ficheiro TXT na entidade de registo da domínio. Se introduzir incorretos ou duplicados informações por engano, terá de aguardar até que o valor de TTL exceder o tempo limite (60 minutos) antes de tentar novamente.
@@ -98,10 +98,10 @@ Depois de registar o seu nome de domínio personalizado, terá de certificar-se 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Adicione outro administrador Global para o seu diretório. Para obter mais informações, consulte [como atribuir funções e os administradores](active-directory-users-assign-role-azure-portal.md)
+- Adicione outro administrador Global para o seu diretório. Para obter mais informações, consulte [como atribuir funções e os administradores](active-directory-users-assign-role-azure-portal.md).
 
-- Adicionar utilizadores ao seu domínio, consulte [como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
+- Adicionar utilizadores ao seu domínio, consulte [como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
 
-- Gerir as suas informações de nome de domínio no Azure AD. Para obter mais informações, consulte [gerir nomes de domínio personalizados](../users-groups-roles/domains-manage.md)
+- Gerir as suas informações de nome de domínio no Azure AD. Para obter mais informações, consulte [gerir nomes de domínio personalizados](../users-groups-roles/domains-manage.md).
 
 - Se tiver versões no local do Windows Server que pretende utilizar em conjunto com o Azure Active Directory, consulte [integrar seus diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md).

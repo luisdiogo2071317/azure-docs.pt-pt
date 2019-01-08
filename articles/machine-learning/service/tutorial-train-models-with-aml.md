@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811482"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075945"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
 
 Neste tutorial, vai preparar um modelo de machine learning, quer localmente, quer em recursos de computação remotos. Utilize o treinamento e o fluxo de trabalho de implantação para o serviço Azure Machine Learning num bloco de notas do Jupyter do Python. Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
-Este tutorial prepara um regressão logística simple utilizando a [MNIST](https://yann.lecun.com/exdb/mnist/) conjunto de dados e [scikit-Saiba](https://scikit-learn.org) com o serviço Azure Machine Learning. O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito de manuscrito de pixels de 28 x 28, que representa um número entre zero e nove. O objetivo é criar um classificador de várias classes para identificar o dígito uma determinada imagem representa. 
+Este tutorial prepara um regressão logística simple utilizando a [MNIST](http://yann.lecun.com/exdb/mnist/) conjunto de dados e [scikit-Saiba](https://scikit-learn.org) com o serviço Azure Machine Learning. O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito de manuscrito de pixels de 28 x 28, que representa um número entre zero e nove. O objetivo é criar um classificador de várias classes para identificar o dígito uma determinada imagem representa. 
 
 Saiba como efetuar as seguintes ações:
 

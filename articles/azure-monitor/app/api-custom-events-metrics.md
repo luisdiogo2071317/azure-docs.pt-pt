@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7422e7145acfece9c9da3277c8d92c949220dbab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039321"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077917"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Chave de instrumentação dinâmico
 
-Para evitar a mistura de telemetria a partir de ambientes de desenvolvimento, teste e produção, pode [criar recursos do Application Insights separados](../../application-insights/app-insights-create-new-resource.md) e alterar as chaves, dependendo do ambiente.
+Para evitar a mistura de telemetria a partir de ambientes de desenvolvimento, teste e produção, pode [criar recursos do Application Insights separados](../../azure-monitor/app/create-new-resource.md ) e alterar as chaves, dependendo do ambiente.
 
 Em vez de obter a chave de instrumentação do ficheiro de configuração, pode configurá-lo em seu código. Defina a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
@@ -1170,7 +1170,7 @@ Para determinar o tempo que os dados são mantidos, consulte [retenção de dado
     Nenhum. Não precisa de encapsulá-las nas cláusulas de try-catch. Se o SDK detectarem problemas, ele registrará mensagens na saída da consola de depuração e --se as mensagens de obtém por meio de – na pesquisa de diagnósticos.
 * *Existe uma API REST para obter dados a partir do portal?*
 
-    Sim, o [API de acesso a dados](https://dev.applicationinsights.io/). Outras formas de extrair dados incluem [exportar do Analytics ao Power BI](../../application-insights/app-insights-export-power-bi.md) e [a exportação contínua](../../azure-monitor/app/export-telemetry.md).
+    Sim, o [API de acesso a dados](https://dev.applicationinsights.io/). Outras formas de extrair dados incluem [exportar do Analytics ao Power BI](../../azure-monitor/app/export-power-bi.md ) e [a exportação contínua](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Passos seguintes
 

@@ -3,17 +3,17 @@ title: Instalar o Ansible em máquinas virtuais do Azure
 description: Saiba como instalar e configurar o Ansible para gerir os recursos do Azure no Ubuntu, CentOS e SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, manual de procedimentos, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987055"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078053"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Instalar o Ansible em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 
 - **Aceder ao Linux ou a uma máquina virtual do Linux** - se não tiver uma máquina virtual do Linux, crie uma [máquina virtual do Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para **appId**, **displayName**, **password** e **tenant**.
+- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar principal de serviço de Azure CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para **appId**, **displayName**, **password** e **tenant**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Instalar o Ansible numa máquina virtual do Linux para o Azure
 
@@ -133,7 +133,7 @@ Para verificar a configuração com êxito, pode agora utilizar o Ansible para c
 
 [!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
 > [Utilizar o Ansible para criar uma máquina virtual do Linux no Azure](./ansible-create-vm.md)

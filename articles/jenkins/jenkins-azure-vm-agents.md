@@ -3,17 +3,17 @@ title: Dimensionar implementações do Jenkins com agentes de VM do Azure
 description: Utilize as máquinas virtuais do Azure com o plug-in Agente de VM do Azure para adicionar mais capacidade aos seus pipelines do Jenkins .
 ms.service: jenkins
 keywords: jenkins, azure, devops, virtual machine, agents
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106228"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074670"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar as suas implementações do Jenkins para satisfazer a procura com agentes de VM do Azure
 
@@ -144,7 +144,7 @@ Selecione **Verify Template** (Verificar Modelo) para verificar a configuração
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md) (CI/CD no Serviço de Aplicações do Azure)

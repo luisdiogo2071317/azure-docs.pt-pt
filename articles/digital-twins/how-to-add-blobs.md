@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017571"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073956"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
 
 Os BLOBs são representações de dados não estruturadas de tipos de ficheiros comuns, como imagens e registos. BLOBs de manter o controle de que tipo de dados que eles representam, utilizando um tipo de MIME (por exemplo: "imagem/jpeg") e metadados (nome, descrição, tipo e assim por diante).
 
-Duplos Digital do Azure suporta anexar blobs para dispositivos, espaços e os utilizadores. BLOBs podem representar uma foto de perfil para um utilizador, uma fotografia de dispositivo, um vídeo, um mapa ou um registo.
+Duplos Digital do Azure suporta anexar blobs para dispositivos, espaços e os utilizadores. BLOBs podem representar uma foto de perfil para um utilizador, uma fotografia de dispositivo, um vídeo, um mapa, um zip de firmware, dados JSON, um registo, etc.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -32,7 +32,7 @@ Pode usar várias partes pedidos para carregar blobs para os pontos finais e sua
 
 ### <a name="blob-metadata"></a>Metadados do blob
 
-Para além **Content-Type** e **Content-Disposition**, pedidos de várias partes tem de especificar o corpo JSON correto. O corpo JSON para submeter depende do tipo de operação de pedido HTTP que está a ser efetuada.
+Para além **Content-Type** e **Content-Disposition**, pedidos de várias partes de blob de duplos Digital do Azure tem de especificar o corpo JSON correto. O corpo JSON para submeter depende do tipo de operação de pedido HTTP que está a ser efetuada.
 
 Os esquemas JSON quatro principais são:
 
@@ -48,12 +48,15 @@ Saiba como utilizar a documentação de referência, lendo [como utilizar o Swag
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Para tornar uma **POST** solicitação que carrega um ficheiro de texto como um blob e associa-a com um espaço:
+Carregar um ficheiro de texto como um blob e associá-lo com um espaço, fazer um pedido de HTTP POST autenticado para:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Com o corpo do seguinte:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -96,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+Nos dois exemplos:
+
+1. Certifique-se de que os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Certifique-se de que o corpo é com várias partes:
+
+   - A primeira parte contém os metadados de blob necessários.
+   - A segunda parte contém o arquivo de texto.
+
+1. Certifique-se de que o arquivo de texto é fornecido como `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>Pontos finais da API
 
 As secções seguintes descrevem os principais relacionados com BLOBs pontos finais da API e suas funcionalidades.
@@ -106,7 +119,7 @@ Pode anexar blobs a dispositivos. A imagem seguinte mostra a documentação de r
 
 ![Blobs de dispositivo][2]
 
-Por exemplo, para atualizar ou criar um blob e anexar o blob para um dispositivo, fazer uma **aplicar o PATCH** pedido para:
+Por exemplo, para atualizar ou criar um blob e anexar o blob para um dispositivo, fazer um pedido de HTTP PATCH autenticado para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -132,7 +145,7 @@ Também pode anexar blobs aos espaços. A imagem seguinte apresenta uma lista de
 
 ![Blobs de espaço][3]
 
-Por exemplo, para devolver um blob anexado a um espaço, fazer uma **obter** pedido para:
+Por exemplo, para devolver um blob anexado a um espaço, fazer um pedido HTTP GET autenticado para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -142,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | O ID de blob pretendido |
 
-Efetuar uma **aplicar o PATCH** pedido para o mesmo ponto final permite-lhe uma descrição de metadados da atualização e criar uma nova versão do blob. A solicitação HTTP é feita através da **aplicar o PATCH** método, juntamente com todos os metadados necessários e dados de formulário com várias partes.
+Um pedido de PATCH para o mesmo ponto final descrições de metadados de atualizações e cria novas versões do blob. O pedido HTTP é feito através do método PATCH, juntamente com todos os metadados necessários e dados de formulário com várias partes.
 
 Operações bem-sucedidas retornam uma **SpaceBlob** objeto que está em conformidade com o esquema abaixo. Pode usá-lo para consumir dados retornados.
 
@@ -157,7 +170,7 @@ Pode anexar blobs a modelos de utilizador (por exemplo, para associar uma foto d
 
 ![Blobs de utilizador][4]
 
-Por exemplo, para obter um blob anexado a um utilizador, efetuar uma **obter** pedido com quaisquer dados de formulário necessária para:
+Por exemplo, para obter um blob anexado a um utilizador, efetuar um pedido HTTP GET autenticado com quaisquer dados de formulário necessária para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID

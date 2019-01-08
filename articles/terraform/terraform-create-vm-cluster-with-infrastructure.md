@@ -4,17 +4,17 @@ description: Utilizar o HashiCorp Configuration Language (HCL) e o Terraform par
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, máquina virtual, rede, módulos
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667605"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075362"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Criar um cluster de VMs com o Terraform e o HCL
 
@@ -62,7 +62,7 @@ Nesta secção, vai gerar um principal de serviço do Azure e dois ficheiros de 
 
 6. Crie um novo ficheiro com os valores das suas variáveis do Terraform. É normal atribuir o nome `terraform.tfvars` ao seu ficheiro de variáveis do Terraform, uma vez que o Terraform carrega automaticamente qualquer ficheiro com o nome `terraform.tfvars` (ou segue um padrão `*.auto.tfvars`), se este estiver presente no diretório atual. 
 
-7. Copie o seguinte código para o seu ficheiro de variáveis. Certifique-se de que substitui os marcadores de posição da seguinte forma: para `subscription_id`, utilize o ID da subscrição do Azure que especificou quando executou `az account set`. Para `tenant_id`, utilize o valor `tenant` devolvido de `az ad sp create-for-rbac`. Para `client_id`, utilize o valor `appId` devolvido de `az ad sp create-for-rbac`. Para `client_secret`, utilize o valor `password` devolvido de `az ad sp create-for-rbac`.
+7. Copie o seguinte código para o seu ficheiro de variáveis. Certifique-se substituir os marcadores de posição da seguinte forma: Para `subscription_id`, utilize o ID de subscrição do Azure especificado durante a execução `az account set`. Para `tenant_id`, utilize o valor `tenant` devolvido de `az ad sp create-for-rbac`. Para `client_id`, utilize o valor `appId` devolvido de `az ad sp create-for-rbac`. Para `client_secret`, utilize o valor `password` devolvido de `az ad sp create-for-rbac`.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
@@ -275,7 +275,7 @@ Se quiser aplicar um plano de execução guardado anteriormente, execute o segui
 
 ![Aplicar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Navegar na lista de [módulos do Terraform no Azure](https://registry.terraform.io/modules/Azure)
 - Criar um [conjunto de dimensionamento de máquinas virtuais com o Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

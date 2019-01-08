@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787448"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064122"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Partilhas de Ficheiros do Azure com as informações listadas nas tabelas seguintes.
@@ -36,7 +36,7 @@ Cópia de segurança para partilhas de ficheiros do Azure em contas de armazenam
 ## <a name="configuring-backup"></a>Configurar a Cópia de Segurança
 A tabela seguinte apresenta informações para a configuração da cópia de segurança:
 
-| Configurar a Cópia de Segurança | Sugestões de Solução ou Resolução |
+| Mensagens de erro | Sugestões de Solução ou Resolução |
 | ------------------ | ----------------------------- |
 | Não consegui encontrar a minha Conta de Armazenamento para configurar a cópia de segurança da partilha de ficheiros do Azure | <ul><li>Aguarde até que a deteção esteja concluída. <li>Verifique se alguma Partilha de ficheiros na conta de armazenamento já está protegida por outro Cofre de Serviços de Recuperação. **Nota**: Todas as partilhas de ficheiros numa conta de armazenamento podem ser protegidas apenas num único cofre dos serviços de recuperação. <li>Garanta que a Partilha de ficheiros não está presente em qualquer uma das Contas de Armazenamento não suportadas.|
 | Um erro no portal indica uma falha na deteção das contas de armazenamento. | Se a sua subscrição for parceiro (compatível com o CSP), ignore o erro. Se a sua subscrição não for compatível com o CSP e as contas de armazenamento não puderem ser detetadas, contacte o suporte.|
@@ -65,7 +65,15 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | A operação de restauro falhou porque ocorreu um erro ao executar as operações de pré-restauro nos recursos do Serviço de Sincronização de Ficheiros associados à partilha de ficheiros de destino. | Tente novamente após algum tempo. Se o problema persistir, contacte o suporte da Microsoft. |
 | Não foi possível recuperar com êxito um ou mais ficheiros. Para obter mais informações, verifique a lista de ficheiros com falhas no caminho indicado acima. | <ul> <li> Os motivos das falhas de recuperação são apresentados no ficheiro (o caminho é indicado nos detalhes da Tarefa), resolva as falhas e repita a operação de restauro apenas para os ficheiros com falhas. <li> Motivos comuns para as falhas do restauro de ficheiros: <br/> - Verifique se os ficheiros com falhas não estão atualmente em utilização. <br/> - Existe um diretório com o mesmo nome dos ficheiros com falhas no diretório principal. |
 
-## <a name="see-also"></a>Consulte também
+
+## <a name="modify-policy"></a>Modificar política
+| Mensagens de erro | Sugestões de Solução ou Resolução |
+| ------------------ | ----------------------------- |
+| Existe outra operação de proteção de configuração em curso neste item. | Aguarde até que a anterior modificar a operação de política terminem e repita após algum tempo.|
+| Outra operação está em curso no item selecionado. | Aguarde até que a outra operação em curso concluir e tente novamente após algum tempo |
+
+
+## <a name="see-also"></a>Consultar Também
 Para obter mais informações sobre a cópia de segurança das partilhas de ficheiros do Azure, veja:
 - [Fazer cópia de segurança das partilhas de ficheiros do Azure](backup-azure-files.md)
 - [FAQ sobre a cópia de segurança das partilhas de ficheiros do Azure](backup-azure-files-faq.md)

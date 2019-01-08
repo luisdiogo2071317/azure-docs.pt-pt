@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho e tarefas regularmente em execução no Azure Logic Apps | Documentos da Microsoft
-description: Automatizar tarefas e fluxos de trabalho que são executados com base numa agenda com o conector de periodicidade no Azure Logic Apps
+title: Agendar e executar tarefas automatizadas e fluxos de trabalho com o Azure Logic Apps | Documentos da Microsoft
+description: Automatize tarefas agendadas e recorrentes com o conector de periodicidade no Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,24 +10,24 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127059"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078070"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps
 
-Para agendar tarefas, ações, cargas de trabalho ou processos executados regularmente, pode criar um fluxo de trabalho de aplicação lógica que começa com o **Schedule - Recurrence** [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts). Com este acionador, pode definir uma data e hora para iniciar a periodicidade e uma agenda de periodicidade para a execução de tarefas, como nestes exemplos e muito mais:
+Para agendar ações, cargas de trabalho ou processos executados regularmente, criar um fluxo de trabalho de aplicação lógica que começa com o **Schedule - Recurrence** [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts). Pode definir uma data e hora para iniciar o fluxo de trabalho e uma agenda de periodicidade para a execução de tarefas, como nestes exemplos e muito mais:
 
-* Obter dados internos: [executar um procedimento SQL armazenado](../connectors/connectors-create-api-sqlazure.md) todos os dias.
-* Obter dados externos: obter relatórios de meteorologia da NOAA a cada 15 minutos.
-* Dados de relatórios: um resumo de todas as encomendas de maiores do que uma quantidade específica de E-Mail na última semana.
-* Processar dados: Compress hoje tem imagens carregadas cada dia da semana durante as horas de pico.
-* Limpar dados: eliminar todos os tweets com mais de três meses.
-* Arquivar dados: enviar faturas para um serviço de cópia de segurança de todos os meses.
+* Obter dados internos: [Executar um procedimento SQL armazenado](../connectors/connectors-create-api-sqlazure.md) todos os dias.
+* Obter dados externos: Obter relatórios de meteorologia da NOAA a cada 15 minutos.
+* Dados de relatório: Um resumo de todas as encomendas de maiores do que uma quantidade específica de e-mail na última semana.
+* Processamento de dados: Comprima imagens carregadas de hoje em dia de cada dia da semana durante as horas de pico.
+* Limpe os dados: Elimine todos os tweets com mais de três meses.
+* Dados de arquivo: Envie notas fiscais para um serviço de cópia de segurança de todos os meses.
 
 Este acionador suporta vários padrões, por exemplo:
 
@@ -37,7 +37,9 @@ Este acionador suporta vários padrões, por exemplo:
 * Execute e repetir todas as semanas, mas apenas para dias específicos, como Sábado e Domingo.
 * Execute e repetir todas as semanas, mas apenas para dias específicos e horas, por exemplo, de segunda a sexta, às 8:00 e as 17:00.
 
-Quando o acionador de periodicidade é acionado cada vez, o Logic Apps cria e executa uma nova instância do seu fluxo de trabalho de aplicação lógica.
+Quando o acionador de periodicidade é acionado cada vez, o Logic Apps cria e executa uma nova instância do seu fluxo de trabalho de aplicação lógica. 
+
+Para acionar imediatamente a sua aplicação lógica e executar uma vez sem recorrente, consulte [executar tarefas de uma única vez](#run-once) mais adiante neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,9 +51,9 @@ Quando o acionador de periodicidade é acionado cada vez, o Logic Apps cria e ex
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco ou Saiba [como criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Depois de aparecer um estruturador de aplicações lógicas, na caixa de pesquisa, introduza "recurrence" como o filtro. Selecione o **agenda - periodicidade** acionador. 
+2. Depois de aparecer um estruturador de aplicações lógicas, na caixa de pesquisa, escolha **todos os**. Na caixa de pesquisa, introduza "recurrence" como o filtro. Na lista de disparadores, selecione este acionador: **Periodicidade - agenda** 
 
-   ![Agendamento - acionador de periodicidade](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Selecione o acionador "– de periodicidade"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Este acionador agora é a primeira etapa na sua aplicação lógica.
 
@@ -95,11 +97,11 @@ Pode configurar estas propriedades para o acionador de periodicidade.
 
 | Nome | Necessário | Nome da propriedade | Tipo | Descrição | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequência** | Sim | frequência | Cadeia | A unidade de tempo para a periodicidade: **segunda**, **minuto**, **hora**, **dia**, **semana**, ou  **Mês** | 
-| **Intervalo** | Sim | intervalo | Número inteiro | Um número inteiro que descreve a frequência com que o fluxo de trabalho é executada com base na frequência. <p>O intervalo predefinido é 1. Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", em seguida, a periodicidade é a cada 6 meses. | 
+| **Frequência** | Sim | frequência | Cadeia | A unidade de tempo para a periodicidade: **Segunda**, **minuto**, **hora**, **dia**, **semana**, ou **mês** | 
+| **Intervalo** | Sim | intervalo | Número inteiro | Um número inteiro que descreve a frequência com que o fluxo de trabalho é executada com base na frequência. <p>O intervalo predefinido é 1. Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", em seguida, a periodicidade é a cada 6 meses. | 
 | **Time zone** (Fuso horário) | Não | timeZone | Cadeia | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. | 
-| **Start time** (Hora de início) | Não | startTime | Cadeia | Forneça uma hora de início no seguinte formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** a hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. [*Quais são as formas que posso usar a data de início e hora?*](#start-time) | 
-| **On these days** (Nestes dias) | Não | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se selecionar "Week", pode selecionar um ou mais dias, quando quiser executar o fluxo de trabalho: **segunda-feira**, **Terça-feira**, **quarta-feira**, **Quinta-feira** , **Sexta-feira**, **Sábado**, e **Domingo** | 
+| **Start time** (Hora de início) | Não | startTime | Cadeia | Forneça uma hora de início no seguinte formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. [*Quais são as formas que posso usar a data de início e hora?*](#start-time) | 
+| **On these days** (Nestes dias) | Não | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se selecionar "Week", pode selecionar um ou mais dias, quando quiser executar o fluxo de trabalho: **Segunda-feira**, **Terça-feira**, **quarta-feira**, **Quinta-feira**, **sexta-feira**, **Sábado**, e **Domingo** | 
 | **At these hours** (A estas horas) | Não | hours | Número inteiro ou matriz de números inteiros | Se selecionar "Dia" ou "Week", pode selecionar números inteiros de um ou mais de 0 e 23 horas do dia que deseja executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", obter 10 AM e PM 2 como as marcas de hora 12 PM. | 
 | **At these minutes** (A estes minutos) | Não | minutes | Número inteiro ou matriz de números inteiros | Se selecionar "Dia" ou "Week", pode selecionar números inteiros de um ou mais de 0 e 59 minutos da hora quando quiser executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e usando o exemplo anterior de horas do dia, obtém 10:30, 12 17:30 e 2 17:30. | 
 ||||| 
@@ -109,39 +111,46 @@ Pode configurar estas propriedades para o acionador de periodicidade.
 Eis um exemplo [definição de Acionador de periodicidade](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>FAQ
 
+<a name="run-once"></a>
+
+**P:** E se eu quiser executar uma aplicação lógica imediatamente e uma vez só? </br>
+**R:** Para acionar imediatamente a sua aplicação lógica e executar uma vez sem recorrente, pode usar o **Scheduler: Executar tarefas de uma vez** modelo. Depois de criar uma nova aplicação lógica, mas antes de abrir o estruturador do Logic Apps, no **modelos** secção, da **categoria** lista, selecione **agenda**e, em seguida, selecione o modelo:
+
+![Selecione "Scheduler: Modelo de executar uma vez tarefas"](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Ou, se estiver a utilizar um modelo de aplicação lógica em branco, iniciar a aplicação lógica com o **pedido de HTTP de quando é recebido - pedido** acionador. Hora de início do acionador de passar como parâmetro. Para a próxima etapa, adicione a **atraso até – agendar** ação e fornecer a hora de quando a próxima ação entrar em execução.
+
 <a name="example-recurrences"></a>
 
-**P:** quais são outras agendas de periodicidade de exemplo? </br>
+**P:** Quais são outras agendas de periodicidade de exemplo? </br>
 **R:** Eis mais exemplos:
 
 | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Nota |
@@ -171,14 +180,14 @@ Eis um exemplo [definição de Acionador de periodicidade](../logic-apps/logic-a
 
 <a name="start-time"></a>
 
-**P:** quais são as formas que posso usar a data de início e hora? </br>
-**R:** aqui estão alguns padrões que mostram como pode controlar a periodicidade com a data de início e a hora e como o motor do Logic Apps executa estas recorrências:
+**P:** Quais são as formas que posso usar a data de início e hora? </br>
+**R:** Aqui estão alguns padrões que mostram como pode controlar a periodicidade com a data de início e a hora e como o motor do Logic Apps executa estas recorrências:
 
 | Hora de início | Periodicidade sem agenda | Periodicidade com agenda | 
 | ---------- | --------------------------- | ------------------------ | 
 | {num} | Executa a primeira carga de trabalho de forma instantânea. <p>Executa cargas de trabalho futuras, com base na última hora de execução. | Executa a primeira carga de trabalho de forma instantânea. <p>Executa cargas de trabalho futuras, com base na agenda especificada. | 
-| Hora de início no passado | Calcula a tempos de execução com base na hora de início especificada e tempos de rejeições últimos a ser executados. Executa a primeira carga de trabalho para o futuro próximo tempo de execução. <p>Executa cargas de trabalho futuras, com base nos cálculos da última hora de execução. <p>Para mais explicações, veja o exemplo a seguir a esta tabela. | É executada a carga de trabalho primeiro *não é acionado antes* à hora de início, com base na agenda calculada a partir da hora de início. <p>Executa cargas de trabalho futuras, com base na agenda especificada. <p>**Nota:** se especifica uma periodicidade com base numa agenda, mas não especifica horas ou minutos para a agenda, em seguida, tempos de execução futuros são utilizadas para calcular as horas ou minutos, respectivamente, desde o momento de execução primeiro. | 
-| Hora de início no momento ou no futuro | É executada a carga de trabalho primeiro à hora de início especificada. <p>Executa cargas de trabalho futuras, com base nos cálculos da última hora de execução. | É executada a carga de trabalho primeiro *não é acionado antes* à hora de início, com base na agenda calculada a partir da hora de início. <p>Executa cargas de trabalho futuras, com base na agenda especificada. <p>**Nota:** se especifica uma periodicidade com base numa agenda, mas não especifica horas ou minutos para a agenda, em seguida, tempos de execução futuros são utilizadas para calcular as horas ou minutos, respectivamente, desde o momento de execução primeiro. | 
+| Hora de início no passado | Calcula a tempos de execução com base na hora de início especificada e tempos de rejeições últimos a ser executados. Executa a primeira carga de trabalho para o futuro próximo tempo de execução. <p>Executa cargas de trabalho futuras, com base nos cálculos da última hora de execução. <p>Para mais explicações, veja o exemplo a seguir a esta tabela. | É executada a carga de trabalho primeiro *não é acionado antes* à hora de início, com base na agenda calculada a partir da hora de início. <p>Executa cargas de trabalho futuras, com base na agenda especificada. <p>**Nota:** Se especificar uma periodicidade com base numa agenda, mas não especificar horas ou minutos para a agenda, tempos de execução futuros são calculados usando as horas ou minutos, respectivamente, desde o momento de execução primeiro. | 
+| Hora de início no momento ou no futuro | É executada a carga de trabalho primeiro à hora de início especificada. <p>Executa cargas de trabalho futuras, com base nos cálculos da última hora de execução. | É executada a carga de trabalho primeiro *não é acionado antes* à hora de início, com base na agenda calculada a partir da hora de início. <p>Executa cargas de trabalho futuras, com base na agenda especificada. <p>**Nota:** Se especificar uma periodicidade com base numa agenda, mas não especificar horas ou minutos para a agenda, tempos de execução futuros são calculados usando as horas ou minutos, respectivamente, desde o momento de execução primeiro. | 
 ||||
 
 **Exemplo de uma hora de início nos últimos com periodicidade, mas sem agenda** 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974697"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077390"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -108,6 +108,12 @@ Sim, pode adicionar novas VMs a um grupo de replicação existente quando ativa 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Pode modificar as VMs que estão a replicar com a adição ou redimensionar discos?
 
 Para a replicação de VMware para o Azure pode modificar o tamanho do disco. Se pretender adicionar novos discos, que terá de adicionar o disco e reativar a proteção da VM.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Posso migrar máquinas no local para um novo Vcenter sem afetar a replicação em curso?
+Não, a alteração do Vcenter ou migração irá afetar a replicação em curso. Terá de configurar a ASR com o novo Vcenter e ativar a replicação para máquinas.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Pode replicar a conta de armazenamento de cache/destino que tem uma Vnet (com firewalls de armazenamento do Azure), configurada no mesmo?
+Não, o Azure Site Recovery não suporta replicação para o armazenamento numa Vnet.
 
 ## <a name="configuration-server"></a>Servidor de configuração
 
@@ -225,9 +231,10 @@ O Azure foi concebido para ser resiliente. Recuperação de site foi desenvolvid
 Sim, se a ativação pós-falha para o Azure, pode reativação pós-falha para uma localização diferente se original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Por que eu preciso uma VPN ou ExpressRoute para a reativação pós-falha?
-
 Quando realizar a ativação pós-falha do Azure, dados do Azure são copiados para a VM no local e o acesso privado é necessário.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>Pode redimensionar a VM do Azure após a ativação pós-falha?
+Não, não é possível alterar o tamanho da VM de destino após a ativação pós-falha.
 
 
 ## <a name="automation-and-scripting"></a>Automatização e criação de scripts

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261552"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074092"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e AppSource
 Serviços no Azure Marketplace e AppSource de consultoria fornece os parceiros da Microsoft, o objetivo de ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure e os objetivos de negócio. 
@@ -66,8 +66,8 @@ Parceiros devem ter uma **competência silver ou gold** na área de relevante pa
 |Produto principal relacionado |Requisito de elegibilidade |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   Gold ou Silver [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) competência.    | 
-|Dynamics 365 para finanças e operações, Enterprise edition  |  Gold ou Silver [Enterprise Resource Planning,](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competência e uma receita mínima de US $25 mil em operações de Cloud dentro de 12 meses que se à direita.       |
-|Dynamics 365 para finanças e operações, Business edition  |  Servir [fornecedor de serviços Cloud (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [parceiro de registo Digital (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) de, pelo menos, um cliente      |
+|Dynamics 365 para finanças e operações, Enterprise edition  |  Gold ou Silver [Enterprise Resource Planning,](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competência e uma receita mínima de US $25 mil em operações de Cloud dentro de 12 meses que se à direita.       |
+|Dynamics 365 para finanças e operações, Business edition  |  Servir [fornecedor de serviços Cloud (CSP)](https://partner.microsoft.com/cloud-solution-provider) ou [parceiro de registo Digital (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) de, pelo menos, um cliente      |
 |Power BI, os elementos visuais do Power BI personalizado | Cumprir os [critérios de parceiro de solução](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Ter um publicados [Showcase de parceiros]() solução
 
@@ -87,7 +87,7 @@ Parceiros devem ter uma **competência silver ou gold** na área de relevante pa
 O lançamento do serviços de consultoria entrarão em direto no geo-região específica. Primeira inicialização será: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos para outros países serão em direto após um número significativo e apelativas seleção de ofertas de serviço foram submetidos por parceiros e aprovado pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como registar-se para serviços no Azure Marketplace e AppSource de consultoria
-Comece por [registar](https://azuremarketplace.microsoft.com/en-us/sell/signup) informações da sua empresa no marketplace. Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
+Comece por [registar](https://azuremarketplace.microsoft.com/sell/signup) informações da sua empresa no marketplace. Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
 
 **O que para esperar após o registo** a equipa de integração irá entrar em contacto em 1 a 3 dias de negócios com um e-mail de boas-vindos, que incluirá as suas informações de início de sessão do Portal de parceiros da Cloud (CPP). [Portal de parceiros da cloud](https://cloudpartner.azure.com) é o portal de listagem de oferta onde os editores submeter informações de listagem e os envios. 
 
@@ -119,36 +119,36 @@ Antes do registo, pode começar a coletar e preparar o conteúdo que será a sua
 ## <a name="publishing-process"></a>Processo de publicação
 Listagem sua oferta de serviço de consultoria no Azure Marketplace e AppSource envolve as seguintes fases:
 
-1. **Listagem**: comece a escrever uma nova oferta listagem ao iniciar sessão sua [Cloud Partner Portal](https://cloudpartner.azure.com) conta. Selecione 'Nova oferta' e "Dos serviços de consultoria" no menu pendente. Introduza o artefacto de listagem e publicar.
+1. **Listagem**: Comece a escrever uma nova oferta listagem ao iniciar sessão sua [Cloud Partner Portal](https://cloudpartner.azure.com) conta. Selecione 'Nova oferta' e "Dos serviços de consultoria" no menu pendente. Introduza o artefacto de listagem e publicar.
 2. **Validação**: O pedido é revisto para se certificar de que cumpre os critérios de elegibilidade. Microsoft, em seguida, enviar-lhe instruções para listar os serviços de consultoria da oferta. 
-3. **Submeter**: indique as informações necessárias de que estão listadas nas instruções. Todos os conteúdos e material de apoio têm de ser submetidos em inglês. 
-4. **Revisão**: a nossa equipa de marketing e editorial analisa a sua submissão e otimiza-os para legibilidade, gramática e eficácia. 
-5. **Teste**: sua submissão preparada para sua revisão. 
-6. **Publicar**: quando o utilizador e a Microsoft são satisfeitos com o conteúdo de teste, sua listagem está pronta para entrar em direto no marketplace. A data de go-live para sua listagem depende do país especificado na sua oferta. Se o catálogo para o seu país selecionado já está em direto no Azure Marketplace ou no AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem irá aparecer assim que o catálogo de entra no ar.
+3. **Submeter**: Indique as informações necessárias, que estão listadas nas instruções. Todos os conteúdos e material de apoio têm de ser submetidos em inglês. 
+4. **Revisão**: A nossa equipa de marketing e editorial analisa a sua submissão e otimiza-os para legibilidade, gramática e eficácia. 
+5. **Teste**: A submissão é preparada para revisão. 
+6. **Publicar**: Quando o utilizador e a Microsoft são satisfeitos com o conteúdo de teste, sua listagem está pronta para entrar em direto no marketplace. A data de go-live para sua listagem depende do país especificado na sua oferta. Se o catálogo para o seu país selecionado já está em direto no Azure Marketplace ou no AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem irá aparecer assim que o catálogo de entra no ar.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Listas de ofertas e os critérios de revisão de conteúdo
 As ofertas têm de ser de um dos seguintes cinco tipos de serviço (é possível listar mais do que um): 
 
-* **Avaliação**: uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações. 
-* **Briefing**: uma introdução a uma solução ou um serviço de consultoria para desenhar o interesse dos clientes através de estruturas, demonstrações e exemplos de clientes. 
-* **Implementação**: uma instalação completa, que resulta numa solução totalmente funcional. Recomendamos que limitá-la a soluções que podem ser implementada em duas semanas ou menos. 
-* **Prova de conceito**: uma implementação de âmbito limitado para determinar se uma solução cumpre os requisitos de cliente. 
-* **Workshop**: um compromisso interativo que é realizado no local de um cliente. Ele pode envolver-se ao treinamento, informes, avaliações ou demonstrações que são criadas no ambiente ou de dados do cliente. 
+* **Avaliação**: Uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações. 
+* **Briefing**: Uma introdução a uma solução ou um serviço de consultoria para desenhar o interesse dos clientes através de estruturas, demonstrações e exemplos de clientes. 
+* **Implementação**: Uma instalação completa, que resulta numa solução totalmente funcional. Recomendamos que limitá-la a soluções que podem ser implementada em duas semanas ou menos. 
+* **Prova de conceito**: Uma implementação de âmbito limitado para determinar se uma solução cumpre os requisitos de cliente. 
+* **Workshop**: Um compromisso interativo que é realizado no local de um cliente. Ele pode envolver-se ao treinamento, informes, avaliações ou demonstrações que são criadas no ambiente ou de dados do cliente. 
 
-**Nota:** exceto para o *resumo* o tipo de serviço, serviços de consultoria podem ser oferecidos em pessoa (ou seja, no local na localização de um cliente ou recurso de um parceiro) ou praticamente (ou seja, através de teleconferencing, da web conferência ou implementação remota). Informes devem ser disponibilizados em pessoa.
+**Nota:** Exceto para o *Briefing* o tipo de serviço, serviços de consultoria podem ser oferecidos em pessoa (ou seja, no local na localização de um cliente ou recurso de um parceiro) ou praticamente (ou seja, através de teleconferencing, web conferência ou remoto implementação). Informes devem ser disponibilizados em pessoa.
 
 Assim que tiver configurado os elementos necessários listados acima, a equipa de revisão de conteúdo deverá validar que sua descrição da oferta é informativo e concluída para o seu público-alvo. 
 
 #### <a name="listing-title"></a>Título de listagem
 
-O campo de título tem um limite de 50 caracteres e têm de transmitir o tipo de serviço e a duração da oferta para maximizar a otimização do mecanismo de pesquisa. O formato exigido é o seguinte: nome: tipo de duração
+O campo de título tem um limite de 50 caracteres e têm de transmitir o tipo de serviço e a duração da oferta para maximizar a otimização do mecanismo de pesquisa. O formato exigido é o seguinte: NOME: TIPO DE DURAÇÃO
 
 Exemplos:
 
 
 |Título de exemplo  |Formato correto  |
 |---------|---------|
-|Introdução ao Azure IoT em produção    |   Fabrico IoT: avaliação de 2 dias      |
+|Introdução ao Azure IoT em produção    |   Fabrico IoT: Avaliação de 2 dias      |
 |Workshop sobre Torradeiras inteligentes        |  Torradeiras inteligentes: Workshop de semanas de 1       |
 |  Prova de conceito do SQL Server migração    | Migração do SQL: 3 semanas prova de conceito        |
 
@@ -176,12 +176,13 @@ No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usan
 * * Italicize resumo da oferta
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Se ainda não fez isso, 
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
 
 Se está registado e trabalhar no Portal de parceiros da Cloud, 
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- Ver [oferta de serviço de consultoria do Azure e do Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para obter mais informações.

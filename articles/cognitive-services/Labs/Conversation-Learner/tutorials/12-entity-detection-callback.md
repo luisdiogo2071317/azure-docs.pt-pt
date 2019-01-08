@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 147887151abd5c1f7455b0efbf9aadbc2d884183
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796845"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064999"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Como utilizar o retorno de chamada de detecção de entidade
 
@@ -95,7 +95,7 @@ Aqui está o código de retorno de chamada:
 6. Clique no botão "Pontuação ações".
     - Clicar no botão aciona o retorno de chamada de detecção de entidade
     - O código de retorno de chamada define o valor de entidade CityResolved corretamente para o "new york"
-7. Selecione a resposta, "é de nova york está muito bom."
+7. Selecione a resposta, "new york é muito bom."
 
 Este padrão é típico de muitos cenários de bot. Expressões de utilizador e entidades extraídas são fornecidas para sua lógica de negócio e essa lógica transforma a expressão em formato canónico, que depois é salvo em entidades programáticas, para se subsequentes da caixa de diálogo.
 

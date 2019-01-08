@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 5834bf88b63209d2374cfea71fc0f01a1f7451c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033439"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064496"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Dimensionar o débito no Azure Cosmos DB
 
 No Azure Cosmos DB, o débito aprovisionado é representado como pedido unidades por segundo (RU/s, plural: RUs). RUs avaliar o custo de leitura e escrita em relação a seu contentor do Cosmos como mostrado na imagem seguinte:
 
-![Unidades de Pedido](./media/scale-throughput/figure1.png)
+![Unidades de Pedido](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Pode aprovisionar RUs num contentor do Cosmos ou uma base de dados do Cosmos. RUs aprovisionadas num contentor são exclusivamente disponíveis para as operações executadas nesse contentor. RUs aprovisionadas numa base de dados são partilhados entre todos os contentores dentro dessa base de dados (exceto para os contentores que tenham exclusivamente atribuídas RUs).
 

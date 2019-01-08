@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078245"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064717"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>O Azure Active Directory Premium P2 licenciamento funcionalidade lista de verificação
 
@@ -33,7 +33,7 @@ Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobili
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>Planear e implementar: dia 1 e 30
+## <a name="plan-and-deploy-day-1-30"></a>Planear e implementar: Dia 1 e 30
 
 - Designar mais de um administrador global (break glass conta)
    - [Gerir o acesso de emergência de contas administrativas no Azure AD](../users-groups-roles/directory-emergency-access.md)
@@ -64,7 +64,7 @@ Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobili
    - [Implementar o Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
 - [Atribuir licenças aos utilizadores pela associação de grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 
-## <a name="plan-and-deploy-day-31-90"></a>Planear e implementar: dia 31 a 90
+## <a name="plan-and-deploy-day-31-90"></a>Planear e implementar: Dia 31 a 90
 
 - [Plano para acesso do utilizador convidado](../b2b/what-is-b2b.md)
    - [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](../b2b/add-users-administrator.md)
@@ -75,7 +75,7 @@ Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobili
    - [Cenários de utilização e considerações de implementação para associação do Azure AD](../devices/azureadjoin-plan.md)
 - [Gerir o Windows Hello para empresas na sua organização](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Planear e implementar: dia 90 e muito mais
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Planear e implementar: 90 dias e muito mais
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Configurar definições de função de diretório do Azure AD no PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
@@ -84,7 +84,7 @@ Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobili
 - Gerir o ciclo de vida do utilizador holística
    - O Azure AD tem uma abordagem para gerenciar o ciclo de vida de identidade
    - Remova passos manuais do seu ciclo de vida de conta do funcionário, para evitar acessos não autorizados:
-      - Sincronize as identidades da sua origem de verdade (sistema de RH) para o Azure AD. ligar a sistemas de RH suportados)
+      - Sincronize as identidades da sua origem de verdade (sistema de RH) para o Azure AD.
       - [Utilize grupos dinâmicos para atribuir automaticamente os utilizadores a grupos com base nos seus atributos de RH (ou sua fonte de verdade), por exemplo, departamento, título, região e outros atributos.](../users-groups-roles/groups-dynamic-membership.md)
       - [Utilize o aprovisionamento da gestão de acesso baseado em grupo para aprovisionar automaticamente os utilizadores para aplicações SaaS.](../manage-apps/what-is-access-management.md)
 

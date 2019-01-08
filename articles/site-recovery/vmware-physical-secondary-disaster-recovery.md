@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: c37676a32dd1fb58c1ac03640ff0bbfbdc3f7d8f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972896"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079107"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
@@ -64,18 +64,6 @@ Para concluir este tutorial:
 - Certifique-se de que estão em conformidade com as máquinas que pretende replicar [replicados suporte máquina](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
-## <a name="create-a-vault"></a>Criar um cofre
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## <a name="choose-a-protection-goal"></a>Escolher um objetivo de proteção
-
-Selecione o que para replicar e onde replicá-la para.
-
-1. Clique em **Site Recovery** > **preparar infraestrutura** > **objetivo de proteção**.
-2. Selecione **para o site de recuperação** > **Sim, com o VMware vSphere Hypervisor**. Em seguida, clique em **OK**.
-3. Na **configuração do Scout**, Baixe o software de GA do InMage Scout 8.0.1 e a chave de registo. Os ficheiros de configuração de todos os componentes estão incluídos no ficheiro. zip transferido.
-
 ## <a name="download-and-install-component-updates"></a>Transferir e instalar atualizações de componentes
 
  Reveja e instale a versão mais recente [atualizações](#updates). Atualizações devem ser instaladas em servidores na seguinte ordem:
@@ -86,6 +74,108 @@ Selecione o que para replicar e onde replicá-la para.
 4. Servidores de destino principal
 5. servidores de vContinuum
 6. Servidor de origem (Windows e servidores Linux)
+
+Instale as atualizações da seguinte forma:
+
+> [!NOTE]
+>Versão de atualização de ficheiro dos todos os componentes do Scout pode não ser o mesmo para o ficheiro. zip de atualização. A versão mais antiga indicam que não há nenhuma alteração no componente desde a atualização anterior para esta atualização.
+
+Transfira o [atualizar](https://aka.ms/asr-scout-update7) ficheiro. zip. O ficheiro contém todos os a base de binários e os binários de atualização cumulativos dos seguintes componentes: 
+  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
+  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+1. Extraia os ficheiros. zip.
+2. **Servidor de RX**: Cópia **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
+3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
+4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo ficheiro também pode ser utilizado para instalação de raiz. A mesma atualização de agente unified também é aplicável para o servidor de origem.
+  A atualização não tem de aplicar no mestre de destino preparado com o **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
+5. **servidor vContinuum**:  Cópia **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
+6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor de destino principal do Linux e extraia-o. A pasta extraída, execute **/Install**.
+7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
+8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
+9. Depois de atualizar o servidor de configuração, o servidor de processos e o servidor RX com os programas de instalação acima mencionados, as bibliotecas PHP e MySQL precisa ser atualizado manualmente com os passos mencionados na [secção](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+
+## <a name="enable-replication"></a>Ativar a replicação
+
+1. Configurar a replicação entre a origem e sites de VMware de destino.
+2. Consulte os seguintes documentos para saber mais sobre a instalação, proteção e recuperação:
+
+   * [Notas de versão](https://aka.ms/asr-scout-release-notes)
+   * [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
+   * [Guia do utilizador](https://aka.ms/asr-scout-user-guide)
+   * [Guia do usuário RX](https://aka.ms/asr-scout-rx-user-guide)
+   * [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide)
+   * [Atualizar bibliotecas do MYSQL e PHP](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+
+## <a name="updates"></a>Atualizações
+
+### <a name="site-recovery-scout-801-update-7"></a>Atualização do Scout 8.0.1 de recuperação de sites 7 
+Atualizado: Transferir a partir de 31 de Dezembro de 2018 [atualização do Scout 7](https://aka.ms/asr-scout-update7).
+Atualização do Scout 7 é um instalador completo que pode ser utilizado para a instalação de raiz, bem como para atualizar existente agentes/MT que são as atualizações anteriores (a partir de 1 de atualização para atualização 6). Ele contém todas as correções de atualização 1 para atualização 6 plus as novas correções e aprimoramentos de descrito abaixo.
+ 
+#### <a name="new-features"></a>Novos recursos
+* Conformidade de PCI
+* Suporte a TLS versão 1.2
+
+#### <a name="bug-and-security-fixes"></a>Bugs e correções de segurança
+* Corrigido: Máquinas de Cluster/autónomas do Windows tem uma configuração incorreta do IP após a recuperação/exploração de DR.
+* Corrigido: Por vezes, não consegue adicionar operação de disco para o cluster de V2V.
+* Corrigido: Assistente do vContinuum fica preso durante a fase de recuperação se o destino principal é o Windows Server 2016
+* Corrigido: Problemas de segurança do MySQL são atenuados ao atualizar o MySQL para a versão 5.7.23
+
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Atualização manual para PHP e MySQL no CS, PS e RX
+A plataforma de script PHP deve ser atualizada para a versão 7.2.10 no servidor de configuração, o servidor de processos e o servidor RX.
+O sistema de gestão de base de dados MySQL deve ser atualizado para a versão 5.7.23 no servidor de configuração, o servidor de processos e o servidor RX.
+Siga os passos manaual fornecidos na [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide) para atualizar as versões do PHP e MySQL.
+
+### <a name="site-recovery-scout-801-update-6"></a>Atualização do Scout 8.0.1 de recuperação de sites 6 
+Atualizado: 12 de Outubro de 2017
+
+Baixe [atualização do Scout 6](https://aka.ms/asr-scout-update6).
+
+A atualização do Scout 6 é uma atualização cumulativa. Ele contém todas as correções de atualização 1 para Update 5 e as novas correções e aprimoramentos de descrito abaixo. 
+
+#### <a name="new-platform-support"></a>Novo suporte de plataforma
+* Foi adicionado suporte para a origem Windows Server 2016
+* Foi adicionado suporte para os seguintes sistemas operativos Linux:
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* Foi adicionado suporte para VMware Center 6.5
 
 Instale as atualizações da seguinte forma:
 
@@ -111,34 +201,6 @@ Transfira o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O fiche
     Não precisa de instalar o agente de atualização 5 no servidor de origem, se ele já foi atualizado para a atualização 4 ou agente de origem é instalado com o instalador de base mais recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
 8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
 
-## <a name="enable-replication"></a>Ativar a replicação
-
-1. Configurar a replicação entre a origem e sites de VMware de destino.
-2. Consulte os seguintes documentos para saber mais sobre a instalação, proteção e recuperação:
-
-   * [Notas de versão](https://aka.ms/asr-scout-release-notes)
-   * [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
-   * [Guia do utilizador](https://aka.ms/asr-scout-user-guide)
-   * [Guia do usuário RX](https://aka.ms/asr-scout-rx-user-guide)
-   * [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide)
-
-## <a name="updates"></a>Atualizações
-
-### <a name="site-recovery-scout-801-update-6"></a>Atualização do Scout 8.0.1 de recuperação de sites 6 
-Atualizado: 12 de Outubro de 2017
-
-Baixe [atualização do Scout 6](https://aka.ms/asr-scout-update6).
-
-A atualização do Scout 6 é uma atualização cumulativa. Ele contém todas as correções de atualização 1 para Update 5 e as novas correções e aprimoramentos de descrito abaixo. 
-
-#### <a name="new-platform-support"></a>Novo suporte de plataforma
-* Foi adicionado suporte para a origem Windows Server 2016
-* Foi adicionado suporte para os seguintes sistemas operativos Linux:
-    - Red Hat Enterprise Linux (RHEL) 6.9
-    - CentOS 6.9
-    - Oracle Linux 5.11
-    - Oracle Linux 6.8
-* Foi adicionado suporte para VMware Center 6.5
 
 > [!NOTE]
 > * Base Unified Agent(UA) installer para Windows foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O instalador mesmo será utilizado para todas as versões suportadas do Windows. 

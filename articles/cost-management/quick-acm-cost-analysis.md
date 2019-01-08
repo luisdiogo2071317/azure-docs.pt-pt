@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277748"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077662"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -49,7 +49,7 @@ A análise de custos está disponível para todos os clientes do [Contrato Enter
 
 Para rever os custos com a análise de custos, no portal do Azure, navegue para **Gestão de Custos + Faturação** &gt; **Gestão de Custos** &gt; **Alterar âmbito**, escolha um âmbito e, em seguida, clique em **Selecionar**.
 
-O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, deve selecionar um âmbito maior no qual os outros âmbitos são incluídos e, em seguida, filtrar até obter aquilo que pretende. É importante que compreenda isto, porque algumas pessoas não devem ter acesso a um âmbito principal no qual os âmbitos subordinados estão incluídos.
+O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
 
 Clique em **Abrir Análise de Custos**.
 
@@ -86,7 +86,11 @@ Em geral, pode esperar ver os dados ou notificações para recursos consumidos n
 
 ![Vista de diária mostrando custos diários de exemplo para o mês atual](./media/quick-acm-cost-analysis/daily-view.png)
 
-Pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados apresentados na área Total do gráfico principal. Agrupamento permite-lhe ver rapidamente como seus gastos foi categorizado pelo propriedades comuns de utilização e de recursos, como o grupo de recursos ou as etiquetas de recursos. Para agrupar por etiquetas, selecione a chave de etiqueta que pretende agrupar por e verá os custos divididos por cada valor de marca, com um segmento extra para os recursos que não têm essa etiqueta aplicada. Tenha em atenção o que Cost Management suporta apenas os sinalizadores de recurso a contar da data, que as etiquetas são aplicadas diretamente para o recurso. Os sinalizadores de grupo de recursos não são atualmente suportados. Eis uma vista dos custos de serviço do Azure numa vista do último mês.
+Pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados apresentados na área Total do gráfico principal. Agrupamento permite-lhe ver rapidamente como seus gastos foi categorizado pelo propriedades comuns de utilização e de recursos, como o grupo de recursos ou as etiquetas de recursos. Para agrupar por etiquetas, selecione a chave de etiqueta que pretende agrupar por. Verá os custos divididos por cada valor de marca, com um segmento extra para os recursos que não têm essa etiqueta aplicada.
+
+A maioria dos [recursos do Azure suportam a etiquetagem](../azure-resource-manager/tag-support.md), no entanto, algumas etiquetas não estão disponíveis na gestão de custos e de faturação. Além disso, os sinalizadores de grupo de recursos não são suportados. O Cost Management suporta apenas os sinalizadores de recurso a contar da data, que as etiquetas são aplicadas diretamente para o recurso.
+
+Eis uma vista dos custos de serviço do Azure numa vista do último mês.
 
 ![Vista acumulada agrupada diária mostrando os custos de serviço do Azure de exemplo do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -96,9 +100,9 @@ Gráficos dinâmicos em agrupamentos de diferentes da Mostrar gráfico principal
 
 A imagem anterior mostra os nomes dos grupos de recursos. Enquanto pode agrupar por etiqueta para ver os custos totais por marca, exibir todas as etiquetas por recurso ou grupo de recursos não está disponível em qualquer um dos modos de exibição de análise de custo.
 
-Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os nove contribuidores principais são mostrados, bem como um grupo **Outros**, que abrange todos os restantes grupos em conjunto. Ao agrupar por etiquetas, também poderá ver uma **Untagged** grupo para os custos que não têm a chave de etiqueta aplicada. **Não marcada** é sempre pela última vez, mesmo se existirem mais custos não marcados que custos marcados. Se existirem 10 ou mais valores de etiqueta, custos não marcados vão fazer parte da **outros**.
+Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os contribuintes de custo de nove principais são apresentados. Também mostrado é como um **outros** grupo, que abrange todos os restantes grupos em conjunto. Ao agrupar por etiquetas, também poderá ver uma **Untagged** grupo para os custos que não têm a chave de etiqueta aplicada. **Não marcada** é sempre pela última vez, mesmo se existirem mais custos não marcados que custos marcados. Se existirem dez ou mais valores de etiqueta, custos não marcados vão fazer parte da **outros**.
 
-As máquinas virtuais, as redes e os recursos de armazenamento (Gestão do Serviço do Azure ou ASM) *Clássicos* não partilham dados detalhados de faturas. São unidos como **serviços Clássicos** ao agrupar os custos.
+*Clássico* (gestão de serviço do Azure ou ASM) máquinas virtuais, redes e recursos de armazenamento não partilhar dados detalhados de faturas. Eles são intercalados como **serviços clássicos** ao agrupar os custos.
 
 
 ## <a name="download-cost-analysis-data"></a>Transferir dados da análise de custos

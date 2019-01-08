@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053096"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063683"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação de VMs de VMware e servidores físicos
 
@@ -28,7 +28,9 @@ As seguintes lista mostra formas como pode verificar a máquina de origem:
 
 *  Na linha de comandos no servidor de origem, use o Telnet para executar ping no servidor de processo através da porta HTTPS (a porta HTTPS predefinida é 9443) ao executar o comando seguinte. O comando verifica para problemas de conectividade de rede e para problemas que bloquear a porta de firewall.
 
+
    `telnet <process server IP address> <port>`
+
 
    > [!NOTE]
    > Utilize o Telnet para testar a conectividade. Não utilize `ping`. Se o Telnet não estiver instalado, conclua os passos listados em [instalar o cliente Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).

@@ -3,17 +3,17 @@ title: Criar um servidor do Jenkins no Azure
 description: Instale o Jenkins numa máquina virtual do Linux do Azure a partir do modelo de solução do Jenkins e crie uma aplicação Java de exemplo.
 ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 92a0583ad01c4dc9263988f6ef48c95c380c9289
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086579"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079022"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 
@@ -91,7 +91,7 @@ Navegue para `complete/build/libs` e certifique-se de que `gs-spring-boot-0.1.0.
 
 Se se deparar com erros no modelo de solução do Jenkins, comunique os problemas no [repositório Jenkins do GitHub](https://github.com/azure/jenkins/issues).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 > [!div class="nextstepaction"]
 > [Adicionar VMs do Azure como agentes do Jenkins](jenkins-azure-vm-agents.md)

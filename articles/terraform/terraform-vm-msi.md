@@ -4,17 +4,17 @@ description: Utilize a imagem do Marketplace para criar a máquina virtual Terra
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, máquina virtual, estado remoto, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971169"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076232"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 
@@ -47,17 +47,17 @@ Introduza os seguintes dados no separador **Criar Terraform**:
 
 1. **Noções básicas**
     
-   * **Nome**: o nome da sua máquina virtual do Terraform.
-   * **Nome de Utilizador**: o ID de início de sessão da primeira conta.
-   * **Palavra-passe**: a palavra-passe da primeira conta. (Pode utilizar uma chave pública SSH em vez de uma palavra-passe.)
-   * **Subscrição**: a subscrição na qual a máquina vai ser criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
-   * **Grupo de recursos**: um grupo de recursos novo ou existente.
-   * **Localização**: o datacenter mais indicado. Normalmente corresponde ao datacenter que tem a maior parte dos seus dados ou a um que esteja mais próximo da sua localização física, para um acesso de rede mais rápido.
+   * **Nome**: O nome da sua máquina virtual do Terraform.
+   * **Nome de utilizador**: A primeiro de início de sessão na conta ID.
+   * **palavra-passe**: A primeira conta palavra-passe. (Pode utilizar uma chave pública SSH em vez de uma palavra-passe.)
+   * **Subscrição**: A subscrição em que a máquina está a ser criado e faturadas. Tem de ter privilégios de criação de recursos para esta subscrição.
+   * **Grupo de recursos**: Um grupo de recursos novo ou existente.
+   * **Localização**: O datacenter mais adequada. Normalmente corresponde ao datacenter que tem a maior parte dos seus dados ou a um que esteja mais próximo da sua localização física, para um acesso de rede mais rápido.
 
 2. **Definições adicionais**
 
-   * **Tamanho**: o tamanho da máquina virtual. 
-   * **Tipo de disco da VM**: SSD ou HDD.
+   * **Tamanho**: Tamanho da máquina virtual. 
+   * **Tipo de disco VM**: SSD ou HDD.
 
 3. **Resumo do Terraform**
 

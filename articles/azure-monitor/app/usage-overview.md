@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 45db2d02a434f2d7e7f3187c0d87c0b68ecf5235
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052007"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076982"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -30,7 +30,7 @@ A melhor experiência é obtida pela instalação do Application Insights no seu
 
 1. **Código de servidor:** Instalar o módulo apropriado para sua [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../azure-monitor/app/nodejs.md), ou [outros](../../azure-monitor/app/platforms.md) aplicação.
 
-    * *Não pretende instalar o código de servidor? Basta [criar um recurso do Azure Application Insights](../../application-insights/app-insights-create-new-resource.md).*
+    * *Não pretende instalar o código de servidor? Basta [criar um recurso do Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Código de página da Web:** Adicione o seguinte script para sua página da web antes do fechar ``</head>``. Substitua a chave de instrumentação com o valor apropriado para o seu recurso do Application Insights:
 
@@ -47,7 +47,7 @@ A melhor experiência é obtida pela instalação do Application Insights no seu
     ```
     Para obter configurações mais avançadas para monitorização de sites, veja a [referência da API do SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Código de aplicação móvel:** Utilizar o SDK do App Center para recolher eventos a partir da sua aplicação, em seguida, envie cópias desses eventos para o Application Insights para análise por [seguir este guia](../../application-insights/app-insights-mobile-center-quickstart.md).
+3. **Código de aplicação móvel:** Utilizar o SDK do App Center para recolher eventos a partir da sua aplicação, em seguida, envie cópias desses eventos para o Application Insights para análise por [seguir este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Obter dados de telemetria:** Execute o seu projeto no modo de depuração para alguns minutos e, em seguida, procure os resultados no painel de descrição geral no Application Insights.
 

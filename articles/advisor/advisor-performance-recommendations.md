@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013241"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079073"
 ---
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Assistente
 
@@ -39,11 +39,6 @@ O assistente fornece-lhe uma vista consolidada consistente de recomendações pa
 
 Para obter mais informações sobre o Assistente de base de dados SQL, consulte [Assistente de base de dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Melhorar o Azure Cache de Redis desempenho e confiabilidade
-
-Advisor identifica o Cache do Azure para instâncias de Redis onde desempenho poderá ser afetado negativamente por utilização elevada da memória, de carga do servidor, de largura de banda de rede ou de um grande número de ligações de cliente. O assistente também fornece as práticas recomendadas recomendações para o ajudar a evitar potenciais problemas. Para obter mais informações sobre a Cache do Azure para obter recomendações de Redis, consulte [Cache do Azure para o Assistente de Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
-
-
 ## <a name="improve-app-service-performance-and-reliability"></a>Melhorar o desempenho do serviço de aplicações e a confiabilidade
 
 O Assistente do Azure integra-se as recomendações de melhores práticas para melhorar a sua experiência de serviços de aplicação e detetar recursos de plataforma relevantes. São exemplos de recomendações dos serviços de aplicações:
@@ -52,6 +47,16 @@ O Assistente do Azure integra-se as recomendações de melhores práticas para m
 
 Para obter mais informações sobre as recomendações de serviços de aplicações, consulte [melhores práticas para o serviço de aplicações do Azure](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Utilizar Managed Disks para impedir a limitação de e/s de disco
+
+O assistente irá identificar máquinas virtuais que pertencem a uma conta de armazenamento que está a atingir seu destino de escalabilidade. Isso torna suscetíveis a limitação de e/s. O assistente irá recomendar que estas máquinas virtuais utilizar Managed Disks para prevenir a degradação do desempenho.
+
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Melhorar o desempenho e a fiabilidade dos discos da máquina virtual ao utilizar o armazenamento Premium
+
+Advisor identifica as máquinas virtuais com discos standard que tenham um grande volume de transations na sua conta de armazenamento e recomenda a atualização para os discos premium. 
+
+Armazenamento Premium do Azure fornece suporte de discos de elevado desempenho e de baixa latência para máquinas virtuais que executam cargas de trabalho de e/S intensivas. Discos da máquina virtual que utilizem contas de armazenamento premium armazenam dados em unidades de estado sólido (SSDs). Para obter o melhor desempenho para a sua aplicação, recomendamos que tiver migrado qualquer discos de máquinas virtuais que requerem elevado IOPS para o armazenamento premium.
+
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Remover distorção na sua tabela de armazém de dados SQL para melhorar o desempenho de consulta de dados
 
 Distorção de dados pode provocar afunilamentos de movimento ou recurso de dados desnecessários ao executar a sua carga de trabalho. O assistente Deteta os dados de distribuição inclinar superiores a 15% e recomendável redistribuir os seus dados e examine as seleções de chave de distribuição de tabela. Para saber mais sobre identificar e remover distorção, veja [resolução de problemas distorção](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
@@ -59,6 +64,14 @@ Distorção de dados pode provocar afunilamentos de movimento ou recurso de dado
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Criar ou atualizar estatísticas de tabela Desatualizadas em sua tabela de armazém de dados SQL para melhorar o desempenho de consulta
 
 Advisor identifica as tabelas que não tenham atualizado [estatísticas de tabela](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) e recomenda criar ou atualizar estatísticas de tabela. Consulta otimizador utiliza ukazatelé atualizado para estimar a cardinalidade ou o número de linhas no resultado da consulta que permite que o otimizador de consultas criar um plano de consulta de alta qualidade para um desempenho mais rápido do armazém de dados do SQL.
+
+## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Aumentar verticalmente para otimizar a utilização da cache em suas tabelas de SQL Data Warehouse para aumentar o desempenho de consulta
+
+O Assistente do Azure Deteta se o SQL Data Warehouse tem cache elevada utilizada percentagem e percentagem de acessos uma baixa. Isto indica a expulsão da cache de alto que pode afetar o desempenho do seu armazém de dados SQL. O assistente sugere que aumenta verticalmente o SQL Data Warehouse para garantir que alocar capacidade suficiente cache para a sua carga de trabalho.
+
+## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Converter tabelas do armazém de dados SQL em tabelas replicadas para melhorar o desempenho de consulta
+
+O assistente identifica as tabelas que não são tabelas replicadas mas beneficiariam com a conversão e sugere que converta essas tabelas. Recomendações baseiam-se no tamanho da tabela replicada, número de colunas, o tipo de distribuição da tabela e o número de partições da tabela SQL Data Warehouse. Heurisitics adicionais podem ser fornecidos na recomendação para o contexto. Para saber mais sobre como é determinada a esta recomendação, veja [recomendações de armazém de dados SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrar a sua conta de armazenamento para o Azure Resource Manager para obter todas as funcionalidades do Azure mais recente
 

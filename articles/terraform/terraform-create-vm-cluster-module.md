@@ -4,17 +4,17 @@ description: Aprenda a utilizar módulos do Terraform para criar um cluster de m
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, máquina virtual, rede, módulos
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666638"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077203"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Criar um cluster de VMs com o Terraform através do Registo de Módulo
 
@@ -102,7 +102,7 @@ Execute `terraform apply` para aprovisionar as VMs no Azure.
 
 ![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Navegar na lista de [módulos do Terraform no Azure](https://registry.terraform.io/modules/Azure)
 - Criar um [conjunto de dimensionamento de máquinas virtuais com o Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

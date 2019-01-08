@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 1c6579776b86decb78c172578cbe55a66c05d78f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026558"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079260"
 ---
 > [!NOTE]
 > Pedidos de várias partes, normalmente, necessitam de três partes:
@@ -34,3 +34,5 @@ Pedidos de várias partes podem ser feitos por meio de programação (através d
 > * Conteúdo do blob que incluem os conteúdos não estruturados de um ficheiro a carregar
 >
 > Nenhuma das duas partes é necessária para **aplicar o PATCH** pedidos. Ambas são necessárias para **POST** ou operações de criação.
+
+O [código de origem de início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) contém concluído C# exemplos que demonstram como fazer pedidos de várias partes contra as APIs de gestão de duplos Digital do Azure.

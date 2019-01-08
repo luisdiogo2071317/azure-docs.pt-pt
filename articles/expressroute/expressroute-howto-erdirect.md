@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: be20f01511990ef8de6ce6e0e13ddfa99b004dcd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076615"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076222"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Como configurar o ExpressRoute Direct (pré-visualização)
 
@@ -69,7 +69,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 3. Determinar se uma localização listada acima tem largura de banda disponível
 
   ```powershell
-  Get-AzureRMExpressRoutePortsLocations -Name "Equinix-San-Jose-SV1"
+  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Exemplo de saída**
@@ -229,7 +229,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 
 Por predefinição, pode criar 10 circuitos na subscrição em que é o recurso direto do ExpressRoute. Isso pode ser aumentado em suporte. É responsável por controlar aprovisionado e largura de banda utilizada. Largura de banda aprovisionada é a soma de largura de banda de todos os circuitos no recurso direto do ExpressRoute e utilizada de largura de banda é a utilização física das interfaces físicas subjacentes.
 
-Existem larguras de banda do circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para suportar os cenários descritos acima. Estes são: 40Gbps e 100Gbps.
+Existem larguras de banda do circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para suportar os cenários descritos acima. Nomeadamente: 40Gbps e 100Gbps.
 
 Circuitos do Standard ou premium podem ser criados. Circuitos padrão são incluídos no custo, enquanto os circuitos premium têm um custo com base na largura de banda selecionada. Circuitos só podem ser criados como tráfego limitado, como ilimitado, não é suportado em direto do ExpressRoute.
 
@@ -239,7 +239,7 @@ Crie um circuito no recurso direto do ExpressRoute.
   New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Incluem outras larguras de banda: 5.0, 10.0 e 40.0
+  Outras larguras de banda incluem: 5.0, 10.0 e 40.0
 
   **Exemplo de saída:**
 

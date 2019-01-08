@@ -3,7 +3,7 @@ title: Pré-requisitos técnicos para a criação de uma imagem de máquina virt
 description: Compreenda os requisitos para criar e implementar uma imagem de máquina virtual no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255273"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077084"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para a criação de uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreender onde e por que cada passo é realizado. Tanto quanto possível, deve preparar informações da sua empresa e outros dados, transferir as ferramentas necessárias, e/ou criar componentes técnicos antes de iniciar o processo de criação da oferta. Estes itens devem ficar claros da revisão deste artigo.  
@@ -50,6 +51,6 @@ Pode desenvolver VMs baseadas no Azure no Windows ou Linux. Alguns elementos do 
 Pode desenvolver VHDs do Azure na cloud ou no local:
 
 * Desenvolvimento com base na cloud significa que todas as etapas de desenvolvimento são executadas remotamente num VHD residente no Azure.
-* Desenvolvimento no local requer um VHD de baixar e desenvolver com a infraestrutura no local. Embora isso seja possível, não o recomendamos. Tenha em atenção que desenvolver para o Windows ou SQL no local requer que tenha as chaves de licença relevantes no local. Não pode incluir ou instalar o SQL Server depois de criar uma VM. Também deve basear a sua oferta numa imagem aprovada SQL no portal do Azure. Se optar por desenvolver no local, tem de efetuar alguns passos de forma diferente do que se estivesse desenvolvendo na cloud. Pode encontrar informações relevantes [criar uma imagem VM no local](marketplace-publishing-vm-image-creation-on-premise.md).
+* Desenvolvimento no local requer um VHD de baixar e desenvolver com a infraestrutura no local. Embora essa abordagem seja possível, não o recomendamos. Desenvolvimento para Windows ou SQL no local requer que tenha as chaves de licença relevantes no local. Não pode incluir ou instalar o SQL Server depois de criar uma VM. Também deve basear a sua oferta numa imagem aprovada SQL no portal do Azure. Se optar por desenvolver no local, tem de efetuar alguns passos de forma diferente do que se estivesse desenvolvendo na cloud. Pode encontrar informações relevantes [criar uma imagem VM no local](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

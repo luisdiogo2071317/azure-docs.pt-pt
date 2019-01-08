@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040239"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079175"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
@@ -38,7 +38,7 @@ Com o Stream de métricas em direto, pode:
 
 ## <a name="get-started"></a>Introdução
 
-1. Se ainda não ainda [instalou o Application Insights](../../azure-monitor/app/asp-net.md) na sua aplicação web ASP.NET ou [aplicação do Windows server](../../application-insights/app-insights-windows-services.md), fazer isso agora. 
+1. Se ainda não ainda [instalou o Application Insights](../../azure-monitor/app/asp-net.md) na sua aplicação web ASP.NET ou [aplicação do Windows server](../../azure-monitor/app/windows-services.md), fazer isso agora. 
 2. **Atualização para a versão mais recente** do pacote do Application Insights. No Visual Studio, clique no projeto e escolha **gerir pacotes Nuget**. Abra o **atualizações** separador, verificação **incluir pré-lançamento**e selecione todos os pacotes de Microsoft.ApplicationInsights.*.
 
     Volte a implementar a aplicação.

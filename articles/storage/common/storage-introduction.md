@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963254"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065550"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -22,17 +22,17 @@ O Armazenamento do Azure é a solução de armazenamento da cloud da Microsoft p
 - **Durável e de elevada disponibilidade.** A redundância garante que os dados estão seguros em caso de falhas de hardware transitórias. Também pode optar por replicar dados em centros de dados ou regiões geográficas para obter proteção adicional contra catástrofes locais ou desastres naturais. Os dados replicados desta forma permanecem altamente disponíveis no caso de uma falha inesperada. 
 - **Proteger.** Todos os dados escritos no Armazenamento do Azure são encriptado pelo serviço. O Armazenamento do Azure oferece-lhe controlo detalhado sobre quem tem acesso aos seus dados.
 - **Escalável.** O Armazenamento do Azure foi criado para ser extremamente dimensionável para satisfazer as necessidades de armazenamento e desempenho de dados das aplicações atuais. 
-- **Gerido.** O Microsoft Azure trata da manutenção e lida com os problemas críticos por si.
+- **Gerido.** Microsoft Azure trata a manutenção de hardware, atualizações e problemas críticos por si.
 - **Acessível.** Os dados no Armazenamento do Azure são acessíveis a partir de qualquer local no mundo através de HTTP ou HTTPS. A Microsoft disponibiliza SDKs para o Armazenamento do Azure numa variedade de linguagens – .NET, Java, Node.js, Python, PHP, Ruby, Go e outros utilizadores – bem como uma API REST madura. O Armazenamento do Azure suporta scripting no Azure PowerShell ou na CLI do Azure. E o portal do Azure e o Explorador de Armazenamento do Azure oferecem soluções visuais simples para trabalhar com os seus dados.  
 
 ## <a name="azure-storage-services"></a>Serviços do Armazenamento do Azure
 
 O Armazenamento do Azure inclui estes serviços de dados: 
 
-- [Blobs do Azure](../blobs/storage-blobs-introduction.md): um arquivo de objetos extremamente dimensionável para texto e dados binários.
-- [Ficheiros do Azure](../files/storage-files-introduction.md): partilhas de ficheiros geridos para a cloud ou implementações locais.
-- [Filas do Azure](../queues/storage-queues-introduction.md): arquivo de mensagens para mensagens fiáveis entre componentes da aplicação. 
-- [Tabelas do Azure](../tables/table-storage-overview.md): um arquivo do NoSQL para armazenamento sem esquemas de dados estruturados.
+- [Blobs do Azure](../blobs/storage-blobs-introduction.md): Um armazenamento de objetos altamente dimensionável para dados binários e de texto.
+- [Os ficheiros do Azure](../files/storage-files-introduction.md): Ficheiros geridos partilham para a cloud ou implementações no local.
+- [As filas do Azure](../queues/storage-queues-introduction.md): Um arquivo de mensagens para mensagens fiáveis entre componentes da aplicação. 
+- [Tabelas do Azure](../tables/table-storage-overview.md): Um arquivo de NoSQL para armazenamento sem esquemas de dados estruturados.
 
 Cada serviço é acedido através de uma conta de armazenamento. Para começar a utilizar, veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -89,30 +89,9 @@ O Armazenamento do Azure também inclui capacidades de discos geridos e não ger
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
-Esta tabela mostra os vários tipos de contas de armazenamento e quais os objetos que podem ser utilizados com cada uma.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Tipo de conta de armazenamento**|**Standard para fins gerais**|**Premium para fins gerais**|**Armazenamento de blobs, camadas de acesso frequente e esporádico**|
-|-----|-----|-----|-----|
-|**Serviços suportados**| Serviços de Blob, Ficheiro, Fila e Tabela | Serviço Blob | Serviço Blob|
-|**Tipos de blobs suportados**|Blobs de blocos, blobs de páginas e blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
-
-### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento para fins gerais
-
-Existem dois tipos de contas de armazenamento para fins gerais.
-
-#### <a name="standard-storage"></a>Armazenamento Standard
-
-As contas de armazenamento mais amplamente utilizadas são as contas de armazenamento standard, que podem ser utilizadas para todos os tipos de dados. As contas de armazenamento standard armazenam os dados num suporte de dados magnético.
-
-#### <a name="premium-storage"></a>Armazenamento Premium
-
-O Armazenamento Premium disponibiliza armazenamento de elevado desempenho para blobs de páginas, que são essencialmente utilizados para ficheiros VHD. As contas deste tipo de armazenamento utilizam o SSD para armazenar os dados. A Microsoft recomenda utilizar o Armazenamento Premium em todas as suas VMs.
-
-### <a name="blob-storage-accounts"></a>Contas de Armazenamento de blobs
-
-A conta de Armazenamento de blobs é uma conta de armazenamento especializada utilizada para armazenar blobs de blocos e blobos de acréscimo. Não pode armazenar blobs de páginas nestas contas, pelo que não pode armazenar ficheiros VHD. Estas contas permitem-lhe definir uma camada de acesso Frequente ou Esporádico, pode ser alterada em qualquer altura.
-
-A camada de acesso frequente é utilizada para os ficheiros que são acedidos com frequência – paga um custo mais elevado para o armazenamento, mas o custo de aceder aos blobs é muito inferior. Quanto a blobs armazenados na camada de acesso esporádico, o acesso aos blobs é mais caro, mas o custo do armazenamento é muito mais baixo.
+Para obter mais informações sobre os tipos de conta de armazenamento, consulte [descrição geral da conta de armazenamento do Azure](storage-account-overview.md). 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Aceder a blobs, ficheiros e filas
 
@@ -161,16 +140,7 @@ Para obter informações sobre a recuperação após desastre, veja [What to do 
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transferir dados de e para o Armazenamento do Azure
 
-Pode utilizar o utilitário da linha de comandos AzCopy para copiar os dados de blobs e de ficheiros na sua conta ou em várias contas de armazenamento. Veja um dos artigos seguintes para obter ajuda:
-
-* [Transfer data with AzCopy for Windows](storage-use-azcopy.md) (Transferir dados com AzCopy para Windows)
-* [Transfer data with AzCopy for Linux](storage-use-azcopy-linux.md) (Transferir dados com AzCopy para Linux)
-
-O AzCopy é criado sobre a [Biblioteca de Movimento de Dados do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que está atualmente disponível na pré-visualização.
-
-Pode ser utilizado o serviço Importar/Exportar do Azure para importar ou exportar grandes quantidades de dados de blobs de ou para a sua conta de armazenamento. Para tal, prepare e envie por correio vários discos rígidos para um datacenter do Azure, onde os dados são transferidos do/para os esses discos, que, depois, lhe são devolvidos. Para obter mais informações sobre o serviço de Importação/Exportação, consulte o artigo [Utilizar o Serviço de Importação/Exportação do Microsoft Azure para Transferir Dados para o Blob Storage](../storage-import-export-service.md).
-
-Para importar grandes quantidades de dados de Blob para a sua conta de armazenamento de uma forma rápida, acessível e fiável, também pode utilizar o disco do Azure Data Box. A Microsoft envia até cinco discos de estado sólido encriptados (SSD) com uma capacidade de 40 TB, para o seu datacenter através de uma operadora regional. Pode configurar rapidamente os discos, copiar dados para discos através de uma ligação de USB e enviar os discos novamente para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente de unidades para a cloud. Para obter mais informações sobre esta solução, aceda a [Descrição geral do disco do Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Tem várias opções para mover dados para dentro ou fora do armazenamento do Azure. Quais opções escolha depende do tamanho do seu conjunto de dados e a largura de banda de rede. Para obter mais informações, consulte [escolher uma solução do Azure para a transferência de dados](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Preços
 

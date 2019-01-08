@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313229"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075826"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
@@ -44,7 +44,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | detectOrientation | Permite autodetection de orientação da imagem. <br/> Valores válidos: Verdadeiro / Falso.|
-|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Checa) <br/>NaN (dinamarquês) <br/>NL (Holandês) <br/>en (em inglês) <br/>Fi (Finlandês)  <br/>FR (francês) <br/>  Alemanha (alemão) <br/>EL (Grego) <br/> hu (Húngaro) <br/> ele (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (Norueguês) <br/>   PL (Polaco) <br/> Hora do Pacífico (Português) <br/>  RU (Russo) <br/>  es (espanhol) <br/>  SV (Sueco) <br/>  TR (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Eslovaco). <br/>  UNK (desconhecido) <br/><br/> Se o código de idioma não especificado ou for nulo, o idioma é autodetected. </p> |
+|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Checa) <br/>NaN (dinamarquês) <br/>NL (Holandês) <br/>en (em inglês) <br/>Fi (Finlandês)  <br/>FR (francês) <br/>  Alemanha (alemão) <br/>EL (Grego) <br/> hu (Húngaro) <br/> ele (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (Norueguês) <br/>   PL (Polaco) <br/> Hora do Pacífico (Português) <br/>  RU (Russo) <br/>  es (espanhol) <br/>  SV (Sueco) <br/>  TR (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Eslovaco). <br/>  UNK (desconhecido) <br/><br/> Se o código de idioma não especificado ou for nulo, o idioma será definido como inglês. Se o idioma é explicitamente definido para "unk", o idioma será detetado automaticamente. </p> |
 | textExtractionAlgorithm | "impresso" ou "manuscritas". O algoritmo de OCR de reconhecimento de texto "manuscritas" está atualmente em pré-visualização e só é suportada em inglês. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades

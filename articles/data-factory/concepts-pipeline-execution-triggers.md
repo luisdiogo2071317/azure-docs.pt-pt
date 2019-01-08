@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 6d0524471ddc62e1ff6285bd0c80049917e726a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014952"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064377"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 
-Uma _execução de pipeline_ do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três execuções separadas do pipeline (execuções de pipeline). Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular. 
+Uma _execução de pipeline_ do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três execuções separadas do pipeline (execuções de pipeline). Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular.
 
 Normalmente, as execuções de pipeline são instanciadas pela transmissão de argumentos a parâmetros que são definidos no pipeline. Pode executar um pipeline manualmente ou com um _acionador_. Este artigo fornece detalhes sobre ambas a formas de executar um pipeline.
 
@@ -84,7 +84,7 @@ Pode executar manualmente o pipeline através de um dos métodos que se seguem:
 - SDK Python
 
 ### <a name="rest-api"></a>API REST
-O comando de exemplo que se segue mostra como executar manualmente o pipeline com a API REST:  
+O comando de exemplo que se segue mostra como executar manualmente o pipeline com a API REST:
 
 ```
 POST
@@ -175,7 +175,7 @@ Um acionador de agenda executa pipelines com base numa agenda. Este acionador su
 Para obter mais informações sobre acionadores de agenda e exemplos, veja [Create a schedule trigger](how-to-create-schedule-trigger.md) (Criar um acionador de agenda).
 
 ## <a name="schedule-trigger-definition"></a>Definição de acionador de agenda
-Quando cria um acionador de agenda, o agendamento e a periodicidade são especificados com uma definição JSON. 
+Quando cria um acionador de agenda, o agendamento e a periodicidade são especificados com uma definição JSON.
 
 Para que o acionador de agenda desencadeie uma execução de pipeline, inclua uma referência do pipeline em questão na definição do acionador. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
 
@@ -292,7 +292,7 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **recurrence** é especificado mediante a definição da propriedade **frequency** como "day" e da propriedade **interval** como 2.) Repare que o valor de **startTime** se situa no passado e ocorre antes da hora atual.
 
-Nestas condições, a primeira execução é em 2017-04-09 às 14:00. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é 2017-04-07 às 14:00. A instância seguinte é dois dias a contar dessa hora, que é o dia 2017-04-09, às 14:00.
+Nestas condições, a primeira execução é 2017-04-09 às 14:00. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é 2017-04-07 às 14:00. A instância seguinte é dois dias a contar dessa hora, que é o dia 2017-04-09, às 14:00.
 
 A primeira hora de execução é a mesma, mesmo que **startTime** seja 2017-04-05 14:00 ou 2017-04-01 14:00. Após a primeira execução, as execuções subsequentes são calculadas com base na agenda. Por conseguinte, as próximas execuções são a 2017-04-11 às 14:00 PM, depois a 2017-04-13 às 14:00 PM, depois a 2017-04-15 às 14:00 PM e assim sucessivamente.
 
@@ -312,7 +312,7 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 | **minutes** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **hours** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não são sensíveis às maiúsculas e minúsculas|
-| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |-Matriz de **monthlyOccurrence** objetos: `{ "day": day,  "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |-Matriz de **monthlyOccurrence** objetos: `{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
@@ -372,7 +372,7 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 | **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando as execuções de pipeline falham devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de estado 400: Erro de utilizador, 429: Demasiados pedidos e 500: Erro de servidor interno). | Não suportado. |
 | **Simultaneidade** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
 | **Variáveis do sistema** | Suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd**. Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não suportado. |
-| **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. | 
+| **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. |
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes:

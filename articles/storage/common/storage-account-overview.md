@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255767"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065635"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -23,33 +23,13 @@ Para saber como criar uma conta de armazenamento do Azure, veja [criar uma conta
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
-Armazenamento do Azure oferece três tipos de contas de armazenamento. Cada tipo oferece suporte a recursos diferentes e tem o seu próprio modelo de preços. Considere estas diferenças antes de criar uma conta de armazenamento para determinar o tipo de conta que é melhor para as suas aplicações. Os tipos de contas de armazenamento são:
-
-* **[Contas para fins gerais v2](#general-purpose-v2-accounts)**  (recomendado para a maioria dos cenários)
-* **[Contas de fins gerais v1](#general-purpose-v1-accounts)**
-* **[Contas de armazenamento de BLOBs](#blob-storage-accounts)** 
-
-A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas funcionalidades:
-
-| Tipo de conta de armazenamento | Serviços suportados                       | Escalões de desempenho suportados | Suporte de acesso               | Opções de replicação                                                | Modelo de implementação<sup>1</sup>  | Encriptação<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Para fins gerais V2   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium           | Frequente, esporádico, arquivo<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Encriptados  |
-| Para fins gerais V1   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium           | N/A                                  | LRS, GRS, RA-GRS                                                   | Gestor de recursos, clássico  | Encriptados  |
-| Armazenamento de blobs         | BLOB (blobs de blocos e de acréscimo apenas) | Standard                    | Frequente, esporádico, arquivo<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Encriptados  |
-
-<sup>1</sup>é recomendado utilizar o modelo de implementação Azure Resource Manager. Contas de armazenamento com o modelo de implementação clássica ainda podem ser criadas em alguns locais e contas clássicas existentes continuarão a ter suporte. Para obter mais informações, consulte [vs. de implementação clássica do Azure Resource Manager: compreender os modelos de implementação e o estado dos seus recursos](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>todas as contas de armazenamento são encriptadas utilizando encriptação de serviço de armazenamento (SSE) para dados inativos. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](storage-service-encryption.md).
-
-<sup>3</sup>camada o arquivo está disponível no nível de um blob individual só, não ao nível da conta de armazenamento. Apenas blobs de blocos e de acréscimo blobs podem ser arquivados. Para obter mais informações, consulte [armazenamento de Blobs do Azure: frequente, esporádico e camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>armazenamentoredundância de zona (ZRS) só está disponível para contas de armazenamento standard para fins gerais v2. Para obter mais informações sobre ZRS, veja [armazenamentoredundância de zona (ZRS): aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md). Para obter mais informações sobre outras opções de replicação, consulte [replicação de armazenamento do Azure](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>Contas de armazenamento para fins gerais v2
 
 Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de armazenamento do Azure mais recente e incorporam toda a funcionalidade de fins gerais v1 e contas de armazenamento de Blobs. Contas para fins gerais v2 fornecem o mais baixo por gigabyte os preços de capacidade do armazenamento do Azure, bem como competitiva em termos da indústria para transações. Contas de armazenamento para fins gerais v2 suportam estes serviços de armazenamento do Azure:
 
-- BLOBs (todos os tipos: página de bloco, acrescentar)
+- BLOBs (todos os tipos: Bloquear, acrescentar, página)
 - Ficheiros
 - Discos
 - Filas
@@ -98,7 +78,7 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 Contas de armazenamento para fins gerais podem ser configuradas para qualquer um dos seguintes escalões de desempenho:
 
 * Um escalão de desempenho standard para armazenar blobs, ficheiros, tabelas, filas e discos de máquina virtual do Azure.
-* Um escalão de desempenho premium para armazenar apenas os discos de máquina virtual do Azure. Veja [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../../virtual-machines/windows/premium-storage.md) para obter uma descrição geral aprofundada do armazenamento Premium.
+* Um escalão de desempenho premium para armazenar apenas os discos de máquina virtual do Azure. Consulte [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](../../virtual-machines/windows/premium-storage.md) para uma descrição geral aprofundada do armazenamento Premium.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Escalões de acesso para os dados de BLOBs de bloco
 
@@ -157,9 +137,9 @@ Todos os pedidos efetuados em relação a sua conta de armazenamento tem de ser 
 
 Pode conceder acesso aos dados na sua conta de armazenamento através de qualquer uma das seguintes abordagens:
 
-- **O Azure Active Directory:** credenciais de utilização do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para o acesso a dados de BLOBs e filas (pré-visualização). Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
-- **Partilhado autorização da chave:** utilizar a chave de acesso da conta de armazenamento para construir uma cadeia de ligação que a aplicação utiliza no tempo de execução para aceder ao armazenamento do Azure. Os valores na cadeia de ligação são utilizados para construir a *autorização* cabeçalho que é passado para o armazenamento do Azure. Para obter mais informações, consulte [cadeias de ligação de configurar o armazenamento do Azure](storage-configure-connection-string.md).
-- **Assinatura de acesso partilhado:** utilizar assinaturas de acesso partilhado para delegar o acesso a recursos na sua conta de armazenamento, se não estiver a utilizar autenticação do Azure AD. Uma assinatura de acesso partilhado é um token que encapsula todas as informações necessárias para autorizar um pedido ao armazenamento do Azure no URL. Pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo durante o qual as permissões são válidas como parte da assinatura de acesso partilhado. Para obter mais informações, consulte [Using partilhado assinaturas de acesso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **O Azure Active Directory:** Utilize as credenciais do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para o acesso a dados de BLOBs e filas (pré-visualização). Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
+- **Autorização de chave partilhada:** Utilize a chave de acesso da conta de armazenamento para construir uma cadeia de ligação que a aplicação utiliza no tempo de execução para aceder ao armazenamento do Azure. Os valores na cadeia de ligação são utilizados para construir a *autorização* cabeçalho que é passado para o armazenamento do Azure. Para obter mais informações, consulte [cadeias de ligação de configurar o armazenamento do Azure](storage-configure-connection-string.md).
+- **Assinatura de acesso partilhado:** Utilize assinaturas de acesso partilhado para delegar acesso a recursos na sua conta de armazenamento, se não estiver a utilizar autenticação do Azure AD. Uma assinatura de acesso partilhado é um token que encapsula todas as informações necessárias para autorizar um pedido ao armazenamento do Azure no URL. Pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo durante o qual as permissões são válidas como parte da assinatura de acesso partilhado. Para obter mais informações, consulte [Using partilhado assinaturas de acesso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Autenticação de utilizadores ou aplicações que utilizam as credenciais do Azure AD fornece segurança superior e a facilidade de utilização ao longo de outros meios de autorização. Enquanto pode continuar a utilizar a autorização de chave partilhada com as suas aplicações, utilizar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder um acesso otimizado aos recursos na sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerir os tokens de SAS ou se preocupar sobre revogar uma SAS comprometida. 

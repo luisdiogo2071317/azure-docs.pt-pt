@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123487"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074721"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicações de SaaS
 
-Aplicações SaaS podem ser publicadas no marketplace com três chamadas diferentes a ação: "Contactar-Me," "Experimente agora" e "Get-lo agora." Este guia explica estas três opções, incluindo os requisitos para cada um. 
+Aplicações SaaS podem ser publicadas no marketplace com três chamadas diferentes a ação: "Contacte-Me," "Experimente agora" e "Get-lo agora." Este guia explica estas três opções, incluindo os requisitos para cada um. 
 
 ## <a name="offer-overview"></a>Descrição geral da oferta  
 
@@ -34,8 +34,8 @@ Aplicações SaaS estão disponíveis em ambas as lojas do Azure a tabela seguin
 | AppSource | Sim (contactar-Me) | Sim (Power BI/Dynamics) |
 | Mercado do Azure | Não | Sim (aplicações de SaaS) |   
 
-**Lista:** a opção de publicação de listagem é composta por um contacto-Me o tipo de oferta e é utilizada quando uma participação de nível de versão de avaliação ou de transação não é viável. A vantagem dessa abordagem é que permite que os publicadores com uma solução de colocação no mercado começar imediatamente a receção de oportunidades potenciais que podem ser transformados em negociações para aumentar a sua empresa.  
-**Versão de avaliação/transação:** o cliente tem a opção de comprar ou peça uma avaliação para a sua solução de diretamente. Para proporcionar uma experiência de avaliação, aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorar a solução antes de comprar. Com uma experiência de avaliação, terá mais chances de promoção nas lojas e deve esperar oportunidades potenciais mais e mais avançadas do envolvimento com o cliente. As versões de avaliação tem de incluir suporte gratuito, pelo menos, durante o período de avaliação.  
+**Lista de:**  A opção de publicação de listagem é composta por um contacto-Me o tipo de oferta e é utilizado quando uma participação de nível de versão de avaliação ou de transação não é viável. A vantagem dessa abordagem é que permite que os publicadores com uma solução de colocação no mercado começar imediatamente a receção de oportunidades potenciais que podem ser transformados em negociações para aumentar a sua empresa.  
+**Versão de avaliação/transação:**  O cliente tem a opção de comprar ou peça uma avaliação para a sua solução de diretamente. Para proporcionar uma experiência de avaliação, aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorar a solução antes de comprar. Com uma experiência de avaliação, terá mais chances de promoção nas lojas e deve esperar oportunidades potenciais mais e mais avançadas do envolvimento com o cliente. As versões de avaliação tem de incluir suporte gratuito, pelo menos, durante o período de avaliação.  
 
 | Oferta de aplicações de SaaS | Requisitos do Negócio | Requisitos Técnicos |  
 | --- | --- | --- |  
@@ -94,7 +94,7 @@ Para tutoriais em vídeo, reveja o seguinte:
 * [Vídeos do Microsoft Azure, com foco no Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Formação gratuita do Azure Active Directory está disponível em  
-* [Microsoft Azure for IT Pros Content Series: o Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure para IT Pros Content Series: O Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Além disso, o Azure Active Directory fornece um site para verificar a existência de atualizações de serviço   
 * [Atualizações de serviço do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
@@ -144,11 +144,12 @@ A Microsoft hospeda a transação de comércio. A Microsoft cobra o cliente em s
 |Página de destino de transação | Alojar uma página de destino de transação de associação de marcas do Azure, onde os utilizadores podem criar e gerir as respetivas contas de serviço SaaS. |   
 | API de subscrição | Expor um serviço que pode interagir com a subscrição de SaaS para criar, atualizar e eliminar um plano de serviço e de conta de utilizador. Críticas de API de alterações têm de ser suportadas dentro de 24 horas. Alterações na API não críticas serão lançadas periodicamente. |  
 
-## <a name="next-steps"></a>Próximos Passos
-Se ainda não fez isso, 
+## <a name="next-steps"></a>Passos Seguintes
+Se ainda não fez isso,
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
 
 Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- Ver [oferta de aplicação SaaS do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) para obter mais informações.

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039433"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062949"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -59,6 +59,24 @@ Se a área de trabalho selecionada não está ligada a uma conta de automatizaç
 
 ![Nenhuma área de trabalho](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Ao ativar soluções, apenas determinadas regiões são suportadas para ligar uma área de trabalho do Log Analytics e uma conta de automatização.
+
+A tabela seguinte mostra os mapeamentos suportados:
+
+|**Região de área de trabalho do log Analytics**|**Região de automatização do Azure**|
+|---|---|
+|Sudeste da Austrália.|Sudeste da Austrália.|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|Eualeste2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Desmarque a caixa de verificação junto a qualquer máquina virtual que não pretende ativar. Máquinas virtuais que não é possível ativar já estão a ser desmarcadas.
 
 Clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
@@ -80,13 +98,13 @@ Depois de remover estas soluções, pode executar os seguintes passos para desas
 
 1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** na secção **recursos relacionados** à esquerda.
 
-1. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
+2. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
 
    ![Desassociar a página de área de trabalho](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Irá receber um pedido de confirmação de que pretende continuar.
 
-1. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
+3. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
 
 Se utilizou a solução de gestão de atualizações, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
 
@@ -108,7 +126,7 @@ Quando a integração várias máquinas, pode haver máquinas que mostram como *
 
 **Causa**: Este erro mostra que a VM que está a tentar carregar relatórios para outra área de trabalho.
 
-**Solução**: clique em **utilização como configuração** para alterar a área de trabalho direcionada de conta de automatização e o Log Analytics.
+**Solução**: Clique em **utilização como configuração** para alterar a área de trabalho direcionada de conta de automatização e o Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para uma área de trabalho que não está disponível nesta subscrição
 
@@ -118,25 +136,25 @@ Quando a integração várias máquinas, pode haver máquinas que mostram como *
 * Já não existe, ou
 * Está num grupo de recursos que não tem permissões de acesso a
 
-**Solução**: localize a conta de automatização associada com a área de trabalho que a VM reporta e carregar a máquina virtual ao alterar a configuração de âmbito.
+**Solução**: Localize a conta de automatização associada com a área de trabalho que a VM reporta e carregar a máquina virtual ao alterar a configuração de âmbito.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>Versão de sistema operativo da VM ou distribuição não é suportada
 
-**Causa:** a solução não é suportada para todas as distribuições de Linux ou todas as versões do Windows.
+**Causa:** A solução não é suportada para todas as distribuições de Linux ou todas as versões do Windows.
 
-**Solução:** consulte a [lista de clientes suportados](automation-update-management.md#clients) para a solução.
+**Solução:** Consulte a [lista de clientes suportados](automation-update-management.md#clients) para a solução.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Não não possível ativar a VMs clássicas
 
-**Causa**: máquinas virtuais que utilizam o modelo de implementação clássica não são suportadas.
+**Causa**: Máquinas virtuais que utilizam o modelo de implementação clássica não são suportadas.
 
-**Solução**: migrar a máquina virtual para o modelo de implementação do resource manager. Para saber como fazer isso, consulte [migrar recursos de modelo de implementação clássica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solução**: Migre a máquina virtual para o modelo de implementação do resource manager. Para saber como fazer isso, consulte [migrar recursos de modelo de implementação clássica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>VM é parada. (desalocada)
 
 **Causa**: A máquina virtual numa não num **em execução** estado.
 
-**Solução**: para carregar uma VM para uma solução de VM tem de executar. Clique nas **iniciar VM** ligação inline para iniciar a VM sem navegar para fora da página.
+**Solução**: Para carregar uma VM para uma solução de VM tem de executar. Clique nas **iniciar VM** ligação inline para iniciar a VM sem navegar para fora da página.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

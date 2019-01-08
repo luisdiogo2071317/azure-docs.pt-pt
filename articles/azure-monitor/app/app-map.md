@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e89ba38b7993b8f2d17704ff592eecd3d02d303e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731633"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063119"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
 
@@ -191,13 +191,13 @@ Para obter mais informações sobre como substituir a propriedade cloud_RoleName
 
 Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado, experimente estes passos:
 
-1. Certifique-se de está a usar um SDK oficialmente suportado. SDKs de Comunidade/não suportadas não suportem a correlação.
+1. Certifique-se de que está a utilizar um SDK oficialmente suportado. SDKs de Comunidade/não suportadas não suportem a correlação.
 
     Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista dos SDKs suportados.
 
 2. Atualize todos os componentes para a versão mais recente do SDK.
 
-3. Se está a usar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confirme [cloud_RoleName](app-map.md#Set-cloud-RoleName) está configurado corretamente.
 

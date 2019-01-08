@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104276"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061900"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicionar ou remover um grupo de outro grupo com o Azure Active Directory
 Este artigo ajuda-o a adicionar e remover um grupo de outro grupo com o Azure Active Directory.
@@ -29,7 +29,7 @@ Este artigo ajuda-o a adicionar e remover um grupo de outro grupo com o Azure Ac
 Pode adicionar um grupo de segurança existente para outro grupo de segurança existente (também conhecido como aninhados grupos), criando um membro de grupo (subgrupo) e um grupo principal. O grupo de membro herda os atributos e propriedades do grupo principal, poupando tempo de configuração.
 
 >[!Important]
->Não são atualmente suportados:<ul><li>A adição de grupos a um grupo sincronizado com o Active Directory no local</li><li>A adição de grupos de segurança para grupos do Office 365</li><li>A adição de grupos do Office 365 para grupos de segurança ou outros grupos do Office 365</li><li>Atribuir aplicações a grupos aninhados</li><li>Aplicação de licenças a grupos aninhados</li></ul>
+>Não são atualmente suportados:<ul><li>Adicionar grupos a um grupo sincronizado com o Active Directory no local.</li><li>Adicionar grupos de segurança para grupos do Office 365.</li><li>Adicionar grupos do Office 365 aos grupos de segurança ou outros grupos do Office 365.</li><li>Atribuir aplicações a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para adicionar um grupo como membro de outro grupo
 

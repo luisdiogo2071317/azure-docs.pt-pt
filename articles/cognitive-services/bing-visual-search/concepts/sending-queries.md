@@ -3,25 +3,25 @@ title: Envio de consultas de pesquisa para a API de pesquisa Visual do Bing
 titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os parâmetros da REST API utilizados na API de pesquisa Visual do Bing.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: aahill
-ms.openlocfilehash: 073570b428ffed395d90ee1cd6a734f66a1b0908
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.author: aahi
+ms.openlocfilehash: 4f1f52c7954b4985d0da24f51eb199e2cbeac3a6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745447"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063595"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de pesquisa Visual do Bing
 
 Este artigo descreve os parâmetros e atributos de pedidos enviados para a API de pesquisa Visual do Bing, bem como o objeto de resposta.
 
-Pode obter a recolha de informações sobre uma imagem de três formas: 
+Pode obter informações sobre uma imagem de três formas: 
 
 - com um token de informações que obtém a partir de uma imagem numa chamada anterior para um da [API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) pontos de extremidade.
 - A enviar o URL de uma imagem.

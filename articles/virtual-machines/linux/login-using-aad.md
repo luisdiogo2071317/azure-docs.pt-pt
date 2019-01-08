@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850980"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073412"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -37,7 +37,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para iniciar sessão
   - Para o início de sessão mais seguro para máquinas virtuais do Azure, pode configurar a autenticação multifator.
   - A capacidade de iniciar sessão para VMs do Linux no Azure Active Directory também funciona para os clientes que utilizam [serviços de Federação](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Colaboração direta:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de sua equipe, é possível atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito simples do que que limpar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a respetiva conta de utilizador é desabilitada ou removida do Azure AD, deixam de ter acesso aos seus recursos.
+- **Colaboração direta:** Com baseada em funções controlo de acesso (RBAC), pode especificar quem pode iniciar sessão determinada VM como um usuário normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de sua equipe, é possível atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito simples do que que limpar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a respetiva conta de utilizador é desabilitada ou removida do Azure AD, deixam de ter acesso aos seus recursos.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure suportadas e distribuições do Linux
 
@@ -96,8 +96,8 @@ O *provisioningState* dos *Succeeded* é mostrada uma vez que a extensão é ins
 
 Política de controlo de acesso baseado em funções (RBAC) do Azure determina quem pode iniciar sessão na VM. Duas funções RBAC são utilizadas para autorizar o início de sessão da VM:
 
-- **Início de sessão de administrador de máquinas virtuais**: os utilizadores com esta função atribuída podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador de raiz do administrador do Windows ou Linux.
-- **Início de sessão de utilizador de máquina virtual**: os utilizadores com esta função atribuída, podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador normais.
+- **Início de sessão de administrador de máquinas virtuais**: Os utilizadores com esta função atribuída, podem iniciar sessão a uma máquina virtual do Azure com o administrador do Windows ou privilégios de utilizador de raiz do Linux.
+- **Início de sessão de utilizador de máquina virtual**: Os utilizadores com esta função atribuída, podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador normais.
 
 > [!NOTE]
 > Para permitir que um utilizador inicie sessão VM através de SSH, deve atribuir a *início de sessão de administrador do Virtual Machine* ou *início de sessão de utilizador de Máquina Virtual* função. Um utilizador do Azure com o *proprietário* ou *contribuinte* funções atribuídas para uma VM automaticamente não tem privilégios para iniciar sessão VM através de SSH.
@@ -150,7 +150,7 @@ Feche a janela do browser, devolva o SSH linha de comandos e prima a **Enter** c
 
 ## <a name="sudo-and-aad-login"></a>Início de sessão Sudo e AAD
 
-A primeira vez que executar o sudo, será solicitado para autenticar uma segunda vez. Se não quiser tem de autenticar novamente para executar o sudo, pode editar o ficheiro de sudoers `/aad/etc/sudoers.d/aad_admins` e substitua esta linha:
+A primeira vez que executar o sudo, será solicitado para autenticar uma segunda vez. Se não quiser tem de autenticar novamente para executar o sudo, pode editar o ficheiro de sudoers `/etc/sudoers.d/aad_admins` e substitua esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
@@ -166,7 +166,7 @@ com esta linha:
 
 Alguns erros comuns quando tenta colocar SSH com credenciais do Azure AD incluem não existem funções RBAC atribuídas e repetido pedidos para iniciar sessão. Utilize as secções seguintes para corrigir esses problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
+### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: Função RBAC não atribuída
 
 Se vir o seguinte erro na sua linha de comandos SSH, certifique-se de que tenha [configurado políticas RBAC](#configure-rbac-policy-for-the-virtual-machine) para a VM que concede ao usuário ou o *início de sessão de administrador de máquinas virtuais* ou *Virtual Início de sessão do utilizador do computador* função:
 

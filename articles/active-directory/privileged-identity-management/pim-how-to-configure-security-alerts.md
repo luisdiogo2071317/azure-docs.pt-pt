@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291220"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063290"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções de diretório do Azure AD no PIM
 
@@ -30,9 +30,9 @@ O Azure AD Privileged Identity Management (PIM) gera alertas quando houver ativi
 
 Esta secção lista todos os alertas de segurança para funções de diretório, além de como corrigir e como impedir. Gravidade tem o significado seguinte:
 
-* **Alta**: requer uma ação imediata devido a uma violação de política.
-* **Médio**: não requerer ação imediata, mas sinaliza uma potencial violação de política.
-* **Baixa**: não requerer ação imediata, mas sugere uma alteração de política preferível.
+* **Alta**: Requer uma ação imediata devido a uma violação de política.
+* **Médio**: Não necessita de uma ação imediata, mas sinaliza uma potencial violação de política.
+* **Baixa**: Não necessita de uma ação imediata, mas sugere uma alteração de política preferível.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Os administradores não estiverem a utilizar as suas funções com privilégios
 
@@ -69,7 +69,7 @@ Esta secção lista todos os alertas de segurança para funções de diretório,
 | | |
 | --- | --- |
 | **Gravidade** | Médio |
-| **Por que motivo recebo este alerta?** | Contas que não foram alterados a palavra-passe recentemente podem ser o serviço ou as contas que não estão a ser mantidas partilhadas. Estas contas nas funções privilegiadas são vulneráveis aos atacantes. |
+| **Por que motivo recebo este alerta?** | Contas numa função com privilégios que não foram alterados a palavra-passe nos últimos 90 dias. Estas contas podem ser o serviço ou as contas que não estão a ser mantidas e são vulneráveis aos atacantes partilhadas. |
 | **Como corrigir?** | Reveja as contas na lista. Se já não precisam de acesso, removê-los a partir de suas funções com privilégios. |
 | **Prevenção** | Certifique-se de que as contas que são partilhadas são a rotação das palavras-passe seguras quando existe uma alteração nos utilizadores que sabe a palavra-passe. </br>Rever regularmente as contas com funções com privilégios usando [as revisões de acesso](pim-how-to-start-security-review.md) e remover atribuições de funções que já não são necessários. |
 | **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |

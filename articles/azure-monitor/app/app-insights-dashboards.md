@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052484"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074840"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](../../application-insights/app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -113,10 +113,10 @@ O painel de descrição geral é o gateway para obter mais informações sobre a
 * [**Pesquisa** ](../../azure-monitor/app/diagnostic-search.md) - investigar instâncias específicas de eventos, tais como pedidos, exceções, ou rastreios de registo.
 * [**Análise** ](../../azure-monitor/app/analytics.md) -consultas eficientes através de sua telemetria.
 * **Intervalo de tempo** -ajustar a amplitude exibida por todos os gráficos no painel.
-* **Eliminar** -eliminar o recurso do Application Insights para esta aplicação. Deve também remova os pacotes do Application Insights a partir do código de aplicação, ou editar a [chave de instrumentação](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) na sua aplicação para direcionar a telemetria para um recurso do Application Insights diferente.
+* **Eliminar** -eliminar o recurso do Application Insights para esta aplicação. Deve também remova os pacotes do Application Insights a partir do código de aplicação, ou editar a [chave de instrumentação](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) na sua aplicação para direcionar a telemetria para um recurso do Application Insights diferente.
 
 ### <a name="essentials-tab"></a>Separador Essentials
-* [Chave de instrumentação](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) -identifica o recurso de aplicação.
+* [Chave de instrumentação](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) -identifica o recurso de aplicação.
 
 ### <a name="app-navigation-bar"></a>Barra de navegação de aplicação
 ![Barra de navegação esquerda](./media/app-insights-dashboards/app-left-nav-bar.png)

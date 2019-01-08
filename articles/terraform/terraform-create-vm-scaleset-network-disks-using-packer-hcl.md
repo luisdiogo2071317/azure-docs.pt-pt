@@ -4,17 +4,17 @@ description: Utilize o Terraform para configurar e criar a versão de um conjunt
 services: terraform
 ms.service: terraform
 keywords: terraform, programadores, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos, imagens personalizadas, packer
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668636"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077509"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada do Packer
 
@@ -455,7 +455,7 @@ terraform destroy
 
 Escreva `yes` quando lhe for pedido para confirmar a eliminação dos recursos. O processo de destruição pode demorar alguns minutos a ser concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, implementou um conjunto de dimensionamento de máquinas virtuais e uma jumpbox no Azure através do Terraform. Aprendeu a:
 

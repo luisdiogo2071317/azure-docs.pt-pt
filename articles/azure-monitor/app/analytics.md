@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52b18f3f6f1166650fb13694f3eed54c28bbc0a9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731681"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065618"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](../../application-insights/app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](../../azure-monitor/app/app-insights-dashboards.md).
@@ -48,7 +48,7 @@ Em seguida, Contamos o número de registos por país (que é encontrar os dados 
 A linguagem tem muitos recursos atraentes:
 
 * [Filtro](/azure/kusto/query/whereoperator) telemetria da aplicação não processados por qualquer campos, incluindo as propriedades personalizadas e as métricas.
-* [Junte-se a](/azure/kusto/query/joinoperator) várias tabelas correlacionam pedidos com vistas de página, chamadas de dependências, exceções e rastreios de registos.
+* [Junte-se a](/azure/kusto/query/joinoperator) várias tabelas - fazer a correlação de pedidos com vistas de página, chamadas de dependências, exceções e rastreios de registos.
 * Poderosa estatística [agregações](/azure/kusto/query/summarizeoperator).
 * Visualizações de imediatas e poderosas.
 * [REST API](https://dev.applicationinsights.io/) que pode usar para executar consultas através de programação, por exemplo do PowerShell.

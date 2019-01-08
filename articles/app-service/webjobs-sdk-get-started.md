@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607006"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074245"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -304,9 +304,9 @@ Nesta secção, efetue as seguintes tarefas para configurar o Application Insigh
 
 1. Se ainda não tiver uma aplicação de serviço de aplicações que pode utilizar, [criá-lo](app-service-web-get-started-dotnet-framework.md).
 
-1. Se ainda não tiver um recurso do Application Insights que pode utilizar, [criá-lo](../application-insights/app-insights-create-new-resource.md). Definir **tipo de aplicação** ao **gerais**e a ignorar as seções a seguir **copiar a chave de instrumentação**.
+1. Se ainda não tiver um recurso do Application Insights que pode utilizar, [criá-lo](../azure-monitor/app/create-new-resource.md ). Definir **tipo de aplicação** ao **gerais**e a ignorar as seções a seguir **copiar a chave de instrumentação**.
 
-1. Se já tiver um recurso do Application Insights que pretende utilizar, [copiar a chave de instrumentação](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Se já tiver um recurso do Application Insights que pretende utilizar, [copiar a chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configurar as definições da aplicação 
 

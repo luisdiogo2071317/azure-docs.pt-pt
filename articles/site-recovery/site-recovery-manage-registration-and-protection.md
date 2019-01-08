@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 43394be7acc4c561147ffc86744f2daf0d751788
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844571"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074993"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -138,7 +138,7 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 
 1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
 2. Na **desative a replicação** , selecione uma destas opções:
-    - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação no servidor de configuração é limpo e faturação do Site Recovery para este servidor protegido é interrompida.
+    - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação no servidor de configuração é limpo e faturação do Site Recovery para este servidor protegido é interrompida. Tenha em atenção que esta opção só pode ser utilizada quando o servidor de configuração está no estado ligado.
     - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação no servidor de configuração **não irá** ser limpos. 
 
 > [!NOTE]

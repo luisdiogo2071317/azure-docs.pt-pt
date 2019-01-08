@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880187"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075639"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Capacidades de transações comerciais do Azure Marketplace e considerações
 
@@ -46,7 +46,7 @@ Além da lista e opções de publicação de avaliação, a opção de publicaç
 
 Quando utilizar a opção de publicação do transact, a Microsoft permite que a venda e a implementação de software de terceiros para a subscrição do cliente do Azure. O publicador tem de considerar a faturação das taxas de infraestrutura do Azure e do publicador licenciamento taxas de software, ao selecionar uma faturação de modelo e tipo no Azure Marketplace de oferta. 
 
-A opção de publicação no Azure Marketplace é atualmente suportada para os seguintes tipos de oferta de Transact: máquinas virtuais, aplicações do Azure ou aplicações SaaS.
+A opção de publicação do Transact no Azure Marketplace atualmente é suportada para os seguintes tipos de oferta: Máquinas virtuais, aplicações do Azure ou aplicações de SaaS.
 
 ![[Transacionais Enterprise lida no Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -66,13 +66,13 @@ Consoante a opção de transação utilizada, as taxas de licença de software d
 
 * Gratuito: Sem custos para licenças de software. 
 
-* Traga a sua própria licença (BYOL): quaisquer custos aplicáveis de licenças de software são geridos diretamente entre o publicador e o cliente. Microsoft apenas passa pelas tarifas de utilização da infraestrutura do Azure. (As máquinas virtuais e apenas as aplicações do Azure).
+* Traga a sua própria licença (BYOL): Quaisquer custos aplicáveis de licenças de software são geridos diretamente entre o publicador e o cliente. Microsoft apenas passa pelas tarifas de utilização da infraestrutura do Azure. (As máquinas virtuais e apenas as aplicações do Azure).
 
-* Pay as you go: Taxas de licença de Software são apresentadas como uma por hora, por núcleo (Vcpus) preços de taxa com base na infraestrutura do Azure utilizada. Isto aplica-se apenas a máquinas virtuais e aplicações do Azure.
+* Pay as you go: As taxas de licença de software são apresentadas como uma por hora, por núcleo (Vcpus) preços de taxa com base na infraestrutura do Azure utilizada. Isto aplica-se apenas a máquinas virtuais e aplicações do Azure.
 
-* Subscrição de preços (baseado no site): as taxas de licença de Software são apresentadas como uma taxa mensal, recorrente.  Isto aplica-se apenas para aplicações SaaS e aplicações do Azure – aplicações geridas.
+* Subscrição de preços (baseado no site): As taxas de licença de software são apresentadas como uma taxa mensal, recorrente.  Isto aplica-se apenas para aplicações SaaS e aplicações do Azure – aplicações geridas.
 
-* Avaliação de software gratuita: sem custos para licenças de software para 30 dias ou 90 dias.
+* Versão de avaliação gratuito software: Sem custos para licenças de software para 30 dias ou 90 dias.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Gratuito e bring-your-own-license (BYOL) de preços
 
@@ -214,7 +214,7 @@ Quando estão selecionados subscrição ou modelos de preços pay as you go, a M
 
 Para obter mais informações de e legais políticas, consulte a [contrato de publicador](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (disponível no Portal de parceiros de nuvem).
 
-Para obter ajuda para perguntas sobre faturação, [criar um incidente de suporte](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) e escolha as máquinas virtuais ou aplicações Web (também conhecido como aplicações de SaaS), dependendo do tipo de oferta utilizado.
+Para obter ajuda para perguntas sobre faturação, [criar um incidente de suporte](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) e escolha as máquinas virtuais ou aplicações Web (também conhecido como aplicações de SaaS), dependendo do tipo de oferta utilizado.
 
 ## <a name="transact-requirements"></a>Transact requisitos
 

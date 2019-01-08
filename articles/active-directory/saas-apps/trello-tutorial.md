@@ -1,267 +1,244 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Trello | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Trello | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Trello.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 163d7faa99d362f400581c42974eeb4a466641d9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 981bcb6bc9160969e7225342a0e4cda6afc3ed7c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449167"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064565"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: Integração do Azure Active Directory com o Trello
+# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: Integração do Active Directory do Azure com o Trello
 
 Neste tutorial, saiba como integrar o Trello com o Azure Active Directory (Azure AD).
-
 Integrar o Trello com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Trello.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Trello (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Trello.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Trello (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Trello, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um Trello início de sessão único na subscrição ativado
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Trello logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Trello a partir da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta o Trello **SP e IDP** iniciada SSO
+
+* Suporta o Trello **Just In Time** aprovisionamento de utilizadores
 
 ## <a name="adding-trello-from-the-gallery"></a>Adicionar Trello a partir da Galeria
+
 Para configurar a integração do Trello para o Azure AD, terá de adicionar Trello a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Trello a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Trello**, selecione **Trello** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Trello na lista de resultados](./media/trello-tutorial/tutorial_trello_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **Trello**, selecione **Trello** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+
+     ![Trello na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Trello com base num utilizador de teste chamado "Eduarda Almeida".
+Nesta secção, configurar e testar o Azure AD início de sessão único com [nome da aplicação] com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em [nome da aplicação] deve ser estabelecido.
 
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador equivalente no Trello para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Trello deve ser estabelecido.
-
-No Trello, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
-
-Para configurar e testar o Azure AD início de sessão único com o Trello, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com [nome da aplicação], tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste do Trello](#create-a-trello-test-user)**  - para ter um equivalente da Eduarda Almeida no Trello que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar o Trello Single Sign-On](#configure-trello-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do Trello](#create-trello-test-user)**  - para ter um equivalente da Eduarda Almeida no Trello que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação Trello.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
->[!NOTE]
->Deve obter o **\<enterprise\>** campo dinâmico do Trello. Se não tiver o valor do campo dinâmico, contacte [equipa de suporte do Trello](mailto:support@trello.com) para obter o campo dinâmico para enterprise.
-    > 
+> [!NOTE]
+> Deve obter o **\<enterprise\>** campo dinâmico do Trello. Se não tiver o valor do campo dinâmico, contacte [equipa de suporte do Trello](mailto:support@trello.com) para obter o campo dinâmico para enterprise.
 
-**Para configurar o Azure AD início de sessão único com o Trello, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com [nome da aplicação], execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Trello** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Trello** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/trello-tutorial/tutorial_trello_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **Trello domínio e URLs** secção, se desejar configurar a aplicação no **IDP iniciada pelo modo**, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Domínio de Trello e URLs únicas início de sessão em informações](./media/trello-tutorial/tutorial_trello_url.png)
-    
-    a. Na **identificador** caixa de texto, escreva o seguinte URL: `https://trello.com/auth/saml/metadata`
-    
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
+
+    ![Domínio de Trello e URLs únicas início de sessão em informações](common/idp-intiated.png)
+
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://trello.com/auth/saml/metadata`
+
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://trello.com/auth/saml/consume/<enterprise>`
 
-1. Se desejar configurar a aplicação no **SP iniciada pelo modo**, execute os seguintes passos:
+5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Domínio de Trello e URLs únicas início de sessão em informações](./media/trello-tutorial/tutorial_trello_url1.png)
+    ![Domínio de Trello e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
-    a. Verifique **Mostrar definições de URL avançadas**.
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://trello.com/auth/saml/login/<enterprise>`
 
-    b. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://trello.com/auth/saml/login/<enterprise>` 
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente de Trello](mailto:support@trello.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-1. Aplicação Trello espera que as asserções SAML para conter atributos específicos. Configure os seguintes atributos para esta aplicação. Pode gerir os valores destes atributos a partir da **"Atributos do utilizador"** do aplicativo. Captura de ecrã seguinte mostra um exemplo disso.
+6. Aplicação Trello espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![Configurar o início de sessão único](./media/trello-tutorial/tutorial_trello_attribute.png)
+    ![image](common/edit-attribute.png)
 
-1. Sobre o **atributos de token SAML** caixa de diálogo, para cada linha, mostrada na tabela abaixo, execute os seguintes passos:
- 
-    | Nome do Atributo | Valor do Atributo |
+7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+
+    | Nome |  Atributo de origem|
     | --- | --- |
     | User.Email | User.Mail |
     | User.FirstName | User.givenName |
     | User.LastName | User.Surname |
 
-    a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![Configurar o início de sessão único](./media/trello-tutorial/tutorial_officespace_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Configurar o início de sessão único](./media/trello-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha. 
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
-    
-    d. Clique em **OK**. 
+    c. Deixe o **espaço de nomes** em branco.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    d. Selecione a origem de dado **atributo**.
 
-    ![O link de download de certificado](./media/trello-tutorial/tutorial_trello_certificate.png) 
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
 
-1. Clique em **guardar** botão.
+    f. Clique em **Ok**
 
-    ![Configurar o botão único início de sessão em Guardar](./media/trello-tutorial/tutorial_general_400.png)
-    
-1. Na **configuração do Trello** secção, clique em **configurar Trello** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    g. Clique em **Guardar**.
 
-    ![Configuração do Trello](./media/trello-tutorial/tutorial_trello_configure.png) 
+8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Para configurar o início de sessão único em **Trello** lado, precisa de ir para o [configuração de SSO de enterprise Trello](https://trello.com/sso-configuration) página para enviar o transferido **certificado (Base64)** e  **SAML único início de sessão no URL do serviço** para [equipa de suporte do Trello](mailto:support@trello.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+    ![O link de download de certificado](common/certificatebase64.png)
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+9. Sobre o **configurar o Trello** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Identificador do Azure Ad
+
+    c. URL de fim de sessão
+
+### <a name="configure-trello-single-sign-on"></a>Configurar o Trello Single Sign-On
+
+Para configurar o início de sessão único num **Trello** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte do Trello](mailto:support@trello.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/trello-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/trello-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/trello-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/trello-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-trello-test-user"></a>Criar um utilizador de teste do Trello
-
-O objetivo desta secção é criar um utilizador chamado Eduarda Almeida no Trello. Trello suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Trello se não existir ainda.
-
->[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do Trello](mailto:support@trello.com).
-
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso à aplicação Trello.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Trello**.
 
-**Para atribuir a Eduarda Almeida a Trello, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **Trello**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de Trello na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **Trello**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de Trello na lista de aplicações](./media/trello-tutorial/tutorial_trello_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-trello-test-user"></a>Criar utilizador de teste do Trello
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+Nesta secção, um usuário chamado Eduarda Almeida é criado no Trello. Trello suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Trello, é criado um novo após a autenticação.
+
+> [!Note]
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do Trello](mailto:support@trello.com).
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de Trello no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação Trello.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico de Trello no painel de acesso, deve ser automaticamente sessão iniciada no Trello para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/trello-tutorial/tutorial_general_01.png
-[2]: ./media/trello-tutorial/tutorial_general_02.png
-[3]: ./media/trello-tutorial/tutorial_general_03.png
-[4]: ./media/trello-tutorial/tutorial_general_04.png
-
-[100]: ./media/trello-tutorial/tutorial_general_100.png
-
-[200]: ./media/trello-tutorial/tutorial_general_200.png
-[201]: ./media/trello-tutorial/tutorial_general_201.png
-[202]: ./media/trello-tutorial/tutorial_general_202.png
-[203]: ./media/trello-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

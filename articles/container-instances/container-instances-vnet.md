@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993299"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077476"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -33,26 +33,28 @@ Grupos de contentores implementados numa rede virtual do Azure ativar cenários 
 
 Determinadas limitações aplicam-se ao implementar grupos de contentores a uma rede virtual.
 
-* Contentores do Windows não são suportados
 * Para implementar grupos de contentores a uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remover todos os recursos existentes de uma sub-rede existente antes de implementar grupos de contentores ao mesmo, ou criar uma nova sub-rede.
 * Grupos de contentores implementados numa rede virtual não suportam atualmente endereços IP públicos ou etiquetas de nome DNS.
 * Devido à rede recursos adicionais envolvidos, implementar um grupo de contentores a uma rede virtual é normalmente um pouco mais lenta do que a implementação de uma instância de contentor padrão.
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-Enquanto esta funcionalidade está em pré-visualização, as seguintes limitações aplicam-se ao implementar instâncias de contentor a uma rede virtual.
+Enquanto esta funcionalidade está em pré-visualização, as seguintes limitações aplicam-se ao implementar instâncias de contentor a uma rede virtual. 
 
-**Suportado** regiões:
+**Regiões suportadas e limites de recursos**
 
-* Europa do Norte (northeurope)
-* Europa Ocidental (westeurope)
-* E.U.A. oeste (westus)
-* Este dos E.U.A. (eastus)
+| Localização | SO | CPU | Memória (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Europa Ocidental | Linux | 4 | 14 |
+| E.U.A. leste, E.U.A. oeste | Linux | 2 | 3.5 |
+| Leste da Austrália, Europa do Norte | Linux | 1 | 1.5 |
 
-**Não suportado** os recursos de rede:
+Limites de recursos de contentor podem ser diferente do limites para as instâncias de contentor não estejam em rede nestas regiões. Contentores de Linux atualmente, apenas são suportados para esta funcionalidade. O suporte do Windows está previsto.
 
-* Grupo de Segurança de Rede
+**Funcionalidades e recursos de rede não suportada**
+
 * Azure Load Balancer
+* Peering de rede virtual
 
 **Eliminação do recurso de rede** requer [passos adicionais](#delete-network-resources) após a implantação de grupos de contentores para a rede virtual.
 

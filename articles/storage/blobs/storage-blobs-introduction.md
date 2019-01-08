@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 516ce9d9a6fcc73b543c7db584afebf71c2293ca
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965415"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065004"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -33,7 +33,7 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
-Uma conta de armazenamento fornece um espaço de nomes exclusivo no Azure para os seus dados. Cada objeto que armazena no armazenamento do Azure tem um endereço que inclui o seu nome de conta exclusivo. A combinação do nome da conta e o ponto de extremidade do serviço de armazenamento do Azure forma os pontos finais para a sua conta de armazenamento.
+Uma conta de armazenamento fornece um espaço de nomes exclusivo no Azure para os seus dados. Cada objeto que armazena no armazenamento do Azure tem um endereço que inclui o seu nome de conta exclusivo. A combinação do nome da conta e o ponto de final do blob de armazenamento do Azure constitui o endereço base para os objetos na conta de armazenamento.
 
 Por exemplo, se a sua conta de armazenamento com o nome *mystorageaccount*, em seguida, o ponto final predefinido para o armazenamento de BLOBs é:
 
@@ -56,7 +56,7 @@ O armazenamento do Azure suporta três tipos de blobs:
 
 * **Blobs de blocos** armazenar dados de texto e binário, até 4,7 TB. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
 * **Blobs de acréscimo** são constituídos por blocos, como blobs de blocos, mas estão otimizados para operações de acréscimo. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
-* **Blobs de páginas** acesso aleatório de armazenamento de ficheiros até 8 TB de tamanho. Os blobs de páginas arquivo que os ficheiros de disco rígido virtual (VHD) servem como discos de máquinas virtuais do Azure. Obter mais informações sobre blobs de páginas, consulte (... / articles/storage/blobs/storage-blob-pageblob-overview.md)
+* **Blobs de páginas** acesso aleatório de armazenamento de ficheiros até 8 TB de tamanho. Os blobs de páginas arquivo que os ficheiros de disco rígido virtual (VHD) servem como discos de máquinas virtuais do Azure. Obter mais informações sobre blobs de páginas, consulte [blobs de páginas de descrição geral do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

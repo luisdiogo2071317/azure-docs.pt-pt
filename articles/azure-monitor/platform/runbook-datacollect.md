@@ -13,38 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186723"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078580"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
-Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
+Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão. Nestes casos, pode utilizar o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API. Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.
 
 Este tutorial explica o processo para criar e agendar um runbook na automatização do Azure para escrever dados para o Log Analytics.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
-Este cenário requer os seguintes recursos configurados na sua subscrição do Azure.  Ambos podem ser uma conta gratuita.
+Este cenário requer os seguintes recursos configurados na sua subscrição do Azure. Ambos podem ser uma conta gratuita.
 
 - [Área de trabalho de análise de registo](../../azure-monitor/learn/quick-create-workspace.md).
 - [Conta de automatização do Azure](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Descrição geral do cenário
-Para este tutorial, irá escrever um runbook que recolhe informações sobre tarefas de automatização.  Os Runbooks na automatização do Azure são implementados com o PowerShell, para que começa pela escrita e teste de um script no editor de automatização do Azure.  Depois de verificar que está a recolher as informações necessárias, gravá-los para o Log Analytics e verificar o tipo de dados personalizados.  Por fim, irá criar uma agenda para iniciar o runbook em intervalos regulares.
+Para este tutorial, irá escrever um runbook que recolhe informações sobre tarefas de automatização. Os Runbooks na automatização do Azure são implementados com o PowerShell, para que começa pela escrita e teste de um script no editor de automatização do Azure. Depois de verificar que está a recolher as informações necessárias, gravá-los para o Log Analytics e verificar o tipo de dados personalizados. Por fim, irá criar uma agenda para iniciar o runbook em intervalos regulares.
 
 > [!NOTE]
-> Pode configurar a automatização do Azure para enviar informações da tarefa para o Log Analytics sem este runbook.  Este cenário é utilizado principalmente para suportar o tutorial e recomenda-se que enviar os dados para uma área de trabalho de teste.  
-
+> Pode configurar a automatização do Azure para enviar informações da tarefa para o Log Analytics sem este runbook. Este cenário é utilizado principalmente para suportar o tutorial e recomenda-se que enviar os dados para uma área de trabalho de teste.
 
 ## <a name="1-install-data-collector-api-module"></a>1. Instalar o módulo de API do Recoletor de dados
-Cada [pedido a partir da API HTTP Data Collector](../../azure-monitor/platform/data-collector-api.md#create-a-request) têm de ser formatados adequadamente e incluir um cabeçalho de autorização.  Pode fazê-lo no seu runbook, mas pode reduzir a quantidade de código necessário, através de um módulo que simplifica este processo.  É um módulo que pode utilizar [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI) na galeria do PowerShell.
+Cada [pedido a partir da API HTTP Data Collector](../../azure-monitor/platform/data-collector-api.md#create-a-request) têm de ser formatados adequadamente e incluir um cabeçalho de autorização. Pode fazê-lo no seu runbook, mas pode reduzir a quantidade de código necessário, através de um módulo que simplifica este processo. É um módulo que pode utilizar [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI) na galeria do PowerShell.
 
-Para utilizar um [módulo](../../automation/automation-integration-modules.md) num runbook, tem de ser instalado na sua conta de automatização.  Qualquer runbook na mesma conta, em seguida, pode utilizar as funções no módulo.  Pode instalar um novo módulo selecionando **ativos** > **módulos** > **adicionar um módulo** na conta de automatização.  
+Para utilizar um [módulo](../../automation/automation-integration-modules.md) num runbook, tem de ser instalado na sua conta de automatização.  Qualquer runbook na mesma conta, em seguida, pode utilizar as funções no módulo. Pode instalar um novo módulo selecionando **ativos** > **módulos** > **adicionar um módulo** na conta de automatização.
 
-A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um módulo diretamente à sua conta de automatização, pelo que pode utilizar essa opção para este tutorial.  
+A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um módulo diretamente à sua conta de automatização, pelo que pode utilizar essa opção para este tutorial.
 
 ![Módulo de OMSIngestionAPI](media/runbook-datacollect/OMSIngestionAPI.png)
 
@@ -53,9 +51,8 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 3. Clique nas **implementar a automatização do Azure** botão.
 4. Selecione a sua conta de automatização e clique em **OK** para instalar o módulo.
 
-
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de automatização
-[Variáveis de automatização](../../automation/automation-variables.md) conter valores que podem ser utilizados por todos os runbooks na conta de automatização.  Eles tornam a runbooks mais flexível, permitindo-lhe alterar estes valores sem editar o runbook real. Todas as solicitações da API de Recoletor de dados HTTP requer o ID e a chave da área de trabalho do Log Analytics e recursos de variável são ideais armazenar estas informações.  
+[Variáveis de automatização](../../automation/automation-variables.md) conter valores que podem ser utilizados por todos os runbooks na conta de automatização. Eles tornam a runbooks mais flexível, permitindo-lhe alterar estes valores sem editar o runbook real. Todas as solicitações da API de Recoletor de dados HTTP requer o ID e a chave da área de trabalho do Log Analytics e recursos de variável são ideais armazenar estas informações.
 
 ![Variáveis](media/runbook-datacollect/variables.png)
 
@@ -70,76 +67,74 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 | Valor | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
 | Encriptados | Não | Sim |
 
-
-
 ## <a name="3-create-runbook"></a>3. Criar runbook
 
-A automatização do Azure tem um editor no portal do qual pode editar e testar o runbook.  Tem a opção para utilizar o editor de scripts para trabalhar com [PowerShell diretamente](../../automation/automation-edit-textual-runbook.md) ou [criar um runbook gráfico](../../automation/automation-graphical-authoring-intro.md).  Para este tutorial, irá trabalhar com um script do PowerShell. 
+A automatização do Azure tem um editor no portal do qual pode editar e testar o runbook. Tem a opção para utilizar o editor de scripts para trabalhar com [PowerShell diretamente](../../automation/automation-edit-textual-runbook.md) ou [criar um runbook gráfico](../../automation/automation-graphical-authoring-intro.md). Para este tutorial, irá trabalhar com um script do PowerShell.
 
 ![Editar o runbook](media/runbook-datacollect/edit-runbook.png)
 
-1. Navegue até à sua conta de automatização.  
+1. Navegue até à sua conta de automatização.
 2. Clique em **Runbooks** > **adicionar um runbook** > **criar um runbook novo**.
-3. Para o nome do runbook, escreva **tarefas de automatização de recolher**.  Para o tipo de runbook, selecione **PowerShell**.
+3. Para o nome do runbook, escreva **tarefas de automatização de recolher**. Para o tipo de runbook, selecione **PowerShell**.
 4. Clique em **criar** para criar o runbook e iniciar o editor.
-5. Copie e cole o seguinte código no runbook.  Veja os comentários no script para explicação do código.
+5. Copie e cole o seguinte código no runbook. Veja os comentários no script para explicação do código.
+    ```
+    # Get information required for the automation account from parameter values when the runbook is started.
+    Param
+    (
+        [Parameter(Mandatory = $True)]
+        [string]$resourceGroupName,
+        [Parameter(Mandatory = $True)]
+        [string]$automationAccountName
+    )
     
-        # Get information required for the automation account from parameter values when the runbook is started.
-        Param
-        (
-            [Parameter(Mandatory = $True)]
-            [string]$resourceGroupName,
-            [Parameter(Mandatory = $True)]
-            [string]$automationAccountName
-        )
-        
-        # Authenticate to the Automation account using the Azure connection created when the Automation account was created.
-        # Code copied from the runbook AzureAutomationTutorial.
-        $connectionName = "AzureRunAsConnection"
-        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Connect-AzureRmAccount `
-            -ServicePrincipal `
-            -TenantId $servicePrincipalConnection.TenantId `
-            -ApplicationId $servicePrincipalConnection.ApplicationId `
-            -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-        
-        # Set the $VerbosePreference variable so that we get verbose output in test environment.
-        $VerbosePreference = "Continue"
-        
-        # Get information required for Log Analytics workspace from Automation variables.
-        $customerId = Get-AutomationVariable -Name 'WorkspaceID'
-        $sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
-        
-        # Set the name of the record type.
-        $logType = "AutomationJob"
-        
-        # Get the jobs from the past hour.
-        $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
-        
-        if ($jobs -ne $null) {
-            # Convert the job data to json
-            $body = $jobs | ConvertTo-Json
-        
-            # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
-            Write-Verbose $body
-        
-            # Send the data to Log Analytics.
-            Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
-        }
-
+    # Authenticate to the Automation account using the Azure connection created when the Automation account was created.
+    # Code copied from the runbook AzureAutomationTutorial.
+    $connectionName = "AzureRunAsConnection"
+    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
+    Connect-AzureRmAccount `
+        -ServicePrincipal `
+        -TenantId $servicePrincipalConnection.TenantId `
+        -ApplicationId $servicePrincipalConnection.ApplicationId `
+        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    
+    # Set the $VerbosePreference variable so that we get verbose output in test environment.
+    $VerbosePreference = "Continue"
+    
+    # Get information required for Log Analytics workspace from Automation variables.
+    $customerId = Get-AutomationVariable -Name 'WorkspaceID'
+    $sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
+    
+    # Set the name of the record type.
+    $logType = "AutomationJob"
+    
+    # Get the jobs from the past hour.
+    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    
+    if ($jobs -ne $null) {
+        # Convert the job data to json
+        $body = $jobs | ConvertTo-Json
+    
+        # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
+        Write-Verbose $body
+    
+        # Send the data to Log Analytics.
+        Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
+    }
+    ```
 
 ## <a name="4-test-runbook"></a>4. Runbook de teste
-A automatização do Azure inclui um ambiente para [testar o runbook](../../automation/automation-testing-runbook.md) antes de o publicar.  Pode inspecionar os dados recolhidos pelo runbook e certifique-se de que escreve para o Log Analytics como esperado antes de publicá-la para produção. 
- 
+A automatização do Azure inclui um ambiente para [testar o runbook](../../automation/automation-testing-runbook.md) antes de o publicar. Pode inspecionar os dados recolhidos pelo runbook e certifique-se de que escreve para o Log Analytics como esperado antes de publicá-la para produção.
+
 ![Runbook de teste](media/runbook-datacollect/test-runbook.png)
 
 6. Clique em **guardar** para guardar o runbook.
 1. Clique em **painel de teste** para abrir o runbook no ambiente de teste.
-3. Uma vez que o runbook tiver parâmetros, lhe for pedido para introduzir valores para os mesmos.  Introduza o nome do grupo de recursos e a automação da conta que irá recolher informações da tarefa de.
+3. Uma vez que o runbook tiver parâmetros, lhe for pedido para introduzir valores para os mesmos. Introduza o nome do grupo de recursos e a automação da conta que irá recolher informações da tarefa de.
 4. Clique em **iniciar** no início do runbook.
-3. O runbook será iniciado com o estado **em fila** antes de entrar para **em execução**.  
-3. O runbook deve apresentar uma saída verbosa ideal com os trabalhos recolhidos no formato json.  Se não existirem tarefas forem apresentadas, em seguida, não podem ter havido nenhuma tarefa criada na conta de automatização na última hora.  Tente iniciar qualquer runbook na conta de automatização e, em seguida, executar o teste novamente.
-4. Certifique-se de que a saída não mostra os eventuais erros no comando post para o Log Analytics.  Deve ter uma mensagem semelhante ao seguinte.
+3. O runbook será iniciado com o estado **em fila** antes de entrar para **em execução**.
+3. O runbook deve apresentar uma saída verbosa ideal com os trabalhos recolhidos no formato json. Se não existirem tarefas forem apresentadas, em seguida, não podem ter havido nenhuma tarefa criada na conta de automatização na última hora. Tente iniciar qualquer runbook na conta de automatização e, em seguida, executar o teste novamente.
+4. Certifique-se de que a saída não mostra os eventuais erros no comando post para o Log Analytics. Deve ter uma mensagem semelhante ao seguinte.
 
     ![Saída de postagem](media/runbook-datacollect/post-output.png)
 
@@ -150,12 +145,11 @@ Depois do runbook foi concluída em teste, e verificado que a saída foi recebid
 
 1. No portal do Azure, selecione a área de trabalho do Log Analytics.
 2. Clique em **pesquisa de registos**.
-3. Escreva o seguinte comando `Type=AutomationJob_CL` e clique no botão de pesquisa. Observe que o tipo de registo inclui _CL que não seja especificado no script.  Esse sufixo é acrescentado automaticamente para o tipo de registo para indicar que é um tipo de registo personalizado.
+3. Escreva o seguinte comando `Type=AutomationJob_CL` e clique no botão de pesquisa. Observe que o tipo de registo inclui _CL que não seja especificado no script. Esse sufixo é acrescentado automaticamente para o tipo de registo para indicar que é um tipo de registo personalizado.
 4. Deverá ver um ou mais registos devolvidos que indica se o runbook está a funcionar conforme esperado.
 
-
 ## <a name="6-publish-the-runbook"></a>6. Publicar o runbook
-Depois de verificar se o runbook está a funcionar corretamente, tem de publicá-lo para que pode executá-lo em produção.  Pode continuar a editar e testar o runbook sem modificar a versão publicada.  
+Depois de verificar se o runbook está a funcionar corretamente, tem de publicá-lo para que pode executá-lo em produção. Pode continuar a editar e testar o runbook sem modificar a versão publicada.
 
 ![Publicar o runbook](media/runbook-datacollect/publish-runbook.png)
 
@@ -164,8 +158,8 @@ Depois de verificar se o runbook está a funcionar corretamente, tem de publicá
 3. Clique em **edite** e, em seguida **publicar**.
 4. Clique em **Sim** quando lhe for pedido para confirmar que pretende substituir a versão publicada anteriormente.
 
-## <a name="7-set-logging-options"></a>7. Definir opções de registo 
-Para teste, podia ver [uma saída verbosa ideal](../../automation/automation-runbook-output-and-messages.md#message-streams) porque definiu a variável $VerbosePreference no script.  Para a produção, terá de definir as propriedades de registo para o runbook para ver uma saída verbosa ideal.  Para o runbook utilizado neste tutorial, esta ação apresenta os dados de json que está a ser enviados para o Log Analytics.
+## <a name="7-set-logging-options"></a>7. Definir opções de registo
+Para teste, podia ver [uma saída verbosa ideal](../../automation/automation-runbook-output-and-messages.md#message-streams) porque definiu a variável $VerbosePreference no script. Para a produção, terá de definir as propriedades de registo para o runbook para ver uma saída verbosa ideal. Para o runbook utilizado neste tutorial, esta ação apresenta os dados de json que está a ser enviados para o Log Analytics.
 
 ![Registo e rastreio](media/runbook-datacollect/logging.png)
 
@@ -174,7 +168,7 @@ Para teste, podia ver [uma saída verbosa ideal](../../automation/automation-run
 3. Clique em **Guardar**.
 
 ## <a name="8-schedule-runbook"></a>8. Agendar runbook
-A forma mais comum para iniciar um runbook que recolhe dados de monitorização é agendá-la para ser executado automaticamente.  Fazer isso criando uma [agenda na automatização do Azure](../../automation/automation-schedules.md) e anexá-lo ao runbook.
+A forma mais comum para iniciar um runbook que recolhe dados de monitorização é agendá-la para ser executado automaticamente. Fazer isso criando uma [agenda na automatização do Azure](../../automation/automation-schedules.md) e anexá-lo ao runbook.
 
 ![Agendar runbook](media/runbook-datacollect/schedule-runbook.png)
 
@@ -194,10 +188,10 @@ Depois de criar a agenda, terá de definir os valores de parâmetro que serão u
 
 6. Clique em **configurar parâmetros e definições de execução**.
 7. Preencha os valores para o seu **ResourceGroupName** e **AutomationAccountName**.
-8. Clique em **OK**. 
+8. Clique em **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Verifique se o runbook inicia numa agenda
-Sempre que um runbook é iniciado, [é criada uma tarefa](../../automation/automation-runbook-execution.md) e qualquer resultado com sessão iniciada.  Na verdade, essas são as mesmas tarefas que o runbook está a recolher.  Pode verificar que o runbook é iniciado conforme esperado, verificando as tarefas do runbook após a hora de início para a agenda ter passado.
+Sempre que um runbook é iniciado, [é criada uma tarefa](../../automation/automation-runbook-execution.md) e qualquer resultado com sessão iniciada. Na verdade, essas são as mesmas tarefas que o runbook está a recolher. Pode verificar que o runbook é iniciado conforme esperado, verificando as tarefas do runbook após a hora de início para a agenda ter passado.
 
 ![Tarefas](media/runbook-datacollect/jobs.png)
 
@@ -207,8 +201,6 @@ Sempre que um runbook é iniciado, [é criada uma tarefa](../../automation/autom
 4. Clique em **todos os registos** para ver os registos e de saída do runbook.
 5. Desloque-se para baixo para localizar uma entrada semelhante à imagem abaixo.<br>![Verboso](media/runbook-datacollect/verbose.png)
 6. Clique nesta entrada para ver os dados json detalhado, que lhe foi enviados para o Log Analytics.
-
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Uso [estruturador de vistas](../../azure-monitor/platform/view-designer.md) para criar uma vista de exibir os dados já recolhidos para o repositório do Log Analytics.

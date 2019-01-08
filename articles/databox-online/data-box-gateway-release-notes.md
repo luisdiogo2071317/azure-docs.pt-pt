@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164574"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078988"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão de pré-visualização de Gateway de caixa de dados do Azure
 
@@ -31,7 +31,10 @@ A tabela seguinte fornece um resumo dos problemas corrigidos nesta versão.
 
 | Não. | Problema |
 | --- | --- |
-| 1 | Nesta versão, quando um ficheiro que foi carregado por outra ferramenta (AzCopy) é atualizado e, em seguida, atualizado de forma que aumentam/se estende o tamanho do ficheiro, em seguida, o seguinte erro for observado: *Erro 400: InvalidBlobOrBlock (o blob especificado ou de bloqueios o conteúdo é inválido.)*|
+| **1.** | Nesta versão, quando um ficheiro que foi carregado por outra ferramenta (AzCopy) é atualizado e, em seguida, atualizado de forma que aumenta/expande o tamanho do ficheiro, em seguida, o seguinte erro é observado: *Erro 400: InvalidBlobOrBlock (o conteúdo de blob ou de bloqueios especificado é inválido.)*|
+| **2.** |Devido a um erro nesta versão, poderá ver instâncias do código de erro 110 na *error.xml* com nomes irreconhecível item. | 
+| **3.** |Devido a um erro nesta versão, poderá ver instâncias do código de erro 2003 durante o carregamento de ficheiros específicos. | 
+| **4.** |Nesta versão, pode atualizar partilha de apenas um por vez. | 
 
 
 ## <a name="known-issues-in-preview-release"></a>Problemas conhecidos da versão de pré-visualização
@@ -42,15 +45,12 @@ A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de c
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos de Gateway de caixa de dados criados na pré-visualização do anterior versões não podem ser atualizadas para esta versão. |Transferir as imagens de disco virtual a partir da nova versão e configure e implemente novos dispositivos. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md). |
 | **2.** |Disco de dados aprovisionados |Uma vez aprovisionou um disco de dados de um determinado tamanho especificado e criado o Gateway de caixa de dados correspondente, tem não diminuir o disco de dados. A tentar reduzir os resultados de disco numa perda de todos os dados locais no dispositivo. | |
-| **3.** |Atualizar |Nesta versão, pode atualizar partilha de apenas um por vez. | |
-| **4.** |Mudar o Nome |Não é suportada a mudança de nome de objetos. |Se esta funcionalidade é crucial para seu fluxo de trabalho, contacte o Support da Microsoft. |
-| **5.** |Copiar| Se um ficheiro só de leitura é copiado para o dispositivo, a propriedade só de leitura não é preservada. | |
-| **6.** |Registos| Devido a um erro nesta versão, poderá ver instâncias do código de erro 110 na *error.xml* com nomes irreconhecível item. | |
-| **7.** |Carregar | Devido a um erro nesta versão, poderá ver instâncias do código de erro 2003 durante o carregamento de ficheiros específicos. | |
-| **8.** |Tipos de ficheiro | Os seguintes tipos de ficheiro do Linux não são suportados: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. |
-| **9.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
-| **10.** |Atualizar | Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização.  | |
-| **11.** |Ajuda online |As ligações de ajuda no portal do Azure não podem ligar à documentação.|As ligações de ajuda irão funcionar na versão de disponibilidade geral. |
+| **3.** |Mudar o Nome |Não é suportada a mudança de nome de objetos. |Se esta funcionalidade é crucial para seu fluxo de trabalho, contacte o Support da Microsoft. |
+| **4.** |Copiar| Se um ficheiro só de leitura é copiado para o dispositivo, a propriedade só de leitura não é preservada. | |
+| **5.** |Tipos de ficheiro | Os seguintes tipos de ficheiro do Linux não são suportados: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. |
+| **6.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
+| **7.** |Atualizar | Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização.  | |
+| **8.** |Ajuda online |As ligações de ajuda no portal do Azure não podem ligar à documentação.|As ligações de ajuda irão funcionar na versão de disponibilidade geral. |
 
 
 

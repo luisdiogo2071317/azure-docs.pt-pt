@@ -3,17 +3,17 @@ title: Executar a CLI do Azure com o Jenkins
 description: Saiba como utilizar a CLI do Azure para implementar uma aplicação Web Java no Azure no Pipeline do Jenkins
 ms.service: jenkins
 keywords: jenkins, azure, devops, serviço de aplicações, cli
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974923"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075214"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no Serviço de Aplicações do Azure com o Jenkins e a CLI do Azure
 Para implementar uma aplicação Web Java no Azure, pode utilizar a CLI do Azure no [Pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
@@ -215,7 +215,7 @@ A Aplicação Web no Linux suporta uma forma diferente de executar a implementa�
 
     Aceda a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitua &lt;x> e &lt;y> por quaisquer números) para obter a soma de x e y
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, configurou um pipeline do Jenkins que dá saída do código fonte no repositório do GitHub. Executa o Maven para compilar um ficheiro war e, em seguida, utiliza a CLI do Azure para implementar no Serviço de Aplicações do Azure. Aprendeu a:
 
 > [!div class="checklist"]

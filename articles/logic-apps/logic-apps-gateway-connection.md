@@ -1,6 +1,6 @@
 ---
-title: Aceder a origens de dados no local para o Azure Logic Apps | Documentos da Microsoft
-description: Criar e configurar o gateway de dados no local para que possa aceder a origens de dados no local a partir das aplicações lógicas
+title: Aceder a origens de dados no local a partir do Azure Logic Apps | Documentos da Microsoft
+description: Ligar a dados no local origens de aplicações lógicas através da criação de um gateway de dados no local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413711"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064071"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Ligar a origens de dados no local a partir do Azure Logic Apps com o gateway de dados no local
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
-Para aceder a origens de dados no local das suas aplicações de lógica, pode criar um recurso de gateway de dados no Azure para que as aplicações lógicas podem utilizar o [conectores no local](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o seu recurso de gateway do Azure *após* [transferir e instalar o gateway no seu computador local](../logic-apps/logic-apps-gateway-install.md). 
+Para aceder a origens de dados no local a partir as logic apps, crie um recurso de gateway de dados no local no portal do Azure. As logic apps, em seguida, podem utilizar o [conectores no local](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o seu recurso de gateway do Azure *após* [transferir e instalar o gateway no seu computador local](../logic-apps/logic-apps-gateway-install.md). 
+
+> [!TIP]
+> Para ligar a redes virtuais do Azure, considere criar um [ *ambiente de serviço de integração* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em vez disso. 
 
 Para obter informações sobre como utilizar o gateway com outros serviços, veja estes artigos:
 
@@ -65,7 +68,7 @@ Depois de instalar o gateway num computador local, em seguida, pode criar um rec
    | **Nome** | O nome do seu recurso de gateway | 
    | **Subscrição** | Nome da sua subscrição do Azure, que deve ser a mesma subscrição que a sua aplicação lógica. A assinatura padrão baseia-se a conta do Azure que utilizou para iniciar sessão. | 
    | **Grupo de recursos** | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) para organizar os recursos relacionados | 
-   | **Localização** | Azure restringe esta localização para a mesma região que foi selecionada para o serviço de nuvem de gateway durante [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). <p>**Tenha em atenção**: Certifique-se de que a localização de serviço de nuvem de gateway corresponde a esta localização de recursos de gateway. Caso contrário, a instalação de gateway pode não aparecer na lista de gateways instalados para que possa selecioná-se no próximo passo. Pode utilizar diferentes regiões para o seu recurso de gateway e para a aplicação lógica. | 
+   | **Localização** | Azure restringe esta localização para a mesma região que foi selecionada para o serviço de nuvem de gateway durante [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: Certifique-se de que a localização de serviço de nuvem de gateway corresponde a esta localização de recursos de gateway. Caso contrário, a instalação de gateway pode não aparecer na lista de gateways instalados para que possa selecioná-se no próximo passo. Pode utilizar diferentes regiões para o seu recurso de gateway e para a aplicação lógica. | 
    | **Nome de instalação** | Se a instalação do gateway não estiver selecionada, selecione o gateway que instalou anteriormente. | 
    | | | 
 

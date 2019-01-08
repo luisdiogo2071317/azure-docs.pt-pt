@@ -10,16 +10,15 @@ ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 0479e5f7e51d02a08f6d542515212c88b3a43df5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a8f9b1a9ac72498e2e8374926ba3ae47a3eaff09
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999242"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078342"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de chaves do Azure
 
@@ -42,11 +41,11 @@ Existem algumas limitações a ter em consideração:
   * Listar chaves
   * Obter chaves de (propriedades de)
   * Encriptar
-  * desencriptar
+  * Desencriptar
   * Encapsular
   * Anular a moldagem
   * Verificar
-  * Início de sessão
+  * Assinar
   * Cópia de segurança
 * Após uma ativação pós-falha é realizarão a reativação, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

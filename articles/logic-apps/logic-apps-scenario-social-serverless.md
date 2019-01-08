@@ -10,18 +10,18 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229422"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061062"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar o dashboard de conhecimentos dos clientes de transmissão em fluxo com o Azure Logic Apps e as funções do Azure
 
-O Azure oferece ferramentas sem servidor que o ajudam a rapidamente crie e aloje aplicações na cloud, sem ter que pensar sobre a infraestrutura. Neste tutorial, pode criar um dashboard que aciona nos comentários dos clientes, analisa o feedback com o machine learning e publica informações a uma origem, como o Power BI ou o Azure Data Lake.
+O Azure oferece [sem servidor](https://azure.microsoft.com/solutions/serverless/) ferramentas que ajudam a rapidamente criar e alojar aplicações na cloud, sem ter que pensar sobre a infraestrutura. Neste tutorial, pode criar um dashboard que aciona nos comentários dos clientes, analisa o feedback com o machine learning e publica informações a uma origem, como o Power BI ou o Azure Data Lake.
 
-Para esta solução, utilizar esses componentes-chave do Azure para aplicações sem servidor: [as funções do Azure](https://azure.microsoft.com/services/functions/) e [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Para esta solução, de usar esses componentes-chave do Azure para aplicações sem servidor: [As funções do Azure](https://azure.microsoft.com/services/functions/) e [do Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 O Azure Logic Apps fornecem um mecanismo de fluxo de trabalho sem servidor na cloud, para que possa criar orquestrações em componentes sem servidor e ligue a mais de 200 serviços e APIs. As funções do Azure fornece computação sem servidor na cloud. Esta solução utiliza as funções do Azure para sinalizar tweets de cliente com base em palavras-chave predefinidas.
 
 Neste cenário, vai criar uma aplicação lógica que aciona sobre como encontrar os comentários dos clientes. Alguns conectores que ajuda a responder aos comentários dos clientes incluem Outlook.com, Office 365, pesquisa Monkey, Twitter e um [pedido HTTP de um web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que criar monitoriza uma hashtag no Twitter.
@@ -34,7 +34,7 @@ Pode [compilar a solução completa no Visual Studio](../logic-apps/quickstart-c
 
    Se estiver familiarizado com aplicações lógicas, reveja os [início rápido do portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou o [início rápido para Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. No Estruturador da aplicação lógica, localize e adicione o acionador do Twitter com esta ação: **quando um novo tweet é publicado**
+2. No Estruturador da aplicação lógica, localize e adicione o acionador do Twitter com esta ação: **Quando um novo tweet é publicado**
 
 3. Configure o acionador para escutar os tweets com base numa palavra-chave ou um hashtag.
 
@@ -60,10 +60,10 @@ Para detetar o sentimento por trás de algum texto, pode usar [serviços cogniti
 
 Depois de obter dados de tweet e informações sobre o tweet, agora, pode utilizar vários outros conectores relevantes e respetivas ações:
 
-* **Power BI – adicionar linhas ao conjunto de dados de transmissão em fluxo**: ver os tweets recebidos no dashboard do Power BI.
-* **O Azure Data Lake - acrescentar ficheiro**: adicionar dados de cliente a um conjunto de dados do Azure Data Lake para incluir nas tarefas de análise.
+* **Power BI – Adicione linhas ao conjunto de dados de transmissão em fluxo**: Ver os tweets recebidos no dashboard do Power BI.
+* **O Azure Data Lake - acrescentar ficheiro**: Adicione dados de cliente a um conjunto de dados do Azure Data Lake para incluir nas tarefas de análise.
 * **SQL - adicionar linhas**: Store dados numa base de dados para recuperação posterior.
-* **Slack – enviar mensagem**: notifique um canal Slack sobre comentários negativos que possam exigir ação.
+* **Slack – enviar mensagem**: Notifique um canal Slack sobre comentários negativos que possam exigir ação.
 
 Também pode criar e do Azure funcionar, de forma a que pode efetuar o processamento personalizado nos seus dados. 
 

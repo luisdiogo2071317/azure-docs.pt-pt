@@ -3,7 +3,7 @@ title: Testar a sua oferta VM para o Marketplace | Documentos da Microsoft
 description: Compreenda como testar a imagem de VM para o Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194118"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078818"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testar a sua oferta VM para o Azure Marketplace para efeitos de teste
-Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode testar e validar sua funcionalidade antes de o implementar no Marketplace. O SKU é apresentada no teste tal como faria para um cliente que tenha implementado. Imagem de VM deve ser certificada para ser emitida para teste.
+Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode testar e validar sua funcionalidade antes de o implementar no Marketplace. O SKU é apresentada no teste tal como faria para um cliente que tenha implementado. Deve certificar a sua imagem VM antes de ele é emitido para teste.
 
 ## <a name="step-1-push-your-offer-to-staging"></a>Passo 1: Emitir a oferta para teste
 1. Sobre o **Publish** separador, clique em **emitir para teste**.
    
     ![desenho](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. Se o Portal de publicação notifica-o de quaisquer erros, corrija-os.
-3. Na **quem pode aceder a sua oferta em etapas?** caixa de diálogo, introduza a lista de subscrições do Azure que irá utilizar para pré-visualizar a oferta no [portal de pré-visualização do Azure](https://portal.azure.com).
+3. Na **quem pode aceder a sua oferta em etapas?** caixa de diálogo, introduza a lista de subscrições do Azure que irá utilizar para pré-visualizar a oferta no [portal do Azure](https://portal.azure.com).
    
    > [!NOTE]
    > Em caso de máquinas virtuais e modelos de soluções, volte **não** subscrições de lista aprovada de tipo CSP, DreamSpark ou do Azure no Open.
@@ -42,7 +43,7 @@ Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode tes
    > - Depois de concluída a certificação, da oferta de início da replicação em todos os datacenters do Azure. Ele geralmente usa 24-48hours para a conclusão da replicação, mas poderá demorar até uma semana, dependendo do tamanho do vhd. No entanto, se o pedido tem apenas alterações de marketing, em seguida, a replicação é mais rápida.
    > - Quando a replicação estiver concluída, em seguida, a oferta estará disponível na [portal do Azure](http:/portal.azure.com). Nessa época, o estado se tornar TRANSITADOS para a publicação portal. Uma oferta em etapas está visível no [portal do Azure](http:/portal.azure.com) usando apenas o IDs de e-mail associado à subscrição com a qual a oferta é testada.
 
-1. Inicie sessão para o [portal de pré-visualização do Azure](https://portal.azure.com) ao utilizar uma das subscrições Azure listadas no passo anterior.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) ao utilizar uma das subscrições Azure listadas no passo anterior.
 2. Localizar a sua oferta e validar seus pontos de imagem VM:
    
    * Certifique-se de que conteúdo de marketing aparece corretamente no Marketplace.

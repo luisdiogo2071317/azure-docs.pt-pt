@@ -3,7 +3,7 @@ title: Implementar a sua oferta no Azure Marketplace | Documentos da Microsoft
 description: Saiba mais sobre e percorrer as instruções para implementar a sua oferta, a imagem de máquina virtual, o serviço de desenvolvedor, o serviço de dados, etc. – no Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714286"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076116"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implementar a sua oferta no Azure Marketplace
 Quando estiver satisfeito com a oferta (ou seja, testou cenários de clientes, de marketing conteúdo, etc.) e está pronto para iniciar, solicitar **emitir para produção** sobre o **publicar** separador.  
@@ -62,15 +63,15 @@ Quando estiver satisfeito com a oferta (ou seja, testou cenários de clientes, d
 * O design do Azure tem uma paleta de cores simples. Mantenha o número de principal e secundário cores seu logótipo baixa.
 * As cores de tema do portal do Azure são brancas e preto. Evite, por conseguinte, utilizar essas cores como a cor de fundo de suas logótipos. Utilize uma cor que tornaria os logótipos proeminente no portal do Azure. Recomendamos cores primárias simples. Se estiver a utilizar o fundo transparente, em seguida, certifique-se de que o texto/logótipo não é preto ou branco.
 * Não utilize um plano de fundo de gradação o logótipo.
-* Evite colocar texto, até mesmo sua empresa ou o nome da marca, sobre o logótipo.
+* Evite colocar texto, até mesmo a sua empresa, ou sua marca nome, o logótipo.
 * O aspeto e funcionalidade do seu logótipo deve ser "simples" e deve evitar gradientes.
 * O logótipo não deverá ser ampliado.
 
 **Diretrizes adicionais para o logótipo de Hero:**
 
 * O logótipo de Hero é opcional. O publicador pode optar por não carregue um logótipo de Hero. **No entanto uma vez carregado o ícone de hero não é possível eliminar a publicação do portal. Nessa altura, o parceiro tem de seguir as diretrizes do Azure Marketplace para os ícones de Hero outras que a oferta não será aprovada para produção.**
-* O nome de exibição do publicador, título SKU e a oferta longa resumo são apresentados na cor da fonte branco. Por isso, deve evitar manter qualquer cor leve no plano de fundo do ícone Hero. Preto, branco e transparente em segundo plano não é permitido para os ícones de Hero.
-* O publicador apresentar o nome, a título SKU, a oferta resumo há muito tempo e no botão Criar são inseridas por meio de programação no logótipo de Hero assim que a oferta vai listada. Portanto, não deve digitar qualquer texto durante a conceção o logótipo de Hero. Apenas deixe um espaço vazio à direita, uma vez que o texto (ou seja, nome a apresentar do publicador, título SKU, a oferta longa resumo) será incluído por meio de programação por nós por aí. O espaço vazio para o texto deve ser 415 x 100 à direita (e ele é contrabalançado por 370px da esquerda).
+* O nome de exibição do publicador, título SKU e o resumo extenso da oferta são apresentados na cor da fonte branco. Por isso, deve evitar manter qualquer cor leve no plano de fundo do ícone Hero. Plano de fundo preto, branco e transparente não é permitido para os ícones de Hero.
+* O publicador apresentar o nome, a título SKU, a oferta resumo há muito tempo e no botão Criar são inseridas por meio de programação no logótipo de Hero assim que a oferta vai listada. Portanto, não deve digitar qualquer texto durante a conceção o logótipo de Hero. Apenas deixe um espaço vazio à direita, uma vez que o texto (ou seja, nome a apresentar do publicador, título SKU, a oferta longa resumo) será incluído por meio de programação por nós por aí. O espaço vazio para o texto deve ser 415 x 100 à direita (e ele é contrabalançado por 370 px da esquerda).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Lista de verificação de produção adicionais para a máquina de Virtual já listadas oferece
 * Verifique se já existe uma oferta com o mesmo nome de oferta da sua empresa. Se Sim, em seguida, deve adicionar uma nova versão do SKU da oferta existente em vez de criar uma nova oferta duplicada.
@@ -81,7 +82,7 @@ Quando estiver satisfeito com a oferta (ou seja, testou cenários de clientes, d
 Assim que a oferta for executada, teste os cenários de cliente para validar que todos os contratos e a funcionalidade funcionarem corretamente no ambiente de produção como testou e validou no ambiente de teste.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: Como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

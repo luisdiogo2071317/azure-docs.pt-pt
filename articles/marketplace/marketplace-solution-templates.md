@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: d955f5c11121e8d42bc4b02b75427ab07298e74b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 660120a1314c0071aa5b1cf3eae668e1626813a1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264187"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073463"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Aplicações do Azure: Oferta de modelo de solução guia de publicação
 
@@ -40,7 +40,7 @@ Estes modelos de solução são ofertas de transação, o que são implementadas
 |  |  |
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Se ainda não fez isso, [registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
 
 Se é registrado e está a criar uma nova oferta ou trabalhando num já existente, inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

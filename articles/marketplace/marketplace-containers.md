@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059425"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076387"
 ---
 # <a name="containers-offer-publishing-guide"></a>Os contentores oferecem o guia de publicação
 
@@ -40,16 +40,17 @@ Atualmente, a Microsoft suporta modelos de licenciamento de gratuitos e bring-yo
 |:--- |:--- |  
 | Faturação e medição | Suporta qualquer um dos gratuito ou modelo de faturação de BYOL. |  
 | Imagem criada a partir do Dockerfile | Imagens de contentor têm de ser baseadas na especificação de imagem do Docker e devem ser criadas a partir de um Dockerfile.<ul> <li>Para obter mais informações sobre a criação de imagens do docker, visite a seção de utilização localizada em [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hospedagem no ACR | Imagens de contentor tem de estar alojadas num repositório do Azure Container Registry (ACR).<ul> <li>Para obter mais informações sobre como trabalhar com o ACR, visite o guia de introdução: criar um registo de contentor com a página do portal do Azure localizada em [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Hospedagem no ACR | Imagens de contentor tem de estar alojadas num repositório do Azure Container Registry (ACR).<ul> <li>Para obter mais informações sobre como trabalhar com o ACR, visite o guia de introdução: Criar um registo de contentor com a página do portal do Azure localizada em [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Marcação de imagem | Imagens de contentor tem de conter, pelo menos, 1 etiqueta (máximo de etiquetas: 16).<ul> <li>Para mais informações sobre a marcação de uma imagem, visite a página de etiqueta do docker localizada em [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Se ainda não fez isso, 
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
 
 Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- Ver [contentores](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para obter mais informações.

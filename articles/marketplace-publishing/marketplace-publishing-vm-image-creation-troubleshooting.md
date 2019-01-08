@@ -3,7 +3,7 @@ title: Como resolver problemas comuns durante a criação do VHD | Documentos da
 description: Respostas a perguntas de resolução de problemas comuns e problemas durante a criação do VHD.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: e58a5f8901b2ab53d47095e1d5fd232783e3b1ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713402"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079141"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Como resolver problemas comuns encontrados durante a criação do VHD
 Este artigo é fornecido para o ajudar a um publicador do Azure Marketplace e/ou o coadministrador que pode ocorrer um problema ou ter perguntas comuns ao publicar ou gerir as suas soluções de máquina virtual.
@@ -51,7 +52,7 @@ Este artigo é fornecido para o ajudar a um publicador do Azure Marketplace e/ou
    Podemos ainda não suporta esta funcionalidade.
 9. Uma aplicação de 32 bits é suportada no Azure Marketplace?
    
-   Veja o link para obter detalhes sobre a política de suporte: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
-10. Sempre que estou a tentar criar uma imagem de meus VHDs, recebo a mensagem de erro ". VHD já está registado no repositório de imagens como o recurso"no PowerShell. Eu não criei nenhuma imagem antes nem foi encontrado qualquer imagem com este nome no Azure. Como posso resolver isto?
+   Veja a ligação para obter detalhes sobre a política de suporte: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+10. Sempre que estou a tentar criar uma imagem de meus VHDs, recebo a mensagem de erro ". VHD já está registado no repositório de imagens como o recurso"no PowerShell. Eu não criei nenhuma imagem antes nem foi encontrado qualquer imagem com este nome no Azure. Como posso resolver este problema?
     
-    Normalmente, isto acontecer se o utilizador aprovisionado uma VM a partir deste VHD e não existe um bloqueio nesse VHD. Verifique que não existe nenhuma VM alocada a partir deste VHD. Se o erro ainda persistirem, em seguida, emita um pedido de suporte utilizando a seguinte hiperligação ou da publicação o portal relativamente a isso (os detalhes são fornecidos na resposta de pergunta 11).
+    Este problema ocorre, normalmente, se o utilizador aprovisionado uma VM a partir deste VHD e não existe um bloqueio nesse VHD. Verifique que não existe nenhuma VM alocada a partir deste VHD. Se o erro persistir, em seguida, emitir um pedido de suporte utilizando a seguinte hiperligação ou a partir de publicação portal (os detalhes são fornecidos na resposta de pergunta 11).

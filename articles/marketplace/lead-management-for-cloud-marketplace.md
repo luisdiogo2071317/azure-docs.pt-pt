@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840168"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076965"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Numa gestão para o marketplace da cloud
 
@@ -77,21 +77,21 @@ Assim que o técnico configurar estiver em vigor, deve incorporar destas oportun
 
 > Resolução: Atribua a função de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga as instruções [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) em configurações de segurança 
 
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: A aplicação com o identificador não foi encontrada no diretório** 
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Aplicação com o identificador não foi encontrada no diretório** 
 
 > O Id da aplicação na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 8 (em Azure Active Directory, partir [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: O identificador do inquilino pedido não é o formato de domínio externo válido e não é válido** 
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Identificador do inquilino pedida não é o formato de domínio externo válido e não é válido** 
 
 > O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, partir [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Erro ao validar as credenciais.: segredo de cliente inválido fornecido.** 
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Erro ao validar as credenciais.: É fornecido o segredo de cliente inválido.** 
 
-> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde ao que está no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde a que há no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: O canal de pedido excedido o tempo limite ao aguardar uma resposta após as 00:00 02:. Aumente o valor de tempo limite transmitido para a chamada a pedido ou aumente o valor de SendTimeout na associação. O tempo alocado para esta operação pode ter sido uma parte do limite de tempo mais longo.**  
 
-> Resolução: Início de sessão para a Cloud Partner Portal, consulte os detalhes de loja >> líder de destino >> URL, verifique se é uma instância válida do Dynamic CRM
+> Resolução: Inicie sessão no Portal do Cloud Partner, verifique os detalhes da loja >> líder de destino >> URL, verifique se é uma instância válida do Dynamic CRM
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -102,7 +102,7 @@ Oportunidades potenciais são os clientes que estão a implementar seus produtos
 
 **Onde posso obter ajuda na configuração de meu destino líder?** 
 
-Pode encontrar a documentação aqui: [obter oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ou submeter um pedido de suporte através do tipo de oferta selecione aka.ms/marketplacepublishersupport e levar a gestão. 
+Pode encontrar a documentação aqui: [Obter oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ou submeter um pedido de suporte através do tipo de oferta selecione aka.ms/marketplacepublishersupport e levar a gestão. 
 
 
 
@@ -150,7 +150,7 @@ title = MSFT_TEST_636573304831318844
 
 **Tenho uma oferta em direto, mas não estou a ver quaisquer oportunidades potenciais?**
 
-Cada oportunidade potencial terá dados passados em campos no destino da oportunidade potencial selecionado, as oportunidades potenciais virão no seguinte formato: **acção de origem | Oferta** 
+Cada oportunidade potencial terá dados passados em campos no destino da oportunidade potencial selecionado, as oportunidades potenciais virão no seguinte formato: **Acção de origem | Oferta** 
 
   *Origens:*
 

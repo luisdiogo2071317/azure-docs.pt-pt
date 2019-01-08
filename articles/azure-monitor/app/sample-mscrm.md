@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 9028d682d7807b8b153153840356e2e37b082b27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12b4a4639991628265a19a5d45f3abdef590efcd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028848"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077934"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Descrição Passo a Passo: Ativar a telemetria para utilizar o Application Insights do Microsoft Dynamics CRM Online
 Este artigo mostra-lhe como obter dados de telemetria dos [do Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vamos examinar o processo completo de adicionar o script do Application Insights à sua aplicação, capturar dados e visualização de dados.
@@ -127,7 +127,7 @@ Clique no gráfico para obter mais detalhes:
 [Procurar o código de exemplo](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="power-bi"></a>Power BI
-Pode fazer análises ainda mais, se [exportar os dados para o Microsoft Power BI](../../application-insights/app-insights-export-power-bi.md).
+Pode fazer análises ainda mais, se [exportar os dados para o Microsoft Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 ## <a name="sample-microsoft-dynamics-crm-solution"></a>Solução do exemplo Microsoft Dynamics CRM
 [Eis a solução de exemplo implementada no Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420103"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065805"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -262,7 +262,7 @@ Pode forçar o gateway a comunicar com o Azure Service Bus através de HTTPS, em
 
    Caso contrário, para encontrar a localização do cliente, abra a consola de serviços no mesmo computador, encontre **serviço de gateway de dados no local**e ver o **caminho para o executável** propriedade.
 
-2. Abrir isto *configuration* ficheiro: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Abrir isto *configuração* ficheiro: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Alteração da **ServiceBusSystemConnectivityModeString** partir da **AutoDetect** para **Https**:
 
@@ -276,10 +276,9 @@ Pode forçar o gateway a comunicar com o Azure Service Bus através de HTTPS, em
 
 ## <a name="windows-service-account"></a>Conta de serviço do Windows
 
-O gateway de dados no local é executado como um serviço do Windows com o nome "No local o serviço de gateway de dados", mas utiliza "NT SERVICE\PBIEgwService" para as suas credenciais de conta "Iniciar sessão como". Por predefinição, o gateway de dados no local tem permissões de "Iniciar sessão como um serviço" para o computador onde instalou o gateway. Para criar e manter o gateway no portal do Azure, a conta de serviço do Windows tem de ter, pelo menos, **contribuinte** permissões. 
+No computador onde instalou o gateway de dados no local, o gateway é executado como uma conta de serviço do Windows com o nome "No local o serviço de gateway de dados". No entanto, o gateway utiliza o nome de "NT SERVICE\PBIEgwService" para as suas credenciais de conta "Iniciar sessão como". Por predefinição, o gateway tem permissões de "Iniciar sessão como um serviço" no computador onde instalou o gateway. A conta de serviço do Windows para o gateway difere, normalmente, a conta que utiliza para ligar a origens de dados no local e de trabalho conta escolar ou profissional que utilizar para iniciar sessão para serviços cloud.
 
-> [!NOTE]
-> A conta de serviço do Windows é diferente da conta utilizada para ligar a origens de dados no local e da conta escolar ou profissional que utilizou para iniciar sessão serviços cloud.
+Para poder criar e manter o gateway no portal do Azure, esta conta de serviço do Windows tem de ter, pelo menos, **contribuinte** permissões. Para verificar estas permissões, consulte [gerir o acesso com RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -329,58 +328,58 @@ Estes passos descrevem o que acontece quando um utilizador na cloud interage com
 
 ### <a name="general"></a>Geral
 
-**As perguntas e**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
-**A**: não, o gateway se liga a origens de dados no local apenas.
+**AS PERGUNTAS E**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
+**A**: Não, o gateway se liga a origens de dados no local apenas.
 
-**As perguntas e**: o gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
-**A**: não, o gateway se liga à origem de dados com as informações de ligação fornecida. Considere o gateway como uma aplicação de cliente nesse sentido. O gateway precisa apenas a capacidade de ligar para o nome do servidor que foi fornecido.
+**AS PERGUNTAS E**: O gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
+**A**: Não, o gateway se liga à origem de dados com as informações de ligação fornecida. Considere o gateway como uma aplicação de cliente nesse sentido. O gateway precisa apenas a capacidade de ligar para o nome do servidor que foi fornecido.
 
 <a name="why-azure-work-school-account"></a>
 
-**As perguntas e**: por que motivo deve utiliza uma conta escolar ou profissional para iniciar sessão? <br/>
-**A**: só pode utilizar uma conta escolar ou profissional ao instalar o gateway de dados no local. Sua conta de início de sessão é armazenada num inquilino gerido pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde ao endereço de e-mail.
+**AS PERGUNTAS E**: Por que motivo deve utilizar uma conta escolar ou profissional para iniciar sessão? <br/>
+**A**: Só pode utilizar uma conta escolar ou profissional ao instalar o gateway de dados no local. Sua conta de início de sessão é armazenada num inquilino gerido pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde ao endereço de e-mail.
 
-**As perguntas e**: onde estão armazenadas as minhas credenciais? <br/>
-**A**: as credenciais que introduzir para uma origem de dados são encriptadas e armazenadas no serviço cloud do gateway. As credenciais são desencriptadas no gateway de dados no local.
+**AS PERGUNTAS E**: Onde estão armazenadas as minhas credenciais? <br/>
+**A**: As credenciais que introduzir para uma origem de dados são encriptadas e armazenadas no serviço cloud do gateway. As credenciais são desencriptadas no gateway de dados no local.
 
-**As perguntas e**: existem requisitos de largura de banda de rede? <br/>
+**AS PERGUNTAS E**: Existem requisitos de largura de banda de rede? <br/>
 **A**: Verifique se a ligação de rede tem bom débito. Cada ambiente é diferente e a quantidade de dados enviados pode afetar os resultados. Para garantir um nível de débito entre a origem de dados no local e dos datacenters do Azure, experimente [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Para ajudar a medir o débito, experimente uma ferramenta externa, como o Azure Speed Test.
 
-**As perguntas e**: o que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
-**A**: para reduzir a latência de rede, instale o gateway mais próximo possível da origem de dados. Se pode instalar o gateway na origem de dados real, este proximidade minimiza a latência introduzida. Além disso, considere a proximidade aos datacenters do Azure. Por exemplo, se o serviço utiliza o datacenter E.U.A. oeste e tiver o SQL Server alojado numa VM do Azure, em seguida, é aconselhável a VM do Azure na região E.U.A. oeste demasiado. Este proximidade minimiza a latência e evita custos de saída na VM do Azure.
+**AS PERGUNTAS E**: O que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
+**A**: Para reduzir a latência de rede, instale o gateway como próximo da origem de dados quanto possível. Se pode instalar o gateway na origem de dados real, este proximidade minimiza a latência introduzida. Além disso, considere a proximidade aos datacenters do Azure. Por exemplo, se o serviço utiliza o datacenter E.U.A. oeste e tiver o SQL Server alojado numa VM do Azure, em seguida, é aconselhável a VM do Azure na região E.U.A. oeste demasiado. Este proximidade minimiza a latência e evita custos de saída na VM do Azure.
 
-**As perguntas e**: como os resultados são enviados para a cloud? <br/>
-**A**: os resultados são enviados através do Azure Service Bus.
+**AS PERGUNTAS E**: Como os resultados são enviados para a cloud? <br/>
+**A**: Os resultados são enviados através do Azure Service Bus.
 
-**As perguntas e**: existem ligações de entrada para o gateway da cloud? <br/>
-**A**: não, o gateway utiliza ligações de saída para o Azure Service Bus.
+**AS PERGUNTAS E**: Existem ligações de entrada para o gateway da cloud? <br/>
+**A**: Não, o gateway utiliza ligações de saída para o Azure Service Bus.
 
-**As perguntas e**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
-**A**: consulte as portas e os anfitriões que o gateway utiliza.
+**AS PERGUNTAS E**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
+**A**: Ver as portas e os anfitriões que o gateway utiliza.
 
-**As perguntas e**: o que é o serviço real do Windows chamado? <br/>
-**A**: no separador de serviços no Gerenciador de tarefas, o nome do serviço é "PBIEgwService" ou o serviço de Gateway do Power BI Enterprise. Na consola de serviços, o nome do serviço é o "serviço de gateway de dados no local". O serviço do Windows utiliza "NT SERVICE\PBIEgwService" como o SID de serviço (SSID).
+**AS PERGUNTAS E**: O que é o serviço real do Windows chamado? <br/>
+**A**: No separador de serviços no Gerenciador de tarefas, o nome do serviço é "PBIEgwService" ou o serviço de Gateway do Power BI Enterprise. Na consola de serviços, o nome do serviço é o "serviço de gateway de dados no local". O serviço do Windows utiliza "NT SERVICE\PBIEgwService" como o SID de serviço (SSID).
 
-**As perguntas e**: o serviço Windows do gateway pode executar com uma conta do Azure Active Directory? <br/>
-**A**: não, o serviço do Windows tem de ter uma conta Windows válida.
+**AS PERGUNTAS E**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
+**A**: Não, o serviço do Windows tem de ter uma conta Windows válida.
 
 ### <a name="disaster-recovery"></a>Recuperação após desastre
 
-**As perguntas e**: que opções estão disponíveis para recuperação após desastre? <br/>
-**A**: pode utilizar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
+**AS PERGUNTAS E**: Que opções estão disponíveis para recuperação após desastre? <br/>
+**A**: Pode utilizar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
 
-**As perguntas e**: qual é a vantagem da chave de recuperação? <br/>
+**AS PERGUNTAS E**: Qual é a vantagem da chave de recuperação? <br/>
 **A**: A chave de recuperação fornece uma forma de migrar ou recuperar as definições do gateway após um desastre.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Esta secção aborda alguns problemas comuns que poderá ser necessário ao configurar e utilizar o gateway de dados no local.
 
-**As perguntas e**: por que minha instalação do gateway falhar? <br/>
-**A**: este problema pode acontecer se o software de antivírus no computador de destino está desatualizado. Pode atualizar o software de antivírus ou desativar o software de antivírus, mas apenas durante a instalação de gateway e, em seguida, ative novamente o software.
+**AS PERGUNTAS E**: Por que falha minha instalação de gateway? <br/>
+**A**: Este problema pode acontecer se o software de antivírus no computador de destino está desatualizado. Pode atualizar o software de antivírus ou desativar o software de antivírus, mas apenas durante a instalação de gateway e, em seguida, ative novamente o software.
 
-**As perguntas e**: por que motivo não vejo minha instalação de gateway ao criar o recurso de gateway no Azure? <br/>
-**A**: este problema pode ocorrer por esses motivos:
+**AS PERGUNTAS E**: Por que motivo não vejo minha instalação de gateway ao criar o recurso de gateway no Azure? <br/>
+**A**: Este problema pode ocorrer por esses motivos:
 
 * A instalação do gateway já esteja registrada e solicitada por outro recurso de gateway no Azure. Instalações de gateways não são apresentados na lista de instâncias depois de recursos de gateway são criados para eles.
 Para verificar os registos de gateway no portal do Azure, reveja todos os recursos do Azure com o **Gateways de dados no local** escreva para *todos os* subscrições do Azure. 
@@ -389,11 +388,11 @@ Para verificar os registos de gateway no portal do Azure, reveja todos os recurs
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**As perguntas e**: onde estão os registos do gateway? <br/>
-**R**: consulte a [ **registos** secção](#logs) mais adiante neste artigo.
+**AS PERGUNTAS E**: Onde estão os registos do gateway? <br/>
+**A**: Consulte a [ **registos** seção](#logs) mais adiante neste artigo.
 
-**As perguntas e**: como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
-**A**: pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Não se esqueça de alterar a consulta rastreio de volta para o valor original quando terminado a resolução de problemas. Deixar o rastreio de consulta ativado cria registos maiores.
+**AS PERGUNTAS E**: Como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
+**A**: Pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Não se esqueça de alterar a consulta rastreio de volta para o valor original quando terminado a resolução de problemas. Deixar o rastreio de consulta ativado cria registos maiores.
 
 Pode também ver as ferramentas que a sua origem de dados tem para rastreio de consultas. Por exemplo, pode usar eventos expandidos ou o SQL Profiler para SQL Server e do Analysis Services.
 
@@ -444,7 +443,7 @@ Para monitorização adicional e resolução de problemas, pode ligar e recolher
 
    Caso contrário, para encontrar a localização do cliente, abra a consola de serviços no mesmo computador, encontre **serviço de gateway de dados no local**e ver o **caminho para o executável** propriedade.
 
-2. Abrir isto *configuration* ficheiro: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Abrir isto *configuração* ficheiro: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Alteração da **SendTelemetry** valor **verdadeiro**:
 

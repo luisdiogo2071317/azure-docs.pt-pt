@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231632"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063221"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Criar variáveis para guardar e gerir os valores no Azure Logic Apps
 
@@ -28,7 +28,10 @@ Pode criar variáveis para tipos de dados, como o número inteiro, vírgula flut
 * Atribua outro valor à variável.
 * Inserir ou *acrescentar* o valor da variável como a última vez numa cadeia ou matriz.
 
-Variáveis existem e estão globais apenas dentro da instância da aplicação lógica que as cria. Além disso, eles mantêm em qualquer iterações de loop dentro de uma instância da aplicação lógica. Ao fazer referência uma variável, utilize o nome da variável como o token, não a nome da ação, que é a forma usual de referenciam as saídas de uma ação.
+Variáveis existem e estão globais apenas dentro da instância da aplicação lógica que as cria. Além disso, eles mantêm em qualquer iterações de loop dentro de uma instância da aplicação lógica. Ao fazer referência uma variável, utilize o nome da variável como o token, não a nome da ação, que é a forma usual de referenciam as saídas de uma ação. 
+
+> [!IMPORTANT]
+> Por predefinição, os ciclos num loop "Foreach" são executadas em paralelo. Quando utiliza variáveis em ciclos, executar o loop [sequencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para variáveis devolvem resultados previsíveis. 
 
 Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>. 
 
@@ -38,7 +41,7 @@ Para seguir este artigo, aqui estão os itens que precisa:
 
 * A aplicação de lógica onde pretende criar uma variável 
 
-  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * R [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa na sua aplicação lógica 
 
@@ -73,7 +76,7 @@ Pode criar uma variável e declarar o tipo de dados e o valor inicial - tudo den
    |----------|----------|-------|--------------|
    | Nome | Sim | <*nome da variável*> | O nome para a variável incrementar | 
    | Tipo | Sim | <*tipo de variável*> | O tipo de dados para a variável | 
-   | Valor | Não | <*valor inicial*> | O valor iniciar da variável <p><p>**Sugestão**: Embora seja opcional, definir este valor como melhor prática, para que sempre sabe o valor inicial da variável. | 
+   | Valor | Não | <*valor inicial*> | O valor iniciar da variável <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática, para que saiba sempre o valor inicial da variável. | 
    ||||| 
 
    ![Inicializar variável](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,7 +211,7 @@ Para aumentar ou *incremento* adicionar uma variável por um valor constante, o 
    | Propriedade | Necessário | Valor |  Descrição |
    |----------|----------|-------|--------------|
    | Nome | Sim | <*nome da variável*> | O nome para a variável incrementar | 
-   | Valor | Não | <*valor de incremento*> | O valor utilizado para incrementar a variável. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática para que saiba sempre o valor específico por incrementar a variável. | 
+   | Valor | Não | <*valor de incremento*> | O valor utilizado para incrementar a variável. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática, para que saiba sempre o valor específico por incrementar a variável. | 
    |||| 
 
    Por exemplo: 
@@ -232,7 +235,7 @@ Se mudar a partir do designer para o editor de vista de código, eis a forma com
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Exemplo: Criar o contador de loop
+## <a name="example-create-loop-counter"></a>Exemplo: Criar contador de loop
 
 As variáveis são frequentemente utilizadas para contar o número de vezes que um loop for executado. Este exemplo mostra como criar e utilizar variáveis para esta tarefa através da criação de um loop que conte os anexos por e-mail.
 
@@ -328,7 +331,7 @@ Aqui estão as propriedades para o **variável de diminuição** ação:
 | Propriedade | Necessário | Valor |  Descrição |
 |----------|----------|-------|--------------|
 | Nome | Sim | <*nome da variável*> | O nome para a variável diminuir | 
-| Valor | Não | <*valor de incremento*> | O valor para a variável de diminuição. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, definir este valor como melhor prática, para que sempre sabe o valor específico para a diminuição da variável. | 
+| Valor | Não | <*valor de incremento*> | O valor para a variável de diminuição. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática, para que sempre sabe o valor específico para a diminuição da variável. | 
 ||||| 
 
 Se mudar a partir do designer para o editor de vista de código, eis a forma como o **variável de diminuição** ação aparece dentro a definição de aplicação lógica, que está no formato JSON.

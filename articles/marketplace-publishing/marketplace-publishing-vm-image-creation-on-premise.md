@@ -3,7 +3,7 @@ title: Criar uma imagem de máquina virtual no local para o Azure Marketplace | 
 description: Compreender e executar os passos para criar uma imagem VM no local e implementar no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9fbb2f50905b1b80a092ba13f860f30cb9423a9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253504"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077798"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual no local para o Azure Marketplace
 Recomendamos vivamente que desenvolva Azure discos rígidos virtuais (VHDs) diretamente na cloud utilizando o protocolo de ambiente de trabalho remoto. No entanto, se for necessário, é possível transferir um VHD e desenvolvê-lo através da infraestrutura no local.  
@@ -144,7 +145,7 @@ Utilize o [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) cmdle
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Carregar um VHD com a ferramenta de linha de comandos para Mac e Linux
-Com o [ferramenta de linha de comando do Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilize o seguinte procedimento: criar a imagem de vm do azure <image name> – localização <Location of the data center> – SO Linux <LocationOfLocalVHD>
+Com o [ferramenta de linha de comando do Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilize o seguinte comando: `azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>`
 
 ## <a name="see-also"></a>Consulte também
 * [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)

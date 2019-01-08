@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ff3ca665382efc9133a4c4ce3f3fde25c03c5e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ad22f1944d3fe9a088b66da4cf4df7136db497f7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810960"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075343"
 ---
 <a name="make-your-virtual-machine-offer-live-on-azure-marketplace"></a>Tornar a sua máquina Virtual em direto oferta no Azure Marketplace
 =========================================================
@@ -51,13 +51,13 @@ Vamos examinar cada um dos passos publicação, abordarei o que acontece em cada
 
 Quando clica em "Publicar", uma verificação automatizada terá lugar para se certificar de que já preencheu todos os campos obrigatórios na sua oferta. Se quaisquer campos não são preenchidos, será apresentado um aviso junto ao campo da e precisará para preenchê-lo com precisão, em seguida, clique em 'Publish' novamente.
 
-Depois de concluir este passo corretamente, um pop-up aparecerá pedir um endereço de e-mail. Este é o e-mail para o qual receberá publicação notificações de estado para o restante do processo de publicação. Depois de submeter o seu endereço de e-mail, este passo é concluído.
+Depois de concluir este passo corretamente, um pop-up irá solicitar um endereço de e-mail. Este é o e-mail para o qual receberá publicação notificações de estado para o restante do processo de publicação. Depois de submeter o seu endereço de e-mail, este passo é concluído.
 
 ![Oferta Go Live sequência 4 – publicar a sua oferta](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
 
 **Certificação (\<5 dias)**
 
-Este passo é onde podemos executar vários testes para garantir que sua imagem VM cumpre os requisitos de certificação do Azure. Todas as diretrizes que precisará para se certificar de que passar os requisitos de certificação estão [aqui](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
+Este passo é onde podemos executar vários testes para garantir que sua imagem VM cumpre os requisitos de certificação do Azure. Todas as diretrizes que precisará para se certificar de que passar os requisitos de certificação estão [aqui](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md).
 
 Uma vez que este passo pode demorar vários dias, pode iniciar sessão fora do Portal do Cloud Partner. Nós lhe enviaremos uma notificação por e-mail se existirem quaisquer erros que tem de cumprir. Se tudo o que passar com êxito, o processo será automaticamente avançar para o passo de aprovisionamento.
 
@@ -75,17 +75,17 @@ Além disso, se tiver configurado a funcionalidade de geração de levar, iremos
 
 Receberá um e-mail de notificação que a oferta foi concluída com êxito os passos necessários para aceder à oferta em pré-visualização. Durante este passo, deve pré-visualizar a oferta e certificar-se de que tudo parece como deve ser e que a VM implementa corretamente no ambiente de teste.
 
-**Apenas as subscrições de na lista de permissões podem fazer esta verificação.**\*
+*Apenas as subscrições de na lista de permissões podem fazer esta verificação.*
 
 **Aprovação do publicador**
 
-Depois de verificar tudo parece correto e que funciona corretamente na pré-visualização, está pronto para entrar em direto. Para tal, clique em Go Live sob o estado de separador e começará passos para tornar a sua oferta em direto na produção e no Web site. Normalmente, irá demorar várias horas desde o momento de clicar em Go Live e quando a oferta está publicada no Web site. Nós lhe enviaremos uma notificação por e-mail depois de oficialmente em direto no site da sua oferta.
+Depois de verificar tudo parece correto e que funciona corretamente na pré-visualização, está pronto para entrar em direto. Clique em **Go Live** sob a **estado** separador e começará a passos para tornar a sua oferta em direto na produção e no Web site. Normalmente, irá demorar várias horas desde o momento de clicar em Go Live e quando a oferta está publicada no Web site. Nós lhe enviaremos uma notificação por e-mail depois de oficialmente em direto no site da sua oferta.
 
 ![Oferecer sequência em direto do Go 5 - go em direto](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
 **Em direto**
 
-A oferta está agora em direto no Azure Marketplace e o Portal do Azure e os clientes poderão ver e implementar a sua máquina virtual das subscrições do Azure. Em qualquer momento, pode clicar na guia todas as ofertas e ver o estado para todas as suas ofertas listadas na coluna da direita. Pode clicar no estado para ver o estado de fluxo de publicação em detalhes para a sua oferta.
+A oferta está agora em direto no Azure Marketplace e o portal do Azure e os clientes poderão ver e implementar a sua máquina virtual das subscrições do Azure. Em qualquer momento, pode clicar na guia todas as ofertas e ver o estado para todas as suas ofertas listadas na coluna da direita. Pode clicar no estado para ver o estado de fluxo de publicação em detalhes para a sua oferta.
 
 <a name="error-handling"></a>Tratamento de erros
 --------------
@@ -94,7 +94,7 @@ Durante o processo de publicação, pode ser encontrado um erro. Se for encontra
 
 ![Aceda ao vivo sequência 6 - mensagem de erro da oferta](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
-Se encontrar erros durante o processo de publicação, é necessário corrigir estes, em seguida, clique em "Publicar" para reiniciar o processo. Tem de começar no início dos passos de publicação em Validar pré-requisitos quando voltar a publicar após qualquer correção de erro.
+Se encontrar erros durante o processo de publicação, são necessárias para corrigir estes problemas, em seguida, clique em "Publicar" para reiniciar o processo. Tem de começar no início dos passos de publicação em Validar pré-requisitos quando apagarmos após qualquer correção de erro.
 
 Se estiver a ter problemas de resolução de um erro, deve abrir um pedido de suporte para receber ajuda de nossos engenheiros de suporte.
 

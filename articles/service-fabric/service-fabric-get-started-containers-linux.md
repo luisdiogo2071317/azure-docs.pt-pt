@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 5432266bd042b527156852aaf30fef09f3bf8c72
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053301"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062371"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ Especifica o mapeamento de portas no formato apropriado. Neste artigo, tem de fo
    </ServiceManifestImport>
 ``` 
 
-Recomendamos que encripte a palavra-passe do repositório, consulte [ gerir os segredos encriptados em aplicações do Service Fabric](service-fabric-application-secret-management.md)
+Recomendamos que encripte a palavra-passe do repositório. Consulte a [ gerir os segredos encriptados em aplicações do Service Fabric](service-fabric-application-secret-management.md) para obter instruções.
 
 ### <a name="configure-cluster-wide-credentials"></a>Configurar as credenciais de todo o cluster
 Consulte [a documentação aqui presente](

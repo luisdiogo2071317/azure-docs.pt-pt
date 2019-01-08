@@ -3,7 +3,7 @@ title: Preparar e testar a sua oferta para a implementação no Azure Marketplac
 description: Obter instruções detalhadas sobre a fornecer conteúdo de marketing, configurar planos de preços e teste a sua oferta antes de implementar no Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: f1e6e779731564f714cc100d25a53da8732dca74
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714964"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075996"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Concluir a criação de oferta com conteúdo de marketing
 Neste passo do processo de publicação, terá de fornecer determinados conteúdo de marketing e detalhes sobre a oferta de e/ou a SKUs no Azure Marketplace. Por exemplo, fornecerá uma descrição do seu produto, logótipos, planos de preços, os detalhes dos planos e outras informações necessárias para emitir a oferta de e/ou SKU para teste. Estas informações são utilizadas como conteúdo de marketing no portal do Azure. Começará esse processo no [portal de publicação][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Passo 1: Fornecer conteúdo de marketing do Marketplace
-**Inglês é o padrão e único idioma suportado.** Certifique-se de que todas as informações fornecidas nos campos estão em inglês. Todas as informações podem ser editadas em qualquer altura até emitir para a fase de testes.
+*Inglês é o padrão e único idioma suportado.*  Certifique-se de que todas as informações fornecidas nos campos estão em inglês. Todas as informações podem ser editadas em qualquer altura até emitir para a fase de testes.
 
 1. Aceda ao portal de publicação [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. No menu da esquerda, clique nas **Marketing** separador.
@@ -78,8 +79,8 @@ Todos os logótipos carregados no Portal de publicação devem seguir as diretri
 **Diretrizes adicionais para o ícone de logótipo Hero (opcional)**
 
 * O logótipo de Hero é opcional. O publicador pode optar por não carregue um logótipo de Hero. **No entanto uma vez carregado o ícone de hero não é possível eliminar a publicação do portal. Nessa altura, o parceiro tem de seguir as diretrizes do Azure Marketplace para os ícones de Hero outras que a oferta não será aprovada para produção.**
-* O nome de exibição do publicador, título de plano e a oferta longa resumo são apresentados na cor da fonte branco. Por isso, deve evitar manter qualquer cor leve no plano de fundo do ícone Hero. Preto, branco e transparente em segundo plano não é permitido para os ícones de Hero.
-* O nome de exibição do publicador, título, a oferta resumo há muito tempo e no botão Criar incorporados por meio de programação dentro o logótipo de Hero depois de fica a oferta de plano listado. Portanto, não deve digitar qualquer texto durante a conceção o logótipo de Hero. Apenas deixe um espaço vazio à direita, uma vez que o texto (ou seja, publicador nome a apresentar, plano título, a oferta longa resumo) será incluído por meio de programação por nós por aí. O espaço vazio para o texto deve ser 415 x 100 à direita (e ele é contrabalançado por 370px da esquerda).
+* O nome de exibição do publicador, título de plano e a oferta longa resumo são apresentados na cor da fonte branco. Por isso, deve evitar manter qualquer cor leve no plano de fundo do ícone Hero. Plano de fundo preto, branco e transparente não é permitido para os ícones de Hero.
+* O nome de exibição do publicador, título, a oferta resumo há muito tempo e no botão Criar incorporados por meio de programação dentro o logótipo de Hero depois de fica a oferta de plano listado. Portanto, não deve digitar qualquer texto durante a conceção o logótipo de Hero. Apenas deixe um espaço vazio à direita, uma vez que o texto (ou seja, publicador nome a apresentar, plano título, a oferta longa resumo) será incluído por meio de programação por nós por aí. O espaço vazio para o texto deve ser 415 x 100 à direita (e ele é contrabalançado por 370 px da esquerda).
   
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -104,7 +105,7 @@ Sobre o **legais** separador, forneça uma ligação para as suas políticas/ter
 
 ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**Nota:** para ofertas de Máquina Virtual, uma vez que uma oferta/SKU ser preparado no Portal do Azure, não é possível alterar os campos indicados abaixo:
+**Nota:** Para ofertas de Máquina Virtual, depois de um oferta/SKU ser preparado no portal do Azure, é possível alterar os campos indicados abaixo:
 
 * **Identificador da oferta:** [portal de publicação -> máquinas virtuais -> a sua oferta -> imagens de VM separador -> identificador oferecem]
 * **Identificador SKU:** [portal de publicação -> máquinas virtuais -> selecione a sua oferta -> SKUs separador -> adicione um SKU]
@@ -123,7 +124,7 @@ Para ofertas de Máquina Virtual, uma vez que a oferta/SKU está listado no Azur
 
 ## <a name="step-2-set-your-prices"></a>Passo 2: Definir os preços
 ### <a name="pricing-models"></a>Modelos de preços
-| Modelo de determinação de preço | Descrição |
+| Modelo preços | Descrição |
 | --- | --- |
 | Base |Taxa mensal fixa pagos no momento da compra; Por exemplo, US $10/ mês. |
 | Consumo (também conhecido como utilização, medidor) |Paga por utilização, que é definida pelo editor da oferta. Utilização excedida não pode ser definida por posto de trabalho, por utilizador, etc., porque não existe nenhum conceito de uma fração de um utilizador ou a capacidade de fazer o rateio. Utilização é comunicada pelo parceiro numa base horária. Cliente paga no do ciclo de faturação mensal, em vez de com antecedência like planos mensais. |
@@ -144,15 +145,15 @@ Para ofertas de Máquina Virtual, uma vez que a oferta/SKU está listado no Azur
 | Serviço de programador |Sim |Sim |Sim |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Definir os preços VM
-Atualmente para máquinas virtuais, temos o seguinte **3 tipos de modelos de faturação:**
+Atualmente para máquinas virtuais, temos o seguinte **três tipos de modelos de faturação:**
 
-* **Hora a hora:** clientes cobrados numa base por hora com base nas tarifas definidas pelos publicadores sobre os tamanhos VM. No caso de **faturação à hora** modelo dos SKUs, o preço total será a soma do custo do software cobrado pelo fabricante e o custo de infraestrutura cobrada pela Microsoft. Esse custo total será apresentado ao cliente como um preço por hora e mensal quando estiver a considerar a compra (veja a captura de ecrã abaixo). **Publicador recebe 80% do custo do software cobrado por eles.** O problema, por conseguinte, o cálculo em conformidade antes de definir os preços para os SKUs de marca.
+* **Por hora:** Os clientes serão cobrados numa base por hora com base nas tarifas definidas pelos publicadores sobre os tamanhos VM. No caso de **faturação à hora** modelo dos SKUs, o preço total será a soma do custo do software cobrado pelo fabricante e o custo de infraestrutura cobrada pela Microsoft. Esse custo total será apresentado ao cliente como um preço por hora e mensal quando estiver a considerar a compra (veja a captura de ecrã abaixo). **Publicador recebe 80% do custo do software cobrado por eles.** Por conseguinte, faça o cálculo em conformidade antes de definir os preços para os SKUs.
   
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1-01.png)
-* **Versão de avaliação gratuita:** este é outro sabor do modelo por hora. Aqui, o cliente não obter cobrado por custo de software para os primeiros 30 days(Free) depois de implementar a VM. Depois de 30days eles serão cobrados numa base por hora com base nas tarifas definidas pelos publicadores no modelo por hora.
-* **Bring-Your-própria licença (BYOL):** os publicadores gerir o licenciamento do software em execução na VM.
+* **Versão de avaliação:** Esta opção é outro sabor do modelo por hora. Aqui, o cliente não obter cobrado por custo de software para os primeiros 30 days(Free) depois de implementar a VM. Após 30 dias, serão cobradas numa base por hora com base nas tarifas definidas pelos publicadores no modelo por hora.
+* **Bring-Your-própria licença (BYOL):** Os publicadores gerir o licenciamento do software em execução na VM.
 
-**Importante:** assim que a oferta/SKU está listado no Azure Marketplace, não é possível alterar os campos indicados abaixo.
+**Importante:** Assim que a oferta/SKU está listado no Azure Marketplace, não é possível alterar os campos indicados abaixo.
 
 * **Alteração de preços dos SKU (s) listados**
 * **Alteração de SKU (s) listados do modelo de faturação**
@@ -174,22 +175,22 @@ Precisa considerar cuidadosamente qual realizar suas SKUs disponíveis. Alguns p
 > 
 > 
 
-### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 como configurar o modelo de preços por hora para um SKU
-Siga os passos indicados abaixo, a configuração do modelo de preços por hora para uma SKU:
+### <a name="211-how-to-set-up-hourly-pricing-model-for-a-sku"></a>2.1.1 como configurar o modelo de preços por hora para um SKU
+Siga os passos abaixo para configurar a hora a hora modelo de preços para uma SKU:
 
-1. Início de sessão para o [portal de publicação](https://publish.windowsazure.com).
+1. Inicie sessão para o [portal de publicação](https://publish.windowsazure.com).
 2. Navegue para o **máquinas virtuais** separador e selecione a sua oferta.
 3. No menu do lado esquerdo, clique nas **SKUS** separador.
 4. Certifique-se de que o SKU é marcado como "Modelo de faturação por hora". Se não for, em seguida, clique nas **editar** botão para reverter o modelo de faturação. Uma janela será aberta. Desmarque a caixa de verificação 'faturação e licenciamento é feito externamente do Azure (também conhecido como traga a sua própria licença)' e guarde as alterações.
-5. Se pretender ativar a avaliação gratuita para a primeira 30days da implementação de SKU, em seguida, selecione a opção "Mês" para a pergunta "É uma avaliação gratuita disponível?" Caso contrário, selecione a opção "Sem versão de avaliação". Agora, siga os passos indicados abaixo.
+5. Se pretender ativar a avaliação gratuita para os primeiros 30 dias de implementação de SKU, em seguida, selecione a opção "Mês" para a pergunta "É uma avaliação gratuita disponível?" Caso contrário, selecione a opção "Sem versão de avaliação". Agora, siga os passos indicados abaixo.
 6. No menu do lado esquerdo, clique nas **preços** separador.
 7. Selecione a sua região base.
    
    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
-8. Defina os preços para todos os núcleos. **Tem de fornecer o preço para todos os núcleos de um SKU, mesmo que o SKU não o suporta.**
+8. Defina os preços para todos os núcleos. *Forneça um preço para todos os núcleos de um SKU, mesmo que o SKU não o suporta.*
    
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
-9. Definir os preços para as outras regiões manualmente ou pode utilizar o assistente AUTOPRICE para definir os preços de outras regiões com base na região base. Para utilizar o AUTOPRICE assistente, clique no botão **AUTOPRICE outros mercados com base no preços IN UNITED Estados.** **Nota:** etiqueta do botão pode ser diferente consoante a região que selecionou. Uma vez que selecionamos dos Estados Unidos ao criar este documento, então, o nome do botão é como "Preço automática em outros mercados com base nos preços nos Estados Unidos" na captura de ecrã abaixo.
+9. Definir os preços para as outras regiões manualmente ou pode utilizar o assistente AUTOPRICE para definir os preços de outras regiões com base na região base. Para utilizar o AUTOPRICE assistente, clique no botão **AUTOPRICE outros mercados com base no preços IN UNITED Estados.** **Nota:** Etiqueta do botão pode ser diferente consoante a região que selecionou. Uma vez que selecionamos dos Estados Unidos ao criar este documento, então, o nome do botão é como "Preço automática em outros mercados com base nos preços nos Estados Unidos" na captura de ecrã abaixo.
    
    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. O Assistente de preço automática será aberto. A primeira página exibe a seleção para o mercado de base. Verifique a seção e mover para a página seguinte, ao clicar no botão "->".
@@ -198,15 +199,15 @@ Siga os passos indicados abaixo, a configuração do modelo de preços por hora 
 11. Opção para a seleção de planos de núcleos e será apresentada na página 2. Selecione os planos desejados e clique em "-a >" do botão. Clique no **Ativar/desativar todos** botão para selecionar todos os **planos de serviço** e **medidores** ou possa verificar manualmente as caixas de verificação. **Tem de fornecer o preço para todos os núcleos de um SKU, mesmo que o SKU não o suporta.** Por conseguinte, certifique-se de que todos os tamanhos de núcleo estão selecionados.
     
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
-12. Página 3 apresenta os mercados/regiões. Clique nas **todos os ativar/desativar** botão selecionar todas as regiões ou verificar manualmente as caixas de região. Clique no botão "->" mover para a página seguinte. **Nota:** Remitted países do imposto sobre Microsoft estão assinalados com uma casa, como o símbolo. Para obter mais detalhes consulte os secção "vender" países do SKU desta página.
+12. Página 3 apresenta os mercados/regiões. Clique nas **todos os ativar/desativar** botão selecionar todas as regiões ou verificar manualmente as caixas de região. Clique no botão "->" mover para a página seguinte. **Nota:** Microsoft imposto Remitted países são assinalados com uma casa, como o símbolo. Para obter mais detalhes, consulte os secção "vender" países do SKU desta página.
     
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. Página 4 apresenta as taxas de câmbio. Clique no botão Concluir para concluir os passos.
 
-### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 como configurar o modelo de preços para uma SKU de BYOL
-Siga os passos indicados abaixo para configurar o modelo de preços para uma SKU de BYOL:
+### <a name="212-how-to-set-up-byol-pricing-model-for-a-sku"></a>2.1.2 como configurar o modelo de preços para uma SKU de BYOL
+Siga os passos abaixo para configurar o modelo de preços para uma SKU de BYOL:
 
-1. Início de sessão para o [portal de publicação](https://publish.windowsazure.com).
+1. Inicie sessão para o [portal de publicação](https://publish.windowsazure.com).
 2. Navegue para o **máquinas virtuais** separador e selecione a sua oferta.
 3. No menu do lado esquerdo, clique nas **SKUS** separador.
 4. Certifique-se de que o SKU está marcado como "Traga a sua própria licença do SKU". Caso contrário, em seguida, clique no botão Editar para reverter o modelo de faturação. Uma janela será aberta. Marque a caixa de verificação 'faturação e licenciamento é feito externamente do Azure (também conhecido como traga a sua própria licença)' e guarde as alterações.
@@ -221,7 +222,7 @@ Siga os passos indicados abaixo para configurar o modelo de preços para uma SKU
 ### <a name="22-set-your-developer-service-prices"></a>2.2. Definir os preços do serviço de programador
 Planos podem ser qualquer combinação de base + consumo, onde a base é o preço mensal e utilização excedida é o preço pay-per-use. (Veja abaixo para obter mais detalhes).
 
-**Exemplo:** oferta de serviço do Programador de Contoso
+**Exemplo:**  Oferta de serviço do Programador de contoso
 
 | Planear | Preço | Inclui | Caminho de migração |
 | --- | --- | --- | --- |
@@ -233,7 +234,7 @@ Planos podem ser qualquer combinação de base + consumo, onde a base é o preç
 | Silver Plus |US $20/ mês + US $ 0,15/meter01 + US $ 0,01/meter02 |A funcionalidade básica e uma quota de 10.000 de funcionalidades X e 100 da funcionalidade Y.  Assim que a quota de funcionalidades X é usada, o cliente pode pagar por utilização via meter01.  Assim que a quota de funcionalidade Y é usada, o cliente pode pagar por utilização via meter02. |Pode migrar para planos de Bronze Plus e Gold |
 | Dourado |US $ 1.000/mês |Quota de 10.000 de funcionalidades X, 1.000 da funcionalidade Y e ilimitado da funcionalidade Z. |Pode migrar para todos os planos exceto gratuitos |
 
-## <a name="step-3-provide-support-information"></a>Passo 3: Fornecer suporte de informações
+## <a name="step-3-provide-support-information"></a>Passo 3: Fornecer informações de suporte
 Os detalhes de contactos são utilizados para as comunicações internas entre o parceiro e a Microsoft apenas. O URL de suporte estará disponível para os clientes finais.
 
 1. Vá para o **suporte** cabeçalho no lado esquerdo do portal de publicação.
@@ -242,7 +243,7 @@ Os detalhes de contactos são utilizados para as comunicações internas entre o
 4. Introduza o URL de suporte.
 
 ## <a name="step-4-choose-azure-marketplace-categories"></a>Passo 4: Escolher categorias do Azure Marketplace
-O **categorias** separador fornece uma matriz de seleções. A oferta pode estar abrangida por estas categorias e, pode selecionar até cinco categorias.
+O **categorias** separador fornece uma matriz de seleções. Pode selecionar até cinco categorias.
 
 ## <a name="how-your-marketing-will-appear"></a>Como será apresentado o marketing
 Segue-se uma vista detalhada de como a oferta de informações de marketing é usada no [Web site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e, no [portal do Azure](https://portal.azure.com).
@@ -265,7 +266,7 @@ Segue-se uma vista detalhada de como a oferta de informações de marketing é u
 ### <a name="azure-portal"></a>Portal do Azure
 ![desenho](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Lista de ofertas no Portal do Azure*
+*Lista de ofertas no portal do Azure*
 
 ![desenho](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
@@ -278,7 +279,7 @@ Agora que o conteúdo de Marketplace é carregado, vamos seguir em frente com o 
 * [Testar a sua oferta de modelo de solução para efeitos de teste](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: Como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

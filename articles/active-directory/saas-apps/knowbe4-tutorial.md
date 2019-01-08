@@ -1,236 +1,209 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a formação de Conscientização de segurança de KnowBe4 | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a formação de Conscientização de segurança de KnowBe4 | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o treinamento de Conscientização de segurança de KnowBe4.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: b80d2212-cc5f-4adb-836c-570640810c39
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/31/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c27af4e7bc88f24b76310336859740d8795f7cbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 983571daa19a3658b134902ee328af142a3383c3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449278"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065584"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Azure Active Directory com a formação de Conscientização de segurança de KnowBe4
+# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Active Directory do Azure com a formação de Conscientização de segurança de KnowBe4
 
 Neste tutorial, saiba como integrar o treinamento de Conscientização de segurança de KnowBe4 com o Azure Active Directory (Azure AD).
-
 Treinamento de Conscientização de segurança de KnowBe4 a integração com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao treinamento de Conscientização de segurança de KnowBe4.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para treinamento de Conscientização de segurança de KnowBe4 (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao treinamento de Conscientização de segurança de KnowBe4.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para treinamento de Conscientização de segurança de KnowBe4 (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com a formação de Conscientização de segurança de KnowBe4, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um treinamento de Conscientização de segurança de KnowBe4 logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Treinamento de Conscientização de segurança de KnowBe4 logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o treinamento de Conscientização de segurança de KnowBe4 da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta a formação de Conscientização de segurança de KnowBe4 **SP** iniciada SSO
+
+* Suporta a formação de Conscientização de segurança de KnowBe4 **Just In Time** aprovisionamento de utilizadores
 
 ## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>Adicionando o treinamento de Conscientização de segurança de KnowBe4 da Galeria
+
 Para configurar a integração de treinamento de Conscientização de segurança de KnowBe4 com o Azure AD, terá de adicionar o treinamento de Conscientização de segurança de KnowBe4 partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar o treinamento de Conscientização de segurança de KnowBe4 partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **treinamento de Conscientização de segurança de KnowBe4**, selecione **treinamento de Conscientização de segurança de KnowBe4** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Treinamento de Conscientização de segurança de KnowBe4 na lista de resultados](./media/knowbe4-tutorial/tutorial_knowbe4_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **treinamento de Conscientização de segurança de KnowBe4**, selecione **treinamento de Conscientização de segurança de KnowBe4** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+
+     ![Treinamento de Conscientização de segurança de KnowBe4 na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com a formação de Conscientização de segurança de KnowBe4 com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no treinamento de Conscientização de segurança de KnowBe4 a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no treinamento de Conscientização de segurança de KnowBe4 deve ser estabelecido.
-
-No treinamento de Conscientização de segurança de KnowBe4, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **nome de utilizador** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com a formação de Conscientização de segurança de KnowBe4 com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no treinamento de Conscientização de segurança de KnowBe4 deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com a formação de Conscientização de segurança de KnowBe4, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de treinamento de Conscientização de segurança de KnowBe4](#create-a-knowbe4-security-awareness-training-test-user)**  - para ter um equivalente da Eduarda Almeida na formação de Conscientização de segurança KnowBe4 que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar KnowBe4 segurança reconhecimento de treinamento início de sessão único](#configure-knowbe4-security-awareness-training-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de treinamento de Conscientização de segurança de KnowBe4](#create-knowbe4-security-awareness-training-test-user)**  - para ter um equivalente da Eduarda Almeida na formação de Conscientização de segurança KnowBe4 que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de treinamento de Conscientização de segurança de KnowBe4.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com a formação de Conscientização de segurança de KnowBe4, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com a formação de Conscientização de segurança de KnowBe4, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **treinamento de Conscientização de segurança de KnowBe4** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **treinamento de Conscientização de segurança de KnowBe4** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/knowbe4-tutorial/tutorial_knowbe4_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **URLs de domínio de treinamento de Conscientização de segurança de KnowBe4 e** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![URLs de domínio de treinamento de Conscientização de segurança de KnowBe4 e únicas início de sessão em informações](./media/knowbe4-tutorial/tutorial_knowbe4_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Valor do URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de treinamento de Conscientização de segurança de KnowBe4](mailto:support@KnowBe4.com) para obter este valor. 
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    b. Na **identificador** caixa de texto, digite o valor de cadeia de caracteres: `KnowBe4`
+    ![URLs de domínio de treinamento de Conscientização de segurança de KnowBe4 e únicas início de sessão em informações](common/sp-identifier.png)
+
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE]
-    >Diferencia maiúsculas de minúsculas
+    > O valor do URL de início de sessão não é real. Atualize este valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente de treinamento de Conscientização de segurança de KnowBe4](mailto:support@KnowBe4.com) para obter este valor. Também pode consultar o padrão mostrado na **configuração básica de SAML** secção no portal do Azure.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (bruto)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    b. Na **identificador (ID de entidade)** texto, escreva o valor de cadeia de caracteres: `KnowBe4`
 
-    ![O link de download de certificado](./media/knowbe4-tutorial/tutorial_knowbe4_certificate.png) 
+    > [!NOTE]
+    > Diferencia maiúsculas de minúsculas.
 
-1. Clique em **guardar** botão.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (bruto)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/knowbe4-tutorial/tutorial_general_400.png)
+    ![O link de download de certificado](common/certificateraw.png)
 
-1. Sobre o **configuração de treinamento de Conscientização de segurança de KnowBe4** secção, clique em **configurar treinamento de Conscientização de segurança de KnowBe4** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+6. Sobre o **configurar treinamento de Conscientização de segurança de KnowBe4** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-    ![Configuração de treinamento de Conscientização de segurança de KnowBe4](./media/knowbe4-tutorial/tutorial_knowbe4_configure.png) 
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-1. Para configurar o início de sessão único num **treinamento de Conscientização de segurança de KnowBe4** lado, terá de enviar o transferido **certificado (bruto)**, **URL de fim de sessão, ID de entidade de SAML e SAML Single Sign-On URL do serviço** para [equipa de suporte de cliente de treinamento de Conscientização de segurança de KnowBe4](mailto:support@KnowBe4.com).
+    a. URL de início de sessão
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    b. Identificador do Azure Ad
+
+    c. URL de fim de sessão
+
+### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>Configurar a deteção de segurança de KnowBe4 treinamento início de sessão único
+
+Para configurar o início de sessão único num **treinamento de Conscientização de segurança de KnowBe4** lado, terá de enviar o transferido **certificado (bruto)** e adequadas copiados URLs a partir do portal do Azure para [KnowBe4 A equipa de suporte de treinamento de Conscientização de segurança](mailto:support@KnowBe4.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/knowbe4-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/knowbe4-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/knowbe4-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/knowbe4-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-knowbe4-security-awareness-training-test-user"></a>Criar um utilizador de teste de treinamento de Conscientização de segurança de KnowBe4
-
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no treinamento de Conscientização de segurança de KnowBe4. Treinamento de Conscientização de segurança de KnowBe4 suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
-
-Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante a tentativa de aceder à formação de Conscientização de segurança de KnowBe4 se não existir ainda. 
-
->[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de treinamento de Conscientização de segurança de KnowBe4](mailto:support@KnowBe4.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao treinamento de Conscientização de segurança de KnowBe4.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **treinamento de Conscientização de segurança de KnowBe4**.
 
-**Para atribuir a Eduarda Almeida a formação de Conscientização de segurança de KnowBe4, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **treinamento de Conscientização de segurança de KnowBe4**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de treinamento de Conscientização de segurança de KnowBe4 na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **treinamento de Conscientização de segurança de KnowBe4**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de treinamento de Conscientização de segurança de KnowBe4 na lista de aplicações](./media/knowbe4-tutorial/tutorial_knowbe4_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-knowbe4-security-awareness-training-test-user"></a>Criar utilizador de teste de treinamento de Conscientização de segurança de KnowBe4
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no treinamento de Conscientização de segurança de KnowBe4. Treinamento de Conscientização de segurança de KnowBe4 suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
 
-O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.
-  
-Quando clica no mosaico de treinamento de Conscientização de segurança de KnowBe4 no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de treinamento de Conscientização de segurança de KnowBe4. 
+Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante a tentativa de aceder à formação de Conscientização de segurança de KnowBe4 se não existir ainda.
 
-## <a name="additional-resources"></a>Recursos adicionais
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de treinamento de Conscientização de segurança de KnowBe4](mailto:support@KnowBe4.com).
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-<!--Image references-->
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-[1]: ./media/knowbe4-tutorial/tutorial_general_01.png
-[2]: ./media/knowbe4-tutorial/tutorial_general_02.png
-[3]: ./media/knowbe4-tutorial/tutorial_general_03.png
-[4]: ./media/knowbe4-tutorial/tutorial_general_04.png
+Quando clica no mosaico de treinamento de Conscientização de segurança de KnowBe4 no painel de acesso, deve ser automaticamente sessão iniciada no treinamento de Conscientização de segurança KnowBe4 para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-[100]: ./media/knowbe4-tutorial/tutorial_general_100.png
+## <a name="additional-resources"></a>Recursos Adicionais
 
-[200]: ./media/knowbe4-tutorial/tutorial_general_200.png
-[201]: ./media/knowbe4-tutorial/tutorial_general_201.png
-[202]: ./media/knowbe4-tutorial/tutorial_general_202.png
-[203]: ./media/knowbe4-tutorial/tutorial_general_203.png
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

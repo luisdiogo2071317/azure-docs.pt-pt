@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244054"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065397"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre os modelos do Azure Resource Manager
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Ao desenvolver seu aplicativo, é importante garantir a portabilidade de modelo entre o Azure e o Azure Stack. Este artigo fornece considerações para o desenvolvimento do Azure Resource Manager [modelos](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), pelo que pode o protótipo a implementação de aplicação e teste no Azure sem acesso a um ambiente do Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilidade do fornecedor de recursos
 
-O modelo que estiver a planear implementar apenas tem de utilizar os serviços do Microsoft Azure que já estão disponíveis ou em pré-visualização no Azure Stack.
+O modelo que planeja implantar apenas tem de utilizar os serviços do Microsoft Azure que já estão disponíveis ou em pré-visualização no Azure Stack.
 
 ## <a name="public-namespaces"></a>Espaços de nomes públicos
 
-Como Azure Stack está hospedado no seu datacenter, tem espaços de nomes de ponto final de serviço diferentes que a nuvem pública do Azure. Como resultado, os pontos finais públicos codificado em modelos do Azure Resource Manager falharem ao tentar implementá-las para o Azure Stack. Dinamicamente que pode criar pontos finais de serviço com o *referência* e *concatenar* funções para recuperar os valores do fornecedor de recursos durante a implementação. Por exemplo, em vez de codificar *blob.core.windows.net* no seu modelo, recuperar o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para definir dinamicamente o *osDisk.URI* ponto final:
+Como Azure Stack está hospedado no seu datacenter, tem espaços de nomes de ponto final de serviço diferentes que a nuvem pública do Azure. Como resultado, embutido em pontos de extremidade públicos nos modelos do Azure Resource Manager falharem ao tentar implementá-las para o Azure Stack. Dinamicamente que pode criar pontos finais de serviço com o `reference` e `concatenate` funções para recuperar os valores do fornecedor de recursos durante a implementação. Por exemplo, em vez de embutir no código *blob.core.windows.net* no seu modelo, recuperar o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para definir dinamicamente o *osDisk.URI* ponto final:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -56,7 +56,7 @@ Versões de serviço do Azure podem ser diferentes entre o Azure e o Azure Stack
 
 ## <a name="template-functions"></a>Funções de modelos
 
-O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem capacidades necessárias para criar modelos dinâmicos. Por exemplo, pode utilizar as funções para tarefas como:
+O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem as funcionalidades necessárias para criar modelos dinâmicos. Por exemplo, pode utilizar as funções para tarefas como:
 
 * CONCATENAR ou remoção de cadeias de caracteres.
 * Referenciar valores a partir de outros recursos.

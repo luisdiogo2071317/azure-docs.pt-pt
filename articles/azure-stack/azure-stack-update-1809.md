@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754055"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077968"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -48,6 +48,8 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
    Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog](azure-stack-integrate-security.md).
 
 - Agora, pode [mova o recurso de Registro](azure-stack-registration.md#move-a-registration-resource) no Azure entre grupos de recursos sem ter de voltar a registar. Fornecedores de soluções cloud (CSPs) também pode mover o recurso de registro entre subscrições, desde que ambas as subscrições novas e antigas são mapeadas para o mesmo ID de parceiro CSP. Isto não afeta os mapeamentos de inquilino de cliente existente. 
+
+- Foi adicionado suporte para atribuir vários endereços IP por interface de rede.  Para obter mais detalhes, consulte [atribuir vários endereços IP para máquinas virtuais com o PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077560"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -80,7 +80,7 @@ A nossa equipa de integração do Marketplace irá validar os detalhes de regist
 Irá utilizar o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar, publicar e gerir as ofertas do marketplace. Depois de receber o e-mail de boas-vindas de aprovação, o qual imediatamente pode iniciar sessão a [Cloud Partner Portal](https://cloudpartner.azure.com) com a sua conta Microsoft para aceder a informações técnicas adicionais sobre a publicação no marketplace e criar a sua oferta. 
 *   Para obter mais informações sobre como utilizar o Portal do Cloud Partner [aceda ao artigo de introdução na seção aprender](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Tem de ter sessão iniciada para o Portal de parceiro de Cloud para aceder a estes detalhes.
 *   Se tiver dúvidas ou seria como para agendar uma chamada de descrição geral de integração, consulte outros artigos neste guia de publicador ou abra um pedido de suporte em tipo de problema > integração do Marketplace da Cloud Partner Portal.
-*   Se não tiver recebido o e-mail de boas-vindos, verifique a pasta de spam para um e-mail com o assunto da mensagem "Bem-vindo ao Microsoft Marketplace!." Se não houver nenhum e-mail na sua pasta de spam, [contacte o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: tipo de problema > integração do Marketplace.  A nossa equipa de integração do publicador de Marketplace será todo o gosto em ajudá-lo em suas consultas. 
+*   Se não tiver recebido o e-mail de boas-vindos, verifique a pasta de spam para um e-mail com o assunto da mensagem "Bem-vindo ao Microsoft Marketplace!." Se não houver nenhum e-mail na sua pasta de spam, [contacte o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: Tipo de problema > integração do Marketplace.  A nossa equipa de integração do publicador de Marketplace será todo o gosto em ajudá-lo em suas consultas. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Inscreva-se no Dev Center (Transact apenas a opção de publicação) 
@@ -97,15 +97,15 @@ A registar individuais num [Dev Center](https://developer.microsoft.com/store/re
 Depois de concluir o [Centro de desenvolvimento](https://developer.microsoft.com/store/register) registo, vincular seu perfil de parceiro de Cloud com o seu [Dev Center](https://developer.microsoft.com/store/register) conta (veja passos detalhados aqui). Este passo deve ser concluído antes de publicar a sua oferta transact. 
 
 >[!Note]
->Para a taxa de registo do Centro de programadores de US $99 rejeita todos os direitos, execute o [formulário de Registro do marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) e receberá um email contendo seu código promocional. 
+>Para a taxa de registo do Centro de programadores de US $99 rejeita todos os direitos, execute o [formulário de Registro do marketplace](https://azuremarketplace.microsoft.com/sell/signup) e receberá um email contendo seu código promocional. 
 
 >[!Important]
 >Antes de criar uma conta Microsoft Dev Center, verifique se que sua organização não tiver uma conta do Dev Center para evitar contas duplicadas. Para obter mais informações, visite o [registar no Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) secção.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre as lojas de marketplace: [comparando AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Determinar o tipo de lista para a sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Saiba mais sobre as lojas de marketplace: [Comparação entre o Azure Marketplace e o AppSource](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*   [Determinar o tipo de lista para a sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

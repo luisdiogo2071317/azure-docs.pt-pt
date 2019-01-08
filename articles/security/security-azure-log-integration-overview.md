@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584484"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079039"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introdução à integração de registos do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "53584484"
 
 Integração de registos do Azure foi disponibilizada simplificar a tarefa de integração do Azure registos com o seu sistema de informações de segurança e gestão de eventos (SIEM) no local.
 
- O método recomendado para integração de registos do Azure está a utilizar os conectores de s do fornecedor SIEM. O Azure Monitor proporciona a capacidade de transmitir os registos para os hubs de eventos e fornecedores SIEM, podem escrever conectores para ainda mais integrar registos do hub de eventos para o SIEM.  Para obter uma descrição de como isso funciona, siga as instruções em [monitorização para os dados dos hubs de eventos de fluxo de Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). O artigo também apresenta uma lista de SIEMs para o qual diretos conectores do Azure já estão disponíveis.  
+ O método recomendado para integração de registos do Azure está a utilizar os conectores do seu fornecedor SIEM. O Azure Monitor proporciona a capacidade de transmitir os registos para os hubs de eventos e fornecedores SIEM, podem escrever conectores para ainda mais integrar registos do hub de eventos para o SIEM.  Para obter uma descrição de como isso funciona, siga as instruções em [monitorização para os dados dos hubs de eventos de fluxo de Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). O artigo também apresenta uma lista de SIEMs para o qual diretos conectores do Azure já estão disponíveis.  
 
 > [!IMPORTANT]
 > Se o seu interesse principal está a recolher registos de máquina virtual, a maioria dos fornecedores SIEM incluir esta opção nas suas soluções. Usando o SIEM conector do fornecedor é sempre a alternativa preferida.

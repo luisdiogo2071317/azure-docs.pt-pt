@@ -1,5 +1,5 @@
 ---
-title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - guia de introdução | Documentos da Microsoft'
+title: 'Azure AD Connect: Totalmente integrado Single Sign-On - guia de introdução | Documentos da Microsoft'
 description: Este artigo descreve como começar com o Azure Active Directory totalmente integrada início de sessão único
 services: active-directory
 keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ed3271eb2fdae1b89013f0145b0e08de49792305
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687338"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062881"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: início rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementar totalmente integrada início de sessão único
 
@@ -34,7 +34,7 @@ Para implementar o SSO totalmente integrado, siga estes passos.
 
 Certifique-se de que os seguintes pré-requisitos são cumpridos:
 
-* **Configurar o servidor do Azure AD Connect**: Se utilizar [autenticação pass-through](how-to-connect-pta.md) como método de início de sessão, não é necessária nenhuma verificação de pré-requisitos adicional. Se usar [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) como método de início de sessão e se existir uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
+* **Configurar o servidor do Azure AD Connect**: Se usar [autenticação pass-through](how-to-connect-pta.md) como método de início de sessão, não é necessária nenhuma verificação de pré-requisitos adicional. Se usar [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) como método de início de sessão e se existir uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
    - Utilizar a versão 1.1.644.0 ou posterior do Azure AD Connect. 
    - Se a sua firewall ou proxy permite listas de permissões de DNS, lista de permissões as conexões com o  **\*. msappproxy.net** URLs através da porta 443. Se não, permitir o acesso para o [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado semanalmente. Este pré-requisito é aplicável apenas quando ativar a funcionalidade. Não é necessário para inícios de sessão de utilizador reais.
 
@@ -46,13 +46,13 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos:
     >[!NOTE]
     >SSO totalmente integrado suporta várias florestas do AD, se existem AD relações de confiança entre eles ou não.
 
-* **Configurar as credenciais de administrador de domínio**: tem de ter credenciais de administrador de domínio para cada do Active Directory de floresta que:
+* **Configurar as credenciais de administrador de domínio**: Tem de ter credenciais de administrador de domínio para cada do Active Directory de floresta que:
     * Sincronizar com o Azure AD através do Azure AD Connect.
     * Contém utilizadores que pretende ativar o SSO totalmente integrado.
     
-* **Ativar a autenticação moderna**: tem de ativar [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) no seu inquilino para esta funcionalidade funcione.
+* **Ativar a autenticação moderna**: Tem de ativar [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) no seu inquilino para esta funcionalidade funcione.
 
-* **Utilize as versões mais recentes de clientes do Office 365**: para obter uma experiência silenciosa início de sessão com clientes do Office 365 (Outlook, Word, Excel e outras pessoas), os utilizadores precisam de utilizar versões 16.0.8730.xxxx ou superior.
+* **Utilize as versões mais recentes de clientes do Office 365**: Para obter uma experiência silenciosa início de sessão com clientes do Office 365 (Outlook, Word, Excel e outras pessoas), os utilizadores precisam de utilizar versões 16.0.8730.xxxx ou superior.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
@@ -66,11 +66,11 @@ Se estiver fazendo uma instalação nova do Azure AD Connect, escolha o [caminho
 >[!NOTE]
 > A opção estarão disponível para seleção apenas se o método de início de sessão for **sincronização de Hash de palavra-passe** ou **autenticação pass-through**.
 
-![O Azure AD Connect: Utilizador início de sessão](./media/how-to-connect-sso-quick-start/sso8.png)
+![Azure AD Connect: Início de sessão do utilizador](./media/how-to-connect-sso-quick-start/sso8.png)
 
 Se já tiver uma instalação do Azure AD Connect, selecione o **alterar utilizador inicie sessão** página no Azure AD Connect e, em seguida, selecione **próxima**. Se estiver a utilizar o Azure AD Connect versões 1.1.880.0 ou superior, o **ativar o início de sessão único em** opção será selecionada por predefinição. Se estiver a utilizar as versões mais antigas do Azure AD Connect, selecione o **ativar o início de sessão único em** opção.
 
-![O Azure AD Connect: Alterar o utilizador inicie sessão](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+![Azure AD Connect: Alterar o utilizador inicie sessão](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continuar através do assistente até chegar à **ativar o início de sessão único em** página. Fornece credenciais de administrador de domínio para cada diretório do Active Directory de floresta que:
     * Sincronizar com o Azure AD através do Azure AD Connect.
@@ -88,7 +88,7 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 3. Selecione **do Azure AD Connect**.
 4. Certifique-se de que o **totalmente integrada início de sessão único** funcionalidade é apresentado como **ativado**.
 
-![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
+![Portal do Azure: Painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
 > SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) no seu local do Active Directory (AD) em cada floresta do AD. Esta conta de computador é necessária para a funcionalidade funcionar. Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, certifique-se de que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. Faça as alterações apropriadas para criar a conta de computador no contentor de computadores. Depois do SSO totalmente integrado é ativado com êxito no Assistente do Azure AD Connect, mover o `AZUREADSSOACC` conta de computador para uma unidade organizacional (UO) onde outras contas de computador são geridas para se certificar de que ele não é eliminado acidentalmente.
@@ -97,7 +97,7 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 
 Pode implementar gradualmente o SSO totalmente integrado para os utilizadores com as instruções indicadas abaixo. Comece por adicionar o seguinte URL de AD do Azure para todos ou selecionar as definições de zona de Intranet dos utilizadores utilizando a política de grupo no Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 Além disso, tem de ativar uma política de zona de Intranet chamada **permitir atualizações à barra de estado por meio de script** por meio da diretiva de grupo. 
 
@@ -106,7 +106,7 @@ Além disso, tem de ativar uma política de zona de Intranet chamada **permitir 
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que precisa modificar as definições de zona de Intranet dos utilizadores?
 
-Por predefinição, o navegador calcula automaticamente a zona correta, Internet ou Intranet, a partir de uma URL específica. Por exemplo, "http://contoso/"é mapeado para a zona da Intranet, ao passo que"http://intranet.contoso.com/" mapeia para a zona de Internet (porque o URL contém um período). Browsers não irão enviar os tíquetes Kerberos para um ponto final da cloud, como o URL de AD do Azure, a menos que explicitamente, adicione o URL para a zona de Intranet do navegador.
+Por predefinição, o navegador calcula automaticamente a zona correta, Internet ou Intranet, a partir de uma URL específica. Por exemplo, `http://contoso/` mapeia para a zona da Intranet, ao passo que `http://intranet.contoso.com/` mapeia para a zona de Internet (porque o URL contém um período). Browsers não irão enviar os tíquetes Kerberos para um ponto final da cloud, como o URL de AD do Azure, a menos que explicitamente, adicione o URL para a zona de Intranet do navegador.
 
 Existem duas formas de modificar as definições de zona de Intranet dos utilizadores:
 
@@ -122,12 +122,12 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
 3. Navegue até **configuração do usuário** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer** > **painel de controlo da Internet** > **página segurança**. Em seguida, selecione **Site para a lista de atribuições de zona**.
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Ativar a política e, em seguida, introduza os seguintes valores na caixa de diálogo:
-   - **Nome do valor**: O Azure AD URL onde os tíquetes Kerberos são reencaminhados.
+   - **Nome do valor**: O URL de AD do Azure onde os tíquetes Kerberos são reencaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
 
     O resultado tem o seguinte aspeto:
 
-    Nome do valor: https://autologon.microsoftazuread-sso.com
+    Nome do valor: `https://autologon.microsoftazuread-sso.com`
   
     Valor (dados): 1
 
@@ -181,7 +181,7 @@ Mozilla Firefox automaticamente não usa a autenticação Kerberos. Cada utiliza
 1. Execute o Firefox e introduza `about:config` na barra de endereço. Dispensa quaisquer notificações que vê.
 2. Procure o **network.negotiate-auth.trusted-uris** preferência. Essa preferência apresenta uma lista de sites fidedignos do Firefox para a autenticação Kerberos.
 3. Com o botão direito e selecione **modificar**.
-4. Introduza https://autologon.microsoftazuread-sso.com no campo.
+4. Introduza `https://autologon.microsoftazuread-sso.com` no campo.
 5. Selecione **OK** e, em seguida, volte a abrir o browser.
 
 #### <a name="safari-macos"></a>Safari (macOS)
@@ -190,7 +190,7 @@ Certifique-se de que a máquina com o macOS está associada ao AD. Instruções 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) definições de política no seu ambiente, certifique-se de que adicione o URL do Azure AD (https://autologon.microsoftazuread-sso.com) -los também.
+Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) definições de política no seu ambiente, certifique-se de que adicione o URL do Azure AD (`https://autologon.microsoftazuread-sso.com`)-los também.
 
 #### <a name="google-chrome-macos-only"></a>Google Chrome (apenas para macOS)
 
@@ -202,7 +202,7 @@ A utilização de extensões de política de grupo do Active Directory de tercei
 
 SSO totalmente integrado não funciona no modo de navegação particular em navegadores Firefox e o Microsoft Edge. Também não funciona no Internet Explorer se o browser está em execução no modo protegido avançado.
 
-## <a name="step-4-test-the-feature"></a>Passo 4: Testar a funcionalidade
+## <a name="step-4-test-the-feature"></a>Passo 4: A funcionalidade de teste
 
 Para testar a funcionalidade de um utilizador específico, certifique-se de que todas as condições seguintes são cumpridos:
   - O utilizador inicia sessão num dispositivo da empresa.
@@ -211,15 +211,15 @@ Para testar a funcionalidade de um utilizador específico, certifique-se de que 
   - Tiver [distribuiu o recurso](##step-3-roll-out-the-feature) a este utilizador através da política de grupo.
 
 Para testar o cenário em que o usuário inserir apenas o nome de utilizador, mas não a palavra-passe:
-   - Inicie sessão no https://myapps.microsoft.com/ numa nova sessão de browser privada.
+   - Inicie sessão no `https://myapps.microsoft.com/` numa nova sessão de browser privada.
 
 Para testar o cenário em que o utilizador não tem de introduzir o nome de utilizador ou a palavra-passe, utilize um destes passos: 
-   - Inicie sessão no https://myapps.microsoft.com/contoso.onmicrosoft.com numa nova sessão de browser privada. Substitua *contoso* com o nome do inquilino.
-   - Inicie sessão no https://myapps.microsoft.com/contoso.com numa nova sessão de browser privada. Substitua *contoso.com* com um domínio verificado (não um domínio Federado) no seu inquilino.
+   - Inicie sessão no `https://myapps.microsoft.com/contoso.onmicrosoft.com` numa nova sessão de browser privada. Substitua *contoso* com o nome do inquilino.
+   - Inicie sessão no `https://myapps.microsoft.com/contoso.com` numa nova sessão de browser privada. Substitua *contoso.com* com um domínio verificado (não um domínio Federado) no seu inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Passo 5: Reverter as chaves
 
-No passo 2, o Azure AD Connect cria contas de computador (representar o Azure AD) em todas as florestas do Active Directory em que tiver ativado o SSO totalmente integrado. Para obter mais informações, consulte [do Azure Active Directory totalmente integrada início de sessão único: análise detalhada bastante técnica](how-to-connect-sso-how-it-works.md).
+No passo 2, o Azure AD Connect cria contas de computador (representar o Azure AD) em todas as florestas do Active Directory em que tiver ativado o SSO totalmente integrado. Para obter mais informações, consulte [do Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada](how-to-connect-sso-how-it-works.md).
 
 >[!IMPORTANT]
 >A chave de desencriptação do Kerberos numa conta de computador, se perdido, pode ser utilizada para gerar pedidos de Kerberos para qualquer utilizador na sua floresta do AD. Atores maliciosos, em seguida, podem representar o Azure AD-inícios de sessão de utilizadores comprometidos. É altamente recomendável que lançar periodicamente através destas chaves de desencriptação do Kerberos – pelo menos uma vez a cada 30 dias.
@@ -231,7 +231,7 @@ Para obter instruções sobre como fazer o rollover de chaves, consulte [do Azur
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Análise técnica aprofundada](how-to-connect-sso-how-it-works.md): compreender como funciona a funcionalidade de início de sessão único totalmente integrado-.
-- [Perguntas mais frequentes sobre](how-to-connect-sso-faq.md): Obtenha respostas para perguntas mais frequentes sobre o simples início de sessão único.
-- [Resolver problemas de](tshoot-connect-sso.md): Saiba como resolver problemas comuns com a funcionalidade de início de sessão único totalmente integrado-.
+- [Análise técnica aprofundada](how-to-connect-sso-how-it-works.md): Compreenda como funciona a funcionalidade de início de sessão único totalmente integrado.
+- [Perguntas mais frequentes sobre](how-to-connect-sso-faq.md): Obtenha respostas às perguntas mais frequentes sobre o simples início de sessão único.
+- [Resolver problemas de](tshoot-connect-sso.md): Saiba como resolver problemas comuns com a funcionalidade de início de sessão único totalmente integrado.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para pedidos de novas funcionalidades de ficheiros.

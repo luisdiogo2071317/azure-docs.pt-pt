@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099942"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063194"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
 Azure Active Directory (Azure AD) ajuda a gerir identidades de utilizador e para criar políticas de acesso orientadas por inteligência que ajude a proteger os recursos da sua organização. Os dados de identidade são armazenados numa localização que tem por base a morada que a sua organização indicou quando subscreveu o serviço. Por exemplo, quando subscreveu o Office 365 ou o Azure. Para obter informações específicas sobre onde é que os seus dados de identidade são armazenados, pode ver a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados?) do Microsoft Trust Center.
@@ -55,7 +55,7 @@ A maioria dos dados de identidade de clientes europeus relacionados com o Azure 
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    O Azure AD B2C armazena todos os dados de utilizador inativos em datacenters europeus. No entanto, os registos operacionais (com os dados pessoais removidos) permanecem na localização na qual a pessoa está a aceder aos serviços. Por exemplo, se um utilizador do B2C aceder ao serviço nos E.U.A., os registos operacionais permanecem nesse país. Além disso, todos os dados de configuração de políticas que não contenham dados pessoais são armazenados apenas nos E.U.A. Para obter mais informações sobre as configurações de políticas, veja o artigo [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) (Azure Active Directory B2C: Políticas incorporadas).
+    O Azure AD B2C armazena todos os dados de utilizador inativos em datacenters europeus. No entanto, os registos operacionais (com os dados pessoais removidos) permanecem na localização na qual a pessoa está a aceder aos serviços. Por exemplo, se um utilizador do B2C aceder ao serviço nos E.U.A., os registos operacionais permanecem nesse país. Além disso, todos os dados de configuração de políticas que não contenham dados pessoais são armazenados apenas nos E.U.A. Para mais informações sobre as configurações da política, veja o [Azure Active Directory B2C: Políticas incorporadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artigo.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
@@ -72,7 +72,7 @@ A maioria dos dados de identidade de clientes europeus relacionados com o Azure 
     Para obter mais informações sobre a residência de dados dos serviços Microsoft, veja a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados) do Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre qualquer uma das funcionalidades e características descritas anteriormente, veja os artigos abaixo.
+Para obter mais informações sobre qualquer um dos recursos e funcionalidade descrita acima, veja estes artigos:
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) (O que é o Multi-Factor Authentication)
 - [Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview) (Reposição personalizada de palavras-passe do Azure AD)
 - [O que é o Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

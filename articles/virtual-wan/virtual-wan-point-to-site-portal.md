@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261813"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077407"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma ligação ponto a site com a WAN Virtual do Azure (Pré-visualização)
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma ligação de ponto a Site com a Azure Virtual WAN (pré-visualização)
 
 Este tutorial mostra como utilizar a WAN Virtual para se ligar aos seus recursos no Azure através de uma ligação VPN IPsec/IKE (IKEv2) ou OpenVPN. Este tipo de ligação exige a configuração de um cliente no computador cliente. Para obter mais informações sobre a WAN Virtual, veja a [Descrição Geral da WAN Virtual](virtual-wan-about.md).
 
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register"></a>Registar esta funcionalidade
 
-Clique em **TryIt** para registar facilmente esta funcionalidade com o Azure Cloud Shell.
+Clique em **TryIt** para registar facilmente esta funcionalidade com o Azure Cloud Shell. Se em vez disso, deverá executar PowerShell localmente, certifique-se de que tem a versão mais recente e inicie sessão com o **Connect-AzureRmAccount** e **Select-AzureRmSubscription** comandos.
 
 >[!NOTE]
 >Se não registar esta funcionalidade, não poderá utilizá-la nem vê-la no portal.
@@ -149,7 +149,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Transfira e instale o cliente OpenVPN a partir do site oficial.
-2.  Transfira o perfil VPN para o gateway. Este procedimento pode ser feito a partir do separador Configurações ponto a site no portal do Azure ou de New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configurações de ponto a site no portal do Azure, ou New-AzureRmVpnClientConfiguration no PowerShell.
 3.  Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
@@ -168,7 +168,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Transfira e instale um cliente OpenVPN, como o TunnelBlik, a partir de https://tunnelblick.net/downloads.html 
-2.  Transfira o perfil VPN para o gateway. Este procedimento pode ser feito a partir do separador Configuração ponto a site no portal do Azure ou de New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configuração de ponto a site no portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
 3.  Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
@@ -207,7 +207,7 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

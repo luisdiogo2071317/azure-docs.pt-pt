@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999543"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062678"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -779,7 +779,7 @@ O armazenamento de tabelas de saída enlace suporta os seguintes cenários:
 
   No c# e de script c#, aceder a entidade de tabela de saída com um parâmetro de método como `out T paramName` ou a função de valor de retorno. No script c# `paramName` é o valor especificado no `name` propriedade da *Function*. `T` pode ser qualquer tipo serializável, se a chave de partição e a chave de linha são fornecidos pela *Function* ficheiro ou o `Table` atributo. Caso contrário, `T` tem de ser um tipo que inclui `PartitionKey` e `RowKey` propriedades. Neste cenário, `T` normalmente, implementa `ITableEntity` ou deriva de `TableEntity`, mas ele não precisa.
 
-* **Escreva uma ou mais linhas em c# ou c#**
+* **Escreva uma ou mais linhas no C# ou C# script**
 
   No c# e de script c#, aceder a entidade de tabela de saída com um parâmetro de método `ICollector<T> paramName` ou `IAsyncCollector<T> paramName`. No script c# `paramName` é o valor especificado no `name` propriedade da *Function*. `T` Especifica o esquema das entidades que pretende adicionar. Normalmente, `T` deriva `TableEntity` ou implementa `ITableEntity`, mas ele não precisa. A chave de partição e a linha valores da chave *Function* ou o `Table` construtor de atributo não são utilizados neste cenário.
 

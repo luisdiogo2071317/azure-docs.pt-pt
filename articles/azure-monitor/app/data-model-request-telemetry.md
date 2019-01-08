@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001911"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076404"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados do Application Insights
 
@@ -63,9 +63,9 @@ Comprimento máximo: 1024 carateres
 
 ## <a name="success"></a>Êxito
 
-Indicação de chamada com êxito ou sem êxito. Este campo é obrigatório. Quando não definido explicitamente como `false` -pedido considerado seja concluída com êxito. Definir este valor como `false` se a operação foi interrompida por exceção ou devolveu o código de resultado de erro.
+Indicação de chamada com êxito ou sem êxito. Este campo é obrigatório. Quando não definido explicitamente como `false` -um pedido é considerado como estando concluída com êxito. Definir este valor como `false` se a operação foi interrompida por exceção ou devolveu o código de resultado de erro.
 
-Para as aplicações web, Application Insights definir pedido como falha quando o código de resposta é inferior a `400` ou igual a `401`. No entanto há casos em que este mapeamento padrão não coincide com a semântica do aplicativo. Código de resposta `404` pode indicar que "não existem registos", que podem fazer parte do fluxo regular. Também pode indicar um link desfeito. Para ligações quebradas, pode até mesmo implementar lógica mais avançada. Pode marcar ligações quebradas como falhas apenas quando essas ligações estão localizadas no mesmo site através da análise de Referenciador de url. Ou marcá-los como falhas quando acede a partir da aplicação móvel da empresa. Da mesma forma `301` e `302` indica falha quando acede a partir do cliente que não suporta o redirecionamento.
+Para as aplicações web, o Application Insights definir um pedido com êxito como quando o código de resposta for inferior a `400` ou igual a `401`. No entanto há casos em que este mapeamento padrão não coincide com a semântica do aplicativo. Código de resposta `404` pode indicar que "não existem registos", que podem fazer parte do fluxo regular. Também pode indicar um link desfeito. Para ligações quebradas, pode até mesmo implementar lógica mais avançada. Pode marcar ligações quebradas como falhas apenas quando essas ligações estão localizadas no mesmo site através da análise de Referenciador de url. Ou marcá-los como falhas quando acede a partir da aplicação móvel da empresa. Da mesma forma `301` e `302` indica falha quando acede a partir do cliente que não suporta o redirecionamento.
 
 Parcialmente aceites conteúdo `206` pode indicar uma falha de um pedido geral. Por exemplo, o ponto final do Application Insights recebe um lote de itens de telemetria como um único pedido. Ele retorna `206` quando alguns itens no lote não foram processados com êxito. Taxa de cada vez maior de `206` indica um problema que tem de ser investigado. Uma lógica similar aplica-se a `207` multi estado em que o sucesso pode ser o pior dos códigos de resposta à parte.
 

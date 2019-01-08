@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c3381ac2dcc3755bb0aedb5f36e398ebc5842959
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 57c0b930982f3a8b82ef7c077bfcdae6dfa23aac
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798227"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077118"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Aplicações de consola do Application Insights para .NET
 [O Application Insights](../../application-insights/app-insights-overview.md) permite-lhe monitorizar a sua aplicação web de disponibilidade, desempenho e utilização.
@@ -27,7 +27,7 @@ Precisa de uma subscrição com [Microsoft Azure](https://azure.com). Inicie ses
 
 ## <a name="getting-started"></a>Introdução
 
-* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../application-insights/app-insights-create-new-resource.md). Para o tipo de aplicação, escolha **gerais**.
+* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md ). Para o tipo de aplicação, escolha **gerais**.
 * Faça uma cópia da Chave de Instrumentação. Localizar a chave no **Essentials** pendente do novo recurso que criou. 
 * Instalar a versão mais recente [applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote.
 * Definir a chave de instrumentação no código antes de qualquer telemetria de controlo (ou variável de ambiente APPINSIGHTS_INSTRUMENTATIONKEY conjunto). Depois disso, será capaz de controlar a telemetria e vê-lo no portal do Azure manualmente

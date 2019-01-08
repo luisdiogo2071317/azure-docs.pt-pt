@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083908"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064951"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abra um pedido de suporte do Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 
@@ -51,7 +51,7 @@ Se não for possível encontrar respostas com recursos de ajuda autónoma, pode 
    
 4. Para **serviço**, selecione **Azure Active Directory**e, em seguida, selecione **seguinte**.
 
-5. Diante da **problema** painel, selecione um [gravidade](https://azure.microsoft.com/support/plans/response/)).
+5. Sobre o **problema** painel, selecione um [gravidade](https://azure.microsoft.com/support/plans/response/).
   
 6. Selecione um **tipo de problema**e, em seguida, selecione um **categoria** para esse tipo. Neste ponto, também são oferecidos informações de ajuda autónoma para a categoria do seu problema.
   
@@ -68,9 +68,9 @@ Se não for possível encontrar respostas com recursos de ajuda autónoma, pode 
 
 1. Inicie sessão no [Centro de administração do Office 365](https://portal.office.com) com uma conta que tenha um Enterprise Mobility + licença Security (EMS).
 
-2. Sobre o **suporte** mosaico, selecione **novo pedido de serviço**: ![captura de ecrã de portal do Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Sobre o **suporte** mosaico, selecione **novo pedido de serviço**: ![Captura de ecrã de portal do Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. Sobre o **descrição geral do suporte** página, selecione **gestão de identidades** ou **gestão de utilizadores e de domínio**: ![captura de ecrã de categorias de suporte do Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Sobre o **descrição geral do suporte** página, selecione **gestão de identidades** ou **gestão de utilizadores e de domínio**: ![O Azure AD suporte categorias captura de ecrã a](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. Para **funcionalidade**, selecione a funcionalidade do Azure AD para o qual pretende que o suporte.
 

@@ -4,17 +4,17 @@ description: Introdução à utilização do Terraform para atualizar e implemen
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, descrição geral, planear, aplicar, automatizar
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 29b2478844e8810cf2733e5477f4156942d69425
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665634"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074976"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 
@@ -43,7 +43,7 @@ O Terraform oferece uma interface de linha de comandos (CLI) que permite aos uti
 
 O Terraform é uma opção de ferramenta popular para cenários de várias clouds, em que a infraestrutura semelhante é implementada no Azure e em fornecedores de serviços cloud adicionais ou datacenters no local. Permite que os programadores utilizem as mesmas ferramentas e ficheiros de configuração para gerir a infraestrutura de vários fornecedores de cloud.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma descrição geral do Terraform e dos seus benefícios, eis os passos sugeridos:
 

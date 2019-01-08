@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752542"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078784"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Acesso com o segredo do Kubernetes
 
-Em alguns casos, poderá não conseguir atribuir a função necessária para o principal de serviço AKS gerado automaticamente-conceder acesso para o ACR. Por exemplo, devido ao modelo de segurança da sua organização, poderá não ter permissão suficiente no diretório do Azure AD para atribuir uma função ao principal de serviço gerado pelo AKS. Nesse caso, pode criar um novo principal de serviço e depois conceder acesso para o registo de contentores com um segredo de solicitação de imagem do Kubernetes.
+Em alguns casos, poderá não conseguir atribuir a função necessária para o principal de serviço AKS gerado automaticamente-conceder acesso para o ACR. Por exemplo, devido ao modelo de segurança da sua organização, não poderá ter permissões suficientes no seu inquilino do Azure Active Directory para atribuir uma função ao principal de serviço gerado pelo AKS. Atribuir uma função a um principal de serviço requer a sua conta do Azure AD de ter permissão de escrita para o inquilino do Azure AD. Se não tiver permissão, pode criar um novo principal de serviço e depois conceder acesso para o registo de contentores com um segredo de solicitação de imagem do Kubernetes.
 
 Utilize o seguinte script para criar um novo principal de serviço (que irá utilizar as respetivas credenciais para o segredo de solicitação de imagem de Kubernetes). Modificar o `ACR_NAME` variável para o seu ambiente antes de executar o script.
 

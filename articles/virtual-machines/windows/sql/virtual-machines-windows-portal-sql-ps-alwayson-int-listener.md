@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228220"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064003"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
 Este tópico mostra como:
@@ -101,7 +101,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Script de exemplo: adicionar um endereço IP a um balanceador de carga existente com o PowerShell
+## <a name="Add-IP"></a> Script de exemplo: Adicionar um endereço IP a um balanceador de carga existente com o PowerShell
 Para utilizar mais de um grupo de disponibilidade, adicione um endereço IP adicional para o Balanceador de carga. Cada endereço IP requer seu próprio regra, a porta de sonda e a porta de front-de balanceamento de carga.
 
 A porta de front-end é a porta que aplicações utilizam para ligar à instância do SQL Server. Endereços IP para grupos de disponibilidade diferente, podem utilizar a mesma porta de front-end.
@@ -176,7 +176,7 @@ Para testar a ligação:
 1. Uso **sqlcmd** utilitário para testar a ligação. Por exemplo, o seguinte script estabelece uma **sqlcmd** ligação para a réplica primária por meio do serviço de escuta com a autenticação do Windows:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435: 

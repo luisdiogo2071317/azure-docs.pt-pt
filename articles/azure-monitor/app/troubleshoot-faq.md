@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e620deae1a73c110dd22133a12155166a55b999
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052024"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074449"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
@@ -141,7 +141,7 @@ Verificar o endereço IP (IPv4 ou IPv6) do cliente web usando [GeoLite2](http://
 
 Pode configurar o `ClientIpHeaderTelemetryInitializer` para tirar o endereço IP a partir de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele será movido por um proxy, CDN para ou Balanceador de carga `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-Pode [utilizar o Power BI](../../application-insights/app-insights-export-power-bi.md) para apresentar a telemetria de pedido num mapa.
+Pode [utilizar o Power BI](../../azure-monitor/app/export-power-bi.md ) para apresentar a telemetria de pedido num mapa.
 
 
 ## <a name="data"></a>O período de tempo são retidos os dados no portal do? É seguro?

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1d902f8d87b81fda9edf2c1c37ad40416ac6baf2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: daba72639e190bb255dd515237d25c20df433901
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028734"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075027"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil aplicações de serviço de aplicações do Azure em direto com o Application Insights
 
@@ -25,9 +25,9 @@ Profiler trabalha atualmente para aplicações ASP.NET e ASP.NET Core em execuç
 
 ## <a id="installation"></a> Ative Profiler para a sua aplicação
 Para ativar o Profiler para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço do Azure, aqui estão as instruções de ativação do Profiler em outras plataformas suportadas:
-* [Serviços Cloud](../../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Aplicações do Service Fabric](../../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas Virtuais](../../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Cloud](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
+* [Aplicações do Service Fabric](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler previamente é instalado como parte do tempo de execução dos serviços de aplicações, mas terá de ativá-la para perfis de get para a sua aplicação de serviço de aplicações. Assim que tiver implementado uma aplicação, mesmo se o ter incluído o SDK do App Insights no código-fonte, siga os passos abaixo para ativar o gerador de perfis.
 

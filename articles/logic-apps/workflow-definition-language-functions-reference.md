@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 31c4268522ca373ca0b467c13dd83500e18ef8e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890947"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065890"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -102,6 +102,7 @@ Para trabalhar com coleções, em geral, matrizes, cadeias de caracteres e, às 
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item a partir de uma coleção. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retornar uma coleção que tenha *apenas* os itens comuns em coleções especificadas. | 
+| [Item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação de repetição numa matriz, retorna o item atual na matriz durante a iteração da ação de atual. | 
 | [aderir](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tenha *todos os* os itens de uma matriz, separados pelo caractere especificado. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Devolva o último item a partir de uma coleção. | 
 | [Comprimento](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devolva o número de itens numa cadeia ou matriz. | 
@@ -265,7 +266,7 @@ Para trabalhar com os identificadores de recurso uniforme (URIs) e obter vários
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Funções de manipulação: JSON e XML
+## <a name="manipulation-functions-json--xml"></a>Funções de manipulação: JSON E XML
 
 Para trabalhar com objetos JSON e nós XML, pode usar essas funções de manipulação. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
@@ -752,9 +753,9 @@ and(false, false)
 
 E retorna esses resultados:
 
-* Primeiro exemplo: ambas as expressões forem verdadeiras, portanto, retorna `true`. 
-* Segundo exemplo: uma expressão é falsa, portanto, retorna `false`.
-* Terceiro exemplo: ambas as expressões forem falsos, portanto, retorna `false`.
+* Primeiro exemplo: Ambas as expressões forem verdadeiras, portanto, retorna `true`. 
+* Segundo exemplo: Uma expressão é falsa, portanto, retorna `false`.
+* Terceiro exemplo: Ambas as expressões forem falsos, portanto, retorna `false`.
 
 *Exemplo 2*
 
@@ -768,9 +769,9 @@ and(equals(1, 2), equals(1, 3))
 
 E retorna esses resultados:
 
-* Primeiro exemplo: ambas as expressões forem verdadeiras, portanto, retorna `true`. 
-* Segundo exemplo: uma expressão é falsa, portanto, retorna `false`.
-* Terceiro exemplo: ambas as expressões forem falsos, portanto, retorna `false`.
+* Primeiro exemplo: Ambas as expressões forem verdadeiras, portanto, retorna `true`. 
+* Segundo exemplo: Uma expressão é falsa, portanto, retorna `false`.
+* Terceiro exemplo: Ambas as expressões forem falsos, portanto, retorna `false`.
 
 <a name="array"></a>
 
@@ -1646,8 +1647,8 @@ empty('abc')
 
 E retorna esses resultados: 
 
-* Primeiro exemplo: passa uma cadeia vazia, pelo que a função devolve `true`. 
-* Segundo exemplo: passa a cadeia de caracteres "abc", para que a função devolve `false`. 
+* Primeiro exemplo: Transmite uma cadeia vazia, pelo que a função devolve `true`. 
+* Segundo exemplo: Passa a cadeia de caracteres "abc", para que a função devolve `false`. 
 
 <a name="endswith"></a>
 
@@ -1721,8 +1722,8 @@ equals('abc', 'abcd')
 
 E retorna esses resultados: 
 
-* Primeiro exemplo: ambos os valores são equivalentes, para que a função devolve `true`.
-* Segundo exemplo: ambos os valores não são equivalentes, para que a função devolve `false`.
+* Primeiro exemplo: Ambos os valores são equivalentes, para que a função devolve `true`.
+* Segundo exemplo: Ambos os valores não são equivalentes, para que a função devolve `false`.
 
 <a name="first"></a>
 
@@ -2773,8 +2774,8 @@ or(false, false)
 
 E retornar esses resultados:
 
-* Primeiro exemplo: pelo menos uma expressão for verdadeira, para que a função devolve `true`.
-* Segundo exemplo: ambas as expressões forem falsos, para que a função devolve `false`.
+* Primeiro exemplo: Pelo menos uma expressão for verdadeira, para que a função devolve `true`.
+* Segundo exemplo: Ambas as expressões forem falsos, para que a função devolve `false`.
 
 *Exemplo 2*
 
@@ -2787,8 +2788,8 @@ or(equals(1, 2), equals(1, 3))
 
 E retornar esses resultados:
 
-* Primeiro exemplo: pelo menos uma expressão for verdadeira, para que a função devolve `true`.
-* Segundo exemplo: ambas as expressões forem falsos, para que a função devolve `false`.
+* Primeiro exemplo: Pelo menos uma expressão for verdadeira, para que a função devolve `true`.
+* Segundo exemplo: Ambas as expressões forem falsos, para que a função devolve `false`.
 
 <a name="parameters"></a>
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053113"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063833"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -332,9 +332,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### <a name="configure-cluster-wide-credentials"></a>Configurar as credenciais de todo o cluster
 
-Service Fabric a partir de v6.3, permitir que o utilizador configure as credenciais de todo o cluster que podem ser utilizadas como credenciais do padrão repositório pelos aplicativos.
+Começando com o tempo de execução 6.3, Service Fabric permite-lhe configurar as credenciais de todo o cluster que podem ser utilizadas como credenciais do padrão repositório pelos aplicativos.
 
-Pode ativar/desativar a funcionalidade ao adicionar um atributo "UseDefaultRepositoryCredentials" para ContainerHostPolicies em applicationmanifest. XML com uma "true/false" valor booleano.
+Pode ativar ou desativar a funcionalidade ao adicionar o `UseDefaultRepositoryCredentials` para o atributo `ContainerHostPolicies` em applicationmanifest. XML com um `true` ou `false` valor.
 
 ```xml
 <ServiceManifestImport>
@@ -348,14 +348,14 @@ Pode ativar/desativar a funcionalidade ao adicionar um atributo "UseDefaultRepos
 </ServiceManifestImport>
 ```
 
-Isso instruirá o Service Fabric para utilizar as credenciais de repositório predefinidas que pode ser especificada em ClusterManifest sob a secção de alojamento.  Se UseDefaultRepositoryCredentials estiver definido como verdadeira, o serviço leitura de agora irá Fabric os seguintes valores em clustermanifest:
+O Service Fabric, em seguida, utiliza as credenciais de repositório predefinidas que pode ser especificada em ClusterManifest sob o `Hosting` secção.  Se `UseDefaultRepositoryCredentials` é `true`, Service Fabric lê os seguintes valores do ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (cadeia)
 * DefaultContainerRepositoryPassword (cadeia)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType(string)---Suportado a partir do v6.4
+* DefaultContainerRepositoryPasswordType (cadeia)---suportada ao iniciar com o tempo de execução 6.4
 
-Eis um exemplo de como pode adicionar dentro a secção de alojamento em ClusterManifestTemplate.json. Obter mais informações sobre [como configurar a definição de cluster](service-fabric-cluster-fabric-settings.md) e [ como encriptar palavras-passe](service-fabric-application-secret-management.md)
+Eis um exemplo de como pode adicionar dentro do `Hosting` seção no arquivo ClusterManifestTemplate.json. Para obter mais informações, consulte [definições do cluster de alteração do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [segredos da aplicação de gerir o Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
       {
@@ -384,7 +384,6 @@ Eis um exemplo de como pode adicionar dentro a secção de alojamento em Cluster
         ]
       },
 ```
-
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
 O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. No modo de isolamento de processo, todos os contentores em execução no mesmo computador anfitrião partilham o kernel com o anfitrião. No modo de isolamento de Hyper-V, os kernels estão isolados entre cada contentor de Hyper-V e o anfitrião do contentor. O modo de isolamento está especificado no elemento `ContainerHostPolicies` no ficheiro de manifesto de aplicação. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo em anfitriões do Windows Server. Modo de isolamento de Hyper-V apenas é suportado em anfitriões do Windows 10, pelo que o contentor é executado no modo de isolamento de Hyper-V, independentemente de sua definição do modo de isolamento. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.

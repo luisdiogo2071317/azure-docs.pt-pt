@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019933"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076251"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -73,15 +73,17 @@ Com o corpo JSON:
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
-Depois dos matchers são criados, carregar o trecho de código de função com o seguinte pedido HTTP POST autenticado com várias partes:
+A criação de uma função definida pelo utilizador envolve fazer uma solicitação HTTP com várias partes das APIs de gestão de duplos Digital do Azure.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Depois dos matchers são criados, carregar o trecho de código de função com o seguinte autenticado com várias partes pedido POST de HTTP para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-Utilize o corpo JSON seguinte:
+Utilize o corpo do seguinte:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY

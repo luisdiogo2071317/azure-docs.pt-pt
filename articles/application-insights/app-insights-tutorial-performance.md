@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: b870383634412c5b095738e2a7f79b9cf4dcf78a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 72cfdd2188a0ba53757a1ac7106099eb7b85fb46
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018216"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073480"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -126,4 +126,4 @@ Como acontece nos dados recolhidos do desempenho do servidor, o Application Insi
 Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]
-> [Alertar relativamente ao estado de funcionamento das aplicações](app-insights-tutorial-alert.md)
+> [Alertar relativamente ao estado de funcionamento das aplicações](../azure-monitor/learn/tutorial-alert.md)

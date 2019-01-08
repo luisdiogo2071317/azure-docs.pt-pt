@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845200"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061028"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
@@ -33,7 +33,7 @@ Esta descrição geral descreve como um ISE fornece as logic apps e contas de in
 
 ## <a name="isolated-versus-global"></a>Versus global em ambiente isolado
 
-Quando cria um ambiente de serviço integrado (ISE) no Azure, selecione uma rede virtual do Azure onde seu *injetar* ambiente. Azure implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação cria um ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando criar uma aplicação lógica, selecione esse ambiente como a localização da sua aplicação, o que lhe dá o seu acesso direto da aplicação de lógica aos recursos na sua rede virtual. 
+Quando cria um ambiente de serviço integrado (ISE) no Azure, selecione a rede virtual do Azure onde pretende *injetar* seu ISE. Azure implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação cria um ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando criar uma aplicação lógica, selecione esse ambiente como a localização da sua aplicação, o que lhe dá o seu acesso direto da aplicação de lógica aos recursos na sua rede virtual. 
 
 Aplicações lógicas num ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicações lógicas global. Não só pode usar as mesmas ações incorporadas e conectores no serviço de aplicações lógicas global, mas também pode utilizar conectores específicos do ISE. Por exemplo, eis alguns conectores padrão que oferecem versões que são executados num ISE:
  

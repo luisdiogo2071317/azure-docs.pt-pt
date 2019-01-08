@@ -3,7 +3,7 @@ title: Gerir a sua imagem de máquina virtual no Azure Marketplace | Documentos 
 description: Guia detalhado sobre como gerir a sua imagem de máquina virtual no Azure Marketplace após a publicação inicial
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7aea357c22a928d8af96791bf9cb4bd3c94f37b4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252977"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077067"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção das ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como pode atualizar uma oferta de máquina de virtual em direto no Azure Marketplace. Ele orienta pelo processo de adicionar um ou mais novos SKUs para uma oferta existente. Ele também o orienta pelo processo de remoção de uma oferta de máquina de virtual em direto ou SKU do Marketplace.
 
 Depois de um oferta/SKU é transitado para o [portal do Azure](http://portal.azure.com), não é possível alterar as seguintes caixas de texto:
 
-* **Identificador da oferta**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **oferecem identificador**.
-* **Identificador do SKU**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
-* **Espaço de nomes do publicador**: no portal de publicação do, aceda a **máquinas virtuais** > **passo a passo** > **diga-nos sobre a sua empresa**(encontrado em "Passo 2 registar a sua empresa") > **espaço de nomes do publicador** > **espaço de nomes**.
+* **Identificador da oferta**: Na publicação portal, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **oferecem identificador**.
+* **Identificador do SKU**: Na publicação portal, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
+* **Espaço de nomes do publicador**: Na publicação portal, aceda a **máquinas virtuais** > **passo a passo** > **diga-nos sobre a sua empresa** (encontra-se em "passo 2 Register sua Empresa") > **espaço de nomes do publicador** > **espaço de nomes**.
 
 Depois da oferta/SKU está listado na [Marketplace](https://azure.microsoft.com/marketplace), não é possível alterar as seguintes caixas de texto:
 
-* **Identificador da oferta**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **oferecem identificador**.
-* **Identificador do SKU**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
-* **Espaço de nomes do publicador**: no portal de publicação do, aceda a **máquinas virtuais** > **passo a passo** > **diga-nos sobre a sua empresa**(encontrado em "Passo 2 registar") **espaço de nomes do publicador** > **espaço de nomes**.
-* **Portas**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **portas abertas**.
+* **Identificador da oferta**: Na publicação portal, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **oferecem identificador**.
+* **Identificador do SKU**: Na publicação portal, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
+* **Espaço de nomes do publicador**: Na publicação portal, aceda a **máquinas virtuais** > **passo a passo** > **diga-nos sobre a sua empresa** (encontrado em "Passo 2 registar") **Espaço de nomes do publicador** > **espaço de nomes**.
+* **Portas**: Na publicação portal, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **portas abertas**.
 * **Alteração de SKU (s) listados de preço**
 * **Alteração do modelo de faturação dos SKU (s) listados**
 * **Remoção de regiões de SKU (s) listados de faturação**
@@ -330,10 +331,10 @@ Para reverter a definição de visibilidade de um SKU listada para o valor de pr
 5. Depois de terminar com as alterações, clique em **solicitar aprovação para enviar por PUSH para produção** voltar a publicar a sua oferta no Marketplace.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução ao: Publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Começar a utilizar: Publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Compreender a geração de relatórios de dividendos](marketplace-publishing-report-payout.md)
 * [Alterar o incentivo de revendedor de fornecedor de soluções Cloud](marketplace-publishing-csp-incentive.md)
 * [Resolver problemas comuns de publicação no Marketplace](marketplace-publishing-support-common-issues.md)
 * [Obtenha suporte como um publicador](marketplace-publishing-get-publisher-support.md)
 * [Criar uma imagem de VM no local](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Criar uma máquina virtual com Windows no portal de pré-visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Criar uma máquina virtual com Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

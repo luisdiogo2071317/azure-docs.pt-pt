@@ -14,41 +14,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 01/07/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0508e6418a5095ed9ee27baf045f655d66ea9b58
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d3256fcf33a9ad1eb34ec5dbb0c701c8166a49e2
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435349"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075180"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizar o Azure para alojar e executar cenários de carga de trabalho SAP
 
-Escolhendo o Microsoft Azure como seu parceiro de cloud pronto do SAP, é possível execute com fiabilidade a sua cenários e SAP cargas de trabalho críticas numa plataforma dimensionável, em conformidade e empresariais comprovadas.  Obtenha a escalabilidade, a flexibilidade e a redução de custos do Azure. Com a parceria entre a Microsoft e a SAP expandida, pode executar aplicações SAP em cenários de desenvolvimento/teste e produção no Azure - e suporte completo. Do SAP NetWeaver ao SAP S4/HANA, BI do SAP, Linux ao Windows, SAP HANA ao SQL, temos de que necessita.
+Escolhendo o Microsoft Azure, é possível execute com fiabilidade a sua cenários e SAP cargas de trabalho críticas numa plataforma dimensionável, em conformidade e empresariais comprovadas.  Obtenha a escalabilidade, a flexibilidade e a redução de custos do Azure. Com a parceria entre a Microsoft e a SAP expandida, pode executar aplicações SAP em cenários de desenvolvimento/teste e produção no Azure - e suporte completo. Do SAP NetWeaver ao SAP S4/HANA, BI do SAP, Linux ao Windows, SAP HANA ao SQL, temos de que necessita.
 
-Além de alojar cenários SAP NetWeaver, com diferentes DBMS no Azure, pode alojar diferentes outros cenários de carga de trabalho do SAP, como o BI do SAP no Azure. Documentação em relação a implementações do SAP NetWeaver em máquinas de virtuais do Azure nativo pode ser encontrada na seção "O SAP NetWeaver em máquinas virtuais do Azure."
+Além de alojar cenários SAP NetWeaver, com diferentes DBMS no Azure, pode alojar diferentes outros cenários de carga de trabalho do SAP, como o BI do SAP no Azure. 
 
-A exclusividade do Azure para o SAP HANA é uma oferta exclusiva que define o Azure para além de competição. Para permitir o alojamento de mais memória e recursos de CPU, exigência de cenários SAP que envolvem o SAP HANA, o Azure oferece a utilização de cliente dedicado hardware bare-metal com o objetivo de implementações do SAP HANA que necessitem de até 20 TB (Escalamento 60 TB) de memória para em execução S/4HANA ou outras cargas de trabalho do SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias grandes) permite-lhe executar o SAP HANA no hardware dedicado de bare-metal com a camada de aplicação SAP ou a camada de meio ware de carga de trabalho alojadas no nativo máquinas de virtuais do Azure. Esta solução está documentada em vários documentos na secção "SAP HANA no Azure (instâncias grandes)".   
+A exclusividade do Azure para o SAP HANA é uma oferta que define o Azure para além de competição. Para permitir o alojamento de mais memória e recursos de CPU, exigência de cenários SAP que envolvem o SAP HANA, o Azure oferece a utilização de cliente dedicado hardware bare-metal com o objetivo de implementações do SAP HANA que necessitem de até 24 TB (Escalamento 120 TB) de memória em execução para S/4HANA ou outras cargas de trabalho do SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias grandes) permite-lhe executar o SAP HANA no hardware dedicado de bare-metal com a camada de aplicação SAP ou a camada de meio ware de carga de trabalho alojadas no nativo máquinas de virtuais do Azure. Esta solução está documentada em vários documentos na secção "SAP HANA no Azure (instâncias grandes)".   
 
 Cenários de carga de trabalho SAP no Azure de alojamento também podem criar os requisitos de integração de identidade e o início de sessão único com o diretório de atividade do Azure para diferentes componentes do SAP e SAP SaaS ou a PaaS oferece. Uma lista de tais integração e cenários de início de sessão único com entidades do Azure Active Directory (AAD) e a SAP é descrita e documentada na secção "integração de identidade do AAD SAP e início de sessão único."
 
 ## <a name="latest-changes"></a>Alterações mais recentes
+
+Versão do [SAP carga de trabalho de planejamento e implantação lista de verificação](sap-deployment-checklist.md)
 
 Esclarecimento em torno de utilização e a configuração do [aplicações virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) em caminhos de comunicação crítica de latência dos sistemas SAP em:
 
 - [Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
-Documentação de SAP HANA dinâmico disposição em camadas para VMs do Azure
-
-- [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
-
-Documentação de escalamento do SAP HANA no Azure VM M128s foi adicionada ao:
-
-- [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
-- [Disponibilidade do SAP HANA dentro de uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA no SAP HANA no Azure (instâncias grandes)

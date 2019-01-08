@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 79801ba7a7b50d751cd105a4c8bcd39bb6681c54
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042347"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075359"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](../../application-insights/app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -44,7 +44,7 @@ Se não tiver um, crie-o:
 
 ![Escolha Novo, Serviços de Programação, Application Insights.](./media/javascript/01-create.png)
 
-*Já tem dúvidas?* [Mais sobre a criação de um recurso](../../application-insights/app-insights-create-new-resource.md).
+*Já tem dúvidas?* [Mais sobre a criação de um recurso](../../azure-monitor/app/create-new-resource.md ).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Adicione o script SDK à sua aplicação ou páginas Web
 

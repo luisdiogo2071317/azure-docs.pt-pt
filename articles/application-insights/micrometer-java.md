@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3bf24a4ed17986ff948a7396e608a51ae38208a5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255317"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076506"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar Micrometer com o SDK de Java do Azure Application Insights
 Métricas de medidas de monitorização de aplicações do micrometer para aplicações baseadas em JVM de código e permite-lhe exportar os dados para os seus favoritos sistemas de monitorização. Este artigo irá ensiná-lo a utilizar Micrometer com o Application Insights para o Spring Boot e as aplicações não Spring Boot.
@@ -27,7 +27,7 @@ Adicione as seguintes dependências ao seu ficheiro pom. XML ou gradle:
 * [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA ou superior
 * Micrometer 1.1.0 o registo do Azure ou superior
 * [Herdado de micrometer Spring](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 ou superior (este backports o código de configuração automática do Framework Spring).
-* [Recurso do Application Insights](app-insights-create-new-resource.md)
+* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
 
 Passos
 
@@ -65,7 +65,7 @@ Adicione as seguintes dependências ao seu ficheiro pom. XML ou gradle:
 
 * Application Insights Spring-boot-starter 2.1.2 ou superior
 * Azure-spring-boot-métricas-iniciantes 2.0.7 ou superior  
-* [Recurso do Application Insights](app-insights-create-new-resource.md)
+* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
 
 Passos:
 
@@ -126,7 +126,7 @@ Adicione as seguintes dependências ao seu ficheiro pom. XML ou gradle:
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) ou superior
 * [Registar o filtro da Web](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Micrometer 1.1.0 o registo do Azure ou superior
-* [Recurso do Application Insights](app-insights-create-new-resource.md)
+* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
 
 Passos:
 

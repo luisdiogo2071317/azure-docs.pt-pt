@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 6f644416a9e56009aadd0f8e1b217402d625af84
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: dc903fca206f5d40f631181b83252f505b9f57a2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788740"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065215"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planear a capacidade e dimensionamento para recuperação de desastre do VMware para o Azure
 
@@ -30,7 +30,7 @@ Para saber os requisitos de infraestrutura do Azure Site Recovery, recolher info
 **Servidor de configuração** | O servidor de configuração deve ser capaz de lidar com a capacidade de taxa de alteração diária em todas as cargas de trabalho em execução nas máquinas protegidas e precisa a largura de banda suficiente para replicar continuamente os dados ao armazenamento do Azure.<br/><br/> Como melhor prática, localize o servidor de configuração na mesma rede e segmento de LAN que as máquinas que pretende proteger. Ele pode estar localizado numa rede diferente, mas as máquinas que pretende proteger devem ter visibilidade da camada 3 de rede ao mesmo.<br/><br/> Recomendações de tamanho para o servidor de configuração estão resumidas na tabela na secção seguinte.
 **Servidor de processos** | O primeiro servidor de processos está instalado por predefinição no servidor de configuração. Pode implementar servidores de processos adicionais para dimensionar o seu ambiente. <br/><br/> O servidor de processos recebe dados de replicação de máquinas protegidas e otimiza-os com colocação em cache, compressão e encriptação. Em seguida, envia os dados para o Azure. A máquina do servidor de processo deve ter recursos suficientes para executar estas tarefas.<br/><br/> O servidor de processo utiliza um cache em disco. Utilize um disco de cache separado de 600 GB ou mais para processar alterações de dados armazenadas em caso de um afunilamento de rede ou interrupções.
 
-## <a name="size-recommendations-for-the-configuration-serverin-built-process-server"></a>Recomendações de tamanho para o servidor de processos de servidor/incorporados de configuração
+## <a name="size-recommendations-for-the-configuration-server-along-with-in-built-process-server"></a>Recomendações de tamanho para o servidor de configuração (juntamente com o servidor de processos incorporado)
 
 Cada servidor de configuração implementadas através de [o modelo OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) tem um servidor de processos incorporadas. Recursos do servidor de configuração, como CPU, memória, espaço livre são utilizados numa taxa diferente quando o servidor de processos incorporadas é utilizado para proteger máquinas virtuais. Por conseguinte, os requisitos variam quando é utilizado o servidor de processos incorporadas.
 Um servidor de configuração em que o servidor de processos incorporadas serve para proteger a carga de trabalho pode processar até 200 máquinas virtuais com base nas seguintes configurações
@@ -47,18 +47,6 @@ Em que:
 
 * Cada máquina de origem está configurada com 3 discos de 100 GB cada.
 * Nós usamos armazenamento benchmark de 8 unidades SAS de 10 mil RPM, com o RAID 10, para medidas de disco de cache.
-
-## <a name="size-recommendations-for-the-configuration-server"></a>Recomendações de tamanho para o servidor de configuração
-
-Quando não estiver a planear utilizar o servidor de configuração como um servidor de processos, siga o abaixo dado configuração para lidar com até 650 máquinas de virtuais.
-
-**CPU** | **RAM** | **Tamanho do disco de SO** | **Taxa de alteração de dados** | **Máquinas protegidas**
---- | --- | --- | --- | ---
-24 vCPUs (2 sockets * 12 núcleos \@ 2,5 gigahertz [GHz])| 32GB | 80 GB | Não aplicável | Até 650 VMs
-
-Em que, cada máquina de origem está configurada com discos de 3 de 100 GB cada.
-
-Já que, não é utilizada a funcionalidade de servidor de processo, taxa de alteração de dados não é aplicável. Para manter acima da capacidade, pode mudar a sua carga de trabalho do servidor de processos incorporadas para outro processo de escalamento horizontal ao seguir as diretrizes [aqui](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ## <a name="size-recommendations-for-the-process-server"></a>Recomendações de tamanho para o servidor de processos
 
@@ -123,7 +111,7 @@ Também pode utilizar o cmdlet [Set-OBMachineSetting](https://technet.microsoft.
 Antes da configuração da infraestrutura do Azure Site Recovery, terá de aceder ao ambiente para medir os seguintes fatores: máquinas virtuais compatíveis, dados diários de alterar a taxa de largura de banda de rede necessária para o RPO pretendido, o número de recuperação de sites do Azure componentes necessários, o tempo que demora a concluir a replicação inicial, etc.,
 
 1. Para medir esses parâmetros, certifique-se para executar o planeador de implementação no seu ambiente com a ajuda de diretrizes partilhados [aqui](site-recovery-deployment-planner.md).
-2. Implementar um servidor de configuração com requisitos mencionados [aqui](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). Se a carga de trabalho de produção exceder 650 máquinas de virtuais, implemente noutro servidor de configuração.
+2. Implemente um servidor de configuração com os requisitos mencionados acima. Se a carga de trabalho de produção exceder 650 máquinas de virtuais, implemente noutro servidor de configuração.
 3. Com base na taxa de medida alterações de dados diária, implemente [servidores de processos de escalamento horizontal](vmware-azure-set-up-process-server-scale.md#download-installation-file) com a ajuda de diretrizes de tamanho indicadas [aqui](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
 4. Se pretender que a taxa de alteração de dados para uma máquina virtual de disco iria exceder a 2 MBps, certifique-se para [configurar uma conta de armazenamento premium](tutorial-prepare-azure.md#create-a-storage-account). Uma vez que o planeador de implementação é executado durante um período de tempo específico, os picos nos dados de taxa de alteração durante o tempo de outro pontos finais não sejam capturadas no relatório.
 5. De acordo com o RPO pretendido, [definir a largura de banda de rede](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).

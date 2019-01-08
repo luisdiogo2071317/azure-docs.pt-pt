@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580931"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064479"
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
 
@@ -31,7 +31,7 @@ Este artigo responde às perguntas mais frequentes (FAQ) sobre a integração de
 
 Integração de registos do Azure é um serviço de sistema operativo do Windows que pode utilizar para integrar registos não processados do seus recursos do Azure em seus sistemas no local segurança informações e eventos (SIEM) de gestão. Esta integração fornece um dashboard unificado para todos os seus ativos, no local ou na cloud. Pode, em seguida, Agregar, correlacionar, analisar e de alertas para eventos de segurança associados a seus aplicativos.
 
-O método preferido para a integração de registos do Azure é utilizando o conector do SIEM s do fornecedor do Azure Monitor e seguir estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se seu t do SIEM fornecedor fornecer um conector para o Azure Monitor, poderá conseguir utilizar a integração de registo do Azure como uma solução temporária (se a sua SIEM é suportado pelo Azure Log Integration) até que tal um conector esteja disponível.
+O método preferido para a integração de registos do Azure é utilizando o conector do Azure Monitor do seu fornecedor SIEM e seguir estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o seu fornecedor SIEM não fornecer um conector para o Azure Monitor, poderá conseguir utilizar a integração de registo do Azure como uma solução temporária (se a sua SIEM é suportado pelo Azure Log Integration) até que tal um conector esteja disponível.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software de integração de registos do Azure é gratuito?
 

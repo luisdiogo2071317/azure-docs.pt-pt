@@ -10,24 +10,23 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302848"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076031"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
  Um certificado do Key Vault (KV) pode ser criado ou importado para um cofre de chaves. Quando é criado um certificado de KV a chave privada é criada no interior do Cofre de chaves e nunca é exposta ao proprietário do certificado. Seguem-se formas de criar um certificado no Cofre de chaves:  
 
--   **Criar um certificado autoassinado:** Isto irá criar um par de chaves públicas-privadas e associá-la com um certificado. O certificado será assinado pela sua própria chave.  
+-   **Crie um certificado autoassinado:** Isto irá criar um par de chaves públicas-privadas e associá-la com um certificado. O certificado será assinado pela sua própria chave.  
 
--    **Criar manualmente um novo certificado:** esta ação irá criar um par de chaves públicas-privadas e gerar um pedido de assinatura de certificado X.509. O pedido de assinatura pode ser assinado pela sua autoridade de registo ou de uma autoridade de certificação. Emparelhe x509 assinado certificado pode ser intercalado com a chave de pendente para concluir o certificado de KV no Cofre de chaves. Embora este método requer mais passos, ele fornecer com maior segurança como a chave privada é criada no e restrito ao Cofre de chaves. Isso é explicado no diagrama abaixo.  
+-    **Crie manualmente um novo certificado:** Isto irá criar um par de chaves públicas-privadas e gerar um pedido de assinatura de certificado X.509. O pedido de assinatura pode ser assinado pela sua autoridade de registo ou de uma autoridade de certificação. Emparelhe x509 assinado certificado pode ser intercalado com a chave de pendente para concluir o certificado de KV no Cofre de chaves. Embora este método requer mais passos, ele fornecer com maior segurança como a chave privada é criada no e restrito ao Cofre de chaves. Isso é explicado no diagrama abaixo.  
 
 ![Criar um certificado com a sua própria autoridade de certificação](media/certificate-authority-1.png)  
 
@@ -39,7 +38,7 @@ As seguintes descrições correspondem aos passos letras verde no diagrama anter
 4. Sua escolhida AC responde com uma X509 certificado.
 5. A aplicação concluir a criação de certificado novo com uma fusão de X509 certificado da AC.
 
--   **Criar um certificado com um fornecedor de emissor conhecidos:** este método requer que faça uma única tarefa de criação de um objeto de emissor. Assim que for criado um objeto de emissor no seu Cofre de chaves, o respetivo nome pode ser referenciado na política do certificado KV. Um pedido para criar um certificado de KV irá criar um par de chaves no cofre e comunicar com o serviço do fornecedor de emissor utilizando as informações no objeto referenciado do emissor para obter uma x509 certificado. O certificado é obtido a partir do serviço de emissor e é mesclado com o par de chaves para concluir o KV certificado x509 criação.  
+-   **Crie um certificado com um fornecedor de emissor conhecidos:** Este método requer que faça uma única tarefa de criação de um objeto de emissor. Assim que for criado um objeto de emissor no seu Cofre de chaves, o respetivo nome pode ser referenciado na política do certificado KV. Um pedido para criar um certificado de KV irá criar um par de chaves no cofre e comunicar com o serviço do fornecedor de emissor utilizando as informações no objeto referenciado do emissor para obter uma x509 certificado. O certificado é obtido a partir do serviço de emissor e é mesclado com o par de chaves para concluir o KV certificado x509 criação.  
 
 ![Criar um certificado com uma autoridade de certificação de uma parceria do Key Vault](media/certificate-authority-2.png)  
 
