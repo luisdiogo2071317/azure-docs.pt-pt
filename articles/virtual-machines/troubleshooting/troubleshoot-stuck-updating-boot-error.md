@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355489"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063665"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização VM do Azure está bloqueada nos Windows update
 
 Este artigo ajuda a resolver o problema quando a Máquina Virtual (VM) está bloqueada a fase de atualização do Windows durante o arranque. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
 
  ## <a name="symptom"></a>Sintoma
 
@@ -47,16 +47,16 @@ Dependendo do número de atualizações que estão a obter instalado ou revertid
 
 1. Tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md). 
 2. [Anexar o disco do SO a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
-3. Depois do disco do SO é anexado na VM de recuperação, abra a **Gestor de discos** e certifique-se de que é **ONLINE**. Observe a letra de unidade que está atribuída ao disco do SO anexado que contém a pasta \Windows. Se o disco está criptografado, descriptografar o disco antes de continuar com os passos neste documento.
+3. Depois do disco do SO é anexado na VM de recuperação, execute **Diskmgmt. msc** para abrir a gestão de discos e certifique-se de que o disco anexado está **ONLINE**. Observe a letra de unidade que está atribuída ao disco do SO anexado que contém a pasta \Windows. Se o disco está criptografado, descriptografar o disco antes de continuar com os passos neste documento.
 
-3. Obter a lista dos pacotes de atualização que estão no disco do SO anexado:
+4. Abra uma instância de linha de comandos elevada (executar como administrador). Execute o seguinte comando para obter a lista dos pacotes de atualização que estão no disco do SO anexado:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     Por exemplo, se utilizar o disco do SO anexado como unidade F, execute o seguinte comando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Abra o ficheiro de C:\temp\Patch_level.txt e, em seguida, lê-lo na parte inferior de cópia de segurança. Localize a atualização que está **instalação pendente** ou **desinstalar pendente** estado.  Segue-se um exemplo do Estado de atualização:
+5. Abra o ficheiro de C:\temp\Patch_level.txt e, em seguida, lê-lo na parte inferior de cópia de segurança. Localize a atualização que está **instalação pendente** ou **desinstalar pendente** estado.  Segue-se um exemplo do Estado de atualização:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ Dependendo do número de atualizações que estão a obter instalado ou revertid
     Release Type : Security Update
     Install Time :
     ```
-5. Remova a atualização que causou o problema:
+6. Remova a atualização que causou o problema:
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ Dependendo do número de atualizações que estão a obter instalado ou revertid
     Exemplo: 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > Dependendo do tamanho do pacote, a ferramenta DISM irá demorar algum tempo para processar a desinstalação. Normalmente, o processo será concluído dentro de minutos de 16.
 
-6. Desanexar o disco do SO e, em seguida [recriar a VM com o disco do SO](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Desanexar o disco do SO e recriar a VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Em seguida, verifique se o problema foi resolvido.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233019"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074551"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Expanda o seu negócio no marketplace 
 Depois de publicar a oferta no AppSource ou no Azure Marketplace, pode utilizar a sua listagem como um ponto de partida para atividades conjuntas de (GTM) de go-to-market com a Microsoft. Impulsionar o tráfego para a sua oferta do Marketplace e estimulante oportunidades potenciais do Marketplace, por exemplo, são ótimas formas de acelerar o crescimento da sua empresa. 
@@ -33,15 +33,15 @@ As tabelas nas secções seguintes apresentam sugestões para a criação de ofe
 ### <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
 | Definição vitrine | Melhor prática |
 |:--- |:--- |  
-| Nome da Oferta | Forneça um título forte:<br>Nome da sua aplicação deve comunicar o valor de núcleos que seus clientes recebem. Incluindo palavras-chave de pesquisa no seu título da aplicação pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa.<br><br>Seguir um formato de título do conjunto de listas de serviço de consultoria:<br>[Nome da oferta]: [duração] [tipo de oferta] \(por exemplo, *Contoso: implementação de 2 semanas*)<br><br>Seguir as diretrizes de marca:<br>Siga [Trademark de Microsoft e diretrizes de marca](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes, específico do produto quando consultar a marcas comerciais da Microsoft e os nomes de software, produtos e serviços da Microsoft. |
+| Nome da Oferta | Forneça um título forte:<br>Nome da sua aplicação deve comunicar o valor de núcleos que seus clientes recebem. Incluindo palavras-chave de pesquisa no seu título da aplicação pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa.<br><br>Seguir um formato de título do conjunto de listas de serviço de consultoria:<br>[Nome da oferta]: [duração] [tipo de oferta] (por exemplo, *Contoso: Implementação de 2 semanas*)<br><br>Seguir as diretrizes de marca:<br>Siga [Trademark de Microsoft e diretrizes de marca](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes, específico do produto quando consultar a marcas comerciais da Microsoft e os nomes de software, produtos e serviços da Microsoft. |
 | Descrição da oferta | Forneça uma descrição de oferta claro:<br>Descreva claramente a proposta de valor da sua oferta nas frases alguns primeiro da sua descrição. Tenha em atenção que as frases de alguns primeiro poderão ser apresentadas nos resultados do motor de pesquisa. Não confie em recursos e funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que fornecer. Utilize o vocabulário específicos da indústria ou com base em benefício redação tanto quanto possível.<br><br>Componentes principais de sua proposta de valor devem incluir as seguintes informações:<ul><li>Descrição do produto</li><li>Tipo de utilizador que se beneficia do produto</li><li>Necessidade de cliente ou o problema que abrange o produto</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Detalhes de listagem vitrine
 | Definição vitrine | Melhor prática |
 |:--- |:--- |  
-| Indústrias: Aplicações do AppSource e apenas a serviços de consultoria | Selecione setores se a sua oferta aborda os requisitos específicos da indústria:<br>Chame recursos específicos da indústria em sua descrição da oferta.<br><br>**Tenha em atenção**: O número máximo de opções varia consoante o tipo de oferta e é indicado no portal de parceiros da Cloud. |
-| Categorias | Selecione as categorias que se ajustam melhor na sua oferta:<br>Selecione as categorias com cuidado, uma vez que os clientes usá-los para procurar as aplicações relevantes. Certifique-se de que chamar como sua oferta suporta as necessidades de categorias específicas na descrição da oferta.<br><br> **Tenha em atenção**: O número máximo de opções varia consoante o tipo de oferta e é indicado no portal de parceiros da Cloud. |
-| Produtos que a sua aplicação funciona com (3&nbsp;máximo): apenas as aplicações do AppSource | Liste os outros produtos e tecnologias que a solução utiliza ou expande:<br>Por exemplo, IoT Hub do Azure ou do Azure Machine Learning. |
+| Setores: Aplicações do AppSource e apenas a serviços de consultoria | Selecione setores se a sua oferta aborda os requisitos específicos da indústria:<br>Chame recursos específicos da indústria em sua descrição da oferta.<br><br>**Nota**: O número máximo de opções varia consoante o tipo de oferta e é indicado no portal de parceiros da Cloud. |
+| Categorias | Selecione as categorias que se ajustam melhor na sua oferta:<br>Selecione as categorias com cuidado, uma vez que os clientes usá-los para procurar as aplicações relevantes. Certifique-se de que chamar como sua oferta suporta as necessidades de categorias específicas na descrição da oferta.<br><br> **Nota**: O número máximo de opções varia consoante o tipo de oferta e é indicado no portal de parceiros da Cloud. |
+| Produtos que a sua aplicação funciona com (3&nbsp;máximo): Apenas as aplicações do AppSource | Liste os outros produtos e tecnologias que a solução utiliza ou expande:<br>Por exemplo, IoT Hub do Azure ou do Azure Machine Learning. |
 | Procurar palavras-chave (3&nbsp;máx.) | Utilize palavras-chave de pesquisa que ajudam os utilizadores empresariais a encontrar a sua oferta, quando estes procurem no Azure Marketplace e no AppSource ou utilizando os mecanismos de pesquisa:<br>Identificar as principais três procurar palavras-chave para a sua oferta; incorporar as palavras-chave de pesquisa na sua oferta resumo e a descrição; e a lista de palavras-chave de pesquisa aqui. |
 
 ### <a name="storefront-marketing-details"></a>Detalhes de marketing vitrine
@@ -50,7 +50,7 @@ As tabelas nas secções seguintes apresentam sugestões para a criação de ofe
 | Logótipo da oferta (formato PNG, 48&nbsp;&times;&nbsp;48): a página de pesquisa | Conceber e otimizar o seu logótipo para um digital médio:<br>Carregue o logótipo no formato PNG para a página de pesquisa da sua oferta. |
 | Logótipo da oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalhes da aplicação | Conceber e otimizar o seu logótipo para um digital médio:<br>Carregue o logótipo no formato PNG para os página da sua oferta da lista os detalhes da aplicação. |
 | Documentos "Saiba mais" | Incluem suporte a recursos de vendas e marketing em "Saiba mais":<br>Por exemplo, documentos técnicos, brochuras, listas de verificação ou apresentações do PowerPoint. Guarde todos os ficheiros no formato PDF. Sua meta deve ser instruir clientes, não seriam vendidos para eles.<br><br>Adicionar uma ligação para a página de destino da aplicação para todos os seus documentos e adicionar parâmetros de URL para o ajudar a controlar os visitantes e as versões de avaliação. |
-| Vídeos: AppSource, serviços e ofertas de SaaS apenas de consultoria | Os vídeos mais fortes comunicam o valor da sua oferta na forma de narrativa:<br>Certifique o seu cliente, não a sua empresa, o herói da história. O vídeo deve resolver os desafios de principal e os objetivos do seu cliente de destino.<br><br>Recomendado comprimento: 60 a 90 segundos.<br><br>Incorpore palavras de chave de pesquisa que utilizam o nome dos vídeos.<br><br>Considere adicionar vídeos adicionais, como um procedimentos, introdução ou vídeo de testemunho de cliente. |
+| Vídeos: AppSource, serviços e ofertas de SaaS apenas de consultoria | Os vídeos mais fortes comunicam o valor da sua oferta na forma de narrativa:<br>Certifique o seu cliente, não a sua empresa, o herói da história. O vídeo deve resolver os desafios de principal e os objetivos do seu cliente de destino.<br><br>Comprimento recomendado: 60 a 90 segundos.<br><br>Incorpore palavras de chave de pesquisa que utilizam o nome dos vídeos.<br><br>Considere adicionar vídeos adicionais, como um procedimentos, introdução ou vídeo de testemunho de cliente. |
 | Capturas de ecrã (1280&nbsp;&times;&nbsp;720) | Adicione até cinco capturas de ecrã:<br>Incorpore palavras chave de pesquisa em nomes de ficheiros. |
 
 ## <a name="marketing-best-practices"></a>Melhores práticas de marketing 
@@ -147,8 +147,8 @@ O destaque do Azure Marketplace é fornecido como parte da sua livre [benefício
 
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Ligar a sua página de lista de aplicações no marketplace do seu Web site
 Quando cria uma ligação de destaque AppSource ou no Azure Marketplace no seu site para sua listagem no marketplace, suportam fortes análises e relatórios, incluindo os seguintes parâmetros de consulta no final do URL:
-* **SRC**: incluem a origem a partir do qual o tráfego é encaminhado para o AppSource (por exemplo, Web site, LinkedIn ou o Facebook).
-* **mktcmpid**: o seu ID campanha de marketing, que pode conter até 16 carateres de qualquer combinação de letras, números, carateres de sublinhado e hífenes (por exemplo, *blogpost_12*).
+* **SRC**: Incluem a origem a partir do qual o tráfego é encaminhado para o AppSource (por exemplo, Web site, LinkedIn ou o Facebook).
+* **mktcmpid**: O seu ID campanha de marketing, que pode conter até 16 carateres de qualquer combinação de letras, números, carateres de sublinhado e hífenes (por exemplo, *blogpost_12*).
 
 O URL do exemplo seguinte contém os dois parâmetros de consulta anterior: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
