@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752627"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102946"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Executar predições do batch em grandes conjuntos de dados com o serviço Azure Machine Learning
 
@@ -185,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Escrever o seu script de classificação
 
 >[!Warning]
->O código seguinte é apenas uma amostra do que está contido no [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) utilizado pela [bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Terá de criar seu próprio script de classificação para o seu cenário.
+>O código seguinte é apenas uma amostra do que está contido no [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) utilizado pela [bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Terá de criar seu próprio script de classificação para o seu cenário.
 
 O `batch_score.py` script aceita imagens de entrada *dataset_path*, pré-preparadas com modelos no *model_dir,* e produz *resultados label.txt* para *output_dir*.
 
