@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632794"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102623"
 ---
 # <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
 
@@ -30,7 +30,7 @@ Este artigo descreve a política de manutenção para sistemas integrados do Azu
 
 A Microsoft divulgará os pacotes de atualização completa mensal, bem como pacotes de correção para resolver problemas específicos. 
 
-Pacotes de atualização mensal são alojados num ponto de extremidade seguro do Azure. Pode transferi-las manualmente com o [ferramenta de transferência de atualizações do Azure Stack](http://aka.ms/azurestackupdatedownload). Se estiver ligada a sua unidade de escala, a atualização aparece automaticamente no portal de administrador, como **atualização disponível**. Completa, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
+Pacotes de atualização mensal são alojados num ponto de extremidade seguro do Azure. Pode transferi-las manualmente com o [ferramenta de transferência de atualizações do Azure Stack](https://aka.ms/azurestackupdatedownload). Se estiver ligada a sua unidade de escala, a atualização aparece automaticamente no portal de administrador, como **atualização disponível**. Completa, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
 
 Pacotes de atualização de hotfix estão alojados no mesmo seguro do Azure ponto final. Pode transferi-los manualmente usando os links incorporados em cada um dos artigos da KB correção respectivos; Por exemplo, [do Azure Stack correção 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Assim como os pacotes de atualização completa, mensal, operadores do Azure Stack podem transferir os ficheiros. XML,. bin e .exe e importá-los usando o procedimento [aplicar atualizações no Azure Stack](azure-stack-apply-updates.md). Operadores do Azure Stack com unidades de escala ligado, verá as correções aparecem automaticamente no portal do administrador com a mensagem **atualização disponível**.
 

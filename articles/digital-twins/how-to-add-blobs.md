@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073956"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116743"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
 
-Os BLOBs são representações de dados não estruturadas de tipos de ficheiros comuns, como imagens e registos. BLOBs de manter o controle de que tipo de dados que eles representam, utilizando um tipo de MIME (por exemplo: "imagem/jpeg") e metadados (nome, descrição, tipo e assim por diante).
+Os BLOBs são representações de dados não estruturadas de tipos de ficheiros comuns, como imagens e registos. BLOBs de controlam o tipo de dados que eles representam, utilizando um tipo de MIME (por exemplo: "imagem/jpeg") e metadados (nome, descrição, tipo e assim por diante).
 
 Duplos Digital do Azure suporta anexar blobs para dispositivos, espaços e os utilizadores. BLOBs podem representar uma foto de perfil para um utilizador, uma fotografia de dispositivo, um vídeo, um mapa, um zip de firmware, dados JSON, um registo, etc.
 
@@ -202,7 +202,7 @@ Um erro comum é para não incluir as informações de cabeçalho correto:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a documentação de referência do Swagger duplos Digital do Azure, leia [Use Azure Digital duplos Swagger](how-to-use-swagger.md).
+- Para saber mais sobre a documentação de referência do Swagger duplos Digital do Azure, leia [Use Azure Digital duplos Swagger](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

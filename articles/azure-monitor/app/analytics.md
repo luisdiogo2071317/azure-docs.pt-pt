@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065618"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120891"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
-A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](../../application-insights/app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](../../azure-monitor/app/app-insights-dashboards.md).
+A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](../../azure-monitor/app/app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](../../azure-monitor/app/app-insights-dashboards.md).
 
 ![Abrir portal.azure.com, abra o recurso do Application Insights e clique em Analytics.](./media/analytics/001.png)
 

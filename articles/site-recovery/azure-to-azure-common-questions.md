@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 6fe7152e43640a809ab9f4de39b1c6b599975a20
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ced306b00a5761ae096e918b43a8e67e649580dd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969952"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106023"
 ---
 # <a name="common-questions---azure-to-azure-replication"></a>Perguntas comuns - replicação do Azure para o Azure
 
@@ -62,7 +62,7 @@ Não, recuperação de sites não necessita de conectividade à internet, mas o 
 ## <a name="replication-policy"></a>Política de Replicação
 
 ### <a name="what-is-a-replication-policy"></a>O que é uma política de replicação?
-Define as definições de recuperação ponto retenção histórico e aplicação de frequência de instantâneo consistente. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e "60 minutos para a frequência de instantâneo consistente da aplicação.
+Define as definições de recuperação ponto retenção histórico e aplicação de frequência de instantâneo consistente. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e "60 minutos para a frequência de instantâneo consistente da aplicação. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) como configurar a política de replicação]
 
 ### <a name="what-is-crash-consistent-recovery-point"></a>O que é o ponto de recuperação consistente com a falha?
 Ponto de recuperação consistente com a falha representa os dados no disco, como se a VM falhou ou o cabo de alimentação foi obtido a partir do servidor no momento do instantâneo foi tirado. Ele não inclui tudo o que estava na memória, quando o instantâneo foi tirado. Hoje em dia, a maioria dos aplicativos pode recuperar bem a partir de instantâneos consistentes com falhas. Um ponto de recuperação consistentes com falhas geralmente é suficiente para não sistemas operacionais de base de dados e aplicações, como servidores de arquivos, servidores DHCP, servidores de impressão e assim por diante.
@@ -96,6 +96,24 @@ Em caso de inicial replicação o primeiro ponto de recuperação, que obtém ge
 
 ### <a name="does-increasing-recovery-points-retention-windows-increases-the-storage-cost"></a>Aumentar janelas de retenção de pontos de recuperação aumenta o custo de armazenamento?
 Sim, se aumentar o período de retenção de 24 horas para 72 horas, em seguida, o Site Recovery irá guardar os pontos de recuperação para adição a 48 horas que será incorrido-custos de armazenamento. Para o exemplo se um ponto de recuperação de único tem alterações de delta de 10 GB e custo por GB é 0.16 us $ por mês, em seguida, o que seria US $1.6 * 48 encargos adicionais por mês.
+
+## <a name="multi-vm-consistency"></a>Consistência de multi-VMS 
+
+### <a name="what-is-multi--vm-consistency"></a>O que é a consistência de várias VMS?
+Isso significa certificar-se de que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
+Recuperação de sites fornece uma opção de "Consistência de multi-VMS" que, quando selecionado cria um grupo de replicação para replicar todas as máquinas em conjunto, que fazem parte do grupo.
+Todas as máquinas virtuais irão partilhar pontos de recuperação consistente com a aplicação e com falhas quando a ativação pós-falha.
+Avance para o tutorial para [ativar a consistência de "Multi-VM"](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+
+### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Posso ativação pós-falha única máquina virtual dentro de um grupo de replicação de consistência "Multi-VM"?
+Ao selecionar a opção "Consistência de multi-VMS" são a indicar que a aplicação tem uma dependência em todas as máquinas virtuais dentro de um grupo. Por conseguinte, a ativação pós-falha da máquina virtual individual não é permitida. 
+
+### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-multi-vm-consistency-replication-group"></a>Número de máquinas virtuais pode replicar como parte do grupo de replicação de consistência "Multi-VM"?
+Pode replicar 16 máquina de virtual em conjunto num grupo de replicação.
+
+### <a name="when-should-i-enable-multi-vm-consistency-"></a>Quando devo ativar a consistência multi-VM?
+Ativar a consistência multi-VM pode afetar o desempenho de uma carga de trabalho (como ele é exigente em termos de CPU) e só deve ser utilizada se as máquinas estão a executar a mesma carga de trabalho e precisar de consistência entre várias máquinas. Por exemplo, se tiver 2 servidores de sql e 2 servidores web num aplicativo, devem ter a consistência de "Multi-VM" para apenas os servidores do sql.
+
 
 ## <a name="failover"></a>Ativação pós-falha
 

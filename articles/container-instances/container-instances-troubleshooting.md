@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820363"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119055"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -48,7 +48,7 @@ Se especificar uma imagem que não suportam o Azure Container Instances, um `OsV
 
 Este erro for encontrado com mais freqüência quando implementar imagens do Windows que se baseiam num canal Semianual (SAC). Por exemplo, o Windows versões 1709 e versão 1803 são versões SAC e geram este erro após a implementação.
 
-O Azure Container Instances suporta imagens do Windows com base apenas nas versões de canal de manutenção de longo prazo (LTSC). Para atenuar este problema ao implementar contentores do Windows, implemente sempre as imagens baseadas em LTSC.
+Atualmente, o Azure Container Instances suporta imagens do Windows com base apenas nos **Windows Server 2016 term Servicing canal (LTSC)** de versão. Para atenuar este problema ao implementar contentores do Windows, implemente sempre as imagens baseadas no Windows Server 2016 LTSC. Imagens com base no 2019 do Windows Server (LTSC) não são suportadas.
 
 Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [descrição geral do Windows Server via de atualizações Semianuais][windows-sac-overview].
 

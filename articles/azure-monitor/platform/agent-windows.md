@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189902"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104127"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -128,9 +128,9 @@ O exemplo seguinte instala o agente de 64 bits, identificado pelo `URI` valor. T
 
 As versões de 32 bits e 64 bits do pacote de agente têm códigos de produto diferente e novas versões lançadas também tem um valor exclusivo.  O código de produto é um GUID que é a identificação do principal de um aplicativo ou o produto e é representado pelo instalador do Windows **ProductCode** propriedade.  O `ProductId` valor de **MMAgent.ps1** script tem de corresponder ao código de produto do pacote de instalador do agente de 32 bits ou 64 bits.
 
-Para obter o código de produto a partir do pacote de instalação do agente diretamente, pode usar Orca.exe do [Windows componentes para o Windows Installer programadores do SDK](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) ou seja, um componente do Kit de desenvolvimento de Software do Windows ou a utilizar PowerShell seguem uma [script de exemplo](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um Microsoft Valuable Professional (MVP).  Para qualquer uma das abordagens, tem primeiro de extrair os **momagent. msi** ficheiro do pacote de instalação MMASetup.  Isso é mostrado anteriormente no primeiro passo na secção [instalar o agente utilizando a linha de comandos](#install-the-agent-using-the-command-line).  
+Para obter o código de produto a partir do pacote de instalação do agente diretamente, pode usar Orca.exe do [Windows componentes para o Windows Installer programadores do SDK](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) ou seja, um componente do Kit de desenvolvimento de Software do Windows ou a utilizar PowerShell seguem uma [script de exemplo](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um Microsoft Valuable Professional (MVP).  Para qualquer uma das abordagens, tem primeiro de extrair os **momagent. msi** ficheiro do pacote de instalação MMASetup.  Isso é mostrado anteriormente no primeiro passo na secção [instalar o agente utilizando a linha de comandos](#install-the-agent-using-the-command-line).  
 
-1. Módulo de importação a DSC xPSDesiredStateConfiguration da [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automatização do Azure.  
+1. Módulo de importação a DSC xPSDesiredStateConfiguration da [ https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automatização do Azure.  
 2.  Criar recursos de variável da automatização do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Definir *OPSINSIGHTS_WS_ID* para o seu ID de área de trabalho do Log Analytics e o conjunto *OPSINSIGHTS_WS_KEY* para a chave primária da sua área de trabalho.
 3.  Copie o script e guarde-o como MMAgent.ps1.
 

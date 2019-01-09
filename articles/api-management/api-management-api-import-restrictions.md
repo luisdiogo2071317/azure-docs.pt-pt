@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016747"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106829"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -47,6 +47,7 @@ Ficheiros WSDL são utilizados para gerar as APIs de pass-through SOAP ou servir
 * **WCF wsHttpBinding** -serviços SOAP criados com o Windows Communication Foundation devem utilizar a basicHttpBinding, wsHttpBinding não é suportada.
 * **MTOM** - serviços usando o MTOM <em>poderá</em> trabalhar. Oficial de suporte não está disponível neste momento.
 * **Recursão** -tipos que são definidos recursivamente (por exemplo, consulte a uma matriz por si mesmos) não são suportadas pelo APIM.
+* **Vários espaços de nomes** - vários espaços de nomes podem ser usados num esquema, mas apenas o espaço de nomes de destino pode ser usado para definir partes das mensagens. Espaços de nomes diferente do destino que são utilizados para definir a outros elementos de entrada ou de saída não são mantidos. Embora possa ser importado um documento WSDL, todas as partes da mensagem serão necessário o espaço de nomes de destino do WSDL na exportação.
 
 ## <a name="wadl"> </a>WADL
 Atualmente, não existem não existem problemas de importação WADL conhecidos.

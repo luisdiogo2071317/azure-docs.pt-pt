@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970336"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121299"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -108,7 +108,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Quer mesmo remover a aplicação?|  
 |WebDevelopersAppNotPublished|Não publicado|  
-|WebDevelopersAppNotSubminted|Não submetido|  
+|WebDevelopersAppNotSubmitted|Não submetido|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
 |WebDevelopersAppTableNameHeader|Nome|  
 |WebDevelopersAppTableStateHeader|Estado|  
@@ -155,7 +155,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |PasswordTooManyRepetitions|Demasiadas repetições|  
 |PasswordSequenceFound|A palavra-passe contém sequências|  
 |PagerLabelPageSize|Tamanho da página|  
-|CurtainLabelLoading|A Carregar...|  
+|CurtainLabelLoading|A carregar...|  
 |TablePlaceholderNothingToDisplay|Não existem dados para o período e âmbito selecionados|  
 |ButtonLabelClose|Fechar|  
   

@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515833"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121180"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
-A ferramenta do Verificador de preparação do Azure Stack descrita neste artigo está disponível [da galeria do PowerShell](https://aka.ms/AzsReadinessChecker). Pode usar a ferramenta para validar que o [gerados certificados PKI](azure-stack-get-pki-certs.md) são adequadas para pré-implementação. Deve validar certificados deixando tempo suficiente para testar e volte a emitir certificados, se necessário.
+A ferramenta do Verificador de preparação do Azure Stack descrita neste artigo está disponível [da galeria do PowerShell](https://aka.ms/AzsReadinessChecker). Pode usar a ferramenta para validar que o [gerados certificados PKI](azure-stack-get-pki-certs.md) são adequadas para pré-implementação. Valide certificados, deixando o tempo suficiente para testar e volte a emitir certificados, se necessário.
 
 A ferramenta de verificação de preparação da realiza as seguintes validações de certificado:
 
 - **Leia o PFX**  
-    Verifica a existência de ficheiro PFX válido, palavra-passe correta e avisa se informações públicas não estiver protegidas por palavra-passe. 
+    Verifica a existência de ficheiro PFX válido, palavra-passe correta, e se as informações públicas não estão protegidas por palavra-passe. 
 - **Algoritmo de assinatura**  
-    Verifica se o algoritmo de assinatura não é SHA1.
+    Verifica-se de que o algoritmo de assinatura não é SHA1.
 - **Chave privada**  
     Verifica se a chave privada está presente e é exportada com o atributo de computador local. 
 - **Cadeia de certificado**  
@@ -86,8 +86,8 @@ Utilize estes passos para preparar e para validar os certificados de PKI do Azur
     
      - Coloque o seu certificado (s) nos diretórios apropriados criados no passo anterior. Por exemplo:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. Na janela do PowerShell, alterar os valores dos **RegionName** e **FQDN** adequados para o ambiente do Azure Stack e execute o seguinte:
 
@@ -145,9 +145,9 @@ Invoke-AzsCertificateValidation Completed
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-**Sintoma**: testes são ignorados
+**Sintoma**: Testes são ignorados
 
-**Causa**: AzsReadinessChecker ignora determinados testes se não for cumprida uma dependência:
+**Motivo**: AzsReadinessChecker ignora determinados testes se não for cumprida uma dependência:
 
  - Outros certificados são ignorados se falhar de cadeia de certificados.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a4449153894069d431dcf417d9741796998e1d4c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061011"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103049"
 ---
 # <a name="manage-your-azure-maps-account-and-keys"></a>Gerir a sua conta do Azure Maps e chaves
 
@@ -23,7 +23,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-new-account"></a>Criar uma conta nova
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **criar um recurso** no canto superior esquerdo do portal do Azure.
 

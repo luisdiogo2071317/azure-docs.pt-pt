@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725325"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118188"
 ---
 # <a name="azure-operational-security-best-practices"></a>Segurança operacional melhores práticas do Azure
 Segurança operacional do Azure refere-se a serviços, controles e recursos disponíveis aos utilizadores para proteger seus dados, aplicativos e outros recursos no Azure. Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados recolhidos através de capacidades que são exclusivas da Microsoft, incluindo o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), o [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programa e profundo entendimento do cenário de ameaças de cibersegurança.
@@ -87,7 +87,7 @@ Pode usar [do Azure Resource Manager](https://azure.microsoft.com/documentation/
 - Certifique-se de que a aplicação consegue processar o tráfego para a sua campanha de lançamento ou de marketing seguinte.
 
 **Melhor prática**: Monitorizar o desempenho do aplicativo.  
-**Detalhe**: [O Azure Application Insights](../application-insights/app-insights-overview.md) é um serviço de gestão (APM) de desempenho de aplicações extensível para desenvolvedores da web em várias plataformas. Utilize o Application Insights para monitorizar a sua aplicação web em direto. Deteta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+**Detalhe**: [O Azure Application Insights](../azure-monitor/app/app-insights-overview.md) é um serviço de gestão (APM) de desempenho de aplicações extensível para desenvolvedores da web em várias plataformas. Utilize o Application Insights para monitorizar a sua aplicação web em direto. Deteta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Mitigar e proteção contra DDoS
 Ataques denial of service (DDoS) é um tipo de ataque que tenta a esgotar os recursos de aplicativos. O objetivo é afetar a disponibilidade da aplicação e a sua capacidade de processar pedidos legítimos. Esses ataques estão se tornando mais sofisticados e maior tamanho e o impacto. Eles podem ser direcionados para qualquer ponto final que está publicamente acessível através da internet.

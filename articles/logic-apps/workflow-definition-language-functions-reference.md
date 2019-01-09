@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 31c4268522ca373ca0b467c13dd83500e18ef8e6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 43ca62191f0dc5a306ea5891f31a316242694a02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065890"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107876"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -4015,7 +4015,7 @@ xml('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia de caracteres com o objeto JSON para converter <p>O objeto JSON tem de ter a propriedade de raiz apenas um. <br>Utilizar o caráter de barra invertida (\\) como um caráter de escape aspas ("). | 
+| <*Valor*> | Sim | Cadeia | A cadeia de caracteres com o objeto JSON para converter <p>O objeto JSON tem de ter propriedade de apenas uma raiz, que não pode ser uma matriz. <br>Utilizar o caráter de barra invertida (\\) como um caráter de escape aspas ("). | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 

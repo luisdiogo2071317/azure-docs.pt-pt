@@ -1,37 +1,33 @@
 ---
-title: Configurar o SSO do Azure AD para aplicações | Documentos da Microsoft
-description: Saiba como ligar aplicações para o Azure Active Directory com o SAML e o SSO baseado em palavra-passe para o Self-Service
+title: Único início de sessão - aplicações externas à Galeria - Azure Active Directory | Documentos da Microsoft
+description: Configurar o início de sessão único (SSO) para aplicações externas à galeria no Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408137"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121350"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o início de sessão único para aplicações externas à galeria no Azure Active Directory
 
-Este artigo é sobre um recurso que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview, 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Se estiver em vez disso, procurando orientação para programadores sobre como integrar aplicações personalizadas com o Azure AD através de código, consulte [cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Se estiver em vez disso, procurando orientação para programadores sobre como integrar aplicações personalizadas com o Azure AD através de código, consulte [cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
 
 A Galeria de aplicações do Azure Active Directory fornece uma listagem dos aplicativos que são conhecidos para oferecer suporte a um formulário de início de sessão único com o Azure Active Directory, conforme descrito em [este artigo](what-is-single-sign-on.md). Depois de (como um IT especialista ou sistema integrador na sua organização) encontrar a aplicação que pretende ligar, pode começar a utilizar, seguindo as instruções passo a passo apresentadas no portal do Azure para ativar o início de sessão único.
 
-Os clientes com [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) licença também obter estas capacidades adicionais:
+Esses recursos também estão disponíveis, de acordo com seu contrato de licença. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/active-directory/). 
 
-* Integração personalizada de qualquer aplicação que suporta os fornecedores de identidade de SAML 2.0 (iniciado por SP ou iniciadas pelo IdP)
-* Integração personalizada de qualquer aplicativo da web que tem uma página baseada em HTML início de sessão utilizando [SSO baseado em palavra-passe](what-is-single-sign-on.md#password-based-sso)
+- Integração personalizada de qualquer aplicação que suporta os fornecedores de identidade de SAML 2.0 (iniciado por SP ou iniciadas pelo IdP)
+- Integração personalizada de qualquer aplicativo da web que tem uma página baseada em HTML início de sessão utilizando [SSO baseado em palavra-passe](what-is-single-sign-on.md#password-based-sso)
 * Ligação de autoatendimento de aplicativos que utilizam o protocolo SCIM para aprovisionamento de utilizadores ([descrito aqui](use-scim-to-provision-users-and-groups.md))
 * Capacidade de adicionar links para todos os aplicativos no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sso)
 

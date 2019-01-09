@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6341ffe33984a7f40f9d4120ca6726a082463474
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039712"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120976"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.
@@ -193,7 +193,7 @@ A partir de um gráfico de métricas, pode clicar no ícone de análise para ir 
 
     Se pretender definir filtros diferentes em gráficos de diferentes, criá-las nos diferentes painéis, salvá-los separados como favoritos. Se quiser, pode afixá-los ao dashboard para que pode vê-los em conjunto com outro.
 * Se um gráfico é agrupar por uma propriedade que não está definida na métrica, em seguida, haverá nada no gráfico. Experimente limpar "Agrupar por" ou escolha uma propriedade de agrupamento diferente.
-* Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível para os serviços de web de Java, aplicativos de desktop do Windows, [IIS aplicações web e serviços se instalar o monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md), e [serviços Cloud do Azure](../../application-insights/app-insights-overview.md). Não está disponível para Web sites do Azure.
+* Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível para os serviços de web de Java, aplicativos de desktop do Windows, [IIS aplicações web e serviços se instalar o monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md), e [serviços Cloud do Azure](../../azure-monitor/app/app-insights-overview.md). Não está disponível para Web sites do Azure.
 
 ## <a name="video"></a>Vídeo
 
@@ -206,5 +206,5 @@ A partir de um gráfico de métricas, pode clicar no ícone de análise para ir 
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

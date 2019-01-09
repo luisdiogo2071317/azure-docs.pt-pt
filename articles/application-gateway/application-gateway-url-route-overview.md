@@ -1,18 +1,17 @@
 ---
-title: Descrição geral do encaminhamento de conteúdo baseado em URL | Microsoft Docs
-description: Esta página fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
+title: Descrição geral do encaminhamento de conteúdos baseado em URL do Gateway de Aplicação do Azure
+description: Esta página fornece uma visão geral do encaminhamento conteúdo baseado em URL de Gateway de aplicação do Azure, configuração UrlPathMap e da regra PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218428"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118372"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -20,7 +19,7 @@ O Encaminhamento Baseado no Caminho do URL permite-lhe encaminhar o tráfego par
 
 Um dos cenários consiste em encaminhar pedidos de diferentes tipos de conteúdo para diversos agrupamentos de servidores de back-end.
 
-No exemplo seguinte, o Gateway de Aplicação está a enviar tráfego para contoso.com a partir de três agrupamentos de servidores de back-end, como, por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
+No exemplo a seguir, o Gateway de aplicação está a enviar tráfego para contoso.com a partir de três agrupamentos de servidor back-end por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -62,8 +61,37 @@ O elemento urlPathMap é utilizado para especificar padrões de Caminho para map
 }]
 ```
 
-> [!NOTE]
-> PathPattern: esta definição é uma lista de padrões de caminho para fazer correspondências. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência do caminho não inclui qualquer texto depois do primeiro? ou, # sendo que esses carateres não são permitidas aqui. Caso contrário, são permitidas quaisquer carateres permitidos num URL PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern é uma lista de padrões de caminho corresponder. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência do caminho não inclui qualquer texto depois do primeiro? ou, # sendo que esses carateres não são permitidas aqui. Caso contrário, são permitidas quaisquer carateres permitidos num URL PathPattern.
+
+Os padrões suportados dependem do que se implementar o Gateway de aplicação v1 ou v2:
+
+#### <a name="v1"></a>V1
+
+As regras de caminho diferenciam maiúsculas de minúsculas.
+
+|padrão do caminho v1  |É suportada?  |
+|---------|---------|
+|`/images/*`     |sim|
+|`/images*`     |não|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |sim|
+
+#### <a name="v2"></a>v2
+
+As regras de caminho são maiúsculas de minúsculas.
+
+|padrão do caminho v2  |É suportada?  |
+|---------|---------|
+|`/images/*`     |sim|
+|`/images*`     |sim|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |sim|
 
 Pode dar saída a um [modelo do Resource Manager através do encaminhamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 

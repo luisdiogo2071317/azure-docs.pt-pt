@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: af002035bb0ab56a985e38d02ad374b23d177583
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081094"
+ms.locfileid: "54101790"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorizar e alertar relativamente ao estado de funcionamento de aplicação com o Azure Application Insights
 
@@ -94,4 +94,4 @@ Para obter detalhes sobre como criar uma aplicação lógica com o Application I
 Agora que aprendeu alertar relativamente a problemas, avance para o próximo tutorial para saber como analisar a forma como os usuários estão interagindo com a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Compreender os utilizadores](../../application-insights/app-insights-tutorial-users.md)
+> [Compreender os utilizadores](../../azure-monitor/learn/tutorial-users.md)

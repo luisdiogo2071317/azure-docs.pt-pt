@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075146"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119912"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorizar e depurar uma aplicação .NET do Batch do Azure com o Application Insights
 
-[O Application Insights](../application-insights/app-insights-overview.md) fornece uma forma elegante e eficiente para os desenvolvedores a monitorizar e depurar aplicações implementadas nos serviços do Azure. Utilize o Application Insights para contadores do monitor de desempenho e exceções, bem como meio de seu código com métricas personalizadas e rastreamento de eventos. Integração do Application Insights com a sua aplicação do Azure Batch permite-lhe informações mais detalhadas sobre comportamentos e investigar problemas em tempo quase real.
+[O Application Insights](../azure-monitor/app/app-insights-overview.md) fornece uma forma elegante e eficiente para os desenvolvedores a monitorizar e depurar aplicações implementadas nos serviços do Azure. Utilize o Application Insights para contadores do monitor de desempenho e exceções, bem como meio de seu código com métricas personalizadas e rastreamento de eventos. Integração do Application Insights com a sua aplicação do Azure Batch permite-lhe informações mais detalhadas sobre comportamentos e investigar problemas em tempo quase real.
 
 Este artigo mostra como adicionar e configurar a biblioteca do Application Insights na sua solução do Azure Batch .NET e instrumentar o código da aplicação. Ela também mostra as formas de monitorizar a sua aplicação através do portal do Azure e criar dashboards personalizados. Application Insights de suporte em outras linguagens, veja a [documentação de linguagens, plataformas e integrações](../azure-monitor/app/platforms.md).
 
@@ -342,7 +342,7 @@ Devido à natureza em grande escala de aplicações do Azure Batch em execução
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [Application Insights](../application-insights/app-insights-overview.md).
+* Saiba mais sobre [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Application Insights de suporte em outras linguagens, veja a [documentação de linguagens, plataformas e integrações](../azure-monitor/app/platforms.md).
 

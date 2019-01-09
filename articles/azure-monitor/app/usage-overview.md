@@ -13,22 +13,22 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076982"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118528"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
-Quais recursos da sua aplicação móvel ou web são mais populares? Os seus utilizadores alcançar seus objetivos com a sua aplicação? Que a deixam em pontos específicos e eles voltar mais tarde?  [O Azure Application Insights](../../application-insights/app-insights-overview.md) ajuda-o a obter informações importantes sobre como as pessoas utilizam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar a eficiência com que ele funciona para os utilizadores. Com esse conhecimento, pode fazer dados orientados pela decisões sobre os ciclos de desenvolvimento seguintes.
+Quais recursos da sua aplicação móvel ou web são mais populares? Os seus utilizadores alcançar seus objetivos com a sua aplicação? Que a deixam em pontos específicos e eles voltar mais tarde?  [O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) ajuda-o a obter informações importantes sobre como as pessoas utilizam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar a eficiência com que ele funciona para os utilizadores. Com esse conhecimento, pode fazer dados orientados pela decisões sobre os ciclos de desenvolvimento seguintes.
 
 ## <a name="send-telemetry-from-your-app"></a>Enviar telemetria a partir da sua aplicação
 
 A melhor experiência é obtida pela instalação do Application Insights no seu código de servidor de aplicação e nas suas páginas web. Os componentes de cliente e servidor da sua aplicação enviam telemetria para o portal do Azure para análise.
 
-1. **Código de servidor:** Instalar o módulo apropriado para sua [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../azure-monitor/app/nodejs.md), ou [outros](../../azure-monitor/app/platforms.md) aplicação.
+1. **Código de servidor:** Instalar o módulo apropriado para sua [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../azure-monitor/app/nodejs.md), ou [outros](../../azure-monitor/app/platforms.md) aplicação.
 
     * *Não pretende instalar o código de servidor? Basta [criar um recurso do Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 

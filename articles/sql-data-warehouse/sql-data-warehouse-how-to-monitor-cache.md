@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385537"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103133"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorizar a cache de geração 2
 A arquitetura de armazenamento de geração 2 nivela automaticamente seus segmentos de columnstore consultados com mais frequência numa cache que reside no NVMe baseada em SSD concebida para armazéns de dados de geração 2. Melhor desempenho é percebido quando suas consultas obtêm segmentos são que residem na cache. Este artigo descreve como monitorizar e resolver problemas de desempenho de consulta lenta por determinar se a carga de trabalho ideal está aproveitando o cache de geração 2.  
@@ -39,13 +39,13 @@ A matriz a seguir descreve cenários com base nos valores das métricas de cache
 | **Elevada percentagem de Cache utilizada** |          Cenário 1           |          Cenário 2          |
 | **Percentagem de baixa de Cache utilizada**  |          Cenário 3           |          Cenário de 4          |
 
-**Cenário 1:** ideal estiver a utilizar a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas.
+**Cenário 1:** Idealmente está a utilizar a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas.
 
-**Cenário 2:** seu conjunto de dados de trabalho atual não pode caber no cache que faz com que uma baixa percentagem devido a leituras físicas de acertos na cache. Considere aumentar seu nível de desempenho e volte a executar a carga de trabalho para povoar a cache.
+**Cenário 2:** Seu conjunto de dados de trabalho atual não pode caber no cache que faz com que uma baixa percentagem devido a leituras físicas de acertos na cache. Considere aumentar seu nível de desempenho e volte a executar a carga de trabalho para povoar a cache.
 
-**Cenário 3:** é provável que a consulta está em execução lenta por razões não relacionado com a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas. Também pode considerar [reduzir verticalmente a sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho da cache para reduzir os custos. 
+**Cenário 3:** É provável que a consulta está em execução lenta por razões não relacionado com a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas. Também pode considerar [reduzir verticalmente a sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho da cache para reduzir os custos. 
 
-**Cenário 4:** tinha uma cache de fria que poderia ser o motivo por que a consulta foi lenta. Considere a reexecução sua consulta, como o conjunto de dados de trabalho deve agora ser em armazenado em cache. 
+**Cenário 4:** Tinha uma cache de fria que poderia ser o motivo por que a consulta foi lenta. Considere a reexecução sua consulta, como o conjunto de dados de trabalho deve agora ser em armazenado em cache. 
 
 **Importante: Se a cache de acessos percentagem ou percentagem utilizada de cache não está a ser atualizada depois de executar novamente a sua carga de trabalho, o conjunto de trabalho pode já estar que reside na memória. Tenha em atenção columnstore em cluster apenas tabelas são colocadas em cache.**
 

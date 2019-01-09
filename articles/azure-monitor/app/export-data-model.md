@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016124"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119277"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
-Esta tabela lista as propriedades de telemetria enviada pela [Application Insights](../../application-insights/app-insights-overview.md) SDKs para o portal.
+Esta tabela lista as propriedades de telemetria enviada pela [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs para o portal.
 Verá essas propriedades na saída de dados do [exportação contínua](export-telemetry.md).
 Eles também aparecem em filtros de propriedade no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) e [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md).
 
@@ -130,9 +130,11 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | Context.Device.locale |cadeia |en-GB, de-DE... |
 | Context.Device.Network |cadeia | |
 | context.device.oemName |cadeia | |
+| Context.Device.os |cadeia | |
 | context.device.osVersion |cadeia |SO do Host |
 | context.device.roleInstance |cadeia |ID de anfitrião do servidor |
 | context.device.roleName |cadeia | |
+| context.device.screenResolution |cadeia | |
 | Context.Device.Type |cadeia |PC, o navegador,... |
 | Context.location |objeto |Derivado dos clientip. |
 | Context.location.City |cadeia |Derivado dos clientip, se conhecidos |
@@ -146,10 +148,13 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | Context.Session.ID |cadeia |ID de um grupo de operações da mesma origem. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
 | context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |cadeia | |
+| context.user.accountId |cadeia | |
 | context.user.anonAcquisitionDate |cadeia | |
 | context.user.anonId |cadeia | |
 | context.user.authAcquisitionDate |cadeia |[Utilizador autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |cadeia | |
 | context.user.isAuthenticated |boolean | |
+| context.user.storeRegion |cadeia | |
 | internal.data.documentVersion |cadeia | |
 | INTERNAL.data.ID |cadeia | Id exclusivo atribuído quando um item é ingerido para o Application Insights |
 
@@ -347,6 +352,6 @@ Em vez de pré-agregar métricas, pode usar [amostragem](../../azure-monitor/app
 Exceto onde indicado caso contrário, durações são representadas no décimas de um microssegundo, para que 10000000.0 significa 1 segundo.
 
 ## <a name="see-also"></a>Consulte também
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportação contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)

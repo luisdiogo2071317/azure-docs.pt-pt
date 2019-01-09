@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999208"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106846"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -102,6 +102,15 @@ Funções definidas pelo utilizador podem ser escritas em JavaScript. Métodos a
 - Anexe os metadados de gráfico para o sensor ler antes de enviar uma notificação.
 
 Para obter mais informações, consulte [como utilizar as funções definidas pelo utilizador](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Exemplos
+
+O [repositório do GitHub para o Digital duplos C# exemplo](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contém alguns exemplos das funções definidas pelo utilizador:
+- [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) procura por emissões de dióxido de carbono, movimento e os valores de temperatura determinar se uma sala está disponível com estes valores no intervalo. O [tutoriais duplos Digital](tutorial-facilities-udf.md) explorar essa função em mais detalhes. 
+- [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) procura dados de vários sensores de movimento e determina que o espaço está disponível se nenhum deles detetar qualquer movimento. É fácil substituir a função definida pelo utilizador utilizada em qualquer um a [início rápido](quickstart-view-occupancy-dotnet.md), ou o [tutoriais](tutorial-facilities-setup.md), fazendo as alterações mencionadas na seção de comentários do arquivo. 
+
+
 
 ### <a name="role-assignment"></a>Atribuição de função
 

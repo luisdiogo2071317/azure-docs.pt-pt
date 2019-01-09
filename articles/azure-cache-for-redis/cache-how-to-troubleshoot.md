@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: a0bf8543338043d9a1990fd2be33a65a478af721
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019964"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104153"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Como resolver problemas de Cache do Azure para Redis
 Este artigo fornece orientações para resolução de problemas seguintes categorias de Cache do Azure para problemas de Redis.
@@ -142,7 +142,7 @@ A pressão de memória no lado do servidor nos leva a todos os tipos de problema
 2. Redis está a ver fragmentação de memória elevada - causada frequentemente por armazenamento de objetos grandes (Redis está otimizado para um objetos pequenos - consulte o [o que é o intervalo de tamanho do valor ideal para redis? 100 KB é demasiado grande? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) publicar para obter detalhes). 
 
 #### <a name="measurement"></a>Medida
-Redis expõe duas métricas que podem ajudar a identificar este problema. A primeira é `used_memory` e o outro é `used_memory_rss`. [Estas métricas](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) estão disponíveis no Portal do Azure ou através do [Redis informações](http://redis.io/commands/info) comando.
+Redis expõe duas métricas que podem ajudar a identificar este problema. A primeira é `used_memory` e o outro é `used_memory_rss`. [Estas métricas](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) estão disponíveis no Portal do Azure ou através do [Redis informações](https://redis.io/commands/info) comando.
 
 #### <a name="resolution"></a>Resolução
 Existem várias alterações possíveis que pode fazer para ajudar a manter a utilização de memória em bom estado de funcionamento:
@@ -186,7 +186,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 
 | Métrica de mensagem de erro | Detalhes |
 | --- | --- |
-| portamento da instalação |No intervalo de tempo passado: 0 comandos foram emitidos |
+| portamento da instalação |No último intervalo de tempo: 0 comandos foram emitidos |
 | Gestor |O Gestor de socket está a efetuar `socket.select`, que significa que pede o sistema operacional para indicar um soquete que tem algo a fazer; basicamente: o leitor não está lendo ativamente da rede porque ele não pensa que há algo a ver |
 | fila |Existem 73 total de operações em curso |
 | qu |6 das operações em curso estão na fila de mensagens e ainda não foram escritos para a rede de saída |
@@ -227,9 +227,9 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
    
    * Verifique se está obtendo vinculados por CPU no cliente, que pode fazer com que o pedido de não ser processadas no `synctimeout` intervalo, portanto, fazendo com que um tempo limite. Mover para um tamanho maior de cliente ou distribuir a carga pode ajudar a controlar este problema. 
    * Verifique se estiver recebendo a CPU vinculada no servidor através da monitorização do `CPU` [métrica de desempenho da cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Solicitações recebidas enquanto o Redis é vinculada à CPU podem causar esses pedidos para o tempo limite. Para resolver esta condição, pode distribuir a carga entre várias partições horizontais numa cache premium ou Atualize para um tamanho maior ou o escalão de preço. Para obter mais informações, consulte [excedido de largura de banda de lado do servidor](#server-side-bandwidth-exceeded).
-5. Existem comandos a demorar muito tempo a processar no servidor? Há muito tempo a executar comandos que estão a demorar muito tempo a processar no servidor de redis pode provocar tempos limite. Alguns exemplos de comandos de execução demorada são `mget` com um grande número de chaves, `keys *` ou mal escrito scripts de lua. Pode ligar à Cache para a instância de Redis com o cliente redis-cli do Azure ou utilizar o [consola de Redis](cache-configure.md#redis-console) e execute o [SlowLog](http://redis.io/commands/slowlog) comando para ver se existem pedidos demorar mais tempo do que o esperado. Servidor redis e stackexchange. redis estão otimizados para muitas solicitações pequenas em vez de menos solicitações grandes. Dividir os dados em segmentos mais pequenos, pode melhorar as coisas aqui. 
+5. Existem comandos a demorar muito tempo a processar no servidor? Há muito tempo a executar comandos que estão a demorar muito tempo a processar no servidor de redis pode provocar tempos limite. Alguns exemplos de comandos de execução demorada são `mget` com um grande número de chaves, `keys *` ou mal escrito scripts de lua. Pode ligar à Cache para a instância de Redis com o cliente redis-cli do Azure ou utilizar o [consola de Redis](cache-configure.md#redis-console) e execute o [SlowLog](https://redis.io/commands/slowlog) comando para ver se existem pedidos demorar mais tempo do que o esperado. Servidor redis e stackexchange. redis estão otimizados para muitas solicitações pequenas em vez de menos solicitações grandes. Dividir os dados em segmentos mais pequenos, pode melhorar as coisas aqui. 
    
-    Para obter informações sobre como ligar à Cache do Azure para o ponto final de Redis SSL com o redis-cli e túnel, consulte a [anunciando ASP.NET sessão do fornecedor de estado para versão de pré-visualização de Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) postagem de blog. Para obter mais informações, consulte [SlowLog](http://redis.io/commands/slowlog).
+    Para obter informações sobre como ligar à Cache do Azure para o ponto final de Redis SSL com o redis-cli e túnel, consulte a [anunciando ASP.NET sessão do fornecedor de estado para versão de pré-visualização de Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) postagem de blog. Para obter mais informações, consulte [SlowLog](https://redis.io/commands/slowlog).
 6. Carga de servidor da Redis elevada pode provocar tempos limite. Pode monitorizar a carga do servidor através da monitorização do `Redis Server Load` [métrica de desempenho da cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, com nenhum tempo de inatividade, processamento de pedidos. Para ver se determinadas solicitações estão ocupando toda a capacidade de servidor, execute o comando de SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte [utilização elevada da CPU / servidor carregar](#high-cpu-usage-server-load).
 7. Houve qualquer outro evento no lado do cliente que pode ter causado um blip de rede? No cliente (web, função de trabalho ou uma VM Iaas), verifique se Ocorreu um evento como aumentando ou reduzindo, o número de instâncias de cliente ou implementar uma nova versão do cliente ou o dimensionamento automático está ativado? No nosso teste, Achamos que dimensionamento automático ou aumentar verticalmente/para baixo pode causa conectividade de rede de saída podem ser perdida para vários segundos. Código de stackexchange. redis face a tais eventos e volta. Durante este período de restabelecer a ligação, quaisquer pedidos na fila podem tempo limite.
 8. Houve um grande pedido anterior vários pequenos pedidos para a Cache do Azure para Redis que excedeu o limite? O parâmetro `qs` no erro mensagem indica o número de pedidos foram enviado do cliente para o servidor, mas ainda não processados uma resposta. Este valor pode continuam a aumentar porque stackexchange. redis utiliza uma única ligação de TCP e só pode ler uma resposta ao mesmo tempo. Mesmo que a primeira operação excedeu o limite de tempo, não impede que os dados enviados de/para o servidor e outras solicitações são bloqueadas até que o pedido de grandes estiver concluído, fazendo com que os detalhes de tempo. Uma solução é minimizar a possibilidade de tempos limite, garantindo que a cache é grande o suficiente para a sua carga de trabalho e a divisão de valores grandes em segmentos mais pequenos. Outra solução possível é utilizar um conjunto de `ConnectionMultiplexer` objetos no seu cliente e escolha menos carregado `ConnectionMultiplexer` ao enviar um pedido de novo. Isso deve impedir que um tempo limite único que faz com que outros pedidos para também o tempo limite.

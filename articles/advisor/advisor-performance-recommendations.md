@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079073"
+ms.locfileid: "54101722"
 ---
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Assistente
 
@@ -53,7 +53,7 @@ O assistente irá identificar máquinas virtuais que pertencem a uma conta de ar
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Melhorar o desempenho e a fiabilidade dos discos da máquina virtual ao utilizar o armazenamento Premium
 
-Advisor identifica as máquinas virtuais com discos standard que tenham um grande volume de transations na sua conta de armazenamento e recomenda a atualização para os discos premium. 
+Advisor identifica as máquinas virtuais com discos standard que tenham um grande volume de transações na sua conta de armazenamento e recomenda a atualização para os discos premium. 
 
 Armazenamento Premium do Azure fornece suporte de discos de elevado desempenho e de baixa latência para máquinas virtuais que executam cargas de trabalho de e/S intensivas. Discos da máquina virtual que utilizem contas de armazenamento premium armazenam dados em unidades de estado sólido (SSDs). Para obter o melhor desempenho para a sua aplicação, recomendamos que tiver migrado qualquer discos de máquinas virtuais que requerem elevado IOPS para o armazenamento premium.
 
@@ -71,7 +71,7 @@ O Assistente do Azure Deteta se o SQL Data Warehouse tem cache elevada utilizada
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Converter tabelas do armazém de dados SQL em tabelas replicadas para melhorar o desempenho de consulta
 
-O assistente identifica as tabelas que não são tabelas replicadas mas beneficiariam com a conversão e sugere que converta essas tabelas. Recomendações baseiam-se no tamanho da tabela replicada, número de colunas, o tipo de distribuição da tabela e o número de partições da tabela SQL Data Warehouse. Heurisitics adicionais podem ser fornecidos na recomendação para o contexto. Para saber mais sobre como é determinada a esta recomendação, veja [recomendações de armazém de dados SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+O assistente identifica as tabelas que não são tabelas replicadas mas beneficiariam com a conversão e sugere que converta essas tabelas. Recomendações baseiam-se no tamanho da tabela replicada, número de colunas, o tipo de distribuição da tabela e o número de partições da tabela SQL Data Warehouse. Heurística adicionais pode ser fornecidas na recomendação para o contexto. Para saber mais sobre como é determinada a esta recomendação, veja [recomendações de armazém de dados SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrar a sua conta de armazenamento para o Azure Resource Manager para obter todas as funcionalidades do Azure mais recente
 

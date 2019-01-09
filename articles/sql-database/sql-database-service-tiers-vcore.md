@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001605"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118205"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
@@ -66,6 +66,10 @@ Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a pe
 No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
+
+Se pretender utilizar as suas licenças do SQL Server no local existentes, pode pagar apenas o preço base para a infraestrutura do Azure subjacente (por exemplo VM do Azure onde a base de dados está em execução) enquanto a base de dados SQL Server licença motor não será incluída na sua fatura. Num determinado período, pode utilizar a sua licença de acesso no local para SQL Server e base de dados do Azure SQL. Caso contrário, o custo da licença para o motor de base de dados do SQL Server será incluído no preço do seu banco de dados ou a instância. Se estiver a utilizar o PowerShell ou CLI do Azure para criar ou atualizar a sua base de dados ou instância, existem duas opções de preços que pode escolher:
+- **BasePrice** significa que tem uma licença válida do SQL Server que pretende utilizar como parte da [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) e que deseja pagar apenas o custo de infraestrutura de base.
+- **LicenseIncluded** significa que, não é preciso no local licença do SQL Server, ou não quiser utilizar a sua licença no local para a base de dados ou à instância gerida. Neste caso, a licença do SQL Server será incluída na sua fatura. 
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para o modelo de vCore
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036602"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119735"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 No Azure Stack, é possível disponibilizar imagens de máquinas virtuais aos seus utilizadores. Estas imagens podem ser referenciadas por modelos Azure Resource Manager, ou pode adicioná-los na interface do usuário do Azure Marketplace como um item do mercado. Pode utilizar qualquer um de um formulário com imagem global do Azure Marketplace ou adicionar sua própria imagem personalizada. Pode adicionar uma VM com o portal ou o Windows PowerShell.
 
@@ -48,7 +48,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
    * Tome nota do armazenamento de Blobs do URI onde carregar a imagem. O URI de armazenamento de BLOBs tem o seguinte formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. vhd.
 
-   * Para tornar o blob acessíveis anonimamente, vá para o contentor de BLOBs da conta de armazenamento onde o VHD da imagem VM foi carregado. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, pode em vez disso, gerar uma assinatura de acesso partilhado do contentor e incluí-lo como parte do URI de blob. Este passo torna-se de que o blob está disponível para ser usado para adicionar isso como uma imagem. Se o blob não está acessível anonimamente, será criada para a imagem de VM no estado de falha.
+   * Para tornar o blob acessíveis anonimamente, vá para o contentor de BLOBs da conta de armazenamento onde o VHD da imagem VM foi carregado. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, pode gerar uma assinatura de acesso partilhado do contentor e incluí-lo como parte do URI de blob. Este passo torna-se de que o blob está disponível para ser usado para adicionar isso como uma imagem. Se o blob não está acessível anonimamente, será criada para a imagem de VM no estado de falha.
 
    ![Ir para os blobs de conta de armazenamento](./media/azure-stack-add-vm-image/image1.png)
 
@@ -154,7 +154,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 3. Inicie sessão no Azure Stack como um operador. Para obter instruções, consulte [inicie sessão no Azure Stack como um operador](azure-stack-powershell-configure-admin.md).
 
-4. Crie uma conta de armazenamento no global Azure ou no Azure Stack para armazenar a imagem de VM personalizada. Para obter instruções, consulte [início rápido: carregar, transferir e listar blobs através do portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Crie uma conta de armazenamento no global Azure ou no Azure Stack para armazenar a imagem de VM personalizada. Para obter instruções, consulte [início rápido: Carregar, transferir e listar blobs através do portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Preparar uma imagem de sistema operativo Windows ou Linux no formato VHD (não VHDX), carregue a imagem à sua conta de armazenamento e obter o URI onde a imagem de VM pode ser obtida pelo PowerShell.  
 

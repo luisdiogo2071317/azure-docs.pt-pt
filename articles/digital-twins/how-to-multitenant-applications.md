@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: 443a697a576aa26fe352d8ad47d9e61214c3fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024115"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119973"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicações multi-inquilino duplos Digital do Azure
 
@@ -41,7 +41,7 @@ Neste cenário, considere um desenvolvedor criar uma solução de duplos Digital
 O problema:
 
 - Quando **CUSTOMER** inicia sessão na **DESENVOLVEDOR**do aplicativo, a aplicação não é possível adquirir os tokens do **cliente**do utilizadores para se autenticar com as APIs de gestão de duplos Digital do Azure.
-- Uma exceção será emitida no Azure Active Directory que indica que duplos Digital do Azure não é reconhecido dentro **cliente**do diretório.
+- Uma exceção for lançada no Azure Active Directory que indica que duplos Digital do Azure não é reconhecido dentro **cliente**do diretório.
 
 ## <a name="problem-solution"></a>Solução de problema
 

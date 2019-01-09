@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999582"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117610"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
-No mundo dos microsserviços, cada operação lógica requer trabalho realizado em vários componentes do serviço. Cada um desses componentes pode ser monitorizada separadamente pelo [Application Insights](../../application-insights/app-insights-overview.md). O componente da aplicação web se comunica com o componente de provedor de autenticação para validar as credenciais de utilizador e com o componente de API para obter dados para visualização. O componente de API no próprio giro pode consultar dados de outros serviços e usar componentes de fornecedor de cache e notificar o componente de faturação sobre esta chamada. Application Insights suporta telemetria distribuída correlação. Permite-lhe detetar que componente é responsável por falhas ou degradação do desempenho.
+No mundo dos microsserviços, cada operação lógica requer trabalho realizado em vários componentes do serviço. Cada um desses componentes pode ser monitorizada separadamente pelo [Application Insights](../../azure-monitor/app/app-insights-overview.md). O componente da aplicação web se comunica com o componente de provedor de autenticação para validar as credenciais de utilizador e com o componente de API para obter dados para visualização. O componente de API no próprio giro pode consultar dados de outros serviços e usar componentes de fornecedor de cache e notificar o componente de faturação sobre esta chamada. Application Insights suporta telemetria distribuída correlação. Permite-lhe detetar que componente é responsável por falhas ou degradação do desempenho.
 
 Este artigo explica o modelo de dados usado pelo Application Insights para correlacionar a telemetria enviada por vários componentes. Ele cobre as técnicas de propagação de contexto e protocolos. Também aborda de que a implementação dos conceitos de correlação em plataformas e idiomas diferentes.
 

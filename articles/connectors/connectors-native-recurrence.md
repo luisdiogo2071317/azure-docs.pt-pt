@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078070"
+ms.locfileid: "54107842"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps
 
@@ -39,7 +39,7 @@ Este acionador suporta vários padrões, por exemplo:
 
 Quando o acionador de periodicidade é acionado cada vez, o Logic Apps cria e executa uma nova instância do seu fluxo de trabalho de aplicação lógica. 
 
-Para acionar imediatamente a sua aplicação lógica e executar uma vez sem recorrente, consulte [executar tarefas de uma única vez](#run-once) mais adiante neste tópico.
+Para acionar a sua aplicação lógica e executar apenas uma vez no futuro, consulte [executar tarefas de uma única vez](#run-once) mais adiante neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,8 +141,8 @@ Eis um exemplo [definição de Acionador de periodicidade](../logic-apps/logic-a
 
 <a name="run-once"></a>
 
-**P:** E se eu quiser executar uma aplicação lógica imediatamente e uma vez só? </br>
-**R:** Para acionar imediatamente a sua aplicação lógica e executar uma vez sem recorrente, pode usar o **Scheduler: Executar tarefas de uma vez** modelo. Depois de criar uma nova aplicação lógica, mas antes de abrir o estruturador do Logic Apps, no **modelos** secção, da **categoria** lista, selecione **agenda**e, em seguida, selecione o modelo:
+**P:** E se eu quiser executar uma aplicação lógica, uma vez apenas no futuro? </br>
+**R:** Para acionar a sua aplicação lógica e executar uma vez sem recorrente, pode usar o **Scheduler: Executar tarefas de uma vez** modelo. Depois de criar uma nova aplicação lógica, mas antes de abrir o estruturador do Logic Apps, no **modelos** secção, da **categoria** lista, selecione **agenda**e, em seguida, selecione o modelo:
 
 ![Selecione "Scheduler: Modelo de executar uma vez tarefas"](./media/connectors-native-recurrence/choose-run-once-template.png)
 

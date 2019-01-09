@@ -1,6 +1,6 @@
 ---
-title: Recolher e analisar os contadores de desempenho no Azure Monitor | Documentos da Microsoft
-description: Contadores de desempenho são recolhidos pelo Azure Monitor para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambos os Windows e agentes do Linux, detalhes de que eles são armazenados na área de trabalho e como analisá-los no portal do Azure.
+title: Recolher e analisar os contadores de desempenho do Log Analytics | Documentos da Microsoft
+description: Contadores de desempenho são recolhidos pelo Log Analytics para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambos os Windows e agentes do Linux, detalhes de que eles são armazenados na área de trabalho e como analisá-los no portal do Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438375"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103711"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows e Linux origens de dados de desempenho no Azure Monitor
-Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
+# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho do Log Analytics
+Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Log Analytics pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Os parâmetros neste elemento são descritos na tabela seguinte.
 | intervalo | Frequência em que os contadores do objeto são recolhidos. |
 
 
-A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Azure Monitor](data-sources-linux-applications.md).
+A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Log Analytics](data-sources-linux-applications.md).
 
 | Nome do Objeto | Nome do Contador |
 |:--|:--|
@@ -182,7 +182,7 @@ Segue-se a configuração predefinida para as métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Recolha de dados
-Monitor do Azure recolhe todos os contadores de desempenho especificado no respetivo intervalo de amostragem especificado em todos os agentes que tenham que contador instalado.  Os dados não são agregados e os dados não processados estão disponíveis em todas as vistas de consulta de registo durante o período especificado pela sua subscrição.
+O log Analytics recolhe todos os contadores de desempenho especificado no respetivo intervalo de amostragem especificado em todos os agentes que tenham que contador instalado.  Os dados não são agregados e os dados não processados estão disponíveis em todas as vistas de consulta de registo durante o período especificado pela sua subscrição.
 
 ## <a name="performance-record-properties"></a>Propriedades de registo de desempenho
 Registos de desempenho têm um tipo de **Perf** e ter as propriedades na tabela seguinte.

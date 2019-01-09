@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965381"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119378"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -318,7 +318,7 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acessar o corpo como um JObject. Tenha em atenção que, uma vez que estamos não está a reservar o corpo do pedido original, accesing mais tarde no pipeline irá resultar numa exceção.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acessar o corpo como um JObject. Tenha em atenção que, uma vez que estamos não está a reservar o corpo do pedido original, a aceder ao mesmo mais tarde no pipeline resultará numa exceção.
 
 ```xml
 <set-body> 
@@ -334,7 +334,7 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 ```
 
 #### <a name="filter-response-based-on-product"></a>Resposta de filtro com base no produto
- Este exemplo mostra como realizar a filtragem de conteúdo, removendo elementos de dados da resposta recebida do serviço de back-end ao utilizar o `Starter` produto. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 34:30. Iniciar o 31:50 ver uma descrição geral dos [a escuro céu previsão API](https://developer.forecast.io/) utilizado para esta demonstração.
+ Este exemplo mostra como realizar a filtragem de conteúdo, removendo elementos de dados da resposta recebida do serviço de back-end ao utilizar o `Starter` produto. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 34:30. Iniciar o 31:50 ver uma descrição geral dos [a escuro céu previsão API](https://developer.forecast.io/) utilizado para esta demonstração.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Reencaminhar as informações de contexto para o serviço de back-end
- Este exemplo mostra como aplicar a política ao nível da API para fornecer informações de contexto para o serviço de back-end. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 10:30. Em 12:10 é uma demonstração de chamar uma operação no portal do programador, onde pode ver a política no trabalho.
+ Este exemplo mostra como aplicar a política ao nível da API para fornecer informações de contexto para o serviço de back-end. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 10:30. Em 12:10 é uma demonstração de chamar uma operação no portal do programador, onde pode ver a política no trabalho.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Reencaminhar as informações de contexto para o serviço de back-end
- Este exemplo mostra como aplicar a política ao nível da API para fornecer informações de contexto para o serviço de back-end. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 10:30. Em 12:10 é uma demonstração de chamar uma operação no portal do programador, onde pode ver a política no trabalho.
+ Este exemplo mostra como aplicar a política ao nível da API para fornecer informações de contexto para o serviço de back-end. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 10:30. Em 12:10 é uma demonstração de chamar uma operação no portal do programador, onde pode ver a política no trabalho.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->

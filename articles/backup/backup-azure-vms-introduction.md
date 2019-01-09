@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042483"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107434"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
 
@@ -30,7 +30,7 @@ Eis como cópia de segurança do Azure é concluída uma cópia de segurança pa
     - A extensão é instalada durante a primeira cópia de segurança VM.
     - Para instalar a extensão, tem de executar a VM.
     - Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
-4. A extensão de cópia de segurança tira um instantâneo consistente com a aplicação, de nível de armazenamento.
+4. A extensão de cópia de segurança tira um instantâneo de consistente/ficheiro-consistente de falhas de nível de armazenamento.
 5. Depois do instantâneo é tirado os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior (o delta).
 5. Quando a transferência de dados estiver concluída, o instantâneo é removido e é criado um ponto de recuperação.
 

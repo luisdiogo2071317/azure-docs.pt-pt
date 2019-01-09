@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079175"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119242"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
-Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](../../application-insights/app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](../../azure-monitor/app/profiler.md), [depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md), e [testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Stream de métricas em direto fornece uma ferramenta de diagnóstico avançada e não INVASIVO para a web em direto site.
+Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](../../azure-monitor/app/profiler.md), [depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md), e [testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Stream de métricas em direto fornece uma ferramenta de diagnóstico avançada e não INVASIVO para a web em direto site.
 
 Com o Stream de métricas em direto, pode:
 

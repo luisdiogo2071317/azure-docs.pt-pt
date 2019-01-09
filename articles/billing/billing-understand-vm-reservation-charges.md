@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581481"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118018"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Compreender a forma como o desconto de reserva do Azure é aplicado às máquinas virtuais
 
@@ -52,6 +52,10 @@ Para compreender e ver a aplicação das reservas de Azure no relatórios de uti
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação de desconto de reserva para VMs do Windows
 
 Quando estiver a executar instâncias de VM do Windows, a reserva se aplica para cobrir os custos de infraestrutura. A aplicação da reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para VMs não Windows. É-lhe cobrado separadamente para o software do Windows numa base por vCPU. Ver [os custos de software do Windows com as reservas](https://go.microsoft.com/fwlink/?linkid=862756). O Windows, os custos com de licenciamento para cobrir [Azure híbrido benefício para o Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Desconto aplica-se a tamanhos diferentes com a flexibilidade de tamanho de instância
+
+Quando adquire uma instância de VM reservada, se selecionar **otimizado para**: **flexibilidade de tamanho de instância**, a cobertura de desconto depende de selecionar o tamanho da VM. A reserva pode aplicar os tamanhos de máquinas virtuais (VMs) no mesmo grupo de séries de tamanho. Para obter mais informações, consulte [flexibilidade de tamanho de Máquina Virtual com as instâncias de VM reservadas](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 333fec5b9459979d7735f0dd292d7367d86353fe
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326308"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105921"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
 > [!NOTE]
@@ -25,7 +25,7 @@ Diagnóstico do Azure é utilizado com outros produtos de diagnóstico do Micros
 
 O ficheiro de configuração de diagnósticos do Azure define os valores que são usados para inicializar o Monitor de diagnóstico. Esse arquivo é usado para inicializar as definições de diagnóstico de configuração, quando o monitor de diagnóstico é iniciado.  
 
- Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](http://www.windowsazure.com/develop/downloads/).  
+ Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
 >  O ficheiro de configuração de diagnósticos é normalmente utilizado com as tarefas de arranque que necessitam de dados de diagnóstico a serem recolhidos anteriormente no processo de inicialização. Para obter mais informações sobre como utilizar o diagnóstico do Azure, consulte [recolher dados do registo de diagnóstico do Azure utilizando](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  

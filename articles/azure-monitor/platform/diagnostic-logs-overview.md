@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551591"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104986"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -83,7 +83,7 @@ Recolha de registos de diagnóstico pode ser ativada [como parte da criação de
 
 Pode ativar a recolha de registos de diagnóstico de recursos no portal do Azure depois de ter sido criado um recurso ao aceder a um recurso específico ou ao navegar para o Azure Monitor. Para ativar esta opção através do Azure Monitor:
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para o Azure Monitor e clique em **definições de diagnóstico**
+1. Na [portal do Azure](https://portal.azure.com), navegue para o Azure Monitor e clique em **definições de diagnóstico**
 
     ![Secção de monitorização do Azure Monitor](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

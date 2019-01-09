@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/8/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792652"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104340"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
@@ -114,10 +114,28 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
 9.  Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de criar uma base de dados (SSISDB).
+
+10.  Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
+
+11.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    O comando deve ser concluído com êxito, a criação de um usuário independente para representar o grupo.
+
+12.  Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de criar uma base de dados.
+    O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de acessar o SSISDB.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Ativar o Azure AD na instância gerida de base de dados SQL do Azure
 
@@ -127,15 +145,15 @@ Instância de gerida de base de dados de SQL do Azure suporta a criação de uma
 
 1.   No portal do Azure, selecione **todos os serviços** -> **servidores SQL** no painel de navegação esquerda.
 
-1.   Selecione a sua instância gerida, ser configurado com a autenticação do Azure AD.
+2.   Selecione a sua instância gerida, ser configurado com a autenticação do Azure AD.
 
-1.   Na **configurações** seção do painel, selecione **administrador do Active Directory**.
+3.   Na **configurações** seção do painel, selecione **administrador do Active Directory**.
 
-1.   Na barra de comandos, selecione **definir administrador**.
+4.   Na barra de comandos, selecione **definir administrador**.
 
-1.   Selecione uma conta de utilizador do Azure AD que se tornarão o administrador do servidor e, em seguida, selecione **selecione**.
+5.   Selecione uma conta de utilizador do Azure AD que se tornarão o administrador do servidor e, em seguida, selecione **selecione**.
 
-1.   Na barra de comandos, selecione **guardar**.
+6.   Na barra de comandos, selecione **guardar**.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Adicionar a identidade gerida para o ADF como um utilizador na instância gerida da base de dados SQL do Azure
 
@@ -168,7 +186,7 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    O comando deve ser concluído com êxito, concedendo a identidade gerida para o ADF a capacidade de criar uma base de dados.
+    O comando deve ser concluído com êxito, concedendo a identidade gerida para o ADF a capacidade de criar uma base de dados (SSISDB).
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Aprovisionar o IR de Azure-SSIS na aplicação de portal/ADF do Azure
 

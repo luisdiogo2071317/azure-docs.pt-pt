@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002217"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102980"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é distribuída rastreio?
 
-O advento da nuvem moderna e [microsserviços](http://azure.com/microservices) arquiteturas tem deu origem a simples, implementáveis independentemente serviços que podem ajudar a reduzir os custos, aumentar a disponibilidade e débito. Mas, embora estes movimentos tem feito serviços individuais mais fáceis de entender como um todo, que cometeu sistemas geral mais difícil de ponderar e depurar.
+O advento da nuvem moderna e [microsserviços](https://azure.com/microservices) arquiteturas tem deu origem a simples, implementáveis independentemente serviços que podem ajudar a reduzir os custos, aumentar a disponibilidade e débito. Mas, embora estes movimentos tem feito serviços individuais mais fáceis de entender como um todo, que cometeu sistemas geral mais difícil de ponderar e depurar.
 
 Nas arquiteturas monolíticas, obteve a usamos para a depuração com pilhas de chamadas. Pilhas de chamadas são ferramentas brilhante para mostrar o fluxo de execução (método A chamada B de método, que chama o método C), juntamente com os detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução num único processo, mas como vamos depurar quando a chamada é através de um limite de processo, não simplesmente uma referência na pilha local? 
 
@@ -59,4 +59,4 @@ O Web site OpenCensus mantém a documentação de referência de API para [Pytho
 
 * [Guia de utilização de OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
 * [Mapa da aplicação](./../../azure-monitor/app/app-map.md)
-* [Monitorização do desempenho de ponto a ponto](./../../application-insights/app-insights-tutorial-performance.md)
+* [Monitorização do desempenho de ponto a ponto](./../../azure-monitor/learn/tutorial-performance.md)

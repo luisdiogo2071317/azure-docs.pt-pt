@@ -8,18 +8,19 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 32c56a2ac3df9f386300a6ee8207a76c8031ab10
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016720"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117524"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
 
-Este artigo descreve como configurar o cliente de REST do Postman para interagir com e testar as APIs de gestão de duplos Digital do Azure.
+Este artigo descreve como configurar o cliente de REST do Postman para interagir com e testar as APIs de gestão de duplos Digital do Azure. Especificamente, ele descreve:
 
-O artigo mostra como configurar uma aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0. Também descreve como configurar o cliente de REST do Postman para fazer pedidos HTTP do efeito de token para as suas APIs de gestão.
+* como configurar uma aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0.
+* como configurar o cliente de REST do Postman para fazer pedidos HTTP do efeito de token para as suas APIs de gestão.
 
 ## <a name="postman-summary"></a>Resumo do postman
 
@@ -88,7 +89,11 @@ Em seguida, definir e configurar o Postman para obter um token do Azure Active D
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a autenticação com as APIs de gestão, leia [autenticar com as APIs](./security-authenticating-apis.md).
+- Para saber mais sobre as APIs de gestão de duplos digitais e como utilizá-los, leia [como utilizar as APIs de gestão de duplos Digital do Azure](how-to-navigate-apis.md).
+
+- Para saber mais sobre a autenticação com as APIs de gestão, leia [autenticar com as APIs](./security-authenticating-apis.md). 
+
+
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png

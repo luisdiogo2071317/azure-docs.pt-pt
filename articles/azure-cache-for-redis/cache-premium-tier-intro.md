@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020096"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107519"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à Cache do Azure para o escalão Premium da Redis
 A Cache de Redis do Azure é uma cache distribuída e gerida que ajuda a criar aplicações altamente escaláveis e reativas ao fornecer um acesso extremamente rápido aos seus dados. 
@@ -34,7 +34,7 @@ O novo escalão de Premium é um escalão preparado para empresas, que inclui to
 Para obter mais informações sobre o tamanho, débito e largura de banda com premium caches, consulte [do Azure na Cache de Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Persistência de dados de Redis
-O escalão Premium permite-lhe manter os dados de cache numa conta de armazenamento do Azure. Numa cache básico/Standard todos os dados são armazenados apenas na memória. Em caso de infraestrutura subjacente problemas lá podem ser a potencial perda de dados. Recomendamos que utilize a funcionalidade de persistência de dados de Redis no escalão Premium para aumentar a resiliência contra a perda de dados. A Cache de Redis do Azure oferece RDB e AOF (brevemente), opções no [persistência de Redis](http://redis.io/topics/persistence). 
+O escalão Premium permite-lhe manter os dados de cache numa conta de armazenamento do Azure. Numa cache básico/Standard todos os dados são armazenados apenas na memória. Em caso de infraestrutura subjacente problemas lá podem ser a potencial perda de dados. Recomendamos que utilize a funcionalidade de persistência de dados de Redis no escalão Premium para aumentar a resiliência contra a perda de dados. A Cache de Redis do Azure oferece RDB e AOF (brevemente), opções no [persistência de Redis](https://redis.io/topics/persistence). 
 
 Para obter instruções sobre como configurar a persistência, veja [como configurar a persistência para uma Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 

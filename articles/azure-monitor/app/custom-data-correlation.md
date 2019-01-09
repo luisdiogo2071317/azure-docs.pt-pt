@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798057"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103117"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados do Application Insights com origens de dados personalizados
 
@@ -28,7 +28,7 @@ Algumas situações em que pode desejar dados personalizados incluem:
 
 - As tabelas de melhoria ou de pesquisa de dados: por exemplo, complementar um nome de servidor com o proprietário do servidor e a localização de laboratório em que podem ser encontrados 
 - Correlação com origens de dados não - Application Insights: por exemplo, foram a correlação de dados sobre uma compra numa loja web com as informações de seu serviço de preenchimento de compra para determinar as estimativas do tempo de envio de grau de precisão 
-- Dados totalmente personalizada: muitos dos nossos clientes gosta de usar a linguagem de consulta e o desempenho da plataforma de dados do Log Analytics que faz o Application Insights e pretender utilizá-lo para consultar os dados que não estão relacionados para o Application Insights. Por exemplo controlar o desempenho do painel de solar como parte de uma instalação de raiz inteligente como descrito [aqui]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Dados totalmente personalizada: muitos dos nossos clientes gosta de usar a linguagem de consulta e o desempenho da plataforma de dados do Log Analytics que faz o Application Insights e pretender utilizá-lo para consultar os dados que não estão relacionados para o Application Insights. Por exemplo controlar o desempenho do painel de solar como parte de uma instalação de raiz inteligente como descrito [aqui]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Como correlacionar dados personalizados com dados do Application Insights 
 

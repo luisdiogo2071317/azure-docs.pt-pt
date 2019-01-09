@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257381"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118307"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -27,7 +27,7 @@ A tabela seguinte mostra as diferenças entre as opções de dois identidade:
 |Faturação|Tem de ser capacidade<br> Contrato Enterprise (EA apenas)|Capacidade ou pagamento-como-utiliza<br>EA ou fornecedor de soluções Cloud (CSP)|
 |Identidade|Tem de ser do AD FS|Azure AD ou AD FS|
 |Marketplace |Suportadas<br>Licenciamento de BYOL|Suportadas<br>Licenciamento de BYOL|
-|Registo|Recomendado, necessita de suporte de dados amovível<br> e um dispositivo ligado separado.|Automatizada|
+|Registo|Obrigatório, necessita de suporte de dados amovível<br> e um dispositivo ligado separado.|Automatizada|
 |Patch e atualização|Obrigatório, necessita de suporte de dados amovível<br> e um dispositivo ligado separado.|Pacote de atualização pode ser baixado diretamente<br> da Internet para o Azure Stack.|
 
 > [!IMPORTANT]

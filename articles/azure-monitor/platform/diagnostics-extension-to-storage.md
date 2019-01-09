@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 616738b60f4a26b15c8245136860692f84349cc4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f0d1a51a3c787bd4d9602eeaad9ac92eda7bacb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326363"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103745"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure
 Dados de diagnóstico não são armazenados permanentemente, a menos que transferi-la no emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Uma vez no armazenamento, podem ser visualizado com uma das várias ferramentas disponíveis.
@@ -75,7 +75,7 @@ Várias ferramentas estão disponíveis para ver os dados depois de serem transf
 
 * Explorador de servidores no Visual Studio – se tiver instalado as ferramentas do Azure para Microsoft Visual Studio, pode utilizar o nó de armazenamento do Azure no Explorador de servidores para ver dados de tabela de blob de só de leitura e das suas contas de armazenamento do Azure. Pode exibir os dados da sua conta do emulador de armazenamento local e também das contas de armazenamento que criou para o Azure. Para obter mais informações, consulte [navegação e gerenciamento de recursos de armazenamento com o Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Explorador de armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, OSX e Linux.
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclui Gestor de diagnóstico do Azure, que permite-lhe ver, transferir e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
+* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui Gestor de diagnóstico do Azure, que permite-lhe ver, transferir e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
 
 ## <a name="next-steps"></a>Próximos Passos
 [Rastrear o fluxo num aplicativo de serviços em nuvem com o diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)

@@ -1,33 +1,35 @@
 ---
 title: Criar uma aplicação de blockchain no Azure Blockchain Workbench
-description: Como criar uma aplicação de blockchain no Azure Blockchain Workbench.
+description: Tutorial sobre como criar uma aplicação de blockchain no Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: a7ca3f42874bc844bc0036e37a790ffebdc5f8d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 570d7a51bd6796a6360a4e52e637e1621a29deea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243134"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104391"
 ---
-# <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Criar uma aplicação de blockchain no Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Criar uma aplicação de blockchain no Azure Blockchain Workbench
 
 Pode utilizar o Azure Blockchain Workbench para criar aplicações de blockchain que representam os fluxos de trabalho de múltiplos intervenientes definidos pela configuração e o código de contrato inteligente.
 
-Saiba como:
+Vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar uma aplicação de blockchain
 > * Criar um arquivo de código de contrato inteligente
 > * Adicionar uma aplicação de blockchain ao Blockchain Workbench
 > * Adicionar membros para a aplicação de blockchain
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -236,56 +238,17 @@ Adicionar o pragma de versão seguintes na parte superior do `HelloBlockchain.so
   pragma solidity ^0.4.20;
   ```
 
-### <a name="base-class"></a>Classe base
-
-**WorkbenchBase** classe base permite Blockchain Workbench criar e atualizar o contrato. A classe base é necessária para o código de contrato inteligentes de Blockchain Workbench. O contrato tem de herdar as **WorkbenchBase** classe base.
-
-Na `HelloBlockchain.sol` inteligente o arquivo de código de contrato, adicione o **WorkbenchBase** classe no início do ficheiro. 
-
-```
-contract WorkbenchBase {
-    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-
-    string internal ApplicationName;
-    string internal WorkflowName;
-
-    function WorkbenchBase(string applicationName, string workflowName) internal {
-        ApplicationName = applicationName;
-        WorkflowName = workflowName;
-    }
-
-    function ContractCreated() internal {
-        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
-    }
-
-    function ContractUpdated(string action) internal {
-        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
-    }
-}
-```
-A classe base inclui duas funções importantes:
-
-|Função de classe base  | Objetivo  | Para atribuição  |
-|---------|---------|---------|
-| ContractCreated() | Notifica o Blockchain Workbench criou um contrato | Antes de sair do construtor de contrato |
-| ContractUpdated() | Notifica o Blockchain Workbench um Estado de contrato foi atualizado | Antes de sair de uma função de contrato |
-
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Configuração e a relação de código de contrato inteligente
 
 Blockchain Workbench utiliza o ficheiro de configuração e o arquivo de código de contrato inteligente para criar uma aplicação de blockchain. Existe uma relação entre o que é definido na configuração e o código no contrato de inteligente. Detalhes do contrato, funções, parâmetros e tipos são necessários para corresponder ao criar a aplicação. Blockchain Workbench verifica os ficheiros antes da criação da aplicação. 
 
 ### <a name="contract"></a>contrato
 
-Para o Blockchain Workbench, precisam herdar de contratos a **WorkbenchBase** classe base. Ao declarar o contrato, tem de passar o nome da aplicação e o nome do fluxo de trabalho como argumentos.
-
-Adicionar a **contrato** cabeçalho para sua `HelloBlockchain.sol` arquivo de código de contrato inteligente. 
+Adicionar a **contrato** cabeçalho para sua `HelloBlockchain.sol` arquivo de código de contrato inteligente.
 
 ```
-contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
+contract HelloBlockchain {
 ```
-
-O contrato tem de Herdar do **WorkbenchBase** classe base e passar os parâmetros **ApplicationName** e o fluxo de trabalho **nome** conforme definido na configuração ficheiro. Neste caso, o nome da aplicação e o nome do fluxo de trabalho são os mesmos.
 
 ### <a name="state-variables"></a>Variáveis de estado
 
@@ -312,8 +275,6 @@ O construtor define parâmetros de entrada para uma nova instância de contrato 
 
 A função do construtor, escreva qualquer lógica de negócios que pretende executar antes de criar o contrato. Por exemplo, inicialize as variáveis de estado com a partir de valores.
 
-Antes de sair a função do construtor, chamar o `ContractCreated()` função. Esta função notifica o Blockchain Workbench criou um contrato.
-
 Adicionar a função do construtor para o contrato em seu `HelloBlockchain.sol` arquivo de código de contrato inteligente. 
 
 ```
@@ -323,9 +284,6 @@ Adicionar a função do construtor para o contrato em seu `HelloBlockchain.sol` 
         Requestor = msg.sender;
         RequestMessage = message;
         State = StateType.Request;
-    
-        // call ContractCreated() to create an instance of this workflow
-        ContractCreated();
     }
 ```
 
@@ -334,8 +292,6 @@ Adicionar a função do construtor para o contrato em seu `HelloBlockchain.sol` 
 As funções são as unidades executáveis de lógica de negócios dentro de um contrato. Parâmetros necessários para a função são definidos como parâmetros de função no arquivo de configuração. O número, a ordem e o tipo de parâmetros devem corresponder em ambos os ficheiros. As funções são associadas a transições num fluxo de trabalho de Blockchain Workbench no ficheiro de configuração. Uma transição é uma ação executada para mudar para o próximo estágio de fluxo de trabalho de um aplicativo conforme determinado pelo contrato.
 
 Escreva qualquer lógica de negócio que pretende executar na função. Por exemplo, modificar o valor da variável de estado.
-
-Antes de sair da função, chamar o `ContractUpdated()` função. A função notifica o Blockchain Workbench contrato estado foi atualizado. Se desejar anular alterações de estado feitas na função, chame revert(). Reverter as alterações feitas desde a última chamada para ContractUpdated() de estado de rejeições.
 
 1. Adicione as seguintes funções para o contrato em seu `HelloBlockchain.sol` arquivo de código de contrato inteligente. 
 
@@ -347,12 +303,8 @@ Antes de sair da função, chamar o `ContractUpdated()` função. A função not
             {
                 revert();
             }
-    
             RequestMessage = requestMessage;
             State = StateType.Request;
-    
-            // call ContractUpdated() to record this action
-            ContractUpdated('SendRequest');
         }
     
         // call this function to send a response
@@ -360,10 +312,8 @@ Antes de sair da função, chamar o `ContractUpdated()` função. A função not
         {
             Responder = msg.sender;
     
-            // call ContractUpdated() to record this action
             ResponseMessage = responseMessage;
             State = StateType.Respond;
-            ContractUpdated('SendResponse');
         }
     }
     ```

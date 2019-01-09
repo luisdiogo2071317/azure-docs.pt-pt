@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5eb896978e9b04a6ad87fe1f669d9155e9cc1433
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 463ab617051bf97bb3b1c38ed431c4b6936a9c90
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053216"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118698"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos do Azure IoT Edge
 
@@ -241,13 +241,17 @@ No computador de desenvolvimento, pode iniciar um simulador de IoT Edge em vez d
 >
 > Para módulos de escrita em C#, incluindo as funções do Azure, este exemplo se baseia a versão de depuração `Dockerfile.amd64.debug`, que inclui o depurador de linha de comandos do .NET Core (VSDBG) na sua imagem de contentor ao criá-lo. Depois que Depure seu C# módulos, recomendamos que utilize diretamente o Dockerfile sem VSDBG de módulos do IoT Edge prontos para produção.
 
-## <a name="debug-a-module-with-iot-edge-runtime-python-c"></a>Depurar um módulo com o runtime do IoT Edge (Python, C)
+## <a name="debug-a-module-with-iot-edge-runtime"></a>Depurar um módulo com o runtime do IoT Edge
 
 Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor diferente. Utilizar qualquer um dos ficheiros que terminam com a extensão **.debug** para criar o seu módulo para fins de teste.
 
-Atualmente, a depuração de suporte para módulos de Python e C está disponível apenas em contentores do Linux amd64.
+Ao depurar módulos com o runtime do IoT Edge, os seus módulos estão em execução com base no runtime do IoT Edge. Dispositivo IoT Edge e o código de VS podem ser na mesma máquina ou o mais comum são nas máquinas diferentes (VS Code é na máquina de desenvolvimento e o runtime do IoT Edge e os módulos estão em execução em outra máquina física). Os seguintes passos tem de ser feito para a sua sessão de depuração no VS Code.
 
-### <a name="build-and-deploy-your-module"></a>Crie e implemente o seu módulo
+- Configurar o seu dispositivo IoT Edge, criar módulos do IoT Edge com o **.debug** Dockerfile e implementar no dispositivo IoT Edge. 
+- Expor o IP e a porta do módulo para o depurador se vincule.
+- Atualização `launch.json` de ficheiros, de modo a que o VS Code, pode anexar ao processo do contentor na máquina remota.
+
+### <a name="build-and-deploy-your-module-and-deploy-to-iot-edge-device"></a>Compilar e implementar o seu módulo e implementar no dispositivo IoT Edge
 
 1. No Visual Studio Code, abra a `deployment.debug.template.json` arquivo, que contém a versão de depuração das suas imagens de módulo com o elemento adequado `createOptions` conjunto de valores.
 
@@ -294,7 +298,17 @@ Atualmente, a depuração de suporte para módulos de Python e C está disponív
 
 Verá a implementação foi criada com êxito com um ID de implementação no terminal integrado.
 
-Pode verificar o estado do contentor na vista de Docker de código do Visual Studio ou executando o `docker ps` comando no terminal.
+Pode verificar o estado do contentor ao executar o `docker ps` comando no terminal. Se o seu tempo de execução do VS Code e o IoT Edge está em execução na mesma máquina, também pode verificar o estado na vista de Docker de código do Visual Studio.
+
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger-to-attach"></a>Expor o IP e a porta do módulo para o depurador se vincule
+
+Se seus módulos estão em execução na mesma máquina que seu código de VS. Está a utilizar o localhost para anexar o contentor e já tem as definições de porta correto no **.debug** Dockerfile e contentor de módulo CreateOptions, e `launch.json`. Pode ignorar esta secção. Se seus módulos e o VS Code estão em execução em máquinas separadas, siga os passos abaixo para cada idioma.
+
+  - **C#, C# Função**: [Configurar o canal SSH no seu computador de desenvolvimento e o dispositivo IoT Edge](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes), edite `launch.json` ficheiro a anexar.
+  - **NODE. js**: Certificar-se de que o módulo está pronto para depuradores anexar e porta 9229 da máquina do elemento a ser depurado é acessível a partir de fora. Pode verificar isto abrindo [http://%3cdebuggee-machine-IP%3e:9229/json] http:// < IP da máquina elemento a ser depurado >: 9229/json na máquina do depurador. Este URL deve mostrar informações sobre o node. js para ser depurado. E, em seguida, na máquina do depurador, abra o VS Code, editar o `launch.json` ficheiro, para que abordam o valor do perfil "< nome do módulo > remoto Debug (node. js)" (ou "< nome do módulo > a depuração remota (node. js num contentor do Windows)" criar perfis para se o módulo está a ser executado como um Contentor do Windows) é o IP da máquina do elemento a ser depurado.
+  - **Java**: Criar um ssh túnel para o dispositivo de limite, executando `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`, em seguida, edite `launch.json` ficheiro a anexar. Pode saber mais sobre as definições [aqui](https://code.visualstudio.com/docs/java/java-debugging). 
+  - **Python**: No código `ptvsd.enable_attach(('0.0.0.0', 5678))`, alterar 0.0.0.0 para o endereço IP do dispositivo IoT Edge. Criar, emitir e implementar seus módulos do IoT Edge novamente. Na `launch.json` no computador de desenvolvimento, atualize `"host"` `"localhost"` alterar `"localhost"` com endereço IP público do seu dispositivo IoT Edge remoto.
+
 
 ### <a name="debug-your-module"></a>Depurar o seu módulo
 
@@ -303,6 +317,9 @@ Visual Studio Code mantém depuração informações de configuração num `laun
 1. Na vista de depuração e código do Visual Studio, selecione o ficheiro de configuração de depuração para seu módulo. O nome de opção de depuração deve ser semelhante à  ***&lt;seu nome de módulo&gt;* de depuração remota**
 
 1. Abra o ficheiro do módulo da sua linguagem de desenvolvimento e adicione um ponto de interrupção:
+   - **C#, C# Função**: Abra o ficheiro `Program.cs` e adicione um ponto de interrupção.
+   - **NODE. js**: Abra o ficheiro `app.js` e adicione um breakpont.
+   - **Java**: Abra o ficheiro `App.java` e adicione um ponto de interrupção.
    - **Python**: Open `main.py` e adicione um ponto de interrupção no método de retorno de chamada onde adicionou o `ptvsd.break_into_debugger()` linha.
    - **C**: Abra o ficheiro `main.c` e adicione um ponto de interrupção.
 

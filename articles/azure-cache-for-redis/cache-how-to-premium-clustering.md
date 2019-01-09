@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: e0c50046cd3cdb4db7c9e7e3961124b891b3c0a4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 44b25263dbeb0d787120ae3a86076b2f888ed46f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019934"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107485"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o clustering de Redis para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar o clustering num Cache do Azure de premium para a instância de Redis.
@@ -27,12 +27,12 @@ A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibili
 Para obter informações sobre outras funcionalidades de cache premium, consulte [introdução à Cache do Azure para o escalão Premium da Redis](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>O que é o Cluster de Redis?
-A Cache de Redis do Azure oferece o cluster de Redis como [implementados no Redis](http://redis.io/topics/cluster-tutorial). Com o Cluster de Redis, obtém os seguintes benefícios: 
+A Cache de Redis do Azure oferece o cluster de Redis como [implementados no Redis](https://redis.io/topics/cluster-tutorial). Com o Cluster de Redis, obtém os seguintes benefícios: 
 
 * A capacidade de dividir automaticamente o seu conjunto de dados entre vários nós. 
 * A capacidade continue operações quando um subconjunto de nós está com falhas ou não é possível comunicar com o restante do cluster. 
-* Maior débito: débito aumenta linearmente à medida que aumenta o número de partições horizontais. 
-* Tamanho de memória mais: aumenta linearmente à medida que aumenta o número de partições horizontais.  
+* Maior débito: Débito aumenta linearmente à medida que aumenta o número de partições horizontais. 
+* Tamanho de memória mais: Aumenta linearmente à medida que aumenta o número de partições horizontais.  
 
 Clustering não aumenta o número de ligações disponíveis para uma cache em cluster. Para obter mais informações sobre o tamanho, débito e largura de banda com premium caches, consulte [que a Cache do Azure para o tamanho e oferta de Redis devo utilizar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -101,7 +101,7 @@ A lista seguinte contém respostas para perguntas freqüentes sobre a Cache do A
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>É necessário efetuar quaisquer alterações à minha aplicação de cliente para utilizar o clustering?
 * Quando o clustering é ativado, apenas base de dados 0 está disponível. Se a aplicação cliente utiliza várias bases de dados e tentar ler ou escrever para uma base de dados diferente de 0, a seguinte exceção é lançada. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
-  Para obter mais informações, consulte [especificação do Cluster Redis - subconjunto implementada](http://redis.io/topics/cluster-spec#implemented-subset).
+  Para obter mais informações, consulte [especificação do Cluster Redis - subconjunto implementada](https://redis.io/topics/cluster-spec#implemented-subset).
 * Se estiver a utilizar [stackexchange. redis](https://www.nuget.org/packages/StackExchange.Redis/), tem de utilizar 1.0.481 ou posterior. Ligar à cache com o mesmo [pontos de extremidade, portas e as chaves](cache-configure.md#properties) que utilizar ao ligar a uma cache não tem o clustering ativado. A única diferença é que todas as leituras e gravações devem ser feitas para a base de dados 0.
   
   * Outros clientes podem ter requisitos diferentes. Consulte [fazerem todos os clientes de Redis suportar clustering?](#do-all-redis-clients-support-clustering)
@@ -109,14 +109,14 @@ A lista seguinte contém respostas para perguntas freqüentes sobre a Cache do A
 * Se estiver a utilizar o fornecedor de estado de sessão do ASP.NET de Redis tem de utilizar 2.0.1 ou superior. Consulte [posso utilizar o clustering com os fornecedores de estado de sessão do ASP.NET de Redis e a cache de saída?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Como as chaves são distribuídas num cluster?
-Pelo Redis [modelo de distribuição de chaves](http://redis.io/topics/cluster-spec#keys-distribution-model) documentação: O espaço de chave é dividido em blocos de 16384. Cada chave é protegido por hash e atribuído a uma destas entradas sem incorrer, que são distribuídas por nós do cluster. Pode configurar que parte da chave é protegido por hash para garantir que as várias chaves estão localizadas na mesma partição horizontal com etiquetas de hash.
+Pelo Redis [modelo de distribuição de chaves](https://redis.io/topics/cluster-spec#keys-distribution-model) documentação: O espaço de chave é dividido em blocos de 16384. Cada chave é protegido por hash e atribuído a uma destas entradas sem incorrer, que são distribuídas por nós do cluster. Pode configurar que parte da chave é protegido por hash para garantir que as várias chaves estão localizadas na mesma partição horizontal com etiquetas de hash.
 
-* As chaves com uma marca de hash - se a qualquer parte da chave está entre `{` e `}`, apenas essa parte da chave é protegido por hash para efeitos de determinar a ranhura de hash de uma chave. Por exemplo, as seguintes chaves de 3 seriam estar localizadas na mesma partição horizontal: `{key}1`, `{key}2`, e `{key}3` uma vez que apenas o `key` parte do nome é protegido por hash. Para obter uma lista completa das especificações de marca de hash de chaves, consulte [chaves de hash etiquetas](http://redis.io/topics/cluster-spec#keys-hash-tags).
+* As chaves com uma marca de hash - se a qualquer parte da chave está entre `{` e `}`, apenas essa parte da chave é protegido por hash para efeitos de determinar a ranhura de hash de uma chave. Por exemplo, as seguintes chaves de 3 seriam estar localizadas na mesma partição horizontal: `{key}1`, `{key}2`, e `{key}3` uma vez que apenas o `key` parte do nome é protegido por hash. Para obter uma lista completa das especificações de marca de hash de chaves, consulte [chaves de hash etiquetas](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Chaves sem uma marca de hash - o nome completo da chave é utilizada para codificar. Isso resulta numa ponto de vista estatístico igualar distribuição entre as partições horizontais da cache.
 
 Para obter melhor desempenho e débito, recomendamos que distribuir as chaves de forma uniforme. Se estiver a utilizar chaves com uma marca de hash é responsabilidade do aplicativo para garantir que as chaves são distribuídas uniformemente.
 
-Para obter mais informações, consulte [modelo de distribuição de chaves](http://redis.io/topics/cluster-spec#keys-distribution-model), [fragmentação de dados do Cluster de Redis](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding), e [chaves de hash etiquetas](http://redis.io/topics/cluster-spec#keys-hash-tags).
+Para obter mais informações, consulte [modelo de distribuição de chaves](https://redis.io/topics/cluster-spec#keys-distribution-model), [fragmentação de dados do Cluster de Redis](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding), e [chaves de hash etiquetas](https://redis.io/topics/cluster-spec#keys-hash-tags).
 
 Para o código de exemplo sobre como trabalhar com o clustering e localizar as chaves na mesma partição horizontal com o cliente stackexchange. redis, consulte a [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) parte a [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplo.
 
@@ -124,7 +124,7 @@ Para o código de exemplo sobre como trabalhar com o clustering e localizar as c
 O maior tamanho de cache premium é 53 GB. Pode criar até 10 shards, dando-lhe um tamanho máximo de 530 GB. Se precisar de um tamanho maior, pode [pedir mais](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obter mais informações, consulte [do Azure na Cache de Redis preços](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Todos os clientes da Redis suportam clustering?
-Atualmente, não todo o suporte de clientes Redis clustering. Stackexchange. redis é aquele que suporte a ele. Para obter mais informações sobre outros clientes, consulte a [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) secção a [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial). 
+Atualmente, não todo o suporte de clientes Redis clustering. Stackexchange. redis é aquele que suporte a ele. Para obter mais informações sobre outros clientes, consulte a [Brincando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) secção a [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial). 
 
 O protocolo de clustering de Redis requer que cada cliente ligar a cada partição horizontal diretamente no modo de clustering. A tentar utilizar um cliente que não suporta o clustering deverá resultar em muita [foram MOVIDOS redirecionamento exceções](https://redis.io/topics/cluster-spec#moved-redirection).
 
@@ -137,7 +137,7 @@ O protocolo de clustering de Redis requer que cada cliente ligar a cada partiç�
 Pode ligar a sua cache com o mesmo [pontos de extremidade](cache-configure.md#properties), [portas](cache-configure.md#properties), e [chaves](cache-configure.md#access-keys) que utilizar ao ligar a uma cache não tem o clustering ativado. Redis gere o clustering back-end, para que não tenha para geri-la a partir do seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Diretamente ligar para as partições horizontais individuais da minha cache?
-O protocolo de clustering exige que o cliente tornar as ligações de partição horizontal correto. Portanto, o cliente deve fazer corretamente por si. Dito isso, cada partição horizontal é composta por um par de cache primário/réplica, coletivamente conhecido como uma instância de cache. Pode ligar a estas instâncias de cache usando o utilitário de cli de redis no [instável](http://redis.io/download) ramo do repositório de Redis no GitHub. Esta versão implementa quando iniciado com o suporte básico a `-c` mudar. Para obter mais informações, consulte [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) nos [ http://redis.io ](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
+O protocolo de clustering exige que o cliente tornar as ligações de partição horizontal correto. Portanto, o cliente deve fazer corretamente por si. Dito isso, cada partição horizontal é composta por um par de cache primário/réplica, coletivamente conhecido como uma instância de cache. Pode ligar a estas instâncias de cache usando o utilitário de cli de redis no [instável](https://redis.io/download) ramo do repositório de Redis no GitHub. Esta versão implementa quando iniciado com o suporte básico a `-c` mudar. Para obter mais informações, consulte [Brincando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) nos [ https://redis.io ](https://redis.io) no [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial).
 
 Para não ssl, utilize os seguintes comandos.
 

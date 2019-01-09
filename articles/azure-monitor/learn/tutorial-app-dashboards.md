@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: af4e9d0ec90c203a83acf142dd9c81494fe5bc47
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e008a53ce71a55b344dfc3a76bdb4ae39b954c46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081106"
+ms.locfileid: "54104884"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -167,4 +167,4 @@ Como o Azure Applications Insights Analytics é um serviço separado, tem de par
 Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]
-> [Diagnósticos avançados](../../application-insights/app-insights-devops.md)
+> [Diagnósticos avançados](../../azure-monitor/app/devops.md)

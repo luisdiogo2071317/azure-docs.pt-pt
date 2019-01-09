@@ -47,11 +47,11 @@ items:
   - name: Encontrar exceções de tempo de execução de aplicações
     href: learn/tutorial-runtime-exceptions.md
   - name: Encontrar problemas no desempenho da aplicação
-    href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-performance.md
   - name: Alertar relativamente ao estado de funcionamento das aplicações
     href: learn/tutorial-alert.md
   - name: Compreender os utilizadores da aplicação
-    href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-users.md
   - name: Criar dashboards personalizados
     href: learn/tutorial-app-dashboards.md
 - name: Amostras
@@ -93,7 +93,7 @@ items:
     - name: Application Insights
       items:
       - name: Descrição geral
-        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-overview.md
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: Rastreio distribuído
@@ -161,7 +161,7 @@ items:
     - name: Monitorizar aplicações
       items:
       - name: Diagnósticos avançados para aplicações Web e serviços
-        href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
+        href: app/devops.md
       - name: Monitorizar o desempenho nas aplicações Web
         href: app/web-monitor-performance.md
       - name: Separe o desenvolvimento, os testes e a produção
@@ -342,7 +342,7 @@ items:
         - name: Filtrar telemetria
           href: app/java-filter-telemetry.md
         - name: Métricas do Micrometer
-          href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json
+          href: app/micrometer-java.md
       - name: Aplicações em node.js
         items:
         - name: Node.js
@@ -907,7 +907,7 @@ items:
     - name: Correlação de telemetria
       href: app/correlation.md
     - name: Pacotes NuGet
-      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+      href: app/nuget.md
     - name: Suporte da plataforma
       href: app/platforms.md
   - name: Modelo de dados do Application Insights
@@ -1005,9 +1005,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: daba9eb12d568e3eb49a7aa4d21f1d2eaa367ab8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 02748b429bf7122dd0f1531d45c8af1217ceaa43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074619"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120930"

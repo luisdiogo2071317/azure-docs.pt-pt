@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584626"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121316"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -100,10 +100,7 @@ Segue-se um exemplo de uma cadeia de caracteres do JSON passado para o **Softwar
    }
 ```
 
-Um exemplo completo com todas as propriedades pode ser encontrado em: [configurações de atualização de Software - obter por nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Adicionado a uma implementação através de computadores [grupos dinâmicos (pré-visualização)](automation-update-management.md#using-dynamic-groups) não fazem atualmente parte dos **SoftwareUpdateConfigurationRunContext** parâmetro.
+Um exemplo completo com todas as propriedades pode ser encontrado em: [Para obter as configurações de atualização de software - nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>Amostras
 

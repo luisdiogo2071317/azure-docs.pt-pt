@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746135"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101926"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -230,7 +230,7 @@ Tem de anular as alterações efetuadas como parte do plano de contingência ati
 Se a sua organização utilizar políticas de legado de MFA por utilizador, em seguida, pode considerar a alternativa seguintes:
 
 1. Se tiver o endereço IP de saída de rede empresarial, pode adicioná-los como IPs fidedignos para ativar a autenticação apenas à rede empresarial.
- 2. Se não tiver o inventário de endereços IP de saída ou -lhe pedido para ativar o acesso dentro e fora da rede empresarial, pode adicionar todo o espaço de endereços de IPv4 como IPs fidedignos numa notação CIDR (por exemplo, 192.168.1.1/24).
+ 2. Se não tiver o inventário de endereços IP de saída ou -lhe pedido para ativar o acesso dentro e fora da rede empresarial, pode adicionar todo o espaço de endereços de IPv4 como IPs fidedignos, especificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Se ampliar os endereços IP fidedignos para desbloquear o acesso ao, eventos de risco associados com endereços IP (por exemplo, deslocação impossível ou localizações desconhecidas) não serão gerados.

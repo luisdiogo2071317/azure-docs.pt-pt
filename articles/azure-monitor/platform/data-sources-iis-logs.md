@@ -1,6 +1,6 @@
 ---
-title: Registo do IIS no Azure Monitor | Documentos da Microsoft
-description: Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleção de registos do IIS e os detalhes dos registos que criaram no Azure Monitor.
+title: Registo do IIS no Log Analytics | Documentos da Microsoft
+description: Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser recolhidos pelo Log Analytics.  Este artigo descreve como configurar a coleção de registos do IIS e os detalhes dos registos que criaram no Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cd63c63344f322f7d761a2907f52e97f1009e3b8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436744"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101960"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Recolher registos do IIS no Azure Monitor
-Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser recolhidos pelo Azure Monitor e armazenados como [registos de dados](data-collection.md).
+# <a name="collect-iis-logs-in-log-analytics"></a>Recolher registos do IIS no Log Analytics
+Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser recolhidos pelo Log Analytics e armazenados como [registos de dados](data-collection.md).
 
 ![Registos do IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Registos de configuração do IIS
-Monitor do Azure recolhe as entradas de ficheiros de registo criados pelo IIS, assim, tem [configurar o IIS para o registo de](https://technet.microsoft.com/library/hh831775.aspx).
+O log Analytics recolhe as entradas de ficheiros de registo criados pelo IIS, assim, tem [configurar o IIS para o registo de](https://technet.microsoft.com/library/hh831775.aspx).
 
-O Azure Monitor só suporta ficheiros de registo do IIS armazenados no formato W3C e não suporta campos personalizados ou avançados o registo do IIS. Não recolhe registos no formato nativo NCSA ou IIS.
+O log Analytics só suporta ficheiros de registo do IIS armazenados no formato W3C e não suporta campos personalizados ou avançados o registo do IIS. Não recolhe registos no formato nativo NCSA ou IIS.
 
-Configurar registos de IIS no Monitor e do Azure a partir da [menu de definições avançadas](agent-data-sources.md#configuring-data-sources).  É necessária nenhuma configuração que selecionar **ficheiros de registo IIS de formato W3C</a&gt recolher**.
+Configurar os registos do IIS no Log Analytics a partir da [menu de definições avançadas](agent-data-sources.md#configuring-data-sources).  É necessária nenhuma configuração que selecionar **ficheiros de registo IIS de formato W3C</a&gt recolher**.
 
 
 ## <a name="data-collection"></a>Recolha de dados
-Monitor do Azure recolhe entradas de registo IIS de cada agente que é criada sempre que o log esteja fechado e um novo. Esta frequência é controlada pelos **agenda de Rollover de ficheiro de registo** definição para o site do IIS que é uma vez por dia por predefinição. Por exemplo, se as definições são **por hora**, em seguida, o Azure Monitor irá recolher o registo de cada hora.  Se a definição for **diária**, em seguida, o Azure Monitor irá recolher o registo a cada 24 horas.
+O log Analytics recolhe entradas de registo IIS por cada agente que é criada sempre que o log esteja fechado e um novo. Esta frequência é controlada pelos **agenda de Rollover de ficheiro de registo** definição para o site do IIS que é uma vez por dia por predefinição. Por exemplo, se as definições são **por hora**, em seguida, o Log Analytics irá recolher o registo de cada hora.  Se a definição for **diária**, em seguida, o Log Analytics irá recolher o registo a cada 24 horas.
 
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registo do registo IIS
@@ -76,5 +76,5 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 | W3CIISLog &#124; resumir sum(csBytes) por computador &#124; tirar 500000 |Total de bytes recebidos por cada computador do IIS. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Configure o Azure Monitor para recolher outros [origens de dados](agent-data-sources.md) para análise.
+* Configurar o Log Analytics para recolher outros [origens de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [registar as consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

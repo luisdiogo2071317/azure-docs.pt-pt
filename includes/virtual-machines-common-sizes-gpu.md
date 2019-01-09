@@ -8,24 +8,29 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007916"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122841"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento. 
 
 * **NC, NCv2, NCv3, ND e NDv2** tamanhos estão otimizados para aplicações de computação e rede intensivas e algoritmos. Alguns exemplos são aplicações baseadas em CUDA e OpenCL e simulações, IA e aprendizagem aprofundada. A série NCv3 se concentra em alto desempenho cargas de trabalho computacionais do placa GPU da NVIDIA Tesla V100.  A série ND destina-se a cenários de formação e inferência para aprendizagem aprofundada. Utiliza o GPU NVIDIA Tesla P40.
+
+* O **série NC** apresenta um processador de 2.60 GHz Intel Xeon® E5-2690 v3.
+
+* O **NCSv3**, **NCSv2**, e **ND** tamanhos apresentam um processador de 2.60 GHz Intel Xeon® E5-2690 v4.
+                      
 * **NV e NVv2** tamanhos são otimizados e concebidos para visualização remota, transmissão em fluxo, jogos, codificação e cenários VDI com arquiteturas, como OpenGL e DirectX.  Estas VMs são apoiadas por NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>Série NC
 
-Armazenamento Premium: Não suportado
+Armazenamento Premium:  Não suportado
 
-Cache de armazenamento Premium: Não suportado
+Cache de armazenamento Premium:  Não suportado
 
 As VMs da série NC têm tecnologia a [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) cartão. Os utilizadores podem processar os dados mais rapidamente ao tirar partido das CUDA para aplicações de exploração de energia, simulações de falhas, ray composição rastreada, aprendizagem aprofundada e muito mais. A configuração NC24r fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
 
@@ -43,9 +48,9 @@ As VMs da série NC têm tecnologia a [NVIDIA Tesla K80](https://www.nvidia.com/
 
 ## <a name="ncv2-series"></a>Série NCv2
 
-O armazenamento Premium: suportado
+Armazenamento Premium:  Suportadas
 
-A cache de armazenamento Premium: suportado
+Cache de armazenamento Premium:  Suportadas
 
 As VMs da série NCv2 têm a tecnologia [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. Essas GPUs podem proporcionar 2x mais do que o desempenho computacional da série NC. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho HPC tradicionais, tais como modelação de reservatórios, DNA sequenciamento, análise de proteínas, simulações Monte Carlo e outras pessoas. A configuração de v2 NC24rs fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
 
@@ -66,9 +71,9 @@ As VMs da série NCv2 têm a tecnologia [NVIDIA Tesla P100](http://images.nvidia
 
 ## <a name="ncv3-series"></a>Série NCv3
 
-O armazenamento Premium: suportado
+Armazenamento Premium:  Suportadas
 
-A cache de armazenamento Premium: suportado
+Cache de armazenamento Premium:  Suportadas
 
 As VMs da série NCv3 têm a tecnologia [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPUs. Essas GPUs podem proporcionar 1,5 vezes o desempenho computacional da série NCv2. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho HPC tradicionais, tais como modelação de reservatórios, DNA sequenciamento, análise de proteínas, simulações Monte Carlo e outras pessoas. A configuração de v3 NC24rs fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
 
@@ -90,9 +95,9 @@ As VMs da série NCv3 têm a tecnologia [NVIDIA Tesla V100](http://www.nvidia.co
 ## <a name="ndv2-series-preview"></a>Série NDv2 (pré-visualização)
 
 
-O armazenamento Premium: suportado
+Armazenamento Premium:  Suportadas
 
-A cache de armazenamento Premium: suportado
+Cache de armazenamento Premium:  Suportadas
 
 Infiniband: Não suportado
 
@@ -109,9 +114,9 @@ Máquinas de virtuais de série NDv2 é uma nova adição à família de GPU con
 
 ## <a name="nd-series"></a>Série ND
 
-O armazenamento Premium: suportado
+Armazenamento Premium:  Suportadas
 
-A cache de armazenamento Premium: suportado
+Cache de armazenamento Premium:  Suportadas
 
 As máquinas de virtuais de série ND são que uma novidade na família de GPU concebida para IA e aprendizagem profunda, cargas de trabalho. Eles oferecem excelente desempenho para formação e inferência. Instâncias de ND têm a tecnologia [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. Estas instâncias oferecem excelente desempenho para precisão simples flutuante operações, para cargas de trabalho de IA que o Microsoft Cognitive Toolkit, TensorFlow, Caffe e outras estruturas. A série ND também oferece um tamanho de memória GPU muito maior (24 GB), que permite adaptar modelos de rede neuronal muito maiores. Como a série NC, a série ND oferece uma configuração com uma rede de baixa latência e alto débito secundária através de RDMA e conectividade InfiniBand para que possa executar tarefas de formação de larga escala que abrangem muitas GPUs.
 
@@ -132,9 +137,9 @@ As máquinas de virtuais de série ND são que uma novidade na família de GPU c
 
 ## <a name="nv-series"></a>Série NV
 
-Armazenamento Premium: Não suportado
+Armazenamento Premium:  Não suportado
 
-Cache de armazenamento Premium: Não suportado
+Cache de armazenamento Premium:  Não suportado
 
 As máquinas de virtuais de série NV têm a tecnologia [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e NVIDIA GRID tecnologia para o ambiente de trabalho aplicações aceleradas e áreas de trabalho virtuais onde os clientes podem visualizar os seus dados ou simulações. Os utilizadores são podem visualizar os seus fluxos de trabalho intensivas de gráficos nas instâncias NV para obter capacidades gráficas superiores e executar adicionalmente cargas de trabalho de precisão única, como codificação e composição. 
 
@@ -150,9 +155,9 @@ Cada GPU em instâncias de NV vem com uma licença de GRADE. Esta licença dá-l
 
 ## <a name="nvv2-series-preview"></a>Série NVv2 (pré-visualização)
 
-O armazenamento Premium: suportado
+Armazenamento Premium:  Suportadas
 
-A cache de armazenamento Premium: suportado
+Cache de armazenamento Premium:  Suportadas
 
 As máquinas de virtuais de série NVv2 têm a tecnologia [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e NVIDIA GRID tecnologia com Intel Broadwell CPUs. Estas máquinas virtuais são direcionadas para aplicações de gráficos de acelerado de GPU e áreas de trabalho virtuais onde os clientes pretendem visualize os seus dados, simular resultados para ver, funciona em CAD ou conteúdo de composição e o stream. Além disto, estas máquinas virtuais podem executar cargas de trabalho de precisão individuais, como codificação e composição. Máquinas de virtuais de NVv2 suportam o Premium Storage e vêm com duas vezes a memória do sistema (RAM), em comparação com o seu predecessor série NV.  
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020630"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118822"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de pré-visualização pública
 
@@ -74,4 +74,4 @@ Os seguintes limites limitar o número total de mensagens de todos os que seus d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para experimentar um exemplo de duplos Digital do Azure, aceda a [guia de introdução de salas disponíveis](./quickstart-view-occupancy-dotnet.md).
+- Para experimentar um exemplo de duplos Digital do Azure, aceda a [guia de introdução de salas disponíveis](./quickstart-view-occupancy-dotnet.md).

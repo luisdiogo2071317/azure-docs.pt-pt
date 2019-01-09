@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Sincronização de âmbito | Documentos da Microsoft'
+title: 'Serviços de domínio do Active Directory do Azure: Sincronização de âmbito | Documentos da Microsoft'
 description: Configurar a sincronização de âmbito do Azure AD para os domínios geridos
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442986"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121535"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização de âmbito do Azure AD para o seu domínio gerido
 Este artigo mostra-lhe como configurar contas de usuários específicos a serem sincronizados do diretório do Azure AD ao seu domínio gerido do Azure AD Domain Services.
@@ -79,7 +79,7 @@ Conclua os seguintes passos para configurar a sincronização de âmbito com bas
   > Tem de incluir o grupo "Administradores do AAD DC" na lista de grupos configurados para a sincronização de âmbito. Se não incluir este grupo, o domínio gerido ficará inutilizável.
   >
 
-4. Agora, crie o domínio gerido e ativar a sincronização de âmbito com base em grupo para o domínio gerido. Incluir a propriedade ```"filteredSync" = "Enabled"``` no ```Properties``` parâmetro. Por exemplo, consulte o seguinte fragmento de script, copiado a partir [Tarefa 7: aprovisionar o domínio gerido do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Agora, crie o domínio gerido e ativar a sincronização de âmbito com base em grupo para o domínio gerido. Incluir a propriedade ```"filteredSync" = "Enabled"``` no ```Properties``` parâmetro. Por exemplo, consulte o seguinte fragmento de script, copiado do [Tarefa 7: Aprovisionar o domínio gerido do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

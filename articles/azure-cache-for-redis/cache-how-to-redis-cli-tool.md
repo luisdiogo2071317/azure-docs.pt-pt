@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
-ms.openlocfilehash: 4cefae50482547b910c6468854a251b0f61ce558
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 68c533235480ec49e3c561d99095d5722f6f69a4
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019928"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106329"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como utilizar a ferramenta de linha de comandos da Redis cache do Azure para Redis
 
@@ -26,7 +26,7 @@ ms.locfileid: "53019928"
 
 A ferramenta está disponível para plataformas Windows baixando o [Redis ferramentas da linha de comandos para Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Se quiser executar a ferramenta da linha de comandos em outra plataforma, Baixe o Cache do Azure para Redis a partir da [ http://redis.io/download ](https://redis.io/download).
+Se quiser executar a ferramenta da linha de comandos em outra plataforma, Baixe o Cache do Azure para Redis a partir da [ https://redis.io/download ](https://redis.io/download).
 
 ## <a name="gather-cache-access-information"></a>Recolher informações de acesso da cache
 

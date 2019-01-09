@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017978"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121231"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
-[As funções do Azure](functions-overview.md) oferece integração incorporada com [Azure Application Insights](../application-insights/app-insights-overview.md) para funções de monitorização. Este artigo mostra como configurar as funções para enviar os ficheiros de registo gerados pelo sistema para o Application Insights.
+[As funções do Azure](functions-overview.md) oferece integração incorporada com [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) para funções de monitorização. Este artigo mostra como configurar as funções para enviar os ficheiros de registo gerados pelo sistema para o Application Insights.
 
 ![Explorador de métricas do Application Insights](media/functions-monitoring/metrics-explorer.png)
 
@@ -414,7 +414,7 @@ Aqui está uma representação JSON de exemplo de `customDimensions` dados:
 No c# funções de script, pode utilizar o `LogMetric` método de extensão no `ILogger` para criar métricas personalizadas no Application Insights. Eis uma chamada de método de exemplo:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 Esse código é uma alternativa ao chamar `TrackMetric` usando [a API do Application Insights para .NET](#custom-telemetry-in-c-functions).
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>Registo de métricas personalizadas  
 
-Nas funções do node. js, pode usar o `context.log.metric` método para criar métricas personalizadas no Application Insights. Eis uma chamada de método de exemplo:
+Quando em execução no [versão 1.x](functions-versions.md#creating-1x-apps) de runtime das funções, podem utilizar as funções do node. js a `context.log.metric` método para criar métricas personalizadas no Application Insights. Este método não é atualmente suportado na versão 2.x. Eis uma chamada de método de exemplo:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 Esse código é uma alternativa ao chamar `trackMetric` usando [o SDK de node. js do Application Insights](#custom-telemetry-in-javascript-functions).

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 21e5642f738fa1c90e22422e204d9a04d968f072
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075469"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121571"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -69,7 +69,7 @@ Quando armazena dados valiosos, tem de executar vários passos. Informações de
 - Disponibilizar opções de administração padrão do Azure através do portal, da CLI do Azure e do PowerShell.
 - Automatizar determinadas tarefas relativas a certificados que comprar junto de ACs públicas, como inscrição e renovação.
 
-Além disso, o Azure Key Vault permite-lhe segregar segredos das aplicações. As aplicações só podem aceder ao cofre ao qual têm autorização e estão limitadas à realização de determinadas operações. Pode criar um cofre de chaves do Azure por aplicação e restringir os segredos armazenados num cofre a uma aplicação e a uma equipa de programadores específica.
+Além disso, o Azure Key Vault permite-lhe segregar segredos das aplicações. Aplicativos podem aceder apenas ao cofre que eles têm permissão para aceder e podem ser limitadas à realização de operações específicas. Pode criar um cofre de chaves do Azure por aplicação e restringir os segredos armazenados num cofre a uma aplicação e a uma equipa de programadores específica.
 
 ### <a name="integrate-with-other-azure-services"></a>Integrar com outros serviços do Azure
 

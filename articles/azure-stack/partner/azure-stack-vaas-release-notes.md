@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333029"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106278"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
@@ -49,7 +49,7 @@ Este artigo tem as notas de versão para a validação de pilha do Azure como um
 
 - Pré-requisitos de VaaS e VHD de atualizações
 
-    `Install-VaaSPrerequisites` agora requer credenciais de administrador da nuvem para resolver um problema durante a validação do pacote. A documentação em [transfira e instale o agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) foi atualizado com o seguinte:
+    `Install-VaaSPrerequisites` agora requer credenciais de administrador da nuvem para resolver um problema durante a validação de solução. A documentação em [transfira e instale o agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) foi atualizado com o seguinte:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ Este artigo tem as notas de versão para a validação de pilha do Azure como um
 
   - Notificações de assinatura do pacote
 
-    Quando um pacote de personalização OEM é enviado como parte do fluxo de trabalho de validação do pacote, o formato de pacote será validado para se certificar de que ela segue à especificação publicada. Se o pacote não estiver em conformidade, a execução falhará. Notificações por correio eletrónico serão enviadas para o endereço de e-mail do contacto do Azure Active Directory registado para o inquilino.
+    Quando um pacote de personalização OEM é enviado como parte do fluxo de trabalho de validação de solução, o formato de pacote será validado para se certificar de que ela segue à especificação publicada. Se o pacote não estiver em conformidade, a execução falhará. Notificações por correio eletrónico serão enviadas para o endereço de e-mail do contacto do Azure Active Directory registado para o inquilino.
 
   - Categoria de teste interativa
 

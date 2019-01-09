@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 667dbab6613b83d0e72762b8bbad738d0d7697d8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034442"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101484"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 
@@ -23,13 +23,11 @@ Uma partição lógica consiste num conjunto de itens com a mesma chave de parti
 
 No Azure Cosmos DB, um contentor é a unidade fundamental de escalabilidade. Os dados adicionados para o contentor e a taxa de transferência que for aprovisionado no contentor são automaticamente particionada (horizontalmente) num conjunto de partições lógicas. Eles são divididos em partições com base na chave de partição que especificou para o contentor do Cosmos. Para obter mais informações, consulte [como especificar a chave de partição para o contentor do Cosmos](how-to-create-container.md) artigo.
 
-Uma partição lógica define o âmbito das transações da base de dados. Pode atualizar itens dentro de uma partição lógica através de uma transação com o isolamento do instantâneo.
-
-Quando novos itens são adicionados ao contêiner ou se o débito aprovisionado no contentor for aumentado, as novas partições lógicas transparente são criadas pelo sistema.
+Uma partição lógica define o âmbito das transações da base de dados. Pode atualizar itens dentro de uma partição lógica através de uma transação com o isolamento do instantâneo. Quando novos itens são adicionados ao contêiner, novas partições lógicas transparente são criadas pelo sistema.
 
 ## <a name="physical-partitions"></a>Partições físicas
 
-Um contentor do Cosmos é dimensionado ao distribuir os dados e o débito num grande número de partições lógicas. Internamente, uma ou mais partições lógicas estão mapeadas para uma **partição física** que consiste num conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas aloja uma instância do motor de base de dados do Cosmos. Um conjunto de réplicas torna os dados armazenados na partição física durável, de elevada disponibilidade e consistente. Uma partição física suporta uma quantidade fixa, máxima de armazenamento e RUs. Cada réplica que inclui a partição física herda a quota de armazenamento. E todas as réplicas de uma partição física coletivamente suportam a taxa de transferência alocada para a partição física. A imagem seguinte mostra como lógica partições são mapeadas para as partições físicas que são distribuídas globalmente:
+Contentor do Cosmos do Azure é dimensionado ao distribuir os dados e o débito num grande número de partições lógicas. Internamente, uma ou mais partições lógicas estão mapeadas para uma **partição física** que consiste num conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas aloja uma instância do motor de base de dados do Azure Cosmos. Um conjunto de réplicas torna os dados armazenados na partição física durável, de elevada disponibilidade e consistente. Uma partição física suporta uma quantidade fixa, máxima de armazenamento e RUs. Cada réplica que inclui a partição física herda a quota de armazenamento. E todas as réplicas de uma partição física coletivamente suportam a taxa de transferência alocada para a partição física. A imagem seguinte mostra como lógica partições são mapeadas para as partições físicas que são distribuídas globalmente:
 
 ![Criação de partições de Cosmos DB do Azure](./media/partition-data/logical-partitions.png)
 

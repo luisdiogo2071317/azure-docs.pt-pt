@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892474"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104646"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 
@@ -24,7 +24,7 @@ Uma carga de camada de mosaico em mosaicos a partir de um servidor. Essas imagen
 
 * X, Y, notação de Zoom - com base no nível de zoom, x é a coluna e y é a posição de linha do mosaico na grelha de mosaico.
 * Notação Quadkey - combinação x, y, informações de zoom num valor de cadeia única que é um identificador exclusivo para um mosaico.
-* Caixa delimitadora - delimitação de coordenadas de caixa, pode ser utilizado para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente utilizado pelo [serviços de mapeamento de Web (WMS)](http://www.opengeospatial.org/standards/wms).
+* Caixa delimitadora - delimitação de coordenadas de caixa, pode ser utilizado para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente utilizado pelo [serviços de mapeamento de Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > R [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma excelente forma de visualizar grandes conjuntos de dados no mapa. Não só pode ser gerada uma camada de mosaico a partir de uma imagem, mas os dados de vetor podem também ser compostos como uma camada de mosaico demasiado. Por meio do processamento de dados de vetor como uma camada de mosaico, o controle de mapa só precisa de carregar os mosaicos que podem ser muito menores do tamanho do ficheiro que os dados de vetor que elas representam. Essa técnica é usada por muitos que precisam para renderizar millons de linhas de dados no mapa.
@@ -40,7 +40,7 @@ O URL do mosaico passado para uma camada de mosaico tem de ser um URL de http/ht
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
- Este exemplo mostra como criar uma camada de mosaicos que aponta para um conjunto de mosaicos que utilizam os x, y, sistema de lado a lado de zoom. A origem desta camada de mosaico é uma sobreposição de planos de Meteorologia dos [Iowa ambiental Mesonet de Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
+ Este exemplo mostra como criar uma camada de mosaicos que aponta para um conjunto de mosaicos que utilizam os x, y, sistema de lado a lado de zoom. A origem desta camada de mosaico é uma sobreposição de planos de Meteorologia dos [Iowa ambiental Mesonet de Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 

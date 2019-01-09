@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076404"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117151"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados do Application Insights
 
-Um item de telemetria de pedido (no [Application Insights](../../application-insights/app-insights-overview.md)) representa a sequência lógica de execução acionada por um pedido externo à sua aplicação. Cada execução de solicitação é identificada por exclusivo `ID` e `url` que contém todos os parâmetros de execução. Pode agrupar solicitações ao lógico `name` e defina o `source` deste pedido. Execução de código pode resultar em `success` ou `fail` e tem um certo `duration`. Execuções com êxito e falha podem ser agrupadas também pelos `resultCode`. Hora de início para a telemetria de pedido definida no nível de envelope.
+Um item de telemetria de pedido (no [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa a sequência lógica de execução acionada por um pedido externo à sua aplicação. Cada execução de solicitação é identificada por exclusivo `ID` e `url` que contém todos os parâmetros de execução. Pode agrupar solicitações ao lógico `name` e defina o `source` deste pedido. Execução de código pode resultar em `success` ou `fail` e tem um certo `duration`. Execuções com êxito e falha podem ser agrupadas também pelos `resultCode`. Hora de início para a telemetria de pedido definida no nível de envelope.
 
 Pedido de telemetria suporta o modelo de extensibilidade padrão usando custom `properties` e `measurements`.
 

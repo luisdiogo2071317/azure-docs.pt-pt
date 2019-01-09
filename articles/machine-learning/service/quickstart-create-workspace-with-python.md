@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999055"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106567"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 
@@ -76,7 +76,7 @@ Antes de instalar o SDK, recomendamos que crie um ambiente Python isolado. Embor
 
 No ambiente conda ativado, instale o SDK. Este código instala os componentes principais do SDK de Machine Learning. Também instala um servidor de bloco de notas do Jupyter no ambiente de conda. A instalação demora alguns minutos para concluir com base na configuração do seu computador.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 Pode utilizar palavras-chave adicional para instalar outros componentes do SDK:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-No ambiente do Azure Databricks, utilize o seguinte comando de instalação em vez disso:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+No ambiente do Azure Databricks, utilize o [passos de instalação do Databricks](how-to-configure-environment.md#azure-databricks
+) em vez disso.
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 Guarde os detalhes da sua área de trabalho num arquivo de configuração para o diretório atual. Este ficheiro é chamado *aml_config\config.json*.  
 
-Este ficheiro de configuração da área de trabalho torna mais fácil carregar a mesma área de trabalho mais tarde. Pode carregá-la com outros blocos de notas e scripts no mesmo diretório ou num subdiretório. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-A chamada à API `write_config()` cria o ficheiro de configuração no diretório atual. O *config* arquivo contém o seguinte script:
+A chamada à API `write_config()` cria o ficheiro de configuração no diretório atual. O *config* arquivo contém o seguinte:
 
 ```json
 {
@@ -156,6 +147,12 @@ A chamada à API `write_config()` cria o ficheiro de configuração no diretóri
     "workspace_name": "myworkspace"
 }
 ```
+
+Este ficheiro de configuração da área de trabalho torna mais fácil carregar a mesma área de trabalho mais tarde. Pode carregá-la com outros blocos de notas e scripts no mesmo diretório ou num subdiretório. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>Utilizar a área de trabalho
 
@@ -190,7 +187,7 @@ Para utilizar o código com os tutoriais de Machine Learning, terá de alguns pa
 
 1. No browser, feche o bloco de notas.
 1. Na janela da linha de comandos, selecione Ctrl + C para parar o servidor de bloco de notas do Jupyter.
-1. Instale os pacotes adicionais.
+1. Instale os pacotes adicionais.  Se não instalou `azureml-sdk[automl]` acima, certifique-se de fazer isso agora.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

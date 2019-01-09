@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.openlocfilehash: b6739a194f6374cf90e6508f4a4316892daaf3dd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7de32573ac6c0d084be3fdd6ff2c3641559fc31f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079247"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118834"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar subscrições de ofertas no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Depois de [criar uma oferta](azure-stack-create-offer.md), os utilizadores precisam de uma subscrição para essa oferta antes de poderem utilizar. Existem duas formas a que os utilizadores podem obter subscrito para uma oferta:
 
@@ -32,7 +32,7 @@ Depois de [criar uma oferta](azure-stack-create-offer.md), os utilizadores preci
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Criar uma subscrição como um operador de cloud
 
-Operadores da nuvem podem utilizar o portal de administração para criar uma subscrição para uma oferta para um utilizador.  Pode criar subscrições para os membros do seu próprio inquilino do diretório.  Quando [multi-inquilinos](azure-stack-enable-multitenancy.md) é ativada, também pode criar subscrições para os utilizadores nos inquilinos do diretório adicional.
+Operadores da nuvem podem utilizar o portal de administração para criar uma subscrição para uma oferta para um utilizador. Pode criar subscrições para os membros do seu próprio inquilino do diretório. Quando [multi-inquilinos](azure-stack-enable-multitenancy.md) é ativada, também pode criar subscrições para os utilizadores nos inquilinos do diretório adicional.
 
 Se não quiser que seus inquilinos a criar seus próprios subscrições, tornar as suas ofertas privado e, em seguida, criar subscrições para os seus inquilinos. Essa abordagem é comum ao integrar o Azure Stack com faturação externa ou sistemas de catálogo de serviço.
 
@@ -48,17 +48,17 @@ Depois de criar uma subscrição para um utilizador, podem iniciar sessão no po
 
      - **O Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:** `<user1>@<azurestack.local>` 
+     - **AD FS:** `<user1>@<azurestack.local>`
 
    - **Inquilino do diretório** – selecione o inquilino do diretório em que a conta de utilizador pertence. Se ainda não ativou a vários inquilinos, apenas o inquilino do diretório local está disponível.
 
 3. Selecione **oferecem**. Sob **oferece**, escolha um **oferecer** para esta subscrição. Uma vez que está a criar a subscrição para um utilizador, selecione **privada** como o estado de acessibilidade.
 
-4. Selecione **criar** para criar a subscrição. Verá que a nova subscrição sob **subscrição do utilizador**. Quando o utilizador inicia sessão portal de utilizador podem ver os detalhes da subscrição.
+4. Selecione **criar** para criar a subscrição. A nova subscrição é apresentado em **subscrição do utilizador**. Quando o utilizador inicia sessão portal de utilizador, podem ver os detalhes da subscrição.
 
 ### <a name="to-make-an-add-on-plan-available"></a>Para disponibilizar um plano de suplemento
 
-Um operador da cloud pode adicionar um plano de suplemento para uma subscrição criada anteriormente em qualquer altura:
+Um operador da cloud pode adicionar um plano para uma subscrição criada anteriormente em qualquer altura:
 
 1. No portal de administração, selecione **todos os serviços** e, em seguida, sob o **recursos administrativos** categoria, selecione **subscrições de utilizador**. Selecione a subscrição que pretende alterar.
 
@@ -71,11 +71,11 @@ Um operador da cloud pode adicionar um plano de suplemento para uma subscrição
 Como um utilizador, pode iniciar sessão portal de utilizador para localizar e subscrever de públicas ofertas e planos de suplementos para o seu inquilino do diretório (organização).
 
 >[!NOTE]
->Se o seu ambiente do Azure Stack suporta [multi-inquilinos](azure-stack-enable-multitenancy.md) também pode subscrever as ofertas de um inquilino do diretório remoto.
+>Se o seu ambiente do Azure Stack suporta [multi-inquilinos](azure-stack-enable-multitenancy.md), também pode subscrever as ofertas de um inquilino do diretório remoto.
 
 ### <a name="to-subscribe-to-an-offer"></a>Para subscrever uma oferta
 
-1. [Iniciar sessão](azure-stack-connect-azure-stack.md) para o portal de utilizador do Azure Stack (https://portal.local.azurestack.external) e selecione **obter uma subscrição**.
+1. [Iniciar sessão](azure-stack-connect-azure-stack.md) para o [portal de utilizador do Azure Stack](https://portal.local.azurestack.external) e selecione **obter uma subscrição**.
 
    ![Obter uma subscrição](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
@@ -84,19 +84,19 @@ Como um utilizador, pode iniciar sessão portal de utilizador para localizar e s
    ![Criar uma oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Depois de subscrever uma oferta, atualize o portal para ver quais os serviços que fazem parte da nova subscrição.
+
 4. Para ver a subscrição que criou, selecione **todos os serviços** e, em seguida, sob o **geral** selecionar categoria **subscrições**. Selecione a subscrição para ver os detalhes da subscrição.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>Para subscrever um plano de suplemento
 
 Se uma oferta tem um plano de suplemento, pode adicionar esse plano à sua subscrição em qualquer altura.  
 
-1. No portal de utilizador, selecione **todos os serviços**. Em seguida, no **gerais** selecionar categoria **subscrições**e, em seguida, selecione a subscrição que pretende que a alteração. Se existirem quaisquer planos de suplementos disponíveis, **+ adicionar plano** está ativa e existe um mosaico para **planos de suplementos**.
+1. No portal de utilizador, selecione **todos os serviços**. Em seguida, sob o **gerais** categoria, selecione **subscrições**e, em seguida, selecione a subscrição que pretende que a alteração. Se existirem quaisquer planos de suplementos disponíveis, **+ adicionar plano** está ativa e existe um mosaico para **planos de suplementos**. 
 
-   >[!NOTE]
-   >Se **+ adicionar plano** não está ativo, em seguida, não existem quaisquer planos de suplementos para a oferta associada a essa subscrição.
+   Se **+ adicionar plano** não está ativo, em seguida, existem não existem planos de suplementos para a oferta associada a essa subscrição.
 
 1. Selecione **+ adicionar plano** ou o **planos de suplementos** mosaico. Sob **planos de suplementos**, selecione o plano que pretende adicionar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Aprovisionar uma máquina virtual](azure-stack-provision-vm.md)
+- [Aprovisionar uma máquina virtual](azure-stack-provision-vm.md)

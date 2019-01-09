@@ -13,16 +13,16 @@ ms.date: 05/03/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b21632f936093c0a48abf2d13389f22306045cc
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052909"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121367"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de utilizador para aplicações web com o Application Insights
 
-A funcionalidade de retenção no [do Azure Application Insights](../../application-insights/app-insights-overview.md) ajuda a analisar o número de utilizadores voltam à sua aplicação e a frequência com que realizar tarefas específicas ou atingir as metas. Por exemplo, se executar um site de jogo, pode comparar os números de utilizadores que retornam ao site após a perda de um jogo com o número que retornam após vencedoras. Esse conhecimento pode ajudar a melhorar sua experiência de utilizador e a sua estratégia de negócios.
+A funcionalidade de retenção no [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) ajuda a analisar o número de utilizadores voltam à sua aplicação e a frequência com que realizar tarefas específicas ou atingir as metas. Por exemplo, se executar um site de jogo, pode comparar os números de utilizadores que retornam ao site após a perda de um jogo com o número que retornam após vencedoras. Esse conhecimento pode ajudar a melhorar sua experiência de utilizador e a sua estratégia de negócios.
 
 ## <a name="get-started"></a>Introdução
 

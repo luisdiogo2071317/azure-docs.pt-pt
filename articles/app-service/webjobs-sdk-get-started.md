@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074245"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121671"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -292,7 +292,7 @@ Nesta secção, criar e executar localmente o projeto e acione a função atrav�
 
 ## <a name="add-application-insights-logging"></a>Adicionar registos do Application Insights
 
-Quando o projeto é executado no Azure, não é possível monitorizar a execução de função ao visualizar a saída da consola. Recomendamos que é a solução de monitorização [Application Insights](../application-insights/app-insights-overview.md). Para obter mais informações, consulte [as funções do Azure de Monitor](../azure-functions/functions-monitoring.md).
+Quando o projeto é executado no Azure, não é possível monitorizar a execução de função ao visualizar a saída da consola. Recomendamos que é a solução de monitorização [Application Insights](../azure-monitor/app/app-insights-overview.md). Para obter mais informações, consulte [as funções do Azure de Monitor](../azure-functions/functions-monitoring.md).
 
 Nesta secção, efetue as seguintes tarefas para configurar o Application Insights registo antes de implementar para o Azure:
 

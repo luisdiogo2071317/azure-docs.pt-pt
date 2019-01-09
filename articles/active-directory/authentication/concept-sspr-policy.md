@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190997"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116964"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
-Este artigo descreve as políticas de palavra-passe e os requisitos de complexidade associados a contas de utilizador armazenadas no seu inquilino do Azure Active Directory (Azure AD).
+Este artigo descreve as políticas de palavra-passe e os requisitos de complexidade associados a contas de utilizador no seu inquilino do Azure Active Directory (Azure AD).
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças de política de reposição de administrador
 
@@ -79,7 +79,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 | Propriedade | Requisitos |
 | --- | --- |
 | Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes</li></ul> |
+| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Palavras-passe seguras apenas: Não pode conter um caráter de ponto "." Imediatamente anterior a "\@ \" símbolo".</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Palavras-passe seguras apenas: Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |

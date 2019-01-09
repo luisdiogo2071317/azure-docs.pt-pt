@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261807"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105548"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes do OEM
 
@@ -70,7 +70,7 @@ Ao criar um **validação do pacote** fluxo de trabalho no portal do VaaS, terá
 
 Uso **URL de SAS do Blob** ao iniciar uma nova **validação do pacote** fluxo de trabalho no portal do VaaS.
 
-#### <a name="option-2-using-public-read-container"></a>Opção 2: Utilizar o contentor de leitura público
+#### <a name="option-2-using-public-read-container"></a>Opção 2: Com o contentor de leitura público
 
 > [!CAUTION]
 > Esta opção abre o contentor para acesso só de leitura anónimo.
@@ -113,9 +113,23 @@ Uso **URL de SAS do Blob** ao iniciar uma nova **validação do pacote** fluxo d
 
 ## <a name="run-package-validation-tests"></a>Executar testes de validação do pacote
 
-Na **resumo de testes de validação do pacote** página, verá uma lista de testes necessários para concluir a validação. Executam testes neste fluxo de trabalho para cerca de 24 horas.
+1. Na **resumo de testes de validação do pacote** página, verá uma lista de testes necessários para concluir a validação. Executam testes neste fluxo de trabalho para cerca de 24 horas.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    Em fluxos de trabalho de validação, **agendamento** um teste utiliza os parâmetros comuns de nível de fluxo de trabalho que especificou durante a criação de fluxo de trabalho (consulte [parâmetros comuns do fluxo de trabalho para a validação de pilha do Azure como um serviço](azure-stack-vaas-parameters.md)). Se qualquer um dos valores de parâmetro de teste se torne inválido, deve resupply-los com as instruções na [modifique os parâmetros de fluxo de trabalho](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Um teste de validação de agendamento sobre uma instância existente, irá criar uma nova instância em vez da instância antiga no portal. Registos para a instância antiga serão mantidos, mas não estão acessíveis a partir do portal.  
+    Quando um teste tiver sido concluída com êxito, o **agenda** ação torna-se desativada.
+
+2. Selecione o agente que executará o teste. Para informações sobre como adicionar locais agentes de execução de teste, consulte [implementar o agente local](azure-stack-vaas-local-agent.md).
+
+3. Para cada um dos seguintes testes, a etapa quatro e cinco:
+    - Verificação do pacote de extensão de OEM
+    - Mecanismo de simulação de cloud
+
+4. Selecione **agenda** no menu de contexto para abrir um prompt para agendar a instância de teste.
+
+5. Reveja os parâmetros de teste e, em seguida, selecione **submeter** para agendar o teste para execução.
 
 Quando todos os testes foram concluídas com êxito, enviar o nome da sua solução de VaaS e validação do pacote para [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) para solicitar a assinatura de pacote.
 

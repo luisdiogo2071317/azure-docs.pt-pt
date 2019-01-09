@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: f0f1464adde2c80706fbced7309877447644d19e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040443"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119175"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
-A pesquisa é uma funcionalidade do [Application Insights](../../application-insights/app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
+A pesquisa é uma funcionalidade do [Application Insights](../../azure-monitor/app/app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
 
 (Para obter consultas mais complexas com os seus dados, utilize [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
 

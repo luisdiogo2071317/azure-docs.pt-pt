@@ -1,5 +1,5 @@
 ---
-title: Como configurar dispositivos associados ao Azure Active Directory híbrido | Microsoft Docs
+title: Como planear a implementação de associação híbrida do Azure Active Directory no Azure Active Directory (Azure AD) | Documentos da Microsoft
 description: Saiba como configurar dispositivos associados ao Azure Active Directory híbrido.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 02699e5072801dbb8f4a8f97c88db006d31e6e0f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022041"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102283"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
 Da forma semelhante ao utilizador, o dispositivo está a tornar-se outra identidade que deve proteger e também utilizar para proteger os seus recursos em qualquer momento e em qualquer lugar. Pode concretizar este objetivo ao trazer as identidades dos seus dispositivos para o Azure AD através de um dos seguintes métodos:
 
@@ -54,7 +54,6 @@ Para planear a implementação do Azure AD híbrido, deve familiarizar-se com:
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Rever suportado dispositivos 
 
@@ -112,7 +111,7 @@ Se sua organização precisar de acesso à Internet através de um proxy de saí
 
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
 
-Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser associação híbrida do Azure Ad e do Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
+Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser ambos, associação do Azure AD híbrido e o Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
  - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido. 
  - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001
 
@@ -149,17 +148,17 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
  Se instalar a versão necessária do Azure AD Connect não é uma opção para si, veja [como configurar manualmente o registo de dispositivos](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte de Id de início de sessão alternativo na associação ao Azure AD híbrido
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte de ID de início de sessão alternativo na associação ao Azure AD híbrido
 
-Associação com o Windows 10 Hybrid Azure AD fornece suporte limitado para [alternativo Ids de início de sessão](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de id de início de sessão alternativo, [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipo de ids de início de sessão alternativo que pode existir no seu ambiente.
+Associação com o Windows 10 Hybrid Azure AD fornece suporte limitado para [alternativo IDs de início de sessão](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de início de sessão alternativo, [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipos de início de sessão alternativo IDs que pode existir no seu ambiente:
 
- - Id de início de sessão alternativo encaminhável: Um id de início de sessão alternativo encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal, contoso.org e contoso.co.uk são domínios válidos pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - ID de início de sessão alternativo encaminhável: Um ID de início de sessão alternativo encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal, contoso.org e contoso.co.uk são domínios válidos pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Id de início de sessão alternativo não encaminháveis: Um id de início de sessão alternativo não encaminháveis internos não tem um domínio verificado. É aplicável apenas dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio principal, contoso. local não é um domínio verificável na internet, mas é utilizado na rede da Contoso.
+ - ID de início de sessão alternativo não encaminháveis: Um ID de início de sessão alternativo não encaminháveis internos não tem um domínio verificado. É aplicável apenas dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio principal, contoso. local não é um domínio verificável na internet, mas é utilizado na rede da Contoso.
  
-A tabela seguinte fornece detalhes sobre o suporte para qualquer uma destas identificações de início de sessão alternativo na associação ao Windows 10 híbrido do Azure AD
+A tabela seguinte fornece detalhes sobre o suporte para qualquer um destes IDs de início de sessão alternativo no Windows 10 a associação do Azure AD híbrido
 
-|Tipo de id de início de sessão alternativo|Tipo de domínio|Versão do Windows 10|Descrição|
+|Tipo de ID de início de sessão alternativo|Tipo de domínio|Versão do Windows 10|Descrição|
 |-----|-----|-----|-----|
 |Encaminhável|Federado |Da versão 1703|Disponível em geral|
 |Encaminhável|Gerido|Versão 1709|Atualmente em pré-visualização privada. Não é suportada do Azure AD SSPR |

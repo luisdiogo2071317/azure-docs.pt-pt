@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 1/8/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5920ec5ec8e864b5bdb986544a3cdc259e7344da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053641"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107587"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
 Este artigo descreve como agendar a iniciar e parar do Azure-SSIS Integration Runtime (IR) com o Azure Data Factory (ADF). Runtime de integração Azure-SSIS é dedicado para a execução de pacotes do SQL Server Integration Services (SSIS) de recurso de computação do ADF. Executar o IR Azure-SSIS tem um custo associado ele. Portanto, normalmente pretende executar o runtime de integração apenas quando tiver de executar pacotes do SSIS no Azure e parar o runtime de integração, quando não precisa mais. Pode usar a Interface de utilizador do ADF (IU) / aplicação ou o Azure PowerShell para [manualmente iniciar ou parar o runtime de integração](manage-azure-ssis-integration-runtime.md)).
@@ -54,7 +54,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
  
    O nome do seu ADF tem de ser globalmente exclusivo. Se receber o seguinte erro, altere o nome do seu ADF (por exemplo, Oseunomemyazuressisdatafactory) e tente criar novamente. Ver [Data Factory – regras de nomenclatura](naming-rules.md) artigo para saber mais sobre regras de nomenclatura para artefactos do ADF.
   
-   `Data factory name �MyAzureSsisDataFactory� is not available`
+   `Data factory name MyAzureSsisDataFactory is not available`
       
 4. Selecione o seu Azure **subscrição** sob a qual pretende criar o ADF. 
 5. Para **Grupo de Recursos**, siga um destes passos:
@@ -86,23 +86,21 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
    
 2. Na **atividades** caixa de ferramentas, expanda **gerais** menu e arrastar e largar um **Web** atividade para a superfície de desenho do pipeline. Na **gerais** separador da janela de propriedades de atividade, altere o nome da atividade para **startMyIR**. Mude para o **definições** separador e fazer as seguintes ações.
 
-    1. Para **URL**, introduza o seguinte URL para a API REST, que inicia o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`.
+    1. Para **URL**, introduza o seguinte URL para a API REST, que inicia o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Em alternativa, os que pode também copiar e colar o ID de recurso do Runtime de integração da sua página de monitorização na interface do Usuário do ADF/aplicação para substituir a parte seguinte do URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
     
-    Em alternativa, os que pode também copiar e colar o ID de recurso do Runtime de integração da sua página de monitorização na interface do Usuário do ADF/aplicação para substituir a parte seguinte do URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
-    
-   ![ID de recurso do Runtime de integração de SSIS do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
+       ![ID de recurso do Runtime de integração de SSIS do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
     2. Para **método**, selecione **POST**. 
     3. Para **corpo**, introduza `{"message":"Start my IR"}`. 
     4. Para **autenticação**, selecione **MSI** para utilizar a identidade gerida para o ADF, consulte [identidade de serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artigo para obter mais informações.
-    5. Para **Resource**, introduza `https://management.azure.com/`. 
+    5. Para **Resource**, introduza `https://management.azure.com/`.
     
-   ![Agenda de atividades do ADF Web IR do SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
+       ![Agenda de atividades do ADF Web IR do SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
   
 3. Clonar o primeiro pipeline para criar uma segunda, o nome da atividade para a alteração **stopMyIR** e substituir as seguintes propriedades.
 
     1. Para **URL**, introduza o seguinte URL para a API REST que pára o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
-  
+    
     2. Para **corpo**, introduza `{"message":"Stop my IR"}`. 
 
 4. Criar um pipeline de terceiro, arrastar e soltar uma **executar o pacote do SSIS** atividade a partir de **atividades** caixa de ferramentas para o desenho do pipeline de superfície e configure-o seguindo as instruções em [ Invocar um pacote do SSIS com a atividade de executar o pacote do SSIS no ADF](how-to-invoke-ssis-package-ssis-activity.md) artigo.  Em alternativa, pode utilizar um **Stored Procedure** atividade em vez disso e configurá-lo a seguir as instruções [invocar um pacote do SSIS com a atividade de procedimento armazenado no ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) artigo.  Em seguida, encadear a atividade executar procedimento armazenado/pacote do SSIS entre duas atividades Web que iniciar/parar o runtime de integração, semelhante a essas atividades Web nos pipelines primeiro/segundo.

@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: c7b9485d9a7da6479e65689fbcab67e10dec5cb2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052279"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118087"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
-Com o [Application Insights](../../application-insights/app-insights-overview.md), pode ver rapidamente o desempenho da sua aplicação e saber como está a ser utilizada depois de ser publicada. Se existir um problema, informa-o do mesmo e ajuda-o a avaliar o impacto e a determinar a causa.
+Com o [Application Insights](../../azure-monitor/app/app-insights-overview.md), pode ver rapidamente o desempenho da sua aplicação e saber como está a ser utilizada depois de ser publicada. Se existir um problema, informa-o do mesmo e ajuda-o a avaliar o impacto e a determinar a causa.
 
 Esta é uma conta de uma equipa que desenvolve aplicações Web:
 
@@ -230,6 +230,6 @@ Pode começar de várias formas, consoante as características da sua aplicaçã
 * [Aplicação Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Aplicação Web Java](../../azure-monitor/app/java-get-started.md)
 * [Aplicação Web Node.js](../../azure-monitor/app/nodejs.md)
-* Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), no [J2EE](../../azure-monitor/app/java-live.md) ou no [Azure](../../application-insights/app-insights-overview.md).
+* Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), no [J2EE](../../azure-monitor/app/java-live.md) ou no [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Páginas Web](../../azure-monitor/app/javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.

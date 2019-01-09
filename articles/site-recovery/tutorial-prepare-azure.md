@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d33f50239f6385dc1e331aa44fe5a62e02dac1db
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973524"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107043"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
@@ -68,11 +68,12 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-1. No portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Backup e Site Recovery (OMS)**.
-2. Em **Nome**, introduza um nome amigável para identificar o cofre. Neste conjunto de tutoriais, estamos a utilizar **ContosoVMVault**.
-3. No **Grupo de recursos**, estamos a utilizar **contosoRG**.
-4. Em **Localização**, estamos a utilizar **Europa Ocidental**.
-5. Para aceder rapidamente ao cofre a partir do dashboard, selecione **Afixar ao dashboard** > **Criar**.
+1. No portal do Azure, clique em **+ criar um recurso**e pesquisar no Marketplace **dos serviços de recuperação**.
+2. Clique em **cópia de segurança e Site Recovery (OMS)** e na página de cópia de segurança e recuperação de Site, clique em **criar**. 
+1. Na **cofre dos serviços de recuperação** > **nome**, introduza um nome amigável para identificar o cofre. Neste conjunto de tutoriais, estamos a utilizar **ContosoVMVault**.
+2. Na **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Para este tutorial vamos utilizar **contosoRG**.
+3. Na **localização**, selecione a região em que o cofre deve estar localizado. estamos a utilizar **Europa Ocidental**.
+4. Para aceder rapidamente ao cofre a partir do dashboard, selecione **Afixar ao dashboard** > **Criar**.
 
    ![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810904"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118596"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerir atribuições de funções no duplos Digital do Azure
 
@@ -276,9 +276,9 @@ Os exemplos seguintes demonstram como configurar o seu corpo JSON em vários cen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para rever duplos Digital do Azure-com base--controlo de acesso funções, leia [função-base-access-control](./security-authenticating-apis.md).
+- Para rever duplos Digital do Azure-com base--controlo de acesso funções, leia [função-base-access-control](./security-authenticating-apis.md).
 
-Para saber mais sobre a autenticação de API de duplos Digital do Azure, leia [autenticação de API](./security-authenticating-apis.md).
+- Para saber mais sobre a autenticação de API de duplos Digital do Azure, leia [autenticação de API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png

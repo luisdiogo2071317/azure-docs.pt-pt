@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020017"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105207"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar a Cache do Azure para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e as funcionalidades. Depois de criar uma cache, pode aumentar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra-lhe como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e CLI do Azure.
@@ -136,7 +136,7 @@ Não, o nome de cache e as chaves são inalteradas durante uma operação de dim
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Irei perder dados da minha cache durante o dimensionamento?
 * Quando um **básica** cache for aumentado para um novo tamanho, todos os dados são perdidos e o cache não está disponível durante a operação de dimensionamento.
 * Quando um **básica** cache for aumentado para um **padrão** cache, os dados na cache normalmente é preservado.
-* Quando um **padrão** cache for aumentado para uma maior tamanho ou camada, ou uma **Premium** cache for aumentado para um tamanho maior, todos os dados normalmente são preservados. Quando dimensionar um **padrão** ou **Premium** cache para baixo para um tamanho mais pequeno, os dados pode ser perdida consoante a quantidade de dados está no cache relacionados com o novo tamanho quando que ela foi dimensionada. Se os dados são perdidos ao reduzir verticalmente, as chaves são expulsos utilizando o [allkeys lru](http://redis.io/topics/lru-cache) política de expulsão. 
+* Quando um **padrão** cache for aumentado para uma maior tamanho ou camada, ou uma **Premium** cache for aumentado para um tamanho maior, todos os dados normalmente são preservados. Quando dimensionar um **padrão** ou **Premium** cache para baixo para um tamanho mais pequeno, os dados pode ser perdida consoante a quantidade de dados está no cache relacionados com o novo tamanho quando que ela foi dimensionada. Se os dados são perdidos ao reduzir verticalmente, as chaves são expulsos utilizando o [allkeys lru](https://redis.io/topics/lru-cache) política de expulsão. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Meus bancos de dados personalizados é definir afetados durante o dimensionamento?
 Se tiver configurado um valor personalizado para o `databases` definir durante a criação de cache, tenha em atenção que alguns preços camadas possuem diferentes [limites de bases de dados](cache-configure.md#databases). Seguem-se algumas considerações sobre quando o dimensionamento neste cenário:

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166751"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120518"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure (pré-visualização) 
 
@@ -84,7 +84,10 @@ Está agora a **Dashboard** do seu dispositivo.
     - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Por conseguinte, um endereço IP, sub-rede, gateway e DNS são automaticamente atribuído.
     - Se DHCP não estiver ativado, pode atribuir IPs estáticos, se necessário.
     - Pode configurar a sua interface de rede como IPv4.
-   
+
+    >[!NOTE] 
+    > Recomendamos que não muda o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mude para DHCP, não haveria nenhuma forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, esperar até depois do dispositivo foi registado com o serviço e, em seguida, altere. Em seguida, pode ver os IPs de todos os adpaters no **propriedades do dispositivo** no portal do Azure para o seu serviço.
+
 4. (Opcionalmente)-configure o servidor de proxy da web. Apesar de configuração do proxy web é opcional, lembre-se de que se utilizar um proxy da web, pode apenas configurá-lo aqui.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)

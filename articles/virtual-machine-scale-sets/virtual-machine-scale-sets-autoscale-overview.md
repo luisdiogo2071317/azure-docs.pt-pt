@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322044"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117440"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral do dimensionamento automático com o dimensionamento de máquina virtual do Azure
 Um conjunto de dimensionamento de máquina virtual do Azure automaticamente pode aumentar ou diminuir o número de instâncias VM que execute a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho aceitável para uma experiência de cliente positivo. Quando esses limites definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo de vezes. Este artigo fornece uma descrição geral do desempenho de que as métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
@@ -122,7 +122,7 @@ Para obter mais informações, veja os artigos para saber como ativar a extensã
 ## <a name="application-level-metrics-with-app-insights"></a>Métricas de nível de aplicativo com o App Insights
 Para obter mais visibilidade para o desempenho das suas aplicações, pode utilizar o Application Insights. Instale um pequeno pacote de instrumentação na sua aplicação que monitoriza a aplicação e envia a telemetria para o Azure. Pode monitorizar métricas, como os tempos de resposta do seu aplicativo, o desempenho da carga de página, e a sessão de conta. Estas métricas de aplicação podem ser utilizadas para criar regras de dimensionamento automático a um nível granular e incorporado, como acionar as regras com base em informações acionáveis que possam afetar a experiência do cliente.
 
-Para obter mais informações sobre o App Insights, veja [O que é o Application Insights](../application-insights/app-insights-overview.md).
+Para obter mais informações sobre o App Insights, veja [O que é o Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## <a name="scheduled-autoscale"></a>Dimensionamento automático agendado

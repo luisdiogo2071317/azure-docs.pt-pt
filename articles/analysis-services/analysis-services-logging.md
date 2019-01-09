@@ -1,5 +1,5 @@
 ---
-title: Registo de Diganostic para o Azure Analysis Services | Documentos da Microsoft
+title: Diagnóstico de registo para o Azure Analysis Services | Documentos da Microsoft
 description: Saiba mais sobre como configurar o registo de diagnósticos para o Azure Analysis Services.
 author: minewiskan
 manager: kfile
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f2e0767e78119b224f7be9256ab7050deca37e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546985"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105841"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 

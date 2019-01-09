@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837176"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121197"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
-Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se de um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidir como pretende assumir um diretório não gerido
 Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:
@@ -41,7 +41,7 @@ Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não s
 
 3. No e-mail de confirmação do Power BI, selecione **Sim, sou eu**.
 
-4. Inicie sessão para o [Centro de administração do Office 365](https://portal.office.com/adminportal/Home) com a conta de utilizador do Power BI. Receberá uma mensagem que instrui lhe **tornar-se o administrador** de nome de domínio que já foi verificado o inquilino não gerido. Selecione **Sim, pretendo ser o administrador**.
+4. Inicie sessão para o [Centro de administração do Office 365](https://portal.office.com/admintakeover) com a conta de utilizador do Power BI. Receberá uma mensagem que instrui lhe **tornar-se o administrador** de nome de domínio que já foi verificado o inquilino não gerido. Selecione **Sim, pretendo ser o administrador**.
   
   ![captura de ecrã primeiro para tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Quando os registos TXT de DNS são verificados na sua entidade de registo de nom
 
 Quando concluir os passos anteriores, está agora o administrador global do inquilino café quarto no Office 365. Para integrar o nome de domínio com outros serviços do Azure, pode removê-lo a partir do Office 365 e adicioná-lo para um inquilino gerido diferente no Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionar o nome de domínio para um inquilino gerido no Azure AD 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionar o nome de domínio para um inquilino gerido no Azure AD
 
-1. Abra o [Centro de administração do Office 365](https://portal.office.com/adminportal/Home).
+1. Abra o [Centro de administração do Office 365](https://portal.office.com/admintakeover).
 2. Selecione **usuários** separador e criar uma nova conta de utilizador com um nome como *user@fourthcoffeexyz.onmicrosoft.com* que não utiliza o nome de domínio personalizado. 
 3. Certifique-se de que a nova conta de utilizador tem privilégios de administrador global do inquilino do Azure AD.
 4. Open **domínios** separador no Centro de administração do Office 365, selecione o nome de domínio e selecione **remover**. 

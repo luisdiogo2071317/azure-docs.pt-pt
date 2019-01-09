@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d3adeb2e9fab22d1e9c10b2deb4591c29ccff748
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1441e16e141bd33acfdfe4087f74afbc7b47bc77
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074398"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118290"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Comece com certificados do Key Vault
 Os cenários seguintes realçam vários das utilizações de principal de serviço de gestão de certificados do Key Vault incluindo os passos adicionais necessários para criar seu primeiro certificado no seu Cofre de chaves.
@@ -57,7 +57,7 @@ Certificados são compostas por três recursos inter-relacionados ligados em con
 
      Para obter mais informações sobre como criar contas com fornecedores de AC, consulte a postagem relacionada sobre o [blogue do Key Vault](https://aka.ms/kvcertsblog).  
 
-**Passo 3.1** – configurar [contactos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Key Vault. Cofre de chaves não impõe a este passo.  
+**Passo 3.1** -configure [contactos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Key Vault. Cofre de chaves não impõe a este passo.  
 
 Tenha em atenção - este processo, através do passo 3.1, é uma operação única.  
 

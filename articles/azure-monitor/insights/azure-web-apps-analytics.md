@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 57cc1d25f38c1aec7495a3ea542a7b467829dc41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ebe0b9d3cbe14bf35e05db3349a5aebb11b5716
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184717"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120109"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver os dados de análise de métricas por todos os recursos de aplicação Web do Azure
 
@@ -28,4 +28,4 @@ ms.locfileid: "53184717"
 > A solução de análise da aplicação Web do Azure foi movido para o suporte da Comunidade.  
 >- A solução já não está disponível no Azure Marketplace, mas pode ser instalada a partir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/) onde é suportada pela Comunidade.
 >- Os clientes que já tenham instalado a solução podem continuar a utilizá-lo com as alterações.  
->- A Microsoft recomenda que use [Application Insights](../../application-insights/app-insights-overview.md) monitorizar as aplicações web.
+>- A Microsoft recomenda que use [Application Insights](../../azure-monitor/app/app-insights-overview.md) monitorizar as aplicações web.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 23400331db3bd63eeeb843c9772604fabf5a87d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043775"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107740"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -45,7 +45,7 @@ Pode interagir com uma base de dados do Cosmos do Azure com as APIs do Cosmos do
 
 ## <a name="azure-cosmos-containers"></a>Contentores do Azure Cosmos
 
-Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito aprovisionado e armazenamento de itens. Um contentor é particionado horizontalmente e, em seguida, replicado em várias regiões. Os itens que adicione o contentor e o débito que o aprovisionamento na mesma são ambos o automaticamente distribuídos por um conjunto de partições lógicas com base na chave de partição. Para saber mais sobre a criação de partições e a chave de partição, veja [partições lógicas](partition-data.md) artigo. 
+Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito aprovisionado e armazenamento de itens. Um contentor é particionado horizontalmente e, em seguida, replicado em várias regiões. Os itens que adicionar para o contentor e a taxa de transferência que for aprovisionado no mesmo automaticamente são distribuídos por um conjunto de partições lógicas com base na chave de partição. Para saber mais sobre a criação de partições e a chave de partição, veja [partições lógicas](partition-data.md) artigo. 
 
 Ao criar um contentor do Cosmos do Azure, configure o débito dos seguintes modos:
 

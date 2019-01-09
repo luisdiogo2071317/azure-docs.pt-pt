@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414382"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118980"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas virtuais no Azure
 
@@ -171,14 +171,14 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  OperationNotAllowed  |  Não foi possível redimensionar a VM, porque o tamanho pedido {0} não está disponível no cluster onde o conjunto de disponibilidade é atribuído atualmente. Os tamanhos disponíveis são: {1}. Saiba mais sobre VM redimensionamento estratégia em https://aka.ms/azure-resizevm.  |
 |  OperationNotAllowed  |  Não foi possível redimensionar a VM, porque o tamanho pedido {0} não está disponível no cluster onde a VM é atribuída atualmente. Para redimensionar a sua VM para {1} desalocar. (esta é uma operação Stop no portal do Azure) e tente novamente a operação de redimensionamento. Saiba mais sobre VM redimensionamento estratégia em https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  Falha no aprovisionamento do SO para a VM "{0}' porque o SO convidado está atualmente a ser aprovisionado.  |
-|  OSProvisioningClientError  |  Aprovisionamento do SO para a VM "{0}' falhou. Detalhes do erro: {1} certificar-se de que a imagem foi preparada corretamente (generalizada). <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Aprovisionamento do SO para a VM "{0}' falhou. Detalhes do erro: {1} Certifique-se de que a imagem foi preparada corretamente (generalizada). <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
 |  OSProvisioningClientError  |  Falha na geração de chaves de anfitrião SSH. Detalhes do erro: {0}. Para resolver este problema, verifique se o agente de Linux está corretamente configurado. <ul><li>Pode verificar as instruções em: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Nome de utilizador especificado para a VM é inválido para esta distribuição de Linux. Detalhes do erro: {0}.  |
 |  OSProvisioningInternalError  |  Falha no aprovisionamento do SO para a VM "{0}' devido a um erro interno.  |
 |  OSProvisioningTimedOut  |  Aprovisionamento do SO para a VM "{0}' não foi concluído no tempo atribuído. A VM poderá ainda concluir o aprovisionamento com êxito. Verifique o estado de aprovisionamento mais tarde.  |
 |  OSProvisioningTimedOut  |  Aprovisionamento do SO para a VM "{0}' não foi concluído no tempo atribuído. A VM poderá ainda concluir o aprovisionamento com êxito. Verifique o estado de aprovisionamento mais tarde. Além disso, certifique-se de que a imagem foi preparada corretamente (generalizada).   <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OSProvisioningTimedOut  |  Aprovisionamento do SO para a VM "{0}' não foi concluído no tempo atribuído. No entanto, o agente convidado da VM foi detetado em execução. Isso sugere que o SO convidado não foi corretamente preparado para ser utilizado como uma imagem de VM (com CreateOption = FromImage). Para resolver este problema, utilize o VHD como está com CreateOption = Attach ou prepará-lo adequadamente para utilização como uma imagem:   <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OverConstrainedAllocationRequest  |  O tamanho de VM necessário não está atualmente disponível na localização selecionada.  |
+|  OverConstrainedAllocationRequest  |  O tamanho VM necessário não está atualmente disponível na localização selecionada.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Recursos não podem ser atualizado neste momento devido a atualização da plataforma em curso. Tente novamente mais tarde.  |
 |  StorageAccountLimitation  |  Conta de armazenamento '{0}' não suporta blobs de páginas que são necessários para criar discos.  |
 |  StorageAccountLimitation  |  Conta de armazenamento '{0}' excedeu a quota alocada.  |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326267"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103949"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ A configuração de diagnósticos contém instruções para um determinado tipo 
 #### <a name="is-the-host-generating-data"></a>O anfitrião está a gerar dados?
 - **Contadores de desempenho**: Abra o perfmon e verifique o contador.
 
-- **Registos de rastreio**:  Remoto de acesso na VM e adicione um TextWriterTraceListener ao ficheiro de configuração da aplicação.  Consulte http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o serviço de escuta de texto.  Certifique-se de que o `<trace>` elemento tem `<trace autoflush="true">`.<br />
+- **Registos de rastreio**:  Remoto de acesso na VM e adicione um TextWriterTraceListener ao ficheiro de configuração da aplicação.  Consulte https://msdn.microsoft.com/library/sk36c28t.aspx para configurar o serviço de escuta de texto.  Certifique-se de que o `<trace>` elemento tem `<trace autoflush="true">`.<br />
 Se não vir a ser gerados de registos de rastreio, consulte [mais sobre os registos de rastreio em falta](#more-about-trace-logs-missing).
 
 - **Rastreios ETW**: Acesso remoto para a VM e instalar PerfView.  No PerfView, execute **arquivo** > **comando de utilizador** > **escutar etwprovder1** > **etwprovider2**, e assim por diante. O **escutar** comando diferencia maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos fornecedores ETW. Se não for possível executar o comando, pode selecionar o **Log** botão na parte inferior direita da ferramenta Perfview para ver o que tentou executar e que o resultado era.  Partindo do princípio de que a entrada está correta, uma nova janela será exibida. Em alguns segundos, começa a ver rastreios ETW.
@@ -217,9 +217,9 @@ Em alternativa, o ambiente de trabalho remoto para a máquina e ver o ficheiro d
 
 Em ambos os casos, procure **Microsoft.Azure.Diagnostics**e, em seguida, para o **xmlCfg** ou **WadCfg** campo.
 
-Caso esteja pesquisando numa máquina virtual e o **WadCfg** campo está presente, significa que a configuração está no formato JSON. Se o **xmlCfg** campo está presente, significa que a configuração está em XML e é codificada em base64. Precisa [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML carregados por diagnósticos.
+Caso esteja pesquisando numa máquina virtual e o **WadCfg** campo está presente, significa que a configuração está no formato JSON. Se o **xmlCfg** campo está presente, significa que a configuração está em XML e é codificada em base64. Precisa [decodificá-la](https://www.bing.com/search?q=base64+decoder) para ver o XML carregados por diagnósticos.
 
-Para a função de serviço em nuvem, se escolher a configuração do disco, os dados são codificados em base64, por isso terá [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML carregados por diagnósticos.
+Para a função de serviço em nuvem, se escolher a configuração do disco, os dados são codificados em base64, por isso terá [decodificá-la](https://www.bing.com/search?q=base64+decoder) para ver o XML carregados por diagnósticos.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída de plug-in de diagnóstico do Azure
 O plug-in devolve os códigos de saída seguinte:

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035283"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122807"
 ---
 Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
 
@@ -108,7 +108,7 @@ Faturação da utilização de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Não lhe é faturada&#42;</b></p>
+<p><b>Faturado&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Faturação da utilização de instância
 </table>
 
 
-&#42;Alguns recursos do Azure, tais como discos e redes, custos, independentemente do Estado da instância. 
+&#42;Alguns recursos do Azure, tais como discos e redes, incorrer em custos. Licenças de software na instância não incorrem em custos.
 
 ## <a name="provisioning-states"></a>A aprovisionar estados
 
@@ -244,7 +244,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Tenha em atenção</b>: aprovisionamento do SO pode fazer a transição para **falha** se ocorrer uma falha de sistema operacional ou o sistema operacional não for instalado no tempo. Os clientes serão faturados pela VM implantada na infraestrutura.</p>
+<p><b>Nota</b>: Aprovisionamento do SO pode fazer a transição para **falhada** se ocorrer uma falha de sistema operacional ou o sistema operacional não for instalado no tempo. Os clientes serão faturados pela VM implantada na infraestrutura.</p>
 </td>
 </tr>
 </table>

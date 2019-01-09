@@ -1,27 +1,27 @@
 ---
-title: Exemplos do PowerShell do Azure para os Hubs de notificação do Azure | Microsoft Docs
-description: Exemplos do PowerShell do Azure - Scripts para o ajudar a criar e gerir os hubs de notificação.
+title: Exemplos do PowerShell do Azure para os Hubs de notificação do Azure | Documentos da Microsoft
+description: Exemplos do Azure PowerShell - Scripts para o ajudar a criar e gerir os hubs de notificação.
 services: notification-hubs
 author: dimazaid
 manager: kpiteira
 editor: spelluru
-ms.service: data-factory
+ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2255dd98a1b3480c84befbf431fd98472b25c643
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3db91c3b2052a8a5b298c50e33f7cf86a922b6e6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790994"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119344"
 ---
-# <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Exemplos do PowerShell do Azure para os Notification Hubs do Azure
+# <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Exemplos do Azure PowerShell para os Hubs de notificação do Azure
 
-A tabela seguinte inclui ligações para os scripts de Azure PowerShell de exemplo de Notification Hubs do Azure.
+A tabela seguinte inclui ligações para scripts do PowerShell do Azure de exemplo para os Hubs de notificação do Azure.
 
 | |  |
 |---|---|

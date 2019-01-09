@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847665"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117916"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>B2C do Azure AD: Proteger uma API Web utilizando Node.js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>O Azure AD B2C: Proteger uma API web utilizando node. js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Com o Azure Active Directory (Azure AD) B2C, pode proteger uma API web utilizando tokens de acesso de OAuth 2.0. Estes tokens permitem que as aplicações de cliente que utilizam o Azure AD B2C se autentiquem na API. Este artigo mostra-lhe como criar uma API de "lista de tarefas" que permite aos utilizadores adicionar e listar tarefas. A API Web é protegida ao utilizar o Azure AD B2C e só permite que os utilizadores autenticados façam a gestão da respetiva lista de tarefas.
@@ -263,15 +263,15 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Valores necessários
-`clientID`: o ID de cliente da aplicação API Web.
+`clientID`: O ID de cliente da aplicação Web API.
 
-`IdentityMetadata`: este é o local onde o `passport-azure-ad` vai procurar os seus dados de configuração para o fornecedor de identidade. Também vai procurar aqui as chaves para validar os tokens Web JSON.
+`IdentityMetadata`: É aí que `passport-azure-ad` vai procurar os seus dados de configuração para o fornecedor de identidade. Também vai procurar aqui as chaves para validar os tokens Web JSON.
 
-`audience`: o URI (Uniform Resource Identifier) do portal que identifica a sua aplicação de chamada.
+`audience`: O identificador de recurso uniforme (URI) do portal que identifica a sua aplicação de chamada.
 
-`tenantName`: o nome do seu inquilino (por exemplo, **contoso.onmicrosoft.com**).
+`tenantName`: Nome do seu inquilino (por exemplo, **contoso.onmicrosoft.com**).
 
-`policyName`: a política que pretende que valide os tokens recebidos pelo seu servidor. Esta política deve ser igual à utilizada na aplicação cliente para iniciar sessão.
+`policyName`: A política que pretende validar os tokens recebidos pelo seu servidor. Esta política deve ser igual à utilizada na aplicação cliente para iniciar sessão.
 
 > [!NOTE]
 > Por agora, utilize as mesmas políticas para configurar o cliente e o servidor. Se já tiver concluído uma passagem e criado estas políticas, não terá de fazê-lo novamente. Uma vez concluída a passagem, não deverá ser necessário configurar novas políticas para passagens de cliente no site.
@@ -337,13 +337,13 @@ Depois de indicar ao servidor qual a base de dados de MongoDB a utilizar, precis
 ### <a name="expand-the-model"></a>Expandir o modelo
 Este modelo de esquema é simples. Pode expandi-lo conforme necessário.
 
-`owner`: quem é atribuído à tarefa. Este objeto é uma **cadeia**.  
+`owner`: Quem é atribuído à tarefa. Este objeto é uma **cadeia**.  
 
-`Text`: a tarefa propriamente dita. Este objeto é uma **cadeia**.
+`Text`: A tarefa propriamente dita. Este objeto é uma **cadeia**.
 
-`date`: a data em que a tarefa deve ser concluída. Este objeto é uma **datetime**.
+`date`: A data em que a tarefa deve ser concluída. Este objeto é uma **datetime**.
 
-`completed`: se a tarefa está concluída. Este objeto é um **Booleano**.
+`completed`: Se a tarefa está concluída. Este objeto é um **Booleano**.
 
 ### <a name="create-the-schema-in-the-code"></a>Criar o esquema no código
 Na linha de comandos, altere o diretório para `azuread`, caso ainda não esteja aí:
@@ -549,7 +549,7 @@ O Restify e o Express fornecem personalização avançada para um servidor de AP
 
 
 var server = restify.createServer({
-    name: "Microsoft Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directory TODO Server",
     version: "2.0.1"
 });
 

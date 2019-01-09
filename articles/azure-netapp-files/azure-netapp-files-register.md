@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: c25cc4619eb77b69aebde3bb41260e3cfc361dd9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0a5483cd5a6316cb5d6cba3a110ca757eb2171c8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054423"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104000"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 Antes de utilizar ficheiros de NetApp do Azure, tem de submeter um pedido de inscrição no serviço de ficheiros do Azure NetApp.  Após a inscrição, em seguida, registe a utilizar o serviço.
 
 ## <a name="request-to-enroll-in-the-service"></a>Pedido de inscrição no serviço
-Tem de ser parte do programa de pré-visualização pública e na lista de permissões para aceder ao fornecedor de recursos de Microsoft.NetApp. Para obter detalhes sobre como aderir ao programa de Pré-visualização Pública, veja a [página de inscrição na Pré-visualização Pública do Azure NetApp Files](http://aka.ms/nfspublicpreview). 
+Tem de ser parte do programa de pré-visualização pública e na lista de permissões para aceder ao fornecedor de recursos de Microsoft.NetApp. Para obter detalhes sobre como aderir ao programa de Pré-visualização Pública, veja a [página de inscrição na Pré-visualização Pública do Azure NetApp Files](https://aka.ms/nfspublicpreview). 
 
 
 ## <a name="register-the-netapp-resource-provider"></a>Registar o fornecedor de recursos de NetApp

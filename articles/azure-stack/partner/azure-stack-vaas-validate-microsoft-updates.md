@@ -10,21 +10,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c90b81cdb6df5477d658d53dc93d0c3bbc47c1ff
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334470"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106448"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Validar as atualizações de software da Microsoft
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A Microsoft lançará periodicamente atualizações para o software do Azure Stack. Estas atualizações são fornecidas para parceiros de engenharia conjuntas do Azure Stack antecedência a ser disponibilizadas publicamente para que eles possam validar as atualizações em suas soluções e fornecer comentários à Microsoft.
+A Microsoft lançará periodicamente atualizações para o software do Azure Stack. Estas atualizações são fornecidas para o Azure Stack coengineering parceiros. As atualizações são fornecidas com antecedência de publicamente disponíveis. Pode verificar as atualizações em relação a sua solução e fornecer comentários à Microsoft.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -34,13 +34,17 @@ A Microsoft lançará periodicamente atualizações para o software do Azure Sta
 
 ## <a name="create-a-workflow"></a>Criar um fluxo de trabalho
 
-Utilizam o mesmo fluxo de trabalho como validações de atualização **validação do pacote**. Siga as instruções em [criar um fluxo de trabalho de validação do pacote](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
+Utilizam o mesmo fluxo de trabalho como validações de atualização **validação de solução**.
 
 ## <a name="run-tests"></a>Executar testes
 
-Utilizam o mesmo fluxo de trabalho como validações de atualização **validação do pacote**. Siga as instruções em [testes de validação do pacote executar](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+1. Utilizam o mesmo fluxo de trabalho como validações de atualização **validação de solução**. 
 
-Não é necessário pedir para validações de atualização de assinatura do pacote.
+2. Siga as instruções em [testes de validação de solução executar](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Selecione os seguintes testes em vez disso:
+    - Verificação de atualização mensal do Azure Stack
+    - Mecanismo de simulação de cloud
+
+Não precisa de pedido de assinatura para validações de atualização do pacote.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

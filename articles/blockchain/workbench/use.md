@@ -1,25 +1,33 @@
 ---
 title: Utilizar aplicações no Azure Blockchain Workbench
-description: Como utilizar a aplicação de contratos no Azure Blockchain Workbench.
+description: Tutorial sobre como utilizar a aplicação de contratos no Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243140"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107077"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Utilizar aplicações no Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Utilizar aplicações no Azure Blockchain Workbench
 
 Pode utilizar o Blockchain Workbench para criar e tome ações sobre contratos. Também pode ver detalhes como o histórico de estado e transações de contrato.
+
+Vai aprender a:
+
+> [!div class="checklist"]
+> * Criar um novo contrato
+> * Execute uma ação num contrato
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +44,7 @@ Tem de iniciar sessão como membro da bancada de trabalho de Blockchain. Se não
 
 Para criar um novo contrato, tem de ser um membro especificado como um contrato **iniciador**. Para definir funções de aplicação e os iniciadores para o contrato de informações, consulte [fluxos de trabalho na descrição geral do configuração](configuration.md#workflows). Para informações sobre como atribuir membros a funções de aplicação, consulte [Adicionar membro à aplicação](manage-users.md#add-member-to-application).
 
-1. Na secção de aplicações de Blockchain Workbench, selecione o mosaico de aplicação que contém o contrato que pretende criar. Uma lista de contratos de Active Directory são apresentados.
+1. Na secção de aplicações de Blockchain Workbench, selecione o mosaico de aplicação que contém o contrato que pretende criar. É apresentada uma lista de contratos de Active Directory.
 
 2. Para criar um novo contrato, selecione **novo contrato**.
 
@@ -82,4 +90,4 @@ Dependendo do Estado o contrato é, os membros podem tomar medidas para transiç
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Como resolver problemas do Azure Blockchain Workbench](troubleshooting.md)
+> [Controlo de versões de aplicações do Azure Blockchain Workbench](version-app.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971193"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120840"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -139,7 +139,7 @@ Por predefinição, o Balanceador de Carga do Azure distribui o tráfego de rede
 
 ### <a name = "internalloadbalancer"></a> Balanceador de Carga Interno
 
-Os balanceadores de carga internos direcionam o tráfego apenas para recursos que estejam dentro de uma rede virtual ou que acedam à infraestrutura do Azure através de uma VPN. Neste aspeto, estes balanceadores de carga são diferentes dos públicos. A infraestrutura do Azure limita o acesso aos endereços IP do front-end com carga balanceada de uma rede virtual. Os endereços IP do front-end e as redes virtuais nunca são expostos diretamente a um ponto final da Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
+Os balanceadores de carga internos direcionam o tráfego apenas para recursos que estejam dentro de uma rede virtual ou que acedam à infraestrutura do Azure através de uma VPN. Neste aspeto, estes balanceadores de carga são diferentes dos públicos. A infraestrutura do Azure limita o acesso aos endereços IP do front-end com carga balanceada de uma rede virtual. endereços IP de front-end e redes virtuais são expostas nunca diretamente para um ponto de extremidade de internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
 
 Os balanceadores de carga internos permitem os seguintes tipos de balanceador de carga:
 

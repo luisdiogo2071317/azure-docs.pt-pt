@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3eaa5de1b1378ba78a7c57172fd0a155f72cd6c5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434703"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102521"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores de singleton nas funções durável (funções do Azure)
 
@@ -91,7 +91,7 @@ Por predefinição, a instância IDs são aleatoriamente gerado GUIDs. Mas, nest
 > Ao desenvolver localmente em JavaScript, terá de definir a variável de ambiente `WEBSITE_HOSTNAME` para `localhost:<port>`, por ex. `localhost:7071` Para utilizar os métodos em `DurableOrchestrationClient`. Para obter mais informações sobre este requisito, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
-> Neste exemplo, existe uma condição de corrida potencial. Se duas instâncias da **HttpStartSingle** executadas simultaneamente, o resultado foi possível dois diferentes criar instâncias de singleton, que substitui o outro. Dependendo dos requisitos, isso pode ter efeitos de colaterais indesejáveis. Por esse motivo, é importante certificar-se de que não existem dois pedidos podem executar esta função de Acionador em simultâneo.
+> Neste exemplo, existe uma condição de corrida potencial. Se duas instâncias da **HttpStartSingle** executadas simultaneamente, ambas as chamadas de função reportará o êxito, mas a instância de apenas uma orquestração, na verdade, será iniciado. Dependendo dos requisitos, isso pode ter efeitos de colaterais indesejáveis. Por esse motivo, é importante certificar-se de que não existem dois pedidos podem executar esta função de Acionador em simultâneo.
 
 Os detalhes da implementação da função de orquestrador, na verdade, não importa. Pode ser uma função de orquestrador regular que é iniciada e concluída, ou pode ser que seja executado Eternamente (ou seja, uma [orquestração externas](durable-functions-eternal-orchestrations.md)). O ponto importante é que há apenas nunca uma instância em execução ao mesmo tempo.
 

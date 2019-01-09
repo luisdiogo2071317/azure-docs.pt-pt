@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: bcf33538479a18d1849515f00e9a0d02ef77dba2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5596675d428fcf8403d001a8f807507ab1e42e43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003830"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117287"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
-Este artigo mostra-lhe como automatizar a criação e atualização das [Application Insights](../../application-insights/app-insights-overview.md) recursos automaticamente, com a gestão de recursos do Azure. Pode, por exemplo, tal como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md), configure a [alertas](../../azure-monitor/app/alerts.md), defina o [preços esquema](pricing.md)e criar outros recursos do Azure .
+Este artigo mostra-lhe como automatizar a criação e atualização das [Application Insights](../../azure-monitor/app/app-insights-overview.md) recursos automaticamente, com a gestão de recursos do Azure. Pode, por exemplo, tal como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md), configure a [alertas](../../azure-monitor/app/alerts.md), defina o [preços esquema](pricing.md)e criar outros recursos do Azure .
 
 A chave para criar esses recursos é modelos JSON para [do Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). Em resumo, o procedimento é: transferir as definições de JSON dos recursos existentes; parametrizar determinados valores, tais como nomes; e, em seguida, execute o modelo, sempre que pretender criar um novo recurso. Pode empacotar vários recursos em conjunto, para criá-los todos em um ir - por exemplo, um monitor de aplicação com testes de disponibilidade, alertas e armazenamento para a exportação contínua. Existem algumas sutilezas a algumas das parameterizations, o que vamos explicar aqui.
 

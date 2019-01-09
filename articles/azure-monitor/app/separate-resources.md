@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 592efa5cc6a4918c03680e9785f85792eaa90099
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046122"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121486"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>A separação de telemetria de desenvolvimento, teste e produção
 
-Quando estiver desenvolvendo a próxima versão de um aplicativo web, não quer misturar os [Application Insights](../../application-insights/app-insights-overview.md) telemetria a partir da nova versão e a versão de lançamento já. Para evitar confusão, envie a telemetria a partir de fases de desenvolvimento diferentes para separar recursos do Application Insights, com chaves de instrumentação separados (as ikeys). Para tornar mais fácil alterar a chave de instrumentação, à medida que passa de uma versão de uma fase para outra, pode ser útil definir a ikey no código, em vez de no ficheiro de configuração. 
+Quando estiver desenvolvendo a próxima versão de um aplicativo web, não quer misturar os [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetria a partir da nova versão e a versão de lançamento já. Para evitar confusão, envie a telemetria a partir de fases de desenvolvimento diferentes para separar recursos do Application Insights, com chaves de instrumentação separados (as ikeys). Para tornar mais fácil alterar a chave de instrumentação, à medida que passa de uma versão de uma fase para outra, pode ser útil definir a ikey no código, em vez de no ficheiro de configuração. 
 
 (Se o seu sistema é um serviço de nuvem do Azure, não há [outro método de configuração de outras ikeys separadas](../../azure-monitor/app/cloudservices.md).)
 

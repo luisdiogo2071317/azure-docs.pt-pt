@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255980"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104216"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -63,7 +63,7 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
     - Selecione Global do Azure se estiver a planear migrar para a cloud do Azure comercial.
     - Com base na cloud especificada aqui, a aplicação irá enviar metadados detetados para os respetivos pontos finais.
 - **Verifique a ligação de internet**: O coletor pode ligar à internet diretamente ou através de um proxy.
-    - A verificação de pré-requisitos verifica a conetividade à [URLs obrigatórios e opcionais](#connect-to-urls).
+    - A verificação de pré-requisitos verifica a conetividade à [URLs obrigatórios e opcionais](#urls-for-connectivity).
     - Se tiver uma ligação direta à internet, nenhuma ação específica é necessária, que não seja de certificar-se de que o coletor de contactar os URLs necessários.
     - Se estiver a ligar através de um proxy, tenha em atenção a [os requisitos abaixo](#connect-via-a-proxy).
 - **Certifique-se a sincronização de hora**: O Recoletor devem sincronizados com o servidor de horas da internet para garantir que os pedidos para o serviço são autenticados.
@@ -105,7 +105,7 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
 
 
 
-### <a name="connect-to-urls"></a>Ligar a URLs
+### <a name="urls-for-connectivity"></a>URLs para conectividade
 
 A verificação de conectividade é validada ao ligar a uma lista de URLs.
 

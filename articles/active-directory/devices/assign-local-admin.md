@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631350"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105411"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Dispositivos associados ao como gerir o grupo de administradores locais no Azure AD
 
@@ -64,7 +64,10 @@ Para modificar a função de administrador do dispositivo, configure **administr
 
 ![Administradores locais adicionais](./media/assign-local-admin/10.png)
 
- 
+>[!NOTE]
+> Esta opção requer um inquilino do Azure AD Premium. 
+
+
 Administradores de dispositivos são atribuídos a dispositivos de todos os Azure AD associado. Não é possível definir o âmbito administradores de dispositivos a um conjunto específico de dispositivos. A atualização da função de administrador do dispositivo necessariamente não tem um impacto imediato em utilizadores afetados. Para os dispositivos, já está conectado a um utilizador, a atualização de privilégios ocorre:
      
 

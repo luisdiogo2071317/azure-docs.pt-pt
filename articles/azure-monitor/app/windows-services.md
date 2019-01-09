@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c7273a1ef6ef4eab1d8bfadec33eeaacf4d222e9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 85764c0ee5b8ed117fb191657d54abe5bd10a703
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083296"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116556"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicações .NET
 
-Pode configurar o [Application Insights](../../application-insights/app-insights-overview.md) para monitorizar uma vasta gama de aplicações ou funções de aplicação, componentes ou microsserviços. Para serviços e aplicações Web, o Visual Studio oferece [configuração de um passo](../../azure-monitor/app/asp-net.md). Para outros tipos de aplicações .NET, como funções de servidor de back-end ou aplicações de ambiente de trabalho, pode configurar o Application Insights manualmente.
+Pode configurar o [Application Insights](../../azure-monitor/app/app-insights-overview.md) para monitorizar uma vasta gama de aplicações ou funções de aplicação, componentes ou microsserviços. Para serviços e aplicações Web, o Visual Studio oferece [configuração de um passo](../../azure-monitor/app/asp-net.md). Para outros tipos de aplicações .NET, como funções de servidor de back-end ou aplicações de ambiente de trabalho, pode configurar o Application Insights manualmente.
 
 ![Gráficos de exemplo da monitorização do desempenho](./media/windows-services/10-perf.png)
 

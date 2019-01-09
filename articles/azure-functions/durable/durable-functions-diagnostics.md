@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 066ae6ffba64c7dd71c982172f7cd15a881809b4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036805"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118426"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnósticos no funções duráveis no Azure
 
@@ -23,7 +23,7 @@ Existem várias opções para diagnosticar problemas com [funções duráveis](d
 
 ## <a name="application-insights"></a>Application Insights
 
-[O Application Insights](../../application-insights/app-insights-overview.md) é a forma recomendada para fazer o diagnóstico e monitorização nas funções do Azure. O mesmo se aplica às funções durável. Para uma descrição geral de como tirar partido do Application Insights na sua aplicação de funções, consulte [as funções do Azure de Monitor](../functions-monitoring.md).
+[O Application Insights](../../azure-monitor/app/app-insights-overview.md) é a forma recomendada para fazer o diagnóstico e monitorização nas funções do Azure. O mesmo se aplica às funções durável. Para uma descrição geral de como tirar partido do Application Insights na sua aplicação de funções, consulte [as funções do Azure de Monitor](../functions-monitoring.md).
 
 A extensão de durável de funções do Azure também emite *acompanhar eventos* que permitem-lhe rastrear a execução de ponto-a-ponto de uma orquestração. Estes podem ser encontrados e consultados usando o [Application Insights Analytics](../../azure-monitor/app/analytics.md) ferramenta no portal do Azure.
 

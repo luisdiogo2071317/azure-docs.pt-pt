@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074840"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117082"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
-Depois de ter [configurar o Application Insights no seu projeto](../../application-insights/app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
+Depois de ter [configurar o Application Insights no seu projeto](../../azure-monitor/app/app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Encontrar a telemetria
 Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue para o recurso do Application Insights que criou para a sua aplicação.
@@ -34,7 +34,7 @@ O painel de descrição geral (página) para a sua aplicação mostra um resumo 
 Pode personalizar qualquer um dos gráficos e grades e afixá-los a um dashboard. Dessa forma, pode reunir a telemetria de chave a partir de diferentes aplicações num central dashboard.
 
 ## <a name="dashboards"></a>Dashboards
-A primeira coisa que vê depois de iniciar sessão para o [portal do Microsoft Azure](https://portal.azure.com) é um dashboard. Aqui, pode reunir os gráficos que são mais importantes para si por todos os recursos do Azure, incluindo telemetria a partir [do Azure Application Insights](../../application-insights/app-insights-overview.md).
+A primeira coisa que vê depois de iniciar sessão para o [portal do Microsoft Azure](https://portal.azure.com) é um dashboard. Aqui, pode reunir os gráficos que são mais importantes para si por todos os recursos do Azure, incluindo telemetria a partir [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Um dashboard personalizado.](./media/app-insights-dashboards/31.png)
 

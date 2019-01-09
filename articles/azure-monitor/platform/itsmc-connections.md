@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409246"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105003"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -222,9 +222,9 @@ Utilize o procedimento seguinte para criar uma ligação do ServiceNow:
 | **Nome da Ligação**   | Escreva um nome para a instância do ServiceNow que queira se conectar com ITSMC.  Utilizar este nome posteriormente no Log Analytics quando configurar os itens de trabalho neste ITSM / ver detalhadas do log analytics. |
 | **Tipo de parceiro**   | Selecione **ServiceNow**. |
 | **Nome de Utilizador**   | Escreva o nome de utilizador de integração que criou na aplicação do ServiceNow para oferecer suporte a ligação ao ITSMC. Mais informações: [Criar função de utilizador do ServiceNow aplicação](#create-integration-user-role-in-servicenow-app).|
-| **Palavra-passe**   | Escreva a palavra-passe associada com este nome de utilizador. **Tenha em atenção**: Nome de utilizador e palavra-passe são utilizados para gerar tokens de autenticação apenas e não são armazenadas em qualquer lugar no âmbito do serviço ITSMC.  |
+| **Palavra-passe**   | Escreva a palavra-passe associada com este nome de utilizador. **Nota**: Nome de utilizador e palavra-passe são utilizados para gerar tokens de autenticação apenas e não são armazenadas em qualquer lugar no âmbito do serviço ITSMC.  |
 | **URL do servidor**   | Escreva o URL da instância do ServiceNow que deseja se conectar ITSMC. |
-| **ID de cliente**   | Escreva o ID de cliente que pretende utilizar para a autenticação OAuth2, o que gerou anteriormente.  Obter mais informações sobre a geração de ID de cliente e segredo:   [Configuração de OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **ID de cliente**   | Escreva o ID de cliente que pretende utilizar para a autenticação OAuth2, o que gerou anteriormente.  Obter mais informações sobre a geração de ID de cliente e segredo:   [Configuração de OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Segredo do cliente**   | Escreva o segredo de cliente gerado para este ID.   |
 | **Âmbito de sincronização de dados**   | Selecione os itens de trabalho do ServiceNow que pretende sincronizar com o Azure Log Analytics, através do ITSMC.  Os valores selecionados são importados para o log analytics.   **Opções:**  Incidentes e pedidos de alteração.|
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |

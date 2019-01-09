@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025152"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120670"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados de telemetria do Application Insights
 
-[O Azure Application Insights](../../application-insights/app-insights-overview.md) envia a telemetria da sua aplicação web para o portal do Azure, para que pode analisar o desempenho e a utilização da sua aplicação. O modelo de telemetria é padronizado para que seja possível criar a plataforma e independente de idioma de monitorização. 
+[O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia a telemetria da sua aplicação web para o portal do Azure, para que pode analisar o desempenho e a utilização da sua aplicação. O modelo de telemetria é padronizado para que seja possível criar a plataforma e independente de idioma de monitorização. 
 
 Os modelos de dados recolhidos pelo Application Insights este padrão de execução do aplicativo típico:
 
