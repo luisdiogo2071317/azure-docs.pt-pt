@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633713"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187543"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir o Azure Analysis Services com o PowerShell
 
@@ -22,11 +22,13 @@ Este artigo descreve os cmdlets do PowerShell utilizados para realizar tarefas d
 Tarefas de gestão de servidor, como criar ou eliminar um servidor, suspender ou retomar as operações de servidor ou alterar o nível de serviço (escalão) utilizam cmdlets do Azure Resource Manager (recurso) e os cmdlets do Analysis Services (servidor). Outras tarefas para gerir bases de dados, como adicionar ou remover membros de funções, processamento ou criação de partições utilizam os cmdlets incluídos no mesmo módulo SqlServer como SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Permissões
-A maioria das tarefas do PowerShell necessitam de que ter privilégios de administrador no servidor do Analysis Services que está a gerir. As tarefas agendadas do PowerShell são operações autónomas. O princípio de conta ou o serviço em execução o scheduler tem de ter privilégios de administrador no servidor do Analysis Services. 
+
+A maioria das tarefas do PowerShell necessitam de que ter privilégios de administrador no servidor do Analysis Services que está a gerir. As tarefas agendadas do PowerShell são operações autónomas. A conta ou a executar o agendador principal de serviço, tem de ter privilégios de administrador no servidor do Analysis Services. 
 
 Para operações de servidor com os cmdlets do AzureRm, sua conta ou a conta que executa o scheduler também tem de pertencer à função de proprietário para o recurso no [controlo de acesso de controlo (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Operações de gestão de recursos 
+
 Módulo - [azurerm. Analysisservices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Descrição| 

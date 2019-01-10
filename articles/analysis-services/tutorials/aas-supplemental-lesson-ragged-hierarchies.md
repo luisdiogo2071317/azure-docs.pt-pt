@@ -1,19 +1,19 @@
 ---
-title: 'Lição suplementar do tutorial do Azure Analysis Services: Hierarquias desbalanceadas | Microsoft Docs'
+title: 'O Azure Analysis Services lição suplementar do tutorial: Hierarquias desbalanceadas | Documentos da Microsoft'
 description: Descreve como corrigir hierarquias desbalanceadas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426337"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191110"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar - Hierarquias desbalanceadas
 
@@ -87,7 +87,7 @@ Se criou o projeto de vendas na Internet AW como parte do tutorial, o modelo ain
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  Na tabela **DimEmployee**, crie uma [hierarquia](../tutorials/aas-lesson-9-create-hierarchies.md) com o nome **Organização**. Adicione a seguintes colunas pela ordem: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  Na tabela **DimEmployee**, crie uma [hierarquia](../tutorials/aas-lesson-9-create-hierarchies.md) com o nome **Organização**. Adicione as seguintes colunas pela ordem: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  Na tabela **FactResellerSales**, crie as seguintes [medidas](../tutorials/aas-lesson-6-create-measures.md):
 

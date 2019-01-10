@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 83b3a271006df38744b9de49ed6350bea3aeef4d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159388"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191705"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Resolver problemas no disco do Azure Data Box
 
@@ -86,7 +86,76 @@ Os registos de atividades são mantidos durante 90 dias. Pode consultar qualquer
 |[Informações] O nome do ficheiro ou diretório de destino excede o limite de comprimento NTFS. |Esta mensagem é reportada quando o ficheiro de destino tiver sido renomeado devido ao caminho de ficheiro longo.<br> Modifique a opção de disposição no ficheiro `config.json` para controlar este comportamento.|
 |[Erro] Excepção emitida: Sequência de escape JSON inválida. |Esta mensagem é reportada quando o config.json está num formato inválido. <br> Valide o `config.json` com [JSONlint](https://jsonlint.com/) antes de guardar o ficheiro.|
 
+## <a name="deployment-issues-for-linux"></a>Problemas de implantação para Linux
 
+Esta secção fornece detalhes sobre alguns dos principais problemas enfrentados durante a implementação de disco de caixa de dados ao utilizar um cliente Linux para a cópia de dados.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Problema: Unidade de introdução montada como só de leitura
+ 
+**Causa** 
+
+Isto pode dever-se um sistema de ficheiros unclean. 
+
+- Remontar uma unidade como de leitura não funciona com discos de caixa de dados. Este cenário não é suportado com unidades desencriptadas por dislocker. 
+- Remontando como leitura / escrita não funcionará. Podem ter nomes com êxito o dispositivo com o seguinte comando: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Embora o remontando foi concluída com êxito, os dados não serão mantidas.
+
+**Resolução**
+
+Se vir o erro acima, poderia experimentar uma das seguintes resoluções:
+
+- Instale [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (disponível em `ntfsprogs` pacote) e executá-lo contra a partição relevante.
+
+- Se tiver acesso a um sistema Windows
+
+    - Carregue a unidade para o sistema do Windows.
+    - Abra uma linha de comandos com privilégios administrativos. Executar `chkdsk` no volume.
+    - Com segurança, remova o volume e tente novamente.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: Erro com os dados não são mantidas após a cópia
+ 
+**Causa** 
+
+Se vir que a unidade não tem dados depois de estar desmontados (embora os dados foram copiados para o mesmo), em seguida, é possível que remontadas uma unidade como leitura / escrita após a unidade foi montada como só de leitura.
+
+**Resolução**
+ 
+Se for esse o caso, consulte a resolução para [unidades de introdução montado como só de leitura](#issue-drive-getting-mounted-as-read-only).
+
+Se não for o caso, [transferir os registos de diagnóstico](#download-diagnostic-logs) do seu sistema e [contacte a Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Problemas de implantação do Windows
+
+Esta secção descreve alguns dos principais problemas enfrentados durante a implementação de disco de caixa de dados ao utilizar um cliente Linux para a cópia de dados
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade de disco BitLocker
+ 
+**Causa** 
+
+Utilizou a palavra-passe na caixa de diálogo BitLocker e tentar desbloquear o disco por meio do BitLocker desbloquear a caixa de diálogo de unidades. Isso não funciona. 
+
+**Resolução**
+
+Para desbloquear os discos do Data Box, terá de utilizar a ferramenta de desbloqueio de disco de caixa de dados e fornecer a palavra-passe do portal do Azure.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear ou certifique-se alguns volumes. Contacte o Suporte da Microsoft.
+ 
+**Causa** 
+
+Poderá ver o erro seguinte no registo de erros e não é possível desbloquear ou certifique-se alguns volumes.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Isto indica que provavelmente não têm a versão adequada do Windows PowerShell no cliente Windows.
+
+**Resolução**
+
+Pode instalar [v do Windows PowerShell 5.0](https://www.microsoft.com/download/details.aspx?id=54616) e repita a operação.
+ 
+Se ainda não pode desbloquear os volumes [contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

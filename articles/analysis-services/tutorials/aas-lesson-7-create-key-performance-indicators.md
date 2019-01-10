@@ -1,19 +1,19 @@
 ---
-title: 'Lição 7 do tutorial do Azure Analysis Services: criar indicadores-chave de desempenho | Microsoft Docs'
+title: 'O Azure Analysis Services tutorial Lição 7: Criar indicadores chave de desempenho | Documentos da Microsoft'
 description: Descreve como criar indicadores-chave de desempenho no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426823"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186537"
 ---
 # <a name="create-key-performance-indicators"></a>Criar indicadores-chave de desempenho
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 84bd1283020492ef6724aabd7daad4e153b11717
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce5ba5f827b790e4ca91d1aed91dfad47cedac4e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043690"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191399"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gestor de mapas de partições horizontais
 
@@ -34,7 +34,7 @@ Contadores são utilizados para controlar o desempenho das [encaminhamento depen
 
 ## <a name="create-performance-category-and-counters"></a>Criar categoria de desempenho e contadores
 
-Para criar os contadores, chamar o método de CreatePerformanceCategoryAndCounters do [ShardMapManagementFactory classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Apenas um administrador pode executar o método:
+Para criar os contadores, chamar o método de CreatePerformanceCategoryAndCounters do [ShardMapManagementFactory classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Apenas um administrador pode executar o método:
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -42,7 +42,7 @@ Também pode utilizar [isso](https://gallery.technet.microsoft.com/scriptcenter/
 O método cria os seguintes contadores de desempenho:  
 
 * **Armazenados em cache mapeamentos**: Número de mapeamentos armazenada em cache para o mapa de partições horizontais.
-* **Operações/seg DDR**: Taxa de operações encaminhamento dependente de dados para o mapa de partições horizontais. Este contador é atualizado quando uma chamada para [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulta numa ligação com êxito para a partição horizontal de destino.
+* **Operações/seg DDR**: Taxa de operações encaminhamento dependente de dados para o mapa de partições horizontais. Este contador é atualizado quando uma chamada para [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulta numa ligação com êxito para a partição horizontal de destino.
 * **Mapeamento de acertos de cache de pesquisa/seg**: Taxa de operações de pesquisa de cache com êxito para mapeamentos do mapa de partições horizontais.
 * **Mapeamento de erros de cache de pesquisa/seg**: Taxa de operações de pesquisa de cache com falhas para mapeamentos do mapa de partições horizontais.
 * **Mapeamentos adicionados ou atualizados no cache/seg**: Taxa na qual mapeamentos estão a ser adicionados ou atualizados na cache para o mapa de partições horizontais.
@@ -54,7 +54,7 @@ Contadores de desempenho são criados para cada mapa de partições horizontais 
 
 Os seguintes eventos acionam a criação dos contadores de desempenho:  
 
-* Inicialização do [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) com [adiantado](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), se o ShardMapManager contém qualquer mapas de partições horizontais. Estes incluem os [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) e o [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) métodos.
+* Inicialização do [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) com [adiantado](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), se o ShardMapManager contém qualquer mapas de partições horizontais. Estes incluem os [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) e o [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) métodos.
 * Pesquisa concluída com êxito de um mapa de partições horizontais (usando [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) ou [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
 * Criação bem-sucedida de mapa de partições horizontais com CreateShardMap().
 

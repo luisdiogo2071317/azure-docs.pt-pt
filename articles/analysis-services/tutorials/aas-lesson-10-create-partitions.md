@@ -1,19 +1,19 @@
 ---
-title: 'Lição 10 do tutorial do Azure Analysis Services: Criar partições | Microsoft Docs'
+title: 'O Azure Analysis Services tutorial lição 10: Criar partições | Documentos da Microsoft'
 description: Descreve como criar partições no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429706"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191841"
 ---
 # <a name="create-partitions"></a>Criar partições
 
@@ -40,7 +40,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  Na caixa de diálogo Filtrar linhas, em **Mostrar linhas onde: OrderDate**, deixe **após ou igual a** e, em seguida, no campo da data, digite **1/1/2010**. Deixe selecionado o operador **E**, selecione **é antes de** e no campo da data, digite **1/1/2011**e, em seguida, clique em **OK**.
+6.  Na caixa de diálogo Filtrar linhas, no **Mostrar linhas onde: OrderDate**, deixe **é posterior ou igual a**e, em seguida, no campo Data, digite **1/1/2010**. Deixe selecionado o operador **E**, selecione **é antes de** e no campo da data, digite **1/1/2011**e, em seguida, clique em **OK**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ No Gestor de partições, observe a coluna **Última processada** para cada uma 
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>Passos seguintes?
-Avance para a próxima lição: [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md). 
+Vá para a próxima lição: [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md). 

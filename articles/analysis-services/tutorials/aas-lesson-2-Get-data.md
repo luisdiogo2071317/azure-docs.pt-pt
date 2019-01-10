@@ -1,25 +1,25 @@
 ---
-title: 'Lição 2 do tutorial do Azure Analysis Services: Obter dados | Microsoft Docs'
+title: 'O Azure Analysis Services lição 2 do tutorial: Obter dados | Documentos da Microsoft'
 description: Descreve como obter e importar dados no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427625"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189325"
 ---
 # <a name="get-data"></a>Obter dados
 
 Nesta lição, irá utilizar Obter dados no SSDT para ligar à base de dados de exemplo Adventure Works, selecionar os dados, pré-visualizar e filtrar e, em seguida, importar para o espaço de trabalho do seu modelo.  
   
-Através de Obter dados, pode importar dados de uma ampla variedade de origens: Base de Dados SQL do Azure, Oracle, Sybase, OData Feed, Teradata, ficheiros e muito mais. Os dados também podem ser consultados através de uma expressão de fórmula Power Query M.
+Ao utilizar obter dados, pode importar dados de uma grande variedade de origens: Azure base de dados SQL, Oracle, Sybase, OData Feed, Teradata, ficheiros e muito mais. Os dados também podem ser consultados através de uma expressão de fórmula Power Query M.
 
 > [!NOTE]
 > As tarefas e imagens neste tutorial mostram a ligação a uma base de dados AdventureWorksDW2014 num servidor no local. Em alguns casos, uma base de dados Adventure Works no Azure pode ser diferente.
@@ -27,7 +27,7 @@ Através de Obter dados, pode importar dados de uma ampla variedade de origens: 
 Tempo estimado para concluir esta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 1: Criar um novo projeto de modelo de tabela](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Este tópico faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 1: Criar um novo projeto de modelo em tabela](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Criar uma ligação  
   
@@ -52,7 +52,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
 5.  No Navigator, selecione a base de dados **AdventureWorksDW2014** e, em seguida, clique em **OK**. Isso cria a ligação à base de dados. 
   
-6.  No Navigator, selecione a caixa de verificação para as seguintes tabelas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, e **FactInternetSales**e, em seguida, clique em **editar**.
+6.  No Navigator, selecione a caixa de verificação para as seguintes tabelas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**,  **DimProductSubcategory**, e **FactInternetSales**e, em seguida, clique em **editar**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428339"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190974"
 ---
 # <a name="create-perspectives"></a>Criar perspetivas
 
@@ -23,10 +23,10 @@ A perspetiva de vendas na Internet que criou nesta lição exclui o objeto de ta
   
 A finalidade desta lição é descrever como criar perspetivas e se familiarizar-se com as ferramentas de criação de modelos tabulares. Se expandir este modelo para incluir posteriormente tabelas adicionais, poderá criar perspetivas adicionais para definir diferentes pontos de vista do modelo, por exemplo, inventário e vendas.  
   
-Tempo estimado para concluir esta lição: **5 minutos**  
+Tempo estimado para concluir esta lição: **Cinco minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de realizar as tarefas desta lição, deve ter concluído a lição anterior: [Lição 7: Criar os principais indicadores-chave](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+Este tópico faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 7: Criar indicadores chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Criar perspetivas  
   

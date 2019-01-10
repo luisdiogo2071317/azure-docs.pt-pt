@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001958"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190856"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -38,7 +38,7 @@ Estes passos utilizam o painel de controle de Avere. Leia [aceder ao cluster vFX
 
 ## <a name="create-a-core-filer"></a>Criar um filtro de núcleo
 
-"Filtro de principal" é um termo de vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de de hardware, como NetApp ou Isilon ou pode ser um arquivo de objeto na cloud. Podem encontrar mais informações sobre se filtram de núcleo [no Avere guia de configurações de cluster](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Filtro de principal" é um termo de vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de de hardware, como NetApp ou Isilon ou pode ser um arquivo de objeto na cloud. Podem encontrar mais informações sobre se filtram de núcleo [no Avere guia de configurações de cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Para adicionar um filtro de núcleos, escolha um dos dois tipos principais de se filtram de núcleo:
 
@@ -70,7 +70,7 @@ Os seguintes passos, adicione um filtro de núcleos NAS:
   
    * Clique em **seguinte** e escolha uma política de cache. 
    * Clique em **Adicionar filtro de**.
-   * Para obter mais informações, consulte [adicionando uma novo NAS principais filtro](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) no Avere guia de configurações de cluster.
+   * Para obter mais informações, consulte [adicionando uma novo NAS principais filtro](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) no Avere guia de configurações de cluster.
 
 Em seguida, avance para [criar uma junção](#create-a-junction).  
 
@@ -133,7 +133,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
    | Subscrição | ID de subscrição |
    | Chave de acesso de armazenamento | Chave de conta de armazenamento do Azure (copiado no passo anterior) | 
 
-   Clique em **submeter**.
+   Clique em **Submit** (Submeter).
 
    ![Concluído o formulário de credencial de nuvem no painel de controlo de Avere](media/avere-vfxt-new-credential-submit.png)
 
@@ -156,7 +156,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
    * Opcionalmente, defina **tipo de encriptação** ao **nenhum**.  O armazenamento do Azure é encriptado por predefinição.
    * Clique em **Adicionar filtro de**.
 
-  Para obter mais informações, leia [adicionando um novo filtro de núcleos na cloud](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) no guia de configuração de cluster Avere. 
+  Para obter mais informações, leia [adicionando um novo filtro de núcleos na cloud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster Avere. 
 
 A página irá atualizar ou, pode atualizar a página para apresentar o novo filtro de núcleos.
 
@@ -168,7 +168,7 @@ Uma junção é um caminho que criar para os clientes. Os clientes o caminho de 
 
 Por exemplo, poderia criar `/avere/files` para mapear para o seu filtro de núcleo de NetApp `/vol0/data` exportar e o `/project/resources` subdiretório.
 
-Podem encontrar mais informações sobre junções no [espaço de nomes seção do guia de configuração de cluster Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Podem encontrar mais informações sobre junções no [espaço de nomes seção do guia de configuração de cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Siga estes passos na interface de definições do painel de controlo de Avere:
 

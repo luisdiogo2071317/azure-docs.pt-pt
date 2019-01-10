@@ -6,49 +6,128 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315674"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188730"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Como utilizar o Explorador de pesquisa para índices de consulta no Azure Search 
 
 Este artigo mostra-lhe como consultar um através de índice de pesquisa do Azure existentes **Explorador de pesquisa** no portal do Azure. Pode utilizar o Explorador de procura para submeter simples ou completas cadeias de consulta de Lucene a um índice existente no seu serviço.
 
-## <a name="open-the-service-dashboard"></a>Abrir o dashboard de serviço
-1. Clique em **Todos os recursos** na barra de atalhos no lado esquerdo do [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-2. Selecione o seu serviço do Azure Search.
+## <a name="start-search-explorer"></a>Iniciar o Explorador de pesquisa
 
-## <a name="select-an-index"></a>Selecionar um índice
+1. Na [portal do Azure](https://portal.azure.com), abra a página do serviço de pesquisa a partir do dashboard ou [encontrar o seu serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na lista de serviços.
 
-Selecione o índice que pretende pesquisar a partir do mosaico **Índices**.
+2. Na página de descrição geral do serviço, clique em **Explorador de pesquisa**.
 
-   ![](./media/search-explorer/pick-index.png)
+   ![Comando do Explorador de pesquisa no portal](./media/search-explorer/search-explorer-cmd2.png "comando do Explorador de pesquisa no portal")
 
-## <a name="open-search-explorer"></a>Abra o Explorador de pesquisa
+3. Selecione o índice para consulta.
 
-Clique no mosaico do Explorador de pesquisa para abrir gradualmente a barra de pesquisa e o painel de resultados.
+   ![Selecione o índice para consultar](./media/search-explorer/search-explorer-changeindex-se2.png "selecione o índice")
 
-   ![](./media/search-explorer/search-explorer-tile.png)
+4. Opcionalmente, defina a versão de API. Por predefinição, está selecionada a versão de API atual disponível em geral, mas pode escolher uma pré-visualização ou mais antiga API se a sintaxe que pretende utilizar é específica da versão.
 
-## <a name="start-searching"></a>Inicie a pesquisa
+5. Uma vez o índice e a versão de API está selecionado, introduza os termos de pesquisa ou expressões de consulta completamente qualificado na barra de pesquisa e clique em **pesquisa** para executar.
 
-Ao utilizar o Explorador de pesquisa, pode especificar [parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para formular a consulta.
+   ![Introduza os termos de pesquisa e clique em Procurar](./media/search-explorer/search-explorer-query-string-example.png "Enter pesquisa de termos e clique em Procurar")
 
-1. Em **Cadeia de consulta**, escreva uma consulta e, em seguida, prima **Pesquisar**. 
+Sugestões de pesquisa na **Explorador de pesquisa**:
 
-   A cadeia de consulta é analisada automaticamente para o URL de pedido adequado, para submeter um pedido HTTP na API REST da Azure Search.   
++ Os resultados são devolvidos como verbosos documentos JSON para que possa visualizar a construção de documento e conteúdo, na totalidade. Pode usar as expressões de consulta, mostradas nos exemplos, para os campos são retornados de limite.
+
++ Documentos são compostos por todos os campos marcados como **recuperável** no índice. Para ver os atributos de índice no portal, clique em *realestate-us-sample* no **índices** lista na página de descrição geral da pesquisa.
+
++ Consultas de forma livre, semelhantes a que pode inserir num navegador da web comercial, são úteis para fins de teste de uma experiência de utilizador final. Por exemplo, supondo que o índice de realestate incorporada de exemplo, poderia digitar "Seattle apartments lake washington" e, em seguida, pode utilizar Ctrl-F para encontrar os termos nos resultados da pesquisa. 
+
++ Expressões de consulta e o filtro devem ser articuladas numa sintaxe suportada pelo Azure Search. A predefinição é um [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mas pode utilizar opcionalmente [total Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais eficientes. [Expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe de OData.
+
+## <a name="basic-search-strings"></a>Cadeias de caracteres de pesquisa básica
+
+Os exemplos seguintes partem do princípio do índice de exemplo de realestate incorporada. Para obter mais informações sobre como criar este índice, consulte [início rápido: Importar, índice e a consulta no portal do Azure](search-get-started-portal.md).
+
+### <a name="example-1---empty-search"></a>Exemplo 1 - pesquisa em branco
+
+Para o primeiro contato com o seu conteúdo, executar uma pesquisa em branco ao clicar em **pesquisa** com não existem termos fornecidos. Uma pesquisa em branco é útil quando uma primeira consulta porque retorna todos os documentos, para que possa rever composição de documento. Numa pesquisa em branco, não há nenhuma classificação de pesquisa e documentos são devolvidos por ordem arbitrária (`"@search.score": 1` para todos os documentos). Por predefinição, os 50 documentos são retornados numa solicitação de pesquisa.
+
+Sintaxe equivalente de uma pesquisa em branco é `*` ou `search=*`.
+
+   ```Input
+   search=*
+   ```
+
+   **Resultados**
    
-   Pode utilizar qualquer sintaxe de consulta simples ou de Lucene completa para criar o pedido. O caráter `*` é equivalente a uma pesquisa em branco ou não especificada, que devolve todos os documentos por nenhuma ordem específica.
+   ![Exemplo de consulta vazia](./media/search-explorer/search-explorer-example-empty.png "Unqualified ou de exemplo de consulta vazia")
 
-2. Em **Resultados**, os resultados da consulta são apresentados no JSON não processado, idênticos ao payload devolvido num Corpo de Resposta HTTP ao emitir pedidos através de programação.
+### <a name="example-2---free-text-search"></a>Exemplo 2 - pesquisa de texto livre
 
-   ![](./media/search-explorer/search-bar.png)
+Consultas de forma livre, com ou sem operadores, são úteis para simular o consultas definidas pelo utilizador enviadas a partir de uma aplicação personalizada para o Azure Search. Tenha em atenção que, quando fornecer os termos de consulta ou expressões, classificação de pesquisa entra em cena. O exemplo seguinte ilustra uma pesquisa de texto livre.
+
+   ```Input
+   Seattle apartment "Lake Washington" miele OR thermador appliance
+   ```
+
+   **Resultados**
+
+   Pode utilizar Ctrl-F para pesquisar resultados para termos específicos de interesse.
+
+   ![Exemplo de consulta de texto livre](./media/search-explorer/search-explorer-example-freetext.png "exemplo de consulta de texto livre")
+
+### <a name="example-3---count-of-matching-documents"></a>Exemplo 3 - contagem de documentos correspondentes 
+
+Adicione **$count** para obter o número de correspondências encontradas num índice. Numa pesquisa em branco, a contagem é o número total de documentos no índice. Numa pesquisa qualificada, é o número de documentos correspondentes à entrada de consulta.
+
+   ```Input1
+   $count=true
+   ```
+   **Resultados**
+
+   ![Contagem de exemplo de documentos](./media/search-explorer/search-explorer-example-count.png "contagem de documentos no índice correspondentes")
+
+### <a name="example-4---restrict-fields-in-search-results"></a>Exemplo 4 - restringir os campos nos resultados da pesquisa
+
+Adicione **$select** para limitar os resultados para os campos explicitamente nomeados de saída mais legível em **Explorador de pesquisa**. Para manter a cadeia de procura e **$count = true**, prefixo argumentos com **&**. 
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
+   ```
+
+   **Resultados**
+
+   ![Exemplo de campos de limite](./media/search-explorer/search-explorer-example-selectfield.png "restringir os campos nos resultados da pesquisa")
+
+### <a name="example-5---return-next-batch-of-results"></a>Exemplo 5 - retorno lote seguinte de resultados
+
+O Azure Search devolve as 50 melhores correspondências com base na classificação de pesquisa. Para obter o próximo conjunto de documentos correspondentes, acrescente **$top = 100 e $skip = 50** para aumentar o conjunto de resultados para 100 documentos (a predefinição é 50, máximo é de 1000), a ignorar os primeiros 50 documentos. Lembre-se de que tem de fornecer critérios de pesquisa, como um termo de consulta ou uma expressão, para obter com a classificação de resultados. Tenha em atenção que as pontuações de pesquisa diminuir o mais profundo atingir resultados da pesquisa.
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   ```
+
+   **Resultados**
+
+   ![Os resultados da pesquisa do batch](./media/search-explorer/search-explorer-example-topskip.png "retorno lote seguinte de resultados da pesquisa")
+
+## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filtrar expressões (maiores que, menos do que, iguais a)
+
+Utilize o **$filter** parâmetro para especificar critérios precisos, em vez de pesquisa de texto livre. Neste exemplo procura quartos acima de 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+
+   ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "filtrar por critérios")
+
+## <a name="order-by-expressions"></a>Expressões order by
+
+Adicione **$orderby** para classificar resultados por outro campo, além de pontuação de pesquisa. Uma expressão de exemplo, que pode usar para testar este limite é `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+
+   ![Expressão de OrderBy](./media/search-explorer/search-explorer-example-ordery.png "alterar a ordem de classificação")
+
+Ambos **$filter** e **$orderby** as expressões são construções de OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -56,5 +135,5 @@ Os seguintes recursos fornecem informações de sintaxe de consulta adicionais e
 
  + [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
  + [Sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
- + [Exemplos de sintaxe de consulta Lucene](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [Exemplos de consultas Lucene](search-query-lucene-examples.md) 
  + [Sintaxe de expressão de Filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 0aaa912a06136edbe04e6956d86faa47cf88136f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 41e2eee491141be3a7e39a70bccf8440890e2982
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116645"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186503"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Criar e utilizar imagens partilhadas para conjuntos de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
 
@@ -32,7 +32,6 @@ Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser 
 > * Criar uma definição de imagem partilhada
 > * Criar uma versão de imagem partilhada
 > * Criar uma VM a partir de uma imagem partilhada
-> * Eliminar um recursos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

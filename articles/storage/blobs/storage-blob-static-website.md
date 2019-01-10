@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 8f88bf6b0de8296de14dccd51b38ee6ca480f059
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065091"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191824"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
@@ -21,16 +21,16 @@ Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (H
 Ao contrário da hospedagem de Web site estático, locais dinâmicos que dependem de código do lado do servidor são melhor alojados com [App Service do Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Como funciona?
-Quando ativar o Web site estático de alojamento na sua conta de armazenamento, selecione o nome do seu ficheiro de padrão e, opcionalmente, indique um caminho para uma página 404 personalizada. Como a funcionalidade está ativada, um contentor com o nome *$web* é criada, se ainda não exista. 
+Quando ativar o Web site estático de alojamento na sua conta de armazenamento, selecione o nome do seu ficheiro de padrão e, opcionalmente, indique um caminho para uma página 404 personalizada. Como a funcionalidade está ativada, um contentor com o nome *$web* é criada, se ainda não exista.
 
 Ficheiros nos *$web* contentor são:
 
 - atendidos por meio de solicitações de acesso anónimo
 - disponível apenas por meio de operações de leitura do objeto
 - diferencia maiúsculas de minúsculas
-- disponível na Web pública, esse padrão: 
+- disponível na Web pública, esse padrão:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- disponível através de um ponto de extremidade de armazenamento do Blob seguindo este padrão: 
+- disponível através de um ponto de extremidade de armazenamento do Blob seguindo este padrão:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Utilizar o ponto final de armazenamento de BLOBs para carregar ficheiros. Por exemplo, o ficheiro carregado nesta localização:
@@ -100,7 +100,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Carregar objetos para o *$web* contentor a partir de um diretório de origem. Certifique-se de que a referência de escape corretamente os *$web* contentor no comando. Por exemplo, se estiver a utilizar o CLI do Azure partir CloudShell no portal do Azure, de escape a *$web* contentor, conforme mostrado:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d `$web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implementação
@@ -120,7 +120,7 @@ Para ativar as métricas nas páginas da Web site estático, clique em **configu
 
 Dados de métricas são gerados por conexão com métricas diferentes APIs. O portal apresenta apenas os membros da API utilizados num determinado período de tempo para manter o foco somente em membros que retornam dados. Para se certificar de que pode selecionar o membro da API necessário, a primeira etapa é expandir o intervalo de tempo.
 
-Clique no botão de período de tempo e selecione **últimas 24 horas** e, em seguida, clique em **aplicar** 
+Clique no botão de período de tempo e selecione **últimas 24 horas** e, em seguida, clique em **aplicar**
 
 ![Intervalo de tempo de métricas de Web sites estáticos de armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

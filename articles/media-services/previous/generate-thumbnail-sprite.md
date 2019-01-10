@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381177"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190736"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite em miniatura 
 
@@ -70,7 +70,7 @@ Segue-se um exemplo:
 
 1.  Não é possível gerar uma imagem do sprite com uma única linha de imagens (SpriteColumn = 1 resultados numa imagem com uma única coluna).
 2.  Segmentação de imagens do sprite nas imagens JPEG moderadamente tamanho ainda não é suportado. Por este motivo, deve ter cuidado para limitar o número de miniaturas e seu tamanho, para que o Sprite de miniatura stitched resultante é em torno de 8 pixels de M ou menos.
-3.  O Azure Media Player suporta sprites em browsers do Microsoft Edge, Chrome e Firefox. Análise de VTT não é suportada no IE11.
+3.  O Azure Media Player suporta sprites nos browsers Microsoft Edge, Chrome e Firefox. Análise de VTT não é suportada no IE11.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

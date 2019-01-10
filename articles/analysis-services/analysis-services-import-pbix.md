@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209654"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187727"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um ficheiro do Power BI Desktop
 
-Pode importar um modelo de dados no ficheiro do Power BI Desktop (pbix) para o Azure Analysis Services. Metadados de modelo, dados em cache e ligações de origem de dados são importadas. Relatórios e visualizações não são importadas. Importar dados de modelos do Power BI Desktop são no nível de compatibilidade 1400.
+Pode importar um modelo de dados no ficheiro do Power BI Desktop (pbix) para o Azure Analysis Services. Metadados de modelo, dados em cache e ligações de origem de dados são importadas. Relatórios e visualizações não são importadas. Modelos de dados importados do Power BI Desktop são no nível de compatibilidade 1400 e 1465.
 
 > [!IMPORTANT]
 > Esta funcionalidade foi preterida. Pode ser removida ou alterada significativamente numa atualização futura. Recomenda-se a que descontinuar a utilizar esta funcionalidade em projetos novos e existentes para manter a compatibilidade com futuras atualizações. Para mais avançados modelo desenvolvimento e teste, é melhor usar o Visual Studio (SSDT) e o SQL Server Management Studio (SSMS).
 
-**Restrições**   
-
+## <a name="restrictions"></a>Restrições  
 
 - Se seu modelo de dados é criado no Power BI Desktop (2.60.5169.3201) de atualização de Julho de 2018 ou posterior, certifique-se que sem funcionalidades de pré-visualização estão ativadas. Funcionalidades de pré-visualização ainda não são suportadas no Azure Analysis Services. Se receber o seguinte erro ao importar, o ficheiro pbix tem funcionalidades de pré-visualização ativadas que ainda não são suportadas no Azure Analysis Services.
 

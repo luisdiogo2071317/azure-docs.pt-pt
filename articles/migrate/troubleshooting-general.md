@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9bf445b54ab6ac2d3edf53fcc4bbcc39ee475a81
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119106"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189501"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -249,10 +249,10 @@ Para recolher eventos de rastreio para Windows, faça o seguinte:
 4. Tente reproduzir o erro.
 5. Depois de já se deparou com o erro durante a gravação, interromper a gravação e salvar uma cópia da atividade registada:
  - No Chrome, com o botão direito e clique em **guardar como HAR com conteúdo**. Isso zips e exporta os registos como um ficheiro de .har.
- - No Edge/IE, clique nas **exportação capturado o tráfego** ícone. Isso zips e exporta o log.
+ - No Microsoft Edge/IE, clique nas **exportação capturado o tráfego** ícone. Isso zips e exporta o log.
 6. Navegue para o **consola** separador para verificar a existência de quaisquer avisos ou erros. Para guardar o registo da consola:
  - No Chrome, com o botão direito em qualquer lugar no registo de consola. Selecione **guardar como**, para exportar e zip no registo.
- - No Edge/IE, com o botão direito sobre os erros e selecione **copie todos os**.
+ - No Microsoft Edge/IE, com o botão direito sobre os erros e selecione **copie todos os**.
 7. Feche as ferramentas de programação.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro do recoletor e ações recomendadas

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385848"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188560"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: implementar o Azure Data Box com o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implementar o Azure Data Box através do portal do Azure
 
 Este início rápido descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem como instalar os cabos, configurar e copiar os dados para o Data Box, para que este os carregue para o Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
 
-Para implementação passo-a-passo detalhada e instruções de controlo, aceda a [Tutorial: encomendar o Azure Data Box](data-box-deploy-ordered.md)
+Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Pedido do Azure Data Box](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,6 @@ Antes de começar:
 - Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
     - Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo – Pay as you go. Obtenha mais informações sobre as [Subscrições pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)do Azure.
     - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Certifique-se de que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box.
@@ -127,7 +126,7 @@ Este passo demora entre 2 a 3 minutos.
 
 - Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou um Azure Data Box para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box, avance para o tutorial seguinte: 
 

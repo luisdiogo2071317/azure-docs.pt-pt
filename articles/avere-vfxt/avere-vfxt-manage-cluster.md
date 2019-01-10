@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999067"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189614"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster do Avere vFXT
 
@@ -63,11 +63,11 @@ Para encerrar, reiniciar ou remover um nó, localizar o nó na lista no **FXT n�
 > [!NOTE] 
 > Endereços IP pode ser movida entre os nós do cluster quando altera o número de nós ativos.
 
-Leia [Cluster > nós FXT](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) no guia de configurações de cluster de Avere para obter mais informações.
+Leia [Cluster > nós FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) no guia de configurações de cluster de Avere para obter mais informações.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Parar ou reiniciar o cluster com o painel de controlo de Avere
 
-O **manutenção do sistema** página de definições tem de comandos para reiniciar os serviços de cluster, reiniciando o cluster ou em segurança desativando o cluster. Leia [administração > manutenção do sistema](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (no Avere cluster guia configurações) para obter detalhes.
+O **manutenção do sistema** página de definições tem de comandos para reiniciar os serviços de cluster, reiniciando o cluster ou em segurança desativando o cluster. Leia [administração > manutenção do sistema](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (no Avere cluster guia configurações) para obter detalhes.
 
 Quando um cluster está a ser encerrado, publica mensagens de estado para o **Dashboard** separador em primeiro lugar. Após alguns instantes, a sessão de painel de controlo de Avere deixa de responder, o que significa que o cluster foi encerrado.
 
@@ -83,7 +83,7 @@ Como o painel de controlo de Avere, operações de vfxt.py tentam para se certif
 
 vfxt.PY é pré-instalado no controlador de cluster VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Um guia de utilização vfxt.py completo está disponível no GitHub: [na Cloud de gestão de clusters com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Um guia de utilização vfxt.py completo está disponível no GitHub: [Gestão de cluster na cloud com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Adicionar nós de cluster com vfxt.py
 

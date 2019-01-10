@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744110"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188434"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -263,7 +263,7 @@ Aqui está uma lista das plataformas suportadas e software.
 > |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicação nativa** | Sim | Sim | Sim |  |
-> | **Edge** | Sim | Sim | Sim |  |
+> | **Microsoft Edge** | Sim | Sim | Sim |  |
 > | **Internet Explorer** | Sim | Sim | Sim |  |
 > | **Chrome (com extensão)** | Sim | Sim | Sim |  |
 

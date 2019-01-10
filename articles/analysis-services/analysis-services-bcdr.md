@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430141"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191348"
 ---
 # <a name="analysis-services-high-availability"></a>Elevada disponibilidade dos serviços de análise
+
 Este artigo descreve a garantir a elevada disponibilidade dos servidores do Azure Analysis Services. 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>Garantindo a alta disponibilidade durante uma interrupção de serviço
+
 Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando a falha ocorre, ele faz com que uma interrupção do negócio que pode durar alguns minutos ou pode durar horas. Elevada disponibilidade costuma ser obtida com redundância de servidor. Com o Azure Analysis Services, pode obter redundância através da criação de servidores secundários adicionais num ou mais regiões. Quando criar servidores redundantes, para garantir que os dados e metadados nesses servidores está sincronizado com o servidor numa região que ficou offline, pode:
 
 * Implemente modelos em servidores redundantes em outras regiões. Este método requer que os dados de processamento no seu servidor primário e de servidores redundantes em paralelo, garantindo a todos os servidores estão sincronizados.
@@ -31,6 +32,7 @@ Em ambos os casos, se o servidor primário sofrer uma interrupção, tem de alte
 Para evitar a necessidade de alterar as cadeias de ligação nos clientes de geração de relatórios, pode criar um servidor [alias](analysis-services-server-alias.md) para o servidor primário. Se o servidor primário ficar inativo, pode alterar o alias para apontar para um servidor redundante noutra região. Pode automatizar alias para o nome do servidor por programar uma verificação de estado de funcionamento do ponto final no servidor primário. Se a verificação de estado de funcionamento falhar, pode direcionar o mesmo ponto final para um servidor redundante noutra região. 
 
 ## <a name="related-information"></a>Informações relacionadas
+
 [Cópia de segurança e restauro](analysis-services-backup.md)   
 [Gerir o Azure Analysis Services](analysis-services-manage.md)   
 [Nomes de alias de servidor](analysis-services-server-alias.md) 

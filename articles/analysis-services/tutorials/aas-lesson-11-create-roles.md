@@ -1,23 +1,23 @@
 ---
-title: 'Lição 11 do tutorial do Azure Analysis Services: Criar funções | Microsoft Docs'
+title: 'O Azure Analysis Services lição 11 do tutorial: Criar funções | Documentos da Microsoft'
 description: Descreve como criar funções no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428913"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189750"
 ---
 # <a name="create-roles"></a>Criar funções
 
-Nesta lição, irá criar funções. As funções fornecem segurança de dados e objetos da base de dados de modelo, limitando o acesso somente aos utilizadores que são membros da função. Cada função é definida com uma única permissão: nenhum, leitura, leitura e processo, processo ou administrador. As funções podem ser definidas durante a criação do modelo com o Gestor de função. Depois de um modelo ter sido implementado, pode gerir funções com o SQL Server Management Studio (SSMS). Para saber mais, consulte [Funções](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular):
+Nesta lição, irá criar funções. As funções fornecem segurança de dados e objetos da base de dados de modelo, limitando o acesso somente aos utilizadores que são membros da função. Cada função é definida com uma única permissão: ' None ', ' leitura, leitura e processo, processo ou administrador '. As funções podem ser definidas durante a criação do modelo com o Gestor de função. Depois de um modelo ter sido implementado, pode gerir funções com o SQL Server Management Studio (SSMS). Para saber mais, consulte [Funções](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular):
   
 > [!NOTE]  
 > A criação de funções não é necessário para concluir este tutorial. Por predefinição, a conta em que tem sessão iniciada neste momento tem privilégios de administrador no modelo. No entanto, para que outros utilizadores na sua organização possam navegar através de um cliente de relatório, deverá criar pelo menos uma função com permissões de leitura e adicionar esses utilizadores como membros.  
@@ -30,7 +30,7 @@ Irá criar três funções:
   
 -   **Administrador** – essa função pode incluir os utilizadores aos quais atribui permissões de administrador, fornecendo acesso ilimitado e permissões para executar tarefas administrativas na base de dados modelo.  
   
-Uma vez que as contas de utilizador e grupo do Windows são exclusivas na sua organização, pode adicionar contas da sua organização específicas de membros. Contudo, neste tutorial também pode deixar o campo dos membros em branco. Irá testar posteriormente a eficácia de cada função na Lição 12: Analyze em Excel.  
+Uma vez que as contas de utilizador e grupo do Windows são exclusivas na sua organização, pode adicionar contas da sua organização específicas de membros. Contudo, neste tutorial também pode deixar o campo dos membros em branco. Testar o efeito de cada função mais tarde na lição 12: Analise no Excel.  
   
 Tempo estimado para concluir esta lição: **15 minutos**  
   
@@ -51,7 +51,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  Opcional: Clique no separador **Membros** e clique em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função.  
+5.  Opcional: Clique no separador **Membros** e em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Para criar uma função de utilizador analista de vendas dos EUA  
   
@@ -70,7 +70,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
     A fórmula do filtro de linha deve resultar para um valor booleano (VERDADEIRO/FALSO). Com essa fórmula, está a especificar que somente as linhas com o valor de código de região de país "US" estão visíveis para o utilizador.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  Opcional: Clique no separador **Membros** e clique em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função.  
+6.  Opcional: Clique no separador **Membros** e em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Para criar uma função de utilizador administrador  
   
@@ -80,11 +80,11 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
 3.  Forneça a essa função a permissão de **administrador**.  
   
-4.  Opcional: Clique no separador **Membros** e clique em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função. 
+4.  Opcional: Clique no separador **Membros** e em **Adicionar**. Na caixa de diálogo **Selecionar utilizadores ou grupos**, introduza os utilizadores ou grupos do Windows pertencentes à sua organização e que pretende incluir na função. 
   
   
 ## <a name="whats-next"></a>Passos seguintes?
-[Lição 12: Analyze no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)
+[Lição 12: Analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   
   

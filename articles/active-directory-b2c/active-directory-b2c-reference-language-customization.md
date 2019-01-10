@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724320"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187767"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Utilizar a personalização de idioma para selecionar que o fluxo de utilizador 
 
 Poderá não ter esse nível de controle sobre quais idiomas vê do seu cliente. Se não fornecer um `ui_locales` parâmetro, experiência do cliente é ditada por configurações do navegador.  Pode continuar a controlar que o fluxo de utilizador é traduzido ao adicioná-la como um idioma com suporte de idiomas. Se o browser de um cliente está configurado para mostrar um idioma que não pretende oferecer apoio técnico, em seguida, o idioma que selecionou como uma predefinição na culturas suportadas é apresentado em vez disso.
 
-- **localidades da interface do usuário especificado linguagem**: depois de ativar a personalização de idioma, o fluxo de utilizador é traduzido para o idioma que é especificado aqui.
-- **Idioma de pedido de browser**: Se não `ui_locales` foi especificado um parâmetro, o fluxo de utilizador é traduzido para o idioma pedido de navegador, *se o idioma é suportado*.
-- **Idioma de padrão de política**: se o navegador não especifica um idioma ou especifica um que não é suportado, o fluxo de utilizador é traduzido para o idioma de padrão de fluxo de utilizador.
+- **localidades da interface do usuário especificado linguagem**: Depois de ativar a personalização de idioma, o fluxo de utilizador é traduzido para o idioma que é especificado aqui.
+- **Idioma de pedido de navegador**: Se nenhum `ui_locales` foi especificado um parâmetro, o fluxo de utilizador é traduzido para a linguagem de pedido de browser *se o idioma é suportado*.
+- **Idioma de padrão de política**: Se o navegador não especifica um idioma ou especifica um que não é suportado, o fluxo de utilizador é traduzido para o idioma de padrão de fluxo de utilizador.
 
 >[!NOTE]
 >Se estiver usando os atributos de utilizador personalizada, terá de fornecer suas próprias traduções. Para obter mais informações, consulte [personalizar suas cadeias de caracteres](#customize-your-strings).

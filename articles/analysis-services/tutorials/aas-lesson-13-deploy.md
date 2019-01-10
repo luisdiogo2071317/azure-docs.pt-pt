@@ -1,19 +1,19 @@
 ---
-title: 'Lição 13 do tutorial do Azure Analysis Services: implementar | Microsoft Docs'
+title: 'O Azure Analysis Services lição 13 do tutorial: Implementar | Documentos da Microsoft'
 description: Descreve como implementar o projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0528af5f3a6b7309d81c36ca5bc7a3faccfa293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427117"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188390"
 ---
 # <a name="deploy"></a>Implementação
 
@@ -22,7 +22,7 @@ Nesta lição, vai configurar as propriedades da implementação, especificando 
 Tempo estimado para concluir esta lição: **5 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este artigo faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 12: análise no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Este artigo faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 12: Analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Tem de ter [Permissões de administrador](../analysis-services-server-admins.md) na instância remota do servidor do Analysis Services para a implementação.  

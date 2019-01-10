@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247301"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189393"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
@@ -31,13 +31,13 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 
 * *Tema*, que inclui recursos como tema e barra de tarefas das configurações de Desktops.
 * *Definições do Internet Explorer*, incluindo separadores foram abertos recentemente e favoritos.
-* *Definições do browser de borda*, tais como favoritos e lista de leitura.
+* *Definições do browser Microsoft Edge*, tais como favoritos e lista de leitura.
 * *As palavras-passe*, incluindo palavras-passe de Internet, perfis de Wi-Fi e outras pessoas.
 * *Preferências de idioma*, que inclui as definições de layouts de teclado, idioma do sistema, data e hora e muito mais.
 * *Facilidade de funcionalidades de acesso*, como o tema de alto contraste, o Narrador e Lupa.
 * *Outras definições do Windows*, tais como definições de mouse.
 
-**Os dados da aplicação**: Windows Universal apps podem escrever dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Os dados da aplicação**: Aplicações universais do Windows podem gravar dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
 No Windows 8.1, a sincronização de definições sempre utilizadas contas da Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de definições. No Windows 10, isso ligado funcionalidade está a ser substituída com uma estrutura de conta primária/secundária de conta da Microsoft.
@@ -63,7 +63,7 @@ Se está associados ao domínio do Active Directory, executando o Windows 8.1 co
 
 Se o domínio do Active Directory no local de se ligar com o Azure AD, o dispositivo irá tentar sincronizar as configurações usando o ligados conta do Azure AD. Se o administrador do Azure AD não ativa o Roaming de estado empresarial, sua ligados conta do Azure AD irá parar a sincronização de definições. Se for um usuário do Windows 10 e iniciar sessão com uma identidade do Azure AD, começa a sincronizar definições do windows, assim que o administrador ativa a sincronização de definições através do Azure AD.
 
-Se tiver armazenado os dados pessoais no seu dispositivo da empresa, deve estar ciente de que os dados de aplicativo e SO de Windows começará a sincronização com o Azure AD. Isso tem implicações de seguintes:
+Se tiver armazenado os dados pessoais no seu dispositivo da empresa, deve estar ciente de que os dados de aplicativo e SO de Windows começará a sincronização com o Azure AD. Isto tem as seguintes implicações:
 
 * Definições da sua conta Microsoft pessoas serão levados para além das definições no seu trabalho contas escolares ou profissionais do Azure AD. Isto acontece porque a conta Microsoft e as definições do Azure AD sincronizar agora está a utilizar contas separadas.
 * Os dados pessoais, como palavras-passe do Wi-Fi, credenciais de web e os favoritos do Internet Explorer que anteriormente foram sincronizados através de uma conta Microsoft ligada serão sincronizados através do Azure AD.

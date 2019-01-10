@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317913"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189767"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -953,9 +953,9 @@ Pode aceder ao código de exemplo deste tutorial aqui:
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Níveis de zoom e grelha de mosaico](zoom-levels-and-tile-grid.md)
+> [Zoom levels and tile grid ](zoom-levels-and-tile-grid.md) (Níveis de zoom e grelha de mosaico)
 
 Para ver mais exemplos de código e uma experiência interativa de programação:
 
 > [!div class="nextstepaction"]
-> [Como utilizar o controlo de mapa](how-to-use-map-control.md)
+> [How to use the map control](how-to-use-map-control.md) (Como utilizar o controlo de mapa)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Totalmente integrada início de sessão único | Documentos da Microsoft'
+title: 'Azure AD Connect: Totalmente integrado início de sessão único | Documentos da Microsoft'
 description: Este tópico descreve o Azure Active Directory (Azure AD) totalmente integrada início de sessão único e como ele permite que forneça verdadeiro início de sessão único para utilizadores empresariais de área de trabalho no interior da rede empresarial.
 services: active-directory
 keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c0533f0609539645c462c9e6f5b514a82f1162a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913936"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187574"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -32,7 +32,7 @@ O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO 
 
 SSO totalmente integrado pode ser combinada com ambos os [sincronização de Hash de palavra-passe](how-to-connect-password-hash-synchronization.md) ou [autenticação pass-through](how-to-connect-pta.md) métodos de início de sessão. É o SSO totalmente integrado _não_ aplicável ao Active Directory Federation Services (ADFS).
 
-![Totalmente integrado início de sessão único](./media/how-to-connect-sso/sso1.png)
+![Início de Sessão Único Totalmente Integrado](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Tem de SSO totalmente integrado no dispositivo do utilizador seja **associados a um domínio**, mas não precisa do dispositivo ser [do Azure AD associado](../active-directory-azureadjoin-overview.md).

@@ -6,15 +6,15 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853637"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188458"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar do GitHub para o Azure Kubernetes Service (AKS) com a integração contínua Jenkins e implementação
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub para o Azure Kubernetes Service (AKS) com a integração contínua Jenkins e implementação
 
 Este tutorial implementa uma aplicação de exemplo do GitHub para uma [do Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster ao configurar a integração contínua (CI) e a implementação contínua (CD) no Jenkins. Dessa forma, quando atualizar a sua aplicação ao emitir consolidações para o GitHub, Jenkins automaticamente é executada uma nova compilação de contentor, envia as imagens de contentor para o Azure Container Registry (ACR) e, em seguida, executa a aplicação no AKS. 
 
@@ -229,11 +229,6 @@ Na home page do portal do Jenkins, selecione **novo item** no lado esquerdo:
 1. Introduza *azure-vote* nome da tarefa. Escolher **projeto Freestyle**, em seguida, selecione **OK**
 1. Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - Para as credenciais, clique em e **Add** > **Jenkins**
-    - Sob **tipo**, selecione **texto secreto** e introduza o seu [token de acesso pessoal do GitHub] [ git-access-token] como o segredo.
-    - Selecione **adicionar** quando tiver terminado.
-
-    ![Credenciais do GitHub](media/aks-jenkins/github-creds.png)
 
 1. Sob o **criar Acionadores** secção, selecione **acionador de hook do GitHub para consulta GITscm**
 1. Sob **ambiente de compilação**, selecione **utilizar textos secretos ou ficheiros**

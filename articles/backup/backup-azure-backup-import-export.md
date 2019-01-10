@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974442"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188305"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -109,7 +109,7 @@ O *AzureOfflineBackupDiskPrep* utilitário prepara as unidades SATA, que são en
     * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho de propagação offline com o mesmo caminho de rede que foi fornecido no **iniciar a cópia de segurança offline** fluxo de trabalho.
     * BitLocker está ativado no computador de cópia.
     * O Azure PowerShell 3.7.0 está instalado.
-    * Browsers mais recentes compatíveis (Microsoft Edge ou o Internet Explorer 11) estão instalados e é o JavaScript ativado. 
+    * Os navegadores compatíveis mais recente (Microsoft Edge ou o Internet Explorer 11) são instalados e o JavaScript está ativado. 
     * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
     
     > [!IMPORTANT] 

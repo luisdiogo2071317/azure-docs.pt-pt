@@ -8,24 +8,28 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e760f7b9fa1bb332ff6467545dd01a1bf611f52
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1905f6a13dcb596d60a588757c55250253a6b54
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426214"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189070"
 ---
 # <a name="azure-analysis-services-samples"></a>Exemplos do Azure Analysis Services
+
 Utilize os seguintes recursos de exemplo para ajudar a saber mais sobre e Analysis Services para o seu ambiente de teste.
 
 ## <a name="code-samples"></a>Exemplos de código
+
 O [Analysis Services](https://github.com/Microsoft/Analysis-Services) repositório no GitHub inclui exemplos de código fonte aberto e projetos da Comunidade. 
 
 ## <a name="tabular-model-project-and-database-samples"></a>Exemplos de projeto e a base de dados de modelo em tabela
+
 [Adventure Works para o Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) no GitHub é o projeto de modelo em tabela de exemplo de uso mais comum. Pode transferir um projeto VS ou uma base de dados do modelo de tabela de exemplo concluído.
 
 
 ## <a name="sample-databases-on-github"></a>Bases de dados de exemplo no GitHub
+
 Esses bancos de dados de exemplo no GitHub, podem ser utilizados para criar e testar seus próprios modelos. 
 
 [Adventure Works exemplo as bases de dados](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
@@ -33,6 +37,7 @@ Esses bancos de dados de exemplo no GitHub, podem ser utilizados para criar e te
 [Bases de dados do Wide World Importers exemplo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo no portal do Azure de exemplo de vendas na Internet Adventure Works
+
 Se tiver um servidor do Analysis Services no portal do Azure, pode rapidamente e facilmente, criar um modelo de exemplo. Na página de descrição geral do seu servidor no portal do Azure, clique em **novo modelo**e, em seguida, no **escolher uma origem de dados**, selecione **dados de exemplo**.
 
 

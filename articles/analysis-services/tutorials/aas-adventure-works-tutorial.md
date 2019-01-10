@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426248"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191518"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services- tutorial da Adventure Works
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, precisa de:
 
 -   Um [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) com a **base de dados de exemplo AdventureWorksDW** ou um SQL Server Data Warehouse com a [base de dados de exemplo Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
-    **Importante:** Se tiver instalado a base de dados de exemplo num SQL Server Data Warehouse no local e se estiver a implementar o seu modelo num servidor Azure Analysis Services, é necessário um [gateway de dados no local](../analysis-services-gateway.md).
+    **Importante:** Se instalar a base de dados de exemplo para um armazém de dados do servidor de SQL no local e implementar o seu modelo num servidor Azure Analysis Services, uma [gateway de dados no local](../analysis-services-gateway.md) é necessária.
 
 -   A versão mais recente do [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) para o Visual Studio.
 
@@ -93,7 +93,7 @@ Estas lições não são necessárias para concluir o tutorial, mas podem ser ú
 
   
 ## <a name="next-steps"></a>Passos Seguintes  
-Para começar, consulte [Lição 1: Criar um novo projeto de modelo de tabela](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Para começar a utilizar, consulte o artigo [Lição 1: Criar um novo projeto de modelo em tabela](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

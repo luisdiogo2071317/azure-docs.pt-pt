@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 6d0e87cd93d519c6f4f3766ca9f5b776912197aa
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052245"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191331"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento para encaminhar uma consulta para o banco de dados apropriado de dependente de dados
 
-**Encaminhamento dependente de dados** é a capacidade de utilizar os dados numa consulta para encaminhar a solicitação para um banco de dados apropriado. Encaminhamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados em partição horizontal. O contexto de solicitação também pode ser utilizado para encaminhar a solicitação, especialmente se a chave de fragmentação não é parte da consulta. Cada consulta específica ou a transação num aplicativo com o encaminhamento dependente de dados está limitada a aceder a uma base de dados por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, esse roteamento é realizado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) classe.
+**Encaminhamento dependente de dados** é a capacidade de utilizar os dados numa consulta para encaminhar a solicitação para um banco de dados apropriado. Encaminhamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados em partição horizontal. O contexto de solicitação também pode ser utilizado para encaminhar a solicitação, especialmente se a chave de fragmentação não é parte da consulta. Cada consulta específica ou a transação num aplicativo com o encaminhamento dependente de dados está limitada a aceder a uma base de dados por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, esse roteamento é realizado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) classe.
 
 O aplicativo não precisa de controlar várias cadeias de ligação ou locais de DB associados diferentes setores de dados no ambiente em partição horizontal. Em vez disso, o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md) abre-se ligações às bases de dados corretos quando necessário, com base nos dados no mapa de partições horizontais e o valor da chave de fragmentação que é o destino do pedido da aplicação. A chave é, normalmente, o *customer_id*, *tenant_id*, *date_key*, ou um outro identificador específico, que é um parâmetro fundamental do pedido da base de dados.
 
@@ -36,7 +36,7 @@ Para transferir:
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Utilizar um ShardMapManager numa aplicação de encaminhamento dependente de dados
 
-Aplicativos devem instanciar o **ShardMapManager** durante a inicialização, através da chamada de fábrica **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)). Neste exemplo, tanto um **ShardMapManager** e um específico **ShardMap** nele contidos são inicializados. Este exemplo mostra o GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) métodos.
+Aplicativos devem instanciar o **ShardMapManager** durante a inicialização, através da chamada de fábrica **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). Neste exemplo, tanto um **ShardMapManager** e um específico **ShardMap** nele contidos são inicializados. Este exemplo mostra o GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) métodos.
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -54,7 +54,7 @@ Se um aplicativo não está manipulando o mapa de partições horizontais em si,
 
 ## <a name="call-the-openconnectionforkey-method"></a>Chamar o método OpenConnectionForKey
 
-O **método ShardMap.OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) retorna uma ligação pronto para emitir comandos para a base de dados apropriado com base no valor da **chave** parâmetro. Informações de partição horizontal é colocado em cache no aplicativo, o **ShardMapManager**, para que estes pedidos normalmente não envolvem uma pesquisa de base de dados contra a **Global mapa de partições horizontais** base de dados.
+O **método ShardMap.OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) retorna uma ligação pronto para emitir comandos para a base de dados apropriado com base no valor da **chave** parâmetro. Informações de partição horizontal é colocado em cache no aplicativo, o **ShardMapManager**, para que estes pedidos normalmente não envolvem uma pesquisa de base de dados contra a **Global mapa de partições horizontais** base de dados.
 
 ```Java
 // Syntax:
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * O **chave** parâmetro é utilizado como uma chave de pesquisa em mapa de partições horizontais para determinar a base de dados adequado para o pedido.
 * O **connectionString** é usado para passar as credenciais de utilizador para a ligação pretendida. Nenhum nome de base de dados ou o nome do servidor que está incluído nesta *connectionString* uma vez que o método determina a base de dados e o servidor com o **ShardMap**.
-* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) deve ser definido como **ConnectionOptions.Validate** se um ambiente onde o Maio de mapas de partições horizontais alteração e de linhas podem passar para outras bases de dados como resultado de operações de intercalação ou divisão. Esta validação envolve uma consulta breve para o mapa de partições horizontais local no destino da base de dados (não para o mapa de partições horizontais global) antes da ligação é entregue à aplicação.
+* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve ser definido como **ConnectionOptions.Validate** se um ambiente onde o Maio de mapas de partições horizontais alteração e de linhas podem passar para outras bases de dados como resultado de operações de intercalação ou divisão. Esta validação envolve uma consulta breve para o mapa de partições horizontais local no destino da base de dados (não para o mapa de partições horizontais global) antes da ligação é entregue à aplicação.
 
 Se a validação contra o mapa de partições horizontais local falhar (que indica que a cache é incorreta), o Gestor de mapas de partições horizontais consulta o mapa de partições horizontais global para obter o novo valor correto para a pesquisa, atualizar a cache e obter e retornar a conexão de banco de dados apropriadas .
 
@@ -112,7 +112,7 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 O **OpenConnectionForKey** método retorna uma nova conexão já aberta para a base de dados correto. Ligações utilizadas assim tirar total partido do agrupamento de ligações.
 
-O **método OpenConnectionForKeyAsync** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)) também está disponível se a aplicação faz uso de programação assíncrona.
+O **método OpenConnectionForKeyAsync** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) também está disponível se a aplicação faz uso de programação assíncrona.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integração com o processamento de falhas transitórias
 

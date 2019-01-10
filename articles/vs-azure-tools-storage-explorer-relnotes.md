@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608958"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190022"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -27,15 +27,18 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-161"></a>Versão 1.6.1
-12/18/2018
+## <a name="version-162"></a>Versão 1.6.2
+9/1/2019
 
-### <a name="download-azure-storage-explorer-161"></a>Transfira o Explorador de armazenamento do Azure 1.6.1
-- [Explorador de armazenamento do Azure 1.6.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.6.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.6.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>Transfira o Explorador de armazenamento do Azure 1.6.2
+- [Explorador de armazenamento do Azure 1.6.2 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.6.2 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.6.2 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Correções
+* No 1.6.1, entidades adicionadas para ACLs de geração 2 do ADLS por ObjectId que não eram os usuários sempre foram adicionadas como grupos. Agora, apenas os grupos são adicionados como grupos e entidades como andService de aplicações empresariais que principais são adicionados como os utilizadores. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* Se uma conta de armazenamento do ADLS Gen2 tinha não existem contentores e foi ligada com o nome e a chave, em seguida, o Explorador de armazenamento seria não detetar que a conta de armazenamento foi ADLS Gen2. Isto foi corrigido. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* No 1.6.0, conflitos durante a copiar e colar não seriam pedir uma resolução. Em vez disso, a cópia em conflito simplesmente falhava. Agora, sobre o conflito primeiro, será solicitado como gostaria que ele seja resolvido. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * Devido a limitações de API, validação de todos os de ObjectIds na caixa de diálogo Gerir o acesso foram desativadas. Agora, validação situação ocorrerá apenas para o utilizador UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * Na caixa de diálogo de geração 2 do ADLS gerir o acesso, não foi possível modificar as permissões para um grupo. Isto foi corrigido. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * Foi adicionado arrastar e soltar carregar o suporte para o editor de geração 2 do ADLS. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 1.6.1](#version-161)
 * [Versão 1.6.0](#version-160)
 * [Versão 1.5.0](#version-150)
 * [Versão 1.4.4](#version-144)
@@ -135,6 +139,75 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 * [Versão 0.7.20160129.1](#version-07201601291)
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-161"></a>Versão 1.6.1
+12/18/2018
+
+### <a name="hotfixes"></a>Correções
+* Devido a limitações de API, validação de todos os de ObjectIds na caixa de diálogo Gerir o acesso foram desativadas. Agora, validação situação ocorrerá apenas para o utilizador UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* Na caixa de diálogo de geração 2 do ADLS gerir o acesso, não foi possível modificar as permissões para um grupo. Isto foi corrigido. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Foi adicionado arrastar e soltar carregar o suporte para o editor de geração 2 do ADLS. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* A propriedade de URL na caixa de diálogo Propriedades de geração 2 do ADLS ficheiros e pastas, às vezes, estava em falta um '/'. Isto foi corrigido. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Se a obter as permissões atuais para um contentor de geração 2 do ADLS, ficheiro ou pasta falha, então o erro agora é propertly apresentado no registo de atividades. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* O caminho temporário, criado para abrir ficheiros tem foram abreviado para reduzir a possibilidade de criar um caminho que é mais de MAX_PATH no Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* A caixa de diálogo Connect agora corretamente é apresentado quando não foram encontrados utilizadores com sessão iniciada e não existem recursos que tenham sido vinculados. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 1.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Carregar uma pasta para um contentor de BLOBs não HNS falha se foi utilizada uma SAS e a SAS não tem as permissões de leitura. Isto foi corrigido. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* A cancelar uma transferência de AzCopy não funcionava. Isto foi corrigido. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>Novo
+
+* Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
+* Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
+    * Criar e eliminar contentores
+    * Gerir as propriedades do contentor e permissões (lado esquerdo)
+    * Exibir e navegar dados dentro de contentores
+    * Criar novas pastas
+    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+    
+    Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
+* Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.
+
+### <a name="known-issues"></a>Problemas Conhecidos
+
+* Ao transferir a partir de uma conta de armazenamento do ADLS geração 2, se um dos ficheiros a serem transferidos já existir, o AzCopy, às vezes, irá falhar. Isso será corrigido numa futura correção.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentário sobre este problema.
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para contornar este problema ao carregar para ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* O Azure Stack não suporta as seguintes funcionalidades. Recursos tentando usar esses recursos ao trabalhar com o Azure Stack podem resultar em erros inesperados.
+   * Partilhas de ficheiros
+   * Camadas de acesso
+   * Eliminação de forma recuperável
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>Versão 1.6.0
 12/5/2018

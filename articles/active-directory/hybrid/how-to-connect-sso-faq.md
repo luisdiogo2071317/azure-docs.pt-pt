@@ -1,5 +1,5 @@
 ---
-title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - perguntas mais frequentes | Documentos da Microsoft'
+title: 'Azure AD Connect: Totalmente integrado Single Sign-On - perguntas mais frequentes | Documentos da Microsoft'
 description: Respostas a perguntas mais frequentes sobre o Azure Active Directory totalmente integrada início de sessão único.
 services: active-directory
 keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424838"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190640"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
 Neste artigo, vamos abordar perguntas mais frequentes sobre o Azure Active Directory totalmente integrada logon único (SSO totalmente integrado). Manter a verificação de volta para o novo conteúdo.
 
@@ -65,7 +65,7 @@ Sim. Suporta o SSO totalmente integrado `Alternate ID` como o nome de utilizador
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>O que é a diferença entre a experiência de início de sessão única fornecida pela [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado?
 
-[Associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO para os utilizadores se os dispositivos estiverem registados com o Azure AD. Estes dispositivos não precisam necessariamente ser associado a um domínio. SSO é fornecido usando *tokens de atualização principal* ou *PRTs*e não Kerberos. A experiência do usuário é ideal em dispositivos Windows 10. SSO ocorre automaticamente no Microsoft Edge browser. Ele também funciona no Chrome com o uso de uma extensão de navegador.
+[Associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO para os utilizadores se os dispositivos estiverem registados com o Azure AD. Estes dispositivos não precisam necessariamente ser associado a um domínio. SSO é fornecido usando *tokens de atualização principal* ou *PRTs*e não Kerberos. A experiência do usuário é ideal em dispositivos Windows 10. SSO ocorre automaticamente no browser Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
 
 Pode utilizar a associação do Azure AD e SSO totalmente integrado no seu inquilino. Esses dois recursos são complementares. Se os dois recursos estão ativados, o SSO da associação do Azure AD tem precedência sobre SSO totalmente integrado.
 
@@ -107,7 +107,7 @@ Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
 
 ### <a name="step-1-disable-the-feature-on-your-tenant"></a>Passo 1. Desativar a funcionalidade no seu inquilino
 
-#### <a name="option-a-disable-using-azure-ad-connect"></a>A opção r: desativar com o Azure AD Connect
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Opção a: Desativar a com o Azure AD Connect
 
 1. Execute o Azure AD Connect, escolha **página de início de sessão da utilizador de alteração** e clique em **próxima**.
 2. Desmarque os **ativar o início de sessão único em** opção. Continue através do assistente.
@@ -118,7 +118,7 @@ Depois de concluir o assistente, será desativada SSO totalmente integrado no se
 
 Para concluir o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar o Azure AD Connect.
 
-#### <a name="option-b-disable-using-powershell"></a>A opção b: desativar utilizar o PowerShell
+#### <a name="option-b-disable-using-powershell"></a>Opção b: Desativar a utilizar o PowerShell
 
 Execute os seguintes passos no servidor no local onde está a executar o Azure AD Connect:
 

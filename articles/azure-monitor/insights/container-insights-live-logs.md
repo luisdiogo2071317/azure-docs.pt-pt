@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 27368ec1f41553950ab1689f8b37c15d14d29808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156668"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187999"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Como ver o contentor registos em tempo real com o Azure Monitor para contentores (pré-visualização)
-Esta funcionalidade, que está atualmente em pré-visualização, fornece uma vista em tempo real sobre os seus registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona esta opção, o novo painel é apresentada abaixo da tabela de dados de desempenho de contentores no **contentores** vista e ele mostra o registo em direto gerado pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real.  
+Esta funcionalidade, que está atualmente em pré-visualização, fornece uma vista em tempo real sobre os seus registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona esta opção, o novo painel é apresentada abaixo da tabela de dados de desempenho de contentores no **contentores** vista.  Mostra o registo em direto gerado pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real.  
 
 Live registos suporta três diferentes métodos para controlar o acesso para os registos:
 
@@ -31,7 +31,7 @@ Live registos suporta três diferentes métodos para controlar o acesso para os 
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster de Kubernetes sem RBAC ativada
  
-Se tiver um cluster do Kubernetes que não está configurado com autorização RBAC de Kubernetes ou integrado com o Azure AD-início de sessão único, não é necessário seguir estes passos. Uma vez que a autorização de Kubernetes utiliza a api do kube, permissões só de leitura é necessária.
+Se tiver um cluster do Kubernetes que não está configurado com autorização RBAC de Kubernetes ou integrado com o Azure AD-início de sessão único, não é necessário seguir estes passos. Uma vez que a autorização de Kubernetes utiliza a api do kube, são necessárias permissões de só de leitura.
 
 ## <a name="kubernetes-rbac-authorization"></a>Autorização RBAC do Kubernetes
 Se tiver ativado o autorização RBAC do Kubernetes, terá de aplicar o enlace de função de cluster. Os passos de exemplo seguintes demonstram como configurar o enlace de função de cluster partir deste modelo de configuração yaml.   
@@ -39,27 +39,27 @@ Se tiver ativado o autorização RBAC do Kubernetes, terá de aplicar o enlace d
 1. Copie e cole o ficheiro yaml e guarde-o como LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. Criar o enlace de regra de cluster executando o seguinte comando: `kubectl create -f LogReaderRBAC.yaml`. 

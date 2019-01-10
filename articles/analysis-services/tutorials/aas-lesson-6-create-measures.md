@@ -1,19 +1,19 @@
 ---
-title: 'Lição 6 do tutorial do Azure Analysis Services: Criar medidas | Microsoft Docs'
+title: 'O Azure Analysis Services Lição 6 do tutorial: Criar medidas | Documentos da Microsoft'
 description: Descreve como criar medidas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0e9f798917b557d99259ece4773cce0853b15237
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428577"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191688"
 ---
 # <a name="create-measures"></a>Criar medidas
 
@@ -122,6 +122,6 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
 As medidas criadas para a tabela FactInternetSales podem ser usadas para analisar dados financeiros essenciais, como vendas, custos e margem de lucro para itens definidos pelo filtro selecionado pelo utilizador.  
   
 ## <a name="whats-next"></a>Passos seguintes?
-[Lição 7: Criar indicadores-chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+[Lição 7: Criar indicadores chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

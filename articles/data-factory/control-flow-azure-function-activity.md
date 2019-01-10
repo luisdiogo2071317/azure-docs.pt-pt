@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156634"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188645"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
 
@@ -25,7 +25,7 @@ A actividade de função do Azure permite-lhe executar [as funções do Azure](.
 
 ## <a name="azure-function-linked-service"></a>Serviço ligado de função do Azure
 
-O tipo de retorno da função do Azure tem de ser um JObject válido. (Lembre-se [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) é *não* um JObject.) Tudo o resto falhar e gera o erro de utilizador genérica *ponto final de chamada de erro*.
+O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) é *não* um `JObject`.) Qualquer tipo de retorno diferente de `JObject` falhar e gera o erro de utilizador genérica *ponto final de chamada de erro*.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |

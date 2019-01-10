@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dcfbc014eaa191c7992a2da195f9bcd10b44194f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973677"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191489"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64
 
@@ -238,7 +238,9 @@ Gira o seu dispositivo Azure IoT Edge a partir da cloud para implementar um mód
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
-Neste início rápido, criou um novo dispositivo IoT Edge e instalou o runtime do IoT Edge no mesmo. Depois, utilizou o portal do Azure para emitir um módulo do IoT Edge para ser executado no dispositivo, sem ter de realizar alterações no dispositivo propriamente dito. Neste caso, o módulo que emitiu cria dados ambientais que pode utilizar para os tutoriais.
+Neste início rápido, criou um novo dispositivo IoT Edge e instalou o runtime do IoT Edge no mesmo. Em seguida, utilizou o portal do Azure para implementar um módulo do IoT Edge para executar no dispositivo, sem ter de efetuar alterações ao dispositivo. 
+
+Neste caso, o módulo que enviou cria dados de exemplo que pode utilizar para fins de teste. O módulo do sensor de temperatura simulada gera dados de ambiente que pode utilizar para fins de teste mais tarde. O sensor simulado está a monitorizar uma máquina e o ambiente em torno da máquina. Por exemplo, este sensor pode ser numa sala de servidor, num chão de fábrica ou numa turbina eólica. A mensagem inclui temperatura ambiente e umidade, temperatura de máquina e pressão e um carimbo. Os tutoriais do IoT Edge utilizam os dados criados por este módulo como dados para análise de teste.
 
 Abra a linha de comandos no seu dispositivo IoT Edge novamente. Certifique-se de que o módulo implementado a partir da cloud está em execução no seu dispositivo do IoT Edge:
 
@@ -258,8 +260,6 @@ Ver as mensagens sendo enviadas pelo módulo do sensor de temperatura:
    >Comandos do IoT Edge diferenciam maiúsculas de minúsculas quando nos Referimos a nomes de módulos.
 
    ![Ver os dados a partir do seu módulo](./media/quickstart-linux/iotedge-logs.png)
-
-O módulo do sensor de temperatura pode estar esperando para ligar ao Hub do Edge se a última linha vir no registo de for **usando o transporte Mqtt_Tcp_Only**. Tente parar o módulo e permitindo que o agente do Edge reiniciá-lo. Pode impedi-lo com o comando `sudo docker stop SimulatedTemperatureSensor`.
 
 Também pode ver as mensagens de chegar ao seu hub IoT utilizando o [extensão de Kit de ferramentas do Azure IoT Hub para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como extensão do Kit de ferramentas do Azure IoT). 
 
@@ -285,20 +285,6 @@ Remova o runtime do IoT Edge.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-Quando o runtime do IoT Edge é removido, os contentores que ele criou são parados, mas continuam no seu dispositivo. Veja todos os contentores.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Remova o runtime do contentor.

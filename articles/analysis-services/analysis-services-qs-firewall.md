@@ -5,23 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993187"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187288"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar a firewall do servidor – Portal
+# <a name="quickstart-configure-server-firewall---portal"></a>Início rápido: Configurar a firewall do servidor - Portal
 
 Este início rápido ajuda-o a configurar uma firewall para o servidor do Analysis Services do Azure. Ativar uma firewall e configurar os intervalos dos endereços IP apenas para os computadores que acedem ao seu servidor são uma parte importante para proteger o servidor e os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um servidor do Analysis Services na subscrição. Para obter mais informações, veja [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)
+- Um servidor do Analysis Services na subscrição. Para obter mais informações, consulte [início rápido: Criar um servidor - Portal](analysis-services-create-server.md) ou [início rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)
 - Intervalos de endereços IP de um ou mais computadores cliente (se necessário).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure 
@@ -46,4 +46,4 @@ Quando já não forem necessários, elimine os intervalos de endereços IP ou de
 Neste guia de início rápido, aprendeu a configurar uma firewall para o servidor. Agora que tem o servidor protegido com uma firewall, pode adicionar um modelo de dados básicos de exemplo a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)
+> [Tutorial: Adicionar um modelo de exemplo ao seu servidor](analysis-services-create-sample-model.md)

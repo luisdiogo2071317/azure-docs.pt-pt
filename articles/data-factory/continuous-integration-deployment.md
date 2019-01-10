@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1a0bf0e6057f26fd8d38dadde5689e41b4f1e165
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017281"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191790"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
@@ -161,7 +161,7 @@ Existem duas formas de lidar com os segredos:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões para o agente de Pipelines do Azure
-A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente de Pipelines do Azure. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
+A tarefa do Azure Key Vault pode falhar a hora de Runtimest fIntegration com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente de Pipelines do Azure. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
 
 ### <a name="update-active-triggers"></a>Atualizar o Active Directory acionadores
 Se tentar atualizar os acionadores de Active Directory, a implementação pode falhar. Para atualizar os acionadores de Active Directory, terá de manualmente pará-los e iniciá-las após a implementação. Pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
@@ -183,7 +183,7 @@ Se tentar atualizar os acionadores de Active Directory, a implementação pode f
 Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-AzureRmDataFactoryV2Trigger` função) para reiniciar os disparadores após a implementação.
 
 > [!IMPORTANT]
-> Em cenários de implementação e integração contínua, o tipo de Runtime de integração entre ambientes diferentes têm de ser iguais. Por exemplo, se tem um *Autoalojado* Runtime de integração (IR) no ambiente de desenvolvimento, o mesmo Runtime de integração tem de ser do tipo *Autoalojado* em outros ambientes, tais como teste e produção também. Da mesma forma, se estiver a partilhar runtimes de integração em várias fases, tem de configurar o IRs como *ligado Autoalojado* em todos os ambientes, como o desenvolvimento, teste e produção.
+> Em cenários de implementação e integração contínua, o tipo de Runtime de integração entre ambientes diferentes têm de ser iguais. Por exemplo, se tem um *Autoalojado* Runtime de integração (IR) no ambiente de desenvolvimento, o mesmo Runtime de integração tem de ser do tipo *Autoalojado* em outros ambientes, tais como teste e produção também. Da mesma forma, se estiver a partilhar runtimes de integração em várias fases, tem de configurar os Runtimes de integração como *ligado Autoalojado* em todos os ambientes, como o desenvolvimento, teste e produção.
 
 ## <a name="sample-deployment-template"></a>Modelo de implementação de exemplo
 
@@ -853,7 +853,7 @@ Pode definir parâmetros personalizados para o modelo do Resource Manager. Simpl
 
 Aqui estão algumas diretrizes para utilizar quando criar o ficheiro de parâmetros personalizados. Exemplos de sintaxe, consulte a secção [ficheiro de parâmetros personalizados de exemplo](#sample).
 
-1. Quando especifica uma matriz no ficheiro de definição, indica que a propriedade correspondente no modelo é uma matriz. Fábrica de dados repete-se a todos os objetos da matriz usando a definição especificada no primeiro objeto da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é utilizado como o nome para o parâmetro para cada iteração.
+1. Quando especifica uma matriz no ficheiro de definição, indica que a propriedade correspondente no modelo é uma matriz. Fábrica de dados repete-se a todos os objetos da matriz usando a definição especificada no objeto Runtimest fIntegration da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é utilizado como o nome para o parâmetro para cada iteração.
 
     ```json
     ...
@@ -988,3 +988,23 @@ Os modelos do Gestor de recursos ligado normalmente têm um modelo global e um c
 Não se esqueça de adicionar os scripts de fábrica de dados no seu pipeline de CI/CD antes e depois da tarefa de implementação.
 
 Se não tiver configurado do Git, os modelos ligados são acessíveis através da **modelo de ARM exportar** gesto.
+
+## <a name="best-practices-for-cicd"></a>Melhores práticas para CI/CD
+
+Se estiver a utilizar a integração de Git com sua fábrica de dados e que tem um pipeline de CI/CD que move as alterações de desenvolvimento em teste e, em seguida, para a produção, recomendamos as seguintes práticas recomendadas:
+
+-   **Integração de Git**. Só tem de configurar a fábrica de dados de desenvolvimento com a integração de Git. As alterações para teste e produção são implementadas por meio de CI/CD e não precisam de integração de Git.
+
+-   **Script de CI/CD da fábrica de dados**. Antes do passo de implementação do Resource Manager no CI/CD, deve ter cuidado de coisas como parar os acionadores e um tipo diferente de limpeza de fábrica. Recomendamos que utilize [este script](#sample-script-to-stop-and-restart-triggers-and-clean-up) como cuida de todas essas coisas. Execute o script, uma vez antes da implantação e uma vez depois, utilizando sinalizadores apropriados.
+
+-   **Runtimes de integração e partilha**. Runtimes de integração são um dos componentes infraestrutura na sua fábrica de dados, que passar por alterações menos vezes e são semelhantes em todas as fases no seu CI/CD. Como resultado, o Data Factory espera que tem o mesmo nome e o mesmo tipo de Runtimes de integração em todas as fases de CI/CD. Se quiser para partilhar Runtimes de integração em todas as fases - por exemplo, os Runtimes de integração autoalojado, uma forma de compartilhar é o IR autoalojado numa fábrica ternária, apenas para que contém os Runtimes de integração compartilhado de hospedagem. Em seguida, pode utilizá-los Dev/teste/produção como um tipo de Runtime de integração ligado.
+
+-   **Cofre de chaves**. Quando utiliza o recomendado Azure Key Vault com base em serviços ligados, pode demorar um ainda mais seu nível vantagens ao potencialmente manter cofres de chaves separados para Dev/teste/Prod. Também pode configurar níveis de permissão separado para cada uma delas. Pode não desejar os membros da Equipe tenham permissões para os segredos de produção. Também recomendamos que mantenha os mesmos nomes secretos em todas as fases. Se mantiver os mesmos nomes, não precisa de alterar os modelos do Resource Manager em CI/CD, uma vez que a única coisa que precisa ser alterado é o nome do Cofre de chaves, o que é um dos parâmetros de modelo do Resource Manager.
+
+## <a name="unsupported-features"></a>Funcionalidades não suportadas
+
+-   Não é possível publicar recursos individuais, porque as entidades do data factory são dependentes entre si. Por exemplo, os acionadores dependem de pipelines, pipelines dependem de conjuntos de dados e outros pipelines, etc. Dependências de alteração de controlo é difícil. Caso tenha sido possível selecionar os recursos para publicar manualmente, seria possível selecionar apenas um subconjunto de todo o conjunto de alterações, o que poderia levar a um comportamento inesperado coisas após a publicação.
+
+-   Não é possível publicar de ramos privados.
+
+-   Não é possível hospedar projetos no Bitbucket.

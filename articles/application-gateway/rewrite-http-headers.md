@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971823"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187422"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
 
 Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever essas ajuda de cabeçalhos HTTP é realizar vários cenários importantes, como adicionar cabeçalho relacionadas à segurança campos como HSTS / X-XSS-proteção ou remover campos de cabeçalho de resposta, que pode revelar informações confidenciais, como o nome do servidor de back-end.
 
-Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de pedidos HTTP recebidos, bem como as respostas HTTP de saída. Será capaz de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta mover entre os conjuntos de cliente e o back-end. Pode reescrever as duas standard (definidos na [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como campos de cabeçalho não padrão.
+Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de pedidos HTTP recebidos, bem como as respostas HTTP de saída. Será capaz de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta mover entre os conjuntos de cliente e o back-end. Pode reescrever ambos os campos de cabeçalho padrão, bem como não-padrão.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Pode reescrever o valor nos cabeçalhos para:
 
 - Uma combinação de acima.
 
-As variáveis de servidor mencionadas acima são as variáveis que fornecem informações sobre o servidor, a ligação com o cliente e a solicitação atual na ligação. Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes variáveis de servidor:
+## <a name="server-variables"></a>Variáveis de servidor
+
+Variáveis de servidor armazenam informações úteis num servidor web. Estas variáveis fornecem informações sobre o servidor, a ligação com o cliente e a solicitação atual na ligação, como o endereço IP do cliente ou o tipo de navegador da web. Mudam de forma dinâmica, como quando uma nova página é carregada ou um formulário é reenviado.  Esses usuários de variáveis a utilizar pode definir cabeçalhos de solicitação, bem como cabeçalhos de resposta. 
+
+Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes variáveis de servidor:
 
 | Variáveis de servidor suportadas | Descrição                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ As variáveis de servidor mencionadas acima são as variáveis que fornecem info
 | http_status                | Estado da sessão, por exemplo: 200, 400, 403 etc.                       |
 | http_version               | protocolo de pedido, normalmente, "HTTP 1.0", "HTTP/1.1" ou "HTTP/2.0" |
 | QUERY_STRING               | a lista de valor de variável de pares que se seguem o "?" no URL solicitado. |
-| received_byte              | comprimento do pedido (incluindo a linha de solicitação, o cabeçalho e o corpo do pedido) |
+| received_bytes             | comprimento do pedido (incluindo a linha de solicitação, o cabeçalho e o corpo do pedido) |
 | request_query              | argumentos na linha de solicitação                                |
 | request_scheme             | esquema de pedido, "http" ou "https"                            |
 | request_uri                | original completo URI do pedido (com argumentos)                   |

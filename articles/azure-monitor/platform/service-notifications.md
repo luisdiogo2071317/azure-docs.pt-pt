@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159252"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190702"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do Estado de funcionamento de serviço com o portal do Azure
 
@@ -58,43 +58,27 @@ Properties.Stage | Os possíveis valores para **incidente**, e **Security** são
 Properties.communicationId | A comunicação com o qual este evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Informações de nível de detalhes sobre o service health
-  <ul>
-    <li><b>É necessária qualquer ação</b> (properties.incidentType = = ação necessária) <dl>
-            <dt>Informativa</dt>
-            <dd>Ação do administrador necessária para evitar o impacto para os serviços existentes</dd>
-        </dl>
-    </li>
-    <li><b>Manutenção</b> (properties.incidentType = = manutenção) <dl>
-            <dt>Aviso</dt>
-            <dd>manutenção de emergência<dd>
-            <dt>Informativa</dt>
-            <dd>manutenção planeada padrão</dd>
-        </dl>
-    </li>
-    <li><b>Informações</b> (properties.incidentType = = informativos) <dl>
-            <dt>Informativa</dt>
-            <dd>Administrador pode ser necessário para evitar o impacto para os serviços existentes</dd>
-        </dl>
-    </li>
-    <li><b>Segurança</b> (properties.incidentType = = segurança) <dl>
-            <dt>Erro</dt>
-            <dd>Problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.</dd>
-            <dt>Aviso</dt>
-            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas estão a afetar um subconjunto de clientes.</dd>
-            <dt>Informativa</dt>
-            <dd>Problemas que afetem as operações de gestão e/ou latência, a não afetar a disponibilidade do serviço.</dd>
-        </dl>
-    </li>
-    <li><b>Problemas de serviço</b> (properties.incidentType = = incidente) <dl>
-            <dt>Erro</dt>
-            <dd>Problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.</dd>
-            <dt>Aviso</dt>
-            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas estão a afetar um subconjunto de clientes.</dd>
-            <dt>Informativa</dt>
-            <dd>Problemas que afetem as operações de gestão e/ou latência, a não afetar a disponibilidade do serviço.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**É necessária qualquer ação** (properties.incidentType = = ação necessária)
+    - Informativo - necessário para evitar o impacto para os serviços existentes de ação do administrador
+    
+**Manutenção** (properties.incidentType = = manutenção)
+    - Aviso - manutenção de emergência
+    - Informativo - manutenção planeada padrão
+
+**Informações** (properties.incidentType = = informações)
+    - Informativa - administrador, pode ser necessário para evitar o impacto para os serviços existentes
+
+**Segurança** (properties.incidentType = = segurança)
+    - Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
+    - Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
+    - Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+
+**Problemas de serviço** (properties.incidentType = = incidente)
+    - Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
+    - Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
+    - Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço no portal do Azure
 1.  Na [portal do Azure](https://portal.azure.com), selecione **Monitor**.

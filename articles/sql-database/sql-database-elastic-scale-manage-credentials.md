@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 87a46a0b6d5dda9f59e49a3b052dc7528df7410f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039967"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186627"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para acessar a biblioteca de cliente da base de dados elástica
 
@@ -31,7 +31,7 @@ Consulte também [gestão de bases de dados e inícios de sessão na base de dad
 
 ## <a name="about-management-credentials"></a>Informações sobre credenciais de gestão
 
-Credenciais de gestão são utilizadas para criar uma **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) objeto para aplicativos que manipulam mapas de partições horizontais. (Por exemplo, veja [adicionando uma partição horizontal com as ferramentas de bases de dados elásticas](sql-database-elastic-scale-add-a-shard.md) e [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)). O utilizador da biblioteca de cliente de escala elástica cria os utilizadores SQL e os inícios de sessão SQL e certifica-se de que cada um é concedido as permissões de leitura/escrita sobre a base de dados do mapa de partições horizontais global e todas as partições horizontais bases de dados também. Estas credenciais são utilizadas para manter o mapa de partições horizontais global e os mapas de partições horizontais local quando as alterações para o mapa de partições horizontais são realizadas. Por exemplo, utilize as credenciais de gestão para criar o objeto de Gestor de mapa de partições horizontais (usando **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)):
+Credenciais de gestão são utilizadas para criar uma **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) objeto para aplicativos que manipulam mapas de partições horizontais. (Por exemplo, veja [adicionando uma partição horizontal com as ferramentas de bases de dados elásticas](sql-database-elastic-scale-add-a-shard.md) e [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)). O utilizador da biblioteca de cliente de escala elástica cria os utilizadores SQL e os inícios de sessão SQL e certifica-se de que cada um é concedido as permissões de leitura/escrita sobre a base de dados do mapa de partições horizontais global e todas as partições horizontais bases de dados também. Estas credenciais são utilizadas para manter o mapa de partições horizontais global e os mapas de partições horizontais local quando as alterações para o mapa de partições horizontais são realizadas. Por exemplo, utilize as credenciais de gestão para criar o objeto de Gestor de mapa de partições horizontais (usando **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.
@@ -59,7 +59,7 @@ Observe o uso do **smmReadOnlyConnectionString** para refletir a utilização de
 
 ## <a name="connection-credentials"></a>Credenciais de ligação
 
-Credenciais adicionais são necessários quando utilizar o **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) método para aceder a uma partição horizontal associada com uma chave de fragmentação. Estas credenciais têm de fornecer permissões para acesso só de leitura para as tabelas de mapa de partições horizontais local que residem em partição horizontal. Isto é necessário para executar a validação de ligação de encaminhamento dependente de dados em partição horizontal. Este fragmento de código permite o acesso a dados no contexto de encaminhamento dependente de dados:
+Credenciais adicionais são necessários quando utilizar o **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) método para aceder a uma partição horizontal associada com uma chave de fragmentação. Estas credenciais têm de fornecer permissões para acesso só de leitura para as tabelas de mapa de partições horizontais local que residem em partição horizontal. Isto é necessário para executar a validação de ligação de encaminhamento dependente de dados em partição horizontal. Este fragmento de código permite o acesso a dados no contexto de encaminhamento dependente de dados:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))

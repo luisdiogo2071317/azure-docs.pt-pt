@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c19b43f652b490ceb86606633f543f4e455b6116
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141480"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189308"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure
 
@@ -60,7 +60,7 @@ A tabela seguinte resume a aplicação de plataforma nativa/nativa e browsers su
 | **Plataforma de cliente** | **Suporte nativo de DRM** | **Aplicação/browser** | **Formatos de transmissão em fluxo** |
 | --- | --- | --- | --- |
 | **Smart TVs, operador STBs, OTT STBs** |PlayReady principalmente, e/ou Widevine, e/ou outros |Linux, Opera, WebKit, outros |Vários formatos |
-| **Dispositivos Windows 10 (Windows PC, tablets Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |TRAÇO (para HLS, PlayReady não é suportado)<br/><br/>DASH, transmissão em fluxo uniforme (para HLS, PlayReady não é suportado) |
+| **Dispositivos Windows 10 (Windows PC, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |TRAÇO (para HLS, PlayReady não é suportado)<br/><br/>DASH, transmissão em fluxo uniforme (para HLS, PlayReady não é suportado) |
 | **Dispositivos Android (telefone, tablet, programas de TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), os clientes dos X e Apple TV** |FairPlay |Safari 8 c++ /CLI EME |HLS |
 
@@ -130,11 +130,11 @@ Por que são essas considerações importantes?
 
 Se utilizar uma cloud pública para entrega de licenças, persistentes e nonpersistent licenças têm um impacto direto no custo da entrega de licença. Os seguintes dois casos de design diferentes servem para ilustrar:
 
-* Subscrição mensal: utilizar uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
+* Subscrição mensal: Utilize uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = 1
 
-* Subscrição mensal: utilizar uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
+* Subscrição mensal: Utilize uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = [número de filmes assistiu] x [número de sessões]
 
@@ -335,7 +335,7 @@ Para registar e configurar a aplicação de ponteiro no Azure AD, siga os passos
 
 2. Adicione uma nova chave para a aplicação de recurso.
 
-3. Atualizar o ficheiro de manifesto de aplicação para que a propriedade groupMembershipClaims tem o valor "groupMembershipClaims": "All".
+3. Atualize o ficheiro de manifesto de aplicação para que a propriedade groupMembershipClaims tem o valor "groupMembershipClaims": "Tudo".
 
 4. Na aplicação do Azure AD que aponta para a aplicação web player, na secção **permissões para outras aplicações**, adicionar a aplicação de recurso que foi adicionada no passo 1. Sob **delegado permissão**, selecione **acesso [resource_name]**. Esta opção dá a permissão da aplicação web para criar tokens de acesso que acederem à aplicação de recurso. Fazer isso para a versão local e implantada da aplicação web se desenvolver com o Visual Studio e a aplicação web do Azure.
 
@@ -368,12 +368,12 @@ Quando utilizar um STS personalizado, duas alterações devem ser feitas:
 Existem dois tipos de chaves de segurança:
 
 * Chave simétrica: A mesma chave é utilizada para gerar e verificar um JWT.
-* Chave assimétrica: um par de chaves públicas-privadas uma X509 certificado é utilizado com uma chave privada para encriptar/gerar um JWT e com a chave pública para verificar o token.
+* Chave assimétrica: Um par de chaves públicas-privadas uma X509 certificado é utilizado com uma chave privada para encriptar/gerar um JWT e com a chave pública para verificar o token.
 
 > [!NOTE]
 > Se usar o .NET Framework / c# como sua plataforma de desenvolvimento, X509 certificado utilizado para uma chave assimétrica segurança tem de ter um comprimento de chave de, pelo menos, 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, é gerada a seguinte exceção:
 > 
-> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
+> IDX10630: O 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
 
 ## <a name="the-completed-system-and-test"></a>O sistema concluído e o teste
 Esta secção explica os cenários seguintes no sistema ponto a ponto concluído para que possa ter uma imagem básica do comportamento antes de obter uma conta de início de sessão:
@@ -407,7 +407,7 @@ Pode contactar qualquer um dos autores tenham uma conta criada ou adicionado par
 
 As capturas de ecrã seguintes mostram as páginas de início de início de sessão diferentes utilizadas por contas de domínio diferente:
 
-**Conta de domínio de inquilino de personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado de domínio de inquilino.
+**Conta de domínio de inquilino personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado o domínio de inquilino.
 
 ![Conta de domínio de inquilino personalizado do Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 

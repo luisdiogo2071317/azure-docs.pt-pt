@@ -1,19 +1,19 @@
 ---
-title: 'Lição 12 do tutorial do Azure Analysis Services: Analyze em Excel | Microsoft Docs'
+title: 'O Azure Analysis Services lição 12 do tutorial: Analisar no Excel | Documentos da Microsoft'
 description: Descreve como utilizar o Analyze em Excel num projeto do tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429767"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186486"
 ---
 # <a name="analyze-in-excel"></a>Analisar no Excel
 
@@ -21,7 +21,7 @@ Nesta lição, irá utilizar a funcionalidade Analyze no Excel para abrir o Micr
   
 Para concluir esta lição, o Excel deve ser instalado no mesmo computador que o Visual Studio.
   
-Tempo estimado para concluir esta lição: **5 minutos**  
+Tempo estimado para concluir esta lição: **Cinco minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelação em tabela que deve ser concluído por ordem. Antes de executar as tarefas nesta lição, deverá ter concluído a lição anterior: [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md).  
@@ -69,7 +69,7 @@ Funções são uma parte importante de qualquer modelo de tabela. Sem, pelo meno
 3.  Feche o Excel sem guardar o livro.  
   
 ## <a name="whats-next"></a>Passos seguintes?
-Avance para a próxima lição: [Lição 13: Implementar](../tutorials/aas-lesson-13-deploy.md).
+Vá para a próxima lição: [Lição 13: Implementar](../tutorials/aas-lesson-13-deploy.md).
 
   
   

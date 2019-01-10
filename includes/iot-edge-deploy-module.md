@@ -8,14 +8,18 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 019d6120f8f3769d2d974270d575278da0370ef0
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057413"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192164"
 ---
-Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar módulos nos seus dispositivos do IoT Edge a partir da cloud. Os módulos do IoT Edge são pacotes executáveis que são implementados como contentores. Nesta secção, vamos implementar um módulo previamente criado a partir da [seção de módulos do IoT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Este módulo gera telemetria simulada para o seu dispositivo IoT Edge.
+Uma das principais funcionalidades do Azure IoT Edge é a capacidade de implementar o código para os seus dispositivos IoT Edge a partir da cloud. **Módulos do IoT Edge** são implementados como contentores de pacotes executáveis. Nesta secção, vai implementar um módulo previamente criado a partir da [seção de módulos do IoT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
+
+O módulo que implementar nesta secção simula um sensor e envia os dados gerados. Este módulo é uma parte útil do código, quando está começando a usar com o IoT Edge porque pode usar os dados simulados para desenvolvimento e teste. Se quiser ver exatamente o que esse módulo faz, pode ver o [simulated o código de origem do sensor de temperatura](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs). 
+
+Para implementar o seu primeiro módulo do Azure Marketplace, utilize os seguintes passos:
 
 1. Na [portal do Azure](https://portal.azure.com), introduza **Sensor de temperatura simulada** para a pesquisa e abra o resultado do Marketplace.
 
@@ -31,7 +35,7 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
    
    4. Selecione **Criar**.
 
-3. Agora que optou por um módulo do IoT Edge do Azure Marketplace e escolhido um dispositivo IoT Edge para receber o módulo, é levado para um Assistente de três etapas que o ajuda a definir exatamente como o módulo será implementado. Na **adicionar módulos** passo do assistente, tenha em atenção que o **SimulatedTemperatureSensor** módulo é preenchido automaticamente. Os tutoriais, irá utilizar esta página para adicionar módulos adicionais à sua implementação. Neste início rápido, basta implantar este um módulo. Selecione **seguinte** para continuar para o passo seguinte do assistente.
+3. Agora que optou por um módulo do IoT Edge do Azure Marketplace e escolhido um dispositivo IoT Edge para receber o módulo, é levado para um Assistente de três etapas que o ajuda a definir exatamente como implementar o módulo. Na **adicionar módulos** passo do assistente, tenha em atenção que o **SimulatedTemperatureSensor** módulo é preenchido automaticamente. Nos tutoriais, utilize esta página para adicionar módulos adicionais à sua implementação. Neste início rápido, só implemente esta um módulo. Selecione **seguinte** para continuar para o passo seguinte do assistente.
 
 4. Na **especificar rotas** passo do assistente, define como as mensagens são passadas entre módulos e para o IoT Hub. O guia de introdução, pretende obter todas as mensagens de todos os módulos para ir para o IoT Hub (`$upstream`). Se não for preenchido automaticamente, adicione o seguinte código, em seguida, selecione **seguinte**:
 
@@ -43,12 +47,12 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
     }
    ```
 
-5. Na **implementação de revisão** passo do assistente, pode visualizar o ficheiro JSON que define todos os módulos implementados para o seu dispositivo IoT Edge. Tenha em atenção que o **SimulatedTemperatureSensor** módulo está incluído, bem como dois módulos de sistema adicionais chamados **edgeAgent** e **edgeHub**. Selecione **submeter** quando concluir revisão.
+5. Na **implementação de revisão** passo do assistente, pode visualizar o ficheiro JSON que define todos os módulos implementados para o seu dispositivo IoT Edge. Tenha em atenção que o **SimulatedTemperatureSensor** módulo está incluído e dois módulos de sistema adicionais chamado **edgeAgent** e **edgeHub**. Selecione **submeter** quando concluir revisão.
 
-   Quando submete uma nova implementação para um dispositivo IoT Edge, nada é enviada por push para o seu dispositivo. Em vez disso, o dispositivo consulta regularmente o IoT Hub para quaisquer instruções de novo. Quando ele vê as novas informações de implementação, o dispositivo utiliza para extrair as imagens de módulo a partir da cloud e começa a executar os módulos localmente. Este processo pode demorar alguns minutos. 
+   Quando submete uma nova implementação para um dispositivo IoT Edge, nada é enviada por push para o seu dispositivo. Em vez disso, o dispositivo consulta regularmente o IoT Hub para quaisquer instruções de novo. Se o dispositivo encontra um manifesto de implantação atualizado, ele usa as informações sobre a nova implementação de nuvem, onde as imagens de módulo, em seguida, começa a executar os módulos localmente. Este processo pode demorar alguns minutos. 
 
 6. Depois de submeter os detalhes de implementação do módulo, o Assistente de volta para o **IoT Edge** página do IoT hub. Selecione o seu dispositivo da lista de dispositivos do IoT Edge para ver os respetivos detalhes. 
 
-7. Na página de detalhes do dispositivo, desloque para baixo para o **módulos** secção. Três módulos deverá ser listados: $edgeAgent $edgeHub e SimulatedTemperatureSensor. Se um ou mais dos módulos são apresentados conforme especificado na implementação, mas não reportados pelo dispositivo, o que significa que o seu dispositivo IoT Edge ainda é iniciá-los. Aguarde uns instantes e selecione **atualizar** na parte superior da página. 
+7. Na página de detalhes do dispositivo, desloque para baixo para o **módulos** secção. Três módulos deverá ser listados: $edgeAgent $edgeHub e SimulatedTemperatureSensor. Se um ou mais dos módulos são listadas como especificadas na implementação, mas não reportados pelo dispositivo, o IoT Edge dispositivo é ainda iniciá-los. Aguarde uns instantes e selecione **atualizar** na parte superior da página. 
 
    ![Vista SimulatedTemperatureSensor na lista de módulos implementados](./media/iot-edge-deploy-module/deployed-modules-marketplace.png)

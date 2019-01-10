@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118372"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188764"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -65,7 +65,7 @@ O elemento urlPathMap é utilizado para especificar padrões de Caminho para map
 
 PathPattern é uma lista de padrões de caminho corresponder. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência do caminho não inclui qualquer texto depois do primeiro? ou, # sendo que esses carateres não são permitidas aqui. Caso contrário, são permitidas quaisquer carateres permitidos num URL PathPattern.
 
-Os padrões suportados dependem do que se implementar o Gateway de aplicação v1 ou v2:
+Os padrões suportados dependem se implementar o Gateway de aplicação v1 ou v2:
 
 #### <a name="v1"></a>V1
 

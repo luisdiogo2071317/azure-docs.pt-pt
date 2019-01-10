@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098232"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189289"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidas ou uma cópia de segurança no Windows 10. 
@@ -48,11 +48,11 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 * Preferências de idioma: dicionário de ortografia, definições de idioma do sistema 
 * Facilidade de acesso: Narrador, teclado no ecrã, Lupa 
 * Outras definições do Windows: veja os detalhes de definições do Windows
-* Configuração do navegador de borda: Favoritos do Microsoft Edge, lista de leitura e outras definições
+* Definição do browser Microsoft Edge: Favoritos do Microsoft Edge, lista de leitura e outras definições
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Sincronização de grupo (Favoritos, lista de leitura) do contorno browser definição pode ser ativado ou desativado pelos utilizadores finais através do browser Microsoft Edge opção do menu de definições.
+Sincronização de grupo (Favoritos, lista de leitura) de definição de browser Microsoft Edge pode ser ativado ou desativado pelos usuários finais através do browser Microsoft Edge opção de menu de definições.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -70,12 +70,12 @@ As definições que não são carregados ou sincronização não irão pertencer
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |Sincronização |X |Tema |
 | **Contas**: outras definições de conta |X |X | |
-| **Advanced banda larga móvel**: nome de rede (permite a deteção automática de hotspots de Wi-Fi móveis através de Bluetooth) de compartilhamento de conexão de Internet |X |X |Palavras-passe |
+| **Advanced banda larga móvel**: Nome de rede (permite a deteção automática de hotspots de Wi-Fi móveis através de Bluetooth) de compartilhamento de conexão de Internet |X |X |Palavras-passe |
 | **Dados da aplicação**: aplicações individuais, podem sincronizar dados |cópia de segurança de sincronização |cópia de segurança de sincronização |Interno |
 | **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outros |
 | **Bluetooth**: todas as definições de Bluetooth |X |X | |
-| **Linha de comandos**: definições de "Padrão" de linha de comandos |Sincronização |X |Interno |
-| **Credenciais**: cacifo de credenciais |Sincronização |Sincronização |palavra-passe |
+| **Linha de comandos**: Definições de "Predefinições" prompts de comando |Sincronização |X |Interno |
+| **credenciais**: Cacifo de credenciais |Sincronização |Sincronização |palavra-passe |
 | **Data, hora e região**: tempo automática (sincronização de hora da Internet) |Sincronização |Sincronização |language |
 | **Data, hora e região**: relógio de 24 horas |Sincronização |X |language |
 | **Data, hora e região**: data e hora |Sincronização |X |language |
@@ -96,20 +96,20 @@ As definições que não são carregados ou sincronização não irão pertencer
 | **Browser Microsoft Edge**: lista de leitura |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: Favoritos |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: principais sites <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: escreveu URLs <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: definições de barra de Favoritos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: Mostrar botão home <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: digitado URLs <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: as definições da barra de Favoritos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: Mostrar botão de início <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: bloquear pop-ups <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: perguntar o que fazer com cada transferência <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: oferecem guardar as palavras-passe <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: enviar not track pedidos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: me perguntam o que fazer com cada download <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: oferta para guardar palavras-passe <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: envio não monitorizar os pedidos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: guardar entradas do formulário <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: Mostrar sugestões de pesquisa e o site enquanto digito <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: preferência de cookies <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: a preferência de cookies <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Browser Microsoft Edge**: permitir que os sites guardar licenças de suporte de dados protegidos no meu dispositivo <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Browser Microsoft Edge**: a definição de leitor de ecrã <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Alto contraste**: ativada ou desativada |Sincronização |X |Facilidade de acesso |
-| **Alto contraste**: configurações de tema |Sincronização |X |Facilidade de acesso |
+| **Browser Microsoft Edge**: a definição de leitor de tela <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Alto contraste**: Ativada ou desativada |Sincronização |X |Facilidade de acesso |
+| **Alto contraste**: Configurações de tema |Sincronização |X |Facilidade de acesso |
 | **Internet Explorer**: Abra separadores (URL e título) |Sincronização |Sincronização |Internet Explorer |
 | **Internet Explorer**: lista de leitura |Sincronização |Sincronização |Internet Explorer |
 | **Internet Explorer**: URLs de tipos |Sincronização |Sincronização |Internet Explorer |
@@ -122,23 +122,23 @@ As definições que não são carregados ou sincronização não irão pertencer
 | **Teclado**: Ativar o adesivo Sim (desativado por predefinição) |Sincronização |X |Facilidade de acesso |
 | **Teclado**: Ativar as chaves de filtro (desativado por predefinição) |Sincronização |X |Facilidade de acesso |
 | **Teclado**: Ativar as chaves de alternância (desativado por predefinição) |Sincronização |X |Facilidade de acesso |
-| **Internet Explorer**: domínio idiomas: chinês (CHS) QWERTY - ativar a aprendizagem automática |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - ativar Release candidate dinâmica classificação |Sincronização |X |Idioma |
-| **Idioma**: QWERTY, formato CHS - char-set chinês simplificado |Sincronização |X |Idioma |
-| **Idioma**: QWERTY, formato CHS - char-set chinês tradicional |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - pinyin difusa |Sincronização |cópia de segurança |Idioma |
-| **Idioma**: CHS QWERTY, formato - pares difusas |Sincronização |cópia de segurança |Idioma |
-| **Idioma**: CHS QWERTY, formato - pinyin completo |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - pinyin duplo |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - correção automática de leitura |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - chave de C/E comutador, shift |Sincronização |X |Idioma |
-| **Idioma**: CHS QWERTY, formato - chave de C/E comutador, Ctrl |Sincronização |X |Idioma |
+| **Internet Explorer**: domínio idioma: Chinês (CHS) QWERTY - ativar a aprendizagem automática |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - ativar Release candidate dinâmica classificação |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - char-set chinês simplificado |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - char-set, chinês tradicional |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - pinyin difusa |Sincronização |cópia de segurança |Idioma |
+| **Idioma**: CHS QWERTY - pares difusas |Sincronização |cópia de segurança |Idioma |
+| **Idioma**: CHS QWERTY - pinyin completo |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - pinyin duplo |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - correção automática de leitura |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - chave de C/E comutador, shift |Sincronização |X |Idioma |
+| **Idioma**: CHS QWERTY - C/E mude a chave, Ctrl |Sincronização |X |Idioma |
 | **Idioma**: CHS WUBI - modo de entrada de caractere único |Sincronização |X |Idioma |
 | **Idioma**: CHS WUBI - mostrar os restantes codificação da Release candidate |Sincronização |X |Idioma |
-| **Idioma**: emitirá um alarme sonoro CHS WUBI - quando a codificação de 4 é inválido |Sincronização |X |Idioma |
+| **Idioma**: CHS WUBI - emitir aviso sonoro quando a codificação de 4 é inválido |Sincronização |X |Idioma |
 | **Idioma**: CHT Bopomofo - incluem CJK Ext-A |Sincronização |X |Idioma |
 | **Idioma**: IME do japonês - preditiva palavras de digitação e personalizadas |Sincronização |Sincronização |Idioma |
-| **Idioma**: coreano (KOR) IME |X |X |Idioma |
+| **Idioma**: Coreano (KOR) IME |X |X |Idioma |
 | **Idioma**: reconhecimento de manuscrito |X |X |Idioma |
 | **Idioma**: perfil de idioma |Sincronização |cópia de segurança |Idioma |
 | **Idioma**: verificação ortográfica - erros de ortografia autocorreção e realçar |Sincronização |cópia de segurança |Idioma |
@@ -175,7 +175,7 @@ As definições que não são carregados ou sincronização não irão pertencer
 | **Escrever**: utilizar todas as letras maiúsculas quando eu duplo toque tecla shift |Sincronização |cópia de segurança |Idioma |
 | **Escrever**: reproduzir sons de chave, à medida que escreve |Sincronização |cópia de segurança |Idioma |
 | **Escrever**: data individuálního nastavení Pro teclado de toque |Sincronização |cópia de segurança |Idioma |
-| **Wi-Fi**: perfis de Wi-Fi (apenas WPA) |Sincronização |Sincronização |Palavras-passe |
+| **Wi-Fi**: Perfis de Wi-Fi (apenas WPA) |Sincronização |Sincronização |Palavras-passe |
 
 ###### <a name="footnote-1"></a>Nota de rodapé 1
 Versão de SO de atualização para criativos do Windows (criar 15063) mínima suportada. 

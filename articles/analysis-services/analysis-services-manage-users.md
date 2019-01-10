@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428424"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191365"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
+
 O Azure Analysis Services utiliza o Azure Active Directory (Azure AD) para autenticação de utilizador e gestão de identidade. Qualquer usuário criar, gerir ou ligar a um Azure Analysis Services server tem de ter uma identidade de utilizador válido [inquilino do Azure AD](../active-directory/fundamentals/active-directory-administer.md) na mesma subscrição.
 
 O Azure Analysis Services suporta [colaboração B2B do Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Com o B2B, os utilizadores fora da organização podem ser convidados como os utilizadores convidados num diretório do Azure AD. Os convidados podem ser de outro diretório de inquilino do Azure AD ou de qualquer endereço de e-mail válido. Uma vez convidado e o utilizador aceitar o convite enviado por e-mail do Azure, a identidade do utilizador é adicionada ao diretório do inquilino. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de uma função de administrador ou a base de dados do servidor.
@@ -23,6 +24,7 @@ O Azure Analysis Services suporta [colaboração B2B do Azure AD](../active-dire
 ![Arquitetura de autenticação do Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Autenticação
+
 Todas as aplicações de cliente e ferramentas de utilizam um ou mais dos serviços de análise [bibliotecas de cliente](analysis-services-data-providers.md) (AMO, MSOLAP, ADOMD) para ligar a um servidor. 
 
 Todas as três bibliotecas de cliente suportam o fluxo de interativo do Azure AD e métodos de autenticação não interativa. Os dois métodos não interativa, palavra-passe de diretório Active Directory e métodos de autenticação de integrada do Active Directory podem ser usados em aplicativos utilizando AMOMD e MSOLAP. Esses dois métodos nunca resultam em caixas de diálogo pop-up.
@@ -36,6 +38,7 @@ Power BI Desktop, o SSDT e o SSMS suporta a autenticação do Active Directory U
 Se iniciar sessão no Azure utilizando uma conta do Windows e autenticação Universal não está selecionado ou de disponível (Excel), [serviços de Federação do Active Directory (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) é necessária. Com a Federação, do Azure AD e utilizadores do Office 365 são autenticados com credenciais no local e podem aceder aos recursos do Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+
 Servidores do Analysis Services do Azure suportam ligações a partir [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e superior utilizando a autenticação do Windows, autenticação de palavra-passe do Active Directory e Active Directory Universal Authentication. Em geral, recomenda-se que usar o Active Directory Universal Authentication porque:
 
 *  Oferece suporte a métodos de autenticação não interativa e interativos.
@@ -45,12 +48,15 @@ Servidores do Analysis Services do Azure suportam ligações a partir [SSMS V17.
 *  Suporta autenticação Multifator (MFA). Azure MFA ajuda a salvaguardar o acesso a dados e aplicações com uma variedade de opções de verificação: chamada telefónica, mensagem de texto, smart cards com pin ou notificação de aplicação móvel. MFA interativa com o Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
+
 SSDT liga-se ao Azure Analysis Services com o Active Directory Universal Authentication com suporte MFA. É pedido aos utilizadores iniciar sessão para o Azure, na primeira implementação. Os utilizadores devem iniciar sessão no Azure com uma conta com permissões de administrador do servidor no servidor que estão a implementar. Quando iniciar sessão Azure pela primeira vez, é atribuído um token. SSDT armazena em cache o token na memória para a reconexão do futuro.
 
 ### <a name="power-bi-desktop"></a>O ambiente de trabalho do Power BI
+
 Power BI Desktop liga-se para utilizar o Active Directory Universal Authentication com suporte MFA do Azure Analysis Services. É pedido aos utilizadores iniciar sessão para o Azure, na primeira ligação. Os utilizadores devem iniciar sessão no Azure com uma conta que está incluída num administrador do servidor ou a função de base de dados.
 
 ### <a name="excel"></a>Excel
+
 Os usuários do Excel, podem ligar a um servidor com uma conta do Windows, um ID de organização (endereço de e-mail) ou um endereço de e-mail externo. Identidades de e-mail externo tem de existir no Azure AD como um utilizador convidado.
 
 ## <a name="user-permissions"></a>Permissões de utilizador
@@ -65,15 +71,12 @@ Os usuários do Excel, podem ligar a um servidor com uma conta do Windows, um ID
 
 Funções nesse nível aplicam-se a utilizadores ou contas que têm de executar tarefas que podem ser concluídas no portal ou através de modelos Azure Resource Manager. Para obter mais informações, consulte [controlo de acesso baseado em funções](../role-based-access-control/overview.md). 
 
-
 ## <a name="database-roles"></a>Funções de base de dados
 
  Funções definidas para um modelo de tabela são funções de base de dados. Ou seja, as funções contêm membros que consiste de utilizadores do Azure AD e os grupos de segurança que tenham permissões específicas que definem a ação esses membros podem ter uma base de dados do modelo. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada.   
   
  Por predefinição, quando cria um novo projeto de modelo em tabela, o projeto de modelo não tem quaisquer funções. As funções podem ser definidas utilizando a caixa de diálogo do Gestor de funções no SSDT. Quando as funções são definidas durante o design de projeto do modelo, estas são aplicadas apenas a base de dados da área de trabalho do modelo. Quando o modelo é implementado, as mesmas funções são aplicadas para o modelo implementado. Depois de ter sido implementado um modelo, os administradores de banco de dados de servidores e podem gerir funções e membros com o SSMS. Para obter mais informações, consulte [gerir funções de base de dados e os utilizadores](analysis-services-database-users.md).
   
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Gerir o acesso a recursos com grupos do Active Directory do Azure](../active-directory/fundamentals/active-directory-manage-groups.md)   

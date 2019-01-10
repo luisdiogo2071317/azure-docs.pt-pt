@@ -1,5 +1,5 @@
 ---
-title: 'O Azure Active Directory Connect: Resolução de problemas de sessão único totalmente integrado-| Documentos da Microsoft'
+title: 'Ligar o Azure Active Directory: Resolver problemas de sessão único totalmente integrado-| Documentos da Microsoft'
 description: Este tópico descreve como resolver problemas do Azure Active Directory totalmente integrada início de sessão único
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055905"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190430"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -27,7 +27,7 @@ Este artigo ajuda-o a localizar informações sobre problemas comuns sobre o Azu
 
 - Em alguns casos, a ativar o SSO totalmente integrado pode demorar até 30 minutos.
 - Se desativa e reativar o SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão única até que as suas permissões de Kerberos em cache, normalmente, válidas durante 10 horas, tem expirado.
-- Suporte de browser Microsoft Edge não está disponível.
+- Suporte do browser Microsoft Edge não está disponível.
 - Se tiver êxito SSO totalmente integrado, o utilizador não tem a oportunidade de selecionar **manter sessão iniciada**. Devido a esse comportamento [cenários de mapeamento do SharePoint e OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outras pessoas) com as versões 16.0.8730.xxxx e superior são suportados com um fluxo não interativo. Outras versões não são suportadas; por essas versões, os usuários passarão a seus nomes de utilizador, mas não as palavras-passe, início de sessão. Para o OneDrive, terá de ativar a [funcionalidade de configuração automática do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de início de sessão silenciosa.
 - SSO totalmente integrado não funciona no modo de navegação particular, no Firefox.
@@ -36,23 +36,23 @@ Este artigo ajuda-o a localizar informações sobre problemas comuns sobre o Azu
 - Se um utilizador faz parte de demasiados grupos no Active Directory, permissão Kerberos do utilizador deverá ser demasiado grande para processar e isso fará com que SSO totalmente integrado a falhar. Pedidos de HTTPS de AD do Azure podem ter cabeçalhos com um tamanho máximo de 50 KB; Os tíquetes Kerberos tem de ser menor do que esse limite para acomodar outros artefatos do Azure AD (normalmente, 2 a 5 KB), como cookies. A nossa recomendação é reduzir as associações de grupo do utilizador e tente novamente.
 - Se estiver sincronizando 30 ou mais florestas do Active Directory, não é possível ativar o SSO totalmente integrado através do Azure AD Connect. Como solução, pode [ative manualmente](#manual-reset-of-the-feature) a funcionalidade no seu inquilino.
 - Adicionar o URL do serviço do Azure AD (https://autologon.microsoftazuread-sso.com) para a zona de sites fidedignos, em vez de zona da Local intranet *bloqueia os utilizadores se inscrevam*.
-- Utiliza o SSO totalmente integrado a **RC4_HMAC_MD5** tipo de encriptação para Kerberos. Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação nas definições do Active Directory irá interromper o SSO totalmente integrado. Na sua ferramenta de Editor de gerenciamento de diretiva de grupo Certifique-se de que o valor da política para **RC4_HMAC_MD5** sob **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** é **ativado**. Além disso, o SSO totalmente integrado não é possível utilizar outros tipos de encriptação, por isso, certifique-se de que estão **desativada**.
+- Utiliza o SSO totalmente integrado a **RC4_HMAC_MD5** tipo de encriptação para Kerberos. Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação nas definições do Active Directory irá interromper o SSO totalmente integrado. Na sua ferramenta de Editor de gerenciamento de diretiva de grupo Certifique-se de que o valor da política para **RC4_HMAC_MD5** sob **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: Configurar tipos de encriptação permitidos para Kerberos"** é **ativado**. Além disso, o SSO totalmente integrado não é possível utilizar outros tipos de encriptação, por isso, certifique-se de que estão **desativada**.
 
 ## <a name="check-status-of-feature"></a>Verificar o estado do recurso
 
 Certifique-se de que a funcionalidade de SSO totalmente integrado é ainda **ativado** no seu inquilino. Pode verificar o estado ao aceder a **do Azure AD Connect** painel na [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
+![Centro de administração do Azure Active Directory: Painel do Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
 
 Clicar para ver todas as florestas do AD que foram ativadas para SSO totalmente integrado.
 
-![Centro de administração do Azure Active Directory: o painel de SSO totalmente integrado](./media/tshoot-connect-sso/sso13.png)
+![Centro de administração do Azure Active Directory: Painel SSO totalmente integrado](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos das falhas de início de sessão no Centro de administração do Active Directory do Azure (precisa de uma licença Premium)
 
 Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../reports-monitoring/concept-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administração do Azure Active Directory: relatório de inícios de sessão](./media/tshoot-connect-sso/sso9.png)
+![Centro de administração do Azure Active Directory: Relatório de inícios de sessão](./media/tshoot-connect-sso/sso9.png)
 
 Navegue até **do Azure Active Directory** > **inícios de sessão** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/)e, em seguida, selecione a atividade de início de sessão de um utilizador específico. Procure o **código de erro de início de sessão** campo. Mapear o valor deste campo a um motivo da falha e a resolução com a tabela seguinte:
 
@@ -104,7 +104,7 @@ Se ativar a auditoria de êxito no seu controlador de domínio, em seguida, semp
 
 Se a resolução de problemas não o ajudaram, pode repor manualmente a funcionalidade no seu inquilino. Siga estes passos no servidor no local em que estiver a executar o Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passo 1: Importar o módulo do PowerShell do SSO totalmente integrado
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passo 1: Importe o módulo PowerShell do SSO totalmente integrado
 
 1. Em primeiro lugar, transfira e instale [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navegue para o `%programfiles%\Microsoft Azure Active Directory Connect` pasta.

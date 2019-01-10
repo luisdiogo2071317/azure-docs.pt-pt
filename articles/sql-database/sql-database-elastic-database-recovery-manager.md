@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f6c289c87f4f58fdad8950bdf61fa68016fe8d3e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5bb914de1cded7c70516bfb4bfdaa93c83fe0e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042075"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188679"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
 
-O [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) classe fornece os aplicativos ADO.Net a capacidade de facilmente detetar e corrigir quaisquer inconsistências entre o mapa de partições horizontais global (GSM) e o mapa de partições horizontais local (LSM) num ambiente de base de dados em partição horizontal.
+O [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe fornece os aplicativos ADO.Net a capacidade de facilmente detetar e corrigir quaisquer inconsistências entre o mapa de partições horizontais global (GSM) e o mapa de partições horizontais local (LSM) num ambiente de base de dados em partição horizontal.
 
 O GSM e LSM controlam o mapeamento de cada base de dados num ambiente em partição horizontal. Ocasionalmente, uma interrupção ocorre entre o GSM e o LSM. Nesse caso, utilize a classe RecoveryManager para detetar e reparar a garantia de reparação.
 
@@ -49,7 +49,7 @@ Para obter mais informações sobre a ferramentas do Azure SQL da base de dados 
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperando RecoveryManager de um ShardMapManager
 
-A primeira etapa é criar uma instância de RecoveryManager. O [método GetRecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) devolve o Gestor de recuperação para a atual [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instância. Para resolver eventuais inconsistências verificadas no mapa de partições horizontais, tem primeiro de obter RecoveryManager para o mapa de partições horizontais específico.
+A primeira etapa é criar uma instância de RecoveryManager. O [método GetRecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) devolve o Gestor de recuperação para a atual [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instância. Para resolver eventuais inconsistências verificadas no mapa de partições horizontais, tem primeiro de obter RecoveryManager para o mapa de partições horizontais específico.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
@@ -83,7 +83,7 @@ Porque se assume que a eliminação de base de dados foi intencional, a ação d
 
 ## <a name="to-detect-mapping-differences"></a>Para detetar as diferenças de mapeamento
 
-O [DetectMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seleciona e devolve um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e reconcilia mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
+O [DetectMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seleciona e devolve um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e reconcilia mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -94,19 +94,19 @@ O [DetectMappingDifferences método](https://docs.microsoft.com/dotnet/api/micro
 
 ## <a name="to-resolve-mapping-differences"></a>Para resolver as diferenças de mapeamento
 
-O [ResolveMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleciona um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e concilie mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
+O [ResolveMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) seleciona um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e concilie mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * O *RecoveryToken* parâmetro enumera as diferenças dos mapeamentos entre o GSM e LSM para a partição horizontal específica.
-* O [MappingDifferenceResolution enumeração](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) é utilizado para indicar o método para resolver a diferença entre os mapeamentos de partição horizontal.
+* O [MappingDifferenceResolution enumeração](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) é utilizado para indicar o método para resolver a diferença entre os mapeamentos de partição horizontal.
 * **MappingDifferenceResolution.KeepShardMapping** é recomendado que quando o LSM contém o mapeamento preciso e, portanto, o mapeamento na partição horizontal deve ser utilizado. Isso normalmente é o caso, se houver uma ativação pós-falha: a partição horizontal agora reside num novo servidor. Uma vez que a partição horizontal tem de ser removida do GSM (usando o método RecoveryManager.DetachShard), um mapeamento já não existe o GSM. Por conseguinte, o LSM deve ser usado para voltar a estabelecer o mapeamento de partição horizontal.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Anexar uma partição horizontal para o ShardMap após o restauro de uma partição horizontal
 
-O [AttachShard método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) anexa a partição horizontal especificada para o mapa de partições horizontais. Em seguida, Deteta quaisquer inconsistências de mapa de partições horizontais e atualiza os mapeamentos de acordo com a partição horizontal no ponto de restauro de partição horizontal. Presume-se que a base de dados também foi mudado para refletir o banco de dados nome original (antes de que foi restaurada a partição horizontal), uma vez que o restauro de ponto no tempo é predefinido para uma nova base de dados anexada com o carimbo de hora.
+O [AttachShard método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) anexa a partição horizontal especificada para o mapa de partições horizontais. Em seguida, Deteta quaisquer inconsistências de mapa de partições horizontais e atualiza os mapeamentos de acordo com a partição horizontal no ponto de restauro de partição horizontal. Presume-se que a base de dados também foi mudado para refletir o banco de dados nome original (antes de que foi restaurada a partição horizontal), uma vez que o restauro de ponto no tempo é predefinido para uma nova base de dados anexada com o carimbo de hora.
 
    ```java
    rm.AttachShard(location, shardMapName)

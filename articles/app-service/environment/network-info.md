@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630466"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191603"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -131,7 +131,7 @@ Se o ASE de ILB é o nome de domínio *contoso.net* e o nome de aplicação é *
 
 ## <a name="functions-and-web-jobs"></a>As funções e webjobs ##
 
-As funções e Web tarefas dependem do site do SCM, mas são suportadas para utilização no portal, mesmo que as aplicações estão num ASE de ILB, desde que o browser pode contactar o site do SCM.  Se estiver a utilizar um certificado autoassinado com o ASE de ILB, terá de ativar o seu browser para confiar no certificado.  Para o IE e o Microsoft Edge, que significa que o certificado tem de estar no arquivo de confiança do computador.  Se estiver a utilizar Chrome, em seguida, o que significa que aceite o certificado no browser anteriormente pelo supostamente diretamente a atingir o site do scm.  A melhor solução é usar um certificado comercial que esteja na cadeia de navegador de confiança.  
+As funções e Web tarefas dependem do site do SCM, mas são suportadas para utilização no portal, mesmo que as aplicações estão num ASE de ILB, desde que o browser pode contactar o site do SCM.  Se estiver a utilizar um certificado autoassinado com o ASE de ILB, terá de ativar o seu browser para confiar no certificado.  Para o IE e o Microsoft Edge, isso significa que o certificado tem de estar no arquivo de confiança do computador.  Se estiver a utilizar Chrome, em seguida, o que significa que aceite o certificado no browser anteriormente pelo supostamente diretamente a atingir o site do scm.  A melhor solução é usar um certificado comercial que esteja na cadeia de navegador de confiança.  
 
 ## <a name="ase-ip-addresses"></a>Endereços IP de ASE ##
 

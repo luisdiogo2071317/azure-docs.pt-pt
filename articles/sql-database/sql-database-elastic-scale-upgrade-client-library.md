@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 63671b38c952f5297be88f7b50ad9d6f9341fc72
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 395aff83c8983c4f61ca0b1fd1da276de17ec98b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034425"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190086"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar uma aplicação para utilizar a biblioteca de cliente mais recente do bases de dados elásticas
 
@@ -55,7 +55,7 @@ Efetuar estes passos por ordem assegura que as versões antigas da biblioteca de
 
 ***Opção 2: Atualizar com metadadosC#***
 
-Em alternativa, criar um aplicativo do Visual Studio que abre seu ShardMapManager, itera em todas as partições horizontais e executa a atualização de metadados ao chamar os métodos [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) e [UpgradeGlobalStore ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) tal como neste exemplo:
+Em alternativa, criar um aplicativo do Visual Studio que abre seu ShardMapManager, itera em todas as partições horizontais e executa a atualização de metadados ao chamar os métodos [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) e [UpgradeGlobalStore ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) tal como neste exemplo:
 
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager

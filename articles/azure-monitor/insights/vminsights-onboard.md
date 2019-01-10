@@ -1,5 +1,5 @@
 ---
-title: Implementar o Azure Monitor para a pré-visualização de VMs | Documentos da Microsoft
+title: Implementar o Azure Monitor para VMs (pré-visualização) | Documentos da Microsoft
 description: Este artigo descreve como implementar e configurar o Azure Monitor para as VMs para que possa começar a entender sobre a execução da sua aplicação distribuída e problemas de estado de funcionamento do que tenham sido identificadas.
 services: azure-monitor
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3d408c2a2f9de69d8a12a394df68acff8f3d0bf7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121666"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190334"
 ---
-# <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para a pré-visualização de VMs
-Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos.
+# <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para VMs (pré-visualização)
+Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos. 
 
 Ativar o Azure Monitor para VMs com um dos seguintes métodos:
 

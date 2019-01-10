@@ -5,30 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994443"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189019"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
 Depois de ter um servidor criado e implementado um modelo de tabela, os clientes podem ligar e começar a explorar os dados. 
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 A conta que iniciar sessão com têm de pertencer a uma função de base de dados de modelo com, pelo menos, permissões de leitura. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador). 
 
 ## <a name="connect-in-excel"></a>Ligue-se no Excel
 
-A ligação a um servidor no Excel é suportada ao utilizar obter dados no Excel 2016. Não é suportada a ligar-se com o Assistente de importação de tabelas no Power Pivot. 
+A ligação a um servidor no Excel é suportada ao utilizar obter dados no Excel 2016 e posterior. Não é suportada a ligar-se com o Assistente de importação de tabelas no Power Pivot. 
 
-**Para ligar-se no Excel 2016**
-
-1. No Excel 2016, sobre o **dados** Friso, clique em **obter dados externos** > **de outras origens** > **do Analysis Services** .
+1. No Excel, sobre o **dados** Friso, clique em **obter dados externos** > **de outras origens** > **do Analysis Services**.
 
 2. No Assistente de ligação de dados, no **nome do servidor**, introduza o nome de servidor, incluindo o protocolo e URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, na **credenciais de início de sessão**, selecione **utilize o seguinte nome de utilizador e palavra-passe**e, em seguida, escreva o nome de utilizador organizacional, por exemplo nancy@adventureworks.come a palavra-passe.
 
@@ -43,6 +42,7 @@ A ligação a um servidor no Excel é suportada ao utilizar obter dados no Excel
 
 
 ## <a name="see-also"></a>Consulte também
+
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Gerir o seu servidor](analysis-services-manage.md)     
 

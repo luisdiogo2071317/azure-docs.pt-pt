@@ -28,6 +28,7 @@
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Modelo do Resource Manager](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Pesquisar referência de sintaxe](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Conceitos de programador](data-catalog-developer-concepts.md)
 

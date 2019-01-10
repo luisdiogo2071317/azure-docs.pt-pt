@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3057368ca76a0a9ad90c3c1890cffd139b6b13a2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159813"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191450"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source FAQs para aplicações Web no Azure
 
@@ -219,4 +219,4 @@ Depois de assegurar que do MySQL na aplicação está em execução, tente utili
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Recebo um erro de HTTP 403 quando tento importar ou exportar o meu banco de dados do MySQL na aplicação através de PHPMyadmin. Como posso resolver isto?
 
-Se estiver a utilizar uma versão anterior do Chrome, possam estar a ter um bug conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Experimente também utilizando um browser diferente, como o Internet Explorer ou Microsoft Edge, onde o problema não ocorre.
+Se estiver a utilizar uma versão anterior do Chrome, possam estar a ter um bug conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Também pode tente utilizar um browser diferente, como o Internet Explorer ou o Microsoft Edge, onde o problema não ocorre.

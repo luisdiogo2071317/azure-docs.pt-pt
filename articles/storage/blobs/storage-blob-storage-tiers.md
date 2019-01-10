@@ -5,17 +5,17 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014502"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191671"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), as camadas de armazenamento frequente, esporádico e arquivo
 
 ## <a name="overview"></a>Descrição geral
 
@@ -62,8 +62,8 @@ Para utilizar este escalão, aprovisionar uma nova conta de armazenamento de Blo
 Durante a pré-visualização, a camada de acesso de Premium:
 
 - Está disponível como armazenamento localmente redundante (LRS)
-- Só está disponível nas seguintes regiões: E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste
-- Não suporta a disposição em camadas automática e gerenciamento de ciclo de vida de dados
+- Só está disponível nas seguintes regiões: E.U.A. Leste 2, E.U.A. Central e E.U.A. oeste
+- Não suporta a criação de camadas ao nível do objeto ou a disposição em camadas automática com a gestão de ciclo de vida de dados
 
 Para saber como se registar na pré-visualização de camada de acesso de Premium, veja [introdução ao armazenamento de Blobs do Azure Premium](https://aka.ms/premiumblob).
 
@@ -86,7 +86,8 @@ Camada de armazenamento esporádico tem custos mais baixos de armazenamento e cu
 
 Armazenamento de arquivo tem o custo de armazenamento mais baixo e os custos de obtenção de dados superior em comparação com o armazenamento frequente e esporádico. Esta camada destina-se a dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias.
 
-Enquanto um blob está num armazenamento de arquivo, está offline e não é possível copiar lido (exceto os metadados, que estão online e disponível), substituído ou modificado. Nem pode tirar instantâneos de BLOBs no armazenamento de arquivo. Contudo, pode utilizar operações existentes para eliminar, listar, obter propriedades/metadados de blobs ou alterar a camada dos seus blobs.
+Embora seja um blob no armazenamento de arquivo, os dados de blob está offline e não podem ser lidos, copiados, substituídos ou modificados. Nem pode tirar instantâneos de BLOBs no armazenamento de arquivo. No entanto, os metadados do blob permanecem online e disponível, permitindo que listar os BLOBs e as respetivas propriedades. Para blobs em Arquivo, as únicas operações válidas são GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob. 
+
 
 Exemplos de cenários de utilização para a camada de armazenamento de arquivo incluem:
 
@@ -110,20 +111,27 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar a camada de um blob de bloco que tem instantâneos.
 
-Dados armazenados na camada de acesso Premium não podem ser camadas frequente, esporádico ou arquivo usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ou utilizar a gestão de ciclo de vida de armazenamento de Blobs do Azure. Para mover dados, tem forma síncrona de copiar blobs contra o acesso de Premium para frequente utilizando o [colocar o bloco de API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy que suporte esta API. O *colocar o bloco de URL* API de forma síncrona copia os dados no servidor, que significa que a chamada é concluída apenas uma vez todos os dados são movidos da localização original do servidor para a localização de destino.
+> [!NOTE]
+> Dados armazenados na camada de acesso Premium atualmente não podem ser camadas frequente, esporádico ou arquivo usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ou utilizar a gestão de ciclo de vida de armazenamento de Blobs do Azure. Para mover dados, tem forma síncrona de copiar blobs contra o acesso de Premium para frequente utilizando o [colocar o bloco de API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy que suporte esta API. O *colocar o bloco de URL* API de forma síncrona copia os dados no servidor, que significa que a chamada é concluída apenas uma vez todos os dados são movidos da localização original do servidor para a localização de destino.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode utilizar para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
 
-Quando um blob é movido para uma camada mais esporádica (frequente -> esporádica, frequente -> arquivos ou esporádica -> arquivos), a operação é faturada como uma operação de escrita para a camada de destino, onde a operação de escrita (por 10 000) e os encargos de escrita (por GB) de dados da camada de destino são aplicáveis. Se um blob é movido para uma camada mais frequente (arquivo -> esporádica, arquivo -> frequente ou esporádico -> frequente), a operação é faturada como uma leitura da camada de origem, em que a operação de leitura (por 10 000) e os encargos de obtenção (por GB) de dados de camada de origem são aplicáveis.
+Quando um blob é movido para uma camada mais esporádica (frequente -> esporádica, frequente -> arquivos ou esporádica -> arquivos), a operação é faturada como uma operação de escrita para a camada de destino, onde a operação de escrita (por 10 000) e os encargos de escrita (por GB) de dados da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo -> esporádica, arquivo -> frequente ou esporádico -> frequente), a operação é faturada como uma leitura da camada de origem, em que a operação de leitura (por 10 000) e os encargos de obtenção (por GB) de dados de camada de origem são aplicáveis.
+
+| | **Encargos de escrita** | **Custo de leitura** 
+| ---- | ----- | ----- |
+| **Direção de SetBlobTier** | Frequente -> esporádica, frequente -> arquivos, esporádica -> arquivos | Arquivo -> esporádica, arquivo -> frequente, esporádica -> frequente
 
 Se mudar a camada da conta de acesso frequente para esporádico, será cobrado para operações de escrita (por 10 000) para todos os blobs sem uma camada definida apenas em contas GPv2. Não existe nenhum custo associado para que esta alteração nas contas de armazenamento de Blobs. Será cobrado para operações de leitura (por 10 000) e obtenção de dados (por GB) se mudar seu armazenamento de BLOBs ou GPv2 conta de acesso esporádico para frequente. Podem aplicar-se também Cobranças com deteções precoces para qualquer blob retirado da camada de acesso esporádico ou arquivo.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminação antecipada de Acesso Esporádico e Arquivo
 
 Para além por GB, por mês qualquer blob que seja movido na camada esporádica (contas GPv2 apenas) está sujeito a um período de eliminação antecipada de 30 dias, e qualquer blob que seja movido para a camada de arquivo está sujeito a um período de eliminação antecipada do arquivo de 180 dias. Estes custos são rateados. Por exemplo, se um blob é movido para arquivo e, em seguida, eliminado ou movido para a camada frequente após 45 dias, será cobrada uma taxa de eliminação antecipada equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo.
+
+Pode calcular a eliminação antecipada, utilizando a propriedade de blob **hora de criação**, não se tiver ocorrido nenhum acesso alterações às camadas. Caso contrário, pode utilizar quando a camada de acesso foi modificado pela última vez para acesso esporádico ou arquivo visualizando a propriedade de blob: **alteração-tempo de acesso-escalão**. Para obter mais informações sobre as propriedades de blob, veja [obter propriedades de Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Comparação das camadas de armazenamento
 
@@ -140,7 +148,7 @@ A tabela seguinte mostra uma comparação entre o acesso frequente, esporádica 
 | **Metas de escalabilidade e desempenho** | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais |
 
 > [!NOTE]
-> As contas do Blob Storage suportam as mesmas metas de desempenho e escalabilidade que as contas do Storage para fins gerais. Consulte [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
+> As contas do Blob Storage suportam as mesmas metas de desempenho e escalabilidade que as contas do Storage para fins gerais. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
@@ -157,7 +165,7 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 3. No painel Definições, clique em**Configuração** para ver e/ou alterar a configuração da conta.
 
-4. Selecione a camada de armazenamento correta para as suas necessidades: defina a **Camada de acesso** como **Esporádica** ou **Frequente**.
+4. Selecione a camada de armazenamento correta para as suas necessidades: Definir o **camada de acesso** a qualquer uma **esporádico** ou **frequente**.
 
 5. Clique em Guardar na parte superior do painel.
 
@@ -175,12 +183,12 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de Blobs com base na camada de cada blob. Tenha em atenção as seguintes considerações de faturas:
 
-* **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
-* **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para dados de acesso esporádico e de camada de armazenamento de arquivo, é cobrada uma taxa de acesso de dados por gigabyte para leituras.
-* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
-* **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
-* **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
-* **A alteração da camada de armazenamento**: alteração da camada de armazenamento de conta de acesso esporádico para frequente incorre um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de armazenamento de conta de acesso frequente para esporádico incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
+* **Os custos de armazenamento**: Para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+* **Os custos de acesso a dados**: Aumentar os custos de acesso de dados conforme a camada se torna mais esporádica. Para dados de acesso esporádico e de camada de armazenamento de arquivo, é cobrada uma taxa de acesso de dados por gigabyte para leituras.
+* **Os custos de transação**: Existe um custo por transação para todas as camadas que aumenta conforme a camada se torna mais esporádica.
+* **Os custos de transferência de dados de Georreplicação**: Este custo aplica-se apenas a contas com a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+* **Custos de transferência de dados de saída**: Transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) incorrem a faturação de utilização de largura de banda numa base por gigabyte, consistente com as contas de armazenamento para fins gerais.
+* **A alteração da camada de armazenamento**: Alteração da camada de armazenamento de conta de acesso esporádico para frequente incorre um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de armazenamento de conta de acesso frequente para esporádico incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
 
 > [!NOTE]
 > Para obter mais informações sobre os preços para as contas de armazenamento de BLOBs, veja [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) página. Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).

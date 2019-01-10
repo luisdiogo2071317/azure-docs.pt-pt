@@ -1,19 +1,19 @@
 ---
-title: 'Lição 5 do tutorial do Azure Analysis Services: Criar colunas calculadas | Microsoft Docs'
+title: 'O Azure Analysis Services Lição 5 do tutorial: Criar colunas calculadas | Documentos da Microsoft'
 description: Descreve como criar colunas calculadas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428135"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187455"
 ---
 # <a name="create-calculated-columns"></a>Criar colunas calculadas
 
@@ -42,7 +42,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
     Uma nova coluna com o nome **Coluna calculada 1** é inserida à esquerda da coluna **Trimestre do calendário**.  
   
-4.  Na barra de fórmulas na parte superior da tabela, digite a seguinte fórmula DAX: O preenchimento automático ajuda-o a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
+4.  Na barra de fórmulas, acima da tabela, digite a seguinte fórmula DAX: Preenchimento automático ajuda a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

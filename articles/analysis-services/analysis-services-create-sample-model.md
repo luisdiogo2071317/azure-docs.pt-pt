@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001648"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190549"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
@@ -74,6 +74,6 @@ Estes passos descrevem como eliminar um modelo de um servidor com o SSMS. També
 Neste tutorial, aprendeu a adicionar um modelo de exemplo básico ao seu servidor. Agora que tem uma base de dados modelo, pode ligar-se à mesma a partir do SQL Server Management Studio e adicionar funções de utilizador. Para obter mais informações, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configurar funções de utilizador e de administrador de servidor](analysis-services-database-users.md)
+> [Tutorial: Configurar funções de utilizador e administrador de servidor](analysis-services-database-users.md)
 
 

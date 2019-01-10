@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387000"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191433"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
@@ -208,7 +208,7 @@ Estes passos podem ser automatizados por meio de uma tarefa de arranque, para qu
 Assim que tiver sido feita, pode verificar se o HTTP/2 foi ativada ou não utilizando um dos seguintes métodos:
 
 - Ativar a versão de protocolo nos registos do IIS e examinar os registos IIS. Ela mostrará HTTP/2 nos registos. 
-- Ativar a ferramenta do programador F12 no Internet Explorer/Microsoft Edge e mude para o separador de rede para verificar o protocolo. 
+- Ativar a ferramenta de desenvolvedor F12 no Internet Explorer/Microsoft Edge e mude para o separador de rede para verificar o protocolo. 
 
 Para obter mais informações, consulte [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2).
 
@@ -240,7 +240,7 @@ A subscrição do Azure tem um limite no número de núcleos que pode utilizar. 
 
 Dimensionamento automático com base em métricas de memória para serviços Cloud não é atualmente suportado. 
 
-Para contornar este problema, pode utilizar o Application Insights. Dimensionamento automático suporta o Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base nas métricas de convidado, como "Memória".  Terá de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (*. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar esse feito.
+Para contornar este problema, pode utilizar o Application Insights. Dimensionamento automático suporta o Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base nas métricas de convidado, como "Memória".  Terá de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar esse feito.
 
 Para obter mais detalhes sobre como usar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático nos serviços Cloud, consulte [introdução ao dimensionamento automático por métrica personalizada no Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 

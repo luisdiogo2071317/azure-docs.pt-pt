@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b891995fab9e7def4b9b72f8bd8630d6b7e11d27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023865"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189518"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -167,7 +167,7 @@ As secções seguintes listam as considerações para diferentes tipos de aplica
 
 ### <a name="cloud-based-applications"></a>Aplicativos baseados na nuvem
 
-Se um aplicativo é adicionado à Galeria de aplicações do Azure AD, os utilizadores obtêm SSO através de dispositivos associados ao Azure AD. É necessária nenhuma configuração adicional. Os utilizadores get SSO em ambos, navegadores Microsoft Edge e Chrome. Para o Chrome, o que necessita para implementar o [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Se um aplicativo é adicionado à Galeria de aplicações do Azure AD, os utilizadores obtêm SSO através de dispositivos associados ao Azure AD. É necessária nenhuma configuração adicional. Os utilizadores obtêm SSO, Microsoft Edge tanto nos browsers do Chrome. Para o Chrome, o que necessita para implementar o [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Todos os aplicativos do Win32 que:
 
