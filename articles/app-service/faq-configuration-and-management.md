@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971312"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190906"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -188,7 +188,7 @@ Tem duas opções para capturar um rastreamento de F12:
 3. Certifique-se de que o **rede** separador está selecionado e, em seguida, selecione o verde **reproduzir** botão.
 4. Siga os passos que reproduza o problema.
 5. Selecione o vermelho **parar** botão.
-6. Selecione o **guardar** botão (ícone de disco) e guarde o ficheiro HAR (no Internet Explorer e Microsoft Edge) *ou* o ficheiro HAR com o botão direito e, em seguida, selecione **guardar como HAR com conteúdo** (em Chrome).
+6. Selecione o **salvar** botão (ícone de disco) e guarde o ficheiro HAR (no Internet Explorer e o Microsoft Edge) *ou* o ficheiro HAR com o botão direito e, em seguida, selecione **guardar como HAR com conteúdo**(no Chrome).
 
 ### <a name="f12-console-output"></a>Resultado da consola de F12
 

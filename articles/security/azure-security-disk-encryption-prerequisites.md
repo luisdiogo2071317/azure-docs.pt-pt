@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57136ac267af078068f33df6ee85dfccd287606a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537703"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156515"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -67,12 +67,10 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para utilização no seu computador local (opcional): 
 1. Siga as instruções nas ligações para o seu sistema operativo, em seguida, continuar entanto o resto dos passos abaixo.      
-    - [Instalar e configurar o Azure PowerShell para Windows](/powershell/azure/install-azurerm-ps). 
+    - [Instalar e configurar o Azure PowerShell para Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Instalar o PowerShellGet, o Azure PowerShell e carregar o módulo AzureRM. 
-    - [Instalar e configurar o Azure Powershell no macOS e Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregar o módulo de Az.
 
-2. Verifique se as versões instaladas do módulo AzureRM. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+2. Verifique se as versões instaladas do módulo AzureRM. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  A versão do módulo AzureRM tem de ser a 6.0.0 ou superior.
     - É recomendado utilizar a versão mais recente do módulo AzureRM.
 
