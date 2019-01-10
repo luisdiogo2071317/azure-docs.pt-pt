@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: ddecd640c8b005588e8aa552957ee455cad7ad74
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547071"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191030"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início rápido: Criar uma Base de Dados do Azure para PostgreSQL com a CLI do Azure
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como criar uma Base de Dados do Azure para o servidor PostgreSQL num [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com a CLI do Azure.
@@ -62,7 +62,7 @@ admin-password | *palavra-passe segura* | A palavra-passe do utilizador administ
 
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen4_4` mapeia para Básico, Ger 4 e 4 vCores.
++ `--sku-name B_Gen4_1` é mapeado para básico, fins 4 e 1 vCore.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -73,10 +73,9 @@ O exemplo seguinte cria um servidor PostgreSQL 9.6 em EUA Oeste com o nome `myd
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor mais tarde neste início rápido. Lembre-se ou grave estas informações para utilização posterior.
-
+> [!NOTE]
+> Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
 

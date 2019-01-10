@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629888"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188614"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -188,7 +188,7 @@ Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o po
 
 Quando utiliza as Funções do Azure num ASE de ILB, poderá receber uma mensagem de erro com a indicação "Não é possível obter as funções neste momento. Tente novamente mais tarde." Este erro ocorre porque a IU de Funções tira partido do site do SCM através de HTTPS e o certificado de raiz não está na cadeia de certificação do browser. Os WebJobs têm um problema semelhante. Para evitar este problema, pode executar uma das seguintes ações:
 
-- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Edge e o Internet Explorer.
+- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Microsoft Edge e o Internet Explorer.
 - Utilize o Chrome e aceda primeiro ao site do SCM, aceite o certificado não fidedigno e, em seguida, aceda ao portal.
 - Utilize um certificado comercial que esteja na cadeia de certificação do seu browser.  Esta é a melhor opção.  
 

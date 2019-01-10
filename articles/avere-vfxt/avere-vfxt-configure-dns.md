@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 38f15acd16acca2edd558a36ba434a1b0ab045fb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634597"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187149"
 ---
-# <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster Avere
+# <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
 
 Esta secção explica as noções básicas de configuração de um sistema DNS para o cluster de vFXT Avere de balanceamento de carga. 
 
@@ -80,6 +80,6 @@ Especifique o servidor DNS que o cluster de vFXT utiliza na **Cluster** > **rede
 * Nome de domínio DNS
 * Domínios de pesquisa de DNS
 
-Leia [as definições de DNS](<http://library.averesystems.com/ops_guide/4_7/gui_admin_network.html#gui-dns>) no guia de configuração de Cluster Avere para obter mais detalhes sobre como utilizar esta página.
+Leia [as definições de DNS](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) no guia de configuração de Cluster Avere para obter mais detalhes sobre como utilizar esta página.
 
 
