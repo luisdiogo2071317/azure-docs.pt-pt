@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017009"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189937"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Resolver problemas de Análise no Application Insights
 Problemas com [Analytics do Application Insights](analytics.md)? Comece aqui. A análise é a ferramenta de pesquisa poderosa do Azure Application Insights.
 
 ## <a name="limits"></a>Limites
 * No momento, os resultados das consultas estão limitados a apenas durante uma semana de dados nos últimos.
-* Browsers Testamos em: edições mais recente do Chrome, o Edge e o Internet Explorer.
+* Browsers Testamos em: edições mais recente do Chrome, o Microsoft Edge e o Internet Explorer.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensões de browser incompatível conhecidos
 * Ghostery
@@ -54,7 +54,7 @@ Ocorreu um erro relacionado com a autenticação (durante a autenticação ou du
 2. Utilizou um favorito, marcador ou ligação guardada para abrir o portal do Analytics? Iniciou sessão com credenciais diferentes das que utilizou quando guardou a ligação?
 3. Tente utilizar uma janela do browser em privado/incognito (depois de fechar todas essas janelas). Terá de fornecer as suas credenciais. 
 4. Abrir outra janela do browser (normal) e aceda a [Azure](https://portal.azure.com). Termine a sessão. Em seguida, abra a ligação e inicie a sessão com as credenciais corretas.
-5. Os utilizadores do Microsoft Edge ou do Internet Explorer também podem obter este erro quando as definições da zona de confiança não são suportadas.
+5. Os utilizadores do Microsoft Edge e Internet Explorer também podem obter este erro quando as definições de zona de confiança não são suportadas.
    
     Verifique se ambos [portal do Analytics](https://portal.azure.com) e [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
    
