@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/21/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9bae7ec39b8c9d52feb846360deda5a6367e3e6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038573"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156532"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure
 
@@ -54,7 +54,7 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
 
     - **Espaço de endereços**: Introduza *10.0.0.0/16* para o espaço de endereços de rede virtual.
 
-    - **Nome da sub-rede**: Introduza *myAGSubnet* para o nome da sub-rede.
+    - **Nome da sub-rede**: Introduza *myAGSubnet* para o nome da sub-rede.<br>A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.
 
     - **Intervalo de endereços da sub-rede**: Introduza *10.0.0.0/24* para o intervalo de endereços da sub-rede.
 

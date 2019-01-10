@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a67a20beff306cd23b08e1d651ab5dc4c779fd2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.openlocfilehash: a43481bf6d9c95efdb9c4bc38ed400c5fe782c17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742767"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157518"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -271,85 +271,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 
 Uma versão nova e atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Notas de mais antigas: Setembro de 2017 - Junho de 2018
-### <a name="2018-05-sprint-5"></a>05 de 2018 (sprint 5)
-
-Com esta versão do Azure Machine Learning, pode:
-+ Caracterização de imagens com uma versão quantificada de utilizar o ResNet 50, treinar um classificador com base nesses recursos, e [implementar esse modelo para um FPGA no Azure](../service/how-to-deploy-fpga-web-service.md) para inferência de latência Ultra baixas.
-
-+ Criar e implementar altamente precisos de aprendizagem automática e modelos de aprendizagem profunda com rapidamente [personalizado pacotes do Azure Machine Learning](../desktop-workbench/reference-python-package-overview.md)
-
-### <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
-**Número de versão**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([encontrar a versão](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Muitos das seguintes atualizações são feitos direta resultados dos seus comentários. Continuar a trazer!
-
-**Importantes novos recursos e alterações**
-
-- Suporte para executar seus scripts nas VMs do Ubuntu remoto nativamente no seu próprio ambiente, além do docker remoto com base em execução.
-- Nova experiência de ambiente na bancada de trabalho de aplicação permite-lhe criar destinos de computação e executar configurações, além de nossa experiência com o CLI.
-![Separador ambientes](media/azure-machine-learning-release-notes/environment-page.png)
-- Relatórios de histórico de execuções personalizável ![imagem de executar relatórios de histórico de novo](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**Atualizações detalhadas**
-
-Segue-se uma lista de atualizações detalhadas em cada área de componente do Azure Machine Learning nesse sprint.
-
-#### <a name="workbench-ui"></a>A Bancada de trabalho da interface do Usuário
-- Relatórios de histórico de execuções personalizáveis
-  - Configuração de gráficos melhorado para relatórios de histórico de execuções
-    - Os pontos de entrada utilizado podem ser alterados
-    - Filtros de nível superior podem ser adicionados e modificados ![adicionar filtros](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - Estatísticas e gráficos, podem ser adicionadas ou modificadas (e arrastar-e-soltar reorganizadas).
-    ![Criar novos gráficos](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - CRUD para relatórios de histórico de execuções
-  - Movido existente todos os executar arquivos de configuração a vista de lista do histórico para o relatório do lado do servidor, que funciona como pipelines de execuções a partir dos pontos de entrada selecionada.
-
-- Separador ambientes
-  - Adicionar novo destino de computação e executar arquivos de configuração ao seu projeto facilmente ![novo destino de computação](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Gerir e atualizar os ficheiros de configuração com uma experiência de Usuário simples e baseada em formulários
-  - Botão novo para a preparação de seus ambientes de execução
-
-- Melhorias de desempenho para a lista de ficheiros na barra lateral
-
-#### <a name="data-preparation"></a>Preparação de dados 
-- Agora o Azure Machine Learning Workbench permite-lhe ser capaz de procurar por uma coluna com o nome da coluna conhecidos.
-
-
-#### <a name="experimentation"></a>Experimentação
-- O Azure Machine Learning Workbench agora suporta a execução dos scripts de forma nativa no seu próprio ambiente de python ou pyspark. Para esta capacidade, o utilizador cria e gere o seu próprio ambiente na VM remota e utilize o Azure Machine Learning Workbench para executar seus scripts em que visam. Consulte [configurar o serviço de experimentação do Azure Machine Learning](../desktop-workbench/experimentation-service-configuration.md) 
-
-#### <a name="model-management"></a>Gestão de Modelos
-- Suporte para personalizar os contentores implementados: permite personalizar a imagem de contentor, permitindo que a instalação de bibliotecas externas com apt-get, etc. Já não está limitado às bibliotecas instaláveis no pip. Consulte a [documentação](../desktop-workbench/model-management-custom-container.md) para obter mais informações.
-  - Utilize o `--docker-file myDockerStepsFilename` sinalizador e nome de ficheiro com o manifesto, imagem ou comandos de criação do serviço.
-  - A imagem base é o Ubuntu e não pode ser modificada.
-  - Comando de exemplo: 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Número de versão**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([encontrar a versão](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Seguem-se as atualizações e melhoramentos nesse sprint. Muitas destas atualizações são efetuadas como resultado direto de comentários dos utilizadores. 
-
-### <a name="2017-12-sprint-2"></a>12 de 2017 (sprint 2)
-**Número de versão**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([encontrar a versão](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Esta versão é a terceira atualização do Azure Machine Learning. Esta atualização inclui aprimoramentos na aplicação workbench, a Interface de linha de comandos (CLI) e os serviços de back-end. Muito obrigado para enviar os smiles e frowns. Muitos das seguintes atualizações são feitos direta resultados dos seus comentários. 
-
-### <a name="2017-11-sprint-1"></a>11 de 2017 (sprint 1) 
-**Número de versão**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([encontrar a versão](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Nesta versão, fizemos melhorias em torno de segurança, estabilidade e facilidade de manutenção na aplicação da bancada de trabalho, a CLI e a camada de serviços de back-end. 
-
-### <a name="2017-10-sprint-0"></a>10 de 2017 (sprint 0) 
-**Número de versão**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([encontrar a versão](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Esta versão é a primeira atualização do Azure Machine Learning Workbench, seguindo a nossa pré-visualização pública inicial na Conferência Microsoft Ignite 2017. As principais atualizações nesta versão estão a confiabilidade e a estabilização corrige. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leia a descrição geral do [Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Leia a visão geral para [serviço Azure Machine Learning](../service/overview-what-is-azure-ml.md).

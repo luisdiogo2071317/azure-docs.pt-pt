@@ -148,6 +148,8 @@ items:
   items:
   - name: API REST
     href: /rest/api/iot-dps
+  - name: Modelo do Resource Manager
+    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
   - name: SDK do Azure IoT para C
     href: https://github.com/Azure/azure-iot-sdk-c
   - name: SDK do Azure IoT para Python
@@ -178,7 +180,7 @@ items:
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Microsoft Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
@@ -224,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: fe4a2c1e64b1a5054bfc9c4bbc9d136f93848a1c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 1a47edb218cc07fe48ee64bd8d23cc167083935e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616522"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156410"

@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f971a1bed0391e809e19ff5bb0508d153319faf4
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094008"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158776"
 ---
-# <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: devolver o Azure Data Box Disk e verificar os dados carregados para o Azure
+# <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
-Este é o último tutorial da série: Implementar o Azure Data Box Disk. Neste tutorial, vai aprender a:
+Este é o último tutorial da série: Implemente o disco do Azure Data Box. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Enviar o Data Box Disk para a Microsoft
@@ -27,7 +27,7 @@ Este é o último tutorial da série: Implementar o Azure Data Box Disk. Neste t
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md).
+Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se](data-box-disk-deploy-copy-data.md).
 
 ## <a name="ship-data-box-disk-back"></a>Enviar o Data Box Disk de volta
 
@@ -80,7 +80,7 @@ Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de el
 
 Após a cópia ser concluída e se certificar de que os dados estão na conta de armazenamento do Azure, os discos são apagados de forma segura, segundo a norma NIST. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 

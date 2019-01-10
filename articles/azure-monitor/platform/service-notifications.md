@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724877"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159252"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do Estado de funcionamento de serviço com o portal do Azure
 
@@ -49,12 +49,12 @@ categoria | Esta propriedade é sempre **ServiceHealth**.
 resourceId | O ID de recurso do recurso afetado.
 Properties.title | O título localizado para esta comunicação. Inglês é o padrão.
 Properties.Communication | Os detalhes de localizada da comunicação com a marcação HTML. Inglês é o padrão.
-Properties.incidentType | Um dos seguintes valores: **Ação necessária**, **informações**, **incidente**, **manutenção**, ou **segurança**.
+Properties.incidentType | Um dos seguintes valores: **Ação necessária**, **informativa**, **incidente**, **manutenção**, ou **segurança**.
 Properties.trackingId | O incidente à qual este evento está associado. Utilize esta opção para correlacionar os eventos relacionados com a um incidente.
 Properties.impactedServices | Um blob JSON com caráter de escape que descreve os serviços e regiões afetados pelo incidente. A propriedade inclui uma lista de serviços, cada um com um **ServiceName**e uma lista de regiões afetados, cada um com um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.Stage | Os possíveis valores para **incidente**, e **Security** são **Active Directory,** **resolvido** ou **RCA**. Para **ação necessária** ou **informações** é o único valor **Active Directory.** Para **manutenção** são: **Active Directory**, **planeadas**, **InProgress**, **cancelada**, **reagendada**, **resolvido**, ou **completo**.
+Properties.Stage | Os possíveis valores para **incidente**, e **Security** são **Active Directory,** **resolvido** ou **RCA**. Para **ação necessária** ou **informativo** é o único valor **Active Directory.** Para **manutenção** são: **Active Directory**, **planeadas**, **InProgress**, **cancelada**, **reagendada**, **resolvido**, ou **completo**.
 Properties.communicationId | A comunicação com o qual este evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Informações de nível de detalhes sobre o service health
@@ -71,7 +71,7 @@ Properties.communicationId | A comunicação com o qual este evento está associ
             <dd>manutenção planeada padrão</dd>
         </dl>
     </li>
-    <li><b>Informações</b> (properties.incidentType = = informações) <dl>
+    <li><b>Informações</b> (properties.incidentType = = informativos) <dl>
             <dt>Informativa</dt>
             <dd>Administrador pode ser necessário para evitar o impacto para os serviços existentes</dd>
         </dl>

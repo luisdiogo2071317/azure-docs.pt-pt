@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854053"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157404"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Obtenção prévia de mensagens do Service bus do Azure
 
@@ -50,7 +50,7 @@ Se o bloqueio expirar silenciosamente na memória intermédia de obtenção pré
 
 Se precisa de um alto grau de confiabilidade para processamento de mensagens e processamento leva um trabalho significativo e a hora, recomenda-se que utilize a funcionalidade de obtenção prévia moderadamente ou nada.
 
-Se precisar de alto em toda e processamento de mensagens é normalmente barato, obtenção prévia produz benefícios significativos de débito.
+Se precisar de débito elevado e processamento de mensagens é normalmente barato, obtenção prévia produz benefícios significativos de débito.
 
 A contagem de obtenção prévia do máximo e a duração do bloqueio configurado na fila ou subscrição tem de ser balanceado, de modo a que o tempo limite de bloqueio, pelo menos, excede a mensagem esperada cumulativa tempo para o tamanho máximo da memória intermédia de obtenção prévia de processamento, além de uma mensagem. Ao mesmo tempo, o tempo limite de bloqueio deve não deve ser, desde que as mensagens podem exceder máximas [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) quando acidentalmente são ignorados, exigindo assim seu bloqueio expirar antes de a ser reenviada.
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: f1fd272bc25486e3abd068be5ddc01f5ac5f5f76
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 360f5cca3da5e9987b5e057449fb9c2cbb910552
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566283"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157841"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -62,7 +62,7 @@ Os serviços do Azure que suportam as zonas de disponibilidade são:
 
 - SQL Database
 - Hubs de Eventos
-- Service Bus
+- O Service Bus (apenas no escalão Premium)
 - Gateway de VPN
 - ExpressRoute
 - Gateway de aplicação (pré-visualização)

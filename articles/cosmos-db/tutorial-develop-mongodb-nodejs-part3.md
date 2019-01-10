@@ -11,12 +11,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 2ab583a2cdef5df3816f6da7e0a57ee20f087a49
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043146"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158708"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar a IU com o Angular
 
@@ -417,7 +417,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 2. No Visual Studio Code, regresse a **heroes.components.ts**. Repare que, na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha por baixo. Clique em `HeroService` e obterá a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e, em seguida, clique em **Import HeroService from "./hero.service ".** (Importar HeroService de "./hero.service ".) ou em **(Importar HeroService de "/app/hero.service".**
 
-    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 referenciar a pasta /app/hero.service, modifique-a de modo a que referencie o ficheiro hero da pasta local (./hero.serivce). A linha 2 deve ter o seguinte aspeto:
+    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 referenciar a pasta de /app/hero.service, modificá-lo para que referencie o ficheiro hero da pasta local (. / hero.service). A linha 2 deve ter o seguinte aspeto:
     
     ```javascript
     import { HeroService } from "./hero.service"

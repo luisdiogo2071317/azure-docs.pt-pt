@@ -10,23 +10,23 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997817"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156872"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Associação de tabelas externa para as funções do Azure (experimental)
 
-Este artigo explica como trabalhar com dados tabulares em fornecedores de SaaS, como o Sharepoint e Dynamics, nas funções do Azure. Funções do Azure suporta de entrada e saída enlaces para tabelas externas.
+Este artigo explica como trabalhar com dados tabulares em fornecedores de SaaS, como o SharePoint e Dynamics, nas funções do Azure. Funções do Azure suporta de entrada e saída enlaces para tabelas externas.
 
 > [!IMPORTANT]
 > O enlace da tabela externa é experimental e nunca atinja o estado de geralmente disponível (GA). Está incluído apenas no Azure funciona 1.x, e não existirem não existem planos para adicioná-lo para as funções do Azure 2.x. Para cenários que exigem acesso a dados em fornecedores de SaaS, considere a utilização [aplicações lógicas que chamam funções](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>Ligações de API
+## <a name="api-connections"></a>Ligações da API
 
 Enlaces de tabelas tirar partido das ligações externas de API para autenticar com fornecedores de SaaS de terceiros. 
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Origem de dados do Google Sheets
 
-Para criar uma tabela para utilizar com este exemplo no Google Docs, crie uma folha de cálculo com uma folha de cálculo denominada `Contact`. O conector não é possível utilizar o nome a apresentar a folha de cálculo. As necessidades de nome interno (em negrito) a ser utilizado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/` **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** adicionar os nomes das colunas `Id`, `LastName`, `FirstName` para a primeira linha, em seguida, preencher dados em linhas subsequentes.
+Para criar uma tabela para utilizar com este exemplo no Google Docs, crie uma folha de cálculo com uma folha de cálculo denominada `Contact`. O conector não é possível utilizar o nome a apresentar a folha de cálculo. As necessidades de nome interno (em negrito) a ser utilizado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Adicione os nomes de coluna `Id`, `LastName`, `FirstName` para a primeira linha, em seguida, preencher os dados nas linhas subsequentes.
 
 ### <a name="salesforce"></a>Salesforce
 

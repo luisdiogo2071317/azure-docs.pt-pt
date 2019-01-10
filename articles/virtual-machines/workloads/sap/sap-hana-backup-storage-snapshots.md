@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580052"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159932"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Cópia de segurança SAP HANA baseada em instantâneos de armazenamento
 
@@ -52,7 +52,7 @@ No disco, o instantâneo aparece no diretório de dados SAP HANA.
 
 Um tem para se certificar de que a consistência do sistema de ficheiros também é garantida antes de executar o instantâneo de armazenamento, enquanto o SAP HANA está no modo de preparação de instantâneo. Ver _consistência de dados do SAP HANA ao criar instantâneos de armazenamento_ no artigo relacionado [guia de cópia de segurança para SAP HANA em Azure Virtual Machines](sap-hana-backup-guide.md).
 
-Depois de fazer o instantâneo de armazenamento, é fundamental para confirmar o instantâneo do SAP HANA. Há uma instrução de SQL correspondente para executar: INSTANTÂNEO FECHAR de dados de cópia de segurança (veja [dados FECHAR INSTANTÂNEO instrução BACKUP (cópia de segurança e recuperação)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
+Depois de fazer o instantâneo de armazenamento, é fundamental para confirmar o instantâneo do SAP HANA. Há uma instrução de SQL correspondente para executar: INSTANTÂNEO de FECHAR de dados de cópia de segurança (veja [dados FECHAR INSTANTÂNEO instrução BACKUP (cópia de segurança e recuperação)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
 
 > [!IMPORTANT]
 > Certifique-se o instantâneo do HANA. Devido a &quot;cópia ao gravar,&quot; SAP HANA podem exigir espaço em disco adicional no instantâneo-preparar modo, e não é possível iniciar novas cópias de segurança até que o instantâneo do SAP HANA foi confirmado.

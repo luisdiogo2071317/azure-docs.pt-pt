@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: MT
+ms.openlocfilehash: 56c4df42b643b4cfa9a384f799538cc6b322630a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544690"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156345"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -132,7 +132,7 @@ O custo total depende de diversos fatores; por exemplo, a região escolhida, o e
 
 ## <a name="built-on-sql-server-analysis-services"></a>Baseado no SQL Server Analysis Services
 
-O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspetivas, segurança ao nível da linhas, relações bidirecionais e traduções são todas suportadas*. Os modelos multidimensionais e o PowerPivot para o SharePoint *não são* suportados no Azure Analysis Services.
+O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspetivas, segurança ao nível da linhas, relações bidirecionais e traduções são todas suportadas*. Modelos multidimensionais e o PowerPivot para SharePoint *não são* suportado no Azure Analysis Services.
 
 Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte do principal de serviço do Azure, as operações de atualização automática com o PowerShell, TOM, TMSL e REST oferecem flexibilidade e garantem que o seu modelo de dados está sempre atualizado. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055154"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157637"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -552,6 +552,16 @@ Em casos em que há muitas por erros de sincronização de ficheiros, sessões d
 | **Remediação necessária** | Sim |
 
 Certifique-se de que o caminho existe, encontra-se num volume NTFS local e não é um ponto de reanálise ou ponto final de servidor existente.
+
+<a id="-2134375817"></a>**Falha na sincronização porque a versão de driver de filtro não é compatível com a versão do agente**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimal)** | -2134375817 |
+| **Cadeia de erro** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Remediação necessária** | Sim |
+
+Este erro ocorre porque a versão de driver (StorageSync.sys) de filtro em camada de Cloud carregada não é compatível com o serviço de agente de sincronização de armazenamento (FileSyncSvc). Se o agente de sincronização de ficheiros do Azure foi atualizado, reinicie o servidor para concluir a instalação. Se o erro continuar a ocorrer, desinstale o agente, reinicie o servidor e reinstale o agente de sincronização de ficheiros do Azure.
 
 <a id="-2134376373"></a>**O serviço está atualmente indisponível.**  
 | | |

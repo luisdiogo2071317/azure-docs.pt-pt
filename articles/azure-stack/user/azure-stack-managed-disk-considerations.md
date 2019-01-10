@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050171"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159371"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
 
@@ -29,7 +29,7 @@ Este artigo resume as diferenças conhecidas entre [Managed Disks do Azure Stack
 Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas de armazenamento](../azure-stack-manage-storage-accounts.md) associadas aos discos VM.
 
 > [!Note]  
-> Discos geridos no Azure Stack está disponível na versão 1808.
+> Discos geridos no Azure Stack está disponível no 1808 update. Ele é habilitado por padrão durante a criação de máquinas virtuais através do portal do Azure Stack do 1811 update.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Referência rápida: Gerido diferenças de disco
@@ -67,7 +67,7 @@ Pilha de Managed Disks do Azure suporta as seguintes versões de API:
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-Depois de aplicar a [1811 atualizar](../azure-stack-update-1811.md), poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
+Depois de aplicar as atualizações após 1808, pode encontrar os seguintes problemas ao implementar as VMs com discos geridos:
 
 - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
    1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.

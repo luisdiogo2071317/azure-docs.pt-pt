@@ -1,6 +1,6 @@
 ---
 title: Acesso remoto às aplicações no local - Proxy de aplicações do Azure Active Directory | Microsoft Docx
-description: Proxy de aplicações do Azure do Active Directory fornece acesso remoto seguro a aplicações web no local. Após um início de sessão único para o Azure AD, os utilizadores podem aceder aplicações na cloud e no local através de um URL externo ou um portal de aplicação interna. Por exemplo, o Proxy da aplicação pode fornecer acesso remoto e início de sessão único para o ambiente de trabalho remoto, Sharepoint, Teams, Tableau, Qlik e aplicativos linha de negócios (LOB).
+description: Proxy de aplicações do Azure do Active Directory fornece acesso remoto seguro a aplicações web no local. Após um início de sessão único para o Azure AD, os utilizadores podem aceder aplicações na cloud e no local através de um URL externo ou um portal de aplicação interna. Por exemplo, o Proxy da aplicação pode fornecer acesso remoto e início de sessão único para o ambiente de trabalho remoto, SharePoint, Teams, Tableau, Qlik e aplicativos linha de negócios (LOB).
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 21e11575fc90e761f748af4bf9c89dd4614c986e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 94330c9d53b69d86ff05fe2f0164cb7559e9d389
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078903"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159133"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto às aplicações no local através do Proxy de aplicações do Azure Active Directory 
 
-Proxy de aplicações do Azure do Active Directory fornece acesso remoto seguro a aplicações web no local. Após um início de sessão único para o Azure AD, os utilizadores podem aceder aplicações na cloud e no local através de um URL externo ou um portal de aplicação interna. Por exemplo, o Proxy da aplicação pode fornecer acesso remoto e início de sessão único para o ambiente de trabalho remoto, Sharepoint, Teams, Tableau, Qlik e aplicativos linha de negócios (LOB).
+Proxy de aplicações do Azure do Active Directory fornece acesso remoto seguro a aplicações web no local. Após um início de sessão único para o Azure AD, os utilizadores podem aceder aplicações na cloud e no local através de um URL externo ou um portal de aplicação interna. Por exemplo, o Proxy da aplicação pode fornecer acesso remoto e início de sessão único para o ambiente de trabalho remoto, SharePoint, Teams, Tableau, Qlik e aplicativos linha de negócios (LOB).
 
 Proxy de aplicações do Azure AD é:
 

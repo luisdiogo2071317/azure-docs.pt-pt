@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 69310e51495cbb91303c3e8837ad42f6a4ac3374
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 03a73d672aefc1b8203f3df5cf2301e94e322129
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972913"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159949"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a inclusão do Centro de segurança do Azure com o PowerShell
 
@@ -81,7 +81,7 @@ Estes passos devem ser efetuados antes de executar os cmdlets do Centro de segur
 
 5.  Opcional: É altamente recomendável que definir os detalhes de contacto de segurança para as subscrições sua integração, que será utilizada como os destinatários de alertas e notificações geradas pelo centro de segurança:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
 6.  Atribua a iniciativa de política do Centro de segurança predefinida:
 

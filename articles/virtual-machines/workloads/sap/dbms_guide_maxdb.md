@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076271"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157314"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache e implementação de servidor de conteúdo em VMs do Azure
 
@@ -331,7 +331,7 @@ Pode encontrar a lista atualizada de documentação do SAP MaxDB na nota SAP seg
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do SAP MaxDB para instalações de SAP em VMs do Azure
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuração de armazenamento
-Melhores práticas do storage do Azure para SAP MaxDB siga as recomendações gerais mencionadas no capítulo [estrutura de uma implementação de RDBMS][dbms-guide-2].
+Melhores práticas do storage do Azure para SAP MaxDB siga as recomendações gerais mencionadas no capítulo [estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Como outras bases de dados, o SAP MaxDB também tem ficheiros de registo e dados. No entanto, na terminologia de SAP MaxDB o termo correto é "volume" (não "file"). Por exemplo, existem SAP MaxDB volumes de dados e volumes de registo. Não confunda com volumes de disco do SO. 
@@ -458,7 +458,7 @@ Aqui tem duas opções:
 
 1. **Cliente é um sistema SAP de back-end** se um sistema SAP de back-end estiver configurado para aceder ao servidor de conteúdo do SAP, esse sistema SAP é um cliente. Como o sistema SAP e o servidor de conteúdo de SAP são implementadas na mesma região do Azure, no mesmo datacenter do Azure, estão fisicamente perto uns dos outros. Por conseguinte, não é necessário ter um servidor de Cache dedicada do SAP. Clientes de interface do Usuário do SAP (navegador da web ou de GUI do SAP), acessar o sistema SAP diretamente e o sistema SAP obtém os documentos do servidor de conteúdo de SAP.
 2. **Cliente é um navegador da web no local** o servidor de conteúdo de SAP pode ser configurado para ser acedido diretamente pelo browser. Neste caso, um navegador da web em execução no local é um cliente do servidor de conteúdo do SAP. Datacenter no local e datacenter do Azure são colocados em diferentes localizações físicas (Idealmente perto uns dos outros). Seu datacenter no local está ligado ao Azure através do Azure Site-Site VPN ou ExpressRoute. Embora as duas opções oferecem a ligação de rede VPN segura para o Azure, ligação de rede de site a site não oferece um SLA de largura de banda e latência de rede entre o datacenter no local e do datacenter do Azure. Para acelerar o acesso a documentos, pode fazer o seguinte:
-   1. Instalar o servidor de Cache de SAP no local, fechar para navegador da web no local (opção [isso] [ dbms-guide-900-sap-cache-server-on-premises] figura)
+   1. Instalar o servidor de Cache de SAP no local, perto do navegador da web no local (opção na figura abaixo)
    2. Configure o Azure ExpressRoute, que oferece uma ligação de rede dedicada de alta velocidade e baixa latência entre o datacenter no local e o datacenter do Azure.
 
 ![Opção para instalar o servidor de Cache de SAP no local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

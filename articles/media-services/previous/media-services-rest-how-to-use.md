@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233468"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159745"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Descrição geral de REST API de operações de serviços de multimédia
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -58,9 +58,9 @@ Para todas as chamadas feitas para os serviços de multimédia, existe um conjun
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o mecanismo de autorização aceites apenas. O valor também tem de incluir o token de acesso fornecido pelo Azure Active Directory. |
-| x-ms-version |decimal |2.17 (ou versão mais recente)|
-| Dataserviceversion s |decimal |3.0 |
-| MaxDataServiceVersion |decimal |3.0 |
+| x-ms-version |Decimal |2.17 (ou versão mais recente)|
+| Dataserviceversion s |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Como os serviços de multimédia utiliza OData para expor as suas APIs REST, os cabeçalhos dataserviceversion s e MaxDataServiceVersion devem ser incluídos em todos os pedidos; No entanto, se não forem, em seguida, atualmente os serviços de multimédia assume que o valor de dataserviceversion s em utilização é 3.0.
@@ -73,7 +73,7 @@ Segue-se um conjunto de cabeçalhos opcionais:
 | --- | --- | --- |
 | Date |Data de RFC 1123 |Timestamp do pedido |
 | Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, como o seguinte:<p> -aplicação/json; odata = verboso<p> -application/atom + xml<p> As respostas podem ter um tipo de conteúdo diferente, como a obtenção de BLOBs, em que uma resposta com êxito contém o fluxo de BLOBs como o payload. |
-| Aceite-Encoding |Gzip, deflate |GZIP e DEFLATE codificação, quando aplicável. Nota: Para recursos grandes, serviços de multimédia pode ignorar este cabeçalho e retornar dados noncompressed. |
+| Aceite-Encoding |Gzip, deflate |GZIP e DEFLATE codificação, quando aplicável. Nota: Para recursos grandes, os serviços de multimédia pode ignorar este cabeçalho e retornar dados noncompressed. |
 | Aceite-Language |"pt", "es" e assim por diante. |Especifica o idioma preferido para a resposta. |
 | Aceite-conjunto de carateres |Tipo de conjunto de carateres como "UTF-8" |A predefinição é UTF-8. |
 | X-HTTP-Method |Método HTTP |Permite que os clientes ou firewalls que não suportam métodos HTTP, como PUT ou DELETE para usar esses métodos, túnel através de uma chamada GET. |

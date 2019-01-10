@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118205"
+ms.locfileid: "54156821"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
@@ -67,9 +67,28 @@ No modelo de compra baseado em vCore, podem trocar suas licenças existentes par
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 
-Se pretender utilizar as suas licenças do SQL Server no local existentes, pode pagar apenas o preço base para a infraestrutura do Azure subjacente (por exemplo VM do Azure onde a base de dados está em execução) enquanto a base de dados SQL Server licença motor não será incluída na sua fatura. Num determinado período, pode utilizar a sua licença de acesso no local para SQL Server e base de dados do Azure SQL. Caso contrário, o custo da licença para o motor de base de dados do SQL Server será incluído no preço do seu banco de dados ou a instância. Se estiver a utilizar o PowerShell ou CLI do Azure para criar ou atualizar a sua base de dados ou instância, existem duas opções de preços que pode escolher:
-- **BasePrice** significa que tem uma licença válida do SQL Server que pretende utilizar como parte da [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) e que deseja pagar apenas o custo de infraestrutura de base.
-- **LicenseIncluded** significa que, não é preciso no local licença do SQL Server, ou não quiser utilizar a sua licença no local para a base de dados ou à instância gerida. Neste caso, a licença do SQL Server será incluída na sua fatura. 
+Com o benefício híbrido do Azure, pode optar por pagar apenas a infraestrutura do Azure subjacente, usando sua licença existente do SQL Server para o motor de base de dados SQL em si (**BasePrice**) ou pagar pela infraestrutura subjacente e a licença do SQL Server (**LicenseIncluded**). Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou através de um dos seguintes APIs.
+
+- Para definir ou atualizar o tipo de licença com o PowerShell:
+
+  - [Novo AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Novo AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Conjunto AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Para definir ou atualizar o tipo de licença com a CLI do Azure:
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [Criar AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [atualização de mi AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- Para definir ou atualizar o tipo de licença com a API REST:
+
+  - [Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Bases de dados - atualização](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Instâncias - geridas criar ou atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Instâncias geridas - atualização](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para o modelo de vCore
 

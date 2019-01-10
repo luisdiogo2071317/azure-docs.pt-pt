@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974994"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158113"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Utilizar o portal do Azure para administrar o Data Box Disk (Pré-visualização)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o seu disco do Data Box
 
 Os tutoriais neste artigo aplicam-se ao Microsoft Azure Data Box Disk durante a Pré-visualização. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gestão que podem ser executadas no Data Box Disk. 
 
 Pode gerir o Data Box Disk através do portal do Azure. Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Utilize o portal do Azure para gerir encomendas, gerir discos e controlar o estado da encomenda à medida que avança para a fase terminal.
-
-> [!IMPORTANT]
-> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
-
 
 ## <a name="cancel-an-order"></a>Cancelar uma encomenda
 

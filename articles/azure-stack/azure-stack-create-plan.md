@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077567"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159524"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Criar um plano no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Os [Planos](azure-stack-key-features.md) consistem em agrupamentos de um ou mais serviços. Como um fornecedor, pode criar planos para oferecer aos seus utilizadores. Por sua vez, os seus utilizadores subscrevem suas ofertas para utilizar os planos e serviços incluídos. Este exemplo mostra como criar um plano que inclui computação, rede e os fornecedores de recursos de armazenamento. Este plano dá os assinantes a capacidade de aprovisionar máquinas virtuais.
 
-1. Inicie sessão no portal de administrador do Azure Stack (https://adminportal.local.azurestack.external).
+1. Inicie sessão para o [portal de administrador do Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Para criar um plano e uma oferta que os utilizadores podem subscrever, selecione **+ criar um recurso** > **ofertas + planos** > **plano**.
+2. Para criar um plano e uma oferta que os utilizadores podem subscrever, selecione **+ criar um recurso**, em seguida, **ofertas + planos**, em seguida, **plano**.
   
    ![Selecionar um plano](media/azure-stack-create-plan/select-plan.png)
 
@@ -72,4 +72,4 @@ Os [Planos](azure-stack-key-features.md) consistem em agrupamentos de um ou mais
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criar uma oferta](azure-stack-create-offer.md)
+* [Criar uma oferta](azure-stack-create-offer.md)

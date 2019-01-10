@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1c2f7b46daf7b96d3a6f47dac647d5ed90461e8e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633015"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156260"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C
 
@@ -121,7 +121,7 @@ Para configurar a personalização da interface do Usuário, copie os **ContentD
 3. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Procure o **BuildingBlocks** elemento. Se o elemento não existir, adicioná-lo.
 4. Cole o conteúdo inteiro dos **ContentDefinitions** elemento que copiou como subordinado da **BuildingBlocks** elemento. 
 5. Procure o **ContentDefinition** elemento que contém `Id="api.signuporsignin"` no XML que copiou.
-6. Alterar o valor de **LoadUri** para o URL do arquivo HTML que carregou para o armazenamento. Por exemplo, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
+6. Alterar o valor de **LoadUri** para o URL do arquivo HTML que carregou para o armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     A diretiva personalizada deve ter um aspeto semelhante ao seguinte:
 

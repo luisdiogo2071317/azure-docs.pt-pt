@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979238"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157773"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -38,7 +38,7 @@ Veja as secções seguintes para saber como um recurso pode validar e utilizar a
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
-tokens v1.0 e v2.0 são muito semelhantes e contêm muitas das mesmas declarações. Um exemplo de cada um é fornecido aqui.
+tokens v1.0 e v2.0 ter um aspeto semelhantes e contêm muitas das mesmas declarações. Um exemplo de cada um é fornecido aqui.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ Afirmações estão presentes somente se um valor existe para preenchê-lo. Port
 | `nonce` | Cadeia | Um identificador exclusivo utilizado para proteger contra ataques de repetição de token. O recurso pode gravar este valor para proteger contra repetições. |
 | `alg` | Cadeia | Indica o algoritmo que foi utilizado para assinar o token, por exemplo, "RS256" |
 | `kid` | Cadeia | Especifica o thumbprint para a chave pública que é utilizado para assinar este token. Emitida na v1.0 e v2.0 em tokens de acesso. |
-| `x5t` | Cadeia | Funciona da mesma (em utilização e valor) como `kid`. Esta é uma afirmação de legado emitida apenas na v1.0 tokens de acesso para efeitos de compatibilidade. |
+| `x5t` | Cadeia | Funciona da mesma (em utilização e valor) como `kid`. `x5t` é emitida uma afirmação herdada apenas na v1.0 tokens de acesso para efeitos de compatibilidade. |
 
 ### <a name="payload-claims"></a>Afirmações de payload
 
@@ -121,7 +121,7 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 | Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 | `ipaddr`| Cadeia | O endereço IP, o utilizador autenticado de. |
-| `onprem_sid`| Cadeia de caracteres, em [formato do SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Em casos em que o utilizador tem uma autenticação no local, esta afirmação fornece seu SID. Isto pode ser utilizado para autorização em aplicativos herdados. |
+| `onprem_sid`| Cadeia de caracteres, em [formato do SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Em casos em que o utilizador tem uma autenticação no local, esta afirmação fornece seu SID. Pode usar `onprem_sid` para autorização em aplicativos herdados. |
 | `pwd_exp`| int, um carimbo de UNIX | Indica que a senha do usuário expira. |
 | `pwd_url`| Cadeia | Um URL onde os utilizadores possam ser enviados para repor a palavra-passe. |
 | `in_corp`|boolean | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
@@ -200,7 +200,7 @@ Lógica de negócios da sua aplicação vai ditar neste passo, alguns métodos d
 * Validar o estado da autenticação do cliente chamado com `appidacr` -não deve ser 0 se os clientes públicos não têm permissão para chamar a API.
 * Verificar com uma lista de passado `nonce` afirmações verificar o token não está a ser reproduzido.
 * Verifique se o `tid` corresponde a um inquilino que está autorizado a chamar a API.
-* Utilize o `acr` de afirmação verificar se o utilizador realizou MFA. Tenha em atenção que este deve ser imposta por meio [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Utilize o `acr` de afirmação verificar se o utilizador realizou MFA. Isso deve ser imposto por meio [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se pediu a `roles` ou `groups` afirmações no token de acesso, certifique-se de que o utilizador está no grupo de permissão para efetuar esta ação.
   * Para os tokens obtidos com o fluxo implícito, provavelmente terá de consultar o [Microsoft Graph](https://developer.microsoft.com/graph/) para estes dados, como ele costuma ser demasiado grande para caber no token. 
 
@@ -225,7 +225,7 @@ Atualizar tokens podem ser invalidados ou revogados em qualquer altura, por vár
 
 ### <a name="revocation"></a>Revogação
 
-|   | Cookie de palavra-passe com base em | Token de palavra-passe com base em | Cookie com base de não-palavra-passe | Token de não-palavra-passe com base | Token de cliente confidencial| 
+|   | Cookies baseada em palavra-passe | Token baseado em palavra-passe | Cookie não-palavra-passe | Token de não-palavra-passe | Token de cliente confidencial| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Palavra-passe expirar | Fique vivo| Fique vivo | Fique vivo | Fique vivo | Fique vivo |
 | Palavra-passe alterada pelo utilizador | Revogado | Revogado | Fique vivo | Fique vivo | Fique vivo |

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 29d6ef8fcf7f6cce0b3022bd52abbfdef7a90c68
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042415"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157246"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configurar a distribuição global do Azure Cosmos DB com a API SQL
 
@@ -92,7 +92,7 @@ Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClie
 
 Segue-se um exemplo de código para NodeJS/Javascript. Python e Java seguirão o mesmo padrão.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: eb330a782681b8923b95157f28732d89c32100d4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edca29cfe53f7aa313eb1178a6a2ef19aa7178d0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122314"
+ms.locfileid: "54159626"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notas de versão do fornecedor 1.1.33.0 de recursos do SQL
 
@@ -33,7 +33,7 @@ Transferir o fornecedor de recursos do SQL, binário e, em seguida, execute o Se
 
 > |Versão mínima do Azure Stack|Versão do fornecedor de recursos SQL|
 > |-----|-----|
-> |Versão 1811 (1.1811.0.101)|[SQL RP versão 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
+> |Versão 1808 (1.1808.0.97)|[SQL RP versão 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]

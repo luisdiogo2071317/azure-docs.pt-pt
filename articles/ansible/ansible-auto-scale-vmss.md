@@ -5,15 +5,15 @@ ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, dimensionamento, dimensionamento automático, máquina virtual, o conjunto de dimensionamento de máquina virtual, vmss
 author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: b573eecb2f5c67014901f0006cf1087a261cf9c4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049950"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157059"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Dimensionar automaticamente um conjunto de dimensionamento no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. 
@@ -29,7 +29,7 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
 
 ## <a name="auto-scale-based-on-a-schedule"></a>Dimensionamento automático com base numa agenda   
-Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem-lhe controlar os gastos ao não criar continuamente instâncias de VM e equilibrar o desempenho aceitável com um número mínimo de instâncias que permanecem num evento de dimensionamento. 
+Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem-lhe controlar o custo por não continuamente a criar instâncias de VM e o balanceamento de um desempenho aceitável com um número mínimo de instâncias que permanecem num evento de dimensionamento. 
 
 Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimensionamento de Máquina Virtual por um agendamento periódico, ou por uma data específica. Esta secção apresenta um playbook de Ansible de exemplo que cria uma definição de dimensionamento automático aumenta o número de instâncias de VM para três conjuntos de dimensionamento no 10:00 de todas as segundas-feiras, fuso horário do Pacífico. 
 

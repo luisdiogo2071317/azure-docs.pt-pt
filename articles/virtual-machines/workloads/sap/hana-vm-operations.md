@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968992"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160051"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
@@ -208,7 +208,7 @@ Ao instalar as VMs a executar o SAP HANA, tem das VMs:
 
 No entanto, para implementações que são duradouros, terá de criar uma arquitetura de rede do virtual datacenter no Azure. Esta arquitetura recomenda a separação de Gateway de VNet do Azure que liga ao local para uma VNet do Azure separada. Esta VNet separada deve hospedar todo o tráfego que sai para no local ou na internet. Esta abordagem permite-lhe implementar software para auditoria e registo de tráfego que entra o datacenter virtual no Azure deste hub separado de VNet. Portanto, tem uma VNet que aloja o software e configurações que diz respeito ao tráfego-in - e de saída para a implementação do Azure.
 
-Os artigos [Datacenter Virtual do Azure: uma perspetiva de rede](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o plano de controlo de Enterprise](https://docs.microsoft.com/azure/architecture/vdc/) dar mais informações sobre a abordagem do virtual datacenter e relacionados Design de VNet do Azure.
+Os artigos [Datacenter Virtual do Azure: Uma perspectiva de rede](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o plano de controlo de Enterprise](https://docs.microsoft.com/azure/architecture/vdc/) dar mais informações sobre a abordagem do virtual datacenter e o design de VNet do Azure relacionado.
 
 
 >[!NOTE]
@@ -403,8 +403,8 @@ Ver informações adicionais sobre as redes aceleradas do Azure [aqui](https://d
 
 De acordo com diretrizes de práticas recomendadas DT 2.0, o débito de e/s do disco deve ser a 50 MB/seg mínima por núcleo físico. Olhando para a especificação para os dois tipos de VM do Azure, que são suportadas para 2.0 DT um Verão o limite de taxa de transferência de e/s para a VM de disco máximo:
 
-- E32sv3: 768 MB/seg (não colocado em cache) que significa que um rácio de 48 MB/s por núcleo físico
-- M64-32ms: 1000 MB/seg (não colocado em cache) que significa que um rácio de 62.5 MB/s por núcleo físico
+- E32sv3:   768 MB/seg (não colocado em cache) que significa que um rácio de 48 MB/s por núcleo físico
+- M64-32MS:  1000 MB/seg (não colocado em cache) que significa que um rácio de 62.5 MB/s por núcleo físico
 
 É necessário para anexar vários discos do Azure para a VM de 2.0 DT e criar um raid de software (repartição) no nível do SO para atingir o limite máximo de débito de disco por VM. Um único disco do Azure não é possível fornecer o débito para atingir o limite máximo de VM nesse aspecto. Armazenamento Premium do Azure é obrigatório para executar DT 2.0. 
 

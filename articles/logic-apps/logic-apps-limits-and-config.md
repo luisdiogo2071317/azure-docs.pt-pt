@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c7eaecf74f56035c39267407e6a965c57897b1ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015445"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159031"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -85,10 +85,10 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Simultaneidade de Acionador | 50 | O limite predefinido é 20. Este limite descreve o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [simultaneidade de Acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Máximo de espera de execuções | 100 | O limite predefinido é 10. Este limite descreve o número máximo de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido para um valor entre 0 e 100, inclusivamente, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Itens foreach | 100 000 | Este limite descreve o número máximo de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
-| Simultaneidade de foreach | 50 | O limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar "for each" simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Simultaneidade de Acionador | 50 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para um acionador, o limite predefinido é 25. Este limite descreve o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [limite de simultaneidade do acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Máximo de espera de execuções | 100 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para um acionador, o limite predefinido é 10. Este limite descreve o número máximo de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido para um valor entre 0 e 100, inclusivamente, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Itens de matriz de foreach | 100 000 | Este limite descreve o número máximo de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
+| Simultaneidade de foreach | 50 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para esse loop, o limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar simultaneidade "for each" limite](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Itens SplitOn | 100 000 | | 
 | Iterações until | 5.000 | | 
 |||| 
@@ -119,9 +119,9 @@ Para passar destes limites no processamento normal ou executar o teste de carga 
 
 | Nome | Limite | Notas |
 |------|-------|-------|
-| FTP | 50 MB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
-| SFTP | 50 MB | Para contornar este limite, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
-| SFTP-SSH | 1 GB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| FTP | 50 MB | Exceder este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP | 50 MB | Para exceder este limite, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP-SSH | 1 GB | Exceder este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
 |||| 
 
 <a name="request-limits"></a>

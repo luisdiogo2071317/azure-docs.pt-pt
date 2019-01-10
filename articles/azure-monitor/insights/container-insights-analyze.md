@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185431"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159660"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores 
 Com o Azure Monitor para contentores, pode utilizar os gráficos de desempenho e estado de funcionamento para monitorizar a carga de trabalho de seus clusters do Azure Kubernetes Service (AKS) de duas perspetivas, diretamente a partir de um cluster do AKS ou todos os clusters do AKS numa subscrição do Azure Monitorize. Visualização do Azure Container Instances (ACI) também é possível ao monitorizar um cluster do AKS específico.
@@ -98,6 +98,8 @@ Gráfico de desempenho apresenta quatro métricas de desempenho:
 - **Contagem de nós**: Uma contagem de nós e o estado do Kubernetes. São Estados de nós do cluster representados *todos os*, *pronto*, e *não está pronto* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 - **Contagem de pod de atividade**: Uma contagem de pod e o estado a partir do Kubernetes. Estados de pods representados são *todos os*, *pendente*, *em execução*, e *desconhecido* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 
+Pode usar as teclas de seta esquerda/direita para percorrer cada ponto de dados no gráfico e a seta para cima/para baixo para as chaves para percorrer as linhas de percentil.
+
 Quando muda para **nós**, **controladores**, e **contentores** separador apresentada automaticamente no lado direito da página é o painel de propriedades.  Mostra as propriedades do item selecionado, incluindo etiquetas definir para organizar os objetos de Kubernetes. Clique nas **>>** ligação no painel para view\hide o painel.  
 
 ![Painel de propriedades de perspetivas do exemplo Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -129,7 +131,7 @@ Por predefinição, os dados de desempenho se baseia em seis últimas horas, mas
 
 ![Seleção de percentil para filtragem de dados](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Quando passa o mouse sobre o gráfico de barras sob o **tendência** coluna, cada barra mostra a utilização da CPU ou memória, dependendo de qual a métrica é selecionada, dentro de um período de exemplo de 15 minutos.  
+Quando passa o mouse sobre o gráfico de barras sob o **tendência** coluna, cada barra mostra a utilização da CPU ou memória, dependendo de qual a métrica é selecionada, dentro de um período de exemplo de 15 minutos. Depois de selecionar o gráfico de tendência por meio de um teclado, pode utilizar as teclas Alt + PageUp ou Alt + PageDown para percorrer cada barra individualmente e obter os detalhes do mesmo, tal como faria no mouseover.
 
 ![Tendência de barra exemplo de passagem de Mouse do gráfico](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 

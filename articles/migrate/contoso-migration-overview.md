@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f18af40c67195ee2e1e74c04c0834eea06fb14d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1f5eb085239ac985aa3355b1e91dac9639827339
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191959"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155087"
 ---
 # <a name="contoso-migration-overview"></a>Migração de Contoso: Descrição geral
 
@@ -39,7 +39,7 @@ Estratégias de migração para a cloud enquadram-se em quatro amplas categorias
 **Realojar** | Muitas vezes referido como uma migração "lift-and-shift". Esta opção não requer alterações ao código, e vamos migrar as suas aplicações existentes para o Azure rapidamente. Cada aplicação é migrada como está, para obter os benefícios da cloud, sem o risco e custo associado a alterações de código. | Quando precisar de mover aplicações rapidamente para a cloud.<br/><br/> Quando pretender mover uma aplicação sem modificá-la.<br/><br/> Quando as suas aplicações são arquitetadas, de modo a que podem tirar partido [IaaS do Azure](https://azure.microsoft.com/overview/what-is-iaas/) escalabilidade após a migração.<br/><br/> Quando as aplicações são importantes para o seu negócio, mas não precisa imediatas alterações nas funcionalidades de aplicação.
 **Refactor** | Muitas vezes referido como "reempacotamento", refatoração requer alterações mínimas para aplicações, para que se possam ligar a [PaaS do Azure](https://azure.microsoft.com/overview/what-is-paas/)e utilizar as ofertas de nuvem.<br/><br/> Por exemplo, poderá migrar aplicações existentes para o serviço de aplicações do Azure ou Azure Kubernetes Service (AKS).<br/><br/> Em alternativa, poderia refatorar bancos de dados relacionais e não relacionais em Opções, como a instância gerida da base de dados SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e o Azure Cosmos DB. | Se a sua aplicação pode facilmente ser reempacotada para funcionar no Azure.<br/><br/> Se deseja aplicar práticas de DevOps inovadoras fornecido pelo Azure ou estiver pensando em usar uma estratégia de contentor para cargas de trabalho de DevOps.<br/><br/> Para refatoração, precisa pensar sobre a portabilidade da sua base de código existente e habilidades de desenvolvimento disponíveis.
 **Rearquitete** | Rearquitetar para a migração se concentra em modificar e estender a funcionalidade de aplicação e a base de código para otimizar a arquitetura de aplicação para a escalabilidade da cloud.<br/><br/> Por exemplo, pode dividir uma aplicação monolítica num grupo de microsserviços que funcionam em conjunto e dimensione com facilidade.<br/><br/> Em alternativa, poderia rearquitete bases de dados relacionais e não relacionais para um soluções de DBaaS totalmente gerido, como a instância gerida da base de dados SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e o Azure Cosmos DB. | Quando as suas aplicações tem grandes revisões para incorporar novos recursos ou para trabalhar eficazmente numa plataforma na cloud.<br/><br/> Quando quiser utilizar os investimentos existentes do aplicativo, atender aos requisitos de escalabilidade, aplicar práticas de DevOps do Azure inovadoras e minimizar a utilização de máquinas virtuais.
-**Reconstruir** | Reconstrua leva as coisas um passo ainda mais ao recriar uma aplicação do zero usando tecnologias de cloud do Azure.<br/><br/> Por exemplo, pode criar aplicações de campo verde com tecnologias nativas da cloud, como as funções do Azure, IA do Azure, instância gerida da base de dados SQL do Azure e Azure Cosmos DB. | Quando pretender que o desenvolvimento rápido e aplicações existentes têm funcionalidade limitada e tempo de vida.<br/><br/> Quando estiver pronto para acelerar a inovação de negócios (incluindo práticas de DevOps fornecidas pelo Azure), criar aplicações novas com tecnologias nativas da cloud e tirar partido dos avanços em IA, Blockchain e IoT.
+**Reconstruir** | Reconstrua leva as coisas um passo ainda mais ao recriar uma aplicação do zero usando tecnologias de cloud do Azure.<br/><br/> Por exemplo, pode criar aplicações de campo verde com [nativas da cloud](http://azure.com/cloudnative) as tecnologias, como as funções do Azure, IA do Azure, instância gerida da base de dados SQL do Azure e Azure Cosmos DB. | Quando pretender que o desenvolvimento rápido e aplicações existentes têm funcionalidade limitada e tempo de vida.<br/><br/> Quando estiver pronto para acelerar a inovação de negócios (incluindo práticas de DevOps fornecidas pelo Azure), criar aplicações novas com tecnologias nativas da cloud e tirar partido dos avanços em IA, Blockchain e IoT.
 
 ## <a name="migration-articles"></a>Artigos de migração
 

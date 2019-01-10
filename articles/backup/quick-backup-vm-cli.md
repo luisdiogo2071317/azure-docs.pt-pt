@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 8/3/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bcc995994b19314b985e9a038fed236ca55db804
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 20243c516410fc6ee6b3a4e6e3d0b16ec4930cfa
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878776"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159337"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como criar cópias de segurança de máquinas virtuais (VMs) no Azure com a CLI do Azure. Também pode realizar estes passos com o [Azure PowerShell](quick-backup-vm-powershell.md) ou no [portal do Azure](quick-backup-vm-portal.md).
@@ -64,7 +64,7 @@ Se a VM não se encontrar no mesmo grupo de recursos do cofre, myResourceGroup r
 az backup protection enable-for-vm \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
-    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
     --policy-name DefaultPolicy
 ```
 

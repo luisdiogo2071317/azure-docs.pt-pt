@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944584"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160068"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre o funcionamento em rede do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Redes de pilha do Azure tem muitas das funcionalidades fornecidas pelo sistema de rede do Azure. No entanto, existem algumas diferenças importantes que deve saber antes de implementar uma rede do Azure Stack.
 
 Este artigo fornece uma descrição geral das considerações de exclusivas para o sistema de rede do Azure Stack e as respetivas funcionalidades. Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
 
-## <a name="cheat-sheet-networking-differences"></a>Referência rápida: diferenças de sistema de rede
+## <a name="cheat-sheet-networking-differences"></a>Referência rápida: Diferenças de sistema de rede
 
 | Serviço | Funcionalidade | (Global) do Azure | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 |  | Site de Gateway predefinido | O Azure suporta a configuração de um site padrão para o túnel forçado. | Ainda não é suportado. |
 |  | Redimensionamento de gateway | O Azure suporta a redimensionar o gateway após a implementação. | Novamente o dimensionamento não suportados. |
 |  | Configuração de ativo/ativo | Suportadas | Ainda não é suportado. |
-|  | Políticas de IKE/IPSec | O Azure suporta IPSec política configurações personalizadas. | Ainda não é suportado. |
 |  | UsePolicyBasedTrafficSelectors | O Azure suporta a utilização de seletores de tráfego baseado em políticas com ligações de gateway baseado na rota. | Ainda não é suportado. |
 | Load balancer | SKU | Básica e Balanceadores de carga Standard são suportados | Apenas o Balanceador de carga básico é suportado.  A propriedade SKU não é suportada. |
 |  | Zonas | As zonas de disponibilidade são suportadas. | Ainda não é suportado |
@@ -65,11 +64,9 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 |  | Obter as ACLs em vigor | Suportadas | Ainda não é suportado. |
 |  | Ativar o funcionamento em rede acelerado | Suportadas | Ainda não é suportado. |
 |  | Reencaminhamento IP | Desativado por predefinição.  Pode ser ativado. | Ativar esta definição não é suportada.  Por predefinição. |
-|  | Várias configurações de IP por interface | Suportadas | Ainda não é suportado. |
 |  | Grupos de Segurança de Aplicações | Suportadas | Ainda não é suportado. |
 |  | Etiqueta de nome DNS interno | Suportadas | Ainda não é suportado. |
 |  | Versão do endereço IP privado | São suportados IPv4 e IPv6. | É apenas suportado o IPv4. |
-|  | Configuração de IP primária | Suportado. Identifica a configuração de IP primária na interface. | Ainda não é suportado. |
 | Observador de Rede | Capacidades de monitorização de rede de inquilino de observador de rede | Suportadas | Ainda não é suportado. |
 | CDN | Perfis de rede de entrega de conteúdos | Suportadas | Ainda não é suportado. |
 | Gateway de aplicação | Balanceamento de carga de camada 7 | Suportadas | Ainda não é suportado. |

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257212"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157161"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicar uma oferta do Cortana Intelligence com o Portal de parceiro de Cloud
 
@@ -59,7 +59,7 @@ Este ID está visível no produto URLs. Apenas pode ser constituído por carater
 
 **Exemplo:**
 
-Se o publicador **contoso** cria uma oferta com o ID de oferta *exemplo-Cortana Intelligence*, que será apresentado no AppSource como "https://appsource.microsoft.com/marketplace/apps/**contoso**.*exemplo-Cortana Intelligence* ? separador descrição geral de = ".
+Se o publicador **contoso** cria uma oferta com o ID de oferta *exemplo-Cortana Intelligence*, que será apresentado no AppSource como "https://appsource.microsoft.com/marketplace/apps/**contoso**. *exemplo-Cortana Intelligence*? separador descrição geral de = ".
 
 ### <a name="publisher-id"></a>ID de publicador
 
@@ -126,7 +126,7 @@ As instruções seguintes mostram como criar um vídeo com o Skype para empresas
 3. [Iniciar gravação](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
 4. Depois de interromper a gravação, [usar o Gerenciador de gravação para publicar a gravação](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
-Carregue o seu vídeo gravado para um serviço que permite gerar um URL partilhado. Por exemplo, um [ligação de convidado no OneDrive ou Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
+Carregue o seu vídeo gravado para um serviço que permite gerar um URL partilhado. Por exemplo, um [ligação de convidado no OneDrive ou SharePoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
@@ -153,8 +153,8 @@ Selecione os processos de negócios que melhor descrevem sua solução. Se a apl
 
 ### <a name="trial-info"></a>Informações de avaliação
 
--   **URL de avaliação de SaaS:** introduza o URL para a experiência de avaliação da sua aplicação.
--   **URL de avaliação de unidade de teste:** introduza o URL para a experiência de versão de teste da sua aplicação.
+-   **URL de avaliação de SaaS:** Introduza o URL para a experiência de avaliação da sua aplicação.
+-   **URL de avaliação de unidade de teste:** Introduza o URL para a experiência de versão de teste da sua aplicação.
 
 Para obter mais informações sobre as versões de avaliação, consulte **tipo de aplicação** na próxima seção deste artigo.
 
@@ -292,7 +292,7 @@ Introduza os termos de utilização da sua aplicação. Os clientes do AppSource
 
 Selecione um sistema CRM onde serão armazenados os suas oportunidades potenciais. 
 
-Selecione **tabelas do Azure** se estiver a utilizar um destes sistemas CRM: Microsoft Dynamics CRM, Marketo ou Salesforce. 
+Selecione **tabelas do Azure** se estiver a utilizar um destes sistemas CRM: Salesforce, Marketo ou Microsoft Dynamics CRM. 
 
 Para obter mais informações sobre o sistema CRM que pretende utilizar, selecione um dos links a seguir para sistemas suportados.
 

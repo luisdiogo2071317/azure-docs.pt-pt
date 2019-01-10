@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 728152c8f9e7d4cceb4b1c8165bbf087927f58e8
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063323"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159490"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
 
@@ -42,7 +42,7 @@ Aqui estão algumas considerações ao usar os loops "Foreach":
 
 * Em loops aninhados, iterações sempre são executados sequencialmente, não em paralelo. Para executar operações em paralelo para itens num loop aninhado, crie e [chamar uma aplicação de lógica de subordinados](../logic-apps/logic-apps-http-endpoint.md).
 
-* Para obter resultados previsíveis de operações em variáveis em ciclos, execute os loops em seqüência.
+* Para obter resultados previsíveis de operações em variáveis durante cada iteração do loop, sequencialmente, execute os loops. Por exemplo, quando um em execução em simultâneo um loop termina, o incremento, diminuir e acrescentar à variável operações devolva resultados previsíveis. No entanto, durante cada iteração no loop em execução em simultâneo, estas operações podem devolver resultados imprevisíveis. 
 
 * Utilize um loop de ações num "Foreach" a [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 expressão de referência e processar cada item da matriz. Se especificar dados que não esteja numa matriz, o fluxo de trabalho de aplicação lógica falha. 
@@ -130,9 +130,9 @@ Por predefinição, os ciclos num loop "Foreach" são executadas em paralelo. Pa
 
    ![No loop "Foreach", escolha "..." > "Definições"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Ativar a **controlo de simultaneidade** definição. Mover o **grau de paralelismo** controlo de deslize **1**e escolha **feito**.
+1. Sob **controlo de simultaneidade**, ativar o **controlo de simultaneidade** definir como **no**. Mover o **grau de paralelismo** controlo de deslize **1**e escolha **feito**.
 
-   ![Ativar a definição de "Controlo de simultaneidade"](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Ativar o controlo de simultaneidade](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 Se estiver a trabalhar com a definição de JSON da sua aplicação lógica, pode utilizar o `Sequential` opção ao adicionar o `operationOptions` parâmetro, por exemplo:
 

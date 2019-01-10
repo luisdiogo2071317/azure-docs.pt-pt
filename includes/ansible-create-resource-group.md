@@ -1,23 +1,23 @@
 ---
-author: tomarcher
+author: tomarchermsft
 ms.service: ansible
 ms.topic: include
 ms.date: 08/09/2018
 ms.author: tarcher
-ms.openlocfilehash: fa1f7fe0b4b70aae4f9165197d5d1463df1f2e3b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fe995535cd42571ad96f192883e48f4b6ea1eb0e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026579"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160408"
 ---
-1. No Cloud Shell, crie um ficheiro denominado `rg.yml`.
+1. No Cloud Shell, crie um ficheiro com o nome `rg.yml`.
 
     ```bash
     vi rg.yml
     ```
 
-1. Entrar no modo de inserção, selecionando o **eu** chave.
+1. Selecione a tecla **I** para entrar no modo de inserção.
 
 1. Cole o seguinte código no editor:
 
@@ -35,9 +35,9 @@ ms.locfileid: "40026579"
            var: rg
    ```
 
-1. Sair do modo de inserção, selecionando o **Esc** chave.
+1. Saia do modo de inserção ao clicar na tecla **Esc**.
 
-1. Guarde o ficheiro e saia do editor de vi introduzindo o seguinte comando:
+1. Guarde o ficheiro e saia do editor vi ao inserir o seguinte comando:
 
     ```bash
     :wq

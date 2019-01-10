@@ -3,20 +3,20 @@ title: Gerir aplicações lógicas com o Visual Studio - Azure Logic Apps | Docu
 description: Gerir aplicações lógicas e outros recursos do Azure com o Explorador de nuvem do Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445648"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158150"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
@@ -62,10 +62,10 @@ No Visual Studio, pode encontrar todas as aplicações lógicas que estão assoc
 
 2. Com base em se está a procurar por **grupos de recursos** ou **tipos de recurso**, siga estes passos:
 
-   * **Grupos de recursos**: com a sua subscrição do Azure, o Cloud Explorer mostra todos os grupos de recursos que estão associados essa subscrição. 
+   * **Grupos de recursos**: Com a sua subscrição do Azure, o Cloud Explorer mostra todos os grupos de recursos que estão associados essa subscrição. 
    Expanda o grupo de recursos que contém a aplicação lógica e, em seguida, selecione a sua aplicação lógica.
 
-   * **Tipos de recursos**: na sua subscrição do Azure, expanda **Logic Apps**. Depois do Cloud Explorer mostra todas as aplicações de lógica implementado que estão associadas a sua subscrição, selecione a aplicação lógica.
+   * **Tipos de recurso**: Com a sua subscrição do Azure, expanda **Logic Apps**. Depois do Cloud Explorer mostra todas as aplicações de lógica implementado que estão associadas a sua subscrição, selecione a aplicação lógica.
 
 <a name="open-designer"></a>
 
@@ -171,7 +171,14 @@ Para eliminar a aplicação lógica no portal do Azure, no Cloud Explorer, abra 
 ![Eliminar a aplicação lógica](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
 > [!NOTE]
-> Quando elimina uma aplicação lógica, não existem novas execuções são instanciadas. Todos em curso e execuções pendentes serão canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir. 
+> Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir. 
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Quando abrir o seu projeto de aplicação lógica no Designer de aplicações lógicas, não poderá obter a opção para selecionar a sua subscrição do Azure. Em vez disso, a sua aplicação lógica abre-se com uma subscrição do Azure que não é a que pretende utilizar. Este comportamento acontece porque depois de abrir o ficheiro. JSON de uma aplicação lógica, o Visual Studio coloca em cache a subscrição selecionada primeiro para utilização futura. Para resolver este problema, experimente um destes passos:
+
+* Mudar o nome de ficheiro. JSON da aplicação lógica. A cache de subscrição depende do nome de ficheiro. 
+* Para remover subscrições selecionadas anteriormente para *todos os* eliminar aplicações lógicas na sua solução, o *ocultos* .vs pasta no diretório da sua solução. Esta localização armazena informações da sua subscrição. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

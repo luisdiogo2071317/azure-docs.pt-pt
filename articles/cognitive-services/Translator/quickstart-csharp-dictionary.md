@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter traduções alternativas, C# -API de texto do tradutor'
+title: 'Início rápido: Procure palavras dicionário bilingue, C# -API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, ficará a saber como obter traduções alternativas para um termo e também os exemplos de utilização desses alternam traduções, usando o .NET Core e a API de texto do Translator.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887955"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159575"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Início rápido: Utilizar a API de texto do Translator para obter as traduções alternativas comC#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Início rápido: Procure palavras com o uso de dicionário bilingueC#
 
 Neste início rápido, ficará a saber como obter traduções alternativas para um termo e também os exemplos de utilização desses alternam traduções, usando o .NET Core e a API de texto do Translator.
 

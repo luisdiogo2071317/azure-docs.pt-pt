@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 8a552356163e9c585ce9fea18e8cd5208c26a8be
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1332a06cf955be3fe2a77194f455c9315993998c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956362"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159915"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -422,29 +422,29 @@ O assistente orienta-o pela configuração de parâmetros necessários para cria
 
 1. **Noções básicas**:
  * **Nome**: O nome do recurso (o nome de máquina virtual).
- * **Tipo de disco VM**: selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
- * **Nome de utilizador e palavra-passe** ou **chave pública SSH**: introduza o nome de utilizador e palavra-passe do utilizador que é criado durante o aprovisionamento. Para uma máquina virtual do Linux, pode introduzir a chave Secure Shell (SSH) pública que utilizar para iniciar sessão máquina.
- * **Subscrição**: selecione a subscrição que pretende utilizar para aprovisionar a nova máquina virtual.
+ * **Tipo de disco VM**: Selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
+ * **Nome de utilizador e palavra-passe** ou **chave pública SSH**: Introduza o nome de utilizador e palavra-passe do utilizador que é criado durante o aprovisionamento. Para uma máquina virtual do Linux, pode introduzir a chave Secure Shell (SSH) pública que utilizar para iniciar sessão máquina.
+ * **Subscrição**: Selecione a subscrição que pretende utilizar para aprovisionar a nova máquina virtual.
  * **Grupo de recursos**: O nome do grupo de recursos para a VM. Pode introduzir o nome de um novo grupo de recursos ou o nome do grupo de recursos que já existe.
- * **Localização**: onde pretende implementar a nova máquina virtual. Se pretender ligar-se a máquina virtual à sua rede no local, certifique-se de que selecionar a localização da rede virtual que se liga do Azure à sua rede no local. Para obter mais informações, consulte [sistema de rede do Microsoft Azure] [ planning-guide-microsoft-azure-networking] na [planeamento de máquinas virtuais do Azure e implementação para o SAP NetWeaver] [ planning-guide].
+ * **Localização**: Onde pretende implementar a nova máquina virtual. Se pretender ligar-se a máquina virtual à sua rede no local, certifique-se de que selecionar a localização da rede virtual que se liga do Azure à sua rede no local. Para obter mais informações, consulte [sistema de rede do Microsoft Azure] [ planning-guide-microsoft-azure-networking] na [planeamento de máquinas virtuais do Azure e implementação para o SAP NetWeaver] [ planning-guide].
 1. **Tamanho**:
 
-     Para obter uma lista dos tipos VM suportados, consulte a nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto, se pretender utilizar o armazenamento Premium do Azure. Nem todos os tipos de VM suportam armazenamento Premium. Para obter mais informações, consulte [Storage: armazenamento do Microsoft Azure e discos de dados] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Premium do Azure] [ planning-guide-azure-premium-storage] na [ Azure máquinas de virtuais de planeamento e implementação para o SAP NetWeaver][planning-guide].
+     Para obter uma lista dos tipos VM suportados, consulte a nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto, se pretender utilizar o armazenamento Premium do Azure. Nem todos os tipos de VM suportam armazenamento Premium. Para obter mais informações, consulte [armazenamento: Discos de dados e de armazenamento do Microsoft Azure] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Premium do Azure] [ planning-guide-azure-premium-storage] no [máquinas virtuais do Azure planeamento e implementação para SAP NetWeaver][planning-guide].
 
 1. **Definições**:
   * **Armazenamento**
-    * **Tipo de disco**: selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
+    * **Tipo de disco**: Selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
     * **Utilizar discos geridos**: Se pretender utilizar os Managed Disks, selecione Sim. Para obter mais informações sobre os Managed Disks, consulte o capítulo [Managed Disks] [ planning-guide-managed-disks] no guia de planejamento.
-    * **Conta de armazenamento**: selecione uma conta de armazenamento existente ou crie um novo. Nem todos os tipos de armazenamento funcionam para executar aplicações SAP. Para obter mais informações sobre os tipos de armazenamento, consulte [armazenamento do Microsoft Azure] [ dbms-guide-2.3] na [implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver] [ dbms-guide].
+    * **Conta de armazenamento**: Selecione uma conta de armazenamento existente ou crie um novo. Nem todos os tipos de armazenamento funcionam para executar aplicações SAP. Para obter mais informações sobre os tipos de armazenamento, consulte [estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
   * **Rede**
-    * **Rede virtual** e **sub-rede**: para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
-    * **Endereço IP público**: selecione o endereço IP público que pretende utilizar, ou introduza parâmetros para criar um novo endereço IP público. Pode utilizar um endereço IP público para aceder à sua máquina virtual através da Internet. Certifique-se de que também é criar um grupo de segurança de rede para o ajudar a proteger o acesso à sua máquina virtual.
-    * **Grupo de segurança de rede**: para obter mais informações, consulte [controlar o fluxo de tráfego de rede com grupos de segurança de rede][virtual-networks-nsg].
-  * **Extensões**: pode instalar extensões de máquina virtual, adicionando-as para a implementação. Não é necessário adicionar extensões neste passo. As extensões necessárias para o suporte do SAP são instaladas mais tarde. Consulte o capítulo [configurar a extensão do Azure melhorada de monitorização para SAP] [ deployment-guide-4.5] neste guia.
-  * **Elevada disponibilidade**: selecione um conjunto de disponibilidade, ou introduza os parâmetros para criar um novo conjunto de disponibilidade. Para obter mais informações, consulte [conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
+    * **Rede virtual** e **sub-rede**: Para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
+    * **Endereço IP público**: Selecione o endereço IP público que pretende utilizar, ou introduzir parâmetros para criar um novo endereço IP público. Pode utilizar um endereço IP público para aceder à sua máquina virtual através da Internet. Certifique-se de que também é criar um grupo de segurança de rede para o ajudar a proteger o acesso à sua máquina virtual.
+    * **Grupo de segurança de rede**: Para obter mais informações, consulte [controlar o fluxo de tráfego de rede com grupos de segurança de rede][virtual-networks-nsg].
+  * **Extensões**: É possível instalar extensões de máquina virtual, adicionando-as para a implementação. Não é necessário adicionar extensões neste passo. As extensões necessárias para o suporte do SAP são instaladas mais tarde. Consulte o capítulo [configurar a extensão do Azure melhorada de monitorização para SAP] [ deployment-guide-4.5] neste guia.
+  * **Elevada disponibilidade**: Selecione um conjunto de disponibilidade ou, introduza os parâmetros para criar um novo conjunto de disponibilidade. Para obter mais informações, consulte [conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
   * **Monitorização**
-    * **Diagnóstico de arranque**: pode selecionar **desativar** para diagnóstico de arranque.
-    * **Diagnóstico do SO convidado**: pode selecionar **desativar** para o monitoramento de diagnósticos.
+    * **Diagnóstico de arranque**: Pode selecionar **desativar** para diagnóstico de arranque.
+    * **Diagnóstico do SO convidado**: Pode selecionar **desativar** para o monitoramento de diagnósticos.
 
 1. **Resumo**:
 
@@ -474,11 +474,11 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 1. **Noções básicas**:
   * **Subscrição**: A subscrição a utilizar para implementar o modelo.
   * **Grupo de recursos**: O grupo de recursos para utilizar para implementar o modelo. Pode criar um novo grupo de recursos, ou pode selecionar um grupo de recursos existentes na subscrição.
-  * **Localização**: onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
+  * **Localização**: Onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
 
 1. **Definições**:
   * **ID de sistema SAP**: O ID de sistema SAP (SID).
-  * **Tipo de SO**: O sistema operativo que pretende implementar, por exemplo, o Windows Server 2012 R2, a 12 do SUSE Linux Enterprise Server (SLES 12), a Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou o Oracle Linux 7.2.
+  * **Tipo de SO**: O sistema operativo que pretende implementar, por exemplo, o Windows Server 2012 R2, 12 do SUSE Linux Enterprise Server (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2.
 
     A vista de lista não mostra que todos os sistemas operativos suportados. Para obter mais informações sobre sistemas operativos suportados para a implementação de software SAP, consulte a nota SAP [1928533].
   * **Tamanho do sistema SAP**: O tamanho do sistema SAP.
@@ -491,12 +491,12 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte estes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
-      * [Armazenamento do Microsoft Azure] [ dbms-guide-2.3] no [implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver][dbms-guide]
-      * [Armazenamento de Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
+      * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
-  * **Nome de utilizador administrador** e **palavra-passe de administrador**: um nome de utilizador e palavra-passe.
+  * **Nome de utilizador administrador** e **palavra-passe de administrador**: Um nome de utilizador e palavra-passe.
     É criado um novo utilizador, para iniciar sessão para a máquina virtual.
-  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
+  * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e uma sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
   * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
@@ -562,28 +562,28 @@ O assistente orienta-o pela configuração de parâmetros necessários para cria
 
 1. **Noções básicas**:
  * **Nome**: O nome do recurso (o nome de máquina virtual).
- * **Tipo de disco VM**: selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
- * **Nome de utilizador e palavra-passe** ou **chave pública SSH**: introduza o nome de utilizador e palavra-passe do utilizador que é criado durante o aprovisionamento. Para uma máquina virtual do Linux, pode introduzir a chave Secure Shell (SSH) pública que utilizar para iniciar sessão máquina.
- * **Subscrição**: selecione a subscrição que pretende utilizar para aprovisionar a nova máquina virtual.
+ * **Tipo de disco VM**: Selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
+ * **Nome de utilizador e palavra-passe** ou **chave pública SSH**: Introduza o nome de utilizador e palavra-passe do utilizador que é criado durante o aprovisionamento. Para uma máquina virtual do Linux, pode introduzir a chave Secure Shell (SSH) pública que utilizar para iniciar sessão máquina.
+ * **Subscrição**: Selecione a subscrição que pretende utilizar para aprovisionar a nova máquina virtual.
  * **Grupo de recursos**: O nome do grupo de recursos para a VM. Pode introduzir o nome de um novo grupo de recursos ou o nome do grupo de recursos que já existe.
- * **Localização**: onde pretende implementar a nova máquina virtual. Se pretender ligar-se a máquina virtual à sua rede no local, certifique-se de que selecionar a localização da rede virtual que se liga do Azure à sua rede no local. Para obter mais informações, consulte [sistema de rede do Microsoft Azure] [ planning-guide-microsoft-azure-networking] na [planeamento de máquinas virtuais do Azure e implementação para o SAP NetWeaver] [ planning-guide].
+ * **Localização**: Onde pretende implementar a nova máquina virtual. Se pretender ligar-se a máquina virtual à sua rede no local, certifique-se de que selecionar a localização da rede virtual que se liga do Azure à sua rede no local. Para obter mais informações, consulte [sistema de rede do Microsoft Azure] [ planning-guide-microsoft-azure-networking] na [planeamento de máquinas virtuais do Azure e implementação para o SAP NetWeaver] [ planning-guide].
 1. **Tamanho**:
 
-     Para obter uma lista dos tipos VM suportados, consulte a nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto, se pretender utilizar o armazenamento Premium do Azure. Nem todos os tipos de VM suportam armazenamento Premium. Para obter mais informações, consulte [Storage: armazenamento do Microsoft Azure e discos de dados] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Premium do Azure] [ planning-guide-azure-premium-storage] na [ Azure máquinas de virtuais de planeamento e implementação para o SAP NetWeaver][planning-guide].
+     Para obter uma lista dos tipos VM suportados, consulte a nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto, se pretender utilizar o armazenamento Premium do Azure. Nem todos os tipos de VM suportam armazenamento Premium. Para obter mais informações, consulte [armazenamento: Discos de dados e de armazenamento do Microsoft Azure] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Premium do Azure] [ planning-guide-azure-premium-storage] no [máquinas virtuais do Azure planeamento e implementação para SAP NetWeaver][planning-guide].
 
 1. **Definições**:
   * **Armazenamento**
-    * **Tipo de disco**: selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
+    * **Tipo de disco**: Selecione o tipo de disco do disco do SO. Se pretender utilizar o armazenamento Premium para os discos de dados, recomendamos que utilize o armazenamento Premium para o disco do SO também.
     * **Utilizar discos geridos**: Se pretender utilizar os Managed Disks, selecione Sim. Para obter mais informações sobre os Managed Disks, consulte o capítulo [Managed Disks] [ planning-guide-managed-disks] no guia de planejamento.
   * **Rede**
-    * **Rede virtual** e **sub-rede**: para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
-    * **Endereço IP público**: selecione o endereço IP público que pretende utilizar, ou introduza parâmetros para criar um novo endereço IP público. Pode utilizar um endereço IP público para aceder à sua máquina virtual através da Internet. Certifique-se de que também é criar um grupo de segurança de rede para o ajudar a proteger o acesso à sua máquina virtual.
-    * **Grupo de segurança de rede**: para obter mais informações, consulte [controlar o fluxo de tráfego de rede com grupos de segurança de rede][virtual-networks-nsg].
-  * **Extensões**: pode instalar extensões de máquina virtual, adicionando-as para a implementação. Não é necessário adicionar a extensão neste passo. As extensões necessárias para o suporte do SAP são instaladas mais tarde. Consulte o capítulo [configurar a extensão do Azure melhorada de monitorização para SAP] [ deployment-guide-4.5] neste guia.
-  * **Elevada disponibilidade**: selecione um conjunto de disponibilidade, ou introduza os parâmetros para criar um novo conjunto de disponibilidade. Para obter mais informações, consulte [conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
+    * **Rede virtual** e **sub-rede**: Para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
+    * **Endereço IP público**: Selecione o endereço IP público que pretende utilizar, ou introduzir parâmetros para criar um novo endereço IP público. Pode utilizar um endereço IP público para aceder à sua máquina virtual através da Internet. Certifique-se de que também é criar um grupo de segurança de rede para o ajudar a proteger o acesso à sua máquina virtual.
+    * **Grupo de segurança de rede**: Para obter mais informações, consulte [controlar o fluxo de tráfego de rede com grupos de segurança de rede][virtual-networks-nsg].
+  * **Extensões**: É possível instalar extensões de máquina virtual, adicionando-as para a implementação. Não é necessário adicionar a extensão neste passo. As extensões necessárias para o suporte do SAP são instaladas mais tarde. Consulte o capítulo [configurar a extensão do Azure melhorada de monitorização para SAP] [ deployment-guide-4.5] neste guia.
+  * **Elevada disponibilidade**: Selecione um conjunto de disponibilidade ou, introduza os parâmetros para criar um novo conjunto de disponibilidade. Para obter mais informações, consulte [conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
   * **Monitorização**
-    * **Diagnóstico de arranque**: pode selecionar **desativar** para diagnóstico de arranque.
-    * **Diagnóstico do SO convidado**: pode selecionar **desativar** para o monitoramento de diagnósticos.
+    * **Diagnóstico de arranque**: Pode selecionar **desativar** para diagnóstico de arranque.
+    * **Diagnóstico do SO convidado**: Pode selecionar **desativar** para o monitoramento de diagnósticos.
 
 1. **Resumo**:
 
@@ -613,7 +613,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 1. **Noções básicas**:
   * **Subscrição**: A subscrição a utilizar para implementar o modelo.
   * **Grupo de recursos**: O grupo de recursos para utilizar para implementar o modelo. Pode criar um novo grupo de recursos ou selecione um grupo de recursos existentes na subscrição.
-  * **Localização**: onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
+  * **Localização**: Onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
 1. **Definições**:
   * **ID de sistema SAP**: O ID de sistema SAP.
   * **Tipo de SO**: O tipo de sistema operativo que pretende implementar (Windows ou Linux).
@@ -627,16 +627,16 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte os seguintes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
-      * [Armazenamento do Microsoft Azure] [ dbms-guide-2.3] no [implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver][dbms-guide]
-      * [Armazenamento de Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure][storage-premium-storage-preview-portal]
+      * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
   * **URI de VHD da imagem de utilizador** (disco não gerido imagem modelo): O URI do sistema operacional privado de imagem VHD, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
   * **Conta de armazenamento de imagem do utilizador** (disco não gerido imagem modelo): O nome da conta de armazenamento onde está armazenada a imagem de SO privada, por exemplo, &lt;accountname > em https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **userImageId** (disco gerido imagem modelo): Id da imagem de disco gerido que pretende utilizar
+  * **userImageId** (disco gerido imagem modelo): ID da imagem de disco gerido que pretende utilizar
   * **Nome de utilizador administrador** e **palavra-passe de administrador**: O nome de utilizador e palavra-passe.
 
     É criado um novo utilizador, para iniciar sessão para a máquina virtual.
-  * **Sub-rede nova ou existente**: determina se é criada uma nova rede virtual e uma sub-rede ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
+  * **Sub-rede nova ou existente**: Determina se é criada uma nova rede virtual e uma sub-rede ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
   * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
@@ -667,7 +667,7 @@ Verifique se a monitorização está funcionando, conforme descrito em [verifica
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Cenário 3: Mover uma VM no local usando um VHD de Azure não generalizado com o SAP
 
-Neste cenário, planeia mover um sistema SAP específico a partir de um ambiente no local para o Azure. Pode fazê-lo ao carregar o VHD que tenha o sistema operacional, os binários do SAP e, eventualmente, os binários do DBMS, além dos VHDs com os arquivos de dados e de registo do DBMS, para o Azure. Ao contrário do cenário descrito [cenário 2: implementar uma VM com uma imagem personalizada para SAP][deployment-guide-3.3], neste caso, mantenha o nome de anfitrião, o SID do SAP, e contas de usuário SAP na VM do Azure, uma vez que foram configurados no o ambiente no local. Não é necessário generalizar o sistema operacional. Este cenário aplica-se com mais freqüência para cenários em vários locais em que parte do ambiente SAP é executado no local e parte do mesmo é executado no Azure.
+Neste cenário, planeia mover um sistema SAP específico a partir de um ambiente no local para o Azure. Pode fazê-lo ao carregar o VHD que tenha o sistema operacional, os binários do SAP e, eventualmente, os binários do DBMS, além dos VHDs com os arquivos de dados e de registo do DBMS, para o Azure. Ao contrário do cenário descrito [cenário 2: Implementar uma VM com uma imagem personalizada para SAP][deployment-guide-3.3], neste caso, mantenha o nome de anfitrião, o SID do SAP, e contas de usuário SAP na VM do Azure, dado que estes foram configurados no ambiente no local. Não é necessário generalizar o sistema operacional. Este cenário aplica-se com mais freqüência para cenários em vários locais em que parte do ambiente SAP é executado no local e parte do mesmo é executado no Azure.
 
 Neste cenário, o agente da VM é **não** instalados automaticamente durante a implementação. Uma vez que o agente da VM e avançada de monitorização a extensão do Azure para SAP são necessários para executar o SAP NetWeaver no Azure, terá de transferir, instalar e ativar os dois componentes manualmente depois de criar a máquina virtual.
 
@@ -708,7 +708,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 1. **Noções básicas**:
   * **Subscrição**: A subscrição a utilizar para implementar o modelo.
   * **Grupo de recursos**: O grupo de recursos para utilizar para implementar o modelo. Pode criar um novo grupo de recursos ou selecione um grupo de recursos existentes na subscrição.
-  * **Localização**: onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
+  * **Localização**: Onde pretende implementar o modelo. Se tiver selecionado um grupo de recursos existente, a localização do grupo de recursos é utilizada.
 1. **Definições**:
   * **ID de sistema SAP**: O ID de sistema SAP.
   * **Tipo de SO**: O tipo de sistema operativo que pretende implementar (Windows ou Linux).
@@ -719,12 +719,12 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte os seguintes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
-      * [Armazenamento do Microsoft Azure] [ dbms-guide-2.3] no [implementação de DBMS de Máquina Virtual do Azure para SAP NetWeaver][dbms-guide]
-      * [Armazenamento de Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
+      * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
   * **URI de VHD de disco do SO** (apenas modelo de disco não gerido): O URI do disco de SO privado, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id do disco gerido disco do SO** (apenas modelo de disco gerido): O Id do disco do SO de discos geridos, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criados, ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
+  * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e uma sub-rede são criados, ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
   * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
@@ -1036,7 +1036,7 @@ Esta verificação certifica-se de que todas as métricas de desempenho que apar
 
 1.  Inicie sessão na máquina virtual do Azure (com uma conta de administrador não é necessário).
 1.  Abra uma janela de Linha de Comandos.
-1.  No prompt de comando, altere o diretório para a pasta de instalação do Enhanced Monitoring a extensão do Azure para SAP: c:\\pacotes\\plug-ins\\ Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versão >\\soltar
+1.  No prompt de comando, altere o diretório para a pasta de instalação do Enhanced Monitoring a extensão do Azure para SAP: C:\\pacotes\\plug-ins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versão >\\soltar
 
   O *versão* no caminho para a extensão de monitorização pode variar. Se vir pastas para várias versões da extensão de monitorização na pasta de instalação, verifique a configuração do serviço Windows AzureEnhancedMonitoring e, em seguida, mude para a pasta indicada como *caminho para o executável* .
 
@@ -1083,15 +1083,15 @@ Se o **estado de funcionamento** hodnota není **OK**, siga as instruções no [
 
   a.  Execute `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
-   **Era esperado o resultado**: devolve a lista de contadores de desempenho. O ficheiro não deve estar vazio.
+   **Era esperado o resultado**: Devolve a lista de contadores de desempenho. O ficheiro não deve estar vazio.
 
  b. Execute `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
-   **Era esperado o resultado**: uma linha de devolve onde está o erro **none**, por exemplo, **3; configuração; Erro; 0; 0; Nenhum; 0; 1456416792; tst-servercs;**
+   **Era esperado o resultado**: Uma linha de devolve onde está o erro **none**, por exemplo, **3; configuração; Erro; 0; 0; Nenhum; 0; 1456416792; tst-servercs;**
 
   c. Execute `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
-    **Era esperado o resultado**: devolve vazia ou não existe.
+    **Era esperado o resultado**: Devolve vazia ou não existe.
 
 Se a verificação anterior não foi concluída com êxito, execute estas verificações adicionais:
 
@@ -1099,21 +1099,21 @@ Se a verificação anterior não foi concluída com êxito, execute estas verifi
 
   a.  Execute `sudo ls -al /var/lib/waagent/`
 
-      **Era esperado o resultado**: lista o conteúdo do diretório waagent.
+      **Era esperado o resultado**: Lista o conteúdo do diretório waagent.
 
   b.  Execute `ps -ax | grep waagent`
 
-   **Era esperado o resultado**: apresenta uma entrada semelhante a: `python /usr/sbin/waagent -daemon`
+   **Era esperado o resultado**: Apresenta uma entrada semelhante a: `python /usr/sbin/waagent -daemon`
 
 1.   Certifique-se de que a extensão de monitorização de avançada para Azure está instalado e em execução.
 
   a.  Execute `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-    **Era esperado o resultado**: lista o conteúdo do diretório de extensão de monitorização avançada do Azure.
+    **Era esperado o resultado**: Lista o conteúdo do diretório de extensão de monitorização avançada do Azure.
 
   b. Execute `ps -ax | grep AzureEnhanced`
 
-     **Era esperado o resultado**: apresenta uma entrada semelhante a: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+     **Era esperado o resultado**: Apresenta uma entrada semelhante a: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Instalar o agente de anfitrião do SAP, tal como descrito na nota SAP [1031096]e verificar a saída do `saposcol`.
 

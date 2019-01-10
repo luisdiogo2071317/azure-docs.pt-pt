@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas, PHP – API de Texto do Microsoft Translator'
+title: Procure palavras dicionário bilingue, PHP - API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649776"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156889"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Início Rápido: localizar traduções alternativas com a API REST de Texto do Microsoft Translator (PHP)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Início rápido: Procure palavras com dicionário bilingue com PHP
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -281,7 +281,7 @@ echo $json;
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

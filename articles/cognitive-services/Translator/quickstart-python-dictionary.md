@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: obter traduções alternativas, Python - API de Texto do Microsoft Translator'
+title: 'Início rápido: Procure palavras dicionário bilingue, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a encontrar traduções alternativas e exemplos de utilização para um texto especificado com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 52820a9162a20b680b85d07f8c49ac5305d4979a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993935"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158016"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para obter traduções alternativas com o Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Início rápido: Procure palavras com dicionário bilingue com Python
 
 Neste início rápido, irá aprender a encontrar traduções alternativas e exemplos de utilização para um texto especificado com o Python e a API REST de Texto do Microsoft Translator.
 
@@ -69,7 +69,7 @@ Atualmente, está disponível um ponto final para Tradução de Texto e está de
 São utilizados `params` para definir a origem e os idiomas de saída. Neste exemplo, utilizamos o inglês e espanhol: `en` e `es`.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Pesquisa de dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

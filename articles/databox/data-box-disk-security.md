@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091492"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159694"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Proteção de dados e segurança do Azure Data Box Disk (Pré-visualização)
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Proteção do Azure de dados e segurança de disco Data Box
 
 Este artigo descreve as funcionalidades de segurança do Azure Data Box Disk que ajudam a proteger todos os componentes da solução Data Box e os respetivos dados armazenados. 
-
-> [!IMPORTANT]
-> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
 
 ## <a name="data-flow-through-components"></a>Fluxo de dados através dos componentes
 
@@ -93,7 +90,7 @@ O Azure Data Box Disk recolhe e apresenta informações pessoais nas seguintes i
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os [Requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).

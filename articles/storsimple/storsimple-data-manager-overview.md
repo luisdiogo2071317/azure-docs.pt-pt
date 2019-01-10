@@ -1,6 +1,6 @@
 ---
 title: Descrição geral do Microsoft Azure StorSimple Data Manager | Documentos da Microsoft
-description: Fornece uma visão geral do serviço de Gestor de dados do StorSimple
+description: Fornece uma descrição geral do serviço StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009169"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158822"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Descrição geral da solução do StorSimple Data Manager
 
@@ -84,7 +84,7 @@ Se a sua região de Gestor de dados é diferente da sua região de definição d
 
 ## <a name="managing-personal-information"></a>Gerenciamento de informações pessoais
 
-O Gestor de dados do StorSimple não recolher ou apresentar quaisquer informações pessoais. Para obter mais informações, consulte a política de Microsoft Privacy ao [Centro de fidedignidade](https://www.microsoft.com/trustcenter).
+O Gestor de dados do StorSimple não recolher ou apresentar quaisquer informações pessoais. Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="known-limitations"></a>Limitações Conhecidas
 

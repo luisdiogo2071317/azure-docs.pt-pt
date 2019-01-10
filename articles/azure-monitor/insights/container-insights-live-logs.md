@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: MT
+ms.openlocfilehash: 27368ec1f41553950ab1689f8b37c15d14d29808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156668"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Como ver o contentor registos em tempo real com o Azure Monitor para contentores (pré-visualização)
 Esta funcionalidade, que está atualmente em pré-visualização, fornece uma vista em tempo real sobre os seus registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona esta opção, o novo painel é apresentada abaixo da tabela de dados de desempenho de contentores no **contentores** vista e ele mostra o registo em direto gerado pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real.  
@@ -65,7 +65,7 @@ Se tiver ativado o autorização RBAC do Kubernetes, terá de aplicar o enlace d
 2. Criar o enlace de regra de cluster executando o seguinte comando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurar o AKS com o Azure Active Directory
-AKS pode ser configurado para utilizar o Azure Active Directory (AD) para autenticação de utilizador. Se estiver a configurar isso pela primeira vez, consulte [integrar o Azure Active Directory com o Azure Kubernetes Service](../../aks/aad-integration.md). Durante os passos para criar o [aplicação de cliente](../../aks/aad-integration.md#create-client-application) e especifique a **URI de redirecionamento**, precisa adicionar noutro URI para a lista * * https://ininprodeusuxbase.microsoft.com/***.  
+AKS pode ser configurado para utilizar o Azure Active Directory (AD) para autenticação de utilizador. Se estiver a configurar isso pela primeira vez, consulte [integrar o Azure Active Directory com o Azure Kubernetes Service](../../aks/aad-integration.md). Durante os passos para criar o [aplicação de cliente](../../aks/aad-integration.md#create-client-application) e especifique a **URI de redirecionamento**, precisa adicionar noutro URI para a lista `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Configuração da autenticação no Azure Active Directory para início de sessão único só pode ser realizada durante o implementação de um novo cluster do AKS. Não é possível configurar o início de sessão único para um cluster do AKS já implementado.  

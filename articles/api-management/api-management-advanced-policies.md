@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584881"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158436"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```
 
 #### <a name="example"></a>Exemplo
- Este exemplo mostra como realizar a filtragem de conteúdo, removendo elementos de dados da resposta recebida do serviço de back-end ao utilizar o `Starter` produto. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 34:30. Iniciar o 31:50 ver uma descrição geral dos [a escuro céu previsão API](https://developer.forecast.io/) utilizado para esta demonstração.
+ Este exemplo mostra como realizar a filtragem de conteúdo, removendo elementos de dados da resposta recebida do serviço de back-end ao utilizar o `Starter` produto. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 34:30. Iniciar o 31:50 ver uma descrição geral dos [a escuro céu previsão API](https://developer.forecast.io/) utilizado para esta demonstração.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  Quando apenas os `interval` for especificado, **fixo** repetições de intervalo são executadas.
 > Quando apenas os `interval` e `delta` forem especificados, uma **linear** algoritmo do intervalo entre tentativas é utilizado, em que o tempo de espera entre tentativas é calculado de acordo com a seguinte fórmula - `interval + (count - 1)*delta`.
-> Quando o `interval`, `max-interval` e `delta` forem especificados, **exponencial** algoritmo do intervalo entre tentativas é aplicado, onde o tempo de espera entre as repetições está a crescer exponencialmente do valor da `interval` para o valor `max-interval` , de acordo com a seguinte forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Quando o `interval`, `max-interval` e `delta` forem especificados, **exponencial** algoritmo do intervalo entre tentativas é aplicado, onde o tempo de espera entre as repetições está a crescer exponencialmente do valor da `interval` para o valor `max-interval` , de acordo com a seguinte fórmula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Tenha em atenção que as restrições de utilização de políticas de subordinados serão herdadas por esta política.
@@ -959,7 +959,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Atributo|Descrição|Necessário|Predefinição|
 |---------------|-----------------|--------------|-------------|
-|para|Determina se o `wait` política aguarda para todas as políticas de filho imediatos como concluído ou apenas um. Valores permitidos são:<br /><br /> -   `all` -aguardar que todas as políticas de filho imediatos concluir<br />-qualquer - a aguardar por qualquer política filho imediatos para concluir. Depois de concluída a primeira diretiva filho imediatos, o `wait` política for concluída e execução de outras políticas do filho imediatos é terminada.|Não|all|
+|durante|Determina se o `wait` política aguarda para todas as políticas de filho imediatos como concluído ou apenas um. Valores permitidos são:<br /><br /> -   `all` -aguardar que todas as políticas de filho imediatos concluir<br />-qualquer - a aguardar por qualquer política filho imediatos para concluir. Depois de concluída a primeira diretiva filho imediatos, o `wait` política for concluída e execução de outras políticas do filho imediatos é terminada.|Não|all|
 
 ### <a name="usage"></a>Utilização
 

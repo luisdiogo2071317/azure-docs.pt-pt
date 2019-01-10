@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: MT
+ms.openlocfilehash: 7c3a37ede07f98174191c8a4847c8a3d9075b21a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753953"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156311"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -170,8 +170,8 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | **Tipo de subscritor** |  gerado automaticamente |  Previamente definido como Webhook. |
     | **Ponto final do subscritor** | gerado automaticamente | Utilize o URL de ponto final gerado. | 
     | **Nome** | imageresizersub | Nome que identifica a nova subscrição de evento. | 
-
-4. Clique em **Criar** para adicionar a subscrição de evento. Esta ação cria uma subscrição de evento que aciona `imageresizerfunc` quando um blob é adicionado ao contentor de *imagens*. A função redimensiona as imagens e adiciona-as ao contentor de *miniaturas*.
+4. *Opcional:* Caso seja necessário criar contentores adicionais no mesmo armazenamento de BLOBs para outros fins no futuro, pode usar **filtragem do requerente** recursos no **filtros** separador mais granular de blob eventos para garantir que a aplicação de função denomina-se apenas quando os blobs são adicionados à **imagens** contentor especificamente. 
+5. Clique em **Criar** para adicionar a subscrição de evento. Esta ação cria uma subscrição de evento que aciona `imageresizerfunc` quando um blob é adicionado ao contentor de *imagens*. A função redimensiona as imagens e adiciona-as ao contentor de *miniaturas*.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento de imagens na aplicação Web de exemplo. 
 

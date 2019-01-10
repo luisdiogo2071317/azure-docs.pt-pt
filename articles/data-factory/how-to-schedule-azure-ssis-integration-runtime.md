@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107587"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158657"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
 Este artigo descreve como agendar a iniciar e parar do Azure-SSIS Integration Runtime (IR) com o Azure Data Factory (ADF). Runtime de integração Azure-SSIS é dedicado para a execução de pacotes do SQL Server Integration Services (SSIS) de recurso de computação do ADF. Executar o IR Azure-SSIS tem um custo associado ele. Portanto, normalmente pretende executar o runtime de integração apenas quando tiver de executar pacotes do SSIS no Azure e parar o runtime de integração, quando não precisa mais. Pode usar a Interface de utilizador do ADF (IU) / aplicação ou o Azure PowerShell para [manualmente iniciar ou parar o runtime de integração](manage-azure-ssis-integration-runtime.md)).
@@ -86,7 +86,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
    
 2. Na **atividades** caixa de ferramentas, expanda **gerais** menu e arrastar e largar um **Web** atividade para a superfície de desenho do pipeline. Na **gerais** separador da janela de propriedades de atividade, altere o nome da atividade para **startMyIR**. Mude para o **definições** separador e fazer as seguintes ações.
 
-    1. Para **URL**, introduza o seguinte URL para a API REST, que inicia o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Em alternativa, os que pode também copiar e colar o ID de recurso do Runtime de integração da sua página de monitorização na interface do Usuário do ADF/aplicação para substituir a parte seguinte do URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
+    1. Para **URL**, introduza o seguinte URL para a API REST, que inicia o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` Em alternativa, também pode copiar e colar o ID de recurso do Runtime de integração da sua página de monitorização na interface do Usuário do ADF/aplicação para substituir a parte seguinte do URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID de recurso do Runtime de integração de SSIS do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -99,7 +99,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
   
 3. Clonar o primeiro pipeline para criar uma segunda, o nome da atividade para a alteração **stopMyIR** e substituir as seguintes propriedades.
 
-    1. Para **URL**, introduza o seguinte URL para a API REST que pára o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
+    1. Para **URL**, introduza o seguinte URL para a API REST que pára o IR Azure-SSIS, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, e `{integrationRuntimeName}` com os valores reais para o runtime de integração: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. Para **corpo**, introduza `{"message":"Stop my IR"}`. 
 

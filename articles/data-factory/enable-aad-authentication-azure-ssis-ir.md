@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104340"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158266"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
@@ -187,6 +187,17 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
     ```
     
     O comando deve ser concluído com êxito, concedendo a identidade gerida para o ADF a capacidade de criar uma base de dados (SSISDB).
+
+8.  Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
+
+9.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    O comando deve ser concluído com êxito, concedendo a identidade gerida para o ADF a capacidade de acessar o SSISDB.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Aprovisionar o IR de Azure-SSIS na aplicação de portal/ADF do Azure
 

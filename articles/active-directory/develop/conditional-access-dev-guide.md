@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337925"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157081"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação para programadores de acesso condicional do Azure Active Directory
 
@@ -92,11 +92,11 @@ As secções seguintes abordam cenários comuns que são mais complexos. Centro 
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>Cenário: Aplicação aceder ao Microsoft Graph
 
-Neste cenário, saiba como uma aplicação web pedidos de acesso para o Microsoft Graph. A política de acesso condicional neste caso poderia ser atribuída para o SharePoint, Exchange ou algum outro serviço que é acessado como uma carga de trabalho através do Microsoft Graph. Neste exemplo, suponhamos que haja uma política de acesso condicional no Sharepoint Online.
+Neste cenário, saiba como uma aplicação web pedidos de acesso para o Microsoft Graph. A política de acesso condicional neste caso poderia ser atribuída para o SharePoint, Exchange ou algum outro serviço que é acessado como uma carga de trabalho através do Microsoft Graph. Neste exemplo, suponhamos que haja uma política de acesso condicional no SharePoint Online.
 
 ![Aplicação aceder ao diagrama de fluxo do Microsoft Graph](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-A aplicação primeiro solicita autorização para o Microsoft Graph, o que necessita de aceder a uma carga de trabalho jusante sem acesso condicional. O pedido for bem-sucedida sem invocar qualquer política e a aplicação recebe tokens para o Microsoft Graph. Neste momento, a aplicação pode utilizar o token de acesso numa solicitação de portador para o ponto final do pedido. Agora, a aplicação tem de aceder a um ponto final do Sharepoint Online do Microsoft Graph, por exemplo: `https://graph.microsoft.com/v1.0/me/mySite`
+A aplicação primeiro solicita autorização para o Microsoft Graph, o que necessita de aceder a uma carga de trabalho jusante sem acesso condicional. O pedido for bem-sucedida sem invocar qualquer política e a aplicação recebe tokens para o Microsoft Graph. Neste momento, a aplicação pode utilizar o token de acesso numa solicitação de portador para o ponto final do pedido. Agora, a aplicação tem de aceder a um ponto final do SharePoint Online do Microsoft Graph, por exemplo: `https://graph.microsoft.com/v1.0/me/mySite`
 
 A aplicação já tem um token válido para o Microsoft Graph, para que ele pode executar o novo pedido sem que está a ser emitido um novo token. Este pedido falha e um desafio de afirmações é emitido a partir do Microsoft Graph, na forma de um HTTP 403 Proibido com um ```WWW-Authenticate``` desafio.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-O desafio de afirmações é dentro do ```WWW-Authenticate``` cabeçalho, que pode ser analisado para extrair o parâmetro de afirmações para a próxima solicitação. Assim que ele é acrescentado ao novo pedido, do Azure AD sabe-se para avaliar a política de acesso condicional ao iniciar sessão do utilizador e a aplicação está agora em conformidade com a política de acesso condicional. Repetir o pedido para o ponto final do Sharepoint Online for concluída com êxito.
+O desafio de afirmações é dentro do ```WWW-Authenticate``` cabeçalho, que pode ser analisado para extrair o parâmetro de afirmações para a próxima solicitação. Assim que ele é acrescentado ao novo pedido, do Azure AD sabe-se para avaliar a política de acesso condicional ao iniciar sessão do utilizador e a aplicação está agora em conformidade com a política de acesso condicional. Repetir o pedido para o ponto final do SharePoint Online for concluída com êxito.
 
 O ```WWW-Authenticate``` cabeçalho têm uma estrutura de exclusiva e não é trivial para analisar para extrair valores. Eis um método curto para o ajudar a.
 

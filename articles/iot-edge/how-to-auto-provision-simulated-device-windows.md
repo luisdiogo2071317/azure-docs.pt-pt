@@ -4,23 +4,23 @@ description: Utilizar um dispositivo simulado no seu computador Windows para tes
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/06/2018
+ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557704"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158606"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Criar e aprovisionar um dispositivo de periferia de TPM simulado no Windows
 
-Dispositivos do IoT Edge do Azure podem ser aprovisionado automaticamente com o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de aprovisionamento automático, reveja os [conceitos de aprovisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
+Dispositivos do IoT Edge do Azure podem ser aprovisionado automaticamente com o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de aprovisionamento automático, reveja os [conceitos de aprovisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
-Este artigo mostra-lhe como testar aprovisionamento automático num dispositivo Edge simulado com os seguintes passos: 
+Este artigo mostra-lhe como testar aprovisionamento automático num dispositivo Edge simulado com os seguintes passos:
 
 * Crie uma instância do IoT Hub dispositivo aprovisionamento DPS (serviço).
 * Crie um dispositivo simulado no seu computador Windows com um simulado Trusted Platform Module (TPM) para a segurança de hardware.
@@ -29,43 +29,44 @@ Este artigo mostra-lhe como testar aprovisionamento automático num dispositivo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma máquina de desenvolvimento do Windows. Este artigo utiliza o Windows 10. 
-* Um IoT Hub Active Directory. 
+* Uma máquina de desenvolvimento do Windows. Este artigo utiliza o Windows 10.
+* Um IoT Hub Active Directory.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurar o serviço de aprovisionamento de dispositivos do IoT Hub
 
 Criar uma nova instância do serviço de aprovisionamento de dispositivos do IoT Hub no Azure e ligá-lo ao seu hub IoT. Pode seguir as instruções em [configurar o Hub IoT DPS](../iot-dps/quick-setup-auto-provision.md).
 
-Depois de ter a execução do serviço aprovisionamento de dispositivos, copie o valor da **âmbito do ID** da página de descrição geral. Utilize este valor quando configurar o runtime do IoT Edge. 
+Depois de ter a execução do serviço aprovisionamento de dispositivos, copie o valor da **âmbito do ID** da página de descrição geral. Utilize este valor quando configurar o runtime do IoT Edge.
 
 ## <a name="simulate-a-tpm-device"></a>Simular um dispositivo TPM
 
-Crie um dispositivo TPM simulado no seu computador de desenvolvimento do Windows. Obter o **ID de registo** e **chave de endossamento** para o seu dispositivo e usá-los para criar uma entrada de inscrição individual no DPS. 
+Crie um dispositivo TPM simulado no seu computador de desenvolvimento do Windows. Obter o **ID de registo** e **chave de endossamento** para o seu dispositivo e usá-los para criar uma entrada de inscrição individual no DPS.
 
-Quando criar uma inscrição em pontos de distribuição, terá a oportunidade para declarar uma **inicial estado do dispositivo duplo**. No dispositivo duplo pode definir etiquetas para agrupar dispositivos com qualquer métrica que terá na sua solução, como o tipo de dispositivo, localização, ambiente ou região. Essas marcas são usadas para criar [implementações automáticas](how-to-deploy-monitor.md). 
+Quando criar uma inscrição em pontos de distribuição, terá a oportunidade para declarar uma **inicial estado do dispositivo duplo**. No dispositivo duplo pode definir etiquetas para agrupar dispositivos com qualquer métrica que terá na sua solução, como o tipo de dispositivo, localização, ambiente ou região. Essas marcas são usadas para criar [implementações automáticas](how-to-deploy-monitor.md).
 
-Escolha o idioma SDK que pretende utilizar para criar o dispositivo simulado e siga os passos até criar a inscrição individual. 
+Escolha o idioma SDK que pretende utilizar para criar o dispositivo simulado e siga os passos até criar a inscrição individual.
 
-Ao criar a inscrição individual, selecione **habilitar** declarar que esta máquina virtual é uma **dispositivo IoT Edge**.
+Ao criar a inscrição individual, selecione **habilitar** declarar que o dispositivo TPM simulado no seu computador de desenvolvimento do Windows é um **dispositivo IoT Edge**.
 
-Dispositivo simulado e guias de inscrição individual: 
+Dispositivo simulado e guias de inscrição individual:
+
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-Depois de criar a inscrição individual, guardar o valor do **ID de registo**. Utilize este valor quando configurar o runtime do IoT Edge. 
+Depois de criar a inscrição individual, guardar o valor do **ID de registo**. Utilize este valor quando configurar o runtime do IoT Edge.
 
 ## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
-Depois de concluir a seção anterior, deverá ver seu novo dispositivo listado como um dispositivo IoT Edge no seu IoT Hub. Agora, tem de instalar o runtime do IoT Edge no dispositivo. 
+Depois de concluir a seção anterior, deverá ver seu novo dispositivo listado como um dispositivo IoT Edge no seu IoT Hub. Agora, tem de instalar o runtime do IoT Edge no dispositivo.
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Seus componentes executadas em contentores e permitem-lhe implementar contentores adicionais no dispositivo para que pode executar o código na periferia.  
 
 Siga as instruções para instalar o runtime do IoT Edge no dispositivo que está a executar o TPM simulado da secção anterior. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual.
 
-Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de instalar o IoT Edge no dispositivo. 
+Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de instalar o IoT Edge no dispositivo.
 
 [Instalar e aprovisionar automaticamente do IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 

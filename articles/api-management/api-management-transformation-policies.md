@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119378"
+ms.locfileid: "54159796"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -353,7 +353,7 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 ```
 
 ### <a name="using-liquid-templates-with-set-body"></a>Utilizar modelos de fluidos com corpo de conjunto
-O `set-body` política pode ser configurada para utilizar o [líquidos](https://shopify.github.io/liquid/basics/introduction/) linguagem de modelagem para transfom o corpo de uma solicitação ou resposta. Isso pode ser muito eficaz se de que precisa de reformatar completamente o formato da mensagem.
+O `set-body` política pode ser configurada para utilizar o [líquidos](https://shopify.github.io/liquid/basics/introduction/) linguagem de modelagem para transformar o corpo de uma solicitação ou resposta. Isso pode ser muito eficaz se de que precisa de reformatar completamente o formato da mensagem.
 
 > [!IMPORTANT]
 > A implementação de Liquid usada no `set-body` política está configurada no modo c#. Isso é particularmente importante para fazer certas coisas, como a filtragem. Por exemplo, utilizando um filtro de data requer a utilização de Pascal casing e c# data por exemplo, a formatação:

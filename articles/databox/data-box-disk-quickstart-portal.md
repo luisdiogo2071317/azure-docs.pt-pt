@@ -6,26 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712267"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156005"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implementar o Azure Data Box Disk através do portal do Azure (Pré-visualização)
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início rápido: Implementar o disco do Azure Data Box através do portal do Azure
 
 Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. Os passos incluem como criar uma encomenda, receber discos, desembalar, ligar e copiar dados para discos para serem carregados para o Azure. 
 
-Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Encomendar o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Solicite o disco do Azure Data Box](data-box-disk-deploy-ordered.md). 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-> [!IMPORTANT]
-> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: obter traduções alternativas, Node.js – API de Texto do Microsoft Translator'
+title: 'Início rápido: Procure palavras dicionário bilingue, node. js - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a encontrar traduções alternativas e exemplos de utilização para um texto especificado com o Node.js e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035633"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160017"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para obter traduções alternativas com o Node.js
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Início rápido: Procure palavras com dicionário bilingue com node. js
 
 Neste início rápido, irá aprender a encontrar traduções alternativas e exemplos de utilização para um texto especificado com o Node.js e a API REST de Texto do Microsoft Translator.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Pesquisa de dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {
@@ -151,7 +151,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Node.js no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)

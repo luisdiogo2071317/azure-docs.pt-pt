@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311070"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158878"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação Android
 
@@ -127,7 +127,7 @@ Pode encontrar toda a configuração para este exemplo de código no ficheiro **
 
 1. Consulte o [Wiki ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) para obter mais informações sobre a mecânica da biblioteca e como configurar novos cenários e capacidades.
 2. Em cenários Nativos, a aplicação vai utilizar uma Webview incorporada e não deixará a aplicação. O `Redirect URI` pode ser arbitrário.
-3. Deparou-se com problemas ou tem pedidos? Pode criar um problema ou mensagem no Stackoverflow com a etiqueta `azure-active-directory`.
+3. Deparou-se com problemas ou tem pedidos? Pode criar um problema ou publicar no Stack Overflow com a marca `azure-active-directory`.
 
 ### <a name="cross-app-sso"></a>SSO entre várias aplicações
 

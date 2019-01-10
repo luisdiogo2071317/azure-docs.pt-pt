@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121299"
+ms.locfileid: "54158215"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -275,7 +275,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|É NECESSÁRIO. O tipo de token emitido.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|É NECESSÁRIO. O tipo de token emitido.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|É NECESSÁRIO. O nome de utilizador de proprietário do recurso.|  
-|OAuth2UnsupportedTokenType|Tipo de token "{0}' não é suportado.|  
+|OAuth2UnsupportedTokenType|Tipo de token "{0}' não é suportada.|  
 |OAuth2InvalidState|Resposta inválida do servidor de autorização|  
 |OAuth2GrantType_AuthorizationCode|Código de autorização|  
 |OAuth2GrantType_Implicit|Implícito|  
@@ -361,7 +361,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |WebProductsUsageLimitsHeader|Limites de utilização|  
 |WebProductsYouAreNotSubscribed|Está subscrito neste produto.|  
 |WebProductsYouRequestedSubscription|Pediu a subscrição neste produto.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Tem de concordar com os Termos de Utilização antes de poder prosseguir.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Tem de concordar com os Termos de Utilização antes de poder prosseguir.|  
 |ButtonLabelAddSubscription|Adicionar subscrição|  
 |LinkLabelChangeSubscriptionName|alterar|  
 |ButtonLabelConfirm|Confirmar|  
@@ -517,7 +517,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |WebDevelopersSecondaryKey|Chave secundária|  
 |ButtonLabelShowKey|Mostrar|  
 |ButtonLabelRenewSubscription|Renovar|  
-|WebDevelopersSubscriptionReqested|Pedido em {0}|  
+|WebDevelopersSubscriptionRequested|Pedido em {0}|  
 |WebDevelopersSubscriptionRequestedState|Pedido|  
 |WebDevelopersSubscriptionTableNameHeader|Nome|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  

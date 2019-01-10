@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fcd5137792e573c3077a4b9d5e815b9bf20774f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447118"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155075"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o anfitrião de extensão para o Azure Stack
 
@@ -140,7 +140,46 @@ O artigo [integração no datacenter do Azure Stack - publicar pontos de extremi
 
 ### <a name="publish-new-endpoints"></a>Publicar novos pontos de extremidade
 
-Existem dois novos pontos de extremidade devem ser publicado através da firewall. Os IPs alocado do conjunto VIP público pode ser obtido com o cmdlet **Get-AzureStackStampInformation**.
+Existem dois novos pontos de extremidade devem ser publicado através da firewall. Os IPs alocado do conjunto VIP público pode ser obtido com o seguinte código que têm de ser executado através do Azure Stack [ambiente do privilegiado do ponto de extremidade](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint).
+
+```PowerShell
+# Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
+$PEPCreds = Get-Credential
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
+# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+$StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
+If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
+    Write-Host "Can access AZS DNS" -ForegroundColor Green
+    $AdminIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress02 -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Else {
+    Write-Host "Cannot access AZS DNS" -ForegroundColor Yellow
+    $AdminIP = (Resolve-DnsName -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Remove-PSSession -Session $PEPSession
+```
+
+#### <a name="sample-output"></a>Saída de exemplo
+
+```PowerShell
+Can access AZS DNS
+The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+The IP address for the Tenant Extension Host is *.hosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+```
 
 > [!Note]  
 > Efetue esta alteração antes de ativar o anfitrião de extensão. Isso permite que os portais do Azure Stack a estar acessíveis de forma contínua.
@@ -148,7 +187,7 @@ Existem dois novos pontos de extremidade devem ser publicado através da firewal
 | Ponto final (VIP) | Protocolo | Portas |
 |----------------|----------|-------|
 | AdminHosting | HTTPS | 443 |
-| Hospedagem | HTTPS | 443 |
+| Alojamento | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Atualizar as regras de publicação existentes (ativação de postagem de anfitrião de extensão)
 

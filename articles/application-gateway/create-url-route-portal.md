@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001946"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159779"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
 
@@ -123,7 +123,7 @@ Neste exemplo, vai criar três máquinas virtuais para serem utilizadas como ser
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
 
 1. Clique em **todos os recursos** e, em seguida, clique em **myAppGateway**.
-2. Clique em **Conjuntos de back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGateayBackendPool**.
+2. Clique em **Conjuntos de back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGatewayBackendPool**.
 3. Clique em **adicionar destino** para adicionar *myVM1* para appGatewayBackendPool.
 
     ![Adicionar servidores back-end](./media/create-url-route-portal/application-gateway-backend.png)

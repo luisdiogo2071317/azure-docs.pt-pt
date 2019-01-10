@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276370"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156685"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como Criar um ASE do ILB Utilizando Modelos do Azure Resource Manager
 
@@ -42,7 +42,7 @@ Um modelo do Azure Resource Manager de exemplo e o respetivo ficheiro de parâme
 
 A maioria dos parâmetros nos *azuredeploy* ficheiro são comuns a criação de tanto os ASEs do ILB, bem como os ASEs vinculados a um VIP público.  A lista abaixo chama parâmetros de destacar de saída, ou que são exclusivos, ao criar um ASE de ILB:
 
-* *interalLoadBalancingMode*:  Na maioria dos casos conjunto esta opção para 3, o que significa que o tráfego HTTP/HTTPS na portas 80/443 e o canal de controlo/dados portas abertas pelo serviço FTP sobre o ASE, sejam ligada com um ILB atribuído o endereço de rede virtual.  Se esta propriedade em vez disso, é definida como 2, apenas o serviço FTP relacionados com portas (canais de controlo e dados) sejam ligadas com um endereço ILB, enquanto o tráfego HTTP/HTTPS irá permanecer no VIP público.
+* *internalLoadBalancingMode*:  Na maioria dos casos conjunto esta opção para 3, o que significa que o tráfego HTTP/HTTPS na portas 80/443 e o canal de controlo/dados portas abertas pelo serviço FTP sobre o ASE, sejam ligada com um ILB atribuído o endereço de rede virtual.  Se esta propriedade em vez disso, é definida como 2, apenas o serviço FTP relacionados com portas (canais de controlo e dados) sejam ligadas com um endereço ILB, enquanto o tráfego HTTP/HTTPS irá permanecer no VIP público.
 * *dnsSuffix*:  Este parâmetro define o domínio de raiz predefinido que será atribuído para o ASE.  A variação pública do serviço de aplicações do Azure, o domínio de raiz predefinida para todas as web apps é *azurewebsites.net*.  No entanto, uma vez que um ASE de ILB é interno para a rede virtual de um cliente, não faz sentido usar o domínio de raiz do serviço público predefinido.  Em vez disso, um ASE de ILB deve ter um domínio de raiz predefinida que faça sentido para utilização na rede virtual interna de uma empresa.  Por exemplo, uma corporação Contoso hipotético poderá utilizar um domínio de raiz predefinida da *interna contoso.com* para aplicações que se destinam a só ser resolvível e acessível numa rede virtual da Contoso. 
 * *ipSslAddressCount*:  Este parâmetro automaticamente padrão é obtido um valor de 0 no *azuredeploy. JSON* ficheiros porque os ASEs do ILB tem apenas um único endereço ILB.  Não há nenhum endereço IP SSL explícito para um ASE de ILB e, por conseguinte, o conjunto de endereços IP SSL para um ASE de ILB tem de ser definido para zero, caso contrário, ocorrerá um erro de aprovisionamento. 
 

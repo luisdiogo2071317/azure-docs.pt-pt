@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 023793cc699849eec4e1c6d8cbe08259d984ac8d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052875"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155002"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com o Application Insights
 
@@ -68,7 +68,7 @@ Neste caso, os resultados já não se encaixa num modelo de eixo x contínuo que
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta de impacto calcular estas taxas de conversão?
 
-Nos bastidores, a ferramenta de impacto depende da [coeficiente de correlação Pearson](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são calculados entre -1 e 1 por -1, representando zero correlação e 1 que representa uma correlação positiva.
+Nos bastidores, a ferramenta de impacto depende da [coeficiente de correlação Pearson](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são calculados entre -1 e 1 por -1, representando uma correlação linear negativa e 1 que representa uma correlação linear positiva.
 
 A estrutura básica de como funciona a análise de impacto é o seguinte:
 

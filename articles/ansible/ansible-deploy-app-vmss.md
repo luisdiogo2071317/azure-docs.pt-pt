@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: fc6b1484d43d0798f9ff70049017c8d360f027d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050409"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156549"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para implementar as suas aplicações no Azure. Este artigo mostra-lhe como implementar uma aplicação do Java num conjunto de dimensionamento de máquinas virtuais do Azure (VMSS).  
@@ -150,7 +150,7 @@ A seguinte secção num manual de procedimentos do Ansible instala o JRE (Java R
 Pode guardar o manual de procedimentos do Ansible do exemplo anterior como `vmss-setup-deploy.yml` ou [transferir o manual de procedimentos de exemplo completo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Para utilizar o tipo de ligação ssh com palavras-passe, tem de instalar o programa sshpass. 
-  - Para o Ubunto 16.04, execute o comando `apt-get install sshpass`.
+  - Para o Ubuntu 16.04, execute o comando `apt-get install sshpass`.
   - Para o CentOSo 7.4, execute o comando `yum install sshpass`.
 
 Poderá ver um erro como **Não pode utilizar uma palavra-passe SSH em vez de uma chave porque a verificação da Chave de Anfitrião está ativada e o sshpass não o suporta. Adicione a impressão digital deste anfitrião ao seu ficheiro known_hosts para gerir este anfitrião.** Se vir este erro, pode desativar a verificação da chave do anfitrião, ao adicionar a seguinte linha ao ficheiro `/etc/ansible/ansible.cfg` ou ao ficheiro `~/.ansible.cfg`:

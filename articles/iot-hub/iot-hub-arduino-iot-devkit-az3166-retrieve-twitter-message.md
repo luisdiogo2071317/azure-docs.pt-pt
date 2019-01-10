@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058470"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158929"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Abane, abane para um Tweet – obter uma mensagem do Twitter com as funções do Azure
 
@@ -52,7 +52,7 @@ Comece por abrir a pasta do projeto.
 Expanda o lado esquerdo **exemplos de ARDUINO** secção, navegue até **exemplos para MXCHIP AZ3166 > AzureIoT**e selecione **ShakeShake**. É aberta uma nova janela do VS Code, exibindo a pasta do projeto. Se não é possível ver a secção de MXCHIP AZ3166, certifique-se de que o dispositivo está ligado corretamente e reinicie o Visual Studio Code.  
 o ![mini solution exemplos](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Também pode abrir o projeto de exemplo da paleta de comandos. Clique em `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
+Também pode abrir o projeto de exemplo da paleta de comandos. Clique em `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: Exemplos**.
 
 ## <a name="provision-azure-services"></a>Aprovisionar serviços do Azure
 
@@ -118,7 +118,7 @@ Agora, a cadeia de ligação é definida, verifica e carrega a aplicação, em s
 
 2. O DevKit reinicia e começa a execução do código.
 
-Poderá receber um "erro: AZ3166: pacote desconhecido" mensagem de erro. Este erro ocorre quando o índice de pacote de quadro não será atualizado corretamente. Para resolver este problema, verifique os [erro de "pacote desconhecido" em perguntas Freqüentes IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Poderá receber um "erro: AZ3166: Mensagem de erro do pacote desconhecido". Este erro ocorre quando o índice de pacote de quadro não será atualizado corretamente. Para resolver este problema, verifique os [erro de "pacote desconhecido" em perguntas Freqüentes IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Testar o projeto
 
@@ -138,7 +138,7 @@ Após a inicialização de aplicação, clique num botão de versão, e moderada
 
 ### <a name="processing"></a>A processar...
 
-![A processar](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
+![Em processamento](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 
 ### <a name="press-b-to-read"></a>Prima B para ler...
 
@@ -167,7 +167,7 @@ Para fins de teste, esse projeto de exemplo usa um token de portador do Twitter 
 
 3. Uso [alguma utilidade](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) para gerar um token de portador do Twitter a partir dessas duas chaves.
 
-4. No [portal do Azure](https://portal.azure.com/){: target = blank"}, entrar no **grupo de recursos** e encontrar a função do Azure (tipo: serviço de aplicações) para o seu projeto de"Abanar, Agite". O nome contém sempre 'abane..."cadeia de caracteres.
+4. Na [portal do Azure](https://portal.azure.com/){: target = blank"}, entrar no **grupo de recursos** e encontrar a função do Azure (tipo: Serviço de aplicações) para o seu projeto de "Abanar, Agite". O nome contém sempre 'abane..."cadeia de caracteres.
 
    ![função do Azure](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
@@ -202,7 +202,7 @@ Em alternativa, ao executar o código, existem alguns blips que causam um reiní
 Se tiver outros problemas, consulte a [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contacte-nos com os seguintes canais:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,22 +3,17 @@ title: Início Rápido - Direcionar tráfego da Web com o Gateway de Aplicação
 description: Saiba como utilizar a CLI do Azure para criar um Gateway de Aplicação do Azure que direciona o tráfego da Web para máquinas virtuais num conjunto de back-end.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 59c7781efa8aaa6405ef3cb021ca2123d94ad61b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035496"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157722"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - CLI do Azure
 
@@ -42,7 +37,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Quando cria uma rede virtual, o gateway de aplicação pode comunicar com outros recursos. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. Criar duas sub-redes neste exemplo: um para o gateway de aplicação e outro para as máquinas virtuais. 
+Quando cria uma rede virtual, o gateway de aplicação pode comunicar com outros recursos. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. Criar duas sub-redes neste exemplo: um para o gateway de aplicação e outro para as máquinas virtuais. A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.
 
 Para criar a rede virtual e sub-rede, utilize [vnet de rede de az criar](/cli/azure/network/vnet#az-network-vnet-create). Execute [criar a rede de az public-ip](/cli/azure/network/public-ip#az-public-ip-create) para criar o endereço IP público.
 

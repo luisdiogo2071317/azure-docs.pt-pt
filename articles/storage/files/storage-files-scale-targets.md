@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138590"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159171"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo aborda os destinos de escalabilidade e desempenho para ficheiros do Azure e Azure File Sync.
@@ -39,11 +39,11 @@ Com o Azure File Sync, tentamos tanto quanto possível para conceber para utiliz
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Métricas de desempenho de sincronização de ficheiros do Azure
-Uma vez que o agente de sincronização de ficheiros do Azure é executado num computador Windows Server que liga-se às partilhas de ficheiros do Azure, o desempenho da sincronização em vigor depende de vários fatores na sua infraestrutura: Windows Server e a configuração do disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, o tamanho de ficheiro, tamanho do conjunto de dados total e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona no nível de arquivo, as características de desempenho de uma solução baseada no Azure File Sync melhor é medido no número de objetos (ficheiros e diretórios) processado por segundo. 
+Uma vez que o agente de sincronização de ficheiros do Azure é executado num computador Windows Server que liga-se às partilhas de ficheiros do Azure, o desempenho da sincronização em vigor depende de vários fatores na sua infraestrutura: Windows Server e a configuração do disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, ficheiros tamanho, tamanho do conjunto de dados total e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona no nível de arquivo, as características de desempenho de uma solução baseada no Azure File Sync melhor é medido no número de objetos (ficheiros e diretórios) processado por segundo. 
  
 Para o Azure File Sync, o desempenho é essencial em duas fases:
-1. **Aprovisionamento de uma única vez inicial**: para otimizar o desempenho após o aprovisionamento inicial, consulte [integração com o Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implementação ideal.
-2. **Sincronização em curso**: depois dos dados inicialmente são implantados em partilhas de ficheiros do Azure, Azure File Sync mantém vários pontos de extremidade em sincronia.
+1. **Aprovisionamento de uma única vez inicial**: Para otimizar o desempenho após o aprovisionamento inicial, consulte [integração com o Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implementação ideal.
+2. **Sincronização em curso**: Depois dos dados inicialmente são implantados em partilhas de ficheiros do Azure, o Azure File Sync mantém vários pontos de extremidade em sincronia.
 
 Para ajudar a planear a implementação para cada uma das etapas, abaixo estão os resultados observados durante os testes internos num sistema com uma configuração
 
@@ -59,9 +59,9 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 |-|-|
 | Número de objetos | 10 milhões de objetos | 
 | Tamanho do conjunto de dados| ~ 4 TiB |
-| Tamanho do arquivo média | ~ 500 KiB (maior arquivo: 100 GiB) |
-| Carregar o débito | 15 objetos por segundo |
-| Espaço de nomes Download débito * | 350 objetos por segundo |
+| Tamanho do arquivo média | ~ 500 KiB (maior arquivo: 100 giB) |
+| Carregar o débito | 20 objetos por segundo |
+| Espaço de nomes Download débito * | 400 objetos por segundo |
  
 * Quando é criado um novo ponto de final de servidor, o agente do Azure File Sync não transferir os conteúdos do ficheiro. -Lo primeiro sincroniza o espaço de nomes completo e, em seguida, os acionadores em segundo plano Lembre-se para transferir os ficheiros, qualquer um em sua totalidade ou, se em camada de cloud está ativada para a política de disposição em camadas na cloud, defina o ponto final de servidor.
 
@@ -70,8 +70,8 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 | Número de objetos sincronizados| 125,000 objetos (alterações a % de ~ 1) | 
 | Tamanho do conjunto de dados| 50 giB |
 | Tamanho do arquivo média | ~ 500 KiB |
-| Carregar o débito | 20 objetos por segundo |
-| Débito de transferência completa * | objetos de 30 por segundo |
+| Carregar o débito | objetos de 30 por segundo |
+| Débito de transferência completa * | 60 objetos por segundo |
  
 * Se cloud em camadas estiver ativada, o que é provável que observar um melhor desempenho, como apenas alguns do ficheiro de dados são transferidos. O Azure File Sync transfere apenas os dados de ficheiros em cache quando eles são alterados em qualquer um dos pontos finais. Para ficheiros em camadas ou criados recentemente, o agente não transfere os dados de ficheiro e, em vez disso, só sincroniza o espaço de nomes para todos os pontos finais do servidor. O agente também suporta parciais transferências de ficheiros em camadas como estes são acedidos pelo utilizador. 
  

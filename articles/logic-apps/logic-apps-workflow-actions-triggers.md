@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: MT
+ms.openlocfilehash: 613423c02de7f1140674c28ee57bd471c3a52b96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044778"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158249"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -55,7 +55,7 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 | <*tipo de Acionador*> | Cadeia | O tipo de Acionador, como "Http" ou "ApiConnection" | 
 | <*entradas de Acionador*> | Objeto JSON | As entradas que definem o comportamento do acionador | 
 | <*unidade de tempo*> | Cadeia | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -133,10 +133,10 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Cadeia | O nome do acionador | 
 | <*nome da ligação*> | Cadeia | O nome para a ligação para a API gerenciada que utiliza o fluxo de trabalho | 
-| <*tipo de método*> | Cadeia | O método HTTP para comunicar com a API gerida: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*tipo de método*> | Cadeia | O método HTTP para comunicar com a API gerenciada: "GET", "COLOCAR", "POST", "PATCH", "DELETE" | 
 | <*operação de API*> | Cadeia | A operação de API de chamada | 
 | <*unidade de tempo*> | Cadeia | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -155,7 +155,7 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
  
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
 | Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
@@ -304,10 +304,10 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia | O método HTTP a utilizar para consultar o ponto final especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*tipo de método*> | Cadeia | O método HTTP a utilizar para consultar o ponto final especificado: "GET", "COLOCAR", "POST", "PATCH", "DELETE" | 
 | <*URL de ponto final*> | Cadeia | O HTTP ou HTTPS URL para o ponto final para consultar <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
 | <*unidade de tempo*> | Cadeia | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -328,7 +328,7 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
 | Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
@@ -401,7 +401,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia | O método HTTP a utilizar para o pedido de subscrição: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" | 
+| <*tipo de método*> | Cadeia | O método HTTP a utilizar para o pedido de subscrição: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*subscrever-URL de ponto final*> | Cadeia | O URL de ponto final para onde enviar o pedido de subscrição | 
 |||| 
 
@@ -409,7 +409,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia | O método HTTP a utilizar para a solicitação de cancelamento: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" | 
+| <*tipo de método*> | Cadeia | O método HTTP a utilizar para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*anular a subscrição-URL de ponto final*> | Cadeia | O URL de ponto final para onde enviar a solicitação de cancelamento | 
 | <*conteúdo do corpo*> | Cadeia | Qualquer conteúda enviar o pedido de subscrição ou cancelamento de mensagem | 
 | <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -423,7 +423,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
 | Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
@@ -496,14 +496,14 @@ Este acionador é executado com base na agenda de periodicidade especificados e 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | <*unidade de tempo*> | Cadeia | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*número de tempo de unidades*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
 |||| 
 
 *Opcional*
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadeia | A data de início e a hora neste formato: <p>AAAA-MM-ddTHH se especificar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não especificar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e especificar um fuso horário, como "Hora padrão do Pacífico", ou "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** a hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não especificar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. Para obter mais informações sobre datas de início e horas, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadeia | A data de início e a hora neste formato: <p>AAAA-MM-ddTHH se especificar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não especificar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e especificar um fuso horário, como "Hora padrão do Pacífico", ou "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não especificar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. Para obter mais informações sobre datas de início e horas, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*fuso horário*> | Cadeia | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que pretende aplicar. | 
 | <*um-ou-mais-hora-marcas*> | Número inteiro ou matriz de números inteiros | Se especificar "Dia" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 23, separados por vírgulas, como as horas do dia que deseja executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", obter 10 AM e PM 2 como as marcas de hora 12 PM. | 
 | <*um-ou-mais-minuto-marcas*> | Número inteiro ou matriz de números inteiros | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 59, separados por vírgulas, como os minutos da hora quando quiser executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e usando o exemplo anterior de horas do dia, obtém 10:30, 12 17:30 e 2 17:30. | 
@@ -612,7 +612,7 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*tipo de método*> | Cadeia | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "COLOCAR", "POST", "PATCH", "DELETE" |
 | <*caminho relativo--para-aceite-parâmetro de caminho*> | Cadeia | O caminho relativo para o parâmetro que pode aceitar o URL do ponto de extremidade | 
 | <*propriedades necessárias*> | Array | Uma ou mais propriedades que necessitam de valores | 
 | <*execuções de máx.*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
@@ -892,7 +892,7 @@ Esta ação envia um pedido HTTP para um [API gerida pela Microsoft](../connecto
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia | O nome da ação fornecida pelo conector do | 
 | <*nome da API*> | Cadeia | O nome da API gerida pela Microsoft que é utilizado para a ligação | 
-| <*tipo de método*> | Cadeia | O método HTTP para chamar a API: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" | 
+| <*tipo de método*> | Cadeia | O método HTTP para chamar a API: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*operação de API*> | Cadeia | A operação de API de chamada | 
 |||| 
 
@@ -971,7 +971,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia | O nome da ação fornecida pelo conector do | 
-| <*tipo de método*> | Cadeia | O método HTTP a utilizar para subscrever ou anular a subscrição de um ponto final: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" | 
+| <*tipo de método*> | Cadeia | O método HTTP a utilizar para subscrever ou anular a subscrição de um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*API-subscrever-URL*> | Cadeia | O URI a utilizar para subscrever a API | 
 |||| 
 
@@ -1072,7 +1072,7 @@ Esta ação chama um criado anteriormente [função do Azure](../azure-functions
 | Valor | Tipo | Descrição | 
 |-------|------|-------------|  
 | <*ID da função do Azure*> | Cadeia | O ID de recurso para a função do Azure que pretende chamar. Este é o formato para este valor:<p>"/subscriptions/ <*ID de subscrição do azure*> /resourceGroups/ <*grupo de recursos do Azure*> /providers/Microsoft.Web/sites/ <*Azure---nome da aplicação*> /Functions/ <*nome da função de azure*> " | 
-| <*tipo de método*> | Cadeia | O método HTTP a utilizar para chamar a função: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" <p>Se não for especificado, a predefinição é o método "POST". | 
+| <*tipo de método*> | Cadeia | O método HTTP a utilizar para chamar a função: "GET", "PUT", "POST", "PATCH" ou "Eliminar" <p>Se não for especificado, a predefinição é o método "POST". | 
 ||||
 
 *Opcional*
@@ -1142,7 +1142,7 @@ Esta ação envia um pedido para o ponto final especificado e verifica a respost
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia | O método a utilizar para enviar o pedido: "GET", "Colocar", "POST", "PATCH" ou "Eliminar" | 
+| <*tipo de método*> | Cadeia | O método a utilizar para enviar o pedido: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*HTTP-ou--endpoint-URL HTTPS*> | Cadeia | O HTTP ou HTTPS ponto final para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
 |||| 
 
@@ -1238,7 +1238,7 @@ Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | <*Origem de JSON*> | Objeto JSON | O que pretende analisar o conteúdo JSON | 
-| <*Esquema de JSON*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON, o que a ação utiliza para analisar a origem de conteúdo JSON subjacente. <p>**Sugestão**: no estruturador de aplicações da lógica, pode fornecer o esquema ou fornecer um payload de exemplo, para que a ação pode gerar o esquema. | 
+| <*Esquema de JSON*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON, o que a ação utiliza para analisar a origem de conteúdo JSON subjacente. <p>**Sugestão**: No estruturador de aplicações lógicas, pode fornecer o esquema ou fornecer um payload de exemplo, para que a ação pode gerar o esquema. | 
 |||| 
 
 *Exemplo*
@@ -1340,7 +1340,7 @@ Esta ação cria uma matriz de itens na outra matriz com base numa condição es
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
-| <*condição ou filtro*> | Cadeia | A condição utilizada para filtrar itens na matriz de origem <p>**Tenha em atenção**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
+| <*condição ou filtro*> | Cadeia | A condição utilizada para filtrar itens na matriz de origem <p>**Nota**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
 |||| 
 
 *Exemplo*
@@ -1455,7 +1455,7 @@ Esta ação cria uma matriz com objetos JSON, transformando os itens a partir de
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Tenha em atenção**: se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
+| <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
 | <*nome da chave*> | Cadeia | O nome de propriedade atribuído para o resultado de <*expressão*> <p>Para adicionar uma nova propriedade de todos os objetos da matriz de saída, forneça um <*nome da chave*> para essa propriedade e um <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos da matriz, omita o <*nome da chave*> para essa propriedade. | 
 | <*expressão*> | Cadeia | A expressão que transforma o item da matriz de origem e atribui o resultado de <*nome da chave*> | 
 |||| 
@@ -1554,7 +1554,7 @@ Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com obje
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | < CSV *ou* HTML >| Cadeia | O formato para a tabela que pretende criar | 
-| <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Tenha em atenção**: se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
+| <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
 |||| 
 
 *Opcional*
@@ -1666,7 +1666,7 @@ Esta ação impede a execução para a instância de fluxo de trabalho da aplica
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*Estado*> | Cadeia | O estado a devolver para a execução: "Falha", "Cancelada" ou "Êxito" |
+| <*status*> | Cadeia | O estado a devolver para a execução: "Falha", "Cancelada" ou "Foi concluída com êxito" |
 |||| 
 
 *Opcional*
@@ -2350,9 +2350,9 @@ Eis um exemplo que limita as execuções simultâneas para 10 instâncias:
 
 1. No canto superior direito do acionador, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
 
-2. Sob **controlo de simultaneidade**, defina **substituir predefinido** para **no**. 
+2. Sob **controlo de simultaneidade**, defina **limite** para **no**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. 
+3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. Para executar a aplicação lógica em seqüência, arraste o valor de controlo de deslize para **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Eis um exemplo que limita as execuções simultâneas para 10 iterações:
 
 1. Na **para cada** ação, no canto superior direito, selecione o botão de reticências (...) e, em seguida, escolha **definições**.
 
-2. Sob **controlo de simultaneidade**, defina **substituir predefinido** para **no**. 
+2. Sob **controlo de simultaneidade**, defina **controlo de simultaneidade** para **no**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. 
+3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. Para executar a aplicação lógica em seqüência, arraste o valor de controlo de deslize para **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Definir o `operationOptions` propriedade `SingleInstance`:
 
 1. No canto superior direito do acionador, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
 
-2. Sob **controlo de simultaneidade**, defina **substituir predefinido** para **no**. 
+2. Sob **controlo de simultaneidade**, defina **limite** para **no**. 
 
 3. Arrastar o **grau de paralelismo** controlo de deslize para o número `1`. 
 
@@ -2516,7 +2516,7 @@ Definir o `operationOptions` propriedade `Sequential`:
 
 1. Na **para cada** canto do canto superior direito da ação, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
 
-2. Sob **controlo de simultaneidade**, defina **substituir predefinido** para **no**. 
+2. Sob **controlo de simultaneidade**, defina **controlo de simultaneidade** para **no**. 
 
 3. Arrastar o **grau de paralelismo** controlo de deslize para o número `1`. 
 
@@ -2644,7 +2644,7 @@ Para este tipo de autenticação, a definição de Acionador ou ação pode incl
 | **Segredo** | Sim, apenas para o "Segredo" tipo de credencial | <*segredo para autenticação*> | O segredo codificada em base64 que o cliente utiliza para pedir autorização |
 ||||| 
 
-Por exemplo, aqui está o formato para o `authentication` objeto quando sua definição de Acionador ou ação utiliza o tipo de "Segredo" da credencial: para obter mais informações sobre como proteger a parâmetros, consulte [proteger informações confidenciais](#secure-info). 
+Por exemplo, aqui está o formato para o `authentication` objeto quando sua definição de Acionador ou ação utiliza o tipo de credencial "Segredo": Para obter mais informações sobre como proteger a parâmetros, consulte [proteger informações confidenciais](#secure-info). 
 
 ```javascript
 "authentication": {

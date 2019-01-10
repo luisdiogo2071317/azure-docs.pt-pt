@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: a173a21ca3690db4cf5074d067d0e9bbe929e077
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0e042f1ac1b70b13a6b95ae9cfc1269774ecdb44
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122326"
+ms.locfileid: "54155104"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Notas de versão do fornecedor 1.1.33.0 de recursos do MySQL
 
@@ -33,7 +33,7 @@ Transferir o fornecedor de recursos do MySQL, binário e, em seguida, execute o 
 
 > |Versão mínima do Azure Stack|Versão do fornecedor de recursos de MySQL|
 > |-----|-----|
-> |Versão 1811 (1.1811.0.101)|[MySQL RP versão 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
+> |Versão 1808 (1.1808.0.97)|[MySQL RP versão 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]

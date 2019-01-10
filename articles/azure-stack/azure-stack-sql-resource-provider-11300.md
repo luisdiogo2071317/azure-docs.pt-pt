@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5cbbc3c1c2371264e3e29028d4b9d68533cc59ff
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164733"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154951"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notas de versão do fornecedor 1.1.30.0 de recursos do SQL
 
@@ -81,7 +81,10 @@ Esta versão do fornecedor de recursos de SQL do Azure Stack inclui as seguintes
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **Fornecedor de recursos do SQL não consegue adicionar SQL Server Always On de serviço de escuta**. Ao utilizar o endereço IP do serviço de escuta do SQL Server sempre no serviço de escuta, o fornecedor de recursos do SQL VM não é possível resolver o nome de anfitrião do serviço de escuta.
 
+    **Solução**: Certifique-se de que o DNS funciona corretamente para resolver o IP do serviço de escuta para o nome de anfitrião do serviço de escuta.
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemas conhecidos para os administradores de nuvem operacionais do Azure Stack
 Consulte a documentação sobre o [notas de versão do Azure Stack](azure-stack-servicing-policy.md).
 

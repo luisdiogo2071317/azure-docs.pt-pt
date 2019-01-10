@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 789f58699f39f4b7eac453f4cf79ea55a5bfc8d3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810462"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159507"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD início de sessão único com o SharePoint no local, 
     ![O link de download de certificado](common/certificatebase64.png)
 
     > [!Note]
-    > Tenha em atenção o caminho de ficheiro para o qual transferiu o ficheiro de certificado, conforme necessário para utilizá-lo mais tarde no script do PowerShell para a configuração.
+    > Tenha em atenção o caminho do ficheiro onde transferiu o ficheiro de certificado. É necessário o ficheiro mais tarde no script do PowerShell para a configuração.
 
 6. Sobre o **configurar o SharePoint no local** secção, copie os URLs apropriados de acordo com seus requisitos. Para **único URL de início de sessão no serviço**, utilizar o valor seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -175,7 +175,7 @@ Para configurar o Azure AD início de sessão único com o SharePoint no local, 
     ![Configurar o seu fornecedor de autenticação](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
-    > Alguns dos utilizadores externos vão não é possível utilizar esta integração de início de sessão única, tal como respetivo UPN irá ter mangled valor algo como `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Em breve, permitirá aos clientes configuração da aplicação sobre como lidar com o UPN, dependendo do tipo de utilizador. Depois disso, todos os seus utilizadores de convidado devem ser capazes de utilizar SSO de forma totalmente integrada como os funcionários da organização.
+    > Alguns utilizadores externos não será possível utilizar esta integração de início de sessão única, tal como respetivo UPN terá um valor mangled como `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Em breve, permitirá que a configuração de aplicação personalizada lidar com o UPN, dependendo do tipo de utilizador. Depois disso, todos os seus utilizadores de convidado devem ser capazes de utilizar SSO de forma totalmente integrada como os funcionários da organização.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

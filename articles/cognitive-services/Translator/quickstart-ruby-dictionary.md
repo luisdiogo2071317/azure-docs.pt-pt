@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas, Ruby – API de Texto do Microsoft Translator'
+title: 'Início rápido: Procure palavras dicionário bilingue, Ruby - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649623"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157093"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>Início Rápido: localizar traduções alternativas com a API REST de Texto do Microsoft Translator (Ruby)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Início rápido: Procure palavras com dicionário bilingue através de Ruby
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -222,7 +222,7 @@ puts json
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995087"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158861"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
-Este artigo mostra como mover recursos do Azure para outra subscrição do Azure ou outro grupo de recursos na mesma subscrição. Pode utilizar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover os recursos. 
+Este artigo mostra como mover recursos do Azure para outra subscrição do Azure ou outro grupo de recursos na mesma subscrição. Pode utilizar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover os recursos.
 
 O grupo de origem e o grupo de destino estão bloqueados durante a operação de movimentação. Escrever e eliminar operações os grupos de recursos não é permitido enquanto a migração for concluída. Esse bloqueio significa que não é possível adicionar, atualizar ou eliminar recursos nos grupos de recursos, mas isso não significa que os recursos são interrompidos. Por exemplo, se mover um servidor de SQL e a respetiva base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados experiências sem períodos de indisponibilidade. Pode ainda ler e escrever na base de dados.
 
@@ -98,7 +98,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
-* O Cofre dos serviços de recuperação - têm de estar inscritos numa pré-visualização privada. Ver [limitações dos serviços de recuperação](#recovery-services-limitations).
+* O Cofre dos serviços de recuperação - tem de estar inscritos numa [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
@@ -305,9 +305,9 @@ A operação pode ser executada durante vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações de serviços de recuperação
 
-Para mover um cofre dos serviços de recuperação, tem de se inscrever numa pré-visualização privada. Para experimentá-lo, escrever para AskAzureBackupTeam@microsoft.com.
+Para mover um cofre dos serviços de recuperação, tem de se inscrever no [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
-Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS. 
+Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS.
 
 Se uma máquina virtual não se Mexe com o cofre, mantenha-os pontos de recuperação de máquina virtual atual no cofre até expirarem. Se a máquina virtual movida com o cofre ou não, pode restaurar a máquina virtual a partir do histórico de cópia de segurança no cofre.
 

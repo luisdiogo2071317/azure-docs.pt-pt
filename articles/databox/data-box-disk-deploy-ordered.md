@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567456"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156176"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: encomendar um disco do Azure Data Box Disk (Pré-visualização)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicite um disco de caixa de dados do Azure
 
 O Azure Data Box Disk é uma solução na cloud híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para discos de estado sólido (SSDs) fornecidos pela Microsoft e reenvie os discos. Estes dados são então carregados para o Azure.
 
 Este tutorial descreve como pode encomendar um disco do Azure Data Box Disk. Neste tutorial, ficará a saber mais sobre:
 
 > [!div class="checklist"]
-> * Inscrever-se no Data Box Disk
 > * Encomendar um disco do Data Box Disk
 > * Controlar a encomenda
 > * Cancelar a encomenda
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!IMPORTANT]
-> - O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
-> - Durante a pré-visualização, disco de caixa de dados pode ser enviado aos clientes nos E.U.A., oeste e Europa do Norte, Canadá e Austrália. Para obter mais informações, aceda a [Disponibilidade de região](data-box-disk-overview.md#region-availability).
+Antes de implementar, conclua os seguintes pré-requisitos de configuração para o serviço do Data Box e disco Data Box.
 
-## <a name="sign-up"></a>Inscrever-se
+### <a name="for-service"></a>Para o serviço
 
-O Data Box Disk está em pré-visualização e precisa de inscrever-se no serviço. Execute os seguintes passos para inscrever-se no serviço Data Box:
+Antes de começar, certifique-se de que:
+- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
+- Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
+    - Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Certifique-se de que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box.
 
-1. Inicie sessão no Portal do Azure em: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Escolha a subscrição que pretende ativar para a pré-visualização. Responda às perguntas sobre o tamanho dos dados, o país de residência dos dados, o período de tempo e a frequência de transferência de dados. Clique em **Inscrever-me!**.
-3. Assim que estiver inscrito e ativado para pré-visualização, pode encomendar um disco do Data Box Disk.
+### <a name="for-device"></a>Para o dispositivo
+
+Antes de começar, certifique-se de que:
+- Possui um computador de cliente disponível do qual pode copiar os dados. O computador cliente tem de:
+    - Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Ter outro [software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente Windows.  
 
 ## <a name="order-data-box-disk"></a>Encomendar o Data Box Disk
 
@@ -97,7 +102,7 @@ Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfrom
  
 ## <a name="track-the-order"></a>Controlar a encomenda
 
-Depois que fazer a encomenda, pode controlar o estado da encomenda a partir do portal de pré-visualização do Azure. Vá para a sua encomenda e, em seguida, aceda a **Descrição Geral** para ver o estado. O portal mostra a tarefa no estado **Encomendado**. 
+Depois de fazer a encomenda, pode controlar o estado da encomenda a partir do portal do Azure. Vá para a sua encomenda e, em seguida, aceda a **Descrição Geral** para ver o estado. O portal mostra a tarefa no estado **Encomendado**. 
 
 ![Estado do disco do Data Box Disk encomendado](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Quando a preparação dos discos estiver concluída, o portal mostra a encomenda
 
 A Microsoft prepara e expede então os seus discos através de uma operadora regional. Receberá um número de controlo assim que os discos forem enviados. O portal mostra a encomenda no estado **Expedido**.
 
-
-
 ## <a name="cancel-the-order"></a>Cancelar a encomenda
 
-Para cancelar esta encomenda, no portal de pré-visualização do Azure, aceda a **Descrição Geral** e clique em **Cancelar** na barra de comandos. 
+Para cancelar esta encomenda, no portal do Azure, aceda a **Descrição Geral** e clique em **Cancelar** na barra de comando. 
 
 Só pode cancelar quando os discos tiverem sido encomendados e a encomenda estiver a ser processada para envio. Assim que a encomenda for processada, já não pode cancelar a encomenda. 
 
 ![Cancelar encomenda](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em **Eliminar** na barra de comandos. 
+Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em **Eliminar** na barra de comandos.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -129,7 +132,6 @@ Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Inscrever-se no Data Box Disk
 > * Encomendar o Data Box Disk
 > * Controlar a encomenda
 > * Cancelar a encomenda

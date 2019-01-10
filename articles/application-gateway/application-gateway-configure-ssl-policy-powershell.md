@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870458"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157467"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e cipher suites no Gateway de aplicação
 
@@ -196,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Atualizar um gateway de aplicação existente com uma política SSL predefinida
 
-Para definir uma política personalizada do SSL, passar os parâmetros seguintes: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, e **ApplicationGateway**. Para definir uma política de SSL predefinidas, passar os parâmetros seguintes: **PolicyType**, **PolicyName**, e **ApplicationGateway**. Se tentar passar outros parâmetros, obterá um erro quando criar ou atualizar o Gateway de aplicação.
+Para definir uma política personalizada do SSL, passe os parâmetros seguintes: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, e **ApplicationGateway**. Para definir uma política de SSL predefinidas, passe os parâmetros seguintes: **PolicyType**, **PolicyName**, e **gateway de aplicação**. Se tentar passar outros parâmetros, obterá um erro quando criar ou atualizar o Gateway de aplicação.
 
 No exemplo a seguir, há exemplos de código para a política personalizada e política predefinida. Anule os comentários a política que pretende utilizar.
 
@@ -207,7 +207,7 @@ $RG = "YourResourceGroupName"
 
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
-# Choose either custom policy or prefedined policy and uncomment the one you want to use.
+# Choose either custom policy or predefined policy and uncomment the one you want to use.
 
 # SSL Custom Policy
 # Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw

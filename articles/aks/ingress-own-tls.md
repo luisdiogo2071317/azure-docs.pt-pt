@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: iainfou
-ms.openlocfilehash: 4e3f2f33cfffeacbcbeccc4f17f55b7d0e1a985c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c4a79571d22276f4874d6b8bb5fda3d86ca5f929
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098202"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154985"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entradas HTTPS e utilizar seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -179,7 +179,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-O *- v* parâmetro na nossa `curl` comando produz informações verbosas, incluindo o certificado TLS recebido. Meio-maneira por meio de sua saída curl, pode verificar que o seu próprio certificado TLS foi utilizado. O *-k* parâmetro continua a carregar a página mesmo que estamos a utilizar um certificado autoassinado. O exemplo seguinte mostra que o *emissor: CN=demo.azure.com; S = aks-entrada-tls* certificado foi usado:
+O *- v* parâmetro na nossa `curl` comando produz informações verbosas, incluindo o certificado TLS recebido. Meio-maneira por meio de sua saída curl, pode verificar que o seu próprio certificado TLS foi utilizado. O *-k* parâmetro continua a carregar a página mesmo que estamos a utilizar um certificado autoassinado. O exemplo seguinte mostra que o *emissor: CN=demo.Azure.com; S = aks-entrada-tls* certificado foi usado:
 
 ```
 [...]
@@ -192,7 +192,7 @@ O *- v* parâmetro na nossa `curl` comando produz informações verbosas, inclui
 [...]
 ```
 
-Agora, adicione */hello-world-two* caminho para o endereço, tal como *https://demo.azure.com/hello-world-two*. O segundo aplicativo de demonstração com o título personalizado for retornado, conforme mostrado no seguinte exemplo condensado:
+Agora, adicione */hello-world-two* caminho para o endereço, tais como `https://demo.azure.com/hello-world-two`. O segundo aplicativo de demonstração com o título personalizado for retornado, conforme mostrado no seguinte exemplo condensado:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two

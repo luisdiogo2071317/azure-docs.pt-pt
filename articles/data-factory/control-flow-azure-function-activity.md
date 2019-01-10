@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: 974b45566255154bddc969b2a5ab3db0d2bf4f31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019287"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156634"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
 
@@ -25,7 +25,7 @@ A actividade de função do Azure permite-lhe executar [as funções do Azure](.
 
 ## <a name="azure-function-linked-service"></a>Serviço ligado de função do Azure
 
-O tipo de retorno da função do Azure tem de ser um JObject válido. Tudo o resto falhar e gera o erro de utilizador genérica *ponto final de chamada de erro*.
+O tipo de retorno da função do Azure tem de ser um JObject válido. (Lembre-se [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) é *não* um JObject.) Tudo o resto falhar e gera o erro de utilizador genérica *ponto final de chamada de erro*.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |

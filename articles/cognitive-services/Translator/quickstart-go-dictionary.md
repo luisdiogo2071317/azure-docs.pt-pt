@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas, Go – API de Texto do Microsoft Translator'
+title: 'Início rápido: Procure palavras dicionário bilingue, ouça - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000597"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158572"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Início rápido: Utilizar a API de texto do Translator para obter as traduções alternativas com Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Início rápido: Procure palavras com dicionário bilingue com Go
 
 Neste início rápido, irá aprender como encontre traduções alternativas e exemplos de utilização para um com o Go e a API de REST de texto de tradutor de texto especificado.
 
@@ -102,7 +102,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Pesquisa de dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Criar uma estrutura para o corpo do pedido
 
