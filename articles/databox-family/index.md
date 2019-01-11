@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: fcda4fba376fbe1f527d60aa5a27f7e7f0713e3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977711"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157110"
 ---
 <h1>Azure Data Box</h1>
 <p>A família do Azure Data Box oferece produtos com diferentes capacidades de armazenamento para o ajudar a enviar terabytes (TB) de dados para o Azure de forma rápida, económica e fiável. A Microsoft acelera a transferência de dados segura ao enviar-lhe dispositivos de armazenamento proprietários que permitem a transferência de dados offline ou através da rede.</p>
@@ -35,7 +35,7 @@ ms.locfileid: "46977711"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Pré-visualização<SUP> do Data Box Disk</SUP></b> para tamanhos de dados inferiores a 40 TB. A Microsoft envia-lhe entre uma e cinco unidades de estado sólido (SSDs) encriptadas para copiar dados e, depois, devolver.</p>
+                            <p><b>Data Box Disk</b> para tamanhos de dados < 40 TB. A Microsoft envia-lhe entre uma e cinco unidades de estado sólido (SSDs) encriptadas para copiar dados e, depois, devolver.</p>
                         </div>
                     </div>
                 </div>
