@@ -19,7 +19,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54025617"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados com a atividade do Spark no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-spark.md)
 > * [Versão atual](transform-data-using-spark.md)
 
