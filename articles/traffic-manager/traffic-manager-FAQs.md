@@ -1,5 +1,5 @@
 ---
-title: Gestor de tráfego do Azure - FAQ | Documentos da Microsoft
+title: Gestor de tráfego do Azure - FAQ
 description: Este artigo fornece respostas para perguntas freqüentes sobre o Gestor de tráfego
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963577"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200052"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -437,8 +437,8 @@ Não é o impacto da utilização de perfis aninhados de preço não negativo.
 
 A faturação do Gestor de tráfego tem dois componentes: as verificações de estado de funcionamento do ponto final e milhões de consultas DNS
 
-* As verificações de estado de funcionamento do ponto final: não implica custos para um perfil de subordinado quando configurado como um ponto final num perfil principal. Monitorização de pontos de extremidade no perfil subordinado é faturada como habitualmente.
-* Consultas DNS: cada consulta só é contabilizada uma vez. Uma consulta em relação a um principal que retorna um ponto final de um perfil de subordinado é contabilizada face apenas para perfis do pai.
+* Verificações de estado de funcionamento do ponto final: Não existe nenhum custo associado para um perfil de subordinado quando configurado como um ponto final num perfil principal. Monitorização de pontos de extremidade no perfil subordinado é faturada como habitualmente.
+* Consultas DNS: Cada consulta apenas é contabilizada uma vez. Uma consulta em relação a um principal que retorna um ponto final de um perfil de subordinado é contabilizada face apenas para perfis do pai.
 
 Para mais informações, consulte a [Gestor de tráfego, página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

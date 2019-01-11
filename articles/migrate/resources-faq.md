@@ -4,14 +4,14 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975479"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201198"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -136,6 +136,17 @@ Se tiver um ambiente que é partilhado em inquilinos e não pretender detetar as
 
 Pode descobrir 1500 máquinas de virtuais num projeto de migração única. Se tiver mais máquinas no seu ambiente no local, [Saiba mais](how-to-scale-assessment.md) sobre como é possível descobrir um ambiente de grandes dimensões no Azure Migrate.
 
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Para proteger a aplicação do Azure Migrate, quais são as exclusões do antivírus (AV) recomendada?
+
+Tem de excluir as seguintes pastas na aplicação para verificação antivírus:
+
+- Pasta que tenha os binários do serviço do Azure Migrate. Exclua todas as subpastas.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate a aplicação Web. Exclua todas as subpastas.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local para a base de dados e arquivos de log. Do Azure migrate precisa de serviço de acesso RW para esta pasta.
+  %SystemDrive%\Profiler
+
 ## <a name="assessment"></a>Avaliação
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Suporte do Azure Migrate Enterprise Agreement (EA) com base custa estimativa?
@@ -144,6 +155,13 @@ O Azure Migrate atualmente não suporta a estimativa de custos para [oferta Ente
 
   ![Desconto](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>O que é a diferença entre o dimensionamento como no local e o dimensionamento com base no desempenho?
+
+Quando especificar o critério de tamanho para ser como no local de dimensionamento, do Azure Migrate não considera os dados de desempenho das VMs e os tamanhos de VMs com base na configuração no local. Se o critério de dimensionamento for baseado no desempenho, o dimensionamento é feito com base nos dados de utilização. Por exemplo, se houver uma VM no local com 4 núcleos e 8 GB de memória com 50% de utilização de CPU e utilização da memória de 50%. Se o critério de dimensionamento é que um SKU de VM do Azure com 4 núcleos de dimensionamento no local e 8GB de memória é recomendado, no entanto, se o critério de dimensionamento for baseado no desempenho como SKU de VM de 2 núcleos e 4 GB teria de ser recomendada como a percentagem de utilização é considerada enquanto Recomendamos o tamanho. Da mesma forma, para discos, o dimensionamento do disco depende de duas propriedades de avaliação - tipo de armazenamento e de critério de dimensionamento. Se o critério de dimensionamento for baseado no desempenho e o tipo de armazenamento é automático, são considerados os valores IOPS e débito do disco para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado no desempenho e é o tipo de armazenamento premium, recomenda-se um disco premium, o disco premium que SKU no Azure está selecionada com base no tamanho do disco no local. A mesma lógica é utilizada para o disco de dimensionamento quando o critério de dimensionamento é como o dimensionamento no local e o tipo de armazenamento é standard ou premium.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>O impacto que o utilização de percentil e de histórico de desempenho tem as recomendações de tamanho?
+
+Estas propriedades só são aplicáveis para o dimensionamento baseado no desempenho. O Azure Migrate recolhe histórico de desempenho das máquinas no local e utiliza-o para recomendar o tipo de disco e de tamanho VM no Azure. A aplicação recoletora perfis continuamente o ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos. A aplicação agrega os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos. Para criar o ponto de dados individual, a aplicação seleciona o valor de pico de todos os exemplos de 20 segundos e envia-os para o Azure. Quando cria uma avaliação no Azure, com base na duração do desempenho e valor de percentil de histórico de desempenho, o Azure Migrate calcula o valor de utilização eficiente e utiliza-o para o dimensionamento. Por exemplo, se tiver definido a duração do desempenho ser 1 dia e o valor de percentil para o percentil 95, do Azure Migrate utiliza o exemplo de 15 minutos pontos enviados pelo recoletor para o último dia, classifica-os por ordem ascendente e escolhe o valor de percentil 95 como o ut eficaz ilization. O valor de percentil 95 garante que está a ignorar quaisquer valores atípicos que podem ser se escolher percentil de 99. Se quer recolher a utilização de pico para o período e não pretende perder quaisquer exceções, deve selecionar o percentil de 99.
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 

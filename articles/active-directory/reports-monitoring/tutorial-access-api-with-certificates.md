@@ -15,14 +15,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961965"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214271"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Utilizar obter dados do Azure Active Directory reporting API com certificados
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obter dados com a API de relatórios do Azure Active Directory com certificados
 
 As [APIs de relatórios Azure Active Directory (Azure AD)](concept-reporting-api.md) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. Se desejar acessar a API de relatórios de AD do Azure sem intervenção do utilizador, tem de configurar o acesso ao utilizar certificados.
 
@@ -30,24 +30,28 @@ Neste tutorial, irá aprender a utilizar um certificado de teste para aceder à 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Em primeiro lugar, concluir o [pré-requisitos para aceder ao Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+1. Para aceder aos dados de início de sessão, certifique-se de que tem um inquilino do Azure Active Directory com uma licença premium (P1/P2). Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory. Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium. 
 
-2. Transfira e instale [do Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+2. Criar ou mudar para uma conta de utilizador a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. 
 
-3. Instale [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
+3. Concluir o [pré-requisitos para aceder ao Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+
+4. Transfira e instale [do Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+
+5. Instale [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
     - As bibliotecas ADAL necessárias à autenticação
     - Tokens de acesso de utilizador, chaves de aplicação e certificados, através da ADAL
     - Graph API que processa resultados paginados
 
-4. Se for a primeira vez utilizando o módulo execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o utilizando o **Import-Module** comando do Powershell. A sua sessão deve ter um aspeto semelhante a este ecrã: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se for a primeira vez utilizando o módulo execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o utilizando o **Import-Module** comando do Powershell. A sua sessão deve ter um aspeto semelhante a este ecrã: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. Utilize o **New-SelfSignedCertificate** commandlet do Powershell para criar um certificado de teste.
+7. Utilize o **New-SelfSignedCertificate** commandlet do Powershell para criar um certificado de teste.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. Utilize o **Export-Certificate** commandlet para os exportar para um ficheiro de certificado.
+8. Utilize o **Export-Certificate** commandlet para os exportar para um ficheiro de certificado.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"

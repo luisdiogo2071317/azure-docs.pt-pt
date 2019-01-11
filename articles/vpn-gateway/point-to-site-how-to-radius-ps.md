@@ -1,5 +1,5 @@
 ---
-title: 'Ligar um computador a uma rede virtual com a autenticação RADIUS e de ponto a Site: PowerShell | Azure'
+title: 'Ligar um computador a uma rede virtual com o ponto a Site e autenticação RADIUS: PowerShell | Azure'
 description: Ligue os clientes Windows e Mac OS X com segurança a uma rede virtual através da autenticação P2S e RADIUS.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: b5d69b8f9f004da93e5bed05b86e46f6e4214d63
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847359"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200909"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurar uma ligação ponto a Site a uma VNet com a autenticação RADIUS: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação RADIUS: PowerShell
 
 Este artigo mostra-lhe como criar uma VNet com uma ligação de ponto a Site que utiliza a autenticação RADIUS. Esta configuração só está disponível para o modelo de implementação do Resource Manager.
 
@@ -64,7 +64,7 @@ Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição
 
 ### <a name="sign-in"></a>Iniciar sessão
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Valores de exemplo
 
@@ -72,16 +72,16 @@ Pode utilizar os valores de exemplo para criar um ambiente de teste ou consultá
 
 * **Nome: VNet1**
 * **Espaço de endereços: 192.168.0.0/16** e **10.254.0.0/16**<br>Para este exemplo, utilizamos mais do que um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereços não são precisos para esta configuração.
-* **Nome da sub-rede: FrontEnd**
+* **Nome da sub-rede: Front-end**
   * **Intervalo de endereços da sub-rede: 192.168.1.0/24**
-* **Nome da sub-rede: BackEnd**
+* **Nome da sub-rede: Back-end**
   * **Intervalo de endereços da sub-rede: 10.254.1.0/24**
 * **Nome da sub-rede: GatewaySubnet**<br>O nome da Sub-rede *GatewaySubnet* é obrigatório para o gateway de VPN funcionar.
   * **Intervalo de endereços do GatewaySubnet: 192.168.200.0/24** 
 * **Conjunto de endereços de cliente VPN: 172.16.201.0/24**<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente VPN especificado.
-* **Subscrição:** se tiver várias subscrições, verifique se tem a correta.
-* **Grupo de Recursos: TestRG**
-* **Localização: E.U.A. Leste**
+* **Subscrição:** Se tiver mais de uma subscrição, certifique-se de que está a utilizar correta.
+* **Grupo de recursos: TestRG**
+* **Localização: E.U.A. leste**
 * **Servidor DNS: Endereço IP** do servidor DNS que pretende utilizar para a resolução de nome para a sua VNet. (opcional)
 * **Nome do GW: Vnet1GW**
 * **Nome do IP público: VNet1GWPIP**

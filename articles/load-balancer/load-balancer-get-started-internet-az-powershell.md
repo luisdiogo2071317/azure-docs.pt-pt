@@ -1,7 +1,7 @@
 ---
-title: Criar um balanceador de carga Standard com o front-end com redundância de zona com o Azure PowerShell
+title: Criar um balanceador de carga com o front-end com redundância de zona - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Saiba como criar Standard de Balanceador de carga público com um frontend de endereço IP público com redundância de zona com o PowerShell
+description: Saiba como criar o Balanceador de carga Standard público com um frontend de endereço IP público com redundância de zona com o PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ccf30e435ef04f1e4e874c1b7fc78c86a494a3d9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138750"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198121"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Criar um balanceador de padrão com o front-end com redundância de zona com o Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Criar um balanceador de carga Standard com o front-end com redundância de zona com o Azure PowerShell
 
 Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end com redundância de zona utilizando um endereço IP público Standard.
 

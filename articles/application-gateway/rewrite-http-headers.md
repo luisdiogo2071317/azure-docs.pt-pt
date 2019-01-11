@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187422"
+ms.locfileid: "54198530"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
 
@@ -116,8 +116,6 @@ Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes
 ## <a name="limitations"></a>Limitações
 
 - Esta capacidade reescrever cabeçalhos HTTP só está atualmente disponível através do Azure PowerShell, a API do Azure e SDK do Azure. Suporte através da CLI do Azure e portal estará disponível em breve.
-
-- Depois de aplicar uma reescrita de cabeçalho no seu Gateway de aplicação, não deve utilizar o portal para fazer as alterações subsequentes para esse Gateway de aplicação até que a capacidade é suportada no portal. Se utilizar o portal para fazer alterações ao Gateway de aplicação depois de aplicar uma regra de reescrita, o cabeçalho de reescrever a regra. Pode continuar a fazer alterações com o Azure PowerShell, APIs do Azure ou do Azure SDK.
 
 - O suporte de reescrita de cabeçalho HTTP apenas é suportado no novo SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). O recurso não será suportado no SKU antigo.
 

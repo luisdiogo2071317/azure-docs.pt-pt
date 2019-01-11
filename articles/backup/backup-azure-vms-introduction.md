@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107434"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198767"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
 
@@ -132,11 +132,10 @@ Uma operação de restauro consiste em duas tarefas principais: copiar dados do 
 
 Sugerimos que seguindo essas práticas ao configurar cópias de segurança VM:
 
-- Atualize os cofres para a RP instantânea. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Considere modificar o tempo de política que está predefinido (para ex. Se o seu tempo de política predefinida é 12:00 AM considere incrementando-o em minutos) quando os instantâneos de dados são tomados para garantir a recursos são utilizados de forma otimizada.
 - Para a Premium VM a cópia de segurança no recurso de não - instantâneas RP aloca aproximadamente 50% de espaço de conta de armazenamento total. Serviço de cópia de segurança requer este espaço para copiar o instantâneo para a mesma conta de armazenamento e para transferi-los para o cofre.
 - Para restaurar VMs a partir de um único cofre, é altamente recomendável usar diferentes [contas de armazenamento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para garantir que a conta de armazenamento de destino não é limitada. Por exemplo, cada VM tem de ter conta de armazenamento diferente (se as 10 VMs são restauradas, em seguida, considere a utilização de 10 contas de armazenamento diferente).
-- A restauração da camada de armazenamento de escalão 1 (instantâneo) será concluída em minutos (uma vez que é a mesma conta de armazenamento) em relação a camada de armazenamento de nível 2 (cofre) que pode demorar horas. Recomendamos que utilize [RP instantâneas](backup-upgrade-to-vm-backup-stack-v2.md) funcionalidade para restauros mais rápidos, caso em que os dados estão disponíveis na camada 1 (que tem os dados a ser restaurada do cofre, em seguida, irá demorar tempo).
+- A restauração da camada de armazenamento de escalão 1 (instantâneo) será concluída em minutos (uma vez que é a mesma conta de armazenamento) em relação a camada de armazenamento de nível 2 (cofre) que pode demorar horas. Recomendamos que utilize [restaurar instantâneas](backup-instant-restore-capability.md) funcionalidade para restauros mais rápidos, caso em que os dados estão disponíveis na camada 1 (que tem os dados a ser restaurada do cofre, em seguida, irá demorar tempo).
 - O limite do número de discos por conta de armazenamento é relativo ao peso os discos estão a ser acedidos por aplicações em execução na VM de IaaS. Certifique-se de que se vários discos estão alojados numa única conta de armazenamento. Como uma prática geral, se os discos de 5 a 10 ou mais estiverem presentes numa única conta de armazenamento, balancear a carga ao mover alguns discos para separar as contas de armazenamento.
 
 ## <a name="backup-costs"></a>Custos de cópia de segurança

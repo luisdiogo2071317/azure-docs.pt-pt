@@ -1,6 +1,6 @@
 ---
-title: Implementar uma solução de Base de Dados SQL do Azure distribuída geograficamente | Microsoft Docs
-description: Saiba como configurar a sua Base de Dados SQL do Azure e a aplicação para ativação pós-falha para uma base de dados replicada e ativação pós-falha de teste.
+title: Implementar uma solução de base de dados SQL do Azure distribuída geograficamente | Documentos da Microsoft
+description: Saiba como configurar a sua base de dados SQL do Azure e a aplicação para ativação pós-falha para uma base de dados replicada e ativação pós-falha de teste.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,183 +11,116 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: e16e10067f358d90f801a80eec32fba4e14c017e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2018
+ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599676"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198189"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar uma base de dados distribuída geograficamente
 
-Neste tutorial, pode configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e, em seguida, testar o seu plano de ativação pós-falha. Saiba como:
+Configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e um plano de ativação pós-falha de teste. Saiba como:
 
 > [!div class="checklist"]
-> - Criar utilizadores da base de dados e conceder-lhes permissões
-> - Configurar uma regra de firewall ao nível da base de dados
 > - Criar um [grupo de ativação pós-falha](sql-database-auto-failover-group.md)
-> - Criar e compilar uma aplicação Java para consultar uma base de dados SQL do Azure
-> - Efetuar um teste de recuperação após desastre
+> - Executar uma aplicação de Java para consultar uma base de dados SQL do Azure
+> - Ativação pós-falha de teste
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
+Para concluir o tutorial, certifique-se de que instalou os seguintes itens:
 
-- Instalar a versão mais recente do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
-- Instalar uma base de dados SQL do Azure. Este tutorial utiliza a base de dados de exemplo AdventureWorksLT com o nome **mySampleDatabase** a partir de um dos seguintes inícios rápidos:
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- Uma base de dados SQL do Azure. Para criar um uso,
+  - [Portal](sql-database-get-started-portal.md)
+  - [CLI](sql-database-cli-samples.md)
+  - [PowerShell](sql-database-powershell-samples.md)
 
-  - [Criar BD - Portal](sql-database-get-started-portal.md)
-  - [Criar BD - CLI](sql-database-cli-samples.md)
-  - [Criar BD - PowerShell](sql-database-powershell-samples.md)
+  > [!NOTE]
+  > O tutorial utiliza a *AdventureWorksLT* base de dados de exemplo.
 
-- Depois de identificar um método para executar scripts SQL na base de dados, pode utilizar uma das seguintes ferramentas de consulta:
-  - O editor de consultas no [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como utilizar o editor de consultas no portal do Azure, veja [Ligar e consultar com o Editor de Consultas](sql-database-get-started-portal.md#query-the-sql-database).
-  - Instale a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), que é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows.
-  - Instale a versão mais recente do [Visual Studio Code](https://code.visualstudio.com/docs), que é um editor de código gráfico para Linux, macOS e Windows que suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, a Base de Dados SQL do Azure e o SQL Data Warehouse. Para obter mais informações sobre como utilizar esta ferramenta com a Base de Dados SQL do Azure, veja [Ligar e consultar com o VS Code](sql-database-connect-query-vscode.md).
+- Java e Maven, consulte [criar uma aplicação com o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), realçar **Java** e selecione o seu ambiente, em seguida, siga os passos.
 
-## <a name="create-database-users-and-grant-permissions"></a>Criar utilizadores da base de dados e conceder permissões
-
-Ligue à base de dados e crie contas de utilizador com uma das seguintes ferramentas de consulta:
-
-- O Editor de Consultas no portal do Azure
-- SQL Server Management Studio
-- Visual Studio Code
-
-Estas contas de utilizador são replicadas automaticamente para o servidor secundário (e são mantidas em sincronização). Para utilizar o SQL Server Management Studio ou o Visual Studio Code, pode ter de configurar uma regra de firewall se estiver a ligar a partir de um cliente num endereço IP para o qual ainda não configurou uma firewall. Para obter passos detalhados, veja [Criar uma regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
-
-- Numa janela de consulta, execute a consulta seguinte para criar duas contas de utilizador na base de dados. Este script concede permissões **db_owner** à conta **app_admin** e atribui permissões **SELECT** e **UPDATE** à conta **app_user**.
-
-   ```sql
-   CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
-   --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin;
-   --Create additional SQL user
-   CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
-   --grant permission to SalesLT schema
-   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
-   ```
-
-## <a name="create-database-level-firewall"></a>Criar uma firewall ao nível da base de dados
-
-Crie uma [regra de firewall ao nível da base de dados](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para a sua base de dados SQL. Esta regra de firewall ao nível da base de dados é replicada automaticamente para o servidor secundário que vai criar neste tutorial. Para maior simplicidade (neste tutorial), utilize o endereço IP público do computador onde está a efetuar os passos neste tutorial. Para determinar o endereço IP utilizado para a regra de firewall ao nível do servidor para o computador atual, veja [Criar uma firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).  
-
-- Na janela de consulta aberta, substitua a consulta anterior pela consulta seguinte, ao substituir os endereços IP pelos endereços IP adequados para o seu ambiente.  
-
-   ```sql
-   -- Create database-level firewall setting for your public IP address
-   EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
-   ```
+> [!IMPORTANT]
+> Certifique-se de que configurar regras de firewall para utilizar o endereço IP público do computador em que estiver a efetuar os passos neste tutorial. Nível de base de dados firewall regras irão replicar automaticamente para o servidor secundário.
+>
+> Para obter informações, consulte [criar uma regra de firewall ao nível da base de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP utilizado para a regra de firewall ao nível do servidor para o seu computador veja [criar uma firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).  
 
 ## <a name="create-a-failover-group"></a>Criar um grupo de ativação pós-falha
 
-Com o Azure PowerShell, crie uma [grupos de ativação pós-falha](sql-database-auto-failover-group.md) entre o servidor SQL do Azure existente e o novo vazio servidor SQL do Azure numa região do Azure e, em seguida, adicione a sua base de dados de exemplo para o grupo de ativação pós-falha.
+Com o Azure PowerShell, crie [grupos de ativação pós-falha](sql-database-auto-failover-group.md) entre um servidor SQL do Azure existente e um novo servidor SQL do Azure noutra região. Em seguida, adicione a base de dados de exemplo para o grupo de ativação pós-falha.
 
 > [!IMPORTANT]
-> Estes cmdlets precisam do Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
->
+> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-1. Preencha as variáveis dos scripts do PowerShell com os valores do servidor existente e da base de dados de exemplo, e forneça um valor exclusivo global para o nome do grupo de ativação pós-falha.
-
-   ```powershell
-   $adminlogin = "ServerAdmin"
-   $password = "ChangeYourAdminPassword1"
-   $myresourcegroupname = "<your resource group name>"
-   $mylocation = "<your resource group location>"
-   $myservername = "<your existing server name>"
-   $mydatabasename = "mySampleDatabase"
-   $mydrlocation = "<your disaster recovery location>"
-   $mydrservername = "<your disaster recovery server name>"
-   $myfailovergroupname = "<your unique failover group name>"
-   ```
-
-2. Crie um servidor de cópia de segurança vazio na sua região de ativação pós-falha.
+Para criar um grupo de ativação pós-falha, execute o seguinte script:
 
    ```powershell
-   $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername `
-      -Location $mydrlocation `
-      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver
+    # Set variables for your server and database
+    $adminlogin = "<your admin>"
+    $password = "<your password>"
+    $myresourcegroupname = "<your resource group name>"
+    $mylocation = "<your resource group location>"
+    $myservername = "<your existing server name>"
+    $mydatabasename = "<your database name>"
+    $mydrlocation = "<your disaster recovery location>"
+    $mydrservername = "<your disaster recovery server name>"
+    $myfailovergroupname = "<your globally unique failover group name>"
+
+    # Create a backup server in the failover region
+    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+       -ServerName $mydrservername `
+       -Location $mydrlocation `
+       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+
+    # Create a failover group between the servers
+    New-AzureRMSqlDatabaseFailoverGroup `
+       –ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -PartnerServerName $mydrservername  `
+       –FailoverGroupName $myfailovergroupname `
+       –FailoverPolicy Automatic `
+       -GracePeriodWithDataLossHours 2
+
+    # Add the database to the failover group
+    Get-AzureRmSqlDatabase `
+       -ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -DatabaseName $mydatabasename | `
+     Add-AzureRmSqlDatabaseToFailoverGroup `
+       -ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -FailoverGroupName $myfailovergroupname
    ```
 
-3. Crie um grupo de ativação pós-falha entre os dois servidores.
+Definições de replicação geográfica também podem ser alteradas no portal do Azure, ao selecionar a sua base de dados, em seguida, **configurações** > **Georreplicação**.
 
-   ```powershell
-   $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
-      –ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -PartnerServerName $mydrservername  `
-      –FailoverGroupName $myfailovergroupname `
-      –FailoverPolicy Automatic `
-      -GracePeriodWithDataLossHours 2
-   $myfailovergroup
-   ```
+![Definições de replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
-4. Adicione a base de dados ao grupo de ativação pós-falha.
+## <a name="run-the-sample-project"></a>Execute o projeto de exemplo
 
-   ```powershell
-   $myfailovergroup = Get-AzureRmSqlDatabase `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -DatabaseName $mydatabasename | `
-    Add-AzureRmSqlDatabaseToFailoverGroup `
-      -ResourceGroupName $myresourcegroupname ` `
-      -ServerName $myservername `
-      -FailoverGroupName $myfailovergroupname
-   $myfailovergroup
-   ```
-
-## <a name="install-java-software"></a>Instalar o software de Java
-
-Os passos nesta secção assumem que está familiarizado com programação com Java e que nunca trabalhou com a Base de Dados SQL do Azure.
-
-### <a name="mac-os"></a>Mac OS
-
-Abra o terminal e navegue para um diretório no qual pretenda criar o seu projeto Java. Instale **brew** e **Maven** ao introduzir os seguintes comandos:
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
-
-Para obter instruções detalhadas sobre como instalar e configurar o ambiente de Java e Maven, aceda a [Criar uma aplicação com o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecione **Java**, selecione **MacOS** e, em seguida, siga as instruções detalhadas para configurar o Java e o Maven nos passos 1.2 e 1.3.
-
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-
-Abra o terminal e navegue para um diretório no qual pretenda criar o seu projeto Java. Instale **Maven** ao introduzir os seguintes comandos:
-
-```bash
-sudo apt-get install maven
-```
-
-Para obter instruções detalhadas sobre como instalar e configurar o ambiente de Java e Maven, aceda a [Criar uma aplicação com o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecione **Java**, selecione **Ubuntu** e, em seguida, siga as instruções detalhadas para configurar o Java e o Maven nos passos 1.2, 1.3 e 1.4.
-
-### <a name="windows"></a>Windows
-
-Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador oficial. Utilize o Maven para ajudar a gerir dependências e criar, testar e executar o projeto de Java. Para obter instruções detalhadas sobre como instalar e configurar o ambiente de Java e Maven, aceda a [Criar uma aplicação com o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecione **Java**, selecione Windows e, em seguida, siga as instruções detalhadas para configurar o Java e o Maven nos passos 1.2 e 1.3.
-
-## <a name="create-sqldbsample-project"></a>Criar projeto SqlDbSample
-
-1. Na consola de comandos (por exemplo, Bash), crie um projeto Maven.
+1. Na consola, crie um projeto Maven com o seguinte comando:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-2. Escreva **Y** e clique em **Enter**.
-3. Altere os diretórios no projeto criado recentemente.
+1. Tipo **Y** e prima **Enter**.
+
+1. Altere os diretórios para o novo projeto.
 
    ```bash
-   cd SqlDbSamples
+   cd SqlDbSample
    ```
 
-4. Com o seu editor favorito, abra o ficheiro pom.xml na pasta do projeto.
+1. Com o seu editor favorito, abra a *pom* ficheiro na pasta do projeto.
 
-5. Adicione o Microsoft JDBC Driver para a dependência de SQL Server ao projeto Maven ao abrir o seu editor de texto favorito e ao copiar e colar as seguintes linhas no ficheiro pom.xml. Não substitua os valores existentes pré-preenchidos no ficheiro. A dependência JDBC tem de ser colada na secção "dependencies" maior ( ).
+1. Adicionar o controlador Microsoft JDBC para dependência do SQL Server adicionando o seguinte `dependency` secção. A dependência tem de ser colada na maior `dependencies` secção.
 
    ```xml
    <dependency>
@@ -197,7 +130,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    </dependency>
    ```
 
-6. Especifique a versão de Java para compilar o projeto ao adicionar a secção "properties" seguinte no ficheiro pom.xml depois da secção "dependencies".
+1. Especifique a versão de Java, adicionando a `properties` secção após o `dependencies` secção:
 
    ```xml
    <properties>
@@ -206,7 +139,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    </properties>
    ```
 
-7. Adicione a secção "build" seguinte no ficheiro pom.xml depois da secção "properties" para suportar os ficheiros de manifesto em jars.
+1. Suporta ficheiros de manifesto, adicionando a `build` secção após o `properties` secção:
 
    ```xml
    <build>
@@ -227,8 +160,9 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    </build>
    ```
 
-8. Guarde e feche o ficheiro pom.xml.
-9. Abra o ficheiro App.java (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) e substitua o conteúdo pelo conteúdo seguinte. Substitua o nome do grupo de ativação pós-falha pelo nome do seu grupo de ativação pós-falha. Se tiver alterado os valores do nome da base de dados, utilizador ou palavra-passe, altere também esses valores.
+1. Guarde e feche o *pom* ficheiro.
+
+1. Abra o *App* ficheiros localizados em.... \SqlDbSample\src\main\java\com\sqldbsamples e substitua os conteúdos com o código a seguir:
 
    ```java
    package com.sqldbsamples;
@@ -244,14 +178,20 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
 
    public class App {
 
-      private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
+      private static final String FAILOVER_GROUP_NAME = "<your failover group name>";  // add failover group name
   
-      private static final String DB_NAME = "mySampleDatabase";
-      private static final String USER = "app_user";
-      private static final String PASSWORD = "ChangeYourPassword1";
+      private static final String DB_NAME = "<your database>";  // add database name
+      private static final String USER = "<your admin>";  // add database user
+      private static final String PASSWORD = "<your password>";  // add database password
 
-      private static final String READ_WRITE_URL = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
-      private static final String READ_ONLY_URL = String.format("jdbc:sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
+      private static final String READ_WRITE_URL = String.format("jdbc:" +
+         "sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
+      private static final String READ_ONLY_URL = String.format("jdbc:" +
+         "sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
 
       public static void main(String[] args) {
          System.out.println("#######################################");
@@ -264,9 +204,11 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
          try {
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
-                System.out.print(i + ": insert on primary " + (insertData((highWaterMark + i))?"successful":"failed"));
+                System.out.print(i + ": insert on primary " +
+                   (insertData((highWaterMark + i))?"successful":"failed"));
                 TimeUnit.SECONDS.sleep(1);
-                System.out.print(", read from secondary " + (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                System.out.print(", read from secondary " +
+                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {
@@ -275,8 +217,9 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    }
 
    private static boolean insertData(int id) {
-      // Insert data into the product table with a unique product name that we can use to find the product again later
-      String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+      // Insert data into the product table with a unique product name so we can find the product again
+      String sql = "INSERT INTO SalesLT.Product " +
+         "(Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -293,7 +236,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    }
 
    private static boolean selectData(int id) {
-      // Query the data that was previously inserted into the primary database from the geo replicated database
+      // Query the data previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
       try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
@@ -308,7 +251,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts
+      // Query the high water mark id stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
@@ -325,21 +268,21 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    }
    ```
 
-10. Guarde e feche o ficheiro App.java.
+1. Guarde e feche o *App* ficheiro.
 
-## <a name="compile-and-run-the-sqldbsample-project"></a>Compilar e executar o projeto SqlDbSample
-
-1. Na consola de comandos, execute o comando seguinte.
+1. Na consola de comandos, execute o seguinte comando:
 
    ```bash
    mvn package
    ```
 
-2. Quando terminar, execute o comando seguinte para executar a aplicação (é executada durante cerca de 1 hora, a menos que seja parada manualmente):
+1. Inicie a aplicação que vai ser executado para cerca de 1 hora, até serem parados manualmente, permitindo que o tempo para executar o teste de ativação pós-falha.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
+   ```output
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -347,60 +290,52 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
    1. insert on primary successful, read from secondary successful
    2. insert on primary successful, read from secondary successful
    3. insert on primary successful, read from secondary successful
+   ...
    ```
 
-## <a name="perform-disaster-recovery-drill"></a>Efetuar teste de recuperação após desastre
+## <a name="test-failover"></a>Ativação pós-falha de teste
 
-1. Chame a ativação pós-falha manual do grupo de ativação pós-falha.
+Execute os scripts seguintes para simular uma ativação pós-falha e observe os resultados da aplicação. Observe como alguns inserções e seleciona irá falhar durante a migração de base de dados.
 
-   ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $mydrservername `
-   -FailoverGroupName $myfailovergroupname
-   ```
-
-2. Observe os resultados da aplicação durante a ativação pós-falha. Alguns inserções falham durante a atualização da cache DNS.
-
-3. Determine a função do servidor de recuperação após desastre que está a ser executada.
+Também pode verificar a função de servidor de recuperação após desastre durante o teste com o seguinte comando:
 
    ```powershell
-   $mydrserver.ReplicationRole
-   ```
-
-4. Reativação pós-falha.
-
-   ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $myservername `
-   -FailoverGroupName $myfailovergroupname
-   ```
-
-5. Observe os resultados da aplicação durante a reativação pós-falha. Alguns inserções falham durante a atualização da cache DNS.
-
-6. Determine a função do servidor de recuperação após desastre que está a ser executada.
-
-   ```powershell
-   $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzureRMSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername
-   $fileovergroup.ReplicationRole
+      -ServerName $mydrservername).ReplicationRole
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+Para testar uma ativação pós-falha:
 
-Neste tutorial, aprendeu a configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e, em seguida, testar o seu plano de ativação pós-falha.  Aprendeu a:
+1. Inicie uma ativação pós-falha manual do grupo de ativação pós-falha:
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername `
+      -FailoverGroupName $myfailovergroupname
+   ```
+
+1. Reverta o grupo de ativação pós-falha para o servidor primário:
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $myservername `
+      -FailoverGroupName $myfailovergroupname
+   ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Neste tutorial, configurou uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e testado um plano de ativação pós-falha. Aprendeu a:
 
 > [!div class="checklist"]
-> - Criar utilizadores da base de dados e conceder-lhes permissões
-> - Configurar uma regra de firewall ao nível da base de dados
 > - Criar um grupo de ativação pós-falha de georreplicação
-> - Criar e compilar uma aplicação Java para consultar uma base de dados SQL do Azure
-> - Efetuar um teste de recuperação após desastre
+> - Executar uma aplicação de Java para consultar uma base de dados SQL do Azure
+> - Ativação pós-falha de teste
 
-Avance para o próximo tutorial para migrar o SQL Server para o Azure SQL Database Managed Instance com o DMS.
+Avance para o próximo tutorial sobre como migrar com o DMS.
 
 > [!div class="nextstepaction"]
->[Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure com o DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migrar o SQL Server para a instância de gerida de base de dados de SQL do Azure com o DMS](../dms/tutorial-sql-server-to-managed-instance.md)

@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189501"
+ms.locfileid: "54201300"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -28,6 +28,18 @@ A aplicação de deteção contínua só recolhe dados de desempenho continuamen
    ![Parar deteção](./media/troubleshooting-general/stop-discovery.png)
 
 - Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos do Azure Migrate e espaço de trabalho do Log Analytics associado
+
+Quando elimina um projeto do Azure Migrate, elimina o projeto de migração, juntamente com todos os grupos e avaliações. No entanto, se tiver ligado uma área de trabalho do Log Analytics ao projeto, ele não elimina automaticamente o espaço de trabalho do Log Analytics. Isto acontece porque a mesma área de trabalho do Log Analytics pode ser usada para vários casos de utilização. Se quiser eliminar a área de trabalho do Log Analytics também, terá de fazê-lo manualmente.
+
+1. Navegue para a área de trabalho do Log Analytics ligada ao projeto.
+   a. Se ainda não eliminou o projeto de migração, pode encontrar o link para a área de trabalho da página de descrição geral do projeto na secção Essentials.
+   
+   ![Área de trabalho LA](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Caso tenha eliminado já o projeto de migração, clique em **grupos de recursos** no painel esquerdo no portal do Azure e vá para o grupo de recursos em que a área de trabalho foi criado e, em seguida, navegar para o mesmo.
+2. Siga as instruções [neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para eliminar a área de trabalho.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação de projeto de migração com erro *pedidos devem conter cabeçalhos de identidade do utilizador*
 
@@ -80,7 +92,7 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 
    ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Erros do recoletor
+## <a name="collector-issues"></a>Problemas de recoletor
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implementação do Recoletor do Azure Migrate com o erro: O ficheiro de manifesto fornecido é inválido: Entrada do manifesto OVF inválida.
 
@@ -156,6 +168,17 @@ Se o problema ainda acontece na versão mais recente, é possível porque a máq
 2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
 3. Identifique o número de porta correto para ligar ao vCenter.
 4. Por fim, verifique se o servidor do vCenter está em execução.
+
+### <a name="antivirus-exclusions"></a>Exclusões do antivírus
+
+Para proteger a aplicação do Azure Migrate, tem de impedir que as seguintes pastas na aplicação da verificação antivírus:
+
+- Pasta que tenha os binários do serviço do Azure Migrate. Exclua todas as subpastas.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate a aplicação Web. Exclua todas as subpastas.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local para a base de dados e arquivos de log. Do Azure migrate precisa de serviço de acesso RW para esta pasta.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679534"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214033"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -82,11 +82,11 @@ Depois de ativar a gestão de atualizações para as suas máquinas, pode ver in
 
 Computadores que tenham sido ativadas recentemente para gerenciamento de atualizações podem não ter sido avaliados ainda. O estado do Estado de conformidade para esses computadores é **não avaliados**. Aqui está uma lista de valores possíveis para o estado de conformidade:
 
-- **Em conformidade**: os computadores não críticas ou em falta atualizações de segurança.
+- **Em conformidade**: Computadores que não tem em falta crítica ou de atualizações de segurança.
 
-- **Não compatível**: os computadores que estão em falta, pelo menos, uma crítica ou de atualização de segurança.
+- **Não compatível**: Computadores que estão em falta, pelo menos, uma crítica ou de atualização de segurança.
 
-- **Não avaliado**: os dados da avaliação de atualização ainda não foram recebidos do computador dentr do período de tempo esperado. Para computadores Linux, o período de tempo esperada é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
+- **Não avaliado**: Os dados da avaliação de atualização ainda não foram recebidos do computador dentr do período de tempo esperado. Para computadores Linux, o período de tempo esperada é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
 
 Para ver o estado do agente, selecione a ligação na **preparação do agente de ATUALIZAÇÃO** coluna. A seleção desta opção abre o **função de trabalho híbrida** painel e mostra o estado da função de trabalho híbrida. A imagem seguinte mostra um exemplo de um agente que ainda não foi ligado ao gerenciamento de atualizações por um longo período de tempo:
 
@@ -113,7 +113,11 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
-Uma análise é executada duas vezes por dia em cada computador Windows gerido. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização determinar se o estado foi alterado. Se alterar o estado, inicia uma análise de compatibilidade. Uma análise é executada em três horas em cada computador Linux gerido.
+Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
+
+Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
+
+Para um computador Linux, a análise de conformidade é realizada em três horas por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
 
 Pode demorar entre 30 minutos e 6 horas para o dashboard apresentar os dados atualizados dos computadores gerenciados.
 
@@ -125,14 +129,14 @@ Para agendar uma nova implementação de atualização para uma ou mais máquina
 
 Na **nova implementação de atualização** painel, especifique as seguintes informações:
 
-- **Nome**: introduza um nome exclusivo para identificar a implementação de atualização.
-- **Sistema operativo**: selecione **Windows** ou **Linux**.
-- **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
-- **Computadores a atualizar**: selecione uma pesquisa guardada, grupo importada, ou selecione máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Nome**: Introduza um nome exclusivo para identificar a implementação de atualização.
+- **Sistema operativo**: Selecione **Windows** ou **Linux**.
+- **Grupos de atualização (pré-visualização)**: Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
+- **Computadores a atualizar**: Selecione uma pesquisa guardada, grupo importada, ou máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificação da atualização**: selecione os tipos de software para incluir na implementação de atualização. Para obter uma descrição dos tipos de classificação, consulte [classificações de atualizações](automation-update-management.md#update-classifications). Os tipos de classificação são:
+- **Classificação da atualização**: Selecione os tipos de software para incluir na implementação de atualização. Para obter uma descrição dos tipos de classificação, consulte [classificações de atualizações](automation-update-management.md#update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Update rollups
@@ -144,13 +148,13 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
 - **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como é processada a inclusão, veja [comportamento de inclusão](automation-update-management.md#inclusion-behavior).
 
-- **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Também pode especificar uma hora diferente.
+- **Definições da agenda**: Pode aceitar a data e hora predefinidas, que é 30 minutos depois da hora atual. Também pode especificar uma hora diferente.
 
    Também pode especificar se a implementação ocorre uma vez ou de acordo com um agendamento periódico. Para configurar um agendamento periódico, em **periodicidade**, selecione **periódico**.
 
    ![Caixa de diálogo Definições de Agendamento](./media/manage-update-multi/update-set-schedule.png)
 
-- **Scripts prévios + Scripts posteriores**: selecione os scripts para executar antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
+- **Pré- scripts de + pós-scripts de**: Selecione os scripts sejam executados antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
 - **Janela de manutenção (minutos)**: Especifique o período de tempo que pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
 - **Controlo de reinício** -esta definição determina a forma como os reinícios são processados para a implementação da atualização.
@@ -182,8 +186,8 @@ Para ver o dashboard relativo a uma implementação de atualizações, selecione
 O **resultados da atualização** painel mostra o número total de atualizações e os resultados de implementação para a máquina virtual. A tabela à direita mostra uma divisão detalhada de cada atualização e os resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
 
 - **Não tentada**: A atualização não foi instalada porque não havia tempo suficiente disponível com base na janela de manutenção definida.
-- **Com êxito**: a atualização foi executada com êxito.
-- **Falhou**: a atualização falhou.
+- **Foi efetuada com êxito**: A atualização foi concluída com êxito.
+- **Falha ao**: A atualização falhou.
 
 Para ver todas as entradas de registo que a implementação criou, selecione **Todos os registos**.
 

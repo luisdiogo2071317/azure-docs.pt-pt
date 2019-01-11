@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994968"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215274"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar as redes para cargas de trabalho migradas para o Azure
 
@@ -185,7 +185,7 @@ Quando configurar uma VPN de site a site, faça o seguinte:
 **Saiba mais:**
 
 - [Revisão](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) dispositivos VPN compatível no local.
-- [Obtenha uma visão geral](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateway) de gateways de VPN.
+- [Obtenha uma visão geral](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) de gateways de VPN.
 - [Saiba mais sobre](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable) ligações de VPN de elevada disponibilidade.
 - [Saiba mais sobre](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) planear e estruturar um gateway de VPN.
 - [Revisão](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku) as definições do gateway VPN.

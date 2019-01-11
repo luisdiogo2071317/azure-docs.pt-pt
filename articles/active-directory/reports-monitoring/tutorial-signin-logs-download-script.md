@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622810"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213099"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Como transferir e utilizar um script para aceder aos registos de início de sessão
 
@@ -33,7 +33,7 @@ Neste tutorial, saiba como gerar um script para transferir todos os início de s
 
 É necessário
 
-* Um inquilino do Azure Active Directory com uma licença premium (P1/P2). 
+* Um inquilino do Azure Active Directory com uma licença premium (P1/P2). Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium. 
 * Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
 * Se quiser executar o script transferido no seu computador, o Windows 10 [configurar o módulo AzureRM e definir a política de execução](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

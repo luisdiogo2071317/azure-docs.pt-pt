@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185788"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214135"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Analisar dados de texto no Log Analytics
 Alguns dados recolhidos pelo Log Analytics irão incluir várias partes de informações numa única propriedade. Analisando estes dados em várias propriedades facilitam a utilizar nas consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os valores diferentes, pode pesquisar e agregados em cada um.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Expressões regulares
-Se seus dados podem ser identificados com uma expressão regular, pode usar [funções que usam expressões regulares](/azure/kusto/query/re2) para extrair os valores individuais. O exemplo seguinte utiliza [extrair](/kusto/query/extractfunction) para dividir o _UPN_ campo _AzureActivity_ regista e, em seguida, retornar utilizadores distintos.
+Se seus dados podem ser identificados com uma expressão regular, pode usar [funções que usam expressões regulares](/azure/kusto/query/re2) para extrair os valores individuais. O exemplo seguinte utiliza [extrair](/azure/kusto/query/extractfunction) para dividir o _UPN_ campo _AzureActivity_ regista e, em seguida, retornar utilizadores distintos.
 
 ```Kusto
 AzureActivity

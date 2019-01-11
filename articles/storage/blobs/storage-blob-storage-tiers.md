@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191671"
+ms.locfileid: "54197679"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), as camadas de armazenamento frequente, esporádico e arquivo
 
 ## <a name="overview"></a>Descrição geral
 
-O armazenamento do Azure oferece as camadas de armazenamento diferentes que lhe permitem armazenar dados de objeto de Blob da maneira mais econômica. As camadas disponíveis incluem:
+O armazenamento do Azure oferece as camadas de armazenamento diferentes, que lhe permitem armazenar dados de objeto de Blob da maneira mais econômica. As camadas disponíveis incluem:
 
 - **O armazenamento Premium (pré-visualização)** fornece o hardware de elevado desempenho para dados que são acedidos com frequência.
  
@@ -47,15 +47,15 @@ Cada um destes cenários de acesso a dados beneficia de uma camada de armazename
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que suportam camadas
 
-Pode apenas da camada seus dados de armazenamento de objetos para frequente, acesso esporádico ou arquivo no armazenamento de BLOBs ou fins gerais v2 (GPv2) contas. As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
+Pode apenas da camada seus dados de armazenamento de objetos para frequente, acesso esporádico ou arquivo no armazenamento de BLOBs e fins gerais v2 (GPv2) contas. As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 Armazenamento de BLOBs e GPv2 expõem de contas do **camada de acesso** atributo ao nível da conta, que permite que especifique a camada de armazenamento predefinida como frequente ou esporádica para qualquer blob na conta de armazenamento que não tem uma camada explícita definida ao nível de objeto. Relativamente aos objetos cuja camada está definida ao nível do objeto, a camada da conta não se aplicará. A camada de arquivo só pode ser aplicada ao nível do objeto. Pode alternar entre estas camadas de armazenamento em qualquer altura.
 
 ## <a name="premium-access-tier"></a>Camada de acesso de Premium
 
-Disponível em pré-visualização, é uma camada de acesso de Premium que torna os dados disponíveis por meio de hardware de elevado desempenho acedidos com frequência. Dados armazenados neste escalão são armazenados em unidades de estado sólidas, que estão otimizadas para latência mais baixa um taxas transacional superior em comparação com as unidades de disco rígido tradicionais. A camada de acesso de Premium está disponível via o tipo de conta de armazenamento de Blob de blocos apenas.
+Disponível em pré-visualização, é uma camada de acesso de Premium, que torna os dados disponíveis por meio de hardware de elevado desempenho acedidos com frequência. Dados armazenados neste escalão são armazenados em unidades de estado sólidas, que são otimizadas para latência mais baixa e taxas de transacionais mais elevadas em comparação comparadas as unidades de disco rígido tradicionais. A camada de acesso de Premium está disponível via o tipo de conta de armazenamento de Blob de blocos apenas.
 
-Esta camada é ideal para cargas de trabalho que exigem tempos de resposta rápida e consistente. Dados que envolva os utilizadores finais, como edição, estático conteúdo da web, transações online e assim por diante são um bons candidatos para a camada de acesso de Premium de vídeo interativo. Esta camada é ideal para cargas de trabalho que realizam muitas pequenas transações, como a captura de dados de telemetria, mensagens e transformação de dados.
+Esta camada é ideal para cargas de trabalho que exigem tempos de resposta rápida e consistente. Dados que envolva os utilizadores finais, como edição, estático conteúdo da web, transações online e assim por diante são bons candidatos para a camada de acesso de Premium de vídeo interativo. Esta camada é ideal para cargas de trabalho que realizam muitas pequenas transações, como a captura de dados de telemetria, mensagens e transformação de dados.
 
 Para utilizar este escalão, aprovisionar uma nova conta de armazenamento de Blob de blocos e comece a criar contentores e blobs com o [API de REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), ou [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -119,9 +119,9 @@ Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece
 
 ### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
 
-Quando um blob é movido para uma camada mais esporádica (frequente -> esporádica, frequente -> arquivos ou esporádica -> arquivos), a operação é faturada como uma operação de escrita para a camada de destino, onde a operação de escrita (por 10 000) e os encargos de escrita (por GB) de dados da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo -> esporádica, arquivo -> frequente ou esporádico -> frequente), a operação é faturada como uma leitura da camada de origem, em que a operação de leitura (por 10 000) e os encargos de obtenção (por GB) de dados de camada de origem são aplicáveis.
+Quando um blob é movido para uma camada mais esporádica (frequente -> esporádica, frequente -> arquivos ou esporádica -> arquivos), a operação é faturada como uma operação de escrita para a camada de destino, onde a operação de escrita (por 10 000) e os encargos de escrita (por GB) de dados da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo -> esporádica, arquivo -> frequente ou esporádico -> frequente), a operação é faturada como uma leitura da camada de origem, em que a operação de leitura (por 10 000) e os encargos de obtenção (por GB) de dados de camada de origem são aplicáveis. A tabela seguinte resume como são cobradas as alterações às camadas.
 
-| | **Encargos de escrita** | **Custo de leitura** 
+| | **Escrever custos (operação + acesso)** | **Custos de leitura (operação + acesso)** 
 | ---- | ----- | ----- |
 | **Direção de SetBlobTier** | Frequente -> esporádica, frequente -> arquivos, esporádica -> arquivos | Arquivo -> esporádica, arquivo -> frequente, esporádica -> frequente
 
@@ -141,7 +141,7 @@ A tabela seguinte mostra uma comparação entre o acesso frequente, esporádica 
 | ---- | ----- | ----- | ----- |
 | **Disponibilidade** | 99,9% | 99% | N/D |
 | **Disponibilidade** <br> **(leituras RA-GRS)**| 99,99% | 99,9% | N/D |
-| **Custos de utilização** | Custos de armazenamento superiores, custos de acesso e transação mais baixos | Custos de armazenamento inferiores, custos de acesso e transação superiores | Custos de armazenamento inferiores, custos de acesso e transação superiores |
+| **Custos de utilização** | Custos de armazenamento superiores, menor de acesso e os custos de transação | Custos de armazenamento mais baixos, acesso superiores e os custos de transação | Custos de armazenamento mais baixos, acesso a mais alto e os custos de transação |
 | **Tamanho mínimo do objeto** | N/D | N/D | N/D |
 | **Duração mínima do armazenamento** | N/D | 30 dias (GPv2 apenas) | 180 dias
 | **Latência** <br> **(Tempo até ao primeiro byte)** | milissegundos | milissegundos | < 15 hrs
@@ -237,7 +237,7 @@ Cada blob é sempre faturado de acordo com a camada indicada do blob **camada de
 
 **Como posso saber se me vai ser faturada uma cobrança de eliminação precoce quando eliminar ou retirar um blob de acesso esporádico ou de uma camada de arquivo?**
 
-Qualquer blob que seja eliminado ou retirado da camada de arquivo antes de 30 dias e 180 dias esporádica (contas GPv2 apenas) ou respectivamente incorre uma cobrança de eliminação precoce rateada. Pode determinar o intervalo de tempo que um blob está na camada de acesso esporádico ou arquivo, verificando a **tempo de alteração da camada de acesso** propriedade, que fornece um carimbo da última alteração da camada de Blobs. Ver [eliminação antecipada do arquivo e esporádico](#cool-and-archive-early-deletion) secção para obter mais detalhes.
+Qualquer blob que seja eliminado ou retirado da camada de arquivo antes de 30 dias e 180 dias esporádica (contas GPv2 apenas) ou respectivamente incorre uma cobrança de eliminação precoce rateada. Pode determinar o intervalo de tempo que um blob está na camada de acesso esporádico ou arquivo, verificando a **tempo de alteração da camada de acesso** propriedade, que fornece um carimbo da última alteração da camada de Blobs. Para obter mais informações, consulte [eliminação antecipada do arquivo e esporádico](#cool-and-archive-early-deletion).
 
 **Quais ferramentas do Azure e SDKs suportam a criação de camadas ao nível do blob e o armazenamento de arquivo?**
 

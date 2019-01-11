@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191331"
+ms.locfileid: "54201113"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento para encaminhar uma consulta para o banco de dados apropriado de dependente de dados
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * O **chave** parâmetro é utilizado como uma chave de pesquisa em mapa de partições horizontais para determinar a base de dados adequado para o pedido.
 * O **connectionString** é usado para passar as credenciais de utilizador para a ligação pretendida. Nenhum nome de base de dados ou o nome do servidor que está incluído nesta *connectionString* uma vez que o método determina a base de dados e o servidor com o **ShardMap**.
-* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve ser definido como **ConnectionOptions.Validate** se um ambiente onde o Maio de mapas de partições horizontais alteração e de linhas podem passar para outras bases de dados como resultado de operações de intercalação ou divisão. Esta validação envolve uma consulta breve para o mapa de partições horizontais local no destino da base de dados (não para o mapa de partições horizontais global) antes da ligação é entregue à aplicação.
+* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve ser definido como **ConnectionOptions.Validate** se um ambiente onde o Maio de mapas de partições horizontais alteração e de linhas podem passar para outras bases de dados como resultado de operações de intercalação ou divisão. Esta validação envolve uma consulta breve para o mapa de partições horizontais local no destino da base de dados (não para o mapa de partições horizontais global) antes da ligação é entregue à aplicação.
 
 Se a validação contra o mapa de partições horizontais local falhar (que indica que a cache é incorreta), o Gestor de mapas de partições horizontais consulta o mapa de partições horizontais global para obter o novo valor correto para a pesquisa, atualizar a cache e obter e retornar a conexão de banco de dados apropriadas .
 

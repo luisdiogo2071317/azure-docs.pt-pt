@@ -1,20 +1,20 @@
 ---
 title: Apresentação da IU do Azure IoT Central | Microsoft Docs
 description: Como construtor, familiarize-se com as principais áreas da IU do Azure IoT Central que utiliza para criar uma solução de IoT.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/13/2018
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 13d2c1028cc712092774a3f81d8eeaa5cb109edf
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498271"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199686"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -100,6 +100,6 @@ A página do construtor de aplicação contém ligações para as ferramentas ut
 
 A página de administração contém ligações para as ferramentas utilizadas pelo administrador, por exemplo, para definir utilizadores e funções nas aplicações. Para obter mais informações, veja o artigo [Administrar a aplicação do Azure IoT Central](howto-administer.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma descrição geral do Azure IoT Central e está familiarizado com o esquema da IU, o passo seguinte sugerido é concluir o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).

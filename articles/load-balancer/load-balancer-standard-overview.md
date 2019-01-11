@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438766"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198682"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
+# <a name="azure-standard-balancer-overview"></a>Descrição geral do Balanceador de Standard do Azure
 
 O Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
 
@@ -89,12 +89,12 @@ Balanceador de carga Standard fornece métricas multidimensionais através do Az
 
 | Métrica | Descrição |
 | --- | --- |
-| Disponibilidade de VIP | Balanceador de carga Standard continuamente exercita o caminho de dados de dentro de uma região para o Balanceador de carga front-end para a pilha SDN, que oferece suporte a sua VM. Enquanto permanecerem instâncias de bom estado de funcionamento, a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que é utilizado pelos clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.|
-| Disponibilidade do DIP | Balanceador de carga Standard-utiliza um serviço que monitoriza o estado de funcionamento do seu aplicativo do ponto de extremidade, de acordo com as definições de configuração de pesquisa de estado de funcionamento distribuído. Esta métrica fornece um agregado ou por ponto final-vista filtrada de cada ponto de extremidade de instância individual no balanceador de carga do agrupamento.  Pode ver como o Balanceador de carga visualiza o estado de funcionamento da sua aplicação, conforme indicado pela sua configuração de sonda de estado de funcionamento.
-| Pacotes SYN | Balanceador de carga Standard não terminar ligações de TCP ou interagir com fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes são sempre entre a origem e a instância VM. Para resolver melhor seus cenários de protocolo TCP, pode fazer uso de SYN contadores de pacotes para compreender quantos ligação de TCP são feitas tentativas. A métrica relata o número de pacotes de TCP SYN que foram recebidos.|
-| Ligações SNAT | Balanceador de carga Standard-relata o número de fluxos de saída que são masqueraded para o endereço IP público front-end. Portas SNAT são um recurso exhaustible. Esta métrica pode dar uma indicação de quanto seu aplicativo depende SNAT para os fluxos de originados de saída.  Contadores para fluxos de SNAT de saída com êxito e falhados são reportadas e podem ser usados para solucionar problemas e compreender o estado de funcionamento dos seus fluxos de saída.|
-| Contadores de byte | Balanceador de carga Standard-relatórios os dados processados por front-end.|
-| Contadores de pacotes | Balanceador de carga Standard-relatórios pacotes processados por front-end.|
+| Disponibilidade de VIP | Balanceador de carga Standard exercita continuamente o caminho de dados de dentro de uma região para o Balanceador de carga front-end para a pilha SDN, que oferece suporte a sua VM. Enquanto permanecerem instâncias de bom estado de funcionamento, a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que é utilizado pelos clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.|
+| Disponibilidade do DIP | Balanceador de carga Standard utiliza um serviço que monitoriza o estado de funcionamento do seu aplicativo do ponto de extremidade, de acordo com as definições de configuração de pesquisa de estado de funcionamento distribuído. Esta métrica fornece um agregado ou por ponto final-vista filtrada de cada ponto de extremidade de instância individual no balanceador de carga do agrupamento.  Pode ver como o Balanceador de carga visualiza o estado de funcionamento da sua aplicação, conforme indicado pela sua configuração de sonda de estado de funcionamento.
+| Pacotes SYN | Balanceador de carga Standard não terminar ligações de TCP ou interagir com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes são sempre entre a origem e a instância VM. Para resolver melhor seus cenários de protocolo TCP, pode fazer uso de SYN contadores de pacotes para compreender quantos ligação de TCP são feitas tentativas. A métrica relata o número de pacotes de TCP SYN que foram recebidos.|
+| Ligações SNAT | Balanceador de carga Standard relata o número de fluxos de saída que são masqueraded para o endereço IP público front-end. Portas SNAT são um recurso exhaustible. Esta métrica pode dar uma indicação de quanto seu aplicativo depende SNAT para os fluxos de originados de saída.  Contadores para fluxos de SNAT de saída com êxito e falhados são reportadas e podem ser usados para solucionar problemas e compreender o estado de funcionamento dos seus fluxos de saída.|
+| Contadores de byte | Relatórios dos dados processados por front-end do Balanceador de carga Standard.|
+| Contadores de pacotes | Os relatórios do Balanceador de carga Standard pacotes processados por front-end.|
 
 Revisão [detalhadas a discussão de diagnóstico de Balanceador de carga Standard](load-balancer-standard-diagnostics.md).
 

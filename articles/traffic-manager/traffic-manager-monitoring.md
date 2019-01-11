@@ -2,7 +2,6 @@
 title: Monitorização de pontos finais Gestor de tráfego do Azure | Documentos da Microsoft
 description: Este artigo pode ajudá-lo a compreender como o Gestor de tráfego utiliza a monitorização do ponto final e ativação pós-falha do ponto de extremidade automática, para ajudar os clientes do Azure, implementar aplicações de elevada disponibilidade
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890352"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199635"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -31,13 +30,13 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 * **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para o TCP resultados de protocolo num erro de monitorização. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor indica que o ficheiro está no diretório de raiz (predefinição).
 * **Definições de cabeçalho personalizado** esta definição ajuda a adicionar cabeçalhos HTTP específicos para o estado de funcionamento de configuração verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente.
 * **Intervalos de código de estado de espera** esta definição permite-lhe especificar vários intervalos de código de êxito no formato 200 299, 301 301. Se estes códigos de estado são recebidos como resposta a partir de um ponto de extremidade quando uma verificação de estado de funcionamento é iniciada, o Gestor de tráfego marca esses pontos de extremidade como bom estado de funcionamento. Pode especificar um máximo de 8 intervalos de código de estado. Esta definição é aplicável apenas para o protocolo HTTP e HTTPS e para todos os pontos finais. Esta definição é no nível de perfil do Gestor de tráfego e por predefinição, o valor de 200 é definido como o código de estado de êxito.
-* **Intervalo de pesquisa**. Este valor Especifica a frequência com que um ponto de extremidade é verificado para seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar aqui dois valores: 30 segundos (pesquisa normal) e de 10 segundos (pesquisa rápida). Se não forem fornecidos valores, o perfil define como um valor predefinido de 30 segundos. Visite o [preço de Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para obter mais informações sobre os preços de pesquisa rápida.
+* **Intervalo de pesquisa**. Este valor Especifica a frequência com que um ponto de extremidade é verificado para seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar dois valores aqui: 30 segundos (pesquisa normal) e 10 segundos (pesquisa rápida). Se não forem fornecidos valores, o perfil define como um valor predefinido de 30 segundos. Visite o [preço de Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para obter mais informações sobre os preços de pesquisa rápida.
 * **Pela tolerar o número de falhas de**. Este valor Especifica como várias falhas de um agente de pesquisa do Gestor de tráfego tolera antes de os marcar esse ponto final danificada. O valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitorização pode causar o ponto de extremidade seja marcado como mau estado de funcionamento. Se for especificado nenhum valor, ele usa o valor predefinido de 3.
 * **Tempo limite da pesquisa**. Esta propriedade especifica o período de tempo que o agente do Gestor de tráfego de pesquisa deve aguardar antes de considerar que verificam a uma falha quando uma sonda de verificação de estado de funcionamento é enviada para o ponto final. Se o intervalo de pesquisa é definido como 30 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 10 segundos. Se for especificado nenhum valor, ele usa um valor predefinido de 10 segundos. Se o intervalo de pesquisa está definido para 10 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 9 segundos. Se for especificado nenhum valor de tempo limite, ele usa um valor padrão de 9 segundos.
 
     ![Monitorização de pontos finais do Gestor de tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Figura: Monitorização de pontos finais do Gestor de tráfego**
+    **Figura:  Monitorização de pontos finais do Gestor de tráfego**
 
 ## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
@@ -112,7 +111,7 @@ A linha cronológica na figura a seguir é uma descrição detalhada do processo
 
 ![Sequência de ativação pós-falha e reativação pós-falha de ponto final do Gestor de tráfego](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura: Tráfego manager endpoint ativação pós-falha e recuperação sequência**
+**Figura:  Tráfego manager endpoint ativação pós-falha e recuperação sequência**
 
 1. **OBTER**. Para cada ponto de extremidade, o sistema de monitoramento do Gestor de tráfego efetua um pedido GET no caminho especificado nas definições de monitorização.
 2. **Intervalo de código OK ou personalizadas de 200 especificadas definições de monitorização de perfil do Gestor de tráfego** . O sistema de monitorização espera um HTTP 200 OK ou o ou intervalo de código personalizado especificado a mensagem de definições a serem retornados dentro de 10 segundos da monitorização de perfil do Gestor de tráfego. Ao receber esta resposta, ele reconhece que o serviço está disponível.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340787"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215410"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -96,9 +96,9 @@ Todas as APIs de HTTP implementados, com a extensão take, os seguintes parâmet
 | taskHub    | Cadeia de consulta    | O nome da [hub tarefas](durable-functions-task-hubs.md). Se não for especificado, é assumido o nome do hub de tarefas da aplicação de função atual. |
 | ligação | Cadeia de consulta    | O **nome** a cadeia de ligação para a conta de armazenamento. Se não for especificado, é assumida a cadeia de ligação predefinido para a aplicação de funções. |
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
-| showInput  | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a execução de entrada não será incluído no payload de resposta.|
-| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
-| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a atividade produz serão incluídos no histórico de execução de orquestração.|
+| showInput  | Cadeia de consulta    | Parâmetro opcional; apenas a solicitação de instância única. Se definido como `false`, a execução de entrada não será incluído no payload de resposta.|
+| showHistory| Cadeia de consulta    | Parâmetro opcional; apenas a solicitação de instância única. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
+| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional; apenas a solicitação de instância única. Se definido como `true`, a atividade produz serão incluídos no histórico de execução de orquestração.|
 | createdTimeFrom  | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados nesta ou após o carimbo de hora ISO8601 determinado.|
 | createdTimeTo    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados em ou antes do carimbo de hora ISO8601 determinado.|
 | runtimeStatus    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtros a lista de instâncias devolvidas com base no respetivo estado de runtime. Para ver a lista de valores de estado de runtime possíveis, consulte a [consultar instâncias](durable-functions-instance-management.md) tópico. |
@@ -146,7 +146,7 @@ O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON
 | saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
 | createdTime     | cadeia    | A hora em que a instância foi criada. Utiliza o ISO 8601 estendido notação. |
 | lastUpdatedTime | cadeia    | A hora em que a instância mantidas pela última vez. Utiliza o ISO 8601 estendido notação. |
-| historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução da orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de caracteres de consulta está definido como `true`.  |
+| historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução da orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de caracteres de consulta está definido como `true`. |
 
 Aqui está um payload de resposta de exemplo incluindo as orquestração histórico e a atividade saídas de execução (formatadas para legibilidade):
 

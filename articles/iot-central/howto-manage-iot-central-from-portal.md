@@ -3,17 +3,17 @@ title: Gerir o Centro de IoT a partir do portal do Azure | Documentos da Microso
 description: Gerir o IoT Central do portal do Azure.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2018
 ms.topic: conceptual
-manager: peterpr
-ms.openlocfilehash: 20b1c7500587324f6f7dbb5cc679a3603eff56bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 73c8d64c53e23601b19a775a07b0b630c675b91f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963832"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200477"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerir o Centro de IoT a partir do portal do Azure 
 Além de criar e gerir aplicações de IoT Central a partir do site do Centro de IoT, também pode gerir o IoT Central do portal do Azure. Este artigo irá guiá-que é possível fazer e como fazer isso.
@@ -33,7 +33,7 @@ Clique em itens de linha a aplicação de IoT Central nos resultados da pesquisa
 
 Agora, clique no botão "Criar" para ver o formulário que terá de preencher.
 
-![Portal de gestão: recursos de IoT Central](media/howto-manage-iot-central-from-portal/image0c.png)
+![Portal de gestão: Recursos de IoT Central](media/howto-manage-iot-central-from-portal/image0c.png)
 
 Preencha todos os campos no formulário. Esse formulário é semelhante ao formulário que tem de preencher para criar aplicações a partir do site do Centro de IoT. Para obter mais informações sobre como preencher cada campo, veja a [criar uma aplicação IoT Central](quick-deploy-iot-central.md) início rápido. 
 

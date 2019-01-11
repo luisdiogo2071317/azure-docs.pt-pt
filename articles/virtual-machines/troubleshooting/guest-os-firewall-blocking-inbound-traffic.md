@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134442"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213116"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall de SO de convidado de VM do Azure está a bloquear o tráfego de entrada
 
@@ -112,8 +112,8 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
     > [!Note]
     > As seguintes diretrizes aplicam-se para a política de firewall, dependendo de como é configurado:
-    >    * *BlockInbound*: todo o tráfego de entrada será bloqueado, exceto se tiver uma regra em vigor para permitir que o tráfego.
-    >    * *BlockInboundAlways*: todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
+    >    * *BlockInbound*: Todo o tráfego de entrada será bloqueado, exceto se tiver uma regra em vigor para permitir que o tráfego.
+    >    * *BlockInboundAlways*: Todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
 
 2.  Editar a *DefaultInboundAction* para definir estes perfis para **permitir** tráfego. Para tal, execute o seguinte comando:
 
@@ -142,7 +142,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
 #### <a name="mitigation-1"></a>Atenuação 1
 
-Ver [como para ativar / desativar uma Firewall de regra num documento de SO convidado]().
+Ver [como para ativar / desativar uma Firewall regra num SO convidado](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Atenuação 2
 

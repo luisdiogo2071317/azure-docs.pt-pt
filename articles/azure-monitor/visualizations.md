@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 94769ea0ff05565ee11f7c167e28f239ca304d3d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049967"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213744"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar a métrica dados armazenados no Azure Monitor e de registo.
@@ -32,7 +32,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 ### <a name="advantages"></a>Vantagens
 - Integração profunda no Azure. Visualizações podem ser afixadas em dashboards de várias páginas do Azure, incluindo a análise de métricas, do log analytics e Application Insights.
 - Oferece suporte a métricas e registos.
-- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), [consultas de análise de registo](../azure-monitor/log-query/log-query-overview.md), e [mapeia](../azure-monitor/app/app-map.md) e [disponibilidade]()no Application Insights.
+- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), [consultas de análise de registo](../azure-monitor/log-query/log-query-overview.md), e [mapeia](../azure-monitor/app/app-map.md) e disponibilidade no Application Insights.
 - Opção para dashboards pessoais ou partilhados. Integrado com o Azure [autenticação baseada em funções (RBAC)](../role-based-access-control/overview.md).
 - Atualização automática. Atualização de métricas depende do intervalo de tempo com o mínimo de cinco minutos. Registos de atualização num minuto.
 - Dashboards de métricas de Parametrized com timestamp e parâmetros personalizados.

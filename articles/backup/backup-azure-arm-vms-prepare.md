@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994679"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215444"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
@@ -285,5 +285,5 @@ Depois de ativar a cópia de segurança:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Resolver quaisquer problemas que ocorrem com o [agentes de VM do Azure](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [cópia de segurança de VM do Azure](backup-azure-vms-troubleshoot.md).
+- Resolver quaisquer problemas que ocorrem com o [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [cópia de segurança de VM do Azure](backup-azure-vms-troubleshoot.md).
 - [Fazer cópia de segurança de VMs do Azure](backup-azure-vms-first-look-arm.md)

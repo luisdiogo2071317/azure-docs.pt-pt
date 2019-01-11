@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/5/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971968"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200688"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -37,7 +37,7 @@ Esta extensão oferece suporte a OSs seguintes:
 
 | Distribuição | Versão |
 |---|---|
-| Windows 10 | Principal |
+| Windows 10 (até versão 1803)| Principal |
 | Windows Server 2016 | Principal |
 | Windows Server 2012R2 | Principal |
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operação bem-sucedida |
 | 1 | Operação concluída com êxito. Reinício requerido. |
-| 100 | Operação não suportada ou não foi possível concluir. | As causas possíveis: PowerShell versão não suportada, tamanho da VM não é uma VM de série N, falha de transferência de dados. Verifique os ficheiros de registo para determinar a causa do erro. |
+| 100 | Operação não suportada ou não foi possível concluir. | Causas possíveis: Versão do PowerShell não suportada, o tamanho da VM não é uma VM de série N, falha de transferência de dados. Verifique os ficheiros de registo para determinar a causa do erro. |
 | 240, 840 | Tempo limite da operação. | Repita a operação. |
 | -1 | Ocorreu uma exceção. | Verifique os ficheiros de registo para determinar a causa de exceção. |
 | -5 x | Operação interrompida devido a reinício pendente. | Reinicie a VM. A instalação irá continuar após a reinicialização. Desinstalar deve ser invocada manualmente. |

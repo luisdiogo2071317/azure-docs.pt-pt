@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408923"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213217"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -51,15 +51,14 @@ As seguintes distribuições de Linux são suportadas oficialmente. No entanto, 
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS e 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
+## <a name="onboard"></a>Ativar o controlo de alterações e inventário
 
-Para iniciar o controle de alterações, terá de ativar a solução de controlo de alterações e inventário para a sua conta de automatização.
+Para iniciar o controle de alterações, terá de ativar a solução de controlo de alterações e inventário. Existem várias formas de carregar máquinas para o controlo de alterações e inventário. A seguir é o recomendada e suportado formas de ativar a solução.
 
-1. No portal do Azure, navegue até à sua conta de automatização
-2. Selecione **controlo de alterações** sob **configuração**.
-3. Selecione uma área de trabalho existente do Log analytics ou **criar nova área de trabalho** e clique em **ativar**.
-
-Isto permite que a solução para a sua conta de automatização. A solução pode demorar até 15 minutos a ativar. A faixa azul notifica-o quando a solução está ativada. Navegue de volta para o **controlo de alterações** página para gerir a solução.
+* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
+* [A partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md)
+* [Da sua conta de automatização](automation-onboard-solutions-from-automation-account.md)
+* [Com um runbook da automatização do Azure](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o controlo de alterações e inventário
 

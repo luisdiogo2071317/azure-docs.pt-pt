@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302318"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212554"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criando tabelas no armazém de dados SQL do Azure
 
@@ -103,7 +103,7 @@ Uma tabela particionada armazena e executa operações em linhas da tabela, de a
 ## <a name="columnstore-indexes"></a>Índices Columnstore
 Por predefinição, o SQL Data Warehouse armazena uma tabela como um índice columnstore em cluster. Essa forma de armazenamento de dados atinge a compressão de dados de alta e desempenho de consultas em tabelas grandes.  O índice columnstore em cluster costuma ser a melhor opção, mas em alguns casos, um índice em cluster ou um heap é a estrutura de armazenamento adequado.
 
-Para obter uma lista dos recursos de columnstore, consulte [o que há de novo para os índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Para melhorar o desempenho de índice columnstore, veja [maximizando a qualidade de rowgroup nos índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para obter uma lista dos recursos de columnstore, consulte [o que há de novo para os índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para melhorar o desempenho de índice columnstore, veja [maximizando a qualidade de rowgroup nos índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estatísticas
 O otimizador de consultas utiliza as estatísticas de nível de coluna quando cria o plano para execução de uma consulta. Para melhorar o desempenho de consulta, é importante criar estatísticas em colunas individuais, especialmente as colunas utilizadas em associações de consulta. Criar e atualizar estatísticas não acontecem automaticamente. [Criar estatísticas](/sql/t-sql/statements/create-statistics-transact-sql) depois de criar uma tabela. Atualize estatísticas após um número significativo de linhas é adicionado ou alterado. Por exemplo, Atualize as estatísticas após uma carga. Para obter mais informações, consulte [orientações de estatísticas](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ O SQL Data Warehouse oferece suporte a muitos, mas não todos, os tabela recurso
 - [Vistas indexadas](/sql/relational-databases/views/create-indexed-views)
 - [Sequência](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Colunas esparsas](/sql/relational-databases/tables/use-sparse-columns)
-- [Chaves de substituição](). Implementar com [identidade](sql-data-warehouse-tables-identity.md).
+- Chaves alternativas. Implementar com [identidade](sql-data-warehouse-tables-identity.md).
 - [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Acionadores](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Índices exclusivos](/sql/t-sql/statements/create-index-transact-sql)

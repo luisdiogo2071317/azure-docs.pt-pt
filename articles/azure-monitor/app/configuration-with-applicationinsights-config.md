@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121112"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214577"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
@@ -233,7 +233,7 @@ Determina o tamanho máximo em MB é alocado para o armazenamento persistente no
 
 #### <a name="local-forwarder"></a>Reencaminhador local
 
-[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. Quando combinadas com o SDK de Java do Application Insights o reencaminhador local fornece suporte completo para [métricas em direto](../../azure-monitor/app/live-stream.md) e amostragem adaptável.
+[Local reencaminhador](opencensus-local-forwarder.md) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. Quando combinadas com o SDK de Java do Application Insights o reencaminhador local fornece suporte completo para [métricas em direto](../../azure-monitor/app/live-stream.md) e amostragem adaptável.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

@@ -1,7 +1,7 @@
 ---
-title: Criar um balanceador de carga Standard com o IP de front-end com redundância de zona com a CLI do Azure
+title: Criar um balanceador de carga com o front-end com redundância de zona - CLI do Azure
 titlesuffix: Azure Load Balancer
-description: Saiba como criar um público Balanceador de carga Standard com frontend de endereço IP público com redundância de zona com a CLI do Azure
+description: Saiba como criar um balanceador de carga Standard público com frontend de endereço IP público com redundância de zona com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 8c396e72a8c8471be4214bf1b461210e2e61a805
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f10dfa7d834e24b558f3361a8d83fbbf8d22ddb9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138936"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198155"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>Criar um balanceador de carga Standard com o front-end com redundância de zona com a CLI do Azure
 

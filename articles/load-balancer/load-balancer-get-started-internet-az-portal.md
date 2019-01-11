@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga Standard com o front-end com redundância de zona com o portal do Azure
+title: Criar um balanceador de carga com o front-end com redundância de zona - portal do Azure
 titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga Standard público com frontend de endereço IP público com redundância de zona com o portal do Azure
 services: load-balancer
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bdd890d85fa72098fecaf86a2782a25ceee783b7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135697"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201130"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um balanceador de carga Standard público com o front-end com redundância de zona com o portal do Azure
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um balanceador de carga Standard com o front-end com redundância de zona com o portal do Azure
 
 Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end com redundância de zona utilizando um endereço IP público Standard. Um endereço IP de front-end único num Balanceador de carga Standard é com redundância de zona por predefinição.
 

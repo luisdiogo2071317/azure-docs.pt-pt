@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc7ed9051f95877760bccec65ff2fa7f49e44993
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a5154d8d3a4922dead686c3d5002eaae818ff5a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002147"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201368"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -59,9 +59,9 @@ Quando a sua função é habilitada pela primeira vez, isso significa que existe
 
 * **Novas instâncias de função não são necessários**: `Function_0` é capaz de processar todos os eventos de 1000 antes das funções de dimensionamento de lógica é acionada. Neste caso, todas as mensagens de 1000 são processadas pelo `Function_0`.
 
-* **É adicionada uma instância de função adicionais**: as funções a lógica de dimensionamento determina que `Function_0` tem mais mensagens do que consegue processar. Neste caso, uma nova função instância da aplicação (`Function_1`) é criada, juntamente com uma nova [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância. Os Hubs de eventos Deteta que uma nova instância de anfitrião está a tentar ler as mensagens. Faz o balanceamento de carga de Hubs de eventos as partições entre as suas instâncias de anfitrião. Por exemplo, as partições de 0 a 4 podem ser atribuídas a `Function_0` e cria partições 5 a 9 para `Function_1`.
+* **É adicionada uma instância de função adicionais**: As funções de dimensionamento lógica determina que `Function_0` tem mais mensagens do que consegue processar. Neste caso, uma nova função instância da aplicação (`Function_1`) é criada, juntamente com uma nova [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância. Os Hubs de eventos Deteta que uma nova instância de anfitrião está a tentar ler as mensagens. Faz o balanceamento de carga de Hubs de eventos as partições entre as suas instâncias de anfitrião. Por exemplo, as partições de 0 a 4 podem ser atribuídas a `Function_0` e cria partições 5 a 9 para `Function_1`.
 
-* **N mais instâncias de função são adicionadas**: as funções a lógica de dimensionamento determina que ambos `Function_0` e `Function_1` tem mais mensagens do que o que podem ser processadas. Novas instâncias de aplicação de função `Function_2`... `Functions_N` são criados, onde `N` é maior do que o número de partições do hub de eventos. No nosso exemplo, os Hubs de eventos novamente carga equilibra as partições, neste caso pelas instâncias `Function_0`... `Functions_9`.
+* **N mais instâncias de função são adicionadas**: As funções de dimensionamento lógica determina que ambos `Function_0` e `Function_1` tem mais mensagens do que o que podem ser processadas. Novas instâncias de aplicação de função `Function_2`... `Functions_N` são criados, onde `N` é maior do que o número de partições do hub de eventos. No nosso exemplo, os Hubs de eventos novamente carga equilibra as partições, neste caso pelas instâncias `Function_0`... `Functions_9`.
 
 Tenha em atenção que quando as funções pode ser dimensionada para `N` instâncias, o que é um número maior do que o número de partições do hub de eventos. Isso é feito para se certificar de que existem sempre [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instâncias disponíveis para obter bloqueios em partições à medida que ficam disponíveis a partir de outras instâncias. Apenas lhe serão cobrados os recursos utilizados quando executa a instância de função; não são cobradas deste aprovisionamento excessivo.
 
@@ -452,7 +452,7 @@ O [Host. JSON](functions-host-json.md#eventhub) ficheiro contém as definições
 
 Utilize a enlace para gravar eventos para um fluxo de eventos de saída de Hubs de eventos. Tem de ter permissão de envio para um hub de eventos para escrever eventos no mesmo.
 
-Certifique-se de que as referências do pacote necessários estão em vigor: [funções 1.x](#packages---functions-1.x) ou [funções 2.x](#packages---functions-2.x)
+Certifique-se de que as referências do pacote necessários são cumpridos: [As funções 1.x](#packages---functions-1.x) ou [funções 2.x](#packages---functions-2.x)
 
 ## <a name="output---example"></a>Saída - exemplo
 
@@ -659,7 +659,7 @@ public String sendTime(
  }
  ```
 
-Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@EventHubOutput` anotação em parâmetros cujo valor seria poublished para o Hub de eventos.  O parâmetro deve ser do tipo `OutputBinding<T>` , em que T é um POJO ou qualquer tipo nativo do Java.
+Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@EventHubOutput` anotação em parâmetros cujo valor seria publicado para o Hub de eventos.  O parâmetro deve ser do tipo `OutputBinding<T>` , em que T é um POJO ou qualquer tipo nativo do Java.
 
 ## <a name="output---attributes"></a>Saída - atributos
 

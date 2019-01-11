@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 503b0dffa00c6cba973f4bc51d8e3b2f3a7b8c57
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386642"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200416"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
 
@@ -43,7 +43,7 @@ Para alguns serviços, pode configurar certificados X.509 no [ConfigPackage](./s
 
 ### <a name="using-x509-securitycredentialstype"></a>Usando X509 SecurityCredentialsType
 
-Com os Java SDKs ou .NET, pode especificar **X509** para o **SecurityCredentialsType**. Isso corresponde à `X509Credentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials)) o tipo de `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials)).
+Com os Java SDKs ou .NET, pode especificar **X509** para o **SecurityCredentialsType**. Isso corresponde à `X509Credentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) o tipo de `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 O **X509** referência localiza o certificado num arquivo de certificados. O XML a seguir mostra os parâmetros utilizados para especificar a localização do certificado:
 
@@ -74,7 +74,7 @@ O XML a seguir mostra um **TransportSettings** secção baseia neste estilo:
 
 ### <a name="using-x5092-securitycredentialstype"></a>Usando X509_2 SecurityCredentialsType
 
-Com o SDK de Java, pode especificar **X509_2** para o **SecurityCredentialsType**. Isso corresponde à `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials2)) o tipo de `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials)). 
+Com o SDK de Java, pode especificar **X509_2** para o **SecurityCredentialsType**. Isso corresponde à `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) o tipo de `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 
 Com uma **X509_2** referência, especifica um parâmetro de caminho, para que pode localizar o certificado num diretório diferente de */var/lib/sfcerts*.  O XML a seguir mostra os parâmetros utilizados para especificar a localização do certificado: 
 

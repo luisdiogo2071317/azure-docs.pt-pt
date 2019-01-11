@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138165"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213455"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas de virtuais do Azure, porque o serviço de cliente DHCP é desativado
 
@@ -30,16 +30,16 @@ Este artigo descreve um problema em que não é possível o ambiente de trabalho
 
 Não pode fazer uma ligação RDP uma VM no Azure, porque o serviço de cliente DHCP está desativado na VM. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, verá a VM arranca normalmente e aguarda que as credenciais no ecrã de início de sessão. Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que o serviço de cliente DHCP não estiver iniciado ou não conseguir iniciar. Registo de um exemplo a seguir:
 
-**Nome de registo**: sistema </br>
-**Origem**: Gestor de controlo de serviço </br>
-**Data**: 12/16/2015:19:36 às 11H </br>
+**Nome de registo**: Sistema </br>
+**origem**: Gestor de controlo de serviço </br>
+**Data**: 12/16/2015:19:36 ÀS 11H </br>
 **ID de evento**: 7022 </br>
-**Categoria de tarefas**: nenhum </br>
-**Nível**: erro </br>
-**Palavras-chave**: clássico</br>
-**Utilizador**: n/d </br>
+**Categoria de tarefas**: Nenhuma </br>
+**Nível**: Erro </br>
+**Palavras-chave**: Clássica</br>
+**Utilizador**: N/A </br>
 **Computador**: myvm.cosotos.com</br>
-**Descrição**: serviço de cliente de DHCP a suspenso sobre como iniciar.</br>
+**Descrição**: O serviço de cliente DHCP suspenso sobre como iniciar.</br>
 
 Para VMs do Resource Manager, pode utilizar a funcionalidade de consola de acesso de série a consulta para o evento registos 7022 com o seguinte comando:
 
@@ -62,7 +62,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Ligar à [consola de série e Abrir instância CMD](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). Se a consola de série não estiver ativada na sua VM, consulte [interface de rede de reposição](reset-network-interface.md).
 2. Verifique se o DHCP está desabilitado na interface de rede:
 
@@ -95,7 +95,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>O serviço de cliente DHCP está parado devido a um erro de acesso negado
 
-1. Ligar à [consola de série](serial-console-windows.md#) e abra uma instância do PowerShell.
+1. Ligar à [consola de série](serial-console-windows.md) e abra uma instância do PowerShell.
 2. Transferir a ferramenta de Monitor do processo executando o seguinte script:
 
    ```

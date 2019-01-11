@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016037"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214402"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -99,7 +99,13 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 ## <a name="add-or-remove-an-address-range"></a>Adicionar ou remover um intervalo de endereços
 
-Pode adicionar e remover os intervalos de endereços para uma rede virtual. Um intervalo de endereços tem de ser especificado na notação CIDR e não pode sobrepor-se com outros intervalos de endereços dentro da mesma rede virtual. Os intervalos de endereços que é definir podem ser públicas ou privadas (RFC 1918). Se definir o intervalo de endereços como público ou privado, o intervalo de endereços é acessível apenas a partir de dentro da rede virtual, de redes virtuais interligadas e de quaisquer redes no local que tiver ligado à rede virtual. Não é possível adicionar os seguintes intervalos de endereços:
+Pode adicionar e remover os intervalos de endereços para uma rede virtual. Um intervalo de endereços tem de ser especificado na notação CIDR e não pode sobrepor-se com outros intervalos de endereços dentro da mesma rede virtual. Os intervalos de endereços que é definir podem ser públicas ou privadas (RFC 1918). Se definir o intervalo de endereços como público ou privado, o intervalo de endereços é acessível apenas a partir de dentro da rede virtual, de redes virtuais interligadas e de quaisquer redes no local que tiver ligado à rede virtual. 
+
+<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+
+the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+Não é possível adicionar os seguintes intervalos de endereços:
 
 - 224.0.0.0/4 (Multicast)
 - 255.255.255.255/32 (difusão)

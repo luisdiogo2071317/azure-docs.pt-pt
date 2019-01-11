@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785669"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214118"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster do Service Fabric que utiliza o nome comum do certificado em vez de thumbprint
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Um cluster com o nome comum do certificado de faz a gestão de certificados muito mais simples. Este artigo descreve como implementar um cluster do Service Fabric para utilizar o nome comum do certificado em vez do thumbprint do certificado.
  
 ## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um certificado de um [autoridade de certificação (AC)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome de anfitrião do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
+Primeiro, obtenha um certificado de um [autoridade de certificação (AC)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado próprio e comprados numa entidade de registo do domínio. Por exemplo, "azureservicefabricbestpractices.com;" aqueles a quem não são funcionários da Microsoft não podem aprovisionar certificados para os domínios da MS, para que não pode utilizar os nomes DNS da sua LB ou o Gestor de tráfego como nomes comuns para o seu certificado e tem de aprovisionar um [zona de DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se sua personalizado domínio a ser resolvido no Azure. Também deve declarar seu domínio personalizado que é proprietário como o "managementEndpoint" do cluster se pretender que o portal para refletir o domínio personalizado alias para o seu cluster.
 
 Para fins de teste, foi possível obter um certificado assinado de AC de uma autoridade de certificação gratuito ou aberto.
 
 > [!NOTE]
-> Certificados autoassinados, inclusive aquelas geradas ao implementar um cluster do Service Fabric no portal do Azure, não são suportados.
+> Certificados autoassinados, inclusive aquelas geradas ao implementar um cluster do Service Fabric no portal do Azure, não são suportados. 
 
 ## <a name="upload-the-certificate-to-a-key-vault"></a>Carregue o certificado para um cofre de chaves
 No Azure, um cluster do Service Fabric é implementado num conjunto de dimensionamento de máquina virtual.  Carregue o certificado para um cofre de chaves.  Quando implementa o cluster, instala o certificado no conjunto de dimensionamento de máquina virtual que o cluster está a executar.

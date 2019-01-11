@@ -1,19 +1,19 @@
 ---
 title: Carregar imagens para a aplicação Azure IoT Central | Documentos da Microsoft
 description: Como um construtor, saiba como preparar e carregar imagens para a aplicação Azure IoT Central.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005143"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198614"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como, como um construtor, pode personalizar a aplicação A
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-1. Uma aplicação do Azure IoT Central. Para obter mais informações, consulte a [criar um guia de introdução do aplicativo](quick-deploy-iot-central.md).
+1. Uma aplicação do Azure IoT Central. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 1. Uma ferramenta para dimensionamento e redimensionamento de ficheiros de imagens.
 
 ## <a name="choose-where-to-use-custom-images"></a>Escolha onde pretende utilizar imagens personalizadas
@@ -58,8 +58,8 @@ A tabela seguinte resume os tamanhos de imagem, que pode usar:
 
 | Localização | Tamanhos |
 | -------- | ------ |
-| Gestor de aplicações | 268 x 160 px |
-| Modelo de dispositivo | 64 x 64 px |
+| Gestor de Aplicações | 268 x 160 px |
+| Modelo de dispositivos | 64 x 64 px |
 | Home page e mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
 
 Para uma melhor visualização no aplicativo, deve criar imagens que correspondem às dimensões mostradas na tabela anterior.
@@ -86,7 +86,7 @@ Na imagem de configurar, clique no mosaico de imagem para carregar a sua imagem 
 
 **Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Clique em **feito** quando terminar. 
 
-### <a name="device-template"></a>Modelo de dispositivo
+### <a name="device-template"></a>Modelo de dispositivos
 
 Para carregar uma imagem num modelo de dispositivo, navegue até **Device Explorer**, escolha o modelo de dispositivo e, em seguida, um dispositivo. Tem de ser um construtor para concluir essa tarefa:
 

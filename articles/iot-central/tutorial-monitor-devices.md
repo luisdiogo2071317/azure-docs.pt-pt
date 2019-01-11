@@ -1,20 +1,20 @@
 ---
 title: Monitorizar os seus dispositivos no Azure IoT Central | Microsoft Docs
 description: Como operador, utilize a aplicação Azure IoT Central para monitorizar os seus dispositivos.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: f7d8b3bf02fb92f24054172622e431f24bf344d9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157484"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200246"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
@@ -69,7 +69,7 @@ Para alterar a temperatura ideal do dispositivo, utilize a página **Definiçõe
 
     ![Dashboard do dispositivo atualizado](media/tutorial-monitor-devices/new_settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

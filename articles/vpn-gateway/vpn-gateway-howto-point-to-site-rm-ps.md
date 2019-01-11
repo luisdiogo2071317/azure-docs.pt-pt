@@ -1,5 +1,5 @@
 ---
-title: 'Ligar um computador a uma rede virtual do Azure através de Ponto a Site e da autenticação de certificados nativa do Azure: PowerShell | Microsoft Docs'
+title: 'Ligar um computador a uma rede virtual do Azure com o ponto a Site e autenticação de certificados nativa do Azure: PowerShell | Documentos da Microsoft'
 description: Ligue os clientes Windows e Mac OS X de forma segura a uma rede virtual do Azure, utilizando certificados autoassinados ou emitidos pela AC ou P2S. Este artigo utiliza o PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847410"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199753"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: PowerShell
 
 Este artigo ajuda-o a ligar de forma segura clientes individuais com Windows ou Mac OS X a uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
 
@@ -41,17 +41,17 @@ Pode utilizar os valores de exemplo para criar um ambiente de teste ou consultá
 
 * **Nome: VNet1**
 * **Espaço de endereços: 192.168.0.0/16** e **10.254.0.0/16**<br>Este exemplo utiliza mais do que um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereços não são precisos para esta configuração.
-* **Nome da sub-rede: FrontEnd**
+* **Nome da sub-rede: Front-end**
   * **Intervalo de endereços da sub-rede: 192.168.1.0/24**
-* **Nome da sub-rede: BackEnd**
+* **Nome da sub-rede: Back-end**
   * **Intervalo de endereços da sub-rede: 10.254.1.0/24**
 * **Nome da sub-rede: GatewaySubnet**<br>O nome da Sub-rede *GatewaySubnet* é obrigatório para o gateway de VPN funcionar.
   * **Intervalo de endereços do GatewaySubnet: 192.168.200.0/24** 
 * **Conjunto de endereços de cliente VPN: 172.16.201.0/24**<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente VPN especificado.
-* **Subscrição:** se tiver várias subscrições, verifique se tem a correta.
-* **Grupo de Recursos: TestRG**
-* **Localização: E.U.A. Leste**
-* **Servidor DNS: endereço IP** do servidor DNS que pretende utilizar para a resolução de nomes. (opcional)
+* **Subscrição:** Se tiver mais de uma subscrição, certifique-se de que está a utilizar correta.
+* **Grupo de recursos: TestRG**
+* **Localização: E.U.A. leste**
+* **Servidor DNS: Endereço IP** do servidor DNS que pretende utilizar para a resolução de nome. (opcional)
 * **Nome do GW: Vnet1GW**
 * **Nome do IP público: VNet1GWPIP**
 * **VpnType: RouteBased** 
@@ -62,7 +62,7 @@ Nesta secção, inicie sessão e declarar os valores utilizados para esta config
 
 ### <a name="sign-in"></a>Iniciar sessão
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Declarar variáveis
 
@@ -399,4 +399,4 @@ Pode restabelecer um certificado de cliente, removendo o thumbprint da lista de 
 ## <a name="next-steps"></a>Passos Seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
-Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para obter informações de resolução de problemas P2S, [resolução de problemas: Problemas de ligação de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041293"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201317"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
 
@@ -57,14 +57,13 @@ Se bloquear o grupo de recursos, o serviço de cópia de segurança do Azure nã
 Não. A data e hora no seu computador local é local com o atual Verão aplicada. O tempo definido para cópias de segurança agendadas pode diferir da hora local devido ao horário de Verão.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quantos discos de dados pode anexar a uma VM de uma cópia de segurança do Azure Backup?
-Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com até 16 discos. Suporte para 16 discos é fornecido no [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da cópia de segurança de VM do Azure stack V2.
+Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com até 16 discos. Suporte para 16 discos é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Faz o suporte de cópia de segurança do Azure SSD discos geridos standard?
-O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD gerido os discos fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da cópia de segurança de VM do Azure stack V2.
+O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD gerido os discos fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Vamos criar uma VM com um disco WA do acelerador de escrita ativado?
-Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos WA-ativada é suportada apenas para subscrições atualizadas para a pilha de cópia de segurança do Azure VM V2. Para atualizar para a pilha de cópia de segurança do Azure VM V2, veja este [artigo](backup-upgrade-to-vm-backup-stack-v2.md). Esta funcionalidade está atualmente disponível no Leste do Japão, Europa do Norte, Sudeste asiático, E.U.A. leste, E.u.a. oeste2, Europa Ocidental e e.u.a. Leste 2.
-
+Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos habilitados para WA só é suportada para subscrições atualizadas para restaurar instantânea.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?
 O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
@@ -104,7 +103,7 @@ Sim. Mesmo que a VM, pode aceder à cópia de segurança correspondente do item 
 Restauro para os conjuntos de disponibilidade está ativada para a VM de Azure de disco gerido, ao fornecer uma opção no modelo enquanto restaurava como discos geridos. Este modelo tem o parâmetro de entrada chamado **conjuntos de disponibilidade**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como podemos obter os desempenhos de restauro mais rápidos?
-Para acelerar o desempenho de restauro, recomendamos que mova para a pilha de cópia de segurança de VM V2 e utilizar [funcionalidade de RP instantâneas](backup-upgrade-to-vm-backup-stack-v2.md).
+Para acelerar o desempenho de restauro, vamos mudar para o [restaurar instantâneas](backup-instant-restore-capability.md) capacidade.
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

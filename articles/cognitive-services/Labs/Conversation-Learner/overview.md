@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790780"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198138"
 ---
 # <a name="what-is-conversation-learner"></a>O que é o Aprendiz de Conversação?
 
 Aprendiz de conversação permite-lhe criar e ensinar interfaces conversacionais que aprender com as interações de exemplo. 
 
-Diferentemente das abordagens tradicionais, o aprendiz de conversação considera o contexto de ponto-a-ponto de uma caixa de diálogo para melhorar as respostas e proporcionar experiências de usuário mais atraentes. Casos de utilização que abrange um vasto leque de orientados a tarefas, Aprendiz de conversação aplica-se em aprendizagem automática em segundo plano para tornar os bots e agentes inteligentes menos provável que frustre os usuários, a incorrer em custos de serviço de cliente adicionais e muito mais spur mais intuitiva interações.
+Diferentemente das abordagens tradicionais, o aprendiz de conversação considera o contexto de ponto-a-ponto de uma caixa de diálogo para melhorar as respostas e proporcionar experiências de usuário mais atraentes. Casos de utilização que abrange um vasto leque de orientados a tarefas, Aprendiz de conversação aplica-se em aprendizagem automática em segundo plano para tornar os bots e agentes inteligentes menos prováveis que frustre os usuários, incorrer em custos de serviço de cliente adicionais e spur interações mais intuitivas.
 
 Os desenvolvedores comece por introduzir prototípica caixas de diálogo que deseja imitar. O modelo aprende como caixas de diálogo mais são introduzidas. O modelo está a funcionar bem, o Bot pode ser implementado para os utilizadores finais. Aprendiz de conversação registos conversas com os utilizadores e o desenvolvedor pode analisá-los. Se são identificou erros, o desenvolvedor pode fazer com que uma correção no lugar e o modelo é reestruturar e disponível para uso imediatamente.
 

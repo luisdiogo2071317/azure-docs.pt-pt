@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134833"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213727"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -29,9 +29,9 @@ Este artigo ajuda-o a resolver problemas comuns para o erro "não é possível a
 ## <a name="overview"></a>Descrição geral
 Quando vir este erro, encontre o código de estado na página de erro. Esse código se tratar de um dos seguintes códigos de estado:
 
--   **Tempo limite do gateway**: serviço o Proxy de aplicações é não é possível alcançar o conector. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente dito, ou o funcionamento em rede regras sobre o conector.
+-   **Tempo limite do gateway**: O serviço de Proxy de aplicações é não é possível alcançar o conector. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente dito, ou o funcionamento em rede regras sobre o conector.
 
--   **Gateway inválido**: O conector não consegue aceder à aplicação de back-end. Este erro poderá indicar uma configuração incorreta do aplicativo.
+-   **Gateway inválido**: O conector não conseguiu aceder à aplicação de back-end. Este erro poderá indicar uma configuração incorreta do aplicativo.
 
 -   **Proibido**: O utilizador não está autorizado a aceder à aplicação. Este erro pode acontecer quando o utilizador não está atribuído para a aplicação no Azure Active Directory, ou se o back-end, o utilizador não tem permissão para aceder à aplicação.
 
@@ -62,7 +62,7 @@ Um erro de gateway inválido indica que o conector não consegue aceder à aplic
 
 Se vir um erro proibido, o utilizador não foi atribuído à aplicação. Este erro pode ser no Azure Active Directory ou na aplicação de back-end.
 
-Para saber como atribuir utilizadores a aplicação no Azure, veja a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+Para saber como atribuir utilizadores a aplicação no Azure, veja a [documentação de configuração](application-proxy-add-on-premises-application.md#test-the-application).
 
 Se confirmar que é atribuída ao utilizador para a aplicação no Azure, verifique a configuração de utilizador da aplicação de back-end. Se estiver a utilizar autenticação de Windows de integrado/delegação restrita de Kerberos, consulte a página de resolução de problemas de KCD de mensagens em fila para obter diretrizes.
 
@@ -84,9 +84,9 @@ Para verificar a aplicação é atribuído a um grupo de conectores em funcionam
 
   * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
 
-  * Transferir um novo conector para esse grupo: nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Typicall, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
+  * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Typicall, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
 
-  * Investigar um conector inativo: se um conector mostra como inativo, não conseguir contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
+  * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
 
 Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com a trabalhar de conectores, teste o aplicativo novamente. Se ainda não está funcionando, avance para a secção seguinte.
 

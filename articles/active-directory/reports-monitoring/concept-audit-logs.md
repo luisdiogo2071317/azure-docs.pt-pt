@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624663"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215036"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -45,7 +45,7 @@ Este artigo fornece uma descrição geral do relatório de auditoria.
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-A auditoria do Azure AD registos fornecem registos das atividades de sistema de conformidade. Para aceder ao relatório de auditoria, selecione **registos de auditoria** no **atividade** secção **Azure Active Directory**. 
+A auditoria do Azure AD registos fornecem registos das atividades de sistema de conformidade. Para aceder ao relatório de auditoria, selecione **registos de auditoria** no **atividade** secção **Azure Active Directory**. Tenha em atenção que os registos de auditoria podem ter uma latência de até uma hora, pelo que poderá demorar tanto tempo para dados de atividade de auditoria sejam apresentados no portal depois de concluir a tarefa.
 
 ![Registos de auditoria](./media/concept-audit-logs/61.png "Registos de auditoria")
 

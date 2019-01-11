@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631860"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215002"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -125,6 +125,15 @@ Para obter mais informações sobre como são atualizados os pacotes de gestão 
 > [!NOTE]
 > Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Ativar a gestão de atualizações
+
+Para iniciar a aplicação de patches de sistemas, terá de ativar a solução de gestão de atualizações. Existem várias formas de carregar máquinas para gestão de atualizações. A seguir é o recomendada e suportado formas de ativar a solução:
+
+* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
+* [A partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md)
+* [Da sua conta de automatização](automation-onboard-solutions-from-automation-account.md)
+* [Com um runbook da automatização do Azure](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirme que as máquinas não Azure são carregadas
 
 Para confirmar que as máquinas ligadas diretamente estão a comunicar com o Log Analytics, após alguns minutos, pode executar um as pesquisas de registos seguinte.

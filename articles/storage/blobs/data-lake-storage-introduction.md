@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994339"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214404"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
 
@@ -51,7 +51,7 @@ Armazenamento do Azure é dimensionável por design, se acessar por meio de inte
 
 ### <a name="cost-effectiveness"></a>Relação custo-eficácia
 
-Um dos muitos benefícios da criação de geração 2 de armazenamento do Data Lake com base no armazenamento de Blobs do Azure é de baixo custo de capacidade de armazenamento e transações. Ao contrário de outros serviços de armazenamento na cloud, os dados armazenados na geração 2 de armazenamento do Data Lake não são necessários ser movida ou transformadas antes de efetuar a análise. Para obter mais informações sobre preços, consulte [preços de armazenamento do Azure]((https://azure.microsoft.com/pricing/details/storage)).
+Um dos muitos benefícios da criação de geração 2 de armazenamento do Data Lake com base no armazenamento de Blobs do Azure é de baixo custo de capacidade de armazenamento e transações. Ao contrário de outros serviços de armazenamento na cloud, os dados armazenados na geração 2 de armazenamento do Data Lake não são necessários ser movida ou transformadas antes de efetuar a análise. Para obter mais informações sobre preços, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage).
 
 Além disso, funcionalidades como a [espaço de nomes hierárquico](data-lake-storage-namespace.md) melhorar significativamente o desempenho geral de muitas tarefas de análise. Esta melhoria no desempenho significa que exigem menos poder de computação para processar a mesma quantidade de dados, que resulta num menor custo total de propriedade (TCO) para a tarefa de análise de ponto-a-ponto.
 

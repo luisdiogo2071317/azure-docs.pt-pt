@@ -2,30 +2,25 @@
 title: Configurar SSL ponto a ponto com o Gateway de aplicação do Azure
 description: Este artigo descreve como configurar o SSL ponto a ponto com o Gateway de aplicação do Azure com o PowerShell
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945336"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214067"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o PowerShell
 
 ## <a name="overview"></a>Descrição geral
 
-O Gateway de aplicação do Azure suporta a encriptação de ponto-a-ponto de tráfego. Gateway de aplicação termina a ligação SSL no gateway de aplicação. O gateway, em seguida, aplica-se as regras de encaminhamento para o tráfego, reencripta o pacote e reencaminha o pacote para o servidor de back-end apropriado com base em regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
+O Gateway de aplicação do Azure suporta a encriptação de ponto-a-ponto de tráfego. Gateway de aplicação termina a ligação SSL no gateway de aplicação. O gateway, em seguida, aplica-se as regras de encaminhamento para o tráfego, encripta novamente o pacote e reencaminha o pacote para o servidor de back-end apropriado com base em regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
 
-Gateway de aplicação suporta a definir as opções de SSL personalizadas. Ele também oferece suporte a desativar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1**, e **TLSv1.2**, bem a definir quais conjuntos de cifras para utilizar e a ordem de preferência . Para saber mais sobre as opções de SSL configuráveis, consulte a [descrição geral da política SSL](application-gateway-SSL-policy-overview.md).
+Gateway de aplicação suporta a definir as opções de SSL personalizadas. Ele também oferece suporte a desativar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1**, e **TLSv1.2**, bem a definir quais conjuntos de cifras para utilizar e a ordem de preferência. Para saber mais sobre as opções de SSL configuráveis, consulte a [descrição geral da política SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 e o SSL 3.0 estão desativados por predefinição e não podem ser ativada. Eles são considerados não seguros e não podem ser utilizados com o Gateway de aplicação.
@@ -45,9 +40,9 @@ Neste cenário irão:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para configurar o SSL ponto a ponto com um gateway de aplicação, é necessário para o gateway de um certificado e certificados são necessários para os servidores de back-end. O certificado de gateway é utilizado para encriptar e desencriptar o tráfego enviado para o mesmo através de SSL. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego.
+Para configurar o SSL ponto a ponto com um gateway de aplicação, é necessário para o gateway de um certificado e certificados são necessários para os servidores de back-end. O certificado do gateway é utilizado para derivar uma chave simétrica de acordo com a especificação de protocolo SSL. A chave simétrica é utilizada, em seguida, encriptar e desencriptar o tráfego enviado para o gateway. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego.
 
-Para encriptação SSL de ponto-a-ponto, o back-end tem de estar na lista de permissões com o gateway de aplicação. Terá de carregar o certificado público dos servidores de back-end para o gateway de aplicação. A adicionar o certificado garante que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponto-a-ponto.
+Para encriptação SSL de ponto-a-ponto, o back-end tem de estar na lista de permissões com o gateway de aplicação. Carregue o certificado público dos servidores de back-end para o gateway de aplicação. A adicionar o certificado garante que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponto-a-ponto.
 
 O processo de configuração é descrito nas seções a seguir.
 
@@ -258,7 +253,7 @@ Os passos anteriores demorou a criar uma aplicação com SSL de ponta a ponta e 
 
    ```
 
-   3. Por fim, atualize o gateway. Tenha em atenção que esta última etapa é uma tarefa de execução longa. Quando tiver terminado, o SSL ponto a ponto está configurada no gateway de aplicação.
+   3. Por fim, atualize o gateway. Neste último passo é uma tarefa de execução longa. Quando tiver terminado, o SSL ponto a ponto está configurada no gateway de aplicação.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

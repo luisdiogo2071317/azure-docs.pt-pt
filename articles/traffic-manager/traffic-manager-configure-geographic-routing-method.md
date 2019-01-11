@@ -1,8 +1,7 @@
 ---
-title: Configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego do Azure | Documentos da Microsoft
+title: Configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego do Azure
 description: Este artigo explica como configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego do Azure
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5346617c858ab3bc168781c76985729c2da6a768
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8b47d57d21043de97e17b256a39ef88d73fbb1c1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984354"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197612"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego
 

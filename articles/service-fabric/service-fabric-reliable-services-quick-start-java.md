@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049699"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199549"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ Se precisar de configurá-lo, aceda a [de introdução no Mac](service-fabric-ge
 Para começar a utilizar com o Reliable Services, só precisa de compreender alguns conceitos básicos:
 
 * **Tipo de serviço**: Esta é a sua implementação de serviço. Ele é definido pela classe que escreve que expande `StatelessService` e qualquer outro código ou dependências utilizadas nele, juntamente com um nome e um número de versão.
-* **Instância de serviço com o nome**: para executar seu serviço, cria instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Instâncias de serviço são, na verdade, instanciações de objeto da sua classe de serviço que escreve.
-* **Anfitrião do serviço**: as instâncias de serviço com nome que cria tem de ser executado dentro de um anfitrião. O anfitrião do serviço é apenas um processo em que as instâncias do seu serviço podem executar.
-* **Registo do serviço**: registo reúne tudo. O tipo de serviço tem de ser registado com o runtime do Service Fabric num host de serviço para permitir que o Service Fabric criar instâncias do mesmo para executar.  
+* **Instância de serviço com o nome**: Para executar seu serviço, vai criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Instâncias de serviço são, na verdade, instanciações de objeto da sua classe de serviço que escreve.
+* **Anfitrião do serviço**: As instâncias de serviço com nome que cria tem de ser executado dentro de um anfitrião. O anfitrião do serviço é apenas um processo em que as instâncias do seu serviço podem executar.
+* **Registo do serviço**: Registo reúne tudo. O tipo de serviço tem de ser registado com o runtime do Service Fabric num host de serviço para permitir que o Service Fabric criar instâncias do mesmo para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
 Comece por criar uma aplicação do Service Fabric. O SDK do Service Fabric para Linux inclui um Yeoman gerador para fornecer o scaffolding para uma aplicação do Service Fabric com um serviço sem estado. Inicie o executando o Yeoman seguinte comando:
@@ -201,7 +201,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que pode utilizar para armazenar de forma fiável Estado no serviço. Com o Service Fabric e HashMaps confiável, pode armazenar dados diretamente no seu serviço sem a necessidade de um armazenamento persistente externo. HashMaps fiáveis tornar os dados de elevada disponibilidade. Service Fabric faz isso ao criar e gerir múltiplos *réplicas* do seu serviço para. Ele também fornece uma API que abstrai as complexidades de gerenciamento essas réplicas e de suas transições de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que pode utilizar para armazenar de forma fiável Estado no serviço. Com o Service Fabric e HashMaps confiável, pode armazenar dados diretamente no seu serviço sem a necessidade de um armazenamento persistente externo. HashMaps fiáveis tornar os dados de elevada disponibilidade. Service Fabric faz isso ao criar e gerir múltiplos *réplicas* do seu serviço para. Ele também fornece uma API que abstrai as complexidades de gerenciamento essas réplicas e de suas transições de estado.
 
 As coleções fiáveis podem armazenar qualquer tipo de Java, incluindo seus tipos personalizados, com algumas limitações:
 

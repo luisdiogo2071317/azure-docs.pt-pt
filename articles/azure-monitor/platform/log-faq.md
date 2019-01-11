@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107232"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214747"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -63,7 +63,7 @@ R: Para ver os registos de VM, terá de ser concedida permissão de leitura para
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por isso que posso pode aceder à minha área de trabalho no portal do OMS, mas recebo a mensagem de erro "não têm acesso" no portal do Azure?  
 
-R: Para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure atribuídas. Existem alguns casos em que pode não ter permissões de acesso adequado. Nestes casos, o administrador deve conceder-lhe com permissões no Azure.See [portal do OMS para o Azure](/../../azure-monitor/platform/oms-portal-transition.md) para obter mais informações.
+R: Para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure atribuídas. Existem alguns casos em que pode não ter permissões de acesso adequado. Nestes casos, o administrador deve conceder-lhe com permissões no Azure.See [portal do OMS para o Azure](oms-portal-transition.md) para obter mais informações.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não é possível não é possível ver entrada de estruturador de vistas nos registos? 
 R: Estruturador de vistas só está disponível nos registos para os utilizadores com permissões de Contribuidor ou superior.

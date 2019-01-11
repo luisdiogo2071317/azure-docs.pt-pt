@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104068"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199923"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache do Azure para Redis.
@@ -120,7 +120,7 @@ Seguem-se as considerações para escolher uma oferta de Cache.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Cache do Azure para desempenho de Redis
-A tabela seguinte mostra os valores de largura de banda máxima observados enquanto testa vários tamanhos de Standard e Premium coloca em cache usando `redis-benchmark.exe` partir de uma VM de Iaas em relação à Cache do Azure para o ponto final de Redis. Para o débito SSL, o redis-parâmetro de comparação é utilizado com túnel para ligar à Cache do Azure para o ponto final de Redis.
+A tabela seguinte mostra os valores de largura de banda máxima observados enquanto testa vários tamanhos de Standard e Premium coloca em cache usando `redis-benchmark.exe` partir de uma VM de IaaS em relação à Cache do Azure para o ponto final de Redis. Para o débito SSL, o redis-parâmetro de comparação é utilizado com túnel para ligar à Cache do Azure para o ponto final de Redis.
 
 >[!NOTE] 
 >Estes valores não são garantidos e não existe nenhum SLA para estes números, mas deve ser típico. Deve carregar testar seu próprio aplicativo para determinar o tamanho de cache adequada para a sua aplicação.

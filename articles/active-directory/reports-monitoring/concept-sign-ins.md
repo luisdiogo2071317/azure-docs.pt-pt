@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d322a0027f786be0603e7147eb3ba24341dd7fbf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653361"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214866"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -44,7 +44,7 @@ Este tópico fornece-lhe uma descrição geral do relatório de inícios de sess
 * Além disso, qualquer utilizador (não administrador) pode aceder aos seus próprios inícios de sessão 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
-* O inquilino tem de ter uma licença do Azure AD Premium associada ao mesmo para ver o relatório de atividade até todos os início de sessão. Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
+* O inquilino tem de ter uma licença do Azure AD Premium associada ao mesmo para ver o relatório de atividade até todos os início de sessão. Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory. Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium.
 
 ## <a name="sign-ins-report"></a>Relatório de inícios de sessão
 
@@ -54,7 +54,7 @@ O relatório de inícios de sessão de utilizador fornece respostas às seguinte
 * Quantos utilizadores iniciaram sessão ao longo de uma semana?
 * Qual é o estado destes inícios de sessão?
 
-Pode acessar o relatório de inícios de sessão, selecionando **inícios de sessão** no **atividade** secção do **Azure Active Directory** painel no [portal do Azure](https://portal.azure.com).
+Pode acessar o relatório de inícios de sessão, selecionando **inícios de sessão** no **atividade** secção do **Azure Active Directory** painel no [portal do Azure](https://portal.azure.com). Tenha em atenção que poderá demorar até duas horas para alguns registos de início de sessão a aparecer no portal.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/61.png "Atividade de início de sessão")
 

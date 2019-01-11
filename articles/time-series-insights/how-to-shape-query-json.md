@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: aa09183d1dbb78822b6c46333dada3ed7f54811a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554576"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201266"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Como formatar o JSON para maximizar o desempenho de consulta 
 
@@ -200,4 +200,4 @@ Se tiver uma propriedade com um grande número de valores possíveis, é melhor 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para colocar estas diretrizes em prática, consulte [sintaxe de consulta do Azure Time Series Insights](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) para saber mais sobre a sintaxe de consulta para a REST API de acesso os dados do TSI.
+Para colocar estas diretrizes em prática, consulte [sintaxe de consulta do Azure Time Series Insights](/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a REST API de acesso os dados do TSI.

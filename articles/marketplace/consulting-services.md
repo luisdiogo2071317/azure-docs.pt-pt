@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074092"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213626"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e AppSource
 Serviços no Azure Marketplace e AppSource de consultoria fornece os parceiros da Microsoft, o objetivo de ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure e os objetivos de negócio. 
@@ -69,7 +69,7 @@ Parceiros devem ter uma **competência silver ou gold** na área de relevante pa
 |Dynamics 365 para finanças e operações, Enterprise edition  |  Gold ou Silver [Enterprise Resource Planning,](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competência e uma receita mínima de US $25 mil em operações de Cloud dentro de 12 meses que se à direita.       |
 |Dynamics 365 para finanças e operações, Business edition  |  Servir [fornecedor de serviços Cloud (CSP)](https://partner.microsoft.com/cloud-solution-provider) ou [parceiro de registo Digital (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) de, pelo menos, um cliente      |
 |Power BI, os elementos visuais do Power BI personalizado | Cumprir os [critérios de parceiro de solução](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Ter um publicados [Showcase de parceiros]() solução
+|PowerApps | Ter um publicados [Showcase de parceiros](https://appsource.microsoft.com/partners) solução
 
 <b> Para obter mais informações, consulte [competências através do Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

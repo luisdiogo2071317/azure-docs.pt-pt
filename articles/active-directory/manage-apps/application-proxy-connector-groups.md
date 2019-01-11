@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139030"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198036"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações através de grupos de conectores
 
@@ -73,11 +73,11 @@ Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector 
 
 Veja como um exemplo de uma organização que tenha várias máquinas de virtuais ligadas à sua própria IaaS alojados de rede virtual. Para permitir que os funcionários usem estas aplicações, estas redes privadas estão ligadas à rede empresarial através de VPN de site a site. Isso fornece uma boa experiência para os funcionários que estão localizados no local. Mas, talvez não seja ideal para os empregados remotos, porque requer mais infraestrutura no local para encaminhar o acesso, como pode ver no diagrama abaixo:
 
-![Rede de Iaas do AzureAD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Rede de IaaS do AzureAD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Com os grupos de conector de Proxy de aplicações do Azure AD, pode ativar a um serviço comum proteger o acesso a todas as aplicações sem a criação de dependência adicional na sua rede empresarial:
 
-![Fornecedores de Cloud de vários de Iaas do AzureAD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Fornecedores de Cloud de vários de IaaS do AzureAD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conectores diferentes para cada floresta
 

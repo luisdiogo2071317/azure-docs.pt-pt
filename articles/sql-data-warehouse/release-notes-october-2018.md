@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966828"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213694"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no Azure SQL Data Warehouse? Outubro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Outubro de 2018.
@@ -41,7 +41,7 @@ Avançadas otimização para o Azure SQL Data Warehouse (SQL DW) apenas ficou ma
 Do Azure SQL Data Warehouse acelerada da base de dados recuperação (ADR) está agora em pré-visualização pública. Regras de implementação automática são um novo motor SQL Server que melhora significativamente a disponibilidade de base de dados, especialmente na presença de transações de longa execução, por redesenhar completamente o processo de recuperação atual desde o backup. Principais vantagens da ADR são recuperação rápida e consistente da base de dados e reversão de transação de instantâneo.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Registos de diagnóstico do Azure Monitor
-O SQL Data Warehouse (SQL DW) agora permite que informações melhoradas para cargas de trabalho analíticas integrando diretamente com os registos de diagnóstico do Azure Monitor. Esta nova capacidade permite aos programadores analisar o comportamento de carga de trabalho durante um período de tempo prolongado e tomar decisões informadas sobre o gerenciamento de otimização ou capacidade de consulta. Agora introduzimos um processo de Registro em log externos por meio [registos de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a sua carga de trabalho do armazém de dados. Com um único clique de um botão, agora é possível configurar os registos de diagnóstico para através de capacidades de resolução de problemas de desempenho de consulta histórica [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Registos de diagnóstico de Monitor do Azure suportam períodos de retenção personalizável ao guardar os registos de uma conta de armazenamento para fins, de auditoria a capacidade de transmitir os registos para os hubs de eventos perto de informações de telemetria em tempo real e a capacidade de analisar registos com o Log Analytics com o [registar as consultas](). Os registos de diagnósticos consistem em visualizações de telemetria do seu armazém de dados equivalentes às DMVs de resolução de problemas de desempenho utilizadas com mais frequência para o SQL Data Warehouse. Nesta versão inicial, ativámos vistas para as seguintes vistas de gestão dinâmica do sistema:
+O SQL Data Warehouse (SQL DW) agora permite que informações melhoradas para cargas de trabalho analíticas integrando diretamente com os registos de diagnóstico do Azure Monitor. Esta nova capacidade permite aos programadores analisar o comportamento de carga de trabalho durante um período de tempo prolongado e tomar decisões informadas sobre o gerenciamento de otimização ou capacidade de consulta. Agora introduzimos um processo de Registro em log externos por meio [registos de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a sua carga de trabalho do armazém de dados. Com um único clique de um botão, agora é possível configurar os registos de diagnóstico para através de capacidades de resolução de problemas de desempenho de consulta histórica [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Registos de diagnóstico de Monitor do Azure suportam períodos de retenção personalizável ao guardar os registos de uma conta de armazenamento para fins, de auditoria a capacidade de transmitir os registos para os hubs de eventos perto de informações de telemetria em tempo real e a capacidade de analisar registos com o Log Analytics com as consultas de registo. Os registos de diagnósticos consistem em visualizações de telemetria do seu armazém de dados equivalentes às DMVs de resolução de problemas de desempenho utilizadas com mais frequência para o SQL Data Warehouse. Nesta versão inicial, ativámos vistas para as seguintes vistas de gestão dinâmica do sistema:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)

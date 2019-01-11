@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988606"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214883"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Como configurar uma política de filtragem geográfica para o Front Door
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de filtragem geográfica de exemplo irá bloquear os pedidos de todos os outros países, exceto dos Estados Unidos.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Definir as condições de correspondência da filtragem geográfica
-Primeiro, crie uma condição de correspondência de exemplo que selecione os pedidos não provenientes de "US". Veja o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) do PowerShell sobre parâmetros quando criar uma condição de correspondência. É fornecido um código de país de duas letras para o mapeamento de países [aqui](/Protection/GeoFiltering).
+Primeiro, crie uma condição de correspondência de exemplo que selecione os pedidos não provenientes de "US". Veja o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) do PowerShell sobre parâmetros quando criar uma condição de correspondência. É fornecido um código de país de duas letras para o mapeamento de países [aqui](front-door-geo-filtering.md).
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"
@@ -89,7 +89,7 @@ Set-AzureRmFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > [!NOTE] 
 > Apenas tem de definir a propriedade WebApplicationFirewallPolicyLink uma vez para ligar uma política de proteção a um anfitrião de front-end do Front Door. As atualizações de política subsequentes serão aplicadas automaticamente ao anfitrião de front-end.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [segurança de camada de aplicação com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

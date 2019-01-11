@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8d0ad34496963c32c842033e81bdffb375a27412
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892458"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214679"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem para um mapa
 
@@ -31,7 +31,7 @@ Este artigo mostra como pode sobrepor uma imagem a conjunto fixo de coordenadas 
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-Este exemplo mostra como sobrepor uma imagem de um [mapa de Newark Nova Jérsia de 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) no mapa.
+Este exemplo mostra como sobrepor uma imagem de um [mapa de Newark Nova Jérsia de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa.
 
 <br/>
 

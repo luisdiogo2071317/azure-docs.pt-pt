@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 36c16cd48ffba704b9cc8b0884491c3b92543b5c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874588"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215495"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -187,9 +187,9 @@ Análise de armazenamento regista os seguintes tipos de pedidos de autenticado e
 ### <a name="azure-networking-logs"></a>Registos de rede do Azure
 Rede de registo e monitorização no Azure é abrangente e abrange duas amplas categorias:
 
-* [Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): a monitorização de rede baseada em cenário é fornecido com os recursos do observador de rede. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
+* [Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Monitorização de rede baseada em cenário é fornecido com os recursos do observador de rede. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
 
-* [Monitorização de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): monitorização de nível de recursos é composto por quatro recursos, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todos esses recursos são criados ao nível de recursos da rede.
+* [Monitorização de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Monitorização de nível de recursos é composto por quatro recursos, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todos esses recursos são criados ao nível de recursos da rede.
 
 ![Registos de rede do Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -219,19 +219,19 @@ Observador de rede fornece que um diagnóstico regista o modo de exibição. Est
 
 
 Para além das capacidades de registo mencionado anteriormente, o observador de rede atualmente tem as seguintes capacidades:
-- [Topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): fornece uma vista de nível de rede que mostra os vários interconexões e associações entre recursos de rede num grupo de recursos.
+- [Topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Fornece uma vista de nível de rede que mostra os vários interconexões e associações entre recursos de rede num grupo de recursos.
 
-- [Captura de pacote variável](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): captura dados de pacotes dentro e fora de uma máquina virtual. Opções de filtragem e controles de ajuste fino, tais como definições de limite de tempo e tamanho, avançadas fornecem a versatilidade. Os dados de pacotes podem ser armazenados num armazenamento de BLOBs ou no disco no local *. cap* formato de ficheiro.
+- [Captura de pacote variável](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Captura de dados de pacote dentro e fora de uma máquina virtual. Opções de filtragem e controles de ajuste fino, tais como definições de limite de tempo e tamanho, avançadas fornecem a versatilidade. Os dados de pacotes podem ser armazenados num armazenamento de BLOBs ou no disco no local *. cap* formato de ficheiro.
 
-* [Verificação de fluxo IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): verifica se um pacote é permitido ou negado com base nos parâmetros de pacote de 5 cadeias de identificação do fluxo informações (ou seja, IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote for recusado por um grupo de segurança, a regra e o grupo que negou o pacote é devolvido.
+* [Verificação de fluxo IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Verifica se um pacote é permitido ou negado com base nos parâmetros de pacote de 5 cadeias de identificação do fluxo informações (ou seja, IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote for recusado por um grupo de segurança, a regra e o grupo que negou o pacote é devolvido.
 
-* [Próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina o próximo salto para pacotes que está a ser encaminhados nos recursos de infraestrutura de rede do Azure, para que pode diagnosticar qualquer configurado incorretamente rotas definidas pelo utilizador.
+* [Do próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determina o próximo salto para pacotes que está a ser encaminhada para os recursos de infraestrutura de rede do Azure, para que pode diagnosticar quaisquer rotas definidas pelo utilizador configurado incorretamente.
 
-* [Vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM.
+* [Vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM.
 
-* [Gateway de rede virtual e a resolução de problemas de ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ajuda-o a resolver problemas de ligações e gateways de rede virtual.
+* [Gateway de rede virtual e a resolução de problemas de ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ajuda-o a resolver problemas de ligações e gateways de rede virtual.
 
-* [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): permite-lhe ver a utilização de recursos de rede contra limites.
+* [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Permite-lhe ver a utilização de recursos de rede contra limites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -249,21 +249,21 @@ O Application Insights destina-se à equipa de programação, para o ajudar a co
 
 * **Taxas de dependência, tempos de resposta e taxas de falhas**: Descubra se os serviços externos estão a atrasar.
 
-* **Exceções**: analisar as estatísticas agregadas ou escolha instâncias específicas e explore o rastreio de pilha e pedidos relacionados. São reportadas exceções do servidor e do browser.
+* **Exceções**: Analisar as estatísticas agregadas ou escolha instâncias específicas e explore o rastreio de pilha e pedidos relacionados. São reportadas exceções do servidor e do browser.
 
-* **Vistas de página e o desempenho de carga**: obter relatórios a partir de browsers dos seus utilizadores.
+* **Vistas de página e o desempenho de carga**: Obter relatórios a partir de browsers dos seus utilizadores.
 
-* **Chamadas AJAX**: obter taxas de página Web, tempos de resposta e taxas de falhas.
+* **Chamadas AJAX**: Obter taxas de página Web, tempos de resposta e taxas de falhas.
 
 * **Contagens de utilizadores e sessões**.
 
-* **Contadores de desempenho**: obter dados das suas máquinas de servidor Windows ou Linux, tais como CPU, memória e utilização de rede.
+* **Contadores de desempenho**: Obter dados das suas máquinas de servidor Windows ou Linux, como CPU, memória e utilização de rede.
 
-* **Diagnóstico do anfitrião**: obter dados do Docker ou do Azure.
+* **Diagnóstico do anfitrião**: Obter dados do Docker ou do Azure.
 
-* **Registos de rastreio de diagnóstico**: obter dados da sua aplicação, para que possa correlacionar eventos de rastreio com pedidos.
+* **Registos de rastreio de diagnóstico**: Obter dados da sua aplicação, para que possa correlacionar eventos de rastreio com pedidos.
 
-* **Métricas e eventos personalizados**: obter dados que escreve no código de cliente ou servidor, para controlar eventos comerciais, como artigos vendidos ou jogos ganhos.
+* **Métricas e eventos personalizados**: Obter dados que escreve no código de cliente ou servidor, para controlar eventos comerciais, como artigos vendidos ou jogos ganhos.
 
 A tabela seguinte apresenta uma lista e descreve os cenários de integração:
 
@@ -271,9 +271,9 @@ A tabela seguinte apresenta uma lista e descreve os cenários de integração:
 | --------------------- | :---------- |
 |[Mapa da aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes da sua aplicação, com as principais métricas e alertas.||
 |[Por exemplo pesquisa nos diagnósticos dados](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.||
-|[Explorador de métricas para dados agregados](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas.||
+|[Explorador de métricas para dados agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas.||
 |[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa.||
-|[Stream de métricas em direto](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado.||
+|[Stream de métricas em direto](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado.||
 |[Análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas.||
 |[Alertas automáticas e manuais](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Alertas automáticos se adaptar a padrões normais da sua aplicação de telemetria e são acionadas se ocorrer algo fora do padrão habitual. Também pode definir alertas em níveis específicos de métricas personalizadas ou padrão.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Ver dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.||
@@ -288,11 +288,11 @@ Deteção de ameaças do Centro de segurança do Azure funciona através da reco
 
 O Centro de Segurança emprega análises de segurança avançadas, que ultrapassam as abordagens baseadas na assinatura. Aplica-se para soluções de dados grandes e [aprendizagem](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) tecnologias para avaliar eventos em recursos de infraestrutura do integralmente na nuvem. Dessa forma, detetar ameaças que seriam impossíveis de identificar através de abordagens manuais e previsão da evolução de ataques. Estas análises de segurança incluem:
 
-* **Informações de ameaças integradas**: procura por pessoas mal-intencionadas conhecidas ao aplicar inteligência de ameaças globais de produtos da Microsoft e serviços, a unidade Microsoft Crimes digitais (DCU), o Microsoft Security Response Center (MSRC) e feeds externos.
+* **Informações de ameaças integradas**: Procura pessoas mal-intencionadas conhecidas ao aplicar inteligência de ameaças globais de produtos da Microsoft e serviços, a unidade Microsoft Crimes digitais (DCU), o Microsoft Security Response Center (MSRC) e feeds externos.
 
-* **Análise comportamental**: aplica padrões conhecidos para detetar um comportamento malicioso.
+* **Análise comportamental**: Aplica-se padrões conhecidos para detetar um comportamento malicioso.
 
-* **Deteção de anomalias**: utiliza a criação de perfis estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
+* **Deteção de anomalias**: Utiliza a criação de perfis estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
 
 Muitas operações de segurança e as equipes de resposta a incidentes contam com uma solução SIEM como ponto de partida para separação e investigar alertas de segurança. Com integração de registos do Azure, pode sincronizar alertas do Centro de segurança e os eventos de segurança de máquina virtual, recolhidos por registos de diagnóstico e auditoria do Azure, com a sua solução do Log Analytics ou SIEM em tempo real.
 
@@ -371,20 +371,20 @@ Integração de registos, atualmente, suporta a integração de registos de ativ
 
 Cenários de integração para o SIEM:
 
-* [Passos de configuração de parceiros](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): esta mensagem de blogue mostra-lhe como configurar a integração de registos do Azure para trabalhar com soluções de parceiros Splunk e cso da HP e IBM QRadar.
+* [Passos de configuração de parceiros](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Esta postagem de blog mostra-lhe como configurar a integração de registos do Azure para trabalhar com soluções de parceiros Splunk e cso da HP e IBM QRadar.
 
-* [FAQ de integração de registo do Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Este artigo responde a perguntas sobre a integração de registos do Azure.
+* [Integração de registos do Azure FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Este artigo responde a perguntas sobre a integração de registos do Azure.
 
-* [Integrar alertas do Centro de segurança com o Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Este artigo descreve como sincronizar alertas do Centro de segurança, eventos de segurança de máquina virtual recolhidos pelos registos de diagnóstico do Azure, e registos de auditoria do Azure com o Log Analytics ou SIEM solução.
+* [Integrar alertas do Centro de segurança com o Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Este artigo descreve como sincronizar alertas do Centro de segurança, eventos de segurança de máquina virtual recolhidos pelos registos de diagnóstico do Azure, e registos de auditoria do Azure com a sua solução do Log Analytics ou SIEM.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Auditoria e registo](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): proteger os dados, manter a visibilidade e a responder rapidamente a alertas de segurança oportuna.
+- [Auditoria e registo](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): Proteger dados ao manter a visibilidade e a responder rapidamente a alertas de segurança oportuna.
 
-- [Coleção de registo e o registo de auditoria de segurança no Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): impor estas definições para se certificar de que as instâncias do Azure estão a recolher os registos de segurança e auditoria corretos.
+- [Coleção de registo e o registo de auditoria de segurança no Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Impor estas definições para se certificar de que as instâncias do Azure estão a recolher os registos de segurança e auditoria corretos.
 
-- [Configurar definições de auditoria para um conjunto de sites](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): se for um administrador de conjunto de sites, obter o histórico de ações de usuários individuais e o histórico das ações efetuadas durante um intervalo de datas específico. 
+- [Configurar definições de auditoria para um conjunto de sites](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): Se for um administrador de conjunto de sites, obter o histórico de ações de usuários individuais e o histórico das ações efetuadas durante um intervalo de datas específico. 
 
-- [Procurar o registo de auditoria no Centro de conformidade de segurança do Office 365 e](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): utilizar o Centro de conformidade e segurança do Office 365 para procurar o registo de auditoria unificada e ver a atividade de utilizador e administrador na sua organização do Office 365.
+- [Procurar o registo de auditoria no Centro de conformidade de segurança do Office 365 e](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Utilize o Centro de conformidade e segurança do Office 365 para procurar o registo de auditoria unificada e ver a atividade de utilizador e administrador na sua organização do Office 365.
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1f93a186db7685f7e4e159ae1796c4287de74373
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578676"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213063"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -134,7 +134,7 @@ O `identity` secção no resultado é semelhante ao seguinte, que mostra a ident
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Conceder acesso de identidade atribuído ao utilizador para o Key Vault
 
-Execute o seguinte [az keyvault conjunto-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) comando para definir uma política de acesso no Key Vault. O exemplo a seguir permite que a identidade de utilizador atribuída obter segredos a partir do Key Vault:
+Execute o seguinte [az keyvault conjunto-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)(/ cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) comando para definir uma política de acesso no Key Vault. O exemplo a seguir permite que a identidade de utilizador atribuída obter segredos a partir do Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Conceder acesso ao grupo de contentor para o Key Vault
 
-Execute o seguinte [az keyvault conjunto-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) comando para definir uma política de acesso no Key Vault. O exemplo a seguir permite que a identidade gerida pelo sistema obter segredos a partir do Key Vault:
+Execute o seguinte [az keyvault conjunto-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) comando para definir uma política de acesso no Key Vault. O exemplo a seguir permite que a identidade gerida pelo sistema obter segredos a partir do Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

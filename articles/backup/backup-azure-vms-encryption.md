@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583073"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201079"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -128,6 +128,8 @@ Utilize os seguintes passos para fornecer permissões relevantes à cópia de se
 Depois de permissões com êxito são fornecidas, pode avançar com a ativação de cópia de segurança para VMs encriptadas.
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurar uma VM encriptada
+Restaurar o Azure suporta agora a cópia de segurança de [Azure encriptados VM sem do Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) além da oferta anterior de restauro, suporte para o Azure encriptados de VM com o Azure AD.<br>
+
 Para restaurar uma VM encriptada, restaurar discos ao seguir os passos na secção "Restaurar discos de cópia de segurança" na [escolha uma configuração de restauro de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, pode utilizar uma das seguintes opções:
 
 * Siga os passos no PowerShell [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar uma VM completa a partir de discos restaurados.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Transmitir dados para o Azure Databricks com os Hubs de Eventos '
+title: 'Tutorial: Transmitir em fluxo dados para o Azure Databricks com os Hubs de Eventos '
 description: Saiba como utilizar o Azure Databricks com os Hubs de Eventos para ingerir dados de transmissão a partir do Twitter e ler os dados em quase tempo real.
 services: azure-databricks
 author: lenadroid
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707151"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200929"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks com os Hubs de Eventos
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir em fluxo dados para o Azure Databricks com os Hubs de Eventos
 
 Neste tutorial, vai ligar um sistema de ingestão de dados com o Azure Databricks para transmitir dados para um cluster do Apache Spark em quase tempo real. Vai configurar o sistema de ingestão de dados com os Hubs de Eventos do Azure e, em seguida, ligá-lo ao Azure Databricks para processar as mensagens recebidas. Para aceder a uma transmissão de dados, utilize as APIs do Twitter para ingerir os tweets nos Hubs de Eventos. Depois de ter os dados no Azure Databricks, pode executar tarefas analíticas para analisar os dados mais detalhadamente. 
 
@@ -168,7 +168,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 
 ## <a name="send-tweets-to-event-hubs"></a>Enviar tweets para os Hubs de Eventos
 
-No bloco de notas **SendTweetsToEventHub**, cole o seguinte código e substitua o marcador de posição pelos valores do espaço de nomes dos Hubs de Eventos e a aplicação do Twitter que criou anteriormente. Este bloco de notas transmite os tweets com a palavra-chave "Azure" para os Hubs de Eventos em tempo real.
+Na **SendTweetsToEventHub** bloco de notas, cole o seguinte código e substitua os marcadores de posição pelos valores de espaço de nomes de Hubs de eventos e a aplicação do Twitter que criou anteriormente. Este bloco de notas transmite os tweets com a palavra-chave "Azure" para os Hubs de Eventos em tempo real.
 
 ```scala
     import java.util._
@@ -384,4 +384,4 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como efetuar uma análise de sentimentos nos dados de transmissão através do Azure Databricks e da [API dos Serviços Cognitivos da Microsoft](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Análise de sentimentos dos dados de transmissão com o Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)
+>[Análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264276"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211893"
 ---
 # <a name="azure-managed-disks-overview"></a>Descrição geral do Managed Disks do Azure
 
@@ -37,7 +37,7 @@ Discos geridos fornece melhor confiabilidade para conjuntos de disponibilidade a
 
 ### <a name="highly-durable-and-available"></a>Elevada disponibilidade e durabilidade
 
-Os Discos do Azure foram concebidos para garantir uma disponibilidade de 99,999%. Fique tranquilo ao saber que tem três réplicas dos dados, que permitem uma elevada durabilidade. Se uma ou até mesmo duas réplicas apresentarem problemas, as restantes ajudam a garantir a persistência dos dados e alta tolerância contra falhas. Esta arquitetura tem ajudado o Azure a garantir de forma consistente uma durabilidade de nível empresarial para discos IaaS, com uma Taxa de Falhas Anual de ZERO% líder da indústria. 
+Os Discos do Azure foram concebidos para garantir uma disponibilidade de 99,999%. Fique tranquilo ao saber que tem três réplicas dos dados, que permitem uma elevada durabilidade. Se uma ou até mesmo duas réplicas apresentarem problemas, as restantes ajudam a garantir a persistência dos dados e alta tolerância contra falhas. Esta arquitetura tem ajudado o Azure a garantir de forma consistente uma durabilidade de nível empresarial para discos IaaS, com uma Taxa de Falhas Anual de ZERO% líder da indústria.
 
 ### <a name="granular-access-control"></a>Controlo de acesso granular
 
@@ -45,7 +45,7 @@ Pode usar [controlo de acesso de controlo (RBAC)](../articles/role-based-access-
 
 ### <a name="azure-backup-service-support"></a>Suporte de serviço de cópia de segurança do Azure
 
-Utilize o serviço de cópia de segurança do Azure com os Managed Disks para criar uma tarefa de cópia de segurança com cópias de segurança baseados no tempo, fácil restauro de VM e políticas de retenção de cópia de segurança. Discos geridos só suportam o armazenamento localmente redundante (LRS) como a opção de replicação. Três cópias dos dados são mantidas numa única região. Para a recuperação de desastre regional, é necessário fazer backup os discos da VM numa região diferente com [serviço de cópia de segurança do Azure](../articles/backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o Cofre de cópia de segurança. Cópia de segurança do Azure suporta atualmente os tamanhos de disco até 4 TB de discos. Precisa [atualização pilha de cópia de segurança de VM para V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) para suporte de discos de 4 TB. Para obter mais informações, consulte [serviço através de cópia de segurança do Azure para VMs com discos geridos](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Utilize o serviço de cópia de segurança do Azure com os Managed Disks para criar uma tarefa de cópia de segurança com cópias de segurança baseados no tempo, fácil restauro de VM e políticas de retenção de cópia de segurança. Discos geridos só suportam o armazenamento localmente redundante (LRS) como a opção de replicação. Três cópias dos dados são mantidas numa única região. Para a recuperação de desastre regional, é necessário fazer backup os discos da VM numa região diferente com [serviço de cópia de segurança do Azure](../articles/backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o Cofre de cópia de segurança. Atualmente o Azure Backup suporta os tamanhos de disco até 4 TB de discos, consulte [restaurar instantâneas](../articles/backup/backup-instant-restore-capability.md) para suporte de discos de 4 TB. Para obter mais informações, consulte [serviço através de cópia de segurança do Azure para VMs com discos geridos](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Preços e Faturação
 
@@ -63,35 +63,35 @@ Ao utilizar o Managed Disks, aplicam-se as seguintes considerações de faturas:
 
 Vamos dar uma olhada mais de perto essas opções.
 
-**Tipo de armazenamento:** Managed Disks oferece 3 escalões de desempenho: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), e [Premium](../articles/virtual-machines/windows/premium-storage.md). A faturação de um disco gerido depende de qual tipo de armazenamento que selecionou para o disco.
+**Tipo de armazenamento:** Gerida escalões de desempenho de 3 de ofertas de discos: [Padrão HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), e [Premium](../articles/virtual-machines/windows/premium-storage.md). A faturação de um disco gerido depende de qual tipo de armazenamento que selecionou para o disco.
 
-**Tamanho do disco**: depende de faturação para discos geridos no tamanho do disco aprovisionado. Azure mapeia o tamanho aprovisionado (arredondado) para a opção de Managed Disks mais próxima, conforme especificado nas tabelas abaixo. Cada disco gerido é mapeado para um dos tamanhos suportados aprovisionados e é cobrado em conformidade. Por exemplo, se criar um disco gerido standard e especificar um tamanho aprovisionado de 200 GB, é-lhe cobrada de acordo com os preços do tipo de disco S15.
+**Tamanho do disco**: A faturação de discos geridos depende do tamanho aprovisionado do disco. Azure mapeia o tamanho aprovisionado (arredondado) para a opção de Managed Disks mais próxima, conforme especificado nas tabelas abaixo. Cada disco gerido é mapeado para um dos tamanhos suportados aprovisionados e é cobrado em conformidade. Por exemplo, se criar um disco gerido standard e especificar um tamanho aprovisionado de 200 GB, é-lhe cobrada de acordo com os preços do tipo de disco S15.
 
 Aqui estão disponíveis para um disco gerido premium os tamanhos de discos, tamanhos marcados com um asterisco estão atualmente em pré-visualização:
 
 | **SSD Premium gerido <br>tipo de disco** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 giB (1 TiB) | 2.048 giB (2 TiB) | 4095 giB (4 TiB) | 8.192 giB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
+| Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
 
 Aqui estão que os tamanhos de disco disponíveis para um SSD standard de disco gerido, tamanhos marcados com um asterisco estão atualmente em pré-visualização:
 
 | **SSD Standard gerido <br>tipo de disco** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Tamanho do Disco        | 128 GiB | 256 GiB | 512 GiB | 1.024 giB (1 TiB) | 2.048 giB (2 TiB) | 4095 giB (4 TiB) | 8.192 giB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
+| Tamanho do Disco        | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
 
 Aqui estão que os tamanhos de disco disponíveis para um padrão HDD de disco gerido, tamanhos marcados com um asterisco estão atualmente em pré-visualização:
 
 | **HDD padrão gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 giB (1 TiB) | 2.048 giB (2 TiB) | 4095 giB (4 TiB) | 8.192 giB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
+| Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
 
-**Número de transações**: É Faturado por número de transações que executar num disco gerido standard.
+**Número de transações**: A faturação para o número de transações que executar num disco gerido standard.
 
 Discos de SSD Standard utilizam o tamanho da unidade de e/s de 256KB. Se os dados que está a ser transferidos são inferior a 256 KB, é considerado 1 unidade de e/s. Tamanhos de e/s maiores são contabilizados como várias e/SS de tamanho 256 KB. Por exemplo, uma e/s de 1,100 KB é contabilizado como cinco unidades de e/s.
 
 Não existe nenhum custo para transações para um disco gerido premium.
 
-**Transferências de dados de saída**: [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
+**Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
 
 Para obter informações detalhadas sobre os preços do Managed Disks, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 

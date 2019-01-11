@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054293"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214305"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
@@ -115,7 +115,7 @@ Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-pass
 
 ### <a name="managed-identity"></a>Identidade Gerida
 
-Especifique o uri do recurso para o qual o token de acesso será será solicitado usando-a identidade gerida do data Factory. Para chamar a API de gestão de recursos do Azure, utilize `https://management.azure.com/`.
+Especifique o uri do recurso para o qual o token de acesso será será solicitado usando-a identidade gerida do data Factory. Para chamar a API de gestão de recursos do Azure, utilize `https://management.azure.com/`. Para obter mais informações sobre identidades geridas como funciona a ver o [geridos identidades para a página de descrição geral de recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {

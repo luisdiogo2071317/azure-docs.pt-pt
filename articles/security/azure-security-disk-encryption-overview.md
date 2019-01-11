@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093289"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200858"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para IaaS VMs
 
-O Microsoft Azure é um compromisso de garantir que a sua privacidade de dados e soberania de dados. O Azure permite-lhe controlar os seus dados alojado no Azure através de uma variedade de tecnologias avançadas de encriptar, controlar e gerir chaves de encriptação e acesso de controlo e auditoria de dados. Esse controle fornece aos clientes Azure com a flexibilidade de escolher a solução mais adequada às suas necessidades de negócios. Este artigo apresenta a uma solução de tecnologia: "O Azure Disk Encryption para máquinas virtuais (VMs) Windows e Linux IaaS". Essa tecnologia ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. 
+O Microsoft Azure é um compromisso de garantir que a sua privacidade de dados e soberania de dados. O Azure permite-lhe controlar os seus dados alojado no Azure através de uma variedade de tecnologias avançadas de encriptar, controlar e gerir chaves de encriptação e acesso de controlo e auditoria de dados. Esse controle fornece aos clientes Azure com a flexibilidade de escolher a solução mais adequada às suas necessidades de negócios. Este artigo apresenta a uma solução de tecnologia: "Encriptação de disco para Windows e Linux IaaS máquinas virtuais do azure (VMs)." Essa tecnologia ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -81,7 +81,7 @@ A solução não suporta os seguintes cenários, recursos e tecnologia:
 
 * VMs de IaaS de escalão básico.
 * Desative a encriptação numa unidade do sistema operacional para VMs de IaaS Linux.
-* Desative a encriptação numa unidade de dados quando a unidade do SO está encriptada para VMs de Iaas Linux.
+* Desative a encriptação numa unidade de dados quando a unidade do SO está encriptada para VMs de IaaS Linux.
 * VMs de IaaS que são criadas com o método de criação de VM clássico.
 * Ative a encriptação de imagens personalizadas do cliente em VMs do Linux IaaS.
 * Integração com o seu sistema de gestão de chaves no local.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191705"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213149"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Resolver problemas no disco do Azure Data Box
 
@@ -96,12 +96,11 @@ Esta secção fornece detalhes sobre alguns dos principais problemas enfrentados
 
 Isto pode dever-se um sistema de ficheiros unclean. 
 
-- Remontar uma unidade como de leitura não funciona com discos de caixa de dados. Este cenário não é suportado com unidades desencriptadas por dislocker. 
-- Remontando como leitura / escrita não funcionará. Podem ter nomes com êxito o dispositivo com o seguinte comando: 
+Remontar uma unidade como leitura / escrita não funciona com discos de caixa de dados. Este cenário não é suportado com unidades desencriptadas por dislocker. Podem ter nomes com êxito o dispositivo com o seguinte comando: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Embora o remontando foi concluída com êxito, os dados não serão mantidas.
+Embora o remontando foi concluída com êxito, os dados não serão mantidas.
 
 **Resolução**
 
@@ -125,11 +124,11 @@ Se vir que a unidade não tem dados depois de estar desmontados (embora os dados
  
 Se for esse o caso, consulte a resolução para [unidades de introdução montado como só de leitura](#issue-drive-getting-mounted-as-read-only).
 
-Se não for o caso, [transferir os registos de diagnóstico](#download-diagnostic-logs) do seu sistema e [contacte a Microsoft Support](data-box-disk-contact-microsoft-support.md).
+Se não for o caso, copie os registos da pasta que tenha a ferramenta de desbloqueio de disco de caixa de dados e [contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problemas de implantação do Windows
 
-Esta secção descreve alguns dos principais problemas enfrentados durante a implementação de disco de caixa de dados ao utilizar um cliente Linux para a cópia de dados
+Esta secção descreve alguns dos principais problemas enfrentados durante a implementação de disco Data Box quando utilizar um cliente do Windows para cópia de dados
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade de disco BitLocker
  
@@ -139,7 +138,7 @@ Utilizou a palavra-passe na caixa de diálogo BitLocker e tentar desbloquear o d
 
 **Resolução**
 
-Para desbloquear os discos do Data Box, terá de utilizar a ferramenta de desbloqueio de disco de caixa de dados e fornecer a palavra-passe do portal do Azure.
+Para desbloquear os discos do Data Box, terá de utilizar a ferramenta de desbloqueio de disco de caixa de dados e fornecer a palavra-passe do portal do Azure. Para obter mais informações, aceda a [Tutorial: Descompactar, ligar e desbloquear o disco do Azure Data Box](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear ou certifique-se alguns volumes. Contacte o Suporte da Microsoft.
  
@@ -155,7 +154,7 @@ Isto indica que provavelmente não têm a versão adequada do Windows PowerShell
 
 Pode instalar [v do Windows PowerShell 5.0](https://www.microsoft.com/download/details.aspx?id=54616) e repita a operação.
  
-Se ainda não pode desbloquear os volumes [contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md).
+Se ainda não é possível desbloquear os volumes, copie os registos da pasta que tenha a ferramenta de desbloqueio de disco de caixa de dados e [contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

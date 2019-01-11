@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 705d96225c699c6e9824dadbd7fa1272ba5ddb2d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117524"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213285"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
 
@@ -52,7 +52,7 @@ Configure a sua aplicação do Azure Active Directory para utilizar o fluxo de c
 
 Em seguida, definir e configurar o Postman para obter um token do Azure Active Directory. Em seguida, efetue um pedido HTTP autenticado no duplos Digital do Azure com o token obtido:
 
-1. Aceda a [www.getpostman.com]([https://www.getpostman.com/) para transferir a aplicação.
+1. Aceda a [www.getpostman.com](https://www.getpostman.com/) para transferir a aplicação.
 1. Certifique-se de que sua **URL de autorização** está correto. Deve demorar o formato:
 
     ```plaintext

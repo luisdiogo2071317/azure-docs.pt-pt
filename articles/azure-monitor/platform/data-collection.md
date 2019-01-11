@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718967"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215393"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -156,7 +156,7 @@ Tarefas que pode realizar com registos incluem o seguinte:
 Todos os dados de registo no Azure Monitor é recuperado usando um [consulta de registo](../log-query/log-query-overview.md) escrito com o [linguagem de consulta do Data Explorer](../log-query/get-started-queries.md), que permite a rapidamente obter, consolidar e analisar os dados recolhidos. Uso [do Log Analytics](../log-query/portals.md) escrever e testar consultas no portal do Azure. Pode trabalhar com os resultados interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter registos ao utilizar o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Dados do Application Insights são armazenados numa partição separada que outros dados de registo no Azure Monitor. Isso oferece suporte a mesma funcionalidade que outros dados de registo, mas tem de utilizar o [consola do Application Insights](/azure-monitor/app/analytics.md) ou o [API do Application Insights](https://dev.applicationinsights.io/) para aceder a estes dados. Pode utilizar um [consulta entre recursos](../log-query/cross-workspace-query.md) para analisar dados de aplicativos com outros dados de registo.
+> Dados do Application Insights são armazenados numa partição separada que outros dados de registo no Azure Monitor. Isso oferece suporte a mesma funcionalidade que outros dados de registo, mas tem de utilizar o [consola do Application Insights](../app/analytics.md) ou o [API do Application Insights](https://dev.applicationinsights.io/) para aceder a estes dados. Pode utilizar um [consulta entre recursos](../log-query/cross-workspace-query.md) para analisar dados de aplicativos com outros dados de registo.
 
 ![Registos](media/data-collection/logs.png)
 

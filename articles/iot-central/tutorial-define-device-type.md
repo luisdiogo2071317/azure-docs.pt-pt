@@ -1,22 +1,22 @@
 ---
 title: Definir um novo tipo de dispositivo no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra-lhe como definir, enquanto construtor, um novo tipo de dispositivo na aplicação do Azure IoT Central. O utilizador define a telemetria, o estado, as propriedades e as definições para o seu tipo.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963605"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199974"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central
 
 Este tutorial mostra-lhe como utilizar, enquanto construtor, um modelo de dispositivo para definir um novo tipo de dispositivo na aplicação do Azure IoT Central. Um modelo do dispositivo define a telemetria, o estado, as propriedades e as definições para o tipo de dispositivo.
 
@@ -405,7 +405,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição      | Valor       |
     | ------------ | ----------- |
-    | Título        | Temperatura |
+    | Cargo        | Temperatura |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | temperatura (escolha **Visibilidade** junto a **temperatura**) |
 
@@ -417,7 +417,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição      | Valor       |
     | ------------ | ----------- |
-    | Título        | Eventos |
+    | Cargo        | Eventos |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | Erro do Motor da Ventoinha (escolha **Visibilidade** junto a **Erro do Motor da Ventoinha**) |
 
@@ -429,7 +429,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição      | Valor       |
     | ------------ | ----------- |
-    | Título        | Modo da Ventoinha |
+    | Cargo        | Modo da Ventoinha |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas | Modo da Ventoinha (escolha **Visibilidade** junto a **Modo da Ventoinha**) |
 
@@ -445,7 +445,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição                 | Valor         |
     | ----------------------- | ------------- |
-    | Título                   | Definir temperatura de destino |
+    | Cargo                   | Definir temperatura de destino |
     | Definições e Propriedades | Definir Temperatura |
 
     As definições e propriedades que definiu anteriormente nas páginas Definições e Propriedades são apresentadas nas Colunas Disponíveis. 
@@ -462,7 +462,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição                 | Valor         |
     | ----------------------- | ------------- |
-    | Título                   | Número de série |
+    | Cargo                   | Número de série |
     | Definições e Propriedades | Número de série |
 
     ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings5.png)
@@ -477,7 +477,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     | Definição                 | Valor            |
     | ----------------------- | ---------------- |
-    | Título                   | Versão do firmware |
+    | Cargo                   | Versão do firmware |
     | Definições e Propriedades | Versão do firmware |
 
     ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings6.png)
@@ -486,7 +486,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Para ver o dashboard como operador, desative **Editar Modelo** na parte superior direita da página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

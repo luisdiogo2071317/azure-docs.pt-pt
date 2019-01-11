@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792531"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199287"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das coisas (IoT)?
 
@@ -34,6 +34,8 @@ Dispositivos são geralmente constituídos por um quadro do circuito com sensore
 * sensores de presença numa sala
 
 Dois dispositivos que são usados com freqüência na criação do protótipo são o básico MX Chip IoT Devkit provenientes de dispositivos Microsoft e Raspberry PI. Devkit de Chip MX tem sensores incorporados para temperatura, pressão, umidade, bem como um gyroscope e acelerômetro, magnetômetro e um chip de Wi-Fi. Raspberry PI é um dispositivo de IoT para o qual pode anexar muitos tipos diferentes de sensores, pelo que pode selecionar exatamente o que precisa para o seu cenário. 
+
+Para obter mais informações sobre os dispositivos de IoT disponíveis, confira do setor maior [catálogo de dispositivos certificada for IoT](https://catalog.azureiotsolutions.com/alldevices).
 
 O [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) permitem-lhe criar aplicações que são executadas nos seus dispositivos para realizarem as tarefas que precisam. Com os SDKs, pode enviar telemetria ao seu hub IoT, receber atualizações e as mensagens do IoT Hub e assim por diante.
 

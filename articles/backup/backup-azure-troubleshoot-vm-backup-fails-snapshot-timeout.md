@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789862"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200091"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -52,7 +52,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 * Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos que apenas uma cópia de segurança por dia como instantâneas RPs são mantidas durante 7 dias e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
 
 Ação recomendada:<br>
-Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza. 
+Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza.
 > [!NOTE]
     > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` por exemplo: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: O Azure Backup não suporta atualmente tamanhos de disco superiores a 1023 GB <br>
 
-A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para a pilha de cópia de segurança do Azure VM V2. Atualizar para o Azure VM Backup pilha V2 irá fornecer suporte a até 4TB. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
 
 **Código de erro**: UserErrorStandardSSDNotSupported <br>
 **Mensagem de erro**: Atualmente, o Azure Backup não suporta discos Standard SSD <br>
 
-Atualmente o Azure Backup suporta discos de SSD padrão apenas para os cofres que sejam atualizados para a pilha de cópia de segurança do Azure VM V2. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Atualmente o Azure Backup suporta discos de Standard SSD apenas para os cofres que são atualizados para o [restaurar instantâneas](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções

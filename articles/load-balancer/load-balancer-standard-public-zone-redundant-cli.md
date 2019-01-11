@@ -1,7 +1,7 @@
 ---
 title: Balanceamento de carga de VMs com redundância de zona com a CLI do Azure
 titlesuffix: Azure Load Balancer
-description: Saiba como criar um público Balanceador de carga Standard com zona redundante front-end com a CLI do Azure
+description: Saiba como criar um balanceador de carga Standard público com zona redundante front-end com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250812"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197798"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade com a CLI do Azure
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Criar Standard de Balanceador de carga do Azure
+## <a name="create-azure-standard-load-balancer"></a>Criar Balanceador de carga Standard do Azure
 Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
 - Um conjunto de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um conjunto de IPs de back-end no qual o conjunto do front-end envia o tráfego de rede com balanceamento de carga.

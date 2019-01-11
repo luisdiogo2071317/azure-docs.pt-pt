@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063646"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199124"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -397,7 +397,7 @@ Algumas razões comuns que um módulo não pode importar com êxito para a autom
 * A estrutura não corresponde a estrutura que precisa de automatização que seja.
 * O módulo é dependente de outro módulo que não tenha sido implantado para sua conta de automatização.
 * O módulo está em falta as respetivas dependências na pasta.
-* O `New-AzureRmAutomationModule` cmdlet está a ser utilizado para carregar o módulo e have't dado o caminho de armazenamento completo ou não tiver carregado o módulo utilizando um URL acessível publicamente.
+* O `New-AzureRmAutomationModule` cmdlet está a ser utilizado para carregar o módulo, e ainda não tendo em conta o caminho de armazenamento completo ou não tiver carregado o módulo utilizando um URL acessível publicamente.
 
 #### <a name="resolution"></a>Resolução
 

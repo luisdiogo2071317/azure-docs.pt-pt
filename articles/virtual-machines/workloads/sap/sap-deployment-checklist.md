@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189155"
+ms.locfileid: "54201334"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
 
@@ -83,7 +83,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
 O piloto pode ser executado antes ou em paralelo para planejamento de projetos e preparação. A fase também pode ser utilizada para testar abordagens e design feitas na fase de planejamento e preparação. A fase piloto pode ser transferida para uma verdadeira prova de conceitos. Recomenda-se para configurar e validar uma solução completa de HA/DR, bem como o design de segurança durante uma implantação piloto. Em alguns casos de cliente, testes de escalabilidade também podem ser conduzidos de nesta fase. Outros clientes utilizam a implementação de sistemas de proteção de segurança do SAP como fase piloto. Portanto, partimos do princípio de que identificou um sistema que pretende migrar para o Azure com o objetivo de executar um piloto.
 
 1.  Otimize a transferência de dados para o Azure. Altamente dependente de transferência de casos de clientes por meio [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) do local foi mais rápida, se tivesse do circuito de largura de banda suficiente. Com outros clientes, vai através da internet percebeu para ser mais rápida
-2.  Em caso de uma migração de plataforma heterogêneos do SAP, que envolve uma exportação e importação de banco de dados, testar e otimizar a exportar e importar fases. Para grandes migrações entre o SQL Server como a plataforma de destino, recomendações podem ser encontradas [aqui](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Pode demorar a abordagem de migração de Monitor/SWPM no caso de não precisar de uma atualização de versão combinada ou [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) processar ao combinar a migração com uma atualização de versão do SAP e satisfazer determinada plataforma DBMS de origem e destino combinações como documentado, por exemplo, no [opção de migração da base de dados (DMO) de soma 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872). 
+2.  Em caso de uma migração de plataforma heterogêneos do SAP, que envolve uma exportação e importação de banco de dados, testar e otimizar a exportar e importar fases. Para grandes migrações entre o SQL Server como a plataforma de destino, recomendações podem ser encontradas [aqui](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Pode demorar a abordagem de migração de Monitor/SWPM no caso de não precisar de uma atualização de versão combinada ou [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) processar ao combinar a migração com uma atualização de versão do SAP e satisfazer determinada plataforma DBMS de origem e destino combinações como documentado, por exemplo, no [opção de migração da base de dados (DMO) de soma 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
     1.  Exportar a origem, de carregamento de ficheiros de exportação para o desempenho do Azure e importar.  Maximizar a sobreposição entre exportação e importação
     2.  Avalie o volume da base de dados entre a plataforma de destino e de destino de modo a refletirem ao dimensionamento de infraestrutura    
     3.  Validar e otimizar o tempo 

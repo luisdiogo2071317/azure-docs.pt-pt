@@ -1,7 +1,7 @@
 ---
-title: Criar um público Standard Balanceador de carga Standard com o IP de front-end zonal - Azure PowerShell
+title: Criar um balanceador de carga com o front-end zonal - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Saiba como criar Standard de Balanceador de carga público com um frontend de endereço IP público zonal com o Azure PowerShell
+description: Saiba como criar o Balanceador de carga Standard com um front-end zonal com o Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fdbc69bee936b94f3683a8a90b4f58e467a8863f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100689"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197935"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Criar um público Balanceador de carga Standard com o front-end zonal com o Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Criar um balanceador de carga Standard com o front-end zonal com o Azure PowerShell
 
 Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end zonal utilizando um endereço IP público Standard. Para compreender o funcionam das zonas de disponibilidade com o Balanceador de carga Standard, veja [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md). 
 

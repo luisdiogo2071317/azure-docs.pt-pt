@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 4d817e71cffd782bdcfdfb91492dbd5d08fb8479
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967100"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200528"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilizar o DNS do Azure para domínios privados
 
 O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de serviço para o endereço IP. Um serviço de alojamento para domínios DNS, o DNS do Azure oferece resolução de nomes através da infraestrutura do Microsoft Azure. Além de oferecer suporte a domínios DNS de acesso à internet, DNS do Azure também suporta agora domínios DNS privados como uma funcionalidade de pré-visualização.
 
-O DNS do Azure fornece um serviço DNS fiável e seguro para gerir e resolver os nomes de domínio numa rede virtual sem ser necessária adicionar uma solução DNS personalizada. Ao utilizar zonas privadas do DNS, pode utilizar seus próprios nomes de domínio personalizado em vez dos nomes fornecida pelo Azure atualmente disponíveis. Utilizar nomes de domínio personalizado ajuda-o a criar a sua arquitetura de rede virtual para se adequar melhor às necessidades da sua organização. Ele fornece resolução de nomes para máquinas virtuais (VMs) numa rede virtual assim como entre redes virtuais. Além disso, pode configurar nomes de zonas com uma vista dividida horizontalmente, que permite que uma zona DNS pública e privada partilhar o mesmo nome.
+O DNS do Azure fornece um serviço DNS fiável e seguro para gerir e resolver os nomes de domínio numa rede virtual sem ser necessária adicionar uma solução DNS personalizada. Ao utilizar zonas privadas do DNS, pode utilizar seus próprios nomes de domínio personalizado em vez dos nomes fornecida pelo Azure atualmente disponíveis. Utilizar nomes de domínio personalizado ajuda-o a criar a sua arquitetura de rede virtual para se adequar melhor às necessidades da sua organização. Ele fornece resolução de nomes para máquinas virtuais (VMs) numa rede virtual assim como entre redes virtuais. Além disso, pode configurar nomes de zonas com uma vista dividida horizontalmente, que permite que uma zona DNS pública e privada para o nome da partilha.
 
 Se especificar uma rede virtual de registo, os registos DNS para as VMs da rede virtual que estão registados para a zona privada não são visíveis ou recuperáveis a partir do Azure Powershell e APIs de CLI do Azure, mas os registos VM, de fato, estão registados e será Resolva com êxito.
 
@@ -57,11 +57,11 @@ O DNS do Azure fornece as seguintes capacidades:
 
 * **Resolução direta de DNS é suportada por várias redes virtuais que estejam ligadas à zona privada como redes virtuais de resolução**. Para a rede virtual entre a resolução de DNS, não existe nenhuma dependência explícita, de modo a que as redes virtuais em modo de peering entre si. No entanto, os clientes podem querer configurar o peering entre redes virtuais para outros cenários (por exemplo, o tráfego HTTP).
 
-* **Pesquisa reversa de DNS é suportada pelo âmbito da rede virtual**. Pesquisa reversa de DNS para um IP privado na rede virtual atribuído a uma zona privada irá devolver o FQDN que inclui o nome do anfitrião/registo, bem como o nome da zona como o sufixo.
+* **Pesquisa reversa de DNS é suportada pelo âmbito da rede virtual**. Pesquisa reversa de DNS para um IP privado na rede virtual atribuído a uma zona privada devolve o FQDN que inclui o nome do anfitrião/registo e o nome da zona como o sufixo.
 
 ## <a name="limitations"></a>Limitações
 
-DNS do Azure está sujeito às seguintes limitações:
+O DNS do Azure tem limitações a seguir:
 
 * Rede virtual de apenas um registo é permitido por zona privada.
 * Até 10 resolução redes virtuais são permitidas por zona privada.
@@ -70,14 +70,14 @@ DNS do Azure está sujeito às seguintes limitações:
 * Se especificar uma rede virtual de registo, os registos DNS para as VMs da rede virtual que estão registados para a zona privada não são visíveis ou recuperáveis a partir do Azure Powershell e APIs de CLI do Azure. Os registos VM, de fato, estão registados e serão resolvido com êxito.
 * Inversa de DNS de funciona apenas para o espaço IP privados na rede virtual de registo.
 * DNS inverso para um IP privado que não está registado na zona privada (por exemplo, um IP privado para uma máquina virtual numa rede virtual que está ligada como uma rede virtual de resolução a privada zona) devolve *internal.cloudapp.net* como o sufixo DNS. No entanto, este sufixo não é possível resolver.
-* A rede virtual tem de estar em branco (ou seja, não existem registos VM existem) quando ele inicialmente (ou seja, pela primeira vez) links para uma zona privada como uma rede virtual de registo ou resolução. No entanto, a rede virtual, em seguida, pode estar vazio para a ligação futuras como um registo ou resolução de rede virtual para outras zonas privadas.
-* Neste momento, o reencaminhamento condicional não é suportado (por exemplo, para ativar a resolução entre redes do Azure e local). Para obter informações sobre como os clientes podem obter este cenário através de outros mecanismos, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* A rede virtual tem de ser totalmente vazia na primeira vez que o liga a uma zona privada como uma rede virtual de registo ou resolução. No entanto, a rede virtual, em seguida, pode estar vazio para a ligação futuras como um registo ou resolução de rede virtual para outras zonas privadas.
+* Atualmente, o reencaminhamento condicional não é suportado (por exemplo, para ativar a resolução entre redes do Azure e local). Para obter informações sobre como os clientes podem obter este cenário através de outros mecanismos, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Para perguntas e respostas sobre zonas privadas no DNS do Azure comuns, incluindo o comportamento específico de resolução e registo DNS pode esperar para determinados tipos de operações, consulte [FAQ](./dns-faq.md#private-dns).  
 
 ## <a name="pricing"></a>Preços
 
-A funcionalidade de zonas DNS privada de é gratuita durante a pré-visualização pública. Durante a disponibilidade geral, a funcionalidade permite-lhe um baseada na utilização modelo de preços semelhante ao que o DNS do Azure existentes da oferta. 
+A funcionalidade de zonas DNS privada de é gratuita durante a pré-visualização pública. Durante a disponibilidade geral, o recurso oferece um baseada na utilização modelo de preços semelhante ao que o DNS do Azure existentes da oferta. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

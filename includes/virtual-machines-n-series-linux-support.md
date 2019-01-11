@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585797"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201504"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
@@ -26,7 +26,7 @@ Controladores de NVIDIA CUDA para NC, NCv2, NCv3, ND e as VMs da série NDv2 (op
 
 | Distribuição | Controlador |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> Baseada em centOS 7.3 ou 7.4, baseada em CentOS 7.4 HPC | NVIDIA CUDA 10.0, ramo de controlador R410 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7,6<br/><br/> Baseada em centOS 7.3, 7.4, 7.5, 7,6, baseada em CentOS 7.4 HPC | NVIDIA CUDA 10.0, ramo de controlador R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de GRID da NVIDIA
 
@@ -34,7 +34,7 @@ Microsoft redistribui programas de instalação de controladores de NVIDIA GRID 
 
 | Distribuição | Controlador |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Baseada em centOS 7.3 ou 7.4 | NVIDIA GRID 7, o ramo de controlador R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7,6<br/><br/>Baseada em centOS 7.3, 7.4, 7.5, 7,6 | NVIDIA GRID 7, o ramo de controlador R410|
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos Red Hat pode afetar os termos de suporte do Red Hat. Veja o [Red Hat Knowledgebase](https://access.redhat.com/articles/1067) (Base de Dados de Conhecimento do Red Hat).

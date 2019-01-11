@@ -1,6 +1,7 @@
 ---
-title: Criar um público Balanceador de carga Standard com o front-end zonal com a CLI do Azure | Documentos da Microsoft
-description: Saiba como criar um público Balanceador de carga Standard com o front-end zonal com a CLI do Azure
+title: Criar um balanceador de carga com o front-end zonal - CLI do Azure
+titlesuffix: Azure Load Balancer
+description: Saiba como criar um balanceador de carga Standard com o front-end zonal com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -11,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 3a0fc37b8e2865163ae6c55813d145a568d796e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 466fa37b8ed7a182eb8bd6bc4fe68e0715056398
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414499"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200880"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Criar um público Balanceador de carga Standard com o front-end zonal com a CLI do Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um balanceador de carga Standard com o front-end zonal com a CLI do Azure
 
 Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end zona. Ter um meio de front-end zonal qualquer fluxo de entrada ou saído é atendido por uma única zona de uma região. Pode criar um balanceador de carga com um front-end zonal utilizando um endereço IP público Standard zonal na respetiva configuração de front-end. Para compreender o funcionam das zonas de disponibilidade com o Balanceador de carga Standard, veja [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md). 
 
@@ -50,7 +51,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 
-Crie um público Balanceador de carga Standard com o IP público Standard que criou no passo anterior com o seguinte comando:
+Crie um balanceador de carga Standard público com o IP público Standard que criou no passo anterior com o seguinte comando:
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623184"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212265"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>O Azure Active Directory latências dos relatórios
 
@@ -40,10 +40,14 @@ A tabela seguinte lista as informações de latência para relatórios de ativid
 > **Latência (o percentil 95)** refere-se até ao momento em que serão comunicadas 95% dos registos, e **latência (99 por cento dos)** refere-se ao tempo pelo qual serão comunicadas 99% dos registos. 
 >
 
-| Relatório | Latência (o percentil 95) |Latência (99 por cento dos)|
-| :-- | --- | --- | 
-| Registos de auditoria | 2 mins  | 5 mins  |
-| Inícios de sessão | 2 mins  | 5 mins |
+| Relatório | Latência (o percentil 95) |Latência (99 por cento dos)|Intervalo de tempo no qual os registos serão comunicados|
+| :-- | --- | --- | --- |
+| Registos de auditoria | 2 mins  | 5 mins  | 2-60 min |
+| Inícios de sessão | 2 mins  | 5 mins | 2-120 mins |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Assim como pode ver dados de atividades depois de obter uma licença premium?
+
+Se já tiver dados de atividades com sua licença gratuita, em seguida, pode vê-lo imediatamente a actualização. Se não tiver quaisquer dados, em seguida, irá demorar um ou dois dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium.
 
 ## <a name="security-reports"></a>Relatórios de segurança
 

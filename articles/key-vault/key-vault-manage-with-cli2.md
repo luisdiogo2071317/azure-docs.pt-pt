@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076368"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198903"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 
@@ -103,7 +103,7 @@ Para obter mais informações sobre a configuração de Interface de linha de co
 Ao utilizar o Azure Resource Manager, todos os recursos relacionados são criados dentro de um grupo de recursos. Pode criar um cofre de chaves num grupo de recursos existente. Se pretender utilizar um grupo de recursos, pode criar um novo.
 
 ```azurecli
-az group create -n 'ContosoResourceGroup' -l 'East Asia'
+az group create -n "ContosoResourceGroup" -l "East Asia"
 ```
 
 O primeiro parâmetro é o nome do grupo de recursos e o segundo parâmetro é o local. Para obter uma lista de todos os locais possíveis tipo:
@@ -127,7 +127,7 @@ Utilize o `az keyvault create` comando para criar um cofre de chaves. Este scrip
 Para criar um novo cofre com o nome **ContosoKeyVault**, no grupo de recursos **ContosoResourceGroup**, que residem no **Ásia Oriental** localização, escreva: 
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 O resultado deste comando mostra as propriedades do Cofre de chaves que criou. As duas propriedades mais importantes são:
@@ -142,13 +142,13 @@ A sua conta do Azure pode agora realizar quaisquer operações neste cofre de ch
 Se pretender que o Azure Key Vault para criar uma chave protegida por software para si, utilize o `az key create` comando.
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
+az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
 Se tiver uma chave existente num ficheiro. pem, pode carregá-lo para o Azure Key Vault. Pode optar por proteger a chave com o software ou o HSM. Utilize o seguinte para importar a chave do ficheiro. pem e protegê-lo com o software:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
 ```
 
 Agora, pode referenciar a chave que criou ou carregou para o Azure Key Vault, utilizando o respetivo URI. Uso **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual. Utilize https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obter esta versão específica. Por exemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
@@ -156,7 +156,7 @@ Agora, pode referenciar a chave que criou ou carregou para o Azure Key Vault, ut
 Adicione um segredo ao cofre, que é uma palavra-passe designada SQLPassword e com o valor de Pa$$w0rd aos cofres de chaves do Azure. 
 
 ```azurecli
-az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
 ```
 
 Referenciar esta palavra-passe com o URI. Uso **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] para obter esta versão específica. Por exemplo, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Referenciar esta palavra-passe com o URI. Uso **https://ContosoVault.vault.azure
 Importe um certificado para o Cofre através de uma. pem ou. pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\cert.pfx' --name 'ContosoCert' --password 'Pa$$w0rd'
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
 ```
 
 Vamos ver a chave, o segredo ou o certificado que criou:
@@ -172,19 +172,19 @@ Vamos ver a chave, o segredo ou o certificado que criou:
 * Para ver as suas chaves, escreva: 
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 * Para ver os seus segredos, escreva: 
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 * Para ver os certificados, escreva: 
 
 ```azurecli
-az keyvault certificate list --vault-name 'ContosoKeyVault'
+az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
 ## <a name="registering-an-application-with-azure-active-directory"></a>Registo de aplicações no Azure Active Directory
@@ -203,7 +203,7 @@ Para obter passos detalhados no registo de aplicações no Azure Active Director
 Registar uma aplicação no Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -214,33 +214,35 @@ Para autorizar a aplicação a aceder à chave ou segredo no cofre, utilize o `a
 Por exemplo, se o nome do seu Cofre é ContosoKeyVault, o aplicativo tem um appID do 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e pretende autorizar a aplicação a desencriptar e assinar com chaves no seu Cofre, utilize o seguinte comando:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 Para autorizar a mesma aplicação leia os segredos no cofre, escreva o seguinte comando:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
 ## <a name="bkmk_KVperCLI"></a> Cofre de chaves de configuração avançada de políticas de acesso
 
-Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-update) para ativar políticas avançadas para o Cofre de chaves. 
+Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-update) para ativar políticas avançadas para o Cofre de chaves.
 
  Ative o Key Vault para a implementação: Permite que as máquinas virtuais obter certificados armazenados como segredos do cofre.
+
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
- ``` 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+ ```
 
 Ative o Key Vault para encriptação de disco: É necessário quando utilizar o cofre para a encriptação de disco do Azure.
 
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
 Ative o Key Vault para implementação do modelo: Permite que o Resource Manager para obter segredos a partir do cofre.
- ```azurecli 
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+
+```azurecli 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Trabalhar com módulos de segurança de Hardware (HSMs)
@@ -252,25 +254,25 @@ Para criar estas chaves protegidas por HSM, tem de ter uma subscrição de cofre
 Quando cria o Cofre de chaves, adicione o parâmetro de "sku":
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
 ```
 
 Neste cofre, pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e chaves protegidas por HSM. Para criar uma chave protegida por HSM, defina o parâmetro de destino para 'HSM':
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
+az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 Pode utilizar o seguinte comando para importar uma chave a partir de um ficheiro. pem no seu computador. Este comando importa a chave os HSMs no serviço Cofre de Chaves:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
 O comando seguinte importa um pacote "traga a sua própria chave" (BYOK). Isto permite-lhe gerar a chave no seu HSM local e transferi-la para HSMs no serviço Cofre de Chaves, sem que a chave saia do limite HSM:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
 Para obter mais instruções sobre como gerar este pacote BYOK, consulte [como utilizar chaves de HSM-Protected com o Azure Key Vault](key-vault-hsm-protected-keys.md).
@@ -280,13 +282,13 @@ Para obter mais instruções sobre como gerar este pacote BYOK, consulte [como u
 Se já não precisar de Cofre de chaves e respetivas chaves ou segredos, pode eliminar o Cofre de chaves utilizando o `az keyvault delete` comando:
 
 ```azurecli
-az keyvault delete --name 'ContosoKeyVault'
+az keyvault delete --name "ContosoKeyVault"
 ```
 
 Em alternativa, pode eliminar um grupo de recursos completo do Azure, que inclui o Cofre de Chaves e quaisquer outros recursos que incluiu nesse grupo:
 
 ```azurecli
-az group delete --name 'ContosoResourceGroup'
+az group delete --name "ContosoResourceGroup"
 ```
 
 ## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Comandos de diversos Interface de linha de comandos para várias plataformas do Azure
@@ -296,31 +298,31 @@ Outros comandos que poderão ser úteis para a gestão do Azure Key Vault.
 Este comando lista uma tabela de apresentação de todas as chaves e propriedades selecionadas:
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 Este comando apresenta uma lista completa das propriedades para a chave especificada:
 
 ```azurecli
-az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Este comando lista uma tabela de apresentação de todos os nomes secretos e propriedades selecionadas:
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 Eis um exemplo de como remover uma chave específica:
 
 ```azurecli
-az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Eis um exemplo de como remover um segredo específico:
 
 ```azurecli
-az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
+az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957712"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215121"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure
 
 Este artigo descreve como resolver problemas quando se liga a uma máquina virtual do Azure (VM) e os serviços de ambiente de trabalho remoto ou TermService, não está a iniciar ou não consegue iniciar.
 
 > [!NOTE]  
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve com o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [O Azure Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve com o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -37,16 +37,16 @@ Quando tentar ligar a uma VM, ocorrer os seguintes cenários:
 
 - Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que os serviços de ambiente de trabalho remoto, TermService, não está a iniciar ou não conseguir iniciar. O registo seguinte é um exemplo:
 
-    **Nome de registo**: sistema </br>
-    **Origem**: Gestor de controlo de serviço </br>
-    **Data**: 12/16/2017 11:19:36 AM</br>
-    **ID de evento**: 7022</br>
-    **Categoria de tarefas**: nenhum</br>
-    **Nível**: erro</br>
-    **Palavras-chave**: clássico</br>
-    **Utilizador**: n/d</br>
+    **Nome de registo**:      Sistema </br>
+    **origem**:        Gestor de controlo de serviço </br>
+    **Data**:          12/16/2017 11:19:36 AM</br>
+    **ID de evento**:      7022</br>
+    **Categoria de tarefas**: Nenhuma</br>
+    **Nível**:         Erro</br>
+    **Palavras-chave**:      Clássica</br>
+    **Utilizador**:          N/A</br>
     **Computador**: vm.contoso.com</br>
-    **Descrição**: serviço de serviços de ambiente de trabalho remoto a suspenso sobre como iniciar. 
+    **Descrição**: O serviço de serviços de ambiente de trabalho remoto suspenso sobre como iniciar. 
 
     Também pode utilizar a funcionalidade de consola de acesso de série para procurar por estes erros ao executar a seguinte consulta: 
 
@@ -112,7 +112,7 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço de TermService está parado devido a um problema de acesso negado
 
-1. Ligar à [consola de série](serial-console-windows.md#) e abra uma instância do PowerShell.
+1. Ligar à [consola de série](serial-console-windows.md) e abra uma instância do PowerShell.
 2. Transferir a ferramenta de Monitor do processo executando o seguinte script:
 
    ```

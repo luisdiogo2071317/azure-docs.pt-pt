@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053564"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199789"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Submeta um grande número de tarefas para uma tarefa do Batch
 
@@ -45,7 +45,7 @@ O tamanho máximo da coleção de tarefas que podem ser adicionados numa única 
 * As seguintes APIs oferecem suporte a muito maiores coleções de tarefas - limitadas apenas pela disponibilidade de RAM no cliente submeter. Essas APIs transparente processam dividindo a coleção de tarefas em "partes" para o nível inferior APIs e as repetições se falhar a adição de tarefas.
 
     * [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [API de Java](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [API de Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [A extensão do Azure Batch CLI](batch-cli-templates.md) com os modelos da CLI do Batch
     * [Extensão do Python SDK](https://pypi.org/project/azure-batch-extensions/)
 
@@ -85,7 +85,7 @@ await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions)
 ```
 
 
-## <a name="example-batch-cli-extension"></a>Exemplo: Batch extensão da CLI
+## <a name="example-batch-cli-extension"></a>Exemplo: Extensão CLI do batch
 
 Usando as extensões da CLI do Azure Batch com [modelos da CLI do Batch](batch-cli-templates.md), crie um ficheiro JSON do modelo de tarefa que inclui um [factory tarefas](https://github.com/Azure/azure-batch-cli-extensions/blob/master/doc/taskFactories.md). A fábrica de tarefas configura uma coleção de tarefas relacionadas de uma tarefa a partir de uma definição de tarefa única.  
 
@@ -128,7 +128,7 @@ Segue-se um modelo de tarefa de exemplo para uma tarefa de unidimensional varrim
 ```
 Para executar uma tarefa com o modelo, veja [modelos de utilização do Azure Batch CLI e transferência de ficheiros](batch-cli-templates.md).
 
-## <a name="example-batch-python-sdk-extension"></a>Exemplo: Extensão de Batch SDK de Python
+## <a name="example-batch-python-sdk-extension"></a>Exemplo: Extensão de Python SDK do batch
 
 Para utilizar a extensão do SDK de Python do Azure Batch, primeiro de instalar o SDK de Python e a extensão:
 
