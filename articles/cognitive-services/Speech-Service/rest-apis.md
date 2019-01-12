@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338895"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230378"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -272,7 +272,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de voz. | Este cabeçalho de qualquer um dos ou `Authorization` é necessária. |
 | `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Este cabeçalho de qualquer um dos ou `Ocp-Apim-Subscription-Key` é necessária. |
-| `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codec=audio/pcm; samplerate=16000` e `audio/ogg; codec=audio/pcm; samplerate=16000`. | Necessário |
+| `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados em segmentos de áudio são enviados, em vez de um único arquivo. Utilize este cabeçalho apenas se a segmentação de dados de áudio. | Opcional |
 | `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. O serviço de voz reconhece o pedido inicial e awaits dados adicionais.| Necessário se o envio de dados de áudio em partes. |
 | `Accept` | Se for fornecido, tem de ser `application/json`. O serviço de voz fornece resultados em JSON. Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`. | Opcional mas recomendado. |
@@ -296,7 +296,7 @@ Este é um pedido HTTP comuns. O exemplo abaixo inclui o nome de anfitrião e ca
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro s
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 

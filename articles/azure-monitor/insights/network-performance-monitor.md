@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193795"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229851"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -109,7 +109,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
 4. Na **programa de configuração** página, verá a opção para instalar agentes do Log Analytics e configurar os agentes para monitorização no **definições comuns de** vista. Como explicado anteriormente, se instalar e configurar agentes do Log Analytics, selecione o **configuração** vista para configurar a capacidade de que pretende utilizar. 
 
-   **Monitor de desempenho**: Selecione o protocolo a utilizar para as transações sintéticas a **predefinido** regra do Monitor de desempenho e selecione **guardar e continuar**. Apenas se aplica esta seleção de protocolo para a regra padrão gerados pelo sistema. Tem de escolher o protocolo de cada vez que criar explicitamente uma regra de Monitor de desempenho. Sempre pode mover para o **predefinido** regra definições na **Monitor de desempenho** separador (aparecer depois de concluir a configuração do seu dia-0) e o protocolo de alterações mais tarde. Se não pretender que a capacidade de Monitor de rPerfomance, pode desativar a regra predefinida dos **predefinição** regra definições na **Monitor de desempenho** separador.
+   **Monitor de desempenho**: Selecione o protocolo a utilizar para as transações sintéticas a **predefinido** regra do Monitor de desempenho e selecione **guardar e continuar**. Apenas se aplica esta seleção de protocolo para a regra padrão gerados pelo sistema. Tem de escolher o protocolo de cada vez que criar explicitamente uma regra de Monitor de desempenho. Sempre pode mover para o **predefinido** regra definições na **Monitor de desempenho** separador (aparecer depois de concluir a configuração do seu dia-0) e o protocolo de alterações mais tarde. Se não pretender que a capacidade de Monitor de desempenho, pode desativar a regra predefinida dos **predefinição** regra definições na **Monitor de desempenho** separador.
 
    ![Vista de Monitor de desempenho](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -270,7 +270,7 @@ Se for um utilizador NPM, criação de um alerta através do Portal do Azure:
 4. Depois do alerta for criado com êxito, pode utilizar o link de gerir alertas para gerir os alertas. 
 
 Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é triggerred cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Notificações são cobradas em separado, de acordo [notificações de preço na página do Azure Monitor pricig](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Notificações são cobradas em separado, de acordo [notificações de preço na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Preços

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584025"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229783"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -69,6 +69,10 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 - O tamanho do ficheiro da imagem tem de ser inferior a 4 megabytes (MB)
 - As dimensões da imagem têm de ser superiores a 50 x 50 píxeis  
   Para OCR, as dimensões da imagem têm de ser entre 50 x 50 e 4200 x 4200 píxeis
+
+## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+
+Como com todos os serviços cognitivos, os desenvolvedores que usam o serviço de visão do computador devem estar ciente das políticas da Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

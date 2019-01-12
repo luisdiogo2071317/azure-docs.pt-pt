@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: a16360fe74efe7394c061118bc4e6fa34e484858
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198547"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229961"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -33,6 +33,15 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
 
 Para obter mais informações, consulte [orientações de migração para mover de serviços de multimédia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>Dezembro de 2018
+
+Atualizações da versão de disponibilidade geral da V3 API incluem:
+       
+* O **PresentationTimeRange** já não são "obrigatórios" para as propriedades **AssetFilters** e **AccountFilters**. 
+* O $top e $skip consultar as opções para **trabalhos** e **transforma** foram removidas e $orderby foi adicionado. Como parte de adicionar a nova funcionalidade de ordenação, foi descoberto que as opções de $top e $skip acidentalmente tinham foi expostas anteriormente, mesmo que não estão implementados.
+* Extensibilidade de enumeração foi reativada. Esta funcionalidade foi ativada nas versões de pré-visualização do SDK e acidentalmente foi desativada na versão GA.
+* Duas políticas predefinidas de transmissão em fluxo foram alteradas. **SecureStreaming** agora é **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembro de 2018
 

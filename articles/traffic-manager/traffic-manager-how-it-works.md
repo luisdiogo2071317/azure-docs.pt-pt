@@ -4,7 +4,7 @@ description: Este artigo ajuda-o a compreender como o Gestor de tráfego encamin
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: traffic-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 97ce7fb9d5a99f70e5dd6c81d8c8dd1af343117e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400372"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229256"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de tráfego
 
-O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Um ponto de extremidade é qualquer serviço de acesso à Internet hospedado dentro ou fora do Azure.
+O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
 
 Gestor de tráfego oferece duas vantagens principais:
 

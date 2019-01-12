@@ -1,9 +1,11 @@
 ---
-title: Aninhados perfis do Gestor de tráfego | Documentos da Microsoft
+title: Perfis aninhados do Gestor de tráfego no Azure
+titlesuffix: Azure Traffic Manager
 description: Este artigo explica a funcionalidade de 'Perfis aninhados' do Gestor de tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648603"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228831"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis do Gestor de Tráfego aninhados
 
@@ -26,9 +28,9 @@ Cada perfil do Traffic Manager Especifica um único método de encaminhamento de
 
 Os exemplos seguintes mostram como utilizar perfis aninhados do Gestor de tráfego em vários cenários.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: A combinação "Desempenho" e 'Ponderado' Encaminhamento de tráfego
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: A combinação de encaminhamento de tráfego "Desempenho" e 'Ponderado'
 
-Suponha que implementou uma aplicação em regiões do Azure seguinte: E.U.A. oeste, Europa Ocidental e Sudeste asiático. Utilize o método de encaminhamento de tráfego do Gestor de tráfego "Performance" para distribuir o tráfego para a região mais próximo do utilizador.
+Suponha que implementou uma aplicação nas seguintes regiões do Azure: E.U.A. oeste, Europa Ocidental e Sudeste asiático. Utilize o método de encaminhamento de tráfego do Gestor de tráfego "Performance" para distribuir o tráfego para a região mais próximo do utilizador.
 
 ![Perfil do Gestor de tráfego de único][4]
 
@@ -61,7 +63,7 @@ A figura a seguir ilustra esta configuração:
 > [!NOTE]
 > O método de encaminhamento de tráfego de 'Priority' distribui todo o tráfego para um único ponto final. Portanto há pouco finalidade numa definição MinChildEndpoints diferente de '1' para um perfil de subordinados.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemplo 3: Priorizadas regiões de ativação pós-falha no encaminhamento de tráfego "Performance"
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemplo 3: Regiões de ativação pós-falha com prioridade no encaminhamento de tráfego "Performance"
 
 O comportamento predefinido para o método de encaminhamento de tráfego de "Performance" é quando tem pontos finais em diferentes localizações geográficas, que os utilizadores finais são encaminhados para o ponto final "mais próximo" em termos a menor latência de rede.
 
@@ -83,7 +85,7 @@ Em vez de adicionar vários pontos de extremidade na Europa Ocidental, esses pon
 
 ![Tráfego de "Performance" encaminhamento com a distribuição de tráfego de na região e personalizados][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>Exemplo 5: As definições de monitorização por ponto final
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Exemplo 5: Definições de monitorização por ponto final
 
 Suponha que estiver a utilizar o Gestor de tráfego para migrar sem problemas tráfego a partir de um legado web site local para uma nova versão com base na Cloud alojada no Azure. Para o site de legado, que pretende utilizar a home page do URI para monitorizar o estado de funcionamento do site. Mas para a nova versão com base na Cloud, estão a implementar uma página personalizada de monitorização (caminho "/ monitor.aspx") que inclui verificações adicionais.
 

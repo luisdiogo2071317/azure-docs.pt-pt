@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188434"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229477"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -87,9 +87,7 @@ Depois de finalizar o documento Termos de utilização, utilize o procedimento q
 
 1. Para exigir que os utilizadores finais que vejam os termos de utilização antes de os aceitarem, defina **exigir que os utilizadores expandam os termos de utilização** ao **no**.
 
-1. Para exigir que os utilizadores finais a aceitar os termos de utilização em todos os dispositivos estão a aceder a partir de, defina **exigir que os utilizadores dar consentimento em todos os dispositivos** ao **no**.
-
-    Se não vir a **exigir que os utilizadores dar consentimento em todos os dispositivos** definir, é porque esta funcionalidade ainda não foi implementada para sua região. Esta funcionalidade é esperada para ser totalmente implementado pelo início de Janeiro de 2019. Para obter mais informações, consulte [por dispositivo termos de utilização](#per-device-terms-of-use).
+1. Para exigir que os utilizadores finais a aceitar os termos de utilização em todos os dispositivos estão a aceder a partir de, defina **exigir que os utilizadores dar consentimento em todos os dispositivos** ao **no**. Para obter mais informações, consulte [por dispositivo termos de utilização](#per-device-terms-of-use).
 
 1. Se quiser expirar termos de utilização autorizar com base numa agenda, defina **expirar consentimentos** ao **no**. Quando definido como no, são apresentadas duas definições de agendamento adicionais.
 
@@ -253,9 +251,6 @@ O procedimento seguinte descreve como adicionar termos de linguagem de utilizaç
 ## <a name="per-device-terms-of-use"></a>Por dispositivo termos de utilização
 
 O **exigir que os utilizadores dar consentimento em todos os dispositivos** definição permite-lhe exigir que os utilizadores finais aceitar os termos de utilização em todos os dispositivos estão a aceder a partir de. O utilizador final será necessário para associar os seus dispositivos no Azure AD. Quando o dispositivo é associado, o ID de dispositivo é utilizado para impor os termos de utilização em cada dispositivo.
-
-> [!NOTE]
-> Se não vir a **exigir que os utilizadores dar consentimento em todos os dispositivos** definição quando criar novos termos de utilização, é porque esta funcionalidade ainda não foi implementada para sua região. Esta funcionalidade é esperada para ser totalmente implementado pelo início de Janeiro de 2019.
 
 Aqui está uma lista das plataformas suportadas e software.
 

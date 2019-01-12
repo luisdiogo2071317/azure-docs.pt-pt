@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556106"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229401"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar a sua criação e o monitor trabalhar condições duplos Digital do Azure
 
@@ -30,6 +30,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial pressupõe que tenha [concluída a configuração de duplos Digital do Azure](tutorial-facilities-setup.md). Antes de avançar, confirme que tem:
+
 - Uma [conta do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uma instância do Digital Twins em execução. 
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho. 
@@ -37,6 +38,7 @@ Este tutorial pressupõe que tenha [concluída a configuração de duplos Digita
 - [Visual Studio Code](https://code.visualstudio.com/), para explorar o código de exemplo. 
 
 ## <a name="define-conditions-to-monitor"></a>Definir as condições a monitorizar
+
 Pode definir um conjunto de condições específicas para monitorizar os dados de sensor ou dispositivo, chamado *matchers*. Em seguida, pode definir funções chamadas *funções definidas pelo utilizador*. Funções definidas pelo utilizador executar a lógica personalizada em dados provenientes da sua espaços e os dispositivos, quando as condições especificadas pelos matchers ocorrem. Para obter mais informações, leia [processamento de dados e funções definidas pelo utilizador](concepts-user-defined-functions.md). 
 
 Partir do **ocupação-quickstart** projeto de exemplo, abra o arquivo **src\actions\provisionSample.yaml** no Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob este tipo cria na ferramenta de correspondência com a especificado **nome**. Na ferramenta de correspondência que irá monitorizar um sensor do tipo **dataTypeValue**. Observe como ele se relaciona com o espaço com o nome *A1 de sala de foco*, que tem um **dispositivos** nó que contém alguns sensores. Para aprovisionar na ferramenta de correspondência que irá controlar a um destes sensores, certifique-se de que seus **dataTypeValue** corresponda o sensor **dataType**. 
@@ -48,14 +50,15 @@ Adicione a seguinte na ferramenta de correspondência, abaixo dos matchers exist
         dataTypeValue: Temperature
 ```
 
-Na ferramenta de correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que adicionou no [o primeiro tutorial](tutorial-facilities-setup.md). Estas linhas também estão presentes no *provisionSample.yaml* ficheiro como linhas Comentada. Pode remover os comentários-los ao remover o `#` caractere à frente de cada linha. 
+Na ferramenta de correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que adicionou no [o primeiro tutorial](tutorial-facilities-setup.md). Estas linhas também estão presentes no *provisionSample.yaml* ficheiro como linhas Comentada. Pode remover os comentários-los ao remover o `#` caractere à frente de cada linha.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
+
 Pode utilizar funções definidas pelo utilizador para personalizar o processamento dos seus dados de sensor. Eles são o código JavaScript personalizado que pode ser executado dentro de sua instância de duplos Digital do Azure, quando condições específicas, conforme descrito pelos matchers ocorrem. Pode criar matchers e funções definidas pelo utilizador para cada sensor que pretende monitorizar. Para obter mais informações, leia [processamento de dados e funções definidas pelo utilizador](concepts-user-defined-functions.md). 
 
-No ficheiro de provisionSample.yaml de exemplo, procure uma seção que começa com o tipo **userdefinedfunctions**. Esta secção fornece uma função definida pelo utilizador com um determinado **nome**. Este UDF atua na lista de matchers sob **matcherNames**. Repare que pode fornecer o seu próprio ficheiro JavaScript para a UDF como o **script**. 
+No ficheiro de provisionSample.yaml de exemplo, procure uma seção que começa com o tipo **userdefinedfunctions**. Esta secção fornece uma função definida pelo utilizador com um determinado **nome**. Este UDF atua na lista de matchers sob **matcherNames**. Repare que pode fornecer o seu próprio ficheiro JavaScript para a UDF como o **script**.
 
 Veja também a secção com o nome **roleassignments**. Atribui a função de administrador de espaço para a função definida pelo utilizador. Esta função permite que os eventos provenientes de nenhum dos espaços de aprovisionamento de acesso. 
 
@@ -188,7 +191,7 @@ Veja também a secção com o nome **roleassignments**. Atribui a função de ad
 > [!TIP]
 > Se obtiver uma mensagem de erro semelhante a "a operação de e/s foi abortada devido a um pedido de aplicação ou de uma saída de thread" no meio o aprovisionamento, tentar executar o comando novamente. Isto pode acontecer se o cliente HTTP excedeu o limite de tempo de um problema de rede.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simular dados do sensor
 
@@ -202,7 +205,7 @@ Nesta secção, vai utilizar o projeto com o nome *conectividade do dispositivo*
     dotnet restore
     ```
 
-1. Abra o **appSettings** no seu editor de ficheiros e edite os valores seguintes:
+1. Abra o [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) no seu editor de ficheiros e edite os valores seguintes:
 
    a. **DeviceConnectionString**: Atribuir o valor de `ConnectionString` na janela de saída da secção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possam ligar-se corretamente com o hub IoT.
 
@@ -233,6 +236,7 @@ Nesta secção, vai utilizar o projeto com o nome *conectividade do dispositivo*
    > Uma vez que o exemplo de simulação não comunicam diretamente com a instância de duplos Digital, não necessita que a autenticação.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obter resultados da função definida pelo utilizador
+
 A função definida pelo utilizador é executada sempre que a sua instância recebe dados de dispositivos e de sensores. Esta secção consulta sua instância de duplos Digital do Azure para obter os resultados da função definida pelo utilizador. Verá em tempo real, quando uma sala estiver disponível, que o ar está fresco e temperatura é adequada. 
 
 1. Abra a janela de comando que utilizou para aprovisionar o exemplo ou uma nova janela de comando e vá para o **ocupação quickstart\src** pasta do exemplo novamente.

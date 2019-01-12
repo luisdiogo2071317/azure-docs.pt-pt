@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997933"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228814"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
 
@@ -89,6 +89,32 @@ Defina o conteúdo do arquivo xml. Edite o exemplo seguinte para incluir ou omit
 Tem de ativar a exceção de relatórios e o tempo de método para métodos individuais.
 
 Por predefinição, `reportExecutionTime` é verdadeiro e `reportCaughtExceptions` é false.
+
+### <a name="spring-boot-agent-additional-config"></a>Da Primavera de agente de arranque de configuração adicional
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> IA Agent.xml e o ficheiro jar do agente devem estar na mesma pasta. Eles, muitas vezes, são colocados em conjunto no `/resources` pasta do projeto. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>Ativar o rastreio distribuído do W3C
+
+Adicione o seguinte ao IA-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> O modo de compatibilidade com versões anteriores está ativado por predefinição e o parâmetro enableW3CBackCompat é opcional e deve ser usado apenas quando pretender desativá-la. 
+
+Idealmente, isso seria o caso quando todos os seus serviços foram atualizados para a versão mais recente de SDKs que suporta o protocolo de W3C. É altamente recomendado para mover para a versão mais recente dos SDKs com suporte de W3C logo que possível.
+
+Certifique-se de que **ambos [entrada](correlation.md#w3c-distributed-tracing) e de saída configurações (agente)** são exatamente iguais.
 
 ## <a name="view-the-data"></a>Ver os dados
 O recurso do Application Insights, agregados remotos dependência e o método tempos de execução aparece [sob o mosaico de desempenho][metrics].

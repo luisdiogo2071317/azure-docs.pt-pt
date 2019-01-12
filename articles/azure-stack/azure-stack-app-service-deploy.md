@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bbb8e39e60500a2d8310159cfbac5659964fc387
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104765"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230021"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -46,6 +46,9 @@ Instalar o fornecedor de recursos do serviço de aplicações, pelo menos, leva 
  - Crie uma zona DNS e as entradas para o serviço de aplicações.
  - Registe o fornecedor de recursos do serviço de aplicações.
  - Registre-se os itens de galeria do serviço de aplicações.
+
+ > [!IMPORTANT]
+ > Antes de implementar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
 
 Para implementar o fornecedor de recursos do serviço de aplicações, siga estes passos:
 

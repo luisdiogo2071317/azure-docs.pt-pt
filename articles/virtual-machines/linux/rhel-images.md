@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719634"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229579"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens de Red Hat Enterprise Linux no Azure
-Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomenclatura e retenção
+Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomenclatura e retenção.
+
+Podem encontrar informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL no [ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) página.
 
 ## <a name="images-available-in-the-ui"></a>Imagens disponíveis na interface de Usuário
 Ao procurar "Red Hat" no Marketplace ou quando cria um recurso no portal do Azure da interface do Usuário, verá um subconjunto das imagens disponíveis do RHEL e produtos relacionados do Red Hat. Sempre pode obter o conjunto completo de imagens VM disponíveis com a CLI/PowerShell/API do Azure.
@@ -108,3 +110,4 @@ A nossa política atual é manter todas as imagens publicadas anteriormente. Res
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a infraestrutura de atualização do Azure Red Hat [aqui](https://aka.ms/rhui-update).
+* Podem encontrar informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL no [ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) página.

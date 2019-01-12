@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 279f029dee9e49985805a383fb4fefb82a4f4ebd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038335"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230174"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de débito no Azure Cosmos DB
 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Os SDKs nativos (.NET/.NET Core, Java, node. js e Python) implicitamente capturar essa resposta, respeitem o servidor especificado cabeçalho retry-after e repetir o pedido. A menos que a sua conta é acessada em simultâneo por vários clientes, a próxima repetição será concluída com êxito.
 
-Se tiver mais do que um cliente de forma a funcionar consistentemente acima a taxa de pedidos, a predefinição contagem de repetições atualmente que está definida para 9 pode bot ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com o estado de código 429 à aplicação. A contagem de repetições padrão pode ser alterada ao definir o `RetryOptions` na instância ConnectionPolicy. Por predefinição, o DocumentClientException com código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos se o pedido continuar a operar acima a taxa de pedidos. Isto ocorre mesmo quando o número atual de tentativas é menor que o número máximo de tentativas, seja ele o padrão de 9 ou de um valor definido pelo utilizador. 
+Se tiver mais do que um cliente cumulativamente e a funcionar consistentemente acima a taxa de pedidos, a predefinição contagem de repetições atualmente que está definida para 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com o estado de código 429 à aplicação. A contagem de repetições padrão pode ser alterada ao definir o `RetryOptions` na instância ConnectionPolicy. Por predefinição, o DocumentClientException com código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos se o pedido continuar a operar acima a taxa de pedidos. Isto ocorre mesmo quando o número atual de tentativas é menor que o número máximo de tentativas, seja ele o padrão de 9 ou de um valor definido pelo utilizador. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) está definido para 3, então, neste caso, se uma operação de pedido tem velocidade limitada por ter excedido o débito reservado para a coleção, a operação de pedido tentará novamente três vezes antes que ocorra a exceção ao aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definida como 60, então, nesse caso se a repetição cumulativa aguarda o tempo em segundos desde o primeiro pedido excede 60 segundos, a exceção é lançada.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191824"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229307"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
@@ -144,7 +144,7 @@ Por fim, a caixa de verificação junto a **GetWebContent** no *valores* Seletor
 
 ![Métricas de Web sites estáticos de armazenamento do Azure GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-Uma ativada, estatísticas de tráfego em ficheiros nos *$web* contentor comunicado no dashboard de indicadores.
+Estatísticas em arquivos de tráfego de uma vez ativada, o *$web* contentor são apresentadas no dashboard de indicadores.
 
 ## <a name="faq"></a>FAQ
 

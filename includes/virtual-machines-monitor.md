@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122824"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242372"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Pode configurar e monitorizar a coleção de [dados de diagnóstico](https://doc
 
 ## <a name="alerts"></a>Alertas
 
-Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), utilizando [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou o [da CLI do Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), utilizando [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), ou o [da CLI do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 

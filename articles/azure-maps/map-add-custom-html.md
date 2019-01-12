@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888779"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231739"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como adicionar um HTML personalizado, como um ficheiro de
 > Marcadores HTML não ligar a origens de dados. Em vez disso, as informações de posição são adicionadas diretamente para o marcador e marcador é adicionado para os mapas `markers` propriedade que é um [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Ao contrário da maioria das camadas no controle da Web de mapas do Azure que utilizar de WebGL para processamento, marcadores de HTML usar elementos de DOM tradicionais para processamento. Como tal, os marcadores HTML mais adicionado uma página, os elementos DOM mais existem. Depois de adicionar alguns marcadores de hundered HTML pode degradar o desempenho. Para conjuntos de dados maiores, considere o clustering de seus dados ou usando uma camada de símbolo ou de bolhas.
+> Ao contrário da maioria das camadas no controle da Web de mapas do Azure que utilizar de WebGL para processamento, marcadores de HTML usar elementos de DOM tradicionais para processamento. Como tal, os marcadores HTML mais adicionado uma página, os elementos DOM mais existem. Depois de adicionar alguns centenas marcadores de HTML pode degradar o desempenho. Para conjuntos de dados maiores, considere o clustering de seus dados ou usando uma camada de símbolo ou de bolhas.
 
 ## <a name="add-an-html-marker"></a>Adicionar um marcador HTML
 

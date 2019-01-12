@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104595"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230480"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**, que transfere todos os registos. Outros valores possíveis (na ordem da maioria às informações do menor) são **verboso**, **informações**, **aviso**, **erro**e o **Críticos**.|  
+|**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**, que transfere todos os registos. Outros valores possíveis (na ordem da maioria às informações do menor) são **verboso**, **informações**, **aviso**, **erro**e o **Críticos**.|  
 |**scheduledTransferPeriod**|**Duração**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 |**Coletores de** |**string**| Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de eventos.|  
 
