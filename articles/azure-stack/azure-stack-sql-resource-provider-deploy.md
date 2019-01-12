@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156209"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246964"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do SQL Server no Azure Stack
 
@@ -59,8 +60,11 @@ _Para instalações de sistemas integrados apenas_. Tem de fornecer o certificad
 
 ## <a name="deploy-the-sql-resource-provider"></a>Implementar o fornecedor de recursos do SQL
 
-Após tem todos os pré-requisitos instalados, execute o **DeploySqlProvider.ps1** script para implementar o fornecedor de recursos do SQL. O script de DeploySqlProvider.ps1 é extraído como parte do binário do fornecedor de recursos SQL que transferiu para a sua versão do Azure Stack.
+Depois de instalar todos os pré-requisitos, pode executar o **DeploySqlProvider.ps1** script para implementar o fornecedor de recursos do SQL. O script de DeploySqlProvider.ps1 é extraído como parte do binário do fornecedor de recursos SQL que transferiu para a sua versão do Azure Stack.
 
+ > [!IMPORTANT]
+ > Antes de implementar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
+ 
 Para implementar o fornecedor de recursos do SQL, abra um **novo** elevados janela do PowerShell (ISE do PowerShell não) e para o diretório onde extraiu arquivos binários de fornecedor de recursos do SQL. Recomendamos que utilize uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já são carregados.
 
 Execute o script de DeploySqlProvider.ps1, que conclui as seguintes tarefas:
@@ -133,6 +137,10 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

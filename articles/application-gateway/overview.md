@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714757"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246471"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -78,7 +78,7 @@ Por exemplo, os pedidos de `http://contoso.com/video/*` são encaminhados para V
 
 ## <a name="multiple-site-hosting"></a>Alojamento de vários sites
 
-O alojamento de vários sites permite-lhe configurar mais do que um site na mesma instância do gateway de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações ao adicionar até 20 sites a um gateway de aplicação. Cada site pode ser direcionado para o seu próprio agrupamento. Por exemplo, o gateway de aplicação pode servir o tráfego para `contoso.com` e `fabrikam.com` a partir de dois agrupamentos de servidores denominados ContosoServerPool e FabrikamServerPool.
+O alojamento de vários sites permite-lhe configurar mais do que um site na mesma instância do gateway de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as implementações ao adicionar até 100 web sites para um gateway de aplicação. Cada site pode ser direcionado para o seu próprio agrupamento. Por exemplo, o gateway de aplicação pode servir o tráfego para `contoso.com` e `fabrikam.com` a partir de dois agrupamentos de servidores denominados ContosoServerPool e FabrikamServerPool.
 
 Os pedidos de `http://contoso.com` são encaminhados para ContosoServerPool e os pedidos de `http://fabrikam.com` são encaminhados para FabrikamServerPool.
 

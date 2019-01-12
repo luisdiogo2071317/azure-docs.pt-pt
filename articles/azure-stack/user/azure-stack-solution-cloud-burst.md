@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: d2bdb351b72c9280a223381b62c01fff7ca5ca00
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968208"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244737"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções entre Clouds de dimensionamento com o Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como criar uma solução entre Clouds para fornecer um processo manualmente acionado para alternar de um Azure Stack alojada a aplicação web, a Azure alojada a aplicação web com o dimensionamento automático através do Gestor de tráfego, garantindo o utilitário de nuvem flexível e dimensionável quando sob carga.
 
@@ -273,7 +273,7 @@ Uso [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/re
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar implementação da aplicação web autônomo para serviços de aplicações em ambas as nuvens
 
-1.  Editar a **WebApplication.csproj** ficheiro: selecionar **Runtimeidentifier** e, em seguida, adicione o win10 x64. Para obter mais informações, consulte [implementação autónoma e contém](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
+1.  Editar a **WebApplication.csproj** ficheiro: Selecione **Runtimeidentifier** e, em seguida, adicione o win10 x64. Para obter mais informações, consulte [implementação autónoma e contém](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
 
 2.  Utilize o Team Explorer para verificar o código em repositórios do Azure.
 

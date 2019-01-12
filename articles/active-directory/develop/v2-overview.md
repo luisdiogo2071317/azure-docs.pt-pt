@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286695"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232474"
 ---
 # <a name="about-v20"></a>Sobre o v2.0
 
@@ -30,13 +30,13 @@ A plataforma e o ponto final do v2.0 estão em pré-visualização e são contin
 > [!NOTE]
 > A MSAL Android, iOS e .NET ainda têm funcionalidades em desenvolvimento. Pode utilizá-los para criar aplicações e enviar-nos comentários.
 
-A experiência do programador do portal do Azure foi significativamente atualizada para incluir todas as suas aplicações criadas com a ADAL ou a MSAL, e para melhorar a usabilidade.
+O portal do Azure [registos de aplicações (pré-visualização)](quickstart-register-app.md) experiência foi significativamente atualizada para incluir todas as suas aplicações criadas com o ADAL ou MSAL e para melhorar a usabilidade.
 
 No passado, os programadores de aplicações que queriam suportar as contas pessoais e profissionais da Microsoft do Azure Active Directory (Azure AD) tinham de se integrar em dois sistemas separados. A plataforma e o ponto final do v2.0 oferece uma versão da API de autenticação que simplifica este processo. Permite inícios de sessão de ambos os tipos de contas, através de uma única integração. As aplicações que utilizam o ponto final do v2.0 também podem consumir as APIs REST do [Microsoft Graph API](https://developer.microsoft.com/graph) ao utilizar ambos os tipos de contas.
 
 ## <a name="getting-started"></a>Introdução
 
-Escolha a sua plataforma favorita na lista seguinte para criar uma aplicação com as bibliotecas e arquiteturas de código aberto da Microsoft. Também pode utilizar os protocolos OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente, sem utilizar uma biblioteca de autenticação.
+Escolha a sua plataforma favorita na lista seguinte para criar uma aplicação com o Microsoft abrir estruturas e bibliotecas de origem:
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Saiba mais sobre o que pode fazer com o ponto final do Azure AD v2.0:
 
 * Detete os [tipos de aplicações que pode criar com o ponto de final do Azure AD v2.0](v2-app-types.md).
 * Compreenda os [limites e restrições](active-directory-v2-limitations.md) com o ponto final do Azure AD v2.0.
-* Veja este vídeo para obter uma descrição geral do ponto final do Azure AD v2.0:
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 Explore informações aprofundadas sobre o v2.0:
 
+* [Sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md)
 * [Referência de protocolos do v2.0](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
 * [Referência de tokens de ID](id-tokens.md)

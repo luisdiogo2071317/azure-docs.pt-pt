@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139691"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243887"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminar um inquilino do Azure Active Directory
+
 Quando um inquilino é eliminado, também são eliminados todos os recursos que estão contidos no inquilino. Tem de preparar o inquilino ao minimizarem os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Active Directory (Azure AD) pode eliminar um inquilino do Azure AD a partir do portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparar o inquilino para eliminação
@@ -59,17 +60,17 @@ Estado da subscrição | Dados | Acesso a dados
 Active Directory (30 dias para avaliação)  | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos 
 Expirada (30 dias)   | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos
 Desativado (30 dias) | Dados acessíveis para apenas administradores  | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem aceder ao centro de administração do Office 365, mas não é possível atribuir licenças para ou atualizar utilizadores
-Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerir outras subscrições 
+Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerir outras subscrições
 
 Pode colocar uma subscrição para um **Deprovisoned** estado para ser eliminada em 3 dias, com a Microsoft Store para o Centro de administração de negócios. Esta funcionalidade estará disponível em breve para o Centro de administração do Office 365.
 
 1. Inicie sessão para o [Microsoft Store para o Centro de administração empresarial](https://businessstore.microsoft.com/manage/) com uma conta que seja um Administrador Global no inquilino. Se estiver a tentar eliminar o inquilino de "Contoso" que tem o contoso.onmicrosoft.com de domínio predefinido inicial, inicie sessão com um UPN como admin@contoso.onmicrosoft.com.
 
-2. Vá para o **Manage** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar. Depois de clicar em **Cancelar**, atualize a página.
+2. Vá para o **Manage** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar e selecione **eliminar**.
   
   ![Eliminar a ligação para a eliminar subscrição](./media/directory-delete-howto/delete-command.png)
   
-3. Selecione **eliminar** para eliminar a subscrição e aceite os termos e condições. Todos os dados serão eliminados permanentemente dentro de três dias. Pode reativar a subscrição durante o período de três dias, se mudar de ideias.
+3. Selecione **eliminar subscrição** para aceitar os termos e condições e eliminar a subscrição. Todos os dados é eliminado permanentemente no prazo de três dias. Pode reativar a subscrição durante os próximos três dias, se mudar de ideias.
   
   ![termos e condições](./media/directory-delete-howto/delete-terms.png)
 

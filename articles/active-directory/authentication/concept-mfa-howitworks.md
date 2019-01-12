@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4e1dc4ded48330f19a11db193fa5fe400326b420
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114163"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232826"
 ---
-# <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Azure multi-factor Authentication
+# <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Multi-Factor Authentication do Azure
 
 A segurança de verificação de dois passos está na sua abordagem em camadas. Comprometer a vários fatores de autenticação apresenta um desafio significativo dos invasores. Mesmo que um atacante conseguir saber a senha do usuário, é inútil sem também ter posse do método de autenticação adicional. Ele funciona exigindo dois ou mais dos seguintes métodos de autenticação:
 
@@ -27,7 +27,7 @@ A segurança de verificação de dois passos está na sua abordagem em camadas. 
 
 <center>![Imagem de métodos de autenticação conceitual](./media/concept-mfa-howitworks/methods.png)</center>
 
-O Azure multi-factor Authentication (MFA) ajuda a salvaguardar o acesso a dados e aplicativos, mantendo a simplicidade para os utilizadores. Ele fornece segurança adicional, exigindo que uma segunda forma de autenticação e proporciona uma autenticação segura através de um conjunto de fácil de usar [métodos de autenticação](concept-authentication-methods.md).
+O Azure multi-factor Authentication (MFA) ajuda a salvaguardar o acesso a dados e aplicativos, mantendo a simplicidade para os utilizadores. Ele fornece segurança adicional, exigindo que uma segunda forma de autenticação e proporciona uma autenticação segura através de um conjunto de fácil de usar [métodos de autenticação](concept-authentication-methods.md). Os utilizadores podem ou não podem ser submetidos à MFA com base nas decisões de configuração que faz com que um administrador.
 
 ## <a name="how-to-get-multi-factor-authentication"></a>Como obter a multi-factor Authentication?
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214594"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247627"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -40,9 +40,9 @@ Este artigo descreve o conteúdo do pacote de atualização de 1811. O pacote de
 O Azure Stack lança correções em intervalos regulares. Certifique-se de que instalar o [mais recente do Azure Stack correção](#azure-stack-hotfixes) para 1809 antes de atualizar o Azure Stack para 1811.
 
 > [!TIP]  
-> Subscrever o seguinte procedimento *RRS* ou *Atom* feeds para se manter atualizado com correções do Azure Stack:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> Subscrever o seguinte procedimento *RSS* ou *Atom* feeds para se manter atualizado com correções do Azure Stack:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Correções de pilha do Azure
 
@@ -260,6 +260,8 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    O erro ocorre se ativar diagnósticos de arranque numa VM, mas eliminar a sua conta de armazenamento de diagnósticos de arranque. Para contornar este problema, recrie a conta de armazenamento com o mesmo nome que utilizou anteriormente.
+
+- Ao criar um [VM da série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 VMs permitem-lhe criar 4, 8, 16 e discos de dados de 32, respetivamente. No entanto, o painel VM de criar mostra 8, 16, 32 e 64 discos de dados.
 
 <!-- 3235634 – IS, ASDK -->
 - Para implementar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especifique o sufixo como **Standard_A2_v2** (v em minúsculas). Não utilize **Standard_A2_V2** (V maiúsculo). Isso funciona no global Azure e é uma inconsistência no Azure Stack.

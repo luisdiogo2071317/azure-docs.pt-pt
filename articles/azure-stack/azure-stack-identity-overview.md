@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902846"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245689"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Descrição geral de identidade para o Azure Stack
 
@@ -33,8 +33,8 @@ O Azure Stack requer o Azure Active Directory (Azure AD) ou serviços de Federa�
 
 Para obter mais informações sobre as suas opções dependem do seu ambiente do Azure Stack, veja os artigos seguintes:
 
-- Kit de implementação do Azure Stack: [considerações sobre a identidade](azure-stack-datacenter-integration.md#identity-considerations).
-- Sistemas integrados do Azure Stack: [decisões para o Azure Stack de planejamento da implantação de sistemas integrados](azure-stack-deployment-decisions.md).
+- Kit de implementação do Azure Stack: [Considerações sobre a identidade](azure-stack-datacenter-integration.md#identity-considerations).
+- Sistemas integrados do Azure Stack: [Decisões para o Azure Stack de planejamento da implantação de sistemas integrados](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Conceitos comuns para a identidade
 
@@ -80,17 +80,17 @@ Pode registar aplicações para o Azure AD ou AD FS e, em seguida, oferecer as a
 
 Aplicações incluem:
 
-- **Aplicação Web**: os exemplos incluem o portal do Azure e o Azure Resource Manager. Eles oferecem suporte a chamadas de Web API.
-- **Cliente nativo**: os exemplos incluem o Azure PowerShell, o Visual Studio e o CLI do Azure.
+- **Aplicação Web**: Os exemplos incluem o portal do Azure e o Azure Resource Manager. Eles oferecem suporte a chamadas de Web API.
+- **Cliente nativo**: Os exemplos incluem o Azure PowerShell, o Visual Studio e o CLI do Azure.
 
 Aplicativos podem suportar dois tipos de inquilinos:
 
-- **Inquilino único**: suporta utilizadores e serviços apenas a partir do mesmo diretório em que a aplicação fica registada.
+- **Inquilino único**: Suporta utilizadores e serviços apenas a partir do mesmo diretório em que a aplicação fica registada.
 
   > [!NOTE]
   > Como o AD FS suporta apenas um único diretório, aplicações que criar numa topologia do AD FS são, por design, aplicações de inquilino único.
 
-- **Multi-inquilino**: suporta utilizar por utilizadores e serviços do diretório onde o aplicativo está registado e diretórios de inquilinos adicionais. Com aplicativos de multi-inquilino, os utilizadores de outro pode de diretório (noutro inquilino do Azure AD) do inquilino iniciar sessão para a sua aplicação. 
+- **Multi-inquilino**: Suporta a utilizar por utilizadores e serviços do diretório onde o aplicativo está registado e diretórios de inquilinos adicionais. Com aplicativos de multi-inquilino, os utilizadores de outro pode de diretório (noutro inquilino do Azure AD) do inquilino iniciar sessão para a sua aplicação. 
 
   Para obter mais informações sobre vários inquilinos, consulte [ativar multi-inquilinos](azure-stack-enable-multitenancy.md).
 
@@ -100,7 +100,7 @@ Quando registar uma aplicação, vai criar dois objetos:
 
 - **Objeto de aplicativo**: A representação global da aplicação em todos os inquilinos. Esta relação é um para um com o aplicativo de software e existe somente no diretório em que a aplicação é registada pela primeira vez.
 
-- **Objeto principal do serviço**: uma credencial que é criada para uma aplicação no diretório em que a aplicação é registada pela primeira vez. Também é criado um principal de serviço no diretório de cada inquilino adicional em que esse aplicativo é usado. Esta relação pode ser um-para-muitos com a aplicação de software.
+- **Objeto principal do serviço**: Uma credencial criada para uma aplicação no diretório em que a aplicação é registada pela primeira vez. Também é criado um principal de serviço no diretório de cada inquilino adicional em que esse aplicativo é usado. Esta relação pode ser um-para-muitos com a aplicação de software.
 
 Para saber mais sobre a aplicação e objetos de principal de serviço, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -157,7 +157,7 @@ Para autenticar com o fornecedor de identidade e receber um JSON Web Token, tem 
 
 1. **URL para o sistema de identidade (autoridade)**: O URL em que o seu fornecedor de identidade pode ser contatado. Por exemplo, *https://login.windows.net*.
 2. **O URI de ID de aplicação para o Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registada no fornecedor de identidade. Também é exclusivo para cada instalação do Azure Stack.
-3. **Credenciais**: A credencial é utilizada para autenticar com o fornecedor de identidade.
+3. **credenciais**: A credencial que é utilizada para autenticar com o fornecedor de identidade.
 4. **URL para o Azure Resource Manager**: O URL é a localização do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
 
 Quando uma entidade de segurança (um cliente, aplicativo ou usuário) faz um pedido de autenticação para aceder a um recurso, o pedido tem de incluir:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 971d0181cb8e38b952c3dd3dd1d7e5e1cbec5128
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720139"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244655"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 
@@ -43,7 +43,7 @@ Para criar uma identidade gerida atribuído ao utilizador, a conta tem do [Contr
 3. Clique em **Add** e introduza os valores nos campos a seguir sob **atribuída ao utilizador criar geridos** painel de identidade:
    - **Nome do recurso**: Este é o nome para o seu utilizador atribuído identidade gerida, por exemplo UAI1.
    - **Subscrição**: Escolha a subscrição para criar a identidade gerida atribuído ao utilizador em
-   - **Grupo de recursos**: Crie um novo grupo de recursos para conter a sua identidade gerida atribuído ao utilizador ou escolha **utilizar existente** para criar a identidade gerida atribuído ao utilizador no grupo de recursos existente.
+   - **Grupo de recursos**: Criar um novo grupo de recursos para conter a sua identidade gerida atribuído ao utilizador ou escolha **utilizar existente** para criar a identidade gerida atribuído ao utilizador no grupo de recursos existente.
    - **Localização**: Escolha uma localização para implementar a identidade gerida atribuído ao utilizador, por exemplo **E.U.A. oeste**.
 4. Clique em **Criar**.
 
@@ -62,6 +62,8 @@ A lista/leitura uma identidade gerida atribuído ao utilizador, a conta tem do [
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuído ao utilizador
 
 Para eliminar uma identidade gerida atribuído ao utilizador, a conta tem do [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) atribuição de função.
+
+A eliminar um identidade atribuída ao utilizador não o remove da VM ou recurso que foi atribuído a.  Para remover a identidade atribuída ao utilizador a uma veja VM [remover uma identidade gerida atribuído ao utilizador a partir de uma VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para eliminar uma identidade gerida atribuído ao utilizador.
 2. Selecionar a identidade gerida atribuído ao utilizador e clique em **eliminar**.

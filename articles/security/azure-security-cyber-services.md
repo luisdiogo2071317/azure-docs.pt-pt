@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: eed545c88b840f942ad763793595ef5b9c3cd19d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233699"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244924"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços da Microsoft em Cibersegurança
 
-O Microsoft Services oferece uma abordagem abrangente para segurança, identidade e cibersegurança. Microsoft Services fornece uma matriz de serviços de segurança e identidade em estratégia, planejamento, implementação e suporte contínuo. Estes serviços podem ajudar a implementar soluções de segurança holística que se alinham com seus objetivos estratégicos dos clientes empresariais.
+O Microsoft Services oferece uma abordagem abrangente para segurança, identidade e cibersegurança. Eles incluem uma matriz de serviços de segurança e identidade estratégia, planejamento, implementação e suporte contínuo. Estes serviços podem ajudar a implementar soluções de segurança que se alinham com seus objetivos estratégicos dos clientes empresariais.
 
-Acesso direto às equipes de desenvolvimento de produto, podemos criar soluções que se integram e melhorar a segurança mais recente e capacidades de identidade dos nossos produtos para ajudar a proteger dos nossos clientes empresariais e impulsione a inovação.
+Serviços da Microsoft podem criar soluções que se integram e melhorar a segurança mais recente e capacidades de identidade dos nossos produtos para ajudar a proteger o seu negócio e impulsione a inovação.
 
-Conferidos com ajudar a proteger e permitem às organizações de maior do mundo, nosso grupo diverso de profissionais técnicos é composta por especialistas altamente treinadas que oferecem uma grande quantidade de segurança e a experiência de identidade.
+A nossa equipa de profissionais técnicos é composta por especialistas altamente treinadas que oferecem uma grande quantidade de segurança e a experiência de identidade.
 
 Saiba mais sobre os serviços fornecidos pelo Microsoft Services:
 

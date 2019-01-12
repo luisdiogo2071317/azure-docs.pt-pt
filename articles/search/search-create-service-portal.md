@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002642"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230531"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
-O Azure Search é um recurso de autónomo utilizado para adicionar uma experiência de pesquisa para aplicações personalizadas. Embora o Azure Search é facilmente integrado com muitos outros serviços do Azure, também pode utilizá-lo por si só, com as aplicações alojadas em servidores de rede, ou com o software em execução noutras plataformas na cloud. 
+O Azure Search é um recurso de autónomo utilizado para serem incorporados numa experiência de pesquisa em aplicações personalizadas. Embora o Azure Search integra-se facilmente com outros serviços do Azure, também pode utilizá-lo por si só, com as aplicações em servidores de rede, ou com o software em execução noutras plataformas na cloud. 
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/). 
 
 ![Recursos de pesquisa do Azure no portal](media/search-create-service-portal/azure-search-resource-label.png)
 
-Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar, veja [Gerir o Azure Search com o PowerShell](search-manage-powershell.md) para obter informações.
+Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda na introdução, consulte [gerir o Azure Search com o PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 

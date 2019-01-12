@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714207"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246556"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -84,6 +84,14 @@ O sistema deve utilizar a intenção de classificação mais elevada, independen
 As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
 
 Se não vir os resultados de ponto final atualizadas no Dashboard, inicie sessão no portal do Azure e localize o recurso associado à sua chave de ponto final de LUIS e, abra **métricas** para selecionar o **Total de chamadas** métrica. Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>Existe um comando do PowerShell para a quota de ponto final?
+
+Pode utilizar um comando do PowerShell para ver a quota de ponto final:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava trabalhando ontem, mas hoje em dia, eu tenho 403 erros. Eu não alterou a aplicação. Como posso corrigi-lo?
 A seguir a [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas perguntas frequentes seguintes para criar uma chave de ponto final do LUIS e atribuí-la para a aplicação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Se selecionar um modelo do LUIS e selecionar a **selecione** botão no painel de
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões do LUIS suportam priming de voz de Bot Framework?
 [Priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) apenas é suportada para aplicações de LUIS na instância da central (E.U.A.).
+
+## <a name="api-programming-strategies"></a>Estratégias de programação de API
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como posso obter programaticamente a região de LUIS de um recurso? 
+
+Utilize o exemplo de LUIS [encontrar região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) forma programática com C# ou node. js. 
 
 ## <a name="luis-service"></a>Serviço de LUIS
 

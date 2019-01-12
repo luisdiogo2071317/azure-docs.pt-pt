@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713612"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246216"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
@@ -57,7 +57,7 @@ Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais efi
 
 Blocos de notas do Azure é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e os dados de 1 GB para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
 
-Para disponibilizar todos os limites, associe a sua conta com uma subscrição do Azure, o que permite-lhe selecionar os escalões de computação premium.
+Para disponibilizar todos os limites, inicie sessão em blocos de notas do Azure com uma conta com o Azure Active Directory (por exemplo, uma conta empresarial). Se essa conta estiver associada uma subscrição do Azure, pode utilizar camadas de computação de máquina de Virtual de ciência de dados do Azure.
 
 ## <a name="available-kernels-and-environments"></a>Kernels disponíveis e ambientes
 

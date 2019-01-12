@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6d6a06af90c02dee0a7711d7362d0604018cb4a5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043044"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246590"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 
@@ -33,15 +33,15 @@ O Azure AD self-service palavra-passe reposição é licenciada por usuário, pa
 * Reposição Personalizada de Palavra-passe para utilizadores em cloud
    * Sou um **utilizador apenas na cloud** e ter esquecido a minha palavra-passe.
       * Eu gostaria **repor** minha palavra-passe para algo que sei.
-   * Esta funcionalidade está incluída nas edições do Azure AD básico, Premium P1 ou Premium P2.
+   * Esta funcionalidade está incluída no Azure AD básico, Premium P1 ou P2 ou Microsoft 365 empresas.
 
 * Self-Service palavra-passe reposição/alteração/desbloqueio **com repetição de escrita no local**
    * Sou um **utilizador híbrido** minha conta de utilizador do Active Directory no local está sincronizada com a minha conta do Azure AD com o Azure AD Connect. Eu gostaria de alterar a minha palavra-passe, tenha esquecido a minha palavra-passe ou foi bloqueada.
       * Eu gostaria de alterar a minha palavra-passe ou redefini-lo para algo que sei ou desbloquear a minha conta **e** ter que alterar sincronizada de volta no local do Active Directory.
-   * Esta funcionalidade está incluída no Azure AD Premium P1 ou Premium P2 edições.
+   * Esta funcionalidade está incluída no Azure AD Premium P1 ou P2 ou Microsoft 365 empresas.
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e requerem um plano que inclui o Azure AD Premium P1 ou Premium P2 edições para essa funcionalidade para trabalho.
+> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e requerem um plano que inclui o Azure AD Premium P1, Premium P2 ou Microsoft 365 empresas para isso funcionalidade funcionar.
 >
 
 Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas nas seguintes páginas:
@@ -50,6 +50,7 @@ Informações de licenciamento adicionais, incluindo os custos, podem ser encont
 * [Funcionalidades do Active Directory e capacidades do Azure](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Descrição do serviço Microsoft 365 empresas](/office365/servicedescriptions/microsoft-365-business-service-description.md)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Ativar o grupo ou licenciamento baseado no utilizador
 

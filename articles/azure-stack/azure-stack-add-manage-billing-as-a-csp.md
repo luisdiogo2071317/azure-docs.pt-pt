@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
-ms.reviewer: alfredo
-ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: alfredop
+ms.openlocfilehash: 26abc338b617b967c6919ebbe556a81226ff47d8
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961468"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247865"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gerir a utilização e faturação para o Azure Stack como fornecedor de serviços Cloud 
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve a registar o Azure Stack como um fornecedor de Cloud (CSP) e adicionar os clientes.
 

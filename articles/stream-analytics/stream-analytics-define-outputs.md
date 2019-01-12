@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995070"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231398"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados.
@@ -73,6 +73,8 @@ Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data
 | Nome de utilizador | O nome de utilizador, que tem acesso de gravação no banco de dados. Stream Analytics só suporta a autenticação do SQL. |
 | Palavra-passe | A palavra-passe para ligar à base de dados. |
 | Tabela | O nome da tabela em que o resultado é escrito. O nome da tabela diferencia maiúsculas de minúsculas e o esquema desta tabela deve corresponder exatamente ao número de campos e seus tipos gerados pelo seu resultado da tarefa. |
+|Herdam o esquema de partição| Isto permite-lhe herdam o esquema de particionamento de seu passo de consulta anterior para ativar a topologia totalmente paralela com vários gravadores à tabela. Para obter mais informações, consulte [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md).|
+|Corresponde à contagem de batch| O número de limite superior recomendado de registos enviados com cada em massa inserir a transação.|
 
 > [!NOTE]
 > Atualmente, a oferta de base de dados do Azure SQL é suportada para uma saída da tarefa do Stream Analytics. No entanto, não é suportada uma Máquina Virtual com o SQL Server com uma base de dados anexado. Trata-se sujeita a alterações em versões futuras.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754548"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244975"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -254,6 +254,8 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - Um operador do Azure Stack, se receber um alerta de pouca memória e máquinas de virtuais de inquilino não for possível implementar com um **erro de criação de recursos de infraestrutura de VM**, é possível que o carimbo de data / Azure Stack está disponível memória esgotada. Utilize o [Planeador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para melhor compreender a capacidade disponível para as cargas de trabalho.
 
 ### <a name="compute"></a>Computação
+
+- Ao criar um [VM da série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 VMs permitem-lhe criar 4, 8, 16 e discos de dados de 32, respetivamente. No entanto, o painel VM de criar mostra 8, 16, 32 e 64 discos de dados.
 
 <!-- 3164607 – IS, ASDK -->
 - Reattaching um disco desligado para a mesma máquina virtual (VM) com o mesmo nome e o LUN falha com um erro **não é possível anexar o disco de dados 'datadisk"a VM"vm1"**. O erro ocorre porque o disco está atualmente a ser desligado ou o último desanexar falha na operação. Aguarde até que o disco é completamente desanexado e, em seguida, tente novamente ou elimine/desanexe o disco explicitamente novamente. A solução alternativa é voltar a ligá-lo com um nome diferente ou num LUN diferente. 

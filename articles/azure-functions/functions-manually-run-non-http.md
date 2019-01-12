@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406935"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247117"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -51,19 +51,20 @@ Depois de copiar a chave mestra, clique no nome da função para regressar à ja
 
 Abra o Postman e siga estes passos:
 
-1. Introduza o **solicitam a localização na caixa de texto URL**. 
-2. **Clique em** sobre o **cabeçalhos** separador.
-3. Introduza **x-funções-key** como o primeiro **chave** e cole a chave mestra (da área de transferência) para o **valor** caixa.
-4. Introduza **Content-Type** como o segundo **chave** e introduza **application/json** como o **valor**.
+1. Introduza o **solicitam a localização na caixa de texto URL**.
+2. Certifique-se de que o método HTTP está definido como **POST**.
+3. **Clique em** sobre o **cabeçalhos** separador.
+4. Introduza **x-funções-key** como o primeiro **chave** e cole a chave mestra (da área de transferência) para o **valor** caixa.
+5. Introduza **Content-Type** como o segundo **chave** e introduza **application/json** como o **valor**.
 
     ![Definições de cabeçalhos do postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Clique em** sobre o **corpo** separador.
-6. Introduza **{"de entrada": "teste"}** como o corpo da solicitação.
+6. **Clique em** sobre o **corpo** separador.
+7. Introduza **{"de entrada": "teste"}** como o corpo da solicitação.
 
     ![Definições de corpo do postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Clique em **enviar**.
+8. Clique em **enviar**.
 
     ![Enviar um pedido com o Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

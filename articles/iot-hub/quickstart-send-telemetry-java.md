@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 417fd1d74072164600ad14b8363f2e02828a1c81
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 2527f6df8294c81816ade8708c6240714bcabc3d
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515340"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244856"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Java)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Java)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -61,16 +61,16 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
-   **MyJavaDevice**: este é o nome designado para o dispositivo registado. Utilize MyJavaDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
+   **MyJavaDevice** : Este é o nome fornecido para o dispositivo registado. Utilize MyJavaDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ para o dispositivo que acabou de registar: **YourIoTHubName**: substitua este marcador de posição abaixo pelo nome que escolher para o hub IoT.
+2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:  **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
@@ -84,7 +84,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 3. Também precisa do _ponto final compatível com hub de eventos_, do _caminho compatível com hub de eventos_ e da _chave primária iothubowner_ do hub IoT para permitir que a aplicação back-end se ligue ao hub IoT e obtenha as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
-     **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+     **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
@@ -164,4 +164,4 @@ Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, e
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-java.md)
+> [Início rápido: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-java.md)

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.reviewer: unknown
+ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648110"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246233"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ligar o Azure Stack ao Azure através do ExpressRoute do Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo mostra-lhe como ligar uma rede virtual do Azure Stack para uma rede virtual do Azure com um [Microsoft Azure ExpressRoute](/azure/expressroute/) ligação direta.
 
@@ -134,7 +134,7 @@ Utilize os procedimentos seguintes para criar os recursos de rede necessária no
 1. Sob **do Azure Marketplace**, selecione **Networking**.
 1. Selecione **Gateway de rede virtual** na lista de recursos de rede.
 1. Na **Name** , insira **GW1**.
-1. Selecione **rede Virtual**.
+1. Selecione **Rede virtual**.
 1. Selecione **Tenant1VNet1** na lista pendente.
 1. Selecione **endereço IP público**, em seguida, **escolher endereço IP público**e, em seguida, clique em **criar novo**.
 1. Na **Name** , digite **GW1-PiP**e, em seguida, clique em **OK**.

@@ -5,19 +5,20 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5b88fda9252b4547a87b192ef662330912d67d1a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239258"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247219"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
+
 Pode efetuar uma de duas abordagens para exigir a verificação de dois passos, que necessitam de utilizar uma conta de administrador global. A primeira opção é permitir que cada utilizador para o Azure multi-factor Authentication (MFA). Quando os utilizadores estiverem ativados individualmente, eles executar a verificação de cada vez que iniciar sessão (com algumas exceções, por exemplo, quando iniciarem sessão de IP fidedigno endereços ou quando o _memorizadas dispositivos_ funcionalidade estiver ativada). A segunda opção é definir uma política de acesso condicional que exige a verificação de dois passos sob determinadas condições.
 
 > [!TIP]
@@ -25,7 +26,7 @@ Pode efetuar uma de duas abordagens para exigir a verificação de dois passos, 
 
 ## <a name="choose-how-to-enable"></a>Escolha como pretende ativar
 
-**Ativado, alterando o estado do utilizador** -este é o método tradicional para exigir a verificação de dois passos e será discutido neste artigo. Ele funciona com ambos os Azure MFA na cloud e o servidor MFA do Azure. Ao utilizar este método requer que os usuários realizem a verificação de dois passos **sempre que** que iniciar sessão e substitui as políticas de acesso condicional.
+**Ativado, alterando o estado do utilizador** -este é o método tradicional para exigir a verificação de dois passos e será discutido neste artigo. Ele funciona com ambos os Azure MFA na cloud e o servidor MFA do Azure. Ao utilizar este método requer que os usuários realizem a verificação de dois passos **sempre que** que iniciar sessão e substitui as políticas de acesso condicional. Este é o método utilizado para aqueles com licenças do Office 365 ou do Microsoft 365 empresas à medida que estas não incluírem a funcionalidades de acesso condicional.
 
 Ativado pela política de acesso condicional - esta é a maneira mais flexível para ativar a verificação de dois passos para os seus utilizadores. Ativar através da política de acesso condicional só funciona para o Azure MFA na cloud e é uma funcionalidade premium do Azure AD. Obter mais informações sobre este método podem ser encontradas na [implementar com base na cloud do Azure multi-factor Authentication](howto-mfa-getstarted.md).
 

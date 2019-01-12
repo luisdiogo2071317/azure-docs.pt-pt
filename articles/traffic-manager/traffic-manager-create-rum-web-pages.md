@@ -4,6 +4,7 @@ description: Configurar suas páginas da web para enviar medições de utilizado
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138182"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232010"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medições de utilizador reais para o Azure Traffic Manager usando páginas da web
 
@@ -35,13 +36,13 @@ Para obter a chave de rum do através do portal do Azure:
  
   ![Gerar chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Geração de chave de medições de utilizador Real**
+   **Figura 1: Geração de chave de medições de utilizador real**
 
 5. O painel apresenta agora gerar a chave de rum do e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
  
     ![Código de JavaScript para a chave de medições de utilizador reais](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figura 2: Chave de medições de utilizador Real e JavaScript de medida**
+    **Figura 2: Chave de medições de utilizador real e JavaScript de medida**
  
 6.  Clique nas **cópia** botão para copiar o código JavaScript. 
 

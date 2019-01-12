@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: a97a3330ff99cada3921f98b76cf08ed7a464bcc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156566"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230463"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -516,7 +516,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | Operação | O nome da atividade de utilizador ou administrador.  |
 | OrganizationId | O GUID para o inquilino do Office 365 da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorre. |
 | RecordType | Tipo de operação realizada. |
-| ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcialmente bem sucedido ou falhou. Para a atividade de administrador do Exchange, o valor é True ou False. |
+| ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcial ou com falhas. Para a atividade de administrador do Exchange, o valor é True ou False. |
 | UserId | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o ID exclusivo do passport (PUID) para eventos realizadas por utilizadores no SharePoint, OneDrive para empresas e o Exchange. Esta propriedade também pode especificar o mesmo valor da propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados por contas do sistema|
 | userType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c58c77cb20f269c3a11615ccebf0bdc9cce0d86
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020528"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230816"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -531,7 +531,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
     Ver [ativar ou desativar um protocolo de rede do servidor](https://msdn.microsoft.com/library/ms191294.aspx) para obter detalhes e formas alternativas de ativação de protocolo TCP/IP.
 
 3. Na janela da mesma, faça duplo clique em **TCP/IP** para iniciar **propriedades de TCP/IP** janela.
-4. Mude para o **endereços IP** separador. Desloque-se para baixo para ver **IPAll** secção. Tome nota a * * a porta TCP * * (a predefinição é **1433**).
+4. Mude para o **endereços IP** separador. Desloque-se para baixo para ver **IPAll** secção. Tome nota da **porta TCP** (a predefinição é **1433**).
 5. Criar uma **regra da Firewall do Windows** na máquina para permitir o tráfego de entrada por essa porta.  
 6. **Verificar ligação**: Para ligar ao servidor SQL com o nome totalmente qualificado, utilize o SQL Server Management Studio noutra máquina. Por exemplo: `"<machine>.<domain>.corp.<company>.com,1433"`.
 

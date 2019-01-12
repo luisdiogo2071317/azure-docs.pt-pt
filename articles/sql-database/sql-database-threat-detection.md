@@ -11,19 +11,19 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 330726eecc19659d978b1072ad02ad6d5a4ccb8b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041548"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244380"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>Deteção de ameaças da base de dados SQL do Azure para a base de dados
 
 SQL do Azure [deteção de ameaças](sql-database-threat-detection-overview.md) para [base de dados SQL](sql-database-technical-overview.md) bases de dados individuais Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
 [Deteção de ameaças](sql-database-threat-detection-overview.md) faz parte da [proteção contra ameaças avançadas do SQL](sql-advanced-threat-protection.md) oferta (ATP), o que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal SQL ATP central. O serviço de deteção de ameaças é cobrado 15$ / mês por servidor lógico, com os primeiros 30 dias sem encargos.
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427068"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231177"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para previsão de energia de demanda
 ## <a name="overview"></a>**Descrição geral**
@@ -163,7 +163,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real das
 
 1. Adicione a saída do Power BI do Azure Stream Analytics (ASA).
 
-   * Tem de seguir as instruções em [do Azure Stream Analytics e o Power BI: um dashboard de análise em tempo real para visibilidade em tempo real de dados de transmissão em fluxo](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI .
+   * Tem de seguir as instruções em [Azure Stream Analytics e o Power BI: Um dashboard de análise em tempo real para visibilidade em tempo real de dados de transmissão em fluxo](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI.
    * Localize a tarefa do stream analytics no seu [portal do Azure](https://portal.azure.com). O nome da tarefa deve ser: YourSolutionName + "streamingjob" + número aleatório + "asapbi" (ou seja, demostreamingjob123456asapbi).
    * Adicione uma saída do Power BI para a tarefa ASA. Definir o **Alias de saída** como **'PBIoutput'**. Definir sua **nome do conjunto de dados** e **nomes de tabelas** como **'EnergyStreamData'**. Depois de adicionar a saída, clique em **"Start"** na parte inferior da página para iniciar a tarefa de Stream Analytics. Obterá uma mensagem de confirmação (por exemplo, "Iniciar tarefa de stream analytics myteststreamingjob12345asablob foi concluída com êxito").
 2. Inicie sessão no [online do Power BI](https://www.powerbi.com)
@@ -185,7 +185,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real das
 No pipeline de dados do caminho típico, o objetivo essencial é obter a previsão de procura de cada região. Power BI liga a uma base de dados SQL do Azure como a respetiva origem de dados, onde são armazenados os resultados da predição.
 
 > [!NOTE]
-> 1) Demora algumas horas para recolher os resultados da previsão suficiente para o dashboard. Recomendamos que inicia este processo 2 a 3 horas depois de lunch o gerador de dados. 2) neste passo, o pré-requisito é baixar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> 1) demora algumas horas para recolher os resultados da previsão suficiente para o dashboard. Recomendamos que inicia este processo 2 a 3 horas depois de lunch o gerador de dados. 2) neste passo, o pré-requisito é baixar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -200,7 +200,7 @@ No pipeline de dados do caminho típico, o objetivo essencial é obter a previs�
 2. Atualizar a origem de dados de ficheiro do Power BI de caminho típico
 
    * Certifique-se de que instalou a versão mais recente do [Power BI desktop](https://powerbi.microsoft.com/desktop).
-   * Na **"DemandForecastingDataGeneratorv1.0"** pasta que transferiu, faça duplo clique o **'Power BI Template\DemandForecastPowerBI.pbix'** ficheiro. As visualizações iniciais são baseadas em dados fictícios. **Nota:** se vir uma mensagem de erro, certifique-se de que instalou a versão mais recente do Power BI Desktop.
+   * Na **"DemandForecastingDataGeneratorv1.0"** pasta que transferiu, faça duplo clique o **'Power BI Template\DemandForecastPowerBI.pbix'** ficheiro. As visualizações iniciais são baseadas em dados fictícios. **Nota:** Se vir uma mensagem de erro, certifique-se de que instalou a versão mais recente do Power BI Desktop.
 
      Depois de abri-lo, na parte superior do ficheiro, clique em **'Editar consultas'**. No pop de fora da janela, faça duplo clique **"Origem"** no painel direito.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ No pipeline de dados do caminho típico, o objetivo essencial é obter a previs�
 4. (Opcional) Agendar a atualização da origem de dados.
 
    * Para agendar a atualização dos dados, passe o mouse sobre o **EnergyBPI Final** conjunto de dados, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) e, em seguida, escolha **agendar atualização**.
-     **Nota:** se vir ajustamos um aviso, clique em **editar credenciais** e certificar-se de que as credenciais da sua base de dados são iguais aos descritos no passo 1.
+     **Nota:** Se vir ajustamos um aviso, clique em **editar credenciais** e certificar-se de que as credenciais da sua base de dados são iguais aos descritos no passo 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Expanda a **agendar atualização** secção. Ative o "manter os dados atualizados".

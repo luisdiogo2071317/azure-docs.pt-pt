@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744093"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231075"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -99,6 +99,25 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 
 Os clientes com um Enterprise Agreement assinado antes de 1 de Julho de 2018 ou que já criou uma área de trabalho do Log Analytics numa subscrição, ainda terá acesso para o *gratuito* plano. Se a sua subscrição não está vinculada a uma inscrição EA já existente, o *gratuito* escalão não está disponível quando criar uma área de trabalho numa nova subscrição depois de 2 de Abril de 2018.  Dados estão limitados a retenção de 7 dias para o *gratuito* escalão.  Para o legado *autónomo* ou *por nó* escalões, bem como o 2018 único escalão de preço atual, os dados recolhidos, está disponível nos últimos 31 dias. O *gratuito* escalão tem o limite de ingestão de diário de 500 MB e, se encontrar exceder consistentemente as quantidades permitidas volume, pode alterar sua área de trabalho para outro plano para recolher dados que ultrapassam este limite. 
 
+> [!NOTE]
+> Para utilizar a elegibilidade incluída na compra de OMS E1 Suite, OMS E2 Suite ou do suplemento OMS para o System Center, escolha o Log Analytics *por nó* escalão de preço.
+
+## <a name="changing-pricing-tier"></a>Alterar o escalão de preço
+
+Se a sua área de trabalho do Log Analytics tem acesso aos escalões de preços legados, para alternar entre os escalões de preços legados:
+
+1. No portal do Azure, no painel de subscrições do Log Analytics, selecione uma área de trabalho.
+
+2. No painel da área de trabalho, sob **gerais**, selecione **escalão de preço**.  
+
+3. Sob **escalão de preço**, selecione um escalão de preço e, em seguida, clique em **selecione**.  
+    ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Se pretender mover a sua área de trabalho para o escalão de preço atual, terá [alterar o modelo de preços no Azure Monitor de monitorização da sua subscrição](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) que irá alterar o escalão de preço de todas as áreas de trabalho dessa subscrição.
+
+> [!NOTE]
+> Se a sua área de trabalho estiver ligada a uma conta de Automatização, antes poder selecionar o escalão de preço *Autónomo (Por GB)*, tem de eliminar quaisquer soluções de **Automatização e Controlo** e desassociar a conta de Automatização. No painel da área de trabalho, em **Geral**, clique em **Soluções** para ver e eliminar soluções. Para desassociar a Conta de automatização, clique no nome da Conta de automatização no painel **Escalão de preços**.
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Por isso que o Log Analytics já não está a recolher dados de resolução de problemas
 Se estiver no escalão de preço gratuito herdado e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida. Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: 
@@ -136,22 +155,55 @@ Pode explorar mais a ver as tendências de dados para tipos de dados específico
 
 ### <a name="nodes-sending-data"></a>Nós a enviar dados
 
-Para undersand o número de nós de dados de relatórios no mês passado, utilize
+Para compreender o número de computadores (nós) que fornecem dados por dia no mês passado, utilize
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para ver a contagem de eventos ingeridos por computador, utilize
+Para obter uma lista de computadores a enviar **faturados os tipos de dados** (alguns tipos de dados são gratuitos), aproveitar o `_IsBilled` propriedade:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em dados dados typres são dispendiosas. 
+
+Isso pode ser estendido para devolver a contagem de computadores por hora, que estão a enviar faturados os tipos de dados:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Para ver os **tamanho** de eventos a cobrar ingeridos por computador, utilize o `_BilledSize` propriedade que fornece o tamanho em bytes:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Esta consulta substitui o método antigo de consulta isso com o tipo de dados de utilização. 
+
+Para ver os **contagem** de eventos ingeridos por computador, utilize
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Utilize esta consulta moderadamente, uma vez que é dispendiosa. Se quiser ver os tipos de dados são sendng dados a um computador específico, utilize:
+Para ver a contagem de eventos a cobrar ingeridos por computador, utilize 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Se quiser ver contagens para tipos de dados cobrar estão a enviar dados para um computador específico, utilize:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e serão que seus valores já não são preenchidos. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.

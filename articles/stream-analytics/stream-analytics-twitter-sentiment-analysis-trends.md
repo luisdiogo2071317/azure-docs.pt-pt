@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248732"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231143"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimentos do Twitter em tempo real no Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Ferramentas de análise de redes sociais ajudam as organizações a compreender 
 
 Análise de tendências do Twitter em tempo real é um ótimo exemplo de uma ferramenta de análise, porque o modelo de assinatura de hashtag permite que ouça as palavras-chave específicas (hashtags) e desenvolver a análise de sentimentos do feed.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Cenário: Análise de sentimentos meios de comunicação em tempo real
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Cenário: Análise de sentimentos de meios de comunicação em tempo real
 
 Uma empresa que tem um Web site de multimédia para notícias está interessada em obter uma vantagem sobre seus concorrentes, apresentando conteúdo de site que é imediatamente relevante para os seus leitores. A empresa utiliza a análise de redes sociais sobre tópicos que são relevantes para os leitores, fazendo a análise de sentimentos em tempo real de dados do Twitter.
 
@@ -36,7 +36,7 @@ Neste tutorial, vai utilizar uma aplicação cliente que se liga ao Twitter e pr
 * Uma subscrição do Azure
 * Uma conta do Twitter 
 * Um aplicativo do Twitter e o [token de acesso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) para essa aplicação. Fornecemos instruções de alto nível para saber como criar um aplicativo do Twitter mais tarde.
-* O aplicativo TwitterWPFClient, que lê o feed do Twitter. Para obter esta aplicação, transfira o [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) ficheiro a partir do GitHub e, em seguida, deszipe o pacote para uma pasta no seu computador. Se quiser ver a origem de código e executar o aplicativo num depurador, pode obter o código-fonte [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* O aplicativo TwitterWPFClient, que lê o feed do Twitter. Para obter esta aplicação, transfira o [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) ficheiro a partir do GitHub e, em seguida, deszipe o pacote para uma pasta no seu computador. Se quiser ver a origem de código e executar o aplicativo num depurador, pode obter o código-fonte [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Criar um hub de eventos de entrada de análise de transmissão em fluxo
 
@@ -215,12 +215,12 @@ Agora que os eventos de tweet são de transmissão em fluxo em tempo real do Twi
 2. Na **entradas** painel, clique em  **+ &nbsp;Add** e, em seguida, preencha o painel com estes valores:
 
     * **O alias de entrada**: Utilize o nome `TwitterStream`. Se utilizar um nome diferente, tome nota do mesmo, porque irá precisar dele mais tarde.
-    * **Tipo de origem**: selecione **fluxo de dados**.
-    * **Origem**: selecione **hub de eventos**.
-    * **Opção de importar**: selecione **hub de eventos de utilização da subscrição atual**. 
-    * **O espaço de nomes do Service bus**: selecione o espaço de nomes de hub de eventos que criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
-    * **Hub de eventos**: selecione o hub de eventos que criou anteriormente (`socialtwitter-eh`).
-    * **Nome de política do hub de eventos**: selecione a política de acesso que criou anteriormente (`socialtwitter-access`).
+    * **Tipo de origem**: Selecione **fluxo de dados**.
+    * **origem**: Selecione **hub de eventos**.
+    * **Opção de importar**: Selecione **hub de eventos de utilização da subscrição atual**. 
+    * **O espaço de nomes do Service bus**: Selecione o espaço de nomes de hub de eventos que criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
+    * **Hub de eventos**: Selecione o hub de eventos que criou anteriormente (`socialtwitter-eh`).
+    * **Nome de política do hub de eventos**: Selecione a política de acesso que criou anteriormente (`socialtwitter-access`).
 
     ![Criar nova entrada para a tarefa do Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -298,8 +298,8 @@ Neste tutorial, gravar os eventos de tweet agregados da consulta de trabalho par
 2. Na **saídas** painel, clique em  **+ &nbsp;Add** e, em seguida, preencha o painel com estes valores:
 
     * **Alias de saída**: Utilize o nome `TwitterStream-Output`. 
-    * **Sink**: selecione **armazenamento de BLOBs**.
-    * **Opções de importação**: selecione **utilizar o armazenamento de BLOBs da subscrição atual**.
+    * **Sink**: Selecione **Armazenamento de blobs**.
+    * **Opções de importação**: Selecione **utilizar o armazenamento de BLOBs da subscrição atual**.
     * **Conta de armazenamento**. Selecione **criar uma nova conta de armazenamento.**
     * **Conta de armazenamento** (segunda caixa). Introduza `YOURNAMEsa`, onde `YOURNAME` é o nome ou de outra cadeia de caracteres exclusiva. O nome pode utilizar apenas letras minúsculas e números e tem de ser exclusivo em todo o Azure. 
     * **Contentor**. Introduza `socialtwitter`.

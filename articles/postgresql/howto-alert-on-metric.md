@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/11/2019
+ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540729"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243972"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para PostgreSQL 
 
@@ -25,48 +25,54 @@ Pode configurar um alerta para fazer as seguintes ações quando é acionado:
 * Chame um webhook.
 
 Pode configurar e obter informações sobre regras de alerta com:
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Interface de linha de comandos (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta numa métrica do portal do Azure
 1. Na [portal do Azure](https://portal.azure.com/), selecione a base de dados do Azure para o servidor PostgreSQL que pretende monitorizar.
 
-2. Sob o **monitorização** secção a barra lateral, selecione **regras de alerta** conforme mostrado:
+2. Sob o **monitorização** secção a barra lateral, selecione **alertas** conforme mostrado:
 
-   ![Selecione as regras de alerta](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Selecionar regras de alerta](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Selecione **Adicionar alerta de métrica** (ícone +). 
+3. Selecione **Adicionar alerta de métrica** (ícone +).
 
-4. O **Adicionar regra** é aberta a página conforme mostrado abaixo.  Preencha as informações necessárias:
+4. O **criar regra** é aberta a página conforme mostrado abaixo. Preencha as informações necessárias:
 
-   ![Adicionar formulário de alerta de métrica](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Adicionar formulário de alerta de métrica](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Definição | Descrição  |
-   |---------|---------|
-   | Nome | Forneça um nome para a regra de alerta. Este valor é enviado o e-mail de notificação de alerta. |
-   | Descrição | Forneça uma breve descrição da regra de alerta. Este valor é enviado o e-mail de notificação de alerta. |
-   | Alerta referente a | Escolher **métricas** para esse tipo de alerta. |
-   | Subscrição | Este campo está pré-preenchido com a subscrição que aloja a base de dados do Azure para PostgreSQL. |
-   | Grupo de recursos | Este campo está pré-preenchido com o grupo de recursos da base de dados do Azure para PostgreSQL. |
-   | Recurso | Este campo está pré-preenchido com o nome da base de dados do Azure para PostgreSQL. |
-   | Métrica | Selecione a métrica que pretende emitir um alerta para. Por exemplo, **percentagem de armazenamento**. |
-   | Condição | Escolha a condição para a métrica a ser comparada ao. Por exemplo, **superior a**. |
-   | Limiar | Valor de limiar para métrica, por exemplo 85 (percentagem). |
-   | Período | O período de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta. Por exemplo, **nos últimos 30 minutos**. |
+5. Dentro de **condição** secção, selecione **adicionar condição**.
 
-   Com base no exemplo, o alerta procura por percentagem de armazenamento superior a 85% durante um período de 30 minutos. Esse alerta for acionado quando a percentagem média de armazenamento foi superior a 85% durante 30 minutos. Depois de ocorre o primeiro acionador, novamente aciona quando a percentagem média de armazenamento é inferior a 85% mais de 30 minutos.
+6. Selecione uma métrica da lista de sinais para ser alertado no. Neste exemplo, selecione "Percentagem de armazenamento".
+   
+   ![Selecionar métrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Escolha o método de notificação que pretende para a regra de alerta. 
+7. Configurar a lógica de alerta, incluindo o **condição** (ex. "Maior que"), **limiar** (ex. 85 por cento), **agregação de tempo**, **período** de tempo, a regra de métrica deve ser satisfeita antes dos acionadores de alerta (ex. "Durante os últimos 30 minutos"), e **frequência**.
+   
+   Selecione **feito** quando terminar.
 
-   Verifique **proprietários, contribuidores e leitores do E-Mail** opção se pretender que os administradores de subscrição e os coadministradores para ser enviado por e-mail quando o alerta é acionado.
+   ![Selecionar métrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Se pretender que os e-mails adicionais para receber uma notificação quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula -  *email@contoso.com;email2@contoso.com*
+8. Dentro de **grupos de ação** secção, selecione **criar nova** para criar um novo grupo para receber notificações sobre o alerta.
 
+9. Preencha o formulário de "Adicionar grupo de ação" com um nome, o nome abreviado, a subscrição e o grupo de recursos.
+
+10. Configurar uma **E-Mail/SMS/Push/voz** tipo de ação.
+    
+   Escolha "E-Mail do Azure Resource Manager função" para selecionar a subscrição proprietários, contribuidores e leitores para receber notificações.
+   
    Opcionalmente, forneça um URI válido no **Webhook** campo se desejar que ele chamado quando o alerta é acionado.
 
-6. Selecione **OK** para criar o alerta.
+   Selecione **OK** quando concluída.
+
+   ![Grupo de ações](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Especifique um nome de regra de alerta, a descrição e a gravidade.
+
+   ![Grupo de ações](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Selecione **criar regra de alerta** para criar o alerta.
 
    Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 

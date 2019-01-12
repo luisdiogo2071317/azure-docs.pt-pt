@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159371"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232537"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
 
@@ -65,14 +65,14 @@ Pilha de Managed Disks do Azure suporta as seguintes versões de API:
 
 - 2017-03-30
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="configuration"></a>Configuração
 
-Depois de aplicar as atualizações após 1808, pode encontrar os seguintes problemas ao implementar as VMs com discos geridos:
+Depois de aplicar o 1808 atualizar ou posterior, tem de efetuar a seguinte configuração antes de utilizar discos geridos:
 
-- Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+- Se uma subscrição tiver sido criada antes da atualização de 1808, siga os passos para atualizar a subscrição abaixo. Caso contrário, a implementação de VMs nesta subscrição poderá falhar com uma mensagem de erro "Erro interno no Gestor de discos."
    1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
    2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
-- Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+- Se utilizar um ambiente multi-inquilino, peça ao seu operador da nuvem (Maio na sua organização ou do fornecedor de serviços) para reconfigurar cada um dos seus diretórios de convidado, siga estes passos [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Caso contrário, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro "Erro interno no Gestor de discos."
 
 
 ## <a name="next-steps"></a>Passos Seguintes

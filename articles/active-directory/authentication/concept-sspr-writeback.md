@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 66f33dd0edc44a490c3ccaf989d6d9308e615bb0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040545"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246114"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -58,6 +58,7 @@ Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das segu
 * O Microsoft 365 E3 ou A3
 * O Microsoft 365 E5 ou A5
 * Microsoft 365 F1
+* Microsoft 365 Empresas
 
 > [!WARNING]
 > Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e exige que possua um dos planos anteriores para esta funcionalidade funcione.

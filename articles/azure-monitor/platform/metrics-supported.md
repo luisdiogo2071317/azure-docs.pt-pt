@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549637"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232894"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -65,7 +65,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ProcessingPoolIdleIOJobThreads|Threads: Threads de trabalho de e/s inativas do conjunto de processamento|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|ServerResourceType|
 |ProcessingPoolIdleNonIOThreads|Threads: Os threads não-I/O inativas do conjunto de processamento|Contagem|Média|Número de threads inativas no conjunto de threads de processamento dedicadas a tarefas não-I/O.|ServerResourceType|
 |QueryPoolIdleThreads|Threads: Consultar threads inativas do conjunto|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|ServerResourceType|
-|QueryPoolJobQueueLength|Threads: Consultar comprimento da fila de tarefa de conjunto|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Comprimento de fila da tarefa de conjunto de consulta|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|ServerResourceType|
 |ShortParsingBusyThreads|Threads: Threads ocupadas de análise curtas|Contagem|Média|Número de threads ocupados no conjunto de threads de análise curta.|ServerResourceType|
 |ShortParsingIdleThreads|Threads: Threads Inativas de análise curtas|Contagem|Média|Número de threads inativas no conjunto de threads de análise curta.|ServerResourceType|
 |ShortParsingJobQueueLength|Threads: Comprimento da fila de tarefa análise curta|Contagem|Média|Número de tarefas na fila do pool de threads de análise curta.|ServerResourceType|
@@ -119,12 +119,12 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |PoolResizeCompleteEvent|Eventos de conclusão de redimensionamento de conjunto|Contagem|Total|Número total de redimensiona conjunto que foram concluídas|Nenhuma dimensão|
 |PoolDeleteStartEvent|Eventos de início de eliminação de conjunto|Contagem|Total|Número total de eliminações de agrupamento que já iniciou|Nenhuma dimensão|
 |PoolDeleteCompleteEvent|Conjunto eliminar eventos concluída|Contagem|Total|Número total de eliminações de conjunto que foram concluídas|Nenhuma dimensão|
-|JobDeleteCompleteEvent|Tarefa eliminar eventos concluída|Contagem|Total|Número total de tarefas que tenham sido eliminada com êxito.|Nenhuma dimensão|
+|JobDeleteCompleteEvent|Tarefa eliminar eventos concluída|Contagem|Total|Número total de tarefas que foram eliminados com êxito.|Nenhuma dimensão|
 |JobDeleteStartEvent|Eventos de início de eliminação de tarefa|Contagem|Total|Número total de tarefas que foram solicitadas para serem eliminados.|Nenhuma dimensão|
-|JobDisableCompleteEvent|Eventos de conclusão do trabalho Disable|Contagem|Total|Número total de tarefas que foram com êxito desabilitado.|Nenhuma dimensão|
+|JobDisableCompleteEvent|Eventos de conclusão do trabalho Disable|Contagem|Total|Número total de tarefas que foram desativados com êxito.|Nenhuma dimensão|
 |JobDisableStartEvent|Eventos de início do trabalho de Desativação|Contagem|Total|Número total de tarefas que foram solicitadas para ser desativado.|Nenhuma dimensão|
-|JobStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que foram com êxito a utilizar.|Nenhuma dimensão|
-|JobTerminateCompleteEvent|Tarefa terminar eventos concluídos|Contagem|Total|Número total de tarefas que foram com êxito terminada.|Nenhuma dimensão|
+|JobStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que foram iniciadas com êxito.|Nenhuma dimensão|
+|JobTerminateCompleteEvent|Tarefa terminar eventos concluídos|Contagem|Total|Número total de tarefas que foi terminada com êxito.|Nenhuma dimensão|
 |JobTerminateStartEvent|Tarefa terminar eventos de início|Contagem|Total|Número total de tarefas que foram solicitadas para ser terminada.|Nenhuma dimensão|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -816,7 +816,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ClusterDataCapacityFactor|Utilização da cache|Percentagem|Média|Nível de utilização no âmbito do cluster|Nenhuma dimensão|
 |QueryDuration|Duração de consulta|Milissegundos|Média|Duração dos consultas em segundos|QueryStatus|
 |IngestionsLoadFactor|Utilização de ingestão|Percentagem|Média|Rácio de ranhuras de ingestão utilizado no cluster|Nenhuma dimensão|
-|IsEngineAnsweringQuery|Keep Alive de|Contagem|Média|Verificação da funcionalidade indica o respondes de cluster para consultas|Nenhuma dimensão|
+|IsEngineAnsweringQuery|Keep Alive de|Contagem|Média|Verificação da funcionalidade indica que o cluster responderá às consultas|Nenhuma dimensão|
 |IngestCommandOriginalSizeInMb|Volume de ingestão (em MB)|Contagem|Total|Volume global dos dados ingeridos para o cluster (em MB)|Nenhuma dimensão|
 |EventAgeSeconds|Latência de ingestão (em segundos)|Segundos|Média|Tempo de ingestão da origem (por exemplo, mensagem estiver EventHub) para o cluster em segundos|Nenhuma dimensão|
 |EventReceivedFromEventHub|Eventos processados (para os Hubs de eventos)|Contagem|Total|Número de eventos processados pelo cluster, ao ingerir do Hub de eventos|Nenhuma dimensão|

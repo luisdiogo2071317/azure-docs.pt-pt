@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983002"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232877"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicionais no Azure Stack
 
@@ -105,6 +105,7 @@ O estado de unidade de escala e nós de unidade de escala pode ser obtido atrav�
 
 ### <a name="status-for-the-add-node-operation"></a>Estado para a operação de nó de adição 
 **Para uma unidade de escala:**
+
 |Estado               |Descrição  |
 |---------------------|---------|
 |A executar              |Todos os nós estão a participar ativamente na unidade de escala.|
@@ -115,6 +116,7 @@ O estado de unidade de escala e nós de unidade de escala pode ser obtido atrav�
 
 
 **Para um nó de unidade de escala:**
+
 |Estado                |Descrição  |
 |----------------------|---------|
 |A executar               |O nó está a participar ativamente na unidade de escala.|
@@ -128,17 +130,17 @@ O estado de unidade de escala e nós de unidade de escala pode ser obtido atrav�
 ## <a name="troubleshooting"></a>Resolução de problemas
 Seguem-se problemas comuns detetados quando adicionar um nó. 
 
-**Cenário 1:** a operação de nó de unidade de escala de adicionar falhar, mas um ou mais nós são listadas com o estado parado.  
+**Cenário 1:**  A operação de nó de unidade de escala de adicionar falhar, mas um ou mais nós são listadas com o estado parado.  
 - Remediação: Utilize a operação de reparação para reparar um ou mais nós. Apenas uma operação de reparação único pode ser executados em simultâneo.
 
-**Cenário 2:** adicionou um ou mais nós de unidade de escala, mas falha na expansão do armazenamento. Neste cenário, o objeto de nó de unidade de escala comunica um Estado de execução, mas a tarefa de configuração de armazenamento não é iniciada.  
+**Cenário 2:** Um ou mais nós de unidade de escala foram adicionados, mas falha na expansão do armazenamento. Neste cenário, o objeto de nó de unidade de escala comunica um Estado de execução, mas a tarefa de configuração de armazenamento não é iniciada.  
 - Remediação: Utilize o ponto final com privilégios para rever o estado de funcionamento do armazenamento ao executar o seguinte cmdlet do PowerShell:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Cenário 3:** recebeu um alerta que indica a tarefa de escalamento horizontal de armazenamento falhou.  
-- Remediação: neste caso, a tarefa de configuração de armazenamento falhou. Esse problema tem de contactar o suporte.
+**Cenário 3:** É recebido um alerta que indica a tarefa de escalamento horizontal de armazenamento falhou.  
+- Remediação: Neste caso, a tarefa de configuração de armazenamento falhou. Esse problema tem de contactar o suporte.
 
 
 ## <a name="next-steps"></a>Passos Seguintes 

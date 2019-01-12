@@ -1,23 +1,18 @@
 ---
-title: Aceder a registos do monitor, registos de desempenho, o estado de funcionamento do back-end e as métricas de Gateway de aplicação
-description: Saiba como ativar e gerir registos de acesso e registos de desempenho para o Gateway de aplicação
+title: Aceder a registos do monitor, registos de desempenho, o estado de funcionamento do back-end e as métricas de Gateway de aplicação do Azure
+description: Saiba como ativar e gerir registos de acesso e registos de desempenho para o Gateway de aplicação do Azure
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437474"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231109"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -98,7 +93,7 @@ O fragmento seguinte mostra um exemplo da resposta:
 Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
 
 * **Registo de atividades**: Pode usar [registos de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais e registos de auditoria) para ver todas as operações que são submetidas para a sua subscrição do Azure e o respetivo estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
-* **Registo de acesso**: Pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes, incluindo IP, URL solicitada, latência de resposta, código de retorno e bytes do chamador de entrada e saída. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação pode ser identificada pela propriedade instanceId.
+* **Registo de acesso**: Pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes. Isto inclui o chamador IP, URL solicitada, latência de resposta, código de retorno e bytes e reduzir. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação é identificada pela propriedade instanceId.
 * **Registo de desempenho**: Pode utilizar este registo para ver o desempenho das instâncias de Gateway de aplicação. Este registo captura informações de desempenho para cada instância, incluindo o total de pedidos servidos, débito em bytes, total de pedidos servidos, contagem de pedidos com falha e a contagem de instâncias de back-end com e sem integridade. Um registo de desempenho é recolhido de 60 em 60 segundos.
 * **Log do firewall**: Pode utilizar este registo para ver os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação que está configurado com a firewall de aplicações web.
 
@@ -217,7 +212,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 |healthyHostCount     | Número de anfitriões em bom estado no conjunto de back-end.        |
 |unHealthyHostCount     | Número de anfitriões de mau estado de funcionamento no conjunto de back-end.        |
 |RequestCount     | Número de pedidos servidos.        |
-|latência | Latência (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
+|latência | Latência média (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
 |failedRequestCount| Número de pedidos falhados.|
 |Taxa de transferência| Débito médio desde o último log, medido em bytes por segundo.|
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 9355e5ffaaa5ca89f57f7e358d946b24d5fcb3ca
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dbf62d460a6bc8f8c98080411b2148b81b42e415
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213859"
+ms.locfileid: "54232809"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como integrar o Azure Monitor para contentores  
 Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o desempenho de cargas de trabalho que são implementadas nos ambientes do Kubernetes e alojada num [do Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -372,7 +372,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Utilize o `aks show` comando para obter os detalhes desse tipo, tal como está a solução ativada ou não, o que é o resourceID de área de trabalho do Log Analytics e detalhes de resumo sobre o cluster.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 Após alguns minutos, o comando é concluído e devolve o formato JSON informações sobre a solução.  Os resultados do comando deve mostrar o perfil de complemento de monitorização e é semelhante a saída de exemplo seguinte:

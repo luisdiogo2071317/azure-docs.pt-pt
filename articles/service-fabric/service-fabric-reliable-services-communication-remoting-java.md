@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: eb991df64f0454fa6103c9104e5c0e9991503a43
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 686d736798a4d949e3590d988f399d7da82d4fee
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198274"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231993"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Comunicação remota do serviço em Java com o Reliable Services
 > [!div class="op_single_selector"]
@@ -91,8 +91,8 @@ A estrutura de comunicação remota propaga exceções geradas no serviço ao cl
 Criação de ServiceProxy é uma operação simples, para que possa criar tantos conforme necessário. Instâncias de Proxy de serviço podem ser reutilizadas, desde que eles são necessários. Se uma chamada de procedimento remoto lança uma exceção, ainda pode reutilizar a mesma instância de proxy. Cada ServiceProxy contenha um cliente de comunicação utilizado para enviar mensagens durante a transmissão. Ao invocar chamadas remotas, são executadas verificações de internas para determinar se o cliente de comunicação é válido. Com base nos resultados dessas verificações, o cliente de comunicação é recriado se for necessário. Por conseguinte, se ocorrer uma exceção, não precisa de recriar `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabric_service_proxy_factory) é uma fábrica que cria o proxy para interfaces de comunicação remota diferente. Se usar a API `ServiceProxyBase.create` para a criação de proxy, em seguida, framework cria uma `FabricServiceProxyFactory`.
-É útil criar um manualmente quando precisa substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.service_remoting_client_factory) propriedades.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) é uma fábrica que cria o proxy para interfaces de comunicação remota diferente. Se usar a API `ServiceProxyBase.create` para a criação de proxy, em seguida, framework cria uma `FabricServiceProxyFactory`.
+É útil criar um manualmente quando precisa substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) propriedades.
 Que é uma operação dispendiosa. `FabricServiceProxyFactory` mantém a cache de clientes de comunicação.
 Melhor prática consiste em cache `FabricServiceProxyFactory` pelo tempo possível.
 
@@ -102,7 +102,8 @@ A exceção de remota gerada pela API de serviço, como RuntimeException ou Fabr
 ServiceProxy lidar com todas as exceções de ativação pós-falha para a partição de serviço é criado para. Novamente resolve os pontos de extremidade se houver Exceptions(Non-Transient Exceptions) ativação pós-falha e repetem a chamada com o ponto final correto. Número de tentativas de ativação pós-falha de exceção é indefinido.
 Em caso de TransientExceptions, apenas repete a chamada.
 
-Padrão repetição parâmetros são fornecem por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operation_retry_settings) Pode configurar estes valores, passando o objeto OperationRetrySettings para ServiceProxyFactory construtor.
+Padrão repetição parâmetros são fornecem pela [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Pode configurar estes valores, passando o objeto OperationRetrySettings para ServiceProxyFactory construtor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Proteger a comunicação de Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 72489ea48aef9317d97e4d6f19b465db6a9a039d
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994586"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245672"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -215,7 +215,7 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Serviços globais do Azure * | 12076:5050 |
 | Outros serviços do Office 365 Online | 12076:5100 |
 
-***Serviços globais do Azure inclui o Azure DevOps**
+* Serviços globais do azure inclui apenas do Azure DevOps neste momento.
 
 
 > [!NOTE]

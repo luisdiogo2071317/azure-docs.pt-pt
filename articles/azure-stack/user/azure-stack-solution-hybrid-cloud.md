@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410201"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245213"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implementar uma solução de cloud híbrida com o Azure e o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este tutorial mostra-lhe como implementar uma solução de cloud híbrida que utiliza a cloud pública do Azure e a nuvem privada do Azure Stack.
 
@@ -79,11 +79,11 @@ Antes de começar este tutorial, certifique-se de que pode satisfazer os seguint
 
     ![Pilha de Auzure Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. Na **Marketplace**, selecione **computação**e, em seguida, escolha **mais**. Sob **mais**, selecione a **licença gratuita do SQL Server: SQL Server 2017 Developer no Windows Server** imagem.
+3. Na **Marketplace**, selecione **computação**e, em seguida, escolha **mais**. Sob **mais**, selecione o **licença gratuita do SQL Server: SQL Server 2017 Developer no Windows Server** imagem.
 
     ![Selecionar uma imagem de máquina virtual](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. No **licença gratuita do SQL Server: SQL Server 2017 Developer no Windows Server** selecionar **criar**.
+4. No **gratuitos a licença do SQL Server: SQL Server 2017 Developer no Windows Server** selecionar **criar**.
 
 5. No **Noções básicas > configurar as definições básicas**, forneça um **nome** para a máquina virtual (VM), uma **nome de utilizador** para o SA do SQL Server e um **depalavra-passe** para SA.  Do **subscrição** pendente, selecione a subscrição que estiver a implementar. Para **grupo de recursos**, utilize **Escolher existente** e colocar a VM no mesmo grupo de recursos que a sua aplicação web do Azure Stack.
 
@@ -194,7 +194,7 @@ Para saber mais sobre como o serviço de aplicações se integra com VNets do Az
 
 O gateway de rede local na rede virtual do Azure Stack tem de ser configurada para encaminhar o tráfego a partir do intervalo de endereços de ponto a site do serviço de aplicações.
 
-1. No Azure Stack, navegue até **gateway de rede Local**. Sob **configurações**, selecione **configuração**.
+1. No Azure Stack, navegue até **gateway de rede Local**. Em **Definições**, selecione **Configuração**.
 
     ![Opção de configuração do gateway](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -308,7 +308,7 @@ Quando criar a sua aplicação web num ambiente de serviço de aplicações come
 
     ![Ativar dimensionamento automático](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Introduza um nome para **nome da definição de dimensionamento automático**. Para o **predefinido** regra de dimensionamento automático, selecione **dimensionam com base numa métrica**. Definir o **limites de instância** ao **mínimo: 1**, **máxima: 10**, e **predefinido: 1**.
+3. Introduza um nome para **nome da definição de dimensionamento automático**. Para o **predefinido** regra de dimensionamento automático, selecione **dimensionam com base numa métrica**. Definir o **limites de instância** para **mínimo: 1**, **máximo: 10**, e **predefinido: 1**.
 
     ![Configurar o dimensionamento automático](media/azure-stack-solution-hybrid-cloud/image18.png)
 

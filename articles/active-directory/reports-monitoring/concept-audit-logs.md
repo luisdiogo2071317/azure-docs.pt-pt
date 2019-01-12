@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215036"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247763"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -178,6 +178,11 @@ Pode filtrar esta vista para **grupos** ou **utilizadores**.
 
 ![Registos de auditoria](./media/concept-audit-logs/25.png "Registos de auditoria")
 
+## <a name="office-365-activity-logs"></a>Registos de atividades do Office 365
+
+Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Office 365 fornece uma visão completa dos registos de atividades do Office 365. 
+
+Também pode aceder a registos de atividades do Office 365 programaticamente usando a [APIs de gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

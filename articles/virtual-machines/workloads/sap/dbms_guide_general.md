@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606763"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246879"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure impõe uma quota IOPS por disco de dados. Estas quotas são diferentes par
 
 > [!NOTE]
 > Para se beneficiar do Azure do exclusivo [único SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) todos os discos ligados têm de ser do tipo para o armazenamento Premium do Azure, incluindo o VHD base.
->
+
+
+> [!NOTE]
+> Não é suportada a hospedagem principal da base de dados de arquivos (ficheiros de registo e dados) de bases de dados do SAP no hardware de armazenamento que está localizado em datacenters de terceiros colocalizadas adjacentes aos datacenters do Azure. Para o SAP carga de trabalho apenas armazenamento que é representado como nativa do Azure, serviço é suportado para os ficheiros de registo de dados e de transação de bases de dados do SAP.
+> 
 
 A colocação de ficheiros de base de dados e ficheiros de registo/Refazer e o tipo de armazenamento do Azure utilizado, devem ser definidos pelos requisitos de IOPS, débito e latência. Para ter suficiente IOPS, poderá ser forçado a tirar partido de vários discos ou utilizar um disco de armazenamento Premium maior. Em caso de a utilizar vários discos, criaria uma faixa de software em todos os discos que contêm os ficheiros de dados ou ficheiros de registo/Refazer. Nesses casos, o IOPS e o débito de disco SLAs dos discos subjacentes do armazenamento Premium ou os discos de IOPS dos armazenamento Standard do Azure alcançáveis máximos são acumulativos para o conjunto resultante do stripe.
 

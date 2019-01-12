@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119650"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231432"
 ---
 # <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Associar um recurso dos serviços cognitivos com um conjunto de capacidades no Azure Search 
 
-Os algoritmos de IA dirigir [pesquisa cognitiva](cognitive-search-concept-intro.md) pipelines de processamento de dados não estruturados são baseiam [ **recursos dos serviços cognitivos**](https://azure.microsoft.com/services/cognitive-services/). Recursos, como [ **de imagem digitalizada** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) fornecer análise de imagem e reconhecimento ótico de carateres (OCR) a extração de texto e a estrutura de arquivos de imagem, enquanto [ **texto Análise** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece processamento, como o reconhecimento e a chave frase extração de entidades, para mencionar alguns linguagem natural.
+Os algoritmos de IA dirigir [pipelines de pesquisa cognitiva](cognitive-search-concept-intro.md) para processar dados não estruturados são baseiam [ **recursos dos serviços cognitivos**](https://azure.microsoft.com/services/cognitive-services/). Recursos, como [ **de imagem digitalizada** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) fornecer análise de imagem e reconhecimento ótico de carateres (OCR) para extrair texto e a estrutura de arquivos de imagem, enquanto [ **texto Análise** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece processamento, como o reconhecimento e a chave frase extração de entidades, para mencionar alguns linguagem natural.
 
-Pode enriquecer a um número limitado de documentos gratuitamente ou pode anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante a indexação.
+Pode enriquecer um número limitado de documentos gratuitamente ou anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante a indexação.
 
 Se o seu pipeline consiste exclusivamente [competências personalizadas](cognitive-search-create-custom-skill-example.md), não é necessário anexar um recurso dos serviços cognitivos.
 

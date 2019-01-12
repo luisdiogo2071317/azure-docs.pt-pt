@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201300"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230548"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -35,7 +35,7 @@ Quando elimina um projeto do Azure Migrate, elimina o projeto de migração, jun
 
 1. Navegue para a área de trabalho do Log Analytics ligada ao projeto.
    a. Se ainda não eliminou o projeto de migração, pode encontrar o link para a área de trabalho da página de descrição geral do projeto na secção Essentials.
-   
+
    ![Área de trabalho LA](./media/troubleshooting-general/LA-workspace.png)
 
    b. Caso tenha eliminado já o projeto de migração, clique em **grupos de recursos** no painel esquerdo no portal do Azure e vá para o grupo de recursos em que a área de trabalho foi criado e, em seguida, navegar para o mesmo.

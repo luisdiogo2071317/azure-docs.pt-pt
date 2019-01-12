@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741645"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242952"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
@@ -27,7 +27,7 @@ O serviço de Visão Personalizada utiliza um algoritmo de aprendizagem automát
 
 ### <a name="classification-and-object-detection"></a>Classificação e deteção de objetos
 
-A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidades. A **Classificação de imagens** atribui uma distribuição de classificações a cada imagem. A **Deteção de objetos** é semelhante, mas também devolve as coordenadas na imagem em que as etiquetas aplicadas podem ser encontradas.
+A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidades. A **Classificação de imagens** atribui uma distribuição de classificações a cada imagem. As várias classes (uma marca por imagem) e classificação de multilabel (qualquer número de etiquetas por imagem) modelos são suportados. **Deteção de objeto** é semelhante à classificação multilabel, mas também devolve as coordenadas na imagem em que as etiquetas aplicadas podem ser encontradas.
 
 ### <a name="optimization"></a>Otimização
 
@@ -40,6 +40,10 @@ O Serviço de Visão Personalizada está disponível como um conjunto de SDKs na
 
 ![Home page da Visão Personalizada numa janela do browser Chrome](media/browser-home.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+
+Como com todos os serviços cognitivos, os desenvolvedores que usam o serviço de visão personalizada devem estar ciente das políticas da Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga o guia [Criar um classificador](getting-started-build-a-classifier.md) para começar a utilizar a Visão Personalizada na Web ou para concluir um [Tutorial de classificação de imagens](csharp-tutorial.md) para implementar o cenário em código.

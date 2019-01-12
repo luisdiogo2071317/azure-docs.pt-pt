@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188797"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231347"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -335,7 +335,7 @@ Node localhost
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Remover o agente de dependência
-### <a name="uinstall-agent-on-windows"></a>Agente de Uinstall no Windows
+### <a name="uninstall-agent-on-windows"></a>Desinstalar o agente no Windows
 Um administrador pode desinstalar o agente de dependência para o Windows através do painel de controlo.
 
 Um administrador também pode executar %Programfiles%\Microsoft Agent\Uninstall.exe dependência para desinstalar o agente de dependência.

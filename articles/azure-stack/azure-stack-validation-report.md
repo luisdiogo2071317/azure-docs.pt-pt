@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986190"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243870"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação do Azure Stack
 Utilize a ferramenta de verificação de preparação do Azure Stack para executar validações que suportam a implementação e manutenção de um ambiente do Azure Stack. A ferramenta grava os resultados para um ficheiro de relatório. JSON. O relatório apresenta dados detalhados e resumidos sobre o estado dos pré-requisitos de implementação do Azure Stack. O relatório também apresenta informações sobre a rotação de segredos para Implantações de pilha do Azure existente.  
@@ -122,7 +122,7 @@ Para ver um relatório que é filtrado num único tipo de validação, utilize o
 - Certificado
 - AzureRegistration
 - AzureIdentity
-- Gráfico
+- Graph
 - ADFS
 - Tarefas   
 - Todos  

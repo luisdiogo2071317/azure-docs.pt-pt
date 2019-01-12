@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a56812a8a10e890f50afb669a54291ea064098d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102723"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232741"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir o Log Analytics, utilizando modelos Azure Resource Manager
 Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho do Log Analytics. Exemplos de tarefas que pode realizar com modelos incluem:
@@ -117,7 +117,7 @@ Os seguintes parâmetros de definir um valor predefinido:
     ```
 2. Edite o modelo para satisfazer os seus requisitos.  Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
 3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
-4. Está pronto para implementar este modelo. Utilize o PowerShell ou a linha de comandos para cretae a área de trabalho.
+4. Está pronto para implementar este modelo. Utilize o PowerShell ou da linha de comandos para criar a área de trabalho.
 
    * Para o PowerShell, utilize os seguintes comandos a partir da pasta que contém o modelo:
    

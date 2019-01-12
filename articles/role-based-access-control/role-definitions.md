@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715775"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231908"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -173,6 +173,10 @@ Para visualizar e trabalhar com operações de dados, tem de ter as versões cor
 | [Azure para Python](/python/azure) | 0.40.0 ou posterior |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou posterior |
 
+O portal do Azure também permite aos utilizadores procurar e gerir o conteúdo das filas e BLOBs experiência de pré-visualização de contentores através do Azure AD. Ver e gerir o conteúdo de um contentor de BLOBs ou filas, clique na ligação "Dados de explorar com pré-visualização do Azure AD" na descrição geral da conta de armazenamento.
+
+![Explore as filas e BLOBs contentores com a pré-visualização do Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
+
 ## <a name="actions"></a>Ações
 
 O `Actions` permissão Especifica as operações de gestão que permite que a função a ser executada. É uma coleção de cadeias de caracteres de operação que identificar as operações com capacidade de segurança de fornecedores de recursos do Azure. Aqui estão alguns exemplos de operações de gestão que podem ser utilizados em `Actions`.
@@ -185,7 +189,7 @@ O `Actions` permissão Especifica as operações de gestão que permite que a fu
 | `Microsoft.Compute/virtualMachines/*` | Concede acesso a todas as operações de máquinas virtuais e respetivos subordinados tipos de recursos.|
 | `microsoft.web/sites/restart/Action` | Concede acesso para reiniciar uma aplicação web.|
 
-## <a name="notactions"></a>notActions
+## <a name="notactions"></a>NotActions
 
 O `NotActions` permissão Especifica as operações de gestão que são excluídas da permitidos `Actions`. Utilize o `NotActions` permissão se o conjunto de operações que pretende permitir que mais facilmente é definido por excluindo restritas de operações. O acesso concedido por uma função (permissões efetivas) é calculado ao subtrair a `NotActions` operações a partir da `Actions` operações.
 

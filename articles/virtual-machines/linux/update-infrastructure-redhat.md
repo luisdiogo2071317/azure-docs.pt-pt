@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 1a1038bec66cd90e2cd0cbc8b125857403317d89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078257"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232061"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -27,6 +27,8 @@ ms.locfileid: "54078257"
 Imagens de pay as you go (PAYG) da Red Hat Enterprise Linux (RHEL) vêm pré-configurados para aceder a RHUI do Azure. Não é necessária nenhuma configuração adicional. Para obter as atualizações mais recentes, execute `sudo yum update` depois da sua instância do RHEL está pronta. Este serviço é incluído como parte das taxas de software PAYG do RHEL.
 
 Estão disponíveis informações adicionais sobre imagens RHEL no Azure, incluindo a publicação e políticas de retenção [aqui](./rhel-images.md).
+
+Podem encontrar informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL no [ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) página.
 
 ## <a name="important-information-about-azure-rhui"></a>Informações importantes sobre o Azure RHUI
 * Azure RHUI atualmente suporta apenas a versão mais recente de pequenas em cada família RHEL (RHEL6 ou RHEL7). Para atualizar uma instância de RHEL VM ligada ao RHUI para a versão secundária mais recente, executar `sudo yum update`.
@@ -218,4 +220,4 @@ Este procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
 ## <a name="next-steps"></a>Passos Seguintes
 * Para criar uma VM do Red Hat Enterprise Linux a partir de uma imagem de PAYG do Azure Marketplace e utilizar RHUI alojado no Azure, vá para o [do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
 * Para saber mais sobre as imagens de Red Hat no Azure, vá para o [página de documentação](./rhel-images.md).
-
+* Podem encontrar informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL no [ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) página.

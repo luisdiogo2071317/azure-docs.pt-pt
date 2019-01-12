@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994863"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247508"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -25,7 +25,7 @@ O Gateway de aplicação do Azure é um controlador de entrega de aplicação (A
 
 ### <a name="what-features-does-application-gateway-support"></a>Quais recursos o Gateway de aplicação suporta?
 
-Gateway de aplicação suporta o dimensionamento automático, descarga de SSL e SSL ponto a ponto, Firewall de aplicações Web, afinidade de sessão baseada em cookies, url baseado no caminho do encaminhamento, alojamento de múltiplos sites e outras pessoas. Para obter uma lista completa das funcionalidades suportadas, consulte [introdução ao Gateway de aplicação](application-gateway-introduction.md).
+Gateway de aplicação suporta o dimensionamento automático, descarga de SSL e SSL ponto a ponto, Firewall de aplicações Web, afinidade de sessão baseada em cookies, url baseado no caminho do encaminhamento, múltiplos sites de hospedagem e outros. Para obter uma lista completa das funcionalidades suportadas, consulte [introdução ao Gateway de aplicação](application-gateway-introduction.md).
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>O que é a diferença entre o Gateway de aplicação e o Balanceador de carga do Azure?
 
@@ -53,7 +53,7 @@ Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento 
 
 ### <a name="what-regions-is-the-service-available-in"></a>Que regiões o serviço está disponível no?
 
-Gateway de aplicação está disponível em todas as regiões do global Azure. Também está disponível no [Azure China](https://www.azure.cn/) e [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+Gateway de aplicação está disponível em todas as regiões do global Azure. Também está disponível no [Azure China 21Vianet](https://www.azure.cn/) e [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Esta é uma implementação dedicada para a minha subscrição ou é partilhado entre os clientes?
 
@@ -126,7 +126,7 @@ Não, mas pode implementar outros gateways de aplicação na sub-rede.
 
 Grupos de segurança de rede (NSGs) são suportados na sub-rede de gateway de aplicação com as seguintes restrições:
 
-* Exceções tiver de ser colocadas no tráfego de entrada nas portas 65503 65534 para o Gateway de aplicação v1 SKU e portas 65200-65535 para o SKU de v2. Este intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não será capazes de iniciar quaisquer alterações nesses pontos finais.
+* Exceções tiver de ser colocadas no tráfego de entrada nas portas 65503 65534 para o Gateway de aplicação v1 SKU e portas 65200-65535 para o SKU de v2. Este intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não são possível iniciar quaisquer alterações nesses pontos finais.
 
 * Conectividade de internet de saída não pode ser bloqueada.
 
@@ -137,6 +137,8 @@ Grupos de segurança de rede (NSGs) são suportados na sub-rede de gateway de ap
 Rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede de gateway de aplicação, desde que elas não alteram a comunicação de ponto-a-ponto de solicitação/resposta.
 
 Por exemplo, pode configurar um UDR na sub-rede de gateway de aplicação para apontar para um dispositivo de firewall para a inspeção de pacotes, mas tem de garantir que o pacote pode contactar a inspeção de mensagem do seu destino pretendido. Falha ao fazer isso pode resultar em comportamento do encaminhamento sonda ou tráfego de estado de funcionamento incorreto. Isto inclui as rotas aprendidas ou rotas predefinidas que 0.0.0.0/0 propagadas pelo ExpressRoute ou Gateways de VPN na rede virtual.
+
+As UDRs na sub-rede de gateway de aplicação são **não** suportadas no v2 SKU. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites no Gateway de aplicação? Pode aumentar estes limites?
 
@@ -206,11 +208,11 @@ Sim, o SKU do Gateway de aplicação v2 suporta o dimensionamento automático. P
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>Faz o dimensionamento manual para cima ou para baixo de tempo de inatividade causa?
 
-Não existe nenhum tempo de inatividade, instâncias são distribuídas por domínios de atualização e domínios de falha.
+Não há nenhum tempo de inatividade. Instâncias são distribuídas por domínios de atualização e domínios de falha.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de aplicação suporta drenagem de ligação?
 
-Sim. Pode configurar a ligação a ser drenado para alterar os membros dentro de um conjunto de back-end sem interrupção. Isso permitirá que as ligações existentes continuem a ser enviadas ao seu destino anterior até que essa conexão é fechada ou um tempo limite configurável expira. Drenagem de ligação apenas aguarda para ligações em trânsito atuais concluir. Gateway de aplicação não está ciente do Estado de sessão do aplicativo.
+Sim. Pode configurar a ligação a ser drenado para alterar os membros dentro de um conjunto de back-end sem interrupção. Isso permite que as ligações existentes continuem a ser enviadas ao seu destino anterior até que essa conexão é fechada ou um tempo limite configurável expira. Drenagem de ligação apenas aguarda para ligações em trânsito atuais concluir. Gateway de aplicação não está ciente do Estado de sessão do aplicativo.
 
 ### <a name="what-are-application-gateway-sizes"></a>Quais são os tamanhos de gateway de aplicação?
 
@@ -292,7 +294,7 @@ Sim, [configuração de conjuntos de cifras](application-gateway-ssl-policy-over
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Quantos certificados SSL são suportados?
 
-Até 20 SSL os certificados são suportados.
+Até 100 SSL os certificados são suportados.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Quantos certificados de autenticação de back-end nova criptografia são suportados?
 
@@ -380,7 +382,7 @@ Também Publicámos um modelo do Resource Manager que instala e executa o popula
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Estado de funcionamento do back-end devolve o estado desconhecido, o que pode estar a causar este Estado?
 
-A razão mais comum é o acesso ao back-end está a ser bloqueado por um NSG ou DNS personalizado. Ver [back-end estado de funcionamento, o registo de diagnósticos e métricas para o Gateway de aplicação](application-gateway-diagnostics.md) para saber mais.
+A razão mais comum é o acesso ao back-end é bloqueado por um NSG ou DNS personalizado. Ver [back-end estado de funcionamento, o registo de diagnósticos e métricas para o Gateway de aplicação](application-gateway-diagnostics.md) para saber mais.
 
 ## <a name="next-steps"></a>Próximos Passos
 

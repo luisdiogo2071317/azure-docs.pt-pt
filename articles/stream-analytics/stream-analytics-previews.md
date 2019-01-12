@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557602"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232129"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -26,10 +26,6 @@ As seguintes funcionalidades estão em pré-visualização pública. Pode aprove
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
 Pode dimensionar tarefas do Stream Analytics com as funções de Machine Learning (ML). Para saber mais sobre como pode usar as funções de ML na sua tarefa do Stream Analytics, visite [dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Windows de sessão
-
-Stream Analytics tem suporte nativo para funções de janelas, permitindo que os desenvolvedores às tarefas de processamento de fluxo complexos de autor com um mínimo de esforço. [Windows de sessão](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) agrupar os eventos que chegam em alturas semelhante, filtram de períodos de tempo em que não existe nenhum dado. Para saber mais sobre as funções de janelas, visite [introdução às funções do Stream Analytics windowing](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Saída do blob a criação de partições por tempo personalizado
 

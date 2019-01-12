@@ -5,6 +5,7 @@ description: Este início rápido mostra como criar um Balanceador de Carga Stan
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b720e07b3da446d3b6fcb106e94e9cc36128bb8c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256320"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230650"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
 Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o Windows Server e faça o balanceamento de carga de uma aplicação Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).

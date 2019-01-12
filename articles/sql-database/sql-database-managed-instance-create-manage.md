@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040205"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246522"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência da API gerida para instâncias geridas da base de dados SQL do Azure
 
@@ -62,7 +62,6 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com [CLI 
 |[Criar AZ sql midb](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida|
 |[lista de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Bases de dados geridas de listas disponíveis|
 |[restauro de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaurar uma base de dados gerida|
-|[atualização de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Atualiza uma base de dados gerida|
 |[eliminação de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Gerir servidores lógicos e bases de dados

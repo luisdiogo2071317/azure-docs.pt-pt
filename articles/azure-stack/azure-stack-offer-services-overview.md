@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127487"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244159"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Descrição geral da oferta de serviços no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 [Microsoft Azure Stack](azure-stack-poc.md) é uma plataforma de cloud híbrida que lhe permite entregar serviços a partir do seu datacenter. Como um fornecedor de serviços, pode oferecer serviços aos seus inquilinos. Dentro de uma empresa ou uma agência do Governo, pode oferecer serviços no local aos seus funcionários. 
 
@@ -47,11 +47,11 @@ Para fornecer estes serviços para os seus utilizadores, tem de criar [planos, o
 
 Quando estiver planejando suas ofertas, mantenha os seguintes pontos em mente:
 
-**Ofertas de avaliação**: pode usar as ofertas de avaliação de atrair novos utilizadores, que, em seguida, podem atualizar para serviços adicionais. Para criar uma oferta de avaliação, crie um pequeno [plano base](azure-stack-plan-offer-quota-overview.md#base-plan) com um plano de suplemento maior opcional.
+**Ofertas de avaliação**: Pode usar as ofertas de avaliação de atrair novos utilizadores, que, em seguida, podem atualizar para serviços adicionais. Para criar uma oferta de avaliação, crie um pequeno [plano base](azure-stack-plan-offer-quota-overview.md#base-plan) com um plano de suplemento maior opcional.
 
-**Planeamento da capacidade**: poderá estar preocupado com os utilizadores que obter grandes quantidades de recursos e atrapalhando o sistema para todos os utilizadores. Para ajudar a desempenho, pode [configurar seus planos com quotas](azure-stack-plan-offer-quota-overview.md#plans) para utilização de extremidade.
+**Planeamento da capacidade**: Pode estar preocupado com os utilizadores que obter grandes quantidades de recursos e atrapalhando o sistema para todos os utilizadores. Para ajudar a desempenho, pode [configurar seus planos com quotas](azure-stack-plan-offer-quota-overview.md#plans) para utilização de extremidade.
 
-**Fornecedores de delegado**: pode conceder a outros utilizadores a capacidade de criar ofertas no seu ambiente. Por exemplo, se for um fornecedor de serviços, pode [delegar](azure-stack-delegated-provider.md) essa capacidade de seus revendedores. Em alternativa, se for uma organização, pode delegar a outras divisões/subsidiárias.
+**Fornecedores de delegado**: Pode conceder a outros oferece a capacidade de criar no seu ambiente. Por exemplo, se for um fornecedor de serviços, pode [delegar](azure-stack-delegated-provider.md) essa capacidade de seus revendedores. Em alternativa, se for uma organização, pode delegar a outras divisões/subsidiárias.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

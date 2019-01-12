@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106684"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244589"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um bloco de notas do Jupyter com Python
 
@@ -40,7 +40,7 @@ O bloco de notas concluído pode ser encontrado no [GitHub - exemplos de blocos 
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: exemplo de regressão Linear - críquete Chirps
+    - **Nome do projeto**: Exemplo de regressão linear - críquete Chirps
     - **ID do projeto**: exemplo de regressão linear
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)
@@ -411,17 +411,13 @@ Quando tiver terminado com um bloco de notas, utilizar o **arquivo** > **fechar 
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Depurar os blocos de notas com o Visual Studio Code
 
-Se as células de código em seu bloco de anotações não se comportam como esperado, pode ter bugs de código ou outros defeitos. No entanto, além de usar `print` instruções para mostrar o valor das variáveis, um bloco de notas do Jupyter não oferece qualquer facilidade de depuração.
+Se as células de código em seu bloco de anotações não se comportam como esperado, pode ter bugs de código ou outros defeitos. No entanto, além de usar `print` instruções para mostrar o valor das variáveis, um ambiente típico do Jupyter não oferece qualquer facilidade de depuração.
 
-Felizmente, a extensão do Python para Visual Studio Code, pode importar um bloco de notas do Jupyter diretamente como um arquivo de código único, com as células de Markdown nos comentários. Em seguida, pode executar o depurador do Visual Studio Code para percorrer seu código, definir pontos de interrupção, examinar o estado e assim por diante. 
+Felizmente, pode baixar o bloco de notas *.ipynb* de ficheiros, em seguida, abra-o no Visual Studio Code com a extensão de Python. A extensão importa diretamente um bloco de notas como um arquivo de código único, preservando as células de Markdown nos comentários. Depois de ter importado o bloco de notas, pode utilizar o depurador do Visual Studio Code para percorrer seu código, definir pontos de interrupção, examinar o estado e assim por diante. Depois de efetuar as correções para o seu código, em seguida, exportar a *.ipynb* de ficheiros do Visual Studio Code e carregá-lo novamente para blocos de notas do Azure.
 
-Depois de fazer as correções para o seu código, guardar o *.ipynb* de ficheiros, em seguida, carregá-lo para blocos de notas do Azure.
+Para obter mais informações, consulte [depurar um bloco de notas do Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Visual Studio Code.
 
-Para obter mais informações, consulte os artigos seguintes na documentação do Visual Studio Code:
-
-- [Descrição geral dos blocos de notas do Jupyter no VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Tutorial do Python - configurar e executar o depurador](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Editar - células de código do Jupyter](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Consulte também [Visual Studio Code - suporte de Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para recursos adicionais do Visual Studio Code para blocos de notas do Jupyter.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

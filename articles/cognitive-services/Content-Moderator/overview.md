@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: overview
 ms.date: 10/22/2018
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: fabbbace7aeefd708a58a0874f9bbfa316d2b3f2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209597"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230815"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
@@ -58,6 +58,9 @@ O serviço Content Moderator também inclui a [ferramenta de revisão humana](Re
 
 Pode utilizar as APIs de Revisão para configurar revisões em equipa de conteúdos de texto, imagem e vídeo, de acordo com os filtros que especificar. Em seguida, os moderadores humanos podem tomar as decisões finais de moderação. A contribuição humana não prepara o serviço, mas o trabalho combinado do serviço e das equipas de revisão humana permite que os programadores encontrem o equilíbrio certo entre eficiência e precisão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+Como com todos os serviços cognitivos, os desenvolvedores que usam o serviço do Content Moderator devem estar ciente das políticas da Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga o [Início Rápido](quick-start.md) para começar a utilizar o Content Moderator.

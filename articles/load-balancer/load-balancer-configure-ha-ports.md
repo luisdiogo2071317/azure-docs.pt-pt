@@ -5,6 +5,7 @@ description: Saiba como utilizar as portas de elevada disponibilidade para o tr�
 services: load-balancer
 documentationcenter: na
 author: rdhillon
+manager: narayan
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d104fd8a88a55af75faa2a0958733442c083451c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084571"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244142"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar portas elevada disponibilidade para um balanceador de carga interno
 
 Este artigo fornece um exemplo de implementação de elevada disponibilidade portas no balanceador de carga interno. Para obter mais informações sobre configurações específicas de aplicações virtuais (NVAs) de rede, consulte os sites correspondentes do fornecedor.
 
 >[!NOTE]
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de carga Standard. Para obter mais informações sobre o Balanceador de carga básico, consulte [descrição geral do Balanceador de carga](load-balancer-overview.md).
+>O Balanceador de carga do Azure suporta dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de carga Standard. Para obter mais informações sobre o Balanceador de carga básico, consulte [descrição geral do Balanceador de carga](load-balancer-overview.md).
 
 A ilustração mostra o exemplo de implementação descrito neste artigo, a seguinte configuração:
 

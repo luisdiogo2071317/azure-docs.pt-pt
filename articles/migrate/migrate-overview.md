@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ab8841e2c5cb01e28264edc2b5ab3306d611a9c7
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969136"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232078"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -38,6 +38,7 @@ O Azure Migrate ajuda-o a:
     **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov (US) - Virginia
+    Ásia | Sudeste Asiático
     Europa | Europa do Norte ou da Europa Ocidental
     Une Estados | E.U.A. Leste ou oeste dos E.U.A.
 

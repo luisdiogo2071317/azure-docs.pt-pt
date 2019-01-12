@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103371"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230361"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece formas flexíveis para coletar métricas e registos provenientes de máquinas de virtuais de serviços cloud (VMs) e transferir os resultados para o armazenamento do Azure. A partir do intervalo de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir dados de caminho mais utilizado em segundos, utilizando [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -35,7 +35,7 @@ Este artigo mostra-lhe como configurar o diagnóstico do Azure com os Hubs de ev
 * Como resolver problemas de ligação  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Dados de receieving de Hubs de eventos de diagnóstico do Azure são suportados nos serviços Cloud, as VMs, conjuntos de dimensionamento de Máquina Virtual e o Service Fabric a partir do Azure SDK 2.9 e as ferramentas do Azure correspondente para o Visual Studio.
+Hubs de eventos receber dados de diagnóstico do Azure são suportados nos serviços Cloud, as VMs, conjuntos de dimensionamento de Máquina Virtual e o Service Fabric a partir do Azure SDK 2.9 e as ferramentas do Azure correspondente para o Visual Studio.
 
 * Extensão de diagnóstico do Azure 1.6 ([Azure SDK para .NET 2.9 ou posterior](https://azure.microsoft.com/downloads/) destina-se isso por predefinição)
 * [Visual Studio 2013 ou posterior](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)

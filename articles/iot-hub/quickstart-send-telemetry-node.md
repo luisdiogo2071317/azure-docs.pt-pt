@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 379d6cf589012e7b7e4d0f1ec2dc3ba40cec075f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: b33039dab609cb457f1228a958f6a18070c675ac
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514932"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247559"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Node.js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (node. js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Precisa do Node.js. v4.X.X ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste início rápido são escritas em node. js. Precisa do Node.js. v4.X.X ou posterior no seu computador de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -54,9 +54,9 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
-   **MyNodeDevice**: este é o nome designado para o dispositivo registado. Utilize o MyNodeDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
+   **MyNodeDevice** : Este é o nome fornecido para o dispositivo registado. Utilize o MyNodeDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -65,7 +65,7 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
@@ -79,7 +79,7 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 1. Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT de modo a obter as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
    
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -145,4 +145,4 @@ Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, e
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-node.md)
+> [Início rápido: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-node.md)

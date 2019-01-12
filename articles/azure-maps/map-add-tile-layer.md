@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b61602d221c71fd756a23f338f2817561e9f5d09
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8e18822fff852a82b367acfa45e3d55048b4e54c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215087"
+ms.locfileid: "54232605"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 
@@ -27,7 +27,7 @@ Uma carga de camada de mosaico em mosaicos a partir de um servidor. Essas imagen
 * Caixa delimitadora - delimitação de coordenadas de caixa, pode ser utilizado para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente utilizado pelo [serviços de mapeamento de Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> R [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma excelente forma de visualizar grandes conjuntos de dados no mapa. Não só pode ser gerada uma camada de mosaico a partir de uma imagem, mas os dados de vetor podem também ser compostos como uma camada de mosaico demasiado. Por meio do processamento de dados de vetor como uma camada de mosaico, o controle de mapa só precisa de carregar os mosaicos que podem ser muito menores do tamanho do ficheiro que os dados de vetor que elas representam. Essa técnica é usada por muitos que precisam para renderizar millons de linhas de dados no mapa.
+> R [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma excelente forma de visualizar grandes conjuntos de dados no mapa. Não só pode ser gerada uma camada de mosaico a partir de uma imagem, mas os dados de vetor podem também ser compostos como uma camada de mosaico demasiado. Por meio do processamento de dados de vetor como uma camada de mosaico, o controle de mapa só precisa de carregar os mosaicos que podem ser muito menores do tamanho do ficheiro que os dados de vetor que elas representam. Essa técnica é usada por muitos que precisam para processar milhões de linhas de dados no mapa.
 
 O URL do mosaico passado para uma camada de mosaico tem de ser um URL de http/https para um recurso de TileJSON ou um modelo de URL do mosaico que utiliza os seguintes parâmetros: 
 

@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 541095ddff19f16e3050d79846a339d4e5bad2b8
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102814"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244295"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
 Este início rápido mostra como transmitir para Hubs de Eventos ativados pelo Kafka, sem alterar os clientes de protocolo nem a execução dos seus próprios clusters. Vai aprender a utilizar os seus produtores e consumidores para comunicar com Hubs de Eventos ativados pelo Kafka, com apenas uma alteração de configuração nas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
 
-1. Inicie sessão no [portal do Azure][Azure portal] e clique em **Criar um recurso**, no canto superior esquerdo do ecrã.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **criar um recurso** na parte superior esquerda do ecrã.
 
 2. Procure por Hubs de Eventos e selecione as opções mostradas aqui:
     
     ![Procurar por Hubs de Eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**.
+3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**. Nota: Os Hubs de eventos para o Kafka é apenas suportada pelo Standard e escalão dos Hubs de eventos dedicado. Escalão básico dos Hubs de eventos irá devolver um erro de autorização de tópico em resposta a todas as operações de Kafka.
     
     ![Criar um espaço de nomes](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

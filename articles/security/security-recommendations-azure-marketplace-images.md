@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308800"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243642"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para imagens do Azure Marketplace
 
-Recomendamos que cada solução estão em conformidade com as seguintes recomendações de configuração de segurança. Isto ajudará a manter um elevado nível de segurança para imagens de solução de parceiro no Azure Marketplace.
+Recomendamos que cada solução está em conformidade com as seguintes recomendações de configuração de segurança. Isto ajuda a manter um elevado nível de segurança para imagens de solução de parceiro no Azure Marketplace.
 
-Estas recomendações também podem ser útil para as organizações que não têm imagens no Azure marketplace. Convém verificar as configurações de imagem de Windows e Linux da sua empresa contra as diretrizes foram encontradas nas tabelas abaixo.
+Estas recomendações também podem ser útil para as organizações que não têm imagens no Azure marketplace. Convém verificar as configurações de imagem de Windows e Linux da sua empresa contra as diretrizes foram encontradas nas tabelas seguintes:
 
 ## <a name="open-source-based-images"></a>Abra imagens com base na origem
 
@@ -31,7 +31,7 @@ Estas recomendações também podem ser útil para as organizações que não t�
 | **Categoria**                                                 | **Verificação**                                                                                                                                                                                                                                                                              |
 | Segurança                                                     | Todos os patches de segurança mais recentes para a distribuição de Linux são instalados.                                                                                                                                                                                                              |
 | Segurança                                                     | Diretrizes da indústria para proteger a imagem de VM para a distribuição de Linux específica foram seguidas.                                                                                                                                                                                     |
-| Segurança                                                     | Limite a superfície de ataque ao manter a superfície mínima com necessárias apenas funções de servidor de Windows, funcionalidades, serviços e as portas de rede.                                                                                                                                               |
+| Segurança                                                     | Limite a superfície de ataque ao manter a superfície mínima com apenas as funções necessárias do Windows Server, funcionalidades, serviços e portas de rede.                                                                                                                                               |
 | Segurança                                                     | Digitalize o código-fonte e a imagem de VM resultante para o malware.                                                                                                                                                                                                                                   |
 | Segurança                                                     | A imagem VHD inclui apenas contas bloqueadas necessárias, que não dispõem de palavras-passe de predefinição que permitiria que o início de sessão interativo; Não existem portas abertas.                                                                                                                                           |
 | Segurança                                                     | Regras de firewall estão desativadas, a menos que o aplicativo funcionalmente baseia-se nos mesmos, como uma aplicação de firewall.                                                                                                                                                                             |
@@ -41,7 +41,7 @@ Estas recomendações também podem ser útil para as organizações que não t�
 | Segurança                                                     | Entradas do histórico bash/Shell tem de ser limpo                                                                                                                                                                                                                                             |
 | Redes                                                   | Servidor SSH deve ser incluído por predefinição. Definir SSH keep alive ao ficheiro sshd config com a seguinte opção: ClientAliveInterval 180                                                                                                                                                        |
 | Redes                                                   | Imagem não deve conter qualquer configuração de rede personalizada. Elimine o resolv: `rm /etc/resolv.conf`                                                                                                                                                                                |
-| Implementação                                                   | Deve ser instalado o agente de Linux mais recente do Azure </br> -O agente deve ser instalado utilizando o pacote Deb ou RPM.  </br> – Também pode utilizar o processo de instalação manual, mas os pacotes de instalador são recomendados e preferencial. </br> – Se instalar o agente manualmente a partir do repositório do GitHub, primeiro copie o `waagent` de ficheiros para `/usr/sbin` e executar (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O ficheiro de configuração do agente será colocado em `/etc/waagent.conf`.    |
+| Implementação                                                   | Deve ser instalado o agente de Linux mais recente do Azure </br> -O agente deve ser instalado utilizando o pacote Deb ou RPM.  </br> – Também pode utilizar o processo de instalação manual, mas os pacotes de instalador são recomendados e preferencial. </br> – Se instalar o agente manualmente a partir do repositório do GitHub, primeiro copie o `waagent` de ficheiros para `/usr/sbin` e executar (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O ficheiro de configuração do agente é colocado em `/etc/waagent.conf`.    |
 | Implementação                                                   | Garante que o suporte do Azure pode proporcionar os nossos parceiros com a consola de série de saída quando for necessário e fornecer um tempo limite adequado para a montagem do disco de SO de armazenamento na cloud. Imagem tem de ter a adicionado os seguintes parâmetros à linha de arranque de Kernel: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | Implementação                                                   | Nenhuma partição de troca no disco do SO. Troca pode ser pedida para a criação no disco de recurso local pelo agente do Linux.         |
 | Implementação                                                   | Recomenda-se que uma partição de raiz única é criada para o disco do SO.      |
@@ -56,7 +56,7 @@ Estas recomendações também podem ser útil para as organizações que não t�
 | Segurança                                                         | Instale todas as atualizações de segurança mais recente.                                                                                                                                     |
 | Segurança                                                         | Aplicativos não devem ter uma dependência nos nomes de utilizadores restritos, como administrador, de raiz e de administrador.                                                                |
 | Segurança                                                         | A criptografia de unidade BitLocker não é suportada no disco rígido do sistema operativo. O BitLocker pode ser utilizado em discos de dados.                                                            |
-| Segurança                                                         | Limite a superfície de ataque ao manter a superfície mínima com necessárias apenas funções de servidor de Windows, funcionalidades, serviços e as portas de rede ativadas.                         |
+| Segurança                                                         | Limite a superfície de ataque ao manter a superfície mínima com apenas as funções necessárias do Windows Server, funcionalidades, serviços e portas ativadas de rede.                         |
 | Segurança                                                         | Digitalize o código-fonte e a imagem de VM resultante para o malware.                                                                                                                     |
 | Segurança                                                         | Definir a atualização de segurança de imagens do Windows Server para a atualização automática.                                                                                                                |
 | Segurança                                                         | A imagem VHD inclui apenas contas bloqueadas necessárias, que não dispõem de palavras-passe de predefinição que permitiria que o início de sessão interativo; Não existem portas abertas.                             |

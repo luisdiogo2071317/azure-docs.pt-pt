@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623864"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244720"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 
@@ -85,12 +85,11 @@ Este relatório também fornece uma opção para:
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Relatório de inícios de sessão de risco para as edições premium do Azure AD
 
 O relatório de inícios de sessão de risco nas edições premium do Azure AD fornece-lhe:
 
-- Informações adicionais sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detetados
+- Informações adicionais sobre o [tipos de eventos de risco](concept-risk-events.md) que foram detetados. Com o **do Azure AD Premium P1 edition**, deteções de Trojans não são cobertas pela sua licença aparecem como o evento de risco **início de sessão com risco adicional detetado**. Com o **edição Azure AD Premium P2**, obtém as informações mais detalhadas sobre todas as detecções subjacentes.
 
 - Uma opção para transferir o relatório
 

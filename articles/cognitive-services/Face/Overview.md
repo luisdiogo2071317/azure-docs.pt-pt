@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633466"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231891"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é o API Face do Azure?
 
@@ -64,7 +64,7 @@ Depois de ter sido criada e preparada uma base de dados, pode fazer a identifica
 
 Para obter mais informações sobre a identificação de pessoas, veja [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (API Identificação).
 
-## <a name="use-containers"></a>Utilize contentores
+## <a name="use-containers"></a>Utilizar contentores
 
 [Usar o contêiner de Face](face-how-to-install-containers.md) para detectar, reconhecer e identifique rostos, ao instalar um contentor Docker padronizado mais perto aos seus dados.
 
@@ -72,10 +72,14 @@ Para obter mais informações sobre a identificação de pessoas, veja [Identify
 
 Os exemplos de aplicações seguintes mostram algumas das formas como a API Face pode ser utilizada.
 
-- [API Face da Microsoft: biblioteca de cliente do Windows e exemplo](https://github.com/Microsoft/Cognitive-Face-Windows) - aplicação WPF que demonstra vários cenários de deteção, análise e identificação facial.
+- [Microsoft Face API: Biblioteca de cliente do Windows e & xemplo](https://github.com/Microsoft/Cognitive-Face-Windows) -um aplicativo do WPF que demonstra vários cenários de deteção de rostos, análise e identificação.
 - [Aplicação FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) - aplicação da Plataforma Universal do Windows (UWP) que utiliza a identificação facial juntamente com voz, Cortana, tinta e câmera num cenário de partilha de notas familiar.
+
+## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+
+Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam o serviço de Face devem de estar ciente das políticas da Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Siga um início rápido para implementar um cenário simples de deteção facial em código.
-- [Início Rápido: Utilizar o SDK .NET com C# para detetar rostos numa imagem](quickstarts/csharp.md) (outras linguagens disponíveis)
+- [Início rápido: Detetar rostos numa imagem usando o SDK do .NET com o C# ](quickstarts/csharp.md) (outras linguagens disponíveis)

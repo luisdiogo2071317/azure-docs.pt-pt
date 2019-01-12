@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364100"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244992"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operações de manutenção do fornecedor de recursos do SQL
 
@@ -32,16 +32,6 @@ O fornecedor de recursos do SQL não é atendido como parte do Azure Stack, porq
 ### <a name="provider-virtual-machine"></a>Máquina virtual de fornecedor
 
 Como o fornecedor de recursos é executado num *utilizador* máquina virtual, tem de aplicar as atualizações e patches necessários quando terem sido lançadas. Pode utilizar os pacotes de atualização do Windows que são fornecidos como parte do ciclo do patch de atualização e para aplicar as atualizações para a VM.
-
-## <a name="backuprestoredisaster-recovery"></a>Cópia de segurança/restauro/recuperação após desastre
-
- Como é um componente do suplemento, o fornecedor de recursos do SQL não é uma cópia de segurança como parte de um processo do Azure Stack Business continuidade desastre recuperação (BCDR). Scripts serão fornecidos nas seguintes operações:
-
-- Cópias de segurança as informações de estado (armazenadas numa conta de armazenamento do Azure Stack).
-- Se uma recuperação de pilha completo é necessária a restaurar o fornecedor de recursos.
-
->[!NOTE]
->Se tiver de fazer uma recuperação, os servidores de base de dados devem ser recuperados antes do fornecedor de recursos é restaurado.
 
 ## <a name="updating-sql-credentials"></a>A atualizar as credenciais do SQL
 
@@ -122,7 +112,7 @@ Quando utilizar os fornecedores de recursos do SQL e MySQL com o Azure Stack, si
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-**Problema**: registos de rotação de segredos.<br>
+**Problema**: Registos de rotação de segredos.<br>
 Os registos para a rotação de segredos não são recolhidos automaticamente se o script personalizado de rotação secreta falhar quando é executada.
 
 **Solução**:<br>

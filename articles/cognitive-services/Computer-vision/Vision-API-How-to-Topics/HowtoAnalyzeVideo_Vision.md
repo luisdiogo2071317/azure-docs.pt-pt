@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580472"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232112"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Como Analisar Vídeos em Tempo Real
 Este guia demonstrará como efetuar uma análise quase em tempo real de fotogramas obtidos de uma transmissão de fluxo de vídeo em direto. Os componentes básicos num sistema desse tipo são:
@@ -195,12 +195,6 @@ Para começar a utilizar este exemplo, siga estes passos:
         
 
 Quando estiver pronto para integrar, **faça referência à biblioteca VideoFrameAnalyzer a partir dos seus próprios projetos.** 
-
-
-
-## <a name="developer-code-of-conduct"></a>Código de Conduta do Programador
-Com todos os Serviços Cognitivos, os Programadores que criam com as nossas APIs e exemplos têm de seguir o "[Código de Conduta do Programador para Serviços Cognitivos da Microsoft](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)". 
-
 
 As funcionalidades de compreensão de texto, vídeo, voz ou imagem do VideoFrameAnalyzer utilizam os Serviços Cognitivos do Azure. A Microsoft irá receber as imagens, áudio, vídeo e outros dados que carregar (através desta aplicação) e poderá utilizá-los para melhorar o serviço. Pedimos a sua ajuda para proteger as pessoas cujos dados são enviados para os Serviços Cognitivos do Azure através da sua aplicação. 
 

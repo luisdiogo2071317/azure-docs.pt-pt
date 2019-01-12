@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135343"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247287"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o IoT Hub
 
@@ -629,4 +629,4 @@ Neste tutorial, aprendeu a utilizar o encaminhamento de mensagens para encaminha
 Avance para o tutorial seguinte para aprender a gerir o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Configure os seus dispositivos a partir de um serviço de back-end](tutorial-device-twins.md)
+[Configurar e utilizar métricas e diagnósticos com um IoT Hub](tutorial-use-metrics-and-diags.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160600"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244244"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para MariaDB
 
@@ -25,10 +25,9 @@ Pode configurar um alerta para fazer as seguintes ações quando é acionado:
 * Chamar um webhook
 
 Pode configurar e obter informações sobre regras de alerta com:
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Interface de linha de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API de REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Criar uma regra de alerta numa métrica
 1. Na [portal do Azure](https://portal.azure.com/), selecione a base de dados do Azure para o servidor de MariaDB que pretende monitorizar.
@@ -49,7 +48,7 @@ Pode configurar e obter informações sobre regras de alerta com:
    
    ![Selecionar métrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configurar a lógica de alerta, incluindo o **condição** (ex. "Maior que"), **limiar** (ex. 85 por cento), **agregação de tempo**, **período** de tempo, a regra de métrica deve ser satisfeita antes dos acionadores de alerta (ex. "Durante os últimos 30 minutos", e **frequência**.
+7. Configurar a lógica de alerta, incluindo o **condição** (ex. "Maior que"), **limiar** (ex. 85 por cento), **agregação de tempo**, **período** de tempo, a regra de métrica deve ser satisfeita antes dos acionadores de alerta (ex. "Durante os últimos 30 minutos"), e **frequência**.
    
    Selecione **feito** quando terminar.
 

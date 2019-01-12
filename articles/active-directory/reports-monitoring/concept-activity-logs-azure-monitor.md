@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582196"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231756"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registos de atividades do Azure AD no Azure Monitor (pré-visualização)
 
@@ -116,6 +116,12 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 **P: Como logo após uma ação os registos correspondentes aparecerá na minha conta de armazenamento?**
 
 **A**: Para contas de armazenamento do Azure, a latência for em qualquer lugar de 5 a 15 minutos após a ação é executada.
+
+---
+
+**P: O que acontece se um administrador alterar o período de retenção de uma definição de diagnóstico?**
+
+**A**: A nova política de retenção será aplicada aos registos recolhidos após a alteração. Registos recolhidos antes da alteração de política não serão afetada.
 
 ---
 

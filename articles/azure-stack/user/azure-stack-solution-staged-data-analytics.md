@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969537"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245536"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados pré-configurados com o Azure e o Azure Stack 
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como utilizar aplicações no local e ambientes de cloud pública para satisfazer as necessidades das empresas de várias instalações. O Azure Stack oferece uma solução rápida, segura e flexível para recolher, processamento, armazenamento e distribuição de dados locais e remotos, especialmente quando a segurança, da confidencialidade, política da empresa e os requisitos de regulamentação podem ser diferentes entre localizações e os utilizadores.
 
@@ -49,7 +49,7 @@ Neste tutorial, crie um ambiente de exemplo para:
 
 Uma preparação é necessário para criar esta solução:
 
--   Uma pilha de Azure instalada e a funcionar (podem encontrar mais informações aqui: [descrição geral do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   Uma pilha de Azure instalada e a funcionar (podem encontrar mais informações aqui: [Descrição geral do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Uma subscrição do Azure. (Criar um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,25 +81,25 @@ O contentor de BLOBs e de conta de armazenamento irá conter todos os dados orig
 
 3.  Utilize as seguintes informações para a conta:
 
-    a.  Nome: **à sua escolha**
+    a.  Nome: **A sua escolha**
 
-    b.  Modelo de implementação: **do Resource Manager**
+    b.  Modelo de implementação: **Resource Manager**
 
-    c.  Tipo de conta: **armazenamento (para fins gerais V1)**
+    c.  Tipo de conta: **Armazenamento (para fins gerais V1)**
 
-    d.  Localização: **E.U.A. oeste**
+    d.  Localização: **E.U.A. Oeste**
 
-    e.  Replicação: **armazenamento localmente redundante (LRS)**
+    e.  Replicação: **Armazenamento localmente redundante (LRS)**
 
-    f.  Desempenho: **padrão**
+    f.  Desempenho: **Standard**
 
-    g.  Transferência segura necessária: **desativado**
+    g.  Transferência segura necessária: **Desativado**
 
-    h.  Subscrição: Escolha um
+    h.  Subscrição: Escolher uma
 
     i.  Grupo de recursos: Especifique um novo grupo de recursos ou selecione um grupo de recursos existente
 
-    j.  Configurar redes virtuais: **desativado**
+    j.  Configure redes virtuais: **Desativado**
 
 4.  Selecione **criar para criar a conta de armazenamento**.
 
@@ -113,9 +113,9 @@ O contentor de BLOBs e de conta de armazenamento irá conter todos os dados orig
 
     ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Nome: **à sua escolha**
+8.  Nome: **À sua escolha**
 
-9.  Nível de acesso público: **contentor** (acesso de leitura anónimo para contentores e blobs)
+9.  Nível de acesso público: **Contentor** (acesso de leitura anónimo para contentores e blobs)
 
 10.  Selecione **OK**.
 
@@ -168,7 +168,7 @@ Crie uma nova função do Azure Stack para mover apagar dados do Azure Stack par
 
     ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure` definir a agenda `0 0 * * * *`, que em CRON notação uma vez é uma hora.
+3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure`  Defina a agenda `0 0 * * * *`, que em CRON notação uma vez é uma hora.
 
     ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image5.png)
 

@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162976"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232554"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Que métodos de autenticação estão disponíveis?
 
 Ouvimos nas notícias que as palavras-passe estão a ser roubadas e as identidades comprometidas. Um segundo fator além de uma palavra-passe aumenta imediatamente a segurança da sua organização. O Microsoft Azure Active Directory (Azure AD) inclui funcionalidades, como o Multi-Factor Authentication do Azure (MFA do Azure) e a reposição personalizada de palavra-passe (SSPR) do Azure AD, para ajudar os administradores a proteger as suas organizações e utilizadores com métodos de autenticação adicionais.
 
-Quando um utilizador precisar de aceder a aplicações confidenciais, repor a palavra-passe ou ativar o Windows Hello, pode ser-lhe solicitado para fornecer verificação adicional da sua identidade.
+Há muitos cenários que incluem: a iniciar sessão a uma aplicação, repor a palavra-passe, permitindo que o Windows Hello entre outras, os utilizadores podem ser solicitados para fornecer verificação adicional que são quem dizem que eles são.
 
 A verificação adicional pode ser na forma de métodos de autenticação, como:
 
@@ -42,20 +42,20 @@ A reposição personalizada de palavra-passe permite aos utilizadores repor a pa
 
 A reposição personalizada de palavra-passe inclui:
 
-* **Alteração da palavra-passe:** sei qual é a minha palavra-passe, mas quero alterá-la para uma nova.
-* **Reposição da palavra-passe:** não consigo iniciar sessão e quero repor a minha palavra-passe através de um ou mais métodos de autenticação aprovados.
-* **Desbloqueio da conta:** não consigo iniciar sessão porque a minha conta está bloqueada e quero desbloqueá-la através de um ou mais métodos de autenticação aprovados.
+* **Alteração de palavra-passe:** Eu sei a minha palavra-passe, mas quiser alterá-lo para algo novo.
+* **Reposição de palavra-passe:** Não é possível iniciar sessão e pretende repor a palavra-passe através de um ou mais métodos de autenticação aprovada.
+* **Desbloqueio de conta:** Eu não consigo iniciar sessão porque a minha conta está bloqueada e quero desbloquear através de um ou mais métodos de autenticação aprovada.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 O passo seguinte é configurar a reposição personalizada de palavra-passe e o Multi-Factor Authentication do Azure.
 
 Para começar a utilizar a reposição personalizada de palavra-passe, veja o artigo de início rápido [Ativar a SSPR](quickstart-sspr.md).
 
-Saiba mais sobre a reposição personalizada de palavra-passe no artigo, [Como funciona: reposição personalizada de palavra-passe do Azure AD](concept-sspr-howitworks.md)
+Saiba mais sobre senhas de auto-atendimento Repor no artigo, [como ele funciona: Redefinição de senha de autoatendimento de AD do Azure](concept-sspr-howitworks.md)
 
-Saiba mais sobre o Multi-Factor Authentication do Azure no artigo [Como funciona: Multi-Factor Authentication do Azure](concept-mfa-howitworks.md)
+Saiba mais sobre o Azure multi-factor Authentication no artigo, [como ele funciona: Autenticação Multifator do Azure](concept-mfa-howitworks.md)

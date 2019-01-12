@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994951"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247269"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorizar aplicações no serviço de aplicações do Azure
 [Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade interna de monitorização para aplicações web, móveis back-ends e aplicações API no [portal do Azure](https://portal.azure.com).
@@ -72,7 +72,7 @@ Para uma aplicação, as métricas disponíveis são:
 | Métrica | Descrição |
 | --- | --- |
 | **Tempo médio de resposta** | O tempo médio despendido para a aplicação atender a solicitações, em milissegundos. |
-| **Conjunto de trabalho de memória média** | A quantidade média de memória utilizada pela aplicação, no mebibytes (MiB). |
+| **Conjunto de trabalho de memória média** | A quantidade média de memória utilizada pela aplicação, em megabytes (MiB). |
 | **Tempo de CPU** | A quantidade de CPU consumida pela aplicação, em segundos. Para obter mais informações sobre esta métrica, consulte [percentagem de CPU do vs de tempo de CPU](#cpu-time-vs-cpu-percentage). |
 | **Dados em** | A quantidade de largura de banda de entrada consumida pela aplicação, no MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pela aplicação, no MiB. |
@@ -141,14 +141,12 @@ Para saber mais sobre métricas, veja [monitorizar as métricas de serviço](../
 ## <a name="alerts-and-autoscale"></a>Alertas e o dimensionamento automático
 As métricas para uma aplicação ou um plano do serviço de aplicações podem ser conectadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplicações de serviço de aplicações alojadas nesse autoscale de suporte de planos básico, Standard ou Premium do serviço de aplicações. Com o dimensionamento automático, pode configurar regras que monitoram as métricas de plano de serviço de aplicações. Regras podem aumentar ou diminuir a contagem de instâncias, que pode fornecer recursos adicionais conforme necessário. As regras também podem ajudar a poupar dinheiro quando a aplicação é aprovisionada excessiva. 
+Aplicações de serviço de aplicações alojadas nesse autoscale de suporte de planos básico, Standard ou Premium do serviço de aplicações. Com o dimensionamento automático, pode configurar regras que monitoram as métricas de plano de serviço de aplicações. Regras podem aumentar ou diminuir a contagem de instâncias, que pode fornecer recursos adicionais conforme necessário. As regras também podem ajudar a poupar dinheiro quando a aplicação é aprovisionada excessiva.
 
 Para obter mais informações sobre o dimensionamento automático, consulte [como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

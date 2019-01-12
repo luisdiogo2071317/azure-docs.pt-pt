@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238080"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232282"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -296,7 +296,7 @@ Está agora pronto para configurar um grupo de disponibilidade utilizando os seg
 
     ![Novo Assistente de AG, selecione a sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na **selecionar sincronização de dados inicial** , selecione **completo** e especifique uma localização de rede partilhada. Para a localização, utilize o [partilha de cópia de segurança que criou](#backupshare). No exemplo tenha sido, **\\\\\<primeiro servidor de SQL\>\Backup\**. Clique em **Seguinte**.
+8. Na **selecionar sincronização de dados inicial** , selecione **completo** e especifique uma localização de rede partilhada. Para a localização, utilize o [partilha de cópia de segurança que criou](#backupshare). No exemplo tenha sido,  **\\ \\ \<primeiro servidor de SQL\>\Backup\\**. Clique em **Seguinte**.
 
    >[!NOTE]
    >Sincronização completa usa uma cópia de segurança completa da base de dados na primeira instância do SQL Server e restaurá-lo a segunda instância. Sincronização completa não é recomendada para grandes bancos de dados, porque poderá demorar muito tempo. Pode reduzir esse tempo, manualmente fazer uma cópia de segurança da base de dados e o Restaurei com `NO RECOVERY`. Se a base de dados já está a ser restaurado com `NO RECOVERY` no SQL Server segundo antes de configurar o grupo de disponibilidade, escolha **apenas junção**. Se pretender efetuar a cópia de segurança depois de configurar o grupo de disponibilidade, escolha **ignorar sincronização de dados inicial**.

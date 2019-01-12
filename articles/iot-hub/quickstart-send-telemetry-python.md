@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 5000fc64eb14687f653656e7dafa147bba8689bc
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 98dea8d28834f722af13ee21cc075c612eb73f2a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515459"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243411"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Python)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -57,9 +57,9 @@ Transfira o projeto Python de exemplo a partir de https://github.com/Azure-Sampl
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-    **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+    **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
-    **MyPythonDevice**: este é o nome designado para o dispositivo registado. Utilize MyPythonDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
+    **MyPythonDevice** : Este é o nome fornecido para o dispositivo registado. Utilize MyPythonDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -68,7 +68,7 @@ Transfira o projeto Python de exemplo a partir de https://github.com/Azure-Sampl
 
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-    **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+    **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
@@ -131,4 +131,4 @@ Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, e
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-python.md)
+> [Início rápido: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-python.md)

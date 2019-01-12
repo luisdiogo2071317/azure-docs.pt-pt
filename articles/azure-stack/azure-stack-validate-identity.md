@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.reviewer: unknown
+ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888380"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245945"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 Utilize a ferramenta de Verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que o Azure Active Directory (Azure AD) está pronto para utilizar com o Azure Stack. Valide a sua solução de identidade do Azure antes de iniciar uma implementação do Azure Stack.  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Causa** -a conta não pode iniciar sessão no Azure Active Directory diretório especificado (AADDirectoryTenantName). Neste exemplo, *AzureChinaCloud* está especificado como o *AzureEnvironment*.
 
-**Resolução** -confirme que a conta é válida para o ambiente do Azure especificado. No PowerShell, execute o seguinte para verificar se a conta é válida para um ambiente específico: Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
+**Resolução** -confirme que a conta é válida para o ambiente do Azure especificado. No PowerShell, execute o seguinte para verificar se que a conta é válida para um ambiente específico:   Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Conta não é um administrador 
  
 ````PowerShell

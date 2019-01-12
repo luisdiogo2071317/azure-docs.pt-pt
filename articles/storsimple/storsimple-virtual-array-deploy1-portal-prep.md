@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257270"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244788"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array - preparar o portal do Azure
 
@@ -43,7 +43,7 @@ Para implementar a sua matriz Virtual StorSimple, consulte os artigos seguintes 
 | **#** | **Neste passo** | **Fazê-lo...** | **E usar esses documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar o portal do Azure** |Criar e configurar o seu serviço StorSimple Device Manager antes de aprovisionar uma matriz Virtual StorSimple. |[Preparar o portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Aprovisionar a matriz Virtual** |Para o Hyper-V, aprovisionar e ligar a uma matriz Virtual do StorSimple num sistema anfitrião com Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, aprovisionar e ligar a uma matriz Virtual do StorSimple num sistema anfitrião com o VMware ESXi 5.0, 5.5 ou 6.0.<br></br> |[Aprovisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Aprovisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Aprovisionar a matriz Virtual** |Para o Hyper-V, aprovisionar e ligar a uma matriz Virtual do StorSimple num sistema anfitrião com Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, aprovisionar e ligar a uma matriz Virtual do StorSimple num sistema anfitrião com o VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Aprovisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Aprovisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Configurar a matriz Virtual** |Para o servidor de ficheiros, execute a configuração inicial, registar o servidor de ficheiros do StorSimple e concluir a configuração do dispositivo. Em seguida, pode aprovisionar partilhas SMB. <br></br> <br></br> Para o seu servidor de iSCSI, execute a configuração inicial, registar o servidor de iSCSI do StorSimple e concluir a configuração do dispositivo. Em seguida, pode aprovisionar volumes de iSCSI. |[Configurar a matriz virtual como servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Agora, pode começar a configurar o portal do Azure.
@@ -71,7 +71,7 @@ Antes de começar, certifique-se de que:
 
 Antes de implementar uma matriz virtual, certifique-se de que:
 
-* Tem acesso a um sistema anfitrião com Hyper-V no Windows Server 2008 R2 ou posterior ou o VMware (ESXi 5.0, 5.5 ou 6.0), que pode ser utilizado para um aprovisionar um dispositivo.
+* Tem acesso a um sistema anfitrião com Hyper-V no Windows Server 2008 R2 ou posterior ou o VMware (ESXi 5.0, 5.5, 6.0 ou 6.5), que pode ser utilizado para um aprovisionar um dispositivo.
 * O sistema anfitrião é capaz de dedicar os seguintes recursos para aprovisionar a sua matriz virtual:
   
   * Um mínimo de 4 núcleos.
@@ -92,7 +92,7 @@ Utilize as seguintes instruções passo a passo para preparar o seu portal para 
 
 ## <a name="step-1-create-a-new-service"></a>Passo 1: Criar um novo serviço
 
-Uma única instância do serviço StorSimple Device Manager pode gerir várias matrizes virtuais do StorSimple. Execute os seguintes passos para criar uma instância do serviço Gestor de Dispositivos do StorSimple. Se tiver um serviço StorSimple Device Manager existente para gerir as matrizes virtuais, ignore este passo e vá para [passo 2: obter a chave de registo do serviço](#step-2-get-the-service-registration-key).
+Uma única instância do serviço StorSimple Device Manager pode gerir várias matrizes virtuais do StorSimple. Execute os seguintes passos para criar uma instância do serviço Gestor de Dispositivos do StorSimple. Se tiver um serviço StorSimple Device Manager existente para gerir as matrizes virtuais, ignore este passo e vá para [passo 2: Obter a chave de registo do serviço](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -100,7 +100,7 @@ Uma única instância do serviço StorSimple Device Manager pode gerir várias m
 > Se não tiver ativado a criação automática de uma conta do Storage com o serviço, terá de criar pelo menos uma conta do Storage depois de ter criado com sucesso um serviço.
 > 
 > * Se não tiver criado automaticamente uma conta do Storage, vá para [Configurar uma nova conta do Storage para o serviço](#optional-step-configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> * Se tiver ativado a criação automática de uma conta do Storage, vá para [Passo 2: Obter a chave de registo do serviço](#step-2-get-the-service-registration-key).
+> * Se tiver ativado a criação automática de uma conta de armazenamento, aceda a [passo 2: Obter a chave de registo do serviço](#step-2-get-the-service-registration-key).
 > 
 > 
 
@@ -117,7 +117,7 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/).
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>Passo 3: Transferir a imagem da matriz virtual
+## <a name="step-3-download-the-virtual-array-image"></a>Passo 3: Descarregar imagem da matriz virtual
 
 Depois de ter a chave de registo do serviço, terá de transferir a imagem de matriz virtual adequados para Aprovisionar uma matriz virtual no seu sistema anfitrião. As imagens de matriz virtual são específicas do sistema operativo e podem ser transferidas a partir da página de início rápido no portal do Azure.
 
@@ -137,10 +137,10 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/).
    
    * VHDX para Hyper-V no Windows Server 2012 e versões posteriores
    * VHD para Hyper-V no Windows Server 2008 R2 e posterior
-   * VMDK para VMWare ESXi 5.0, 5.5 ou 6.0
+   * VMDK para VMWare ESXi 5.0, 5.5, 6.0 ou 6.5
 5. Transfira e deszipe o ficheiro numa unidade local, tomando nota da localização onde o ficheiro deszipado se encontra.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Passo opcional: configurar uma nova conta de armazenamento para o serviço
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Passo opcional: Configurar uma nova conta do Storage para o serviço
 
 Este passo é opcional e deve ser efetuado apenas se não tiver ativado a criação automática de uma conta de armazenamento com o seu serviço.
 

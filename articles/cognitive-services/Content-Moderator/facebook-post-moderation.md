@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2b655e488b15b4520bc1de24b730f97269bddb4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255436"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231806"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdos do Facebook com o Content Moderator
 
@@ -152,10 +152,6 @@ A solução envia todas as imagens e texto publicados na sua página do Facebook
 ## <a name="license"></a>Licença
 
 Todos os exemplos e SDKs dos Serviços Cognitivos da Microsoft estão licenciados com a Licença do MIT. Para obter mais detalhes, veja [LICENSE](https://microsoft.mit-license.org/) (LICENÇA).
-
-## <a name="developer-code-of-conduct"></a>Código de Conduta do Programador
-
-Espera-se que os programadores que utilizam os Serviços Cognitivos, incluindo esta biblioteca de cliente e exemplo, sigam o "Código de Conduta do Programador dos Serviços Cognitivos da Microsoft", disponível em http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

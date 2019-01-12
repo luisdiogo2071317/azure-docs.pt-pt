@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d322a0027f786be0603e7147eb3ba24341dd7fbf
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214866"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245094"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -233,6 +233,12 @@ Quando clica num dia no gráfico de utilização da aplicação, obtém uma list
 A opção **Inícios de sessão** dá uma visão geral completa de todos os eventos de início de sessão nas suas aplicações.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/11.png "Atividade de início de sessão")
+
+## <a name="office-365-activity-logs"></a>Registos de atividades do Office 365
+
+Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Office 365 fornece uma visão completa dos registos de atividades do Office 365. 
+
+Também pode aceder a registos de atividades do Office 365 programaticamente usando a [APIs de gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

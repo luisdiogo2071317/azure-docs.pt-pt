@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 9f53dbd3546fcd3f761338664179b42fce5be200
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119296"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246029"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Atualizar o fornecedor de recursos do MySQL 
 
 *Aplica-se a: Sistemas integrados do Azure Stack.*
 
-Um novo adaptador do fornecedor de recursos do SQL pode ser liberado quando compilações do Azure Stack são atualizadas. Enquanto o adaptador existente continua a trabalhar, recomendamos que Atualize para a compilação mais recente, logo que possível. 
+Um novo MySQL adaptador do fornecedor de recursos pode ser liberado quando cria o Azure Stack são atualizadas. Enquanto o adaptador existente continua a trabalhar, recomendamos que Atualize para a compilação mais recente, logo que possível. 
 
-> [!IMPORTANT]
-> Tem de instalar atualizações na ordem em que são lançadas. Não é possível ignorar versões. Consulte a lista de versões no [implementar os pré-requisitos do fornecedor de recursos](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+A partir da versão de versão 1.1.33.0 de fornecedor de recursos do MySQL, as atualizações são cumulativas e não precisam ser instalados na ordem em que foram lançadas; enquanto está a partir da versão 1.1.24.0 ou posterior. Por exemplo, se estiver a executar a versão 1.1.24.0 do fornecedor de recursos do MySQL, em seguida, pode atualizar para a versão 1.1.33.0 ou mais tarde sem a necessidade de instalar primeiro a versão 1.1.30.0. Para rever as versões do fornecedor de recursos disponíveis e a versão do Azure Stack, só são suportados em, consulte a lista de versões no [implementar os pré-requisitos do fornecedor de recursos](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Atualizar o adaptador de fornecedor de recursos do MySQL (apenas sistemas integrados)
-
-Um novo adaptador do fornecedor de recursos do SQL pode ser liberado quando compilações do Azure Stack são atualizadas. Enquanto o adaptador existente continua a trabalhar, recomendamos que Atualize para a compilação mais recente, logo que possível.  
- 
 Para atualizar do fornecedor de recursos que utiliza a **UpdateMySQLProvider.ps1** script. O processo é semelhante para o processo usado para instalar um fornecedor de recursos, conforme descrito no [implementar o fornecedor de recursos](#deploy-the-resource-provider) seção deste artigo. O script está incluído no download do fornecedor de recursos. 
+
+ > [!IMPORTANT]
+ > Antes de atualizar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
+
+## <a name="update-script-processes"></a>Processos de script de atualização
 
 O **UpdateMySQLProvider.ps1** script cria uma nova VM com o código do Provedor de recursos mais recentes e migra as definições da VM antiga para a nova VM. As definições que migram incluem a base de dados e informações do servidor de hospedagem e registe o DNS necessário. 
 
@@ -43,7 +43,27 @@ O **UpdateMySQLProvider.ps1** script cria uma nova VM com o código do Provedor 
 
 O script requer a utilização dos mesmos argumentos que são descritos para o script de DeployMySqlProvider.ps1. Forneça o certificado aqui também.  
 
-Segue-se um exemplo do *UpdateMySQLProvider.ps1* script que pode executar a partir da linha de comandos do PowerShell. Certifique-se de que alterar as informações de conta e as palavras-passe conforme necessário:  
+
+## <a name="update-script-parameters"></a>Atualizar parâmetros do script 
+Pode especificar os seguintes parâmetros da linha de comando ao executar o **UpdateMySQLProvider.ps1** script do PowerShell. Se não o fizer, ou se nenhuma validação de parâmetro falhar, lhe for pedido para fornecer os parâmetros necessários. 
+
+| Nome do Parâmetro | Descrição | Comentário ou o valor predefinido | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessário para acessar o ponto final com privilégios. | _Necessário_ | 
+| **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que tenha utilizado para implementar o Azure Stack. | _Necessário_ | 
+| **VMLocalCredential** |As credenciais para a conta de administrador local do fornecedor de recursos SQL VM. | _Necessário_ | 
+| **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ | 
+| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma Azure AD, da China **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | O ficheiro. pfx de certificado deve ser colocado neste diretório também. | _Opcional_ (_obrigatório_ para vários nós) | 
+| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ | 
+| **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 | 
+| **RetryDuration** | O intervalo de tempo limite entre repetições, em segundos. | 120 | 
+| **Desinstalar** | Remova o fornecedor de recursos e todos os recursos associados (veja as seguintes notas). | Não | 
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não | 
+| **AcceptLicense** | Ignora a linha de comandos para aceitar a licença GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+
+## <a name="update-script-example"></a>Exemplo de script de atualização
+Segue-se um exemplo de como utilizar o *UpdateMySQLProvider.ps1* script que pode executar a partir de uma consola elevada do PowerShell. Certifique-se de que alterar as informações de variável e as palavras-passe, conforme necessário:  
 
 > [!NOTE] 
 > O processo de atualização aplica-se apenas a sistemas integrados. 
@@ -92,26 +112,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
-``` 
- 
-### <a name="updatemysqlproviderps1-parameters"></a>Parâmetros de UpdateMySQLProvider.ps1 
-Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou se nenhuma validação de parâmetro falhar, lhe for pedido para fornecer os parâmetros necessários. 
-
-| Nome do Parâmetro | Descrição | Comentário ou o valor predefinido | 
-| --- | --- | --- | 
-| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessário para acessar o ponto final com privilégios. | _Necessário_ | 
-| **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que tenha utilizado para implementar o Azure Stack. | _Necessário_ | 
-| **VMLocalCredential** |As credenciais para a conta de administrador local do fornecedor de recursos SQL VM. | _Necessário_ | 
-| **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ | 
-| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma Azure AD, da China **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | O ficheiro. pfx de certificado deve ser colocado neste diretório também. | _Opcional_ (_obrigatório_ para vários nós) | 
-| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ | 
-| **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 | 
-| **RetryDuration** | O intervalo de tempo limite entre repetições, em segundos. | 120 | 
-| **Desinstalar** | Remova o fornecedor de recursos e todos os recursos associados (veja as seguintes notas). | Não | 
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não | 
-| **AcceptLicense** | Ignora a linha de comandos para aceitar a licença GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
- 
+```  
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Manter o fornecedor de recursos MySQL](azure-stack-mysql-resource-provider-maintain.md)
