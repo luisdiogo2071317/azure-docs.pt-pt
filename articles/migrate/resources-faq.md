@@ -4,14 +4,14 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201198"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230769"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -53,6 +53,7 @@ O Azure Migrate suporta atualmente na Europa, Estados Unidos e o Azure Governmen
 **Geografia** | **Localização de armazenamento de metadados**
 --- | ---
 Azure Government | Gov (US) - Virginia
+Ásia | Sudeste Asiático
 Europa | Europa do Norte ou da Europa Ocidental
 Une Estados | E.U.A. Leste dos EUA Centro-Oeste
 
@@ -63,6 +64,17 @@ A ligação pode ser através da internet ou utilizar o ExpressRoute com peering
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Pode proteger a VM que configurar com o modelo de OVA?
 
 Componentes adicionais (por exemplo, software antivírus) podem ser adicionados no modelo de OVA, desde que as regras de comunicação e de firewall necessárias para a aplicação do Azure Migrate trabalhar são deixadas como está.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Para proteger a aplicação do Azure Migrate, quais são as exclusões do antivírus (AV) recomendada?
+
+Tem de excluir as seguintes pastas na aplicação para verificação antivírus:
+
+- Pasta que tenha os binários do serviço do Azure Migrate. Exclua todas as subpastas.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate a aplicação Web. Exclua todas as subpastas.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local para a base de dados e arquivos de log. Do Azure migrate precisa de serviço de acesso RW para esta pasta.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Deteção
 
@@ -136,16 +148,6 @@ Se tiver um ambiente que é partilhado em inquilinos e não pretender detetar as
 
 Pode descobrir 1500 máquinas de virtuais num projeto de migração única. Se tiver mais máquinas no seu ambiente no local, [Saiba mais](how-to-scale-assessment.md) sobre como é possível descobrir um ambiente de grandes dimensões no Azure Migrate.
 
-### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Para proteger a aplicação do Azure Migrate, quais são as exclusões do antivírus (AV) recomendada?
-
-Tem de excluir as seguintes pastas na aplicação para verificação antivírus:
-
-- Pasta que tenha os binários do serviço do Azure Migrate. Exclua todas as subpastas.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate a aplicação Web. Exclua todas as subpastas.
-  %SystemDrive%\inetpub\wwwroot
-- Cache local para a base de dados e arquivos de log. Do Azure migrate precisa de serviço de acesso RW para esta pasta.
-  %SystemDrive%\Profiler
 
 ## <a name="assessment"></a>Avaliação
 
