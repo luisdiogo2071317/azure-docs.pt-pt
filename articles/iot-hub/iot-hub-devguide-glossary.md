@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055086"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231619"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -40,7 +40,7 @@ Existem _SDKs do dispositivo_ disponível para vários idiomas que permitem que 
 ## <a name="azure-iot-service-sdks"></a>SDKs de serviço de IoT do Azure
 Existem _SDKs de serviço_ disponível para vários idiomas que permitem que crie [aplicações de back-end](#back-end-app) que interagem com um hub IoT. Os tutoriais do IoT Hub mostram-lhe como utilizar estes SDKs de serviço. Pode encontrar o código-fonte e obter mais informações sobre os SDKs de serviço neste GitHub [repositório](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-tools"></a>Ferramentas de IoT do Azure
+## <a name="azure-iot-tools"></a>Ferramentas do Azure IoT
 O [ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) é uma extensão de código do Visual Studio para várias plataformas, o código-fonte aberto que lhe permite gerir o IoT Hub do Azure e de dispositivos no VS Code. Com ferramentas de IoT do Azure, os programadores de IoT poderiam desenvolver o projeto de IoT no VS Code com facilidade.
 
 ## <a name="azure-portal"></a>Portal do Azure
@@ -59,7 +59,7 @@ O [portal do Microsoft Azure](https://portal.azure.com) é um local central onde
 [O armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento na cloud. Ele inclui o serviço de armazenamento de BLOBs que pode utilizar para armazenar dados de objetos não estruturados. Alguns tutoriais do IoT Hub utilizam o armazenamento de Blobs.
 
 ## <a name="back-end-app"></a>Aplicação de back-end
-No contexto do [IoT Hub](#iot-hub), uma aplicação de back-end é uma aplicação que se conecta a um dos pontos finais com acesso de serviço num IoT hub. Por exemplo, poderá obter uma aplicação de back-end [dispositivo-para-cloud](#device-to-cloud)mensagens ou gerir a [registo de identidade](#identity-registry). Normalmente, uma aplicação de back-end é executado na cloud, mas em muitos dos tutoriais, as aplicações de back-end são aplicações de consola em execução no computador de desenvolvimento local.
+No contexto do [IoT Hub](#iot-hub), uma aplicação de back-end é uma aplicação que se conecta a um dos pontos finais com acesso de serviço num IoT hub. Por exemplo, poderá obter uma aplicação de back-end [dispositivo-para-cloud](#device-to-cloud) mensagens ou gerir a [registo de identidade](#identity-registry). Normalmente, uma aplicação de back-end é executado na cloud, mas em muitos dos tutoriais, as aplicações de back-end são aplicações de consola em execução no computador de desenvolvimento local.
 
 ## <a name="built-in-endpoints"></a>Pontos finais incorporados
 Cada hub IoT inclui um incorporado [ponto final](iot-hub-devguide-endpoints.md) ou seja assim. Pode usar qualquer mecanismo que funciona com os Hubs de eventos para ler mensagens do dispositivo-para-cloud a partir deste ponto final.
