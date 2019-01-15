@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104986"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305388"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -234,5 +234,5 @@ Adicionar uma definição de diagnóstico abre a vista de definições de diagn�
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](diagnostic-logs-stream-event-hubs.md)
-* [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/)
 * [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

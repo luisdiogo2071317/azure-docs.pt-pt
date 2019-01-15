@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: fd912885335b41e3d7ca8ee717b6bb1b9c88e729
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 905ea05d2b3bc58428831ae815238de818912928
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984150"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304436"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para pesquisas no Stream Analytics
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto finito de dados que é estático ou de variação lenta por natureza, utilizado para efetuar uma pesquisa ou para correlacionar com seu fluxo de dados. O Azure Stream Analytics carrega dados de referência na memória para alcançar o processamento de fluxo de baixa latência. Para tornar usar dados de referência na sua tarefa do Azure Stream Analytics, geralmente utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Stream Analytics utiliza o armazenamento de Blobs do Azure como a camada de armazenamento para dados de referência, e com a referência do Azure Data Factory dados podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para utilização como dados de referência do [qualquer número de com base na cloud e arquivos de dados locais](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem ascendente da data/hora especificada no nome do blob. Ele **apenas** suporta a adição ao final da sequência usando uma data/hora **maior** que o especificado pelo blob de último na sequência.
@@ -38,10 +38,10 @@ Para configurar os seus dados de referência, tem primeiro de criar uma entrada 
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será utilizado na consulta de trabalho para fazer referência a esta entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma subscrição que a tarefa do Stream Analytics, pode selecioná-lo a partir da lista pendente.   |
-|Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isso é preenchido automaticamente se a conta de armazenamento está na mesma subscrição que a tarefa de Stream Analytics.   |
-|Contentor de armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
-|Padrão do Caminho   | O caminho utilizado para localizar os blobs no contentor especificado. No caminho, pode optar por especificar uma ou mais instâncias das 2 variáveis seguintes:<BR>{date}, {time}<BR>Exemplo 1: products/{date}/{time}/product-list.csv<BR>Exemplo 2: products/{date}/product-list.csv<BR><br> Se o blob não existir no caminho especificado, a tarefa do Stream Analytics aguardará indefinidamente para o blob para se tornar disponível.   |
-|Formato de data [opcional]   | Se tiver utilizado a {date} dentro do padrão de caminho que especificou, em seguida, pode selecionar o formato de data em que os blobs são organizados na lista suspensa dos formatos suportados.<BR>Exemplo: Aaaa/MM/DD, aaaa/MM/AAAA, etc.   |
+|Chave da Conta de Armazenamento   | A chave secreta associada à conta de armazenamento. Isso é preenchido automaticamente se a conta de armazenamento está na mesma subscrição que a tarefa de Stream Analytics.   |
+|Contentor de Armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
+|Padrão do Caminho   | O caminho utilizado para localizar os blobs no contentor especificado. No caminho, pode optar por especificar uma ou mais instâncias das 2 variáveis seguintes:<BR>{date}, {time}<BR>Exemplo 1: products/{date}/{time}/product-list.csv<BR>Exemplo 2: products/{date}/product-list.csv<BR>Exemplo 3: produto-list.csv<BR><br> Se o blob não existir no caminho especificado, a tarefa do Stream Analytics aguardará indefinidamente para o blob para se tornar disponível.   |
+|Formato de data [opcional]   | Se tiver utilizado a {date} dentro do padrão de caminho que especificou, em seguida, pode selecionar o formato de data em que os blobs são organizados na lista suspensa dos formatos suportados.<BR>Exemplo: AAAA/MM/DD, aaaa/MM/AAAA, etc.   |
 |Formato de hora [opcional]   | Se tiver utilizado a {time} dentro do padrão de caminho que especificou, em seguida, pode selecionar o formato de hora em que os blobs são organizados na lista suspensa dos formatos suportados.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de serialização de eventos   | Para se certificar de que as suas consultas funcionam do modo esperado, o Stream Analytics precisa de saber que formato de serialização está a utilizar para os fluxos de dados recebidos. Para os dados de referência, os formatos suportados são CSV e JSON.  |
 |Codificação   | UTF-8 é o único formato de codificação suportado neste momento.  |
@@ -78,7 +78,7 @@ O Azure Stream Analytics analisa automaticamente para blobs de dados de referên
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
-> [Início rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início rápido: Criar uma tarefa de Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

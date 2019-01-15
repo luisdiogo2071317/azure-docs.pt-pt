@@ -1,26 +1,8 @@
 ---
-title: Notas de Jupyter da Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
-description: Descubra os blocos de notas do Jupyter na Galeria de IA do Azure. Blocos de notas na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções de aprendizagem automática avançada.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: b927b63744c9871c2a2d5451c685714c2d2ea6de
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268228"
+title: TitleSuffix de blocos de notas do Jupyter da Galeria de IA do Azure: Descrição do Azure Machine Learning Studio: Descubra os blocos de notas do Jupyter na Galeria de IA do Azure. Blocos de notas na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções de aprendizagem automática avançada.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Descubra os blocos de notas do Jupyter na Galeria de IA do Azure
 

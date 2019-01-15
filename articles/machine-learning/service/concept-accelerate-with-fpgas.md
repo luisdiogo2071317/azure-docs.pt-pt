@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313637"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306130"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>Quais são FPGAs e Project Brainwave?
 
@@ -39,7 +39,7 @@ O diagrama e a tabela seguinte mostram como FPGAs se compara aos outros processa
 
 ## <a name="project-brainwave-on-azure"></a>Project Brainwave no Azure
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) é uma arquitetura de hardware da Microsoft. Baseia-se em dispositivos FPGA da Intel, quais os cientistas de dados e os desenvolvedores utilizam para acelerar os cálculos de IA em tempo real. Esta arquitetura habilitados em FPGA oferece dimensionamento, flexibilidade e desempenho e está disponível no Azure.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) é uma arquitetura de hardware da Microsoft. Baseia-se em dispositivos FPGA da Intel, quais os cientistas de dados e os desenvolvedores utilizam para acelerar os cálculos de IA em tempo real. Esta arquitetura habilitados em FPGA oferece dimensionamento, flexibilidade e desempenho e está disponível no Azure.
 
 FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real. Solicitações assíncronas (criação de batches) não são necessários. Processamento em lote pode causar uma latência, porque precisam de mais dados a serem processados. Project Brainwave implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser menor número de vezes, em comparação com processadores de CPU e GPU.
 

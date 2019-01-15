@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728113"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303943"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 
@@ -38,9 +38,9 @@ A funcionalidade de identidades geridas para recursos do Azure é gratuita com o
 
 Os termos seguintes são utilizados em toda as identidades geridas para o conjunto de documentação de recursos do Azure:
 
-- **Id de cliente** -um identificador exclusivo gerado pelo Azure AD que está associado a um aplicativo e o principal de serviço durante o aprovisionamento inicial.
-- **Id de principal** -id de objeto do objeto principal de serviço para a sua identidade gerida que é utilizado para conceder o acesso baseado em funções para um recurso do Azure.
-- **Serviço de metadados de instância do Azure (IMDS)** -um ponto final REST acessíveis a todas as VMs de IaaS criadas através do Azure Resource Manager. O ponto final está disponível num bem conhecido não encaminháveis internos endereço IP (169.254.169.254) que pode ser acedido apenas a partir de dentro da VM.
+- **ID de cliente** -um identificador exclusivo gerado pelo Azure AD que está associado a um aplicativo e o principal de serviço durante o aprovisionamento inicial.
+- **ID de principal** -ID de objeto do objeto principal de serviço para a sua identidade gerida que é utilizado para conceder acesso baseado em funções para um recurso do Azure.
+- **Serviço de metadados de instância do Azure (IMDS)** -um ponto final REST acessível a todas as VMs de IaaS criadas através do Azure Resource Manager. O ponto final está disponível num bem conhecido não encaminháveis internos endereço IP (169.254.169.254) que pode ser acedido apenas a partir de dentro da VM.
 
 ## Como funciona as identidades geridas para recursos do Azure?<a name="how-does-it-work"></a>
 

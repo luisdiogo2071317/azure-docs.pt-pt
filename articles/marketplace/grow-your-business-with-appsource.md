@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 33607043e9b462c4611106c72192f41f1d56c0b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078002"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305915"
 ---
 # <a name="grow-your-business-with-appsource"></a>Expanda o seu negócio com o AppSource  
 Utilize o AppSource quando interagir com os clientes empresariais a encontrar, experimentar e obtenha o software de linha de negócio como um serviço (SaaS) aplicações e serviços de implementação para ajudar a garantir resultados de negócios e reduzir o tempo de valor.  
@@ -67,7 +67,7 @@ A qualidade de sua publicação da aplicação e um compromisso para com a pedid
 A lista de verificação seguinte fornece as melhores práticas de marketing e recursos a considerar ao criar ofertas a publicar no AppSource:  
 *   **Lembre-se da Microsoft Trademark & diretrizes de marca.**  
     Quando nomeando seu aplicativo e que faça referência a marcas comerciais da Microsoft e os nomes dos softwares da Microsoft, produtos e serviços, siga o Microsoft Trademark e diretrizes de marca, bem como diretrizes de específico do produto relevantes.  
-    *   Para obter mais informações sobre marcas registadas da Microsoft e a imagem corporativa, visite o Trademark Microsoft e a página de diretrizes de marca localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Para obter mais informações sobre marcas registadas da Microsoft e a imagem corporativa, visite o Trademark Microsoft e a página de diretrizes de marca localizado em [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).
 *   **Ativar um get-lo agora, experimente, oferta de avaliação gratuita, ou teste a experiência de unidade para a sua aplicação.**  
     Os utilizadores empresariais pretendem experimentar em primeira mão a aplicação.  
 *   **Crie uma proposta de valor forte.**  
@@ -104,7 +104,7 @@ As tabelas a seguir detalham a cada etapa do preenchimento de sua listagem de of
 
 | Definição de oferta | Melhores práticas | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Nome** | **A oferta de nomenclatura**<br />Escolher um nome para a sua aplicação é uma decisão de chave. Com base em benefício nomes são mais eficaz do que nomes descritivos. Nome da sua aplicação deve comunicar que o valor de núcleo os clientes recebe. Incluindo palavras-chave de pesquisa no seu título da aplicação também pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa. Siga o Microsoft Trademark e diretrizes de marca, bem como diretrizes de específico do produto relevantes quando nos Referimos a marcas comerciais da Microsoft e os nomes da Microsoft, software, produtos e serviços.<ul> <li>Para obter mais informações sobre marcas registadas da Microsoft e a imagem corporativa, visite o Trademark Microsoft e a página de diretrizes de marca localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nome** | **A oferta de nomenclatura**<br />Escolher um nome para a sua aplicação é uma decisão de chave. Com base em benefício nomes são mais eficaz do que nomes descritivos. Nome da sua aplicação deve comunicar que o valor de núcleo os clientes recebe. Incluindo palavras-chave de pesquisa no seu título da aplicação também pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa. Siga o Microsoft Trademark e diretrizes de marca, bem como diretrizes de específico do produto relevantes quando nos Referimos a marcas comerciais da Microsoft e os nomes da Microsoft, software, produtos e serviços.<ul> <li>Para obter mais informações sobre marcas registadas da Microsoft e a imagem corporativa, visite o Trademark Microsoft e a página de diretrizes de marca localizado em [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).</li> </ul> |
 
 **Vitrine detalhes - detalhes da oferta**  
 
@@ -141,7 +141,7 @@ Adicionar este distintivo ao seu site promove que sua oferta no AppSource e pode
 
 #### <a name="linking-to-your-app-listing-page-on-appsource-from-your-page"></a>Ligar a sua página de lista de aplicações no AppSource da sua página  
 Quando cria uma ligação de destaque de AppSource no seu site para sua listagem no AppSource, tem de incluir os seguintes parâmetros de consulta no final do URL:
-*   **SRC**  
+*   **src**  
     Incluem a origem de onde o tráfego é encaminhado para o AppSource. Por exemplo, site, LinkedIn, Facebook, etc.
 *   **mktcmpid**  
     O marketing campanha ID, que pode incluir até 16 carateres com qualquer combinação de letra, número, um caráter de sublinhado e hífen. Por exemplo, `blogpost_12` 

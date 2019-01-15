@@ -1,28 +1,10 @@
 ---
-title: Machine Learning Studio perguntas mais frequentes (FAQs perguntas) - Azure | Documentos da Microsoft
-description: 'O Azure Machine Learning Studio: Perguntas frequentes sobre que abrangem a faturação, capacidades e limitações de um serviço cloud de modelação preditiva simplificada.'
-keywords: introdução ao machine learning, modelação preditiva, o que é o machine learning
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091301"
+title: O Machine Learning Studio perguntas mais frequentes (FAQs) perguntas titleSuffix: Descrição do Azure Machine Learning Studio: "Do azure Machine Learning Studio: Perguntas frequentes sobre faturação, capacidades e limitações de um serviço cloud de modelação preditiva simplificada. "
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
-# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio FAQ: Faturação, capacidades, limitações e suporte
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>FAQ do Azure Machine Learning Studio: A faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
 
 **Tem alguma pergunta que não encontre aqui?**
@@ -55,8 +37,8 @@ Os serviços Web Machine Learning proporcionam uma interface entre uma aplicaç�
 
 O Azure Machine Learning tem dois tipos de serviços Web:
 
-* Serviço de Pedido-Resposta (RRS): um serviço altamente dimensionável e de baixa latência que proporciona uma interface para os modelos sem monitorização de estado criados e implementados com o Machine Learning Studio.
-* Serviço de Execução de Lote (BES): um serviço assíncrono que classifica um lote de registos de dados.
+* Serviço de solicitação-resposta (RRS): Uma baixa latência, o serviço altamente dimensionável, que fornece uma interface para os modelos sem monitorização de estado criados e implementados através da utilização de Machine Learning Studio.
+* Serviço de execução de lote (BES): Um serviço assíncrono que pontua um lote de registos de dados.
 
 Existem várias formas de utilizar a API REST e aceder ao serviço Web. Por exemplo, pode escrever uma aplicação em C#, R ou Python com o código de exemplo que foi gerado para si quando implementou o serviço Web.
 
@@ -271,7 +253,7 @@ Para conjuntos de dados superiores a alguns GB, carregue os dados para o Armazen
 
 **Existem limitações ao tamanho do vetor?**
 
-As linhas e colunas são limitadas para a limitação de .NET do máx. Int: 2.147.483.647.
+Linhas e colunas são limitadas para a limitação de .NET do máx. Int cada: 2,147,483,647.
 
 **Posso ajustar o tamanho da máquina virtual que executa o serviço Web?**
 
@@ -312,7 +294,7 @@ O Azure Machine Learning também tem um fórum comunitário no MSDN, onde pode f
 ## <a name="billing-questions"></a>Perguntas sobre faturação
 **Como funciona a faturação do Machine Learning?**
 
-O Azure Machine Learning tem dois componentes: o Machine Learning Studio e os serviços Web Machine Learning.
+O Azure Machine Learning tem dois componentes: Serviços web Machine Learning Studio e o Machine Learning.
 
 Enquanto estiver a avaliar o Machine Learning Studio, pode utilizar o escalão de faturação Gratuito. O escalão gratuito também lhe permite implementar um serviço Web Clássico com capacidade limitada.
 
@@ -438,7 +420,7 @@ Os novos planos de faturação estão disponíveis nas três regiões de produç
 
 Sim. Os preços dos planos variam consoante a região. Quando implementa um serviço Web noutra região, tem de lhe atribuir um plano específico para essa região. Para obter mais informações, veja [Produtos disponíveis por região]( https://azure.microsoft.com/regions/services/).
 
-### <a name="new-web-services-overages"></a>Novos Serviços Web – Utilizações excedidas
+### <a name="new-web-services-overages"></a>Novos serviços web: Excessos
 **Como posso ver se excedi a utilização do meu serviço Web?**
 
 Pode ver a utilização de todos os seus planos na página Planos do portal dos Serviços Web Azure Machine Learning. Inicie sessão no portal e clique na opção de menu **Planos**.
@@ -483,20 +465,20 @@ O serviço de API do Azure Machine Learning é faturado consoante seja um servi�
 
 Os encargos seguintes estão agregados por área de trabalho para a sua subscrição.
 
-* Subscrição de Área de Trabalho do Machine Learning: a subscrição de área de trabalho do Machine Learning é um valor mensal que proporciona acesso a uma área de trabalho do Machine Learning Studio. A subscrição é necessária para executar experimentações no Studio e utilizar as APIs de produção.
-* Horas de Experimentação do Studio: este medidor agrega todos os custos de computação que são acumulados pela execução de experimentações no Machine Learning Studio e de chamadas à API de produção no ambiente de teste.
+* Subscrição de área de trabalho do Machine Learning: A subscrição de área de trabalho do Machine Learning é uma taxa mensal que fornece acesso a uma área de trabalho do Machine Learning Studio. A subscrição é necessária para executar experimentações no Studio e utilizar as APIs de produção.
+* Horas de experimentação do Studio: Este medidor agrega todos os custos de computação que são acumulados pela execução de experimentações no Machine Learning Studio e chamadas à API de produção no ambiente de teste.
 * Aceda aos dados ao ligar a um servidor no local que execute o SQL Server nos seus modelos, para fins de preparação e classificação.
 * Nos serviços Web Clássicos:
-  * Horas de Computação da API de Produção: este medidor inclui custos de computação que são acumulados pelos serviços Web em execução na produção.
-  * Transações da API de Produção (em milhares): este medidor inclui custos que são acumulados por chamada para o seu serviço Web de produção.
+  * Horas de computação de API de produção: Este medidor inclui custos de computação que são acumulados pelos serviços web em execução na produção.
+  * Transações de API de produção (em 1000s): Este medidor inclui custos que são acumulados por chamada para o seu serviço da web de produção.
 
 Para além dos custos anteriores, no caso dos serviços Web baseados no Resource Manager, os custos são agregados ao plano selecionado:
 
-* Plano de API Standard S1/S2/S3 (Unidades): este medidor representa o tipo de instância selecionada para os serviços Web baseados no Resource Manager.
-* Horas de Computação de API Excedidas Standard S1/S2/S3: este medidor inclui custos que são acumulados pelos serviços Web baseados no Resource Manager em execução na produção depois de esgotadas as quantidades incluídas nas instâncias existentes. A utilização adicional é cobrada de acordo com a sobretaxa associada ao escalão do plano S1/S2/S3.
-* Transações de API Excedidas Standard S1/S2/S3 (em milhares): este medidor inclui custos que são acumulados por chamada para os serviços Web baseados no Resource Manager depois de esgotadas as quantidades incluídas nas instâncias existentes. A utilização adicional é cobrada de acordo com a sobretaxa associada ao escalão do plano S1/S2/S3.
-* Quantidade Incluída de Horas de Computação de API: nos serviços Web baseados no Resource Manager, este medidor representa a quantidade incluída de horas de computação de API.
-* Quantidade Incluída de Transações de API (em milhares): nos serviços Web baseados no Resource Manager, este medidor representa a quantidade incluída de transações de API.
+* Plano de API do Standard S1/S2/S3 (unidades): Este medidor representa o tipo de instância que está selecionada para serviços web baseados no Resource Manager.
+* S1/S2/S3 excedidas API horas de computação padrão: Este medidor inclui custos de computação que são acumulados pelos serviços web baseados no Resource Manager que são executados na produção depois de esgotadas as quantidades incluídas nas instâncias existentes. A utilização adicional é cobrada de acordo com a sobretaxa associada ao escalão do plano S1/S2/S3.
+* Transações de API de utilização excedida de Standard S1/S2/S3 (em 1,000s): Este medidor inclui custos que são acumulados por chamada para o seu serviço web baseado no Resource Manager de produção depois de esgotadas as quantidades incluídas nas instâncias existentes. A utilização adicional é cobrada de acordo com a sobretaxa associada ao escalão do plano S1/S2/S3.
+* Quantidade incluída de horas de computação de API: Com os serviços web baseados no Resource Manager, este medidor representa a quantidade incluída das horas de computação de API.
+* Transações de API de quantidade incluída (em 1,000s): Com os serviços web baseados no Resource Manager, este medidor representa a quantidade incluída de transações de API.
 
 **Como me posso inscrever no escalão Gratuito do Azure Machine Learning?**
 

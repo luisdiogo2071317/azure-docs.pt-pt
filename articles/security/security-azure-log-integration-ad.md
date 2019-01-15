@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313246"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304929"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar registos de auditoria do Azure Active Directory
 
@@ -28,7 +28,7 @@ Eventos de auditoria do Azure Active Directory (Azure AD) a identificar ações 
 
 
 >[!IMPORTANT]
-> A funcionalidade de integração de registo do Azure vai ser preterida até 06/01/2019. Downloads de AzLog serão desativados por 27 de Junho de 2018. Para obter orientações sobre o que fazer a postagem de revisão de encaminhamento de movimentação [monitor do Azure de utilização para integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> A funcionalidade de integração de registo do Azure vai ser preterida até 06/01/2019. Downloads de AzLog foram desativados a 27 de Junho de 2018. Para obter orientações sobre o que fazer a postagem de revisão de encaminhamento de movimentação [monitor do Azure de utilização para integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Registos de auditoria de passos para integrar o Azure Active Directory
 
@@ -73,7 +73,7 @@ Também pode abrir um [pedido de suporte](../azure-supportability/how-to-create-
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a integração de registo do Azure, veja:
 
-* [Para os registos do Azure do Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324): página do Centro de transferências este fornece detalhes e instruções de instalação para o Azure Log Integration requisitos do sistema.
-* [Introdução ao Azure Log Integration](security-azure-log-integration-overview.md): Este artigo apresenta a integração de registos do Azure, suas principais capacidades e como ele funciona.
-* [FAQ de integração de registo do Azure](security-azure-log-integration-faq.md): Este artigo responde a perguntas sobre a integração de registos do Azure.
-* [Registos de auditoria de novas funcionalidades para o diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta mensagem de blogue apresenta os registos de auditoria do Azure e outros recursos que o ajudam a obter informações sobre as operações de recursos do Azure.
+* [Para os registos do Azure do Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324): Esta página do Centro de transferências fornece detalhes e instruções de instalação para o Azure Log Integration requisitos do sistema.
+* [Introdução à integração de registos do Azure](security-azure-log-integration-overview.md): Este artigo apresenta o Azure Log Integration, suas principais capacidades e como ele funciona.
+* [Integração de registos do Azure FAQ](security-azure-log-integration-faq.md): Este artigo responde a perguntas sobre a integração de registos do Azure.
+* [Registos de auditoria de novas funcionalidades para o diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Esta postagem de blog apresenta os registos de auditoria do Azure e outros recursos que o ajudam a obter informações sobre as operações de recursos do Azure.

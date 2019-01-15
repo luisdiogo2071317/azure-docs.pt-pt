@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 624dcae6cadefd27b663699552068b37e658d9bf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198864"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304391"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
 
@@ -214,10 +214,10 @@ Métodos de registo adicionais estão disponíveis que permitem a escreve no con
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
 | o registo. **críticas (_mensagem_)**   | Escreve uma mensagem com o nível crítico em agente a raiz.  |
-| o registo. **erro (_mensagem_)**   | Escreve uma mensagem com erro de nível no agente a raiz.    |
+| logging.**error(_message_)**   | Escreve uma mensagem com erro de nível no agente a raiz.    |
 | o registo. **aviso (_mensagem_)**    | Escreve uma mensagem com o nível aviso no agente a raiz.  |
-| o registo. **info (_mensagem_)**    | Escreve uma mensagem com o nível informações sobre o agente de log de raiz.  |
-| o registo. **depurar (_mensagem_)** | Escreve uma mensagem com depuração nível no agente a raiz.  |
+| logging.**info(_message_)**    | Escreve uma mensagem com o nível informações sobre o agente de log de raiz.  |
+| logging.**debug(_message_)** | Escreve uma mensagem com depuração nível no agente a raiz.  |
 
 ## <a name="importing-shared-code-into-a-function-module"></a>Importar o código compartilhado num módulo de função
 
@@ -317,7 +317,7 @@ The terminal process terminated with exit code: 1
 Para criar e configurar os binários necessários, automaticamente [instalar o Docker](https://docs.docker.com/install/) no seu computador local e execute o seguinte comando para publicar utilizando o [ferramentas de núcleo de funções do Azure](functions-run-local.md#v2) (func). Não se esqueça de substituir `<app name>` com o nome da sua aplicação de função no Azure. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Em segundo plano, as ferramentas de núcleo irá utilizar o docker para executar o [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) imagem como um contentor no seu computador local. Utilizar este ambiente, ele vai, em seguida, criar e instalar os módulos necessários da distribuição de origem, antes de empacotá-los para a implantação final para o Azure.

@@ -1,26 +1,8 @@
 ---
-title: Soluções de Galeria de IA do Azure - do Azure Machine Learning Studio | Documentos da Microsoft
-description: Descobrir soluções na Galeria de IA do Azure. Uma solução fornece um início rápido para criar rapidamente soluções do Cortana Intelligence de soluções pré-configuradas, arquiteturas de referência e padrões de design.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: 8bfcbac45dd50ebed5491b0411d5f1faa5b5f078
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271339"
+title: TitleSuffix de soluções de Galeria de IA do Azure: Descrição do Azure Machine Learning Studio: Descobrir soluções na Galeria de IA do Azure. Uma solução fornece um início rápido para criar rapidamente soluções do Cortana Intelligence de soluções pré-configuradas, arquiteturas de referência e padrões de design.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Descobrir soluções na Galeria de IA do Azure
 
