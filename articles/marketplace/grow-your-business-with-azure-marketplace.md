@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f1a1c6e314d54f15d7e11784e2671002e854854
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074551"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304301"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Expanda o seu negócio no marketplace 
 Depois de publicar a oferta no AppSource ou no Azure Marketplace, pode utilizar a sua listagem como um ponto de partida para atividades conjuntas de (GTM) de go-to-market com a Microsoft. Impulsionar o tráfego para a sua oferta do Marketplace e estimulante oportunidades potenciais do Marketplace, por exemplo, são ótimas formas de acelerar o crescimento da sua empresa. 
@@ -33,7 +33,7 @@ As tabelas nas secções seguintes apresentam sugestões para a criação de ofe
 ### <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
 | Definição vitrine | Melhor prática |
 |:--- |:--- |  
-| Nome da Oferta | Forneça um título forte:<br>Nome da sua aplicação deve comunicar o valor de núcleos que seus clientes recebem. Incluindo palavras-chave de pesquisa no seu título da aplicação pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa.<br><br>Seguir um formato de título do conjunto de listas de serviço de consultoria:<br>[Nome da oferta]: [duração] [tipo de oferta] (por exemplo, *Contoso: Implementação de 2 semanas*)<br><br>Seguir as diretrizes de marca:<br>Siga [Trademark de Microsoft e diretrizes de marca](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes, específico do produto quando consultar a marcas comerciais da Microsoft e os nomes de software, produtos e serviços da Microsoft. |
+| Nome da Oferta | Forneça um título forte:<br>Nome da sua aplicação deve comunicar o valor de núcleos que seus clientes recebem. Incluindo palavras-chave de pesquisa no seu título da aplicação pode ajudar a sua aplicação a classificar superior nos resultados do motor de pesquisa.<br><br>Seguir um formato de título do conjunto de listas de serviço de consultoria:<br>[Nome da oferta]: [duração] [tipo de oferta] (por exemplo, *Contoso: Implementação de 2 semanas*)<br><br>Seguir as diretrizes de marca:<br>Siga [Trademark de Microsoft e diretrizes de marca](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/) e outras diretrizes relevantes, específico do produto quando consultar a marcas comerciais da Microsoft e os nomes de software, produtos e serviços da Microsoft. |
 | Descrição da oferta | Forneça uma descrição de oferta claro:<br>Descreva claramente a proposta de valor da sua oferta nas frases alguns primeiro da sua descrição. Tenha em atenção que as frases de alguns primeiro poderão ser apresentadas nos resultados do motor de pesquisa. Não confie em recursos e funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que fornecer. Utilize o vocabulário específicos da indústria ou com base em benefício redação tanto quanto possível.<br><br>Componentes principais de sua proposta de valor devem incluir as seguintes informações:<ul><li>Descrição do produto</li><li>Tipo de utilizador que se beneficia do produto</li><li>Necessidade de cliente ou o problema que abrange o produto</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Detalhes de listagem vitrine
@@ -147,7 +147,7 @@ O destaque do Azure Marketplace é fornecido como parte da sua livre [benefício
 
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Ligar a sua página de lista de aplicações no marketplace do seu Web site
 Quando cria uma ligação de destaque AppSource ou no Azure Marketplace no seu site para sua listagem no marketplace, suportam fortes análises e relatórios, incluindo os seguintes parâmetros de consulta no final do URL:
-* **SRC**: Incluem a origem a partir do qual o tráfego é encaminhado para o AppSource (por exemplo, Web site, LinkedIn ou o Facebook).
+* **src**: Incluem a origem a partir do qual o tráfego é encaminhado para o AppSource (por exemplo, Web site, LinkedIn ou o Facebook).
 * **mktcmpid**: O seu ID campanha de marketing, que pode conter até 16 carateres de qualquer combinação de letras, números, carateres de sublinhado e hífenes (por exemplo, *blogpost_12*).
 
 O URL do exemplo seguinte contém os dois parâmetros de consulta anterior: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
