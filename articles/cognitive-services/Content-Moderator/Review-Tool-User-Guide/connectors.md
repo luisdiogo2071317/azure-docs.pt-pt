@@ -1,58 +1,59 @@
 ---
-title: Utilizar conectores Moderator conteúdo do Azure para aceder a outras APIs | Microsoft Docs
-description: Saiba como de acesso a outras APIs para os fluxos de trabalho de conteúdo Moderator utilizando conectores.
+title: Ligar a outros serviços ao moderadores conteúdo - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Saiba como aceder a outros APIs para os fluxos de trabalho do Content Moderator utilizando conectores.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d8114457e7079ca8772cab830bd011dcddf372f5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99d8b3603278a9c6c432ca32a1d85e9abe34e1da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351602"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265588"
 ---
-# <a name="connectors"></a>Conectores
+# <a name="connect-to-other-cognitive-services"></a>Ligar a outros serviços cognitivos
 
-Fluxos de trabalho de conteúdo Moderator do Azure podem utilizar outras APIs, para além do conteúdo Moderator APIs. Acesso a outras APIs utilizando um conector na Moderator conteúdo. O conector oferece uma ligação para as outras APIs.
+Azure Content Moderator os fluxos de trabalho podem utilizar outras APIs, para além das APIs de moderador do conteúdo. Aceder a outros APIs utilizando um conector no Content Moderator. O conector fornece um link para as outras APIs.
 
-Conteúdo Moderator inclui estes conectores predefinido:
+O Content Moderator inclui estes conectores padrão:
 
 * API de Emoções
 * API Face
-* Serviço de nuvem PhotoDNA
+* Serviço em nuvem de PhotoDNA
 
-![Conectores disponíveis Moderator de conteúdo](images/connectors-1.png)
+![Conectores disponíveis do moderador de conteúdo](images/connectors-1.png)
 
-## <a name="verify-your-credentials"></a>Verificar as suas credenciais 
+## <a name="verify-your-credentials"></a>Verifique as suas credenciais 
 
 Antes de definir um fluxo de trabalho, certifique-se de que tem as credenciais válidas para o conector de API que pretende utilizar:
 
-1.  Na ferramenta de revisão Dashboard, selecione **definições** > **conectores**.
+1.  A ferramenta de revisão de Dashboard, selecione **configurações** > **conectores**.
 
-  ![Conectores de selecionados Moderator conteúdos](images/connectors-2.png)
+  ![Conteúdo conectores selecionadas do moderador](images/connectors-2.png)
 
-2.  Selecione o **editar** símbolo junto do conector que pretende verificar as credenciais para.
+2.  Selecione o **editar** símbolo junto o conector que pretende verificar as credenciais para.
 
-  ![Conteúdo Moderator selecione o símbolo de edição](images/connectors-3.png)
+  ![O Content Moderator, selecione o símbolo de edição](images/connectors-3.png)
 
-3.  É apresentada a chave de subscrição. Se efetuar todas as edições, selecione **guardar** quando tiver terminado.
+3.  É apresentada a chave de subscrição. Se efetue as edições, selecione **guardar** quando tiver terminado.
 
-  ![Página de conteúdo Moderator editar conectores](images/connectors-4-1.png)
+  ![Página de conectores de editar moderador de conteúdo](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Adicionar um conector
 
-1.  Antes de adicionar um conector, tem uma chave de subscrição. Na ferramenta de revisão Dashboard, selecione **definições** > **credenciais**. Selecione e copie o valor que está a ser o **Ocp-Admin-Subscription-Key** caixa.
+1.  Antes de adicionar um conector, precisa de uma chave de subscrição. A ferramenta de revisão de Dashboard, selecione **configurações** > **credenciais**. Selecione e copie o valor que está a **Ocp-Admin-Subscription-Key** caixa.
 
 2.  Selecione **conectores**. Selecione um dos conectores disponíveis que são apresentados na ferramenta de revisão Dashboard. Em seguida, selecione **Connect**. 
 
-  ![Página de conteúdo Moderator adicionar conector](images/connectors-5.png)
+  ![Página de conector de adicionar moderador de conteúdo](images/connectors-5.png)
 
-3.  No **Ocp-Admin-Subscription-Key** caixa, cole a chave que copiou. Em seguida, selecione **Guardar**.
+3.  Na **Ocp-Admin-Subscription-Key** caixa, cole a chave que copiou. Em seguida, selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

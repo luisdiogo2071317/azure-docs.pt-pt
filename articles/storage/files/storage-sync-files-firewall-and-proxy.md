@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333357"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259823"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -99,8 +99,8 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://login.windows.net | Chamadas de Gestor de recursos do Azure têm de ser feitas por um usuário autenticado. Para ter êxito, este URL é utilizado para autenticação de utilizador. |
 | **Azure Active Directory** | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um principal de serviço no Azure Active Directory da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar a um conjunto mínimo de direitos para o serviço de sincronização de ficheiros do Azure. O utilizador que executa a configuração inicial do Azure File Sync tem de ser um utilizador autenticado com privilégios de proprietário da subscrição. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | Quando o servidor transfere um ficheiro, em seguida, o servidor executa esse movimento de dados com mais eficiência quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de partilha de ficheiros de destino. |
-| **Sincronização de ficheiros do Azure** | &ast;.one.microsoft.com | Após o registo do servidor inicial, o servidor recebe um URL regional para a instância do serviço Azure File Sync nessa região. O servidor pode utilizar o URL para se comunicar diretamente e eficiente com a instância de lidar com a sincronizar. |
-| **PKI da Microsoft** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
+| **Azure File Sync** | &ast;.one.microsoft.com | Após o registo do servidor inicial, o servidor recebe um URL regional para a instância do serviço Azure File Sync nessa região. O servidor pode utilizar o URL para se comunicar diretamente e eficiente com a instância de lidar com a sincronizar. |
+| **Microsoft PKI** | http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
 > Quando a permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos serviços da Microsoft mais disponíveis em subdomínios.
@@ -130,10 +130,10 @@ Por motivos de (BCDR) de recuperação de desastres e continuidade do negócio p
 
 - Se utilizar contas de armazenamento globalmente redundantes (GRS), ative três URLs.
 
-**Exemplo:** implementa um serviço de sincronização de armazenamento no `"West US"` e registar o servidor com o mesmo. Os URLs para permitir que o servidor comunicar com o neste caso, são:
+**Exemplo:** Implementar um serviço de sincronização de armazenamento no `"West US"` e registar o servidor com o mesmo. Os URLs para permitir que o servidor comunicar com o neste caso, são:
 
-> - https://kailani.one.microsoft.com (ponto final primário: oeste dos E.U.A.)
-> - https://kailani1.one.microsoft.com (região emparelhada de ativação pós-falha: E.U.A. Leste)
+> - https://kailani.one.microsoft.com (ponto final primário: Oeste dos E.U.A.)
+> - https://kailani1.one.microsoft.com (região emparelhada de ativação pós-falha: Este dos E.U.A.)
 > - https://tm-kailani.one.microsoft.com (URL de deteção da região primária)
 
 ## <a name="summary-and-risk-limitation"></a>Resumo e o risco de limitação

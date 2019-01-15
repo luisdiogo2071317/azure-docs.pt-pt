@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dd475c776a3cdb4f2281b9b5468968745024ac
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215172"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265214"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Uniformizar a vários recursos do Azure Monitor Application Insights 
 Este artigo descreve como consultar e ver todos os Application Insights log dados da sua aplicação num único lugar, mesmo quando eles estão em diferentes subscrições do Azure, como um substituto para a descontinuação do conector do Application Insights.  
@@ -64,7 +64,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -82,9 +82,9 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 
 | Propriedades da área de trabalho de análise de registo| Propriedades de recurso do Application Insights|
 |------------|------------| 
-| AnonUserId | USER_ID|
+| AnonUserId | user_id|
 | ApplicationId | appId|
-| ApplicationName | AppName|
+| ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duração |
@@ -108,12 +108,12 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | ExceptionMessage | message | 
 | ExceptionType | tipo |
 | OperationID | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | SO | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duração | 
 | PageViewName | nome | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duração | 
 | RequestID | ID | 
@@ -125,7 +125,7 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | tipo |
-| do IdP | URL |
+| do IdP | _url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Passos Seguintes

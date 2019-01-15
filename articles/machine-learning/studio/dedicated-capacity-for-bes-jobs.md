@@ -1,25 +1,8 @@
 ---
-title: O serviço do Azure Batch para trabalhos de Machine Learning Studio | Documentos da Microsoft
-description: Descrição geral dos serviços do Azure Batch para trabalhos de Machine Learning. Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275198"
+title: Serviço Azure Batch para Machine Learning Studio tarefas titleSuffix: Descrição do Azure Machine Learning Studio: Descrição geral dos serviços do Azure Batch para trabalhos de Machine Learning. Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: seodec18, anterior title = "dedicada a capacidade para tarefas de serviço de execução do batch - Azure Machine Learning Studio | MS de documentos da Microsoft: 04/19/2017
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço do Azure Batch para tarefas do Azure Machine Learning Studio
 

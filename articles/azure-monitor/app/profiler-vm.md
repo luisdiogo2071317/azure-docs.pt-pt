@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e8f80e7d19a961c22b4e1e88556ac165d2558034
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 764088e7f463f0c249f176514d485944d9c9d76e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082872"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264636"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Conjunto de aplicações de web de perfil em execução numa máquina virtual do Azure ou o dimensionamento de máquinas virtuais com o Application Insights Profiler
 Também pode implementar o criador de perfil do Application Insights estes serviços:
@@ -53,7 +53,7 @@ Esta página irá guiá-lo pelos passos necessários obter o criador de perfil d
 
    Para aplicar as modificações, geralmente envolve uma implementação de modelo completo ou um serviço cloud baseado publicar através de cmdlets do PowerShell ou o Visual Studio.  
 
-   Os seguintes comandos do powershell são uma abordagem alternativa para máquinas virtuais existentes que atinge apenas a extensão de diagnóstico do Azure. Terá de adicionar o ProfilerSink conforme indicado acima para a configuração que é devolvida pelo comando Get-AzureRmVMDiagnosticsExtension. Em seguida, passe a configuração atualizada para o comando Set-AzureRmVMDiagnosticsExcension.
+   Os seguintes comandos do powershell são uma abordagem alternativa para máquinas virtuais existentes que atinge apenas a extensão de diagnóstico do Azure. Terá de adicionar o ProfilerSink conforme indicado acima para a configuração que é devolvida pelo comando Get-AzureRmVMDiagnosticsExtension. Em seguida, passe a configuração atualizada para o comando Set-AzureRmVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

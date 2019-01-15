@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a50cb5dc204a209c2b9d899c50ae7def55f4deb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118171"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262594"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -29,7 +29,7 @@ Existem três métodos de exportação de dados do Application Insights para o P
 * [**Adaptador do Power BI**](#power-pi-adapter). O conjunto de gráficos está predefinido, mas pode adicionar suas próprias consultas de quaisquer outras fontes.
 
 > [!NOTE]
-> O Power BI está agora **preterido**. Os gráficos predefinidos para esta solução são preenchidos por consultas uneditable estáticas. Não tem a capacidade de editar estas consultas e dependendo determinadas propriedades dos seus dados é possível que a ligação ao Power BI para ter êxito, mas nenhum dado é preenchido. Isso se deve critérios de exclusão definidos na consulta embutido em código. Embora esta solução ainda pode funcionar para alguns clientes, devido à falta de flexiblity do adaptador a solução recomendada consiste em utilizar o [ **exportar a consulta do Analytics** ](#export-analytics-queries) funcionalidade.
+> O Power BI está agora **preterido**. Os gráficos predefinidos para esta solução são preenchidos por consultas uneditable estáticas. Não tem a capacidade de editar estas consultas e dependendo determinadas propriedades dos seus dados é possível que a ligação ao Power BI para ter êxito, mas nenhum dado é preenchido. Isso se deve critérios de exclusão definidos na consulta embutido em código. Embora esta solução ainda pode funcionar para alguns clientes, devido à falta de flexibilidade do adaptador a solução recomendada consiste em utilizar o [ **exportar a consulta do Analytics** ](#export-analytics-queries) funcionalidade.
 
 ## <a name="export-analytics-queries"></a>Consultas de análise de exportação
 Esta rota permite-lhe escrever qualquer consulta de análise como ou, exportar a partir de Funis de utilização e, em seguida, exportar que a um dashboard do Power BI. (Pode adicionar ao dashboard criado pelo adaptador.)

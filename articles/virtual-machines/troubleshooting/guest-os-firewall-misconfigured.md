@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137842"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262290"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Firewall do SO de convidado VM do Azure está configurado incorretamente
 
@@ -51,11 +51,11 @@ As seguintes regras podem ser editadas para optar por ativar o acesso à VM (atr
 
 *   Ambiente de trabalho remoto (TCP-In): Esta é a regra padrão que fornece acesso primária para a VM ao permitir que o RDP no Azure.
 
-*   Gestão remota do Windows (HTTP-In): Esta regra permite-lhe ligar à VM com o PowerShell., no Azure, esse tipo de permite acesso que utiliza o aspecto de script de criação de scripts e a resolução de problemas remota.
+*   Gestão remota do Windows (HTTP-In): Esta permite que a regra-o a ligar à VM com o PowerShell., no Azure, este tipo de acesso permite-lhe utiliza o aspecto de script de criação de scripts e a resolução de problemas remota.
 
-*   Ficheiros e partilha de impressoras (SMB-In): esta regra permite o acesso à partilha de rede como uma opção de resolução de problemas.
+*   Partilha de ficheiros e impressoras (SMB-In): Esta regra permite o acesso à partilha de rede como uma opção de resolução de problemas.
 
-*   Ficheiros e partilha de impressoras (solicitação de eco - ICMPv4-In): esta regra permite-lhe enviar um ping a VM.
+*   Arquivo e impressora a partilharem (pedido de eco - ICMPv4-In): Esta regra permite-lhe enviar um ping a VM.
 
 Caso o acesso de consola de série, pode consultar o estado atual da regra de firewall.
 
@@ -68,7 +68,7 @@ Caso o acesso de consola de série, pode consultar o estado atual da regra de fi
 *   Consultar com a porta Local que o aplicativo utiliza:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Consultar com o endereço Local IP que o aplicativo usa:

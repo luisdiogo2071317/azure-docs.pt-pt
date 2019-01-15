@@ -1,21 +1,21 @@
 ---
 title: Criar as revisões de vídeo com o .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Revisões de como criar um vídeo com o SDK de moderador de conteúdo para .NET
+description: Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar o SDK de moderador de conteúdo com o C# para criar as revisões de vídeo.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219045"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262516"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar as revisões de vídeo com o .NET
 
@@ -33,22 +33,21 @@ Este artigo pressupõe que tenha [moderado o vídeo (consulte o guia de introdu�
 
 Este artigo também assume que já está familiarizado com o Visual Studio e c#.
 
-## <a name="sign-up-for-content-moderator"></a>Inscreva-se o Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Inscrever-se no Content Moderator
 
-Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição. Siga as instruções em [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) (Criar uma conta dos Serviços Cognitivos) para subscrever o Content Moderator e obter a sua chave.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se para uma conta da ferramenta de revisão se não foi concluída no passo anterior
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se numa conta da ferramenta de revisão, se não o tiver feito no passo anterior
 
-Se recebeu o Content Moderator do portal do Azure, também [Inscreva-se a conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Terá da equipe de Id e a ferramenta de revisão para chamar a API de revisão para iniciar uma tarefa e ver as críticas na ferramenta de revisão.
+Se chegou ao Content Moderator a partir do portal do Azure, [inscreva-se na conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e crie uma equipa de revisão. Irá precisar do ID da equipa e da ferramenta de revisão para chamar a API de revisão, para iniciar uma Tarefa e ver as revisões na ferramenta de revisão.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisão
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisões
 
-Depois de concluir os passos anteriores, pode acabar com duas chaves do Content Moderator se tiver iniciado a partir do portal do Azure. 
+Depois de concluir os passos anteriores, pode ficar com duas chaves do Content Moderator, se tiver iniciado a partir do portal do Azure. 
 
-Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo SDK, siga os passos mencionados na [chave de utilizar o Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) secção para permitir que a aplicação chamar a API de revisão e criar as revisões.
+Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita, gerada pela ferramenta de revisão, sua conta da ferramenta de revisão já sabe sobre a chave e por isso, não existem passos adicionais necessários.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Preparar o seu vídeo e os quadros de vídeo para revisão
 
@@ -69,9 +68,9 @@ Para os quadros de vídeo (imagens), utilize as seguintes imagens:
 | :---: | :---: | :---: |
 [Intervalo de 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Quadro 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Período de 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
-## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
+1. Adicione um novo projeto **Aplicação de consola (.NET Framework)** à sua solução.
 
 1. Nomeie o projeto **VideoReviews**.
 
@@ -86,7 +85,7 @@ Instale os seguintes pacotes de NuGet para o projeto de TermLists.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
+### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
 Modifique o programa do instruções using da seguinte forma.
 
@@ -168,7 +167,7 @@ Adicione a seguinte definição de método ao espaço de nomes VideoReviews, cla
 
 ## <a name="create-a-video-review"></a>Criar uma revisão de vídeo
 
-Criar uma revisão de vídeo com **ContentModeratorClient.Reviews.CreateVideoReviews**. Para obter mais informações, consulte a [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Criar uma revisão de vídeo com **ContentModeratorClient.Reviews.CreateVideoReviews**. Para obter mais informações, veja a [Referência à API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** tem os seguintes parâmetros obrigatórios:
 1. Uma cadeia que contém um tipo MIME, o que deve ser "application/json". 
@@ -217,13 +216,13 @@ Adicione a seguinte definição de método ao espaço de nomes VideoReviews, cla
     }
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS) e, se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429. 
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Adicionar quadros de vídeo para a revisão de vídeo
 
-Adicionar quadros de vídeo para uma revisão de vídeo com **ContentModeratorClient.Reviews.AddVideoFrameUrl** (se seus quadros de vídeo estão alojados online) ou **ContentModeratorClient.Reviews.AddVideoFrameStream** ( Se estiverem alojados seus quadros de vídeo localmente). Este guia de introdução pressupõe seus quadros de vídeo estão alojados online e então, usa **AddVideoFrameUrl**. Para obter mais informações, consulte a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+Adicionar quadros de vídeo para uma revisão de vídeo com **ContentModeratorClient.Reviews.AddVideoFrameUrl** (se seus quadros de vídeo estão alojados online) ou **ContentModeratorClient.Reviews.AddVideoFrameStream** ( Se estiverem alojados seus quadros de vídeo localmente). Este guia de introdução pressupõe seus quadros de vídeo estão alojados online e então, usa **AddVideoFrameUrl**. Para obter mais informações, veja a [Referência à API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
 **AddVideoFrameUrl** tem os seguintes parâmetros obrigatórios:
 1. Uma cadeia que contém um tipo MIME, o que deve ser "application/json".
@@ -237,7 +236,7 @@ Adicionar quadros de vídeo para uma revisão de vídeo com **ContentModeratorCl
 - **Metadados**. Um IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
 - **reviewRecommended**. VERDADEIRO se recomenda uma revisão humana do quadro do vídeo.
 - **adultScore**. Um valor entre 0 e 1 que classifica a gravidade do conteúdo para adultos no quadro do vídeo.
-- **um**. VERDADEIRO se o vídeo contém conteúdo para adultos.
+- **a**. VERDADEIRO se o vídeo contém conteúdo para adultos.
 - **racyScore**. Um valor entre 0 e 1 que classifica a gravidade do conteúdo para adultos no quadro do vídeo.
 - **r**. VERDADEIRO se o quadro de vídeo contém conteúdo para adultos.
 - **ReviewerResultTags**. Um IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Uma aplicação pode utilizar estas etiquetas para organizar os quadros de vídeo.
@@ -373,7 +372,7 @@ Adicione a seguinte definição de método ao espaço de nomes VideoReviews, cla
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Juntando as peças
+## <a name="putting-it-all-together"></a>Juntar tudo
 
 Adicionar a **Main** definição de método ao espaço de nomes VideoReviews, classe de programa. Por fim, feche a classe de programa e o espaço de nomes de VideoReviews.
 
@@ -407,7 +406,7 @@ Adicionar a **Main** definição de método ao espaço de nomes VideoReviews, cl
         }
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e rever o resultado
 Quando executar o aplicativo, verá um resultado nas seguintes linhas:
 
     Creating a video review.

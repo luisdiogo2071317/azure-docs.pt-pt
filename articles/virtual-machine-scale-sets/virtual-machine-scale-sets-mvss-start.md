@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036567"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258786"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma ótima maneira de implementar grupos de recursos relacionados. Nesta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento mínimo viável e como modificar este modelo de acordo com vários cenários. Todos os exemplos vêm de isso [repositório do GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Em seguida, é a seção de recursos do modelo. Aqui, é possível definir o que
    "resources": [
 ```
 
-Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades. Recurso de primeira neste exemplo tem o tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)e o nome `myVnet`e apiVersion `2016-03-30`. (Para obter a versão mais recente do API para um tipo de recurso, consulte a [referência de modelo do Azure Resource Manager](/azure/templates/).)
+Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades. Recurso de primeira neste exemplo tem o tipo [Network/virtualnetwork](/azure/templates/microsoft.network/virtualnetworks)e o nome `myVnet`e apiVersion `2016-03-30`. (Para obter a versão mais recente do API para um tipo de recurso, consulte a [referência de modelo do Azure Resource Manager](/azure/templates/).)
 
 ```json
      {

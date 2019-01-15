@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581764"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302056"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Como gerir as chaves em QnA Maker
 
@@ -42,7 +42,7 @@ Pode ver e repor as chaves de subscrição do portal do Azure onde criou o recur
 
 Chaves de ponto de extremidade podem ser geridas a partir da [portal do QnA Maker](https://qnamaker.ai).
 
-1. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai)e aceda à **definições do serviço**.
+1. Inicie sessão para o [portal do QnA Maker](https://qnamaker.ai), aceda ao seu perfil e, em seguida, clique em **definições do serviço**.
 
     ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

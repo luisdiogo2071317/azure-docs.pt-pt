@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 19abd905bbc5e8ab724f7a2f25cb6da90db82841
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042466"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262647"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerir instâncias de funções duráveis no Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "54042466"
 
 ## <a name="starting-instances"></a>A iniciar as instâncias
 
-[StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) ou `startNew` sobre o `DurableOrchestrationClient` (JavaScript) inicia uma nova instância de uma função de orquestrador. Instâncias desta classe podem ser adquiridas utilizando o `orchestrationClient` enlace. Internamente, esse método coloca em fila uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado, que utiliza o `orchestrationTrigger` acionar a ligação.
+O [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) ou `startNew` no `DurableOrchestrationClient` (JavaScript) inicia uma nova instância de uma função de orquestrador. Instâncias desta classe podem ser adquiridas utilizando o `orchestrationClient` enlace. Internamente, esse método coloca em fila uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado, que utiliza o `orchestrationTrigger` acionar a ligação.
 
 Esta operação assíncrona é concluída quando o processo de orquestração é agendado com êxito. O processo de orquestração deverá ser iniciado dentro de 30 segundos. Se demorar mais tempo, um `TimeoutException` é lançada.
 
@@ -464,11 +464,11 @@ Sistemas externos podem comunicar com funções duráveis por meio dos URLs de w
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) e `createHttpManagementPayload` ter um parâmetro:
 
-* **InstanceId**: O ID exclusivo da instância.
+* **instanceId**: O ID exclusivo da instância.
 
 Os métodos de retornam uma instância de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) ou um objeto (JavaScript) com as seguintes propriedades de cadeia de caracteres:
 
-* **ID**: O ID de instância da orquestração (deve ser o mesmo que o `InstanceId` entrada).
+* **Id**: O ID de instância da orquestração (deve ser o mesmo que o `InstanceId` entrada).
 * **StatusQueryGetUri**: O URL de estado da instância de orquestração.
 * **SendEventPostUri**: O URL de "emitir um evento" da instância de orquestração.
 * **TerminatePostUri**: O URL da instância de orquestração "terminar".

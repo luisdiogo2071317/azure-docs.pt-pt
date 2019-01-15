@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074721"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261150"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicações de SaaS
 
@@ -54,7 +54,7 @@ Não é necessário configurar o Azure Active Directory para listar uma aplicaç
 |A aplicação é um oferta de SaaS  |   A sua solução é um oferta de SaaS e oferecer um produto de SaaS multi-inquilino.      |
 
 
-## <a name="saas-trial"></a>Versão de avaliação de SaaS
+## <a name="saas-trial"></a>SaaS Trial
 
 Fornecer uma solução ou a aplicação com o gratuito-para-Experimente, software-como-serviço (SaaS)-com base em versão de avaliação. Ofertas de avaliação gratuita podem ser apresentadas como uma conta de avaliação de utilização limitada ou com duração limitada. 
 
@@ -94,7 +94,7 @@ Para tutoriais em vídeo, reveja o seguinte:
 * [Vídeos do Microsoft Azure, com foco no Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Formação gratuita do Azure Active Directory está disponível em  
-* [Microsoft Azure para IT Pros Content Series: O Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure para IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Além disso, o Azure Active Directory fornece um site para verificar a existência de atualizações de serviço   
 * [Atualizações de serviço do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)

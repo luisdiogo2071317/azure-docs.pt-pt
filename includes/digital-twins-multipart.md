@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 47f66fc61fdd397350efb934bf21f488960a27a2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54233064"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267742"
 ---
 > [!NOTE]
 > Pedidos de várias partes, normalmente, necessitam de três partes:
@@ -26,11 +26,11 @@ ms.locfileid: "54233064"
 >
 > **Tipo de conteúdo** e **Content-Disposition** irá variar dependendo do cenário de utilização.
 
-Pedidos de várias partes podem ser feitos por meio de programação (através do C#), através de um cliente REST ou a ferramenta, como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). Ferramentas de cliente REST podem ter diferentes níveis de suporte para solicitações de várias partes complexas. Certifique-se de que ferramenta é mais adequada para suas necessidades.
+Pedidos de várias partes podem ser feitos por meio de programação (através do C#), através de um cliente REST ou a ferramenta, como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). Ferramentas de cliente REST podem ter diferentes níveis de suporte para solicitações de várias partes complexas. Definições de configuração também podem variar um pouco da ferramenta para ferramenta. Certifique-se de que ferramenta é mais adequada para suas necessidades.
 
 > [!IMPORTANT]
 > Com várias partes pedidos efetuados, normalmente, as APIs de gestão de duplos Digital do Azure tem duas partes:
-> * Metadados do blob (por exemplo, um tipo de MIME associado) que foi declarado pelo **Content-Type** e **Content-Disposition**
+> * Metadados do blob (por exemplo, um tipo de MIME associado) que foi declarado pelo **Content-Type** e/ou **Content-Disposition**
 > * Conteúdo do blob que incluem os conteúdos não estruturados de um ficheiro a carregar
 >
 > Nenhuma das duas partes é necessária para **aplicar o PATCH** pedidos. Ambas são necessárias para **POST** ou operações de criação.

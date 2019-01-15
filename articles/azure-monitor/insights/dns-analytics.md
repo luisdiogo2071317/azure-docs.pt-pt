@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187658"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266338"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -76,11 +76,11 @@ No dashboard de solução, clique em **configuração** para abrir a página de 
 
 Se estiver a utilizar o Microsoft Monitoring Agent para ligar à sua área de trabalho do Log Analytics, está instalado o pacote de gestão seguintes:
 
-- Pacote de informações de Recoletor de dados de DNS da Microsoft (Microsft.IntelligencePacks.Dns)
+- Pacote de informações de Recoletor de dados de DNS da Microsoft (Microsoft.IntelligencePacks.Dns)
 
 Se o grupo de gestão do Operations Manager estiver ligado à sua área de trabalho do Log Analytics, os seguintes pacotes de gestão são instalados no Operations Manager ao adicionar esta solução. Não existe nenhuma configuração necessária ou a manutenção destes pacotes de gestão:
 
-- Pacote de informações de Recoletor de dados de DNS da Microsoft (Microsft.IntelligencePacks.Dns)
+- Pacote de informações de Recoletor de dados de DNS da Microsoft (Microsoft.IntelligencePacks.Dns)
 - Configuração de análise DNS do Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configuration)
 
 Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).

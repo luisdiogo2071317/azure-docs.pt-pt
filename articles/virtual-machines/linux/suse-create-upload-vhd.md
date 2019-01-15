@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249375"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262376"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual SLES ou openSUSE para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -40,7 +40,7 @@ Este artigo pressupõe que já instalou uma SUSE ou openSUSE sistema operativo L
 
 Como alternativa à criação de seu próprio VHD, SUSE também as publica imagens BYOS (traga a sua subscrição próprio) para SLES na [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparar o SP4 do SUSE Linux Enterprise Server 11
+## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Prepare SUSE Linux Enterprise Server 11 SP4
 1. No painel central do Gestor de Hyper-V, selecione a máquina virtual.
 2. Clique em **Connect** para abrir a janela para a máquina virtual.
 3. Registe o seu sistema de SUSE Linux Enterprise para permiti-lo transferir as atualizações e instalar pacotes.
@@ -49,7 +49,7 @@ Como alternativa à criação de seu próprio VHD, SUSE também as publica image
         # sudo zypper update
 5. Instale o agente Linux do Azure a partir do repositório do SLES:
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. Verifique se waagent estiver definido como "ativado" no chkconfig e, se não estiver, ativá-lo para inicialização automática:
    
         # sudo chkconfig waagent on
@@ -136,11 +136,11 @@ Como alternativa à criação de seu próprio VHD, SUSE também as publica image
    
    Isto garante que todas as mensagens de consola são enviadas para a primeira porta serial, que pode ajudá-lo Azure suporte com a depuração de problemas. Além disso, remova os seguintes parâmetros da linha de arranque de kernel, caso existam:
    
-     reserva de libata.atapi_enabled=0 = 0x1f0, 0x8
+     libata.atapi_enabled=0 reserve=0x1f0,0x8
 7. É recomendado editar o ficheiro "/ etc/sysconfig/rede/dhcp" e altere o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Importante:** em "/ etc/sudoers", comenta ou remover as seguintes linhas, caso existam:
+8. **Importante:** Em "/ etc/sudoers", comenta ou remover as seguintes linhas, caso existam:
    
      Predefinições targetpw # solicitar a palavra-passe de utilizador de destino raiz, ou seja, todos os todos os ALL=(ALL) # aviso! Só utilize esta opção juntamente com 'Predefinições targetpw'!
 9. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, esta é a predefinição.

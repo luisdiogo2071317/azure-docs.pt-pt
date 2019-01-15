@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996469"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259789"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparar o Azure Data Lake Storage Gen1 e o armazenamento de Blobs do Azure
   >[!NOTE] 
-    >[Pré-visualização da geração 2 do armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) foi anunciado recentemente. Pré-visualização do Data Lake Storage geração 2 é o resultado da convergir as capacidades dos nossos dois serviços de armazenamento de existente, o armazenamento de Blobs do Azure e [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Recursos de geração 1 armazenamento do Azure Data Lake, como semântica do sistema de ficheiros, ao nível do ficheiro segurança e o dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre da [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> É altamente recomendável que começar a utilizar a pré-visualização do Data Lake Storage Gen2 como a base para a criação de sua empresa lakes de dados e obtenha o melhor de armazenamento de Blobs do Azure, bem como a geração 1 de armazenamento do Azure Data Lake.
+    >[Pré-visualização da geração 2 do armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) foi anunciado recentemente. Pré-visualização do Data Lake Storage geração 2 é o resultado da convergir as capacidades dos nossos dois serviços de armazenamento de existente, o armazenamento de Blobs do Azure e [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index). Recursos de geração 1 armazenamento do Azure Data Lake, como semântica do sistema de ficheiros, ao nível do ficheiro segurança e o dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre da [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> É altamente recomendável que começar a utilizar a pré-visualização do Data Lake Storage Gen2 como a base para a criação de sua empresa lakes de dados e obtenha o melhor de armazenamento de Blobs do Azure, bem como a geração 1 de armazenamento do Azure Data Lake.
 
 A tabela este artigo resume as diferenças entre a geração 1 de armazenamento do Azure Data Lake e o armazenamento de Blobs do Azure ao longo de alguns aspetos-chave de processamento de macrodados. Armazenamento de Blobs do Azure é uma finalidade geral, o armazenamento de objetos dimensionável que foi concebido para uma grande variedade de cenários de armazenamento. Geração de armazenamento 1 do Azure Data Lake é um repositório de hiperescala que está otimizado para cargas de trabalho de análise de macrodados.
 

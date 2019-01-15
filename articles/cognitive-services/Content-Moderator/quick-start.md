@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Introdução ao Content Moderator'
+title: 'Início rápido: Experimente o Content Moderator na web - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Como começar com o Content Moderator.
+description: Neste início rápido, irá utilizar a ferramenta de revisão de moderador de conteúdo online para testar a funcionalidade básica do Content Moderator sem ter de escrever qualquer código.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 382401bd8ca073bec6f77fadf1096e42ab1e1d72
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852695"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266472"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>Início rápido: Se familiarizar com o Content Moderator
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Início rápido: Experimente o Content Moderator na web
 
 Neste início rápido, irá utilizar a ferramenta de revisão de moderador de conteúdo online para testar a funcionalidade básica do Content Moderator sem ter de escrever qualquer código. Se pretender integrar este serviço na sua aplicação mais rapidamente, consulte os outros guias de introdução a [próximos passos](#next-steps) secção.
 

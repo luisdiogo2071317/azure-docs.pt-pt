@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 529a79fbc7b70ba6ea6a07a0ab6c523a193387a2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326243"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261711"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -42,7 +42,7 @@ Neste exemplo, pode usar um disponíveis publicamente [modelo de exemplo](https:
 
 Transfira e guarde ambos os ficheiros localmente. 
 
-###  <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy
+###  <a name="modify-azuredeployparametersjson"></a>Modify azuredeploy.parameters.json
 Abra o **azuredeploy** ficheiro:  
  
 - Fornecer um **vmSKU** que pretende implementar. Recomendamos que Standard_D2_v3. 
@@ -52,7 +52,7 @@ Abra o **azuredeploy** ficheiro:
 - Introduza os valores para **adminUsername** e **adminPassword** para o dimensionamento de máquinas virtuais definido. Esses parâmetros são usados para acesso remoto para as VMs no conjunto de dimensionamento. Para evitar que a sua VM seqüestrada, **não** utilizar a este modelo. A internet para nomes de utilizador e palavras-passe em repositórios de GitHub públicos de análise de bots. Eles provavelmente testar VMs com esses padrões. 
 
 
-###  <a name="modify-azuredeployjson"></a>Modificar azuredeploy. JSON
+###  <a name="modify-azuredeployjson"></a>Modify azuredeploy.json
 Abra o **azuredeploy. JSON** ficheiro. 
 
 Adicione uma variável para conter as informações de conta de armazenamento no modelo do Resource Manager. Quaisquer contadores de desempenho especificados no ficheiro de configuração de diagnóstico ou de registos são escritos para o armazenamento de métrico do Azure Monitor e a conta de armazenamento que especificar aqui: 
@@ -89,7 +89,7 @@ O código a seguir a partir da extensão do MSI também adiciona a extensão de 
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

@@ -1,26 +1,21 @@
 ---
-title: Analisar a perda de clientes - Azure Machine Learning Studio | Documentos da Microsoft
+title: Analisar o abandono de clientes
+titleSuffix: Azure Machine Learning Studio
 description: Estudo de caso de desenvolvimento de um modelo integrado para analisar e classificação de abandono de clientes com o Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272172"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260606"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
@@ -111,7 +106,7 @@ Os diagramas seguintes mostram os dados que foi utilizados.
  
 
 > Tenha em atenção que estes dados são privados e, portanto, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Dos clientes da Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como implementar um modelo de análise de alterações a dados com o Cortana Intelligence Suite, também é recomendável [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo gerente de programas Sênior Wee Hyong Tok. 
 > 

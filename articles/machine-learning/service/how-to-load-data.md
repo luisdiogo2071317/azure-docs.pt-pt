@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232503"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263820"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
@@ -37,7 +37,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-Esta função é útil quando o tipo de ficheiro não é explicitamente conhecido. Um exemplo de utilização é um diretório que contém centenas de ficheiros de diferentes tipos para serem convertidos em objetos de fluxo de dados. Iterados através de cada caminho de ficheiro e chamada `auto_read_file()` permite-lhe processar facilmente os ficheiros no diretório numa lista de objetos de fluxo de dados.
+Esta função é útil para detetar automaticamente o tipo de ficheiro, codificação de mensagens em fila e outros argumentos análise tudo a partir de ponto de entrada conveniente uma. A função também automaticamente executa os seguintes passos normalmente executados quando o carregamento de dados delimitados:
+
+* Inferindo e definindo o delimitador
+* A ignorar registos vazios na parte superior do ficheiro
+* Inferindo e definir a linha de cabeçalho
+
+Em alternativa, se souber o ficheiro, escreva antecipadamente e pretende controlar explicitamente a forma como ela é analisada, continue seguinte deste artigo para ver que o especializadas de funções que o SDK oferece.
 
 ## <a name="load-text-line-data"></a>Carregar dados de linha de texto
 

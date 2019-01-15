@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce276b5fcedecc53c379d41de55080bf61e2386e
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243666"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263005"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
@@ -72,7 +72,7 @@ Neste tutorial, irá aprender a criar um script que:
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | VaaSUserld | O ID de utilizador VaaS. |
+    | VaaSUserId | O ID de utilizador VaaS. |
     | VaaSUserPassword | A palavra-passe VaaS. |
     | VaaSAccountTenantId | O inquilino VaaS GUID. |
     | VaaSSolutionName | O nome da solução VaaS sob a qual o teste passar será executado. |

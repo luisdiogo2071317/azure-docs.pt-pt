@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714399"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260033"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Início rápido: Definir e obter um segredo a partir do Azure Key Vault com uma aplicação Web Node 
 
 Este início rápido mostra-lhe como armazenar um segredo num cofre de chaves e como utilizar uma aplicação Web para obtê-lo. Para ver o valor secreto, teria de executar isto no Azure. O início rápido utiliza o Node.js e identidades geridas para os recursos do Azure.
 
@@ -33,7 +33,7 @@ Este início rápido mostra-lhe como armazenar um segredo num cofre de chaves e 
 Antes de avançar, confirme que está familiarizado com os [conceitos básicos](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Para compreender o motivo do tutorial abaixo, precisamos de compreender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações/utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, este primeiro segredo também tem de ser trocado periodicamente. Mas com aplicações de [identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) executadas no Azure, é dada uma identidade que é gerida automaticamente pelo Azure. Isto ajuda a resolver o **Problema de Introdução do Segredo**, onde os utilizadores/aplicações podem seguir as melhores práticas e não precisa de se preocupar sobre trocar o primeiro segredo
+Para compreender o motivo do tutorial abaixo, precisamos de compreender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações/utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, este primeiro segredo também tem de ser trocado periodicamente. Mas com [geridos identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) aplicações executadas no Azure recebem uma identidade que é gerida automaticamente pelo Azure. Isto ajuda a resolver o **Problema de Introdução do Segredo**, onde os utilizadores/aplicações podem seguir as melhores práticas e não precisa de se preocupar sobre trocar o primeiro segredo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -195,7 +195,7 @@ git push azure master
 Depois disso, quando navegar para https://<app_name>.azurewebsites.net, poderá ver o valor do segredo.
 Confirme que substituiu o nome <YourKeyVaultName> pelo nome do seu cofre
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Home Page do Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Documentação do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)

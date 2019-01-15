@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438205"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265034"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
 O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados de máquinas virtuais com o Microsoft Windows e Linux alojados no Azure, o seu datacenter ou outros fornecedores de cloud. Os três tipos de agentes disponíveis para monitorizar uma VM são:
@@ -76,5 +76,5 @@ Poderá ter alguma combinação destes agentes para monitorizar a sua VM. Os age
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) rever os requisitos e métodos suportados para implementar o agente aos computadores alojados no Azure, no seu datacenter ou outro ambiente de cloud.
+- Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) rever os requisitos e métodos suportados para implementar o agente em computadores alojados no Azure, no seu datacenter ou outro ambiente de cloud.
 

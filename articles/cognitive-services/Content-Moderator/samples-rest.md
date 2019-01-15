@@ -1,23 +1,23 @@
 ---
 title: Exemplos de código - Content Moderator, C#
 titlesuffix: Azure Cognitive Services
-description: Utilizar o Content Moderator nas suas aplicações
+description: Utilize o Content Moderator em seus aplicativos por meio de chamadas de REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: cf259842091e0b3ee6127f9139cfc325687e8676
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 92e3f087d5ec4d1233243cee381b64c6fedb3be0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343134"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264245"
 ---
-# <a name="rest-api-samples-in-c"></a>Exemplos de API REST em C#
+# <a name="content-moderator-rest-samples-in-c"></a>Exemplos de REST de moderador conteúdos noC#
 
 A lista seguinte inclui ligações para exemplos de código criados com a API do Azure Content Moderator.
 

@@ -1,26 +1,7 @@
 ---
-title: Coleções de Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
-description: Pode usar uma coleção na Galeria de IA do Azure para agrupar experimentações, APIs e outros itens de galeria que utiliza para uma solução específica ou um conceito. Pode agrupá-las para utilizar, para guardar para referência posterior ou para partilhar.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: b88489f826bbeab636903c7c9918f34d16b2f122
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271373"
+title: TitleSuffix de coleções de Galeria de IA do Azure: Descrição do Azure Machine Learning Studio: Pode usar uma coleção na Galeria de IA do Azure para agrupar experimentações, APIs e outros itens de galeria que utiliza para uma solução específica ou um conceito. Pode agrupá-las para utilizar, para guardar para referência posterior ou para partilhar.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article  
+autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: anterior ms.author=yahajiza, autor anterior = YasinMSFT MS: 03/31/2017
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Detetar e partilhar coleções na Galeria de IA do Azure
 

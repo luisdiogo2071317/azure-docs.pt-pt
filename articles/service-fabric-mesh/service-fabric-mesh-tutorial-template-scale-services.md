@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 70620b5ec57f6bf4403ac959c4c69026ae80b887
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888125"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261405"
 ---
-# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar uma aplicação em execução no Service Fabric Mesh
+# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Dimensionar uma aplicação em execução no Service Fabric Mesh
 
 Este tutorial é a segunda parte de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de uma aplicação que foi [anteriormente implementada no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, terá um serviço de front-end a executar três instâncias e um serviço de dados a executar duas instâncias.
 
@@ -53,7 +53,7 @@ Antes de começar este tutorial:
 
 Uma das principais vantagens da implementação de aplicações no Service Fabric Mesh é a capacidade de reduzir ou aumentar horizontalmente os seus serviços. Deve utilizar a redução ou o aumento para processar quantidades diferentes de carga nos serviços ou melhorar a disponibilidade.
 
-Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e deve estar agora em execução. A aplicação tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi inicialmente implementado com uma contagem de réplicas de 1.  Para ver o número de réplicas em execução para o serviço WebFrontEnd, execute o seguinte:
+Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e deve estar agora em execução. O aplicativo tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi inicialmente implementado com uma contagem de réplicas de 1.  Para ver o número de réplicas em execução para o serviço WebFrontEnd, execute o seguinte:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

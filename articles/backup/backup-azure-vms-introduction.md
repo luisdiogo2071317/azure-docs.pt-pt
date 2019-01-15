@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198767"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265418"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
 
@@ -55,6 +55,10 @@ Para tirar instantâneos enquanto aplicações estão em execução, o Azure Bac
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Execute o comando da linha de comandos elevada (como administrador) para definir a chave de registo acima abaixo:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **VMs do Linux**: Para garantir que suas VMs do Linux são consistentes com a aplicação quando o Azure Backup tira um instantâneo, pode utilizar a estrutura de script anterior e script posterior do Linux. Pode escrever seus próprios scripts personalizados para garantir a consistência quando um instantâneo de VM.
     -  Cópia de segurança do Azure apenas invoca o Pre- e pós-scripts, escritos por.
     - Se o script prévio e os pós-scripts de executam com êxito, o Azure Backup marca o ponto de recuperação consistentes com aplicações como. No entanto, está, por fim, responsável pela consistência de aplicação ao utilizar scripts personalizados.
@@ -65,11 +69,11 @@ Para tirar instantâneos enquanto aplicações estão em execução, o Azure Bac
 
 A tabela seguinte explica os diferentes tipos de consistência.
 
-**instantâneo** | **Com base em VSS** | **Detalhes** | **Recuperação**
+**instantâneo** | **VSS-based** | **Detalhes** | **Recuperação**
 --- | --- | --- | ---
-**Consistentes com aplicações** | Sim (apenas Windows) | As cópias de segurança consistente com a aplicação capturam a memória conteúda e operações de e/s pendentes. Instantâneos consistentes com a aplicação utilizam o escritor VSS (ou script prévio/posterior para Linux) que assegurar a consistência dos dados da aplicação antes de ocorre uma cópia de segurança. | Ao recuperar com um instantâneo consistente com a aplicação, a VM arranca. Não existe danos em dados ou perda. Os aplicativos começam num estado consistente.
+**Application-consistent** | Sim (apenas Windows) | As cópias de segurança consistente com a aplicação capturam a memória conteúda e operações de e/s pendentes. Instantâneos consistentes com a aplicação utilizam o escritor VSS (ou script prévio/posterior para Linux) que assegurar a consistência dos dados da aplicação antes de ocorre uma cópia de segurança. | Ao recuperar com um instantâneo consistente com a aplicação, a VM arranca. Não existe danos em dados ou perda. Os aplicativos começam num estado consistente.
 **Consistente do sistema de ficheiros** | Sim (apenas Windows) |  Cópias de segurança de ficheiros fornecem cópias de segurança de ficheiros de disco através de um instantâneo de todos os ficheiros ao mesmo tempo.<br/><br/> Pontos de recuperação de cópia de segurança do Azure são ficheiros consistente para:<br/><br/> -Linux VMs cópias de segurança que não tenham scripts pré/pós ou que tem o script que falhou.<br/><br/> -Cópias de segurança de VM do Windows onde o VSS falhou. | Ao recuperar com um instantâneo consistente com ficheiros, a VM arranca. Não existe danos em dados ou perda. As aplicações necessitam implementar seu próprio mecanismo de "correção de segurança" para se certificar de que os dados restaurados são consistentes.
-**Consistentes de falhas** | Não | Consistência de falhas sempre acontece quando uma VM do Azure é desligado no momento da cópia de segurança.  Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança.<br/><br/> Um ponto de recuperação consistentes com falhas não garante a consistência de dados para o sistema operativo ou a aplicação. | Há garantias de nenhum, mas normalmente as inicializações VM e forma com um disco de verificação para corrigir erros de danos. Quaisquer dados na memória ou de escrita que não foram transferida para o disco são perdidos. Aplicações implementam a verificação de seus próprios dados. Por exemplo, para uma aplicação de base de dados, se um registo de transações tem entradas que não estão na base de dados, o software de base de dados agrega até que os dados são consistentes.
+**Crash-consistent** | Não | Consistência de falhas sempre acontece quando uma VM do Azure é desligado no momento da cópia de segurança.  Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança.<br/><br/> Um ponto de recuperação consistentes com falhas não garante a consistência de dados para o sistema operativo ou a aplicação. | Há garantias de nenhum, mas normalmente as inicializações VM e forma com um disco de verificação para corrigir erros de danos. Quaisquer dados na memória ou de escrita que não foram transferida para o disco são perdidos. Aplicações implementam a verificação de seus próprios dados. Por exemplo, para uma aplicação de base de dados, se um registo de transações tem entradas que não estão na base de dados, o software de base de dados agrega até que os dados são consistentes.
 
 
 ## <a name="service-and-subscription-limits"></a>Limites de serviço e subscrição
@@ -118,7 +122,7 @@ Situações que podem afetar o tempo de cópia de segurança incluem o seguinte:
 
 - **Cópia de segurança inicial para um disco adicionado recentemente a uma VM já protegido**: Se uma VM está em cópia de segurança incremental e um disco novo é adicionado a esta VM, a duração de cópia de segurança pode ir além de 24 horas, uma vez que o disco adicionado recentemente tem de passar por uma replicação inicial, juntamente com a replicação de diferenças de discos existentes.
 - **Fragmentação**: Produto de cópia de segurança verifica a existência de alterações incrementais entre as operações de duas cópias de segurança. Operações de cópia de segurança são mais rápidas quando as alterações no disco sejam colocadas em comparação com as alterações são spread entre, em seguida, o disco. 
-- **Alterações a dados**: Volume de alterações diária (para a replicação incremental) por mais de 200 GB de disco pode tirar maior do que cerca de 8 horas para concluir a operação. Se a VM tem mais de um disco e um destes discos está a demorar mais tempo a cópia de segurança, em seguida, ela pode afetar a operação de cópia de segurança global (ou pode resultar numa falha). 
+- **Churn**: Volume de alterações diária (para a replicação incremental) por mais de 200 GB de disco pode tirar maior do que cerca de 8 horas para concluir a operação. Se a VM tem mais de um disco e um destes discos está a demorar mais tempo a cópia de segurança, em seguida, ela pode afetar a operação de cópia de segurança global (ou pode resultar numa falha). 
 - **Modo de comparação (CC) de soma de verificação**: O modo CC é comparativamente mais lento do que o modo otimizado utilizado pela RP instantânea. Se já estiver a utilizar o RP instantânea e ter eliminado os instantâneos de escalão 1, em seguida, cópia de segurança muda para o modo CC, fazendo com que a operação de cópia de segurança ter mais de 24 horas (ou falha).
 
 ## <a name="restore-considerations"></a>Restaurar considerações
@@ -155,7 +159,7 @@ Por exemplo, dê uma máquina virtual com tamanho A2 padrão, que tem dois disco
 
 | Tipo de disco | Tamanho máximo | Dados reais presentes |
 | --------- | -------- | ----------- |
-| Disco do sistema operativo |4095 GB |17 DE GB |
+| Disco do sistema operativo |4095 GB |17 GB |
 | Disco local / temporária disco |135 GB |5 GB (não incluído para cópia de segurança) |
 | Disco de dados 1 |4095 GB |30 GB |
 | Disco de dados 2 |4095 GB |0 GB |

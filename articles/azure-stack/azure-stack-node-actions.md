@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725257"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302685"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de dimensionamento no Azure Stack
 
@@ -74,7 +74,7 @@ Quando Exibe informações sobre um nó de unidade de escala, também pode reali
 
 Estado operacional do nó determina quais as opções estão disponíveis.
 
-Terá de instalar os módulos do Azure Stack do PowerShell. Estes cmdlets estão no **Azs.Fabric.Admin** módulo. Para instalar ou verificar sua instalação do PowerShell para o Azure Stack, veja [instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
+Tem de instalar os módulos do Azure Stack do PowerShell. Estes cmdlets estão no **Azs.Fabric.Admin** módulo. Para instalar ou verificar sua instalação do PowerShell para o Azure Stack, veja [instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 
 ## <a name="stop"></a>Parar
 

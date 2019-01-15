@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa1b043f94897e752f3aa6b638995d3c2aa1eae5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197459"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263633"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicação SaaS do Azure
 
@@ -49,7 +49,7 @@ Esta secção descreve os elementos de publicar uma oferta SaaS e destina-se com
 
 - [Pré-requisitos](./cpp-prerequisites.md) -lista os requisitos técnicos e empresariais antes de criar ou publicar uma oferta SaaS. 
 - [Criar a oferta](./cpp-create-offer.md) -fornece os passos necessários para criar uma nova entrada de oferta de SaaS com o Portal de parceiro de Cloud. 
-- [Publicar a oferta](./cpp-publish-offer.md) -Exlains como submeter a oferta para publicação no Azure Marketplace. 
+- [Publicar a oferta](./cpp-publish-offer.md) -explica como submeter a oferta para publicação no Azure Marketplace. 
 
 ## <a name="saas-publishing-process"></a>Processo de publicação de SaaS 
 

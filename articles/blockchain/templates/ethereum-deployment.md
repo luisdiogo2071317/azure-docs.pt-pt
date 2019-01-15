@@ -1,6 +1,6 @@
 ---
 title: Modelo de solução de prova de trabalho consortium Ethereum
-description: Utilizar o modelo de solução de consórcio Etherereum prova de trabalho para implementar e configurar uma rede Ethereum de consórcio com vários membros
+description: Utilizar o modelo de solução de consórcio Ethereum prova de trabalho para implementar e configurar uma rede Ethereum de consórcio com vários membros
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231802"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260538"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho consortium Ethereum
 
@@ -67,7 +67,7 @@ Este processo requer uma subscrição do Azure que pode suportar a implementaç�
 
 Depois de uma subscrição está protegida, aceda ao portal do Azure. Selecione **+ criar um recurso**, Marketplace (ver todos) e procure **Ethereum prova de trabalho Consortium**.
 
-A implementação do modelo explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, o Operations Management Suite, o regiões de implementação, o tamanho de rede e o desempenho, Ethereum definições.
+A implementação do modelo explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, Operations Management Suite, regiões de implementação, o tamanho de rede e desempenho, Ethereum definições.
 
 ### <a name="basics"></a>Noções básicas
 
@@ -127,10 +127,10 @@ Nome do Parâmetro |Descrição |Valores Permitidos| Valores predefinidos
 ---|---|---|---
 Número de nós de extração|O número de nós de extração implementado por região|2 - 15| 2
 Desempenho de armazenamento do nó de extração|O tipo de disco gerido de segurança todos os nós de extração implementado.|Standard ou Premium|Standard
-Tamanho de máquina virtual do nó de extração|O tamanho de máquina virtual utilizado para nós de extração.|Standard A, <br />Standard D, <br />D Standard-v2, <br />Série F Standard, <br />Standard DS, <br />e o Standard FS|D1v2 padrão
+Tamanho de máquina virtual do nó de extração|O tamanho de máquina virtual utilizado para nós de extração.|Standard A, <br />Standard D, <br />Standard D-v2, <br />Série F Standard, <br />Standard DS, <br />e o Standard FS|Standard D1v2
 Número de nós de transação com balanceamento de carga|O número de nós de transação para aprovisionar como parte da rede.|1 - 5| 2
 Desempenho de armazenamento do nó de transação|O tipo de disco gerido de segurança todos os nós de transação implementado.|Standard ou Premium|Standard
-Tamanho de máquina virtual do nó de transação|O tamanho de máquina virtual utilizado para nós de transação.|Standard A, <br />Standard D, <br />D Standard-v2, <br />Série F Standard, <br />Standard DS, <br />e o Standard FS|D1v2 padrão
+Tamanho de máquina virtual do nó de transação|O tamanho de máquina virtual utilizado para nós de transação.|Standard A, <br />Standard D, <br />Standard D-v2, <br />Série F Standard, <br />Standard DS, <br />e o Standard FS|Standard D1v2
 
 ### <a name="ethereum-settings"></a>Ethereum definições
 
@@ -140,15 +140,15 @@ Em seguida, em **Ethereum definições**, especificar definições de configura�
 
 Nome do Parâmetro |Descrição |Valores Permitidos|Valores predefinidos
 ---|---|---|---
-ID de ConsortiumMember|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. <br /><br />ID de membro deve ser exclusivo em organizações diferentes na mesma rede. Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões.<br /><br />Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros da junção.|0 – 255
+ID de ConsortiumMember|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. <br /><br />ID de membro deve ser exclusivo em organizações diferentes na mesma rede. Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões.<br /><br />Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros da junção.|0 - 255
 ID de rede Ethereum|O ID de rede para a rede de Ethereum consortium a ser implementado. Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública. Embora o acesso de rede é restrito para nós de extração, ainda Recomendamos que utilize um grande número para evitar colisões.|5 - 999,999,999| 10101010
 Bloco de genesis personalizado|Opção de automaticamente gerar um bloco de genesis ou fornecer um personalizado.|Sim/Não| Não
 Palavra-passe da conta de Ethereum (bloco de genesis personalizado = não)|A palavra-passe de administrador utilizada para proteger a conta de Ethereum importada para cada nó. A palavra-passe tem de conter o seguinte: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.|12 ou mais carateres|ND
 Ethereum frase de acesso privado chave (bloco de genesis personalizado = não)|A frase de acesso utilizada para gerar a chave privada de ECC associada à conta Ethereum predefinido que é gerada. Uma chave privada gerada não precisa de ser passados explicitamente.<br /><br />Considere uma frase de acesso com aleatoriedade suficiente para garantir uma chave privada forte e sem sobreposição com outros membros consortium. A frase de acesso tem de conter o seguinte no mínimo: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.<br /><br />Tenha em atenção de que se dois membros de usar a mesma frase de acesso as contas geradas será o mesmo. A mesma frase de acesso é útil se uma única organização está a tentar implementar em várias regiões e pretende partilhar uma única conta (moeda base) em todos os nós.|12 ou mais carateres|ND
-Bloco de Genesis (bloco de genesis personalizado = Yes)|Cadeia de caracteres JSON que representa o bloco de genesis personalizado. Pode encontrar mais detalhes sobre o formato do bloco genesis aqui, em redes de personalizado.<br /><br />Ainda é criada uma conta de Ethereum ao fornecer um bloco de genesis personalizado. Considere especificar uma conta de Ethereum prefunded no bloco de genesis não aguardar a extração.|JSON válido |ND
+Bloco de Genesis (bloco de genesis personalizado = Yes)|Cadeia de caracteres JSON que representa o bloco de genesis personalizado. Pode encontrar mais detalhes sobre o formato do bloco genesis aqui, em redes de personalizado.<br /><br />Ainda é criada uma conta de Ethereum ao fornecer um bloco de genesis personalizado. Considere especificar uma conta de Ethereum prefunded no bloco de genesis não aguardar a extração.|Valid JSON |ND
 A chave para a ligação partilhada|Uma chave partilhada para a ligação entre os gateways VNET.| 12 ou mais carateres|ND
-URL de dados de consórcio|O URL que aponta para os dados de configuração de consórcio relevantes fornecidos pela implementação de outro membro. <br /><br />Estas informações são fornecidas por um membro já ligado que tenha uma implementação. Se tiver implementado o restante da rede, o URL é a saída de modelos de implementação, dados de CONSÓRCIO com o nome.||ND
-Gateway de VNet para ligar a|O caminho de recurso do Gateway de VNet para estabelecer ligação.<br />Estas informações são fornecidas por um membro já ligado que tenha uma implementação. Se tiver implementado o restante da rede, o URL é na saída de implementação do modelo, com o nome CONSORTIUM_MEMBER_GATEWAY_ID. Nota: Consortium dados URL e o Gateway de VNet o recurso o mesmo membro deve ser utilizado.||ND
+Consortium Data URL|O URL que aponta para os dados de configuração de consórcio relevantes fornecidos pela implementação de outro membro. <br /><br />Estas informações são fornecidas por um membro já ligado que tenha uma implementação. Se tiver implementado o restante da rede, o URL é a saída de modelos de implementação, dados de CONSÓRCIO com o nome.||ND
+Gateway de VNet para ligar a|O caminho de recurso do Gateway de VNet para estabelecer ligação.<br />Estas informações são fornecidas por um membro já ligado que tenha uma implementação. Se tiver implementado o restante da rede, o URL é na saída de implementação do modelo, com o nome CONSORTIUM_MEMBER_GATEWAY_ID. Nota: Tem de ser utilizado consortium URL e o Gateway de VNet recurso de dados o mesmo membro.||ND
 Ponto final da entidade de registo de informações de ponto a ponto|Ponto final de informações de ponto a ponto fornecida pela implementação de outro membro|Ponto final válido do primeiro membro no consortium|ND
 Entidade de registo de informações de chave de ponto a ponto|Chave de principal de informações de ponto a ponto fornecida pela implementação de outro membro|Chave primária válida do primeiro membro no consortium|ND
 
@@ -189,7 +189,7 @@ O estado do nó é atualizado a cada 10 segundos. Recarregue a página por meio 
 
 Pode localizar o seu portal do OMS ao seguir o link na saída de implementação (OMSPORTALURL) ou ao selecionar o recurso do OMS no seu grupo de recursos implementados.
 
-![URL DO OMS](./media/ethereum-deployment/oms-url.png)
+![OMS URL](./media/ethereum-deployment/oms-url.png)
 
 ![Recursos do OMS](./media/ethereum-deployment/oms-resource.png)
 
@@ -215,9 +215,9 @@ Por exemplo:
 
 Nome de anfitrião do portal do Azure| Nome do anfitrião real
 ---|---
-Mn-ethwvu-reg1_0| Mn-ethwvu-reg1000000
-Mn-ethwvu-reg1_1 |Mn-ethwvu-reg1000001
-Mn-ethwvu-reg1_2 |Mn-ethwvu-reg1000002
+mn-ethwvu-reg1_0| mn-ethwvu-reg1000000
+mn-ethwvu-reg1_1 |mn-ethwvu-reg1000001
+mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 
 ## <a name="adding-a-new-consortium-member"></a>Adicionar um novo membro de consórcio
 
@@ -225,13 +225,13 @@ Mn-ethwvu-reg1_2 |Mn-ethwvu-reg1000002
 
 Como o primeiro membro (ou um membro ligado) do consortium, terá de fornecer algumas partes de informações de outros membros para que possam associar e estabelecer sua conexão. Especificamente:
 
-1. **Dados de configuração de consórcio partilhados**: existe um conjunto de dados que são utilizados para orquestrar a ligação de Ethereum entre dois membros. As informações necessárias, incluindo o bloco de genesis, ID de rede de consórcio e nós de arranque, são escritas num ficheiro em nós de transação do coordenador ou outro membro implementado. A localização desse arquivo está listada no parâmetro de saída de implementação de modelo com o nome **dados de CONSÓRCIO**.
-2. **Configurar o peering em ponto final de informações**: ponto final de entidade de registo de informações do elemento de rede para obter informações de todos os nós já ligado à rede Ethereum a partir do que os líderes ou implementação de outro membro. Os arquivos de DB um conjunto de informações sobre cada nó ligado, na rede, informações como o nome de anfitrião do nó, privada, o endereço IP etc. Este é o parâmetro de saída de implementação do modelo com o nome **PEER_INFO_ENDPOINT**.
-3. **Configurar o peering em informações de chave primária**: chave primária do ponto a ponto o informações entidade de registo é utilizado para obter acesso à chave do informações de ponto a ponto principal do coordenador ou outro membro. Este é o parâmetro de saída de implementação do modelo com o nome **PEER_INFO_PRIMARY_KEY**.
+1. **Dados de configuração de consórcio partilhados**: Existe um conjunto de dados que são utilizados para orquestrar a ligação de Ethereum entre dois membros. As informações necessárias, incluindo o bloco de genesis, ID de rede de consórcio e nós de arranque, são escritas num ficheiro em nós de transação do coordenador ou outro membro implementado. A localização desse arquivo está listada no parâmetro de saída de implementação de modelo com o nome **dados de CONSÓRCIO**.
+2. **Configurar o peering em ponto final de informações**: O ponto de extremidade da entidade de registo de informações ponto a ponto para obter informações de todos os nós já ligado à rede Ethereum a partir do que os líderes ou implementação de outro membro. Os arquivos de DB um conjunto de informações sobre cada nó ligado, na rede, informações como o nome de anfitrião do nó, privada, o endereço IP etc. Este é o parâmetro de saída de implementação do modelo com o nome **PEER_INFO_ENDPOINT**.
+3. **Configurar o peering em informações de chave primária**: Chave primária de entidade de registo de informações do elemento de rede é utilizada para obter acesso à chave do informações de ponto a ponto principal do coordenador ou outro membro. Este é o parâmetro de saída de implementação do modelo com o nome **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **Gateway de VNET**: cada membro estabelece uma conexão com a rede de blockchain inteira por meio de um membro existente. Para ligar a VNET, tem do caminho de recurso para o Gateway de VNET do membro ao qual está a ligar. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Chave partilhada**: A previamente estabelecida secreta entre dois membros da rede de consórcio que estão a estabelecer uma ligação. Esta é uma cadeia alfanumérica (entre 1 e 128 carateres) que tenha sido combinado entre fora do contexto da implantação. (Por exemplo, **MySharedKeyAbc123**)
+4. **Gateway VNET**: Cada membro estabelece uma ligação à rede de blockchain inteira por meio de um membro existente. Para ligar a VNET, tem do caminho de recurso para o Gateway de VNET do membro ao qual está a ligar. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
+5. **Chave partilhada**: Um segredo previamente estabelecido entre dois membros da rede de consórcio que estão a estabelecer uma ligação. Esta é uma cadeia alfanumérica (entre 1 e 128 carateres) que tenha sido combinado entre fora do contexto da implantação. (Por exemplo, **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Aceitação do novo membro
 
@@ -261,24 +261,24 @@ Em seguida, importe o módulo:
 
 Por fim, execute a função com a entrada apropriada:
 
-- **MyGatewayResourceId:** caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de saída de implementação do modelo de também denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** um nome para identificar esta ligação de Gateway.
-- **Chave partilhada:** o segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
+- **MyGatewayResourceId:** Caminho do recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Caminho do recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de saída de implementação do modelo de também denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Um nome para identificar esta ligação de Gateway.
+- **Chave partilhada:** O segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < caminho de recurso do gateway do membro junção > - ConnectionName Aminhaligação - SharedKey "MySharedKeyAbc123"
 
-**o xPlat CLI: estabelecer ligação**
+**xPlat CLI: Estabelecer ligação**
 
 Transfira o script da CLI do Azure e armazene-o localmente. A localização do script da CLI do Azure está especificada no parâmetro de implementação de modelo com o nome **par-GATEWAY-AZURE-CLI-SCRIPT**.
 
 Execute o script com a entrada apropriada:
 
-- **MyGatewayResourceId:** caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de implementação do modelo da sua implementação com o nome também **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** um nome para identificar esta ligação de Gateway.
-- **Chave partilhada:** o segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
-- **Localização:** a região do Azure em que o seu recurso de gateway é implementado.
+- **MyGatewayResourceId:** Caminho do recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Caminho do recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de implementação do modelo da sua implementação com o nome também **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Um nome para identificar esta ligação de Gateway.
+- **Chave partilhada:** O segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
+- **Localização:** A região do Azure em que o seu recurso de gateway é implementado.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

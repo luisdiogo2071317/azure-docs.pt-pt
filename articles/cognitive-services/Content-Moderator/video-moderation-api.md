@@ -1,5 +1,5 @@
 ---
-title: Analisar o conteúdo de vídeo para objetáveis material doC#
+title: Analisar o conteúdo de vídeo para obter informações sobre objetáveis no C# -moderador de conteúdo
 titlesuffix: Azure Cognitive Services
 description: Como analisar o conteúdo de vídeo para diversos material objetáveis utilizando o SDK do moderador de conteúdo para .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008288"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265520"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analisar o conteúdo de vídeo para objetáveis material doC#
 
@@ -55,18 +55,18 @@ O Explorador de serviços de multimédia do Azure é um front-end amigável para
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
 1. No Visual Studio, crie um novo **aplicação de consola (.NET Framework)** do projeto e nomeie- **VideoModeration**. 
-1. Se existirem outros projetos na solução, selecione este como o projeto de arranque único.
-1. Obtenha os pacotes de NuGet necessários. Com o botão direito no seu projeto no Solution Explorer e selecione **gerir pacotes NuGet**; em seguida, localize e instale os seguintes pacotes:
+1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
+1. Obtenha os pacotes NuGet necessários. Clique com o botão direito do rato no seu projeto no Explorador de Soluções e selecione **Manage NuGet Packages** (Gerir Pacotes NuGet); em seguida, localize e instale os pacotes seguintes:
     - windowsazure.mediaservices
-    - windowsazure.mediaservices.Extensions
+    - windowsazure.mediaservices.extensions
 
 ## <a name="add-video-moderation-code"></a>Adicione o código de moderação de vídeos
 
-Em seguida, irá copiar e colar o código a partir deste guia no seu projeto para implementar um cenário básico de moderação de conteúdos.
+Depois, vai copiar e colar o código neste guia no projeto, para implementar um cenário de moderação de conteúdos simples.
 
 ### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Adicione as seguintes `using` declarações na parte superior do seu _Program.cs_ ficheiro.
+Adicione as declarações `using` seguintes à parte superior do ficheiro _Program.cs_.
 
 ```csharp
 using System;
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências aos recursos
 
-Adicione os seguintes campos estáticos para o **programa** classe na _Program.cs_. Estes campos contêm as informações necessárias para ligar à sua subscrição do AMS. Preenchê-las com os valores obtidos nos passos acima. Tenha em atenção que `CLIENT_ID` é o **ID da aplicação** o valor da sua aplicação do Azure AD, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos contêm as informações necessárias para ligar à sua subscrição do AMS. Preenchê-las com os valores obtidos nos passos acima. Tenha em atenção que `CLIENT_ID` é o **ID da aplicação** o valor da sua aplicação do Azure AD, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
 
 ```csharp
 // declare constants and globals

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440941"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262970"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Será descontinuada a camada de serviços do Azure SQL da base de dados Premium RS (pré-visualização) – opções para a migração
 
@@ -27,7 +27,7 @@ Seguem-se os destinos de migração e as opções de preços que podem ser adequ
 
 - escalões de serviço de vCore
 
-  O **fins gerais** e **críticas para a empresa** camadas de serviço a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Estes escalões de serviço de dois em geral são disponibilidade. O modelo de compra baseado em vCore também oferece a **Hiperescala** escalão de serviço (em pré-visualização pública), que se adapta a pedido para as necessidades da sua carga de trabalho com o dimensionamento automático até 100 TB por base de dados. A camada de serviços de Hiperescala fornece desempenho de e/s comparável para o escalão de serviço Premium no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) por um preço mais próximo para o escalão de serviço Premium RS.
+  O **fins gerais** e **críticas para a empresa** camadas de serviço a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Estes escalões de duas serviço encontram em disponibilidade geral. O modelo de compra baseado em vCore também oferece a **Hiperescala** escalão de serviço (em pré-visualização pública), que se adapta a pedido para as necessidades da sua carga de trabalho com o dimensionamento automático até 100 TB por base de dados. A camada de serviços de Hiperescala fornece desempenho de e/s comparável para o escalão de serviço Premium no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) por um preço mais próximo para o escalão de serviço Premium RS.
 - Preços de Desenvolvimento/Teste
 
   [Preços de Dev/teste](https://azure.microsoft.com/pricing/dev-test/) proporciona poupanças até 55% em comparação com as taxas de licença incluída com a sua subscrição do Visual Studio.
@@ -50,10 +50,10 @@ Das cargas de trabalho intensivas de computação Premium RS, recomendamos que m
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|
-|O Premium RS 1|VCore de 1 de finalidade geral (geração 4)|Standard 3|
-|O Premium RS 2|VCores de 2 de finalidade geral (geração 4)|Standard 4|
-|O Premium RS 4|Geral 4 vCores para fins (Gen4)|Standard 6|
-|O Premium RS 6|VCores de 6 de finalidade geral (Gen4)|7 padrão|
+|Premium RS 1|VCore de 1 de finalidade geral (geração 4)|Standard 3|
+|Premium RS 2|VCores de 2 de finalidade geral (geração 4)|Standard 4|
+|Premium RS 4|Geral 4 vCores para fins (Gen4)|Standard 6|
+|Premium RS 6|VCores de 6 de finalidade geral (Gen4)|Standard 7|
 
 ### <a name="premium-rs-pools"></a>Conjuntos Premium RS
 
@@ -70,10 +70,10 @@ Recomendamos que migre as bases de dados individuais e/s intensiva para o nosso 
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|
-|O Premium RS 1|(Pré-visualização) VCore de 1 de Hiperescala (geração 4) ou 1 críticos de negócios vCore (geração 4)|Premium 1|
-|O Premium RS 2|(Pré-visualização) Hiperescala 2 vCores (geração 4) ou 2 críticos de negócios vCores (geração 4|Premium 2|
-|O Premium RS 4|(Pré-visualização) 4 de Hiperescala vCores (geração 4) ou vCores de 4 críticos de negócios (Gen4)|Premium 4
-|O Premium RS 6|(Pré-visualização) 6 de Hiperescala vCores (geração 4) ou vCores de 6 críticos de negócios (Gen4)|Premium 6|
+|Premium RS 1|(Pré-visualização) VCore de 1 de Hiperescala (geração 4) ou 1 críticos de negócios vCore (geração 4)|Premium 1|
+|Premium RS 2|(Pré-visualização) Hiperescala 2 vCores (geração 4) ou 2 críticos de negócios vCores (geração 4|Premium 2|
+|Premium RS 4|(Pré-visualização) 4 de Hiperescala vCores (geração 4) ou vCores de 4 críticos de negócios (Gen4)|Premium 4
+|Premium RS 6|(Pré-visualização) 6 de Hiperescala vCores (geração 4) ou vCores de 6 críticos de negócios (Gen4)|Premium 6|
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|

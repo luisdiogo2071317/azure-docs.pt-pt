@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804553"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264005"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte de idioma e região para a API de pesquisa de notícias do Bing
 
@@ -40,17 +40,17 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Austrália|Português|EN-AU|
 |Canadá|Português|en-CA|
 |Reino Unido|Português|en-GB|
-|Indonésia|Português|ID de en|
+|Indonésia|Português|en-ID|
 |Irlanda|Português|EN-IE|
 |Índia|Português|EN-IN|
-|Malásia|Português|EN MY|
+|Malásia|Português|en-MY|
 |Nova Zelândia|Português|EN-NZ|
-|República das Filipinas|Português|EN-PH|
-|Singapura|Português|EN-SG|
-|Estados Unidos|Português|pt-PT|
-|Português|Geral|EN-WW|
-|Português|Geral|EN-XA|
-|África do Sul|Português|EN ZA|
+|República das Filipinas|Português|en-PH|
+|Singapura|Português|en-SG|
+|Estados Unidos|Português|en-US|
+|Português|Geral|en-WW|
+|Português|Geral|en-XA|
+|África do Sul|Português|en-ZA|
 |Argentina|Espanhol|es-AR|
 |Chile|Espanhol|es-CL|
 |Espanha|Espanhol|es-ES|
@@ -58,13 +58,13 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Estados Unidos|Espanhol|es-US|
 |Espanhol|Geral|es-XL|
 |Finlândia|Finlandês|fi-FI|  
-|França|Francês|FR-ser|
+|França|Francês|fr-BE|
 |Canadá|Francês|fr-CA|
-|Bélgica|Neerlandês|NL-ser|
+|Bélgica|Neerlandês|nl-BE|
 |Suíça|Francês|FR-CH|
 |França|Francês|FR-FR|  
 |Itália|Italiano|it-IT|
-|R.A.E. Hong Kong|Chinês tradicional|zh-HK|  
+|RAE de Hong Kong|Chinês tradicional|zh-HK|  
 |Taiwan|Chinês tradicional|zh-TW|
 |Japão|Japonês|ja-JP|  
 |Coreia|Coreano|ko-KR|  
@@ -86,8 +86,8 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Alemanha|Alemão|de-DE|
 |Austrália|Português|EN-AU|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|pt-PT|
-|Português|Geral|EN-WW|
+|Estados Unidos|Português|en-US|
+|Português|Geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
@@ -108,7 +108,7 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Alemanha|Alemão|de-DE|
 |Austrália|Português|EN-AU|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|pt-PT|
+|Estados Unidos|Português|en-US|
 |Canadá|Português|en-CA|
 |Índia|Português|EN-IN|
 |França|Francês|FR-FR|
@@ -127,28 +127,28 @@ Seguem-se os códigos de país/região que pode especificar o `cc` parâmetro de
 |Argentina|AR|  
 |Austrália|AU|  
 |Áustria|AT|  
-|Bélgica|SER|  
+|Bélgica|BE|  
 |Brasil|BR|  
-|Canadá|AC|  
+|Canadá|CA|  
 |Chile|CL|  
 |Dinamarca|DK|  
 |Finlândia|FI|  
 |França|FR|  
-|Alemanha|ALEMANHA|  
-|R.A.E. Hong Kong|HK|  
-|Índia|ÍNDIA|  
+|Alemanha|DE|  
+|RAE de Hong Kong|HK|  
+|Índia|IN|  
 |Indonésia|ID|  
 |Itália|TI|  
 |Japão|JP|  
-|Coreia|COREIA|  
-|Malásia|MEU|  
+|Coreia|KR|  
+|Malásia|MY|  
 |México|MX|  
 |Países Baixos|NL|  
 |Nova Zelândia|NZ|  
-|Noruega|NÃO|  
+|Noruega|NO|  
 |República Popular da China|CN|  
 |Polónia|PL|  
-|Portugal|HORA DO PACÍFICO|  
+|Portugal|PT|  
 |República das Filipinas|PH|  
 |Rússia|RU|  
 |Arábia Saudita|SA|  

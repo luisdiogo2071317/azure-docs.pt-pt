@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244703"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263327"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -79,7 +79,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - Serviço de cópia de segurança de infra-estrutura move-se do [rede de infraestrutura públicas](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes terão garantir que o serviço tem acesso a localização de armazenamento de cópia de segurança da rede VIP pública.  
 
 > [!IMPORTANT]  
-> Se tiver uma firewall que não permite ligações a partir da rede VIP pública para o servidor de ficheiros, esta alteração fará com que as cópias de segurança de infra-estrutura efetuar a ativação com "Erro 53 o caminho de rede não foi encontrado". Esta é uma alteração de última hora que tenha não existe solução razoável. Com base nos comentários dos clientes, Microsoft irá reverter esta alteração numa correção. Consulte a [publicar a secção de passos de atualização](#post-update-steps) para obter mais informações sobre correções disponíveis para 1809. Assim que a correção está disponível, certifique-se para aplicá-la depois de atualizar para 1809 apenas se as políticas de rede não permitirem a rede VIP pública aceder a recursos de infraestrutura. no 1811, esta alteração será aplicada a todos os sistemas. Se aplicar a correção no 1809, não é necessária nenhuma ação adicional.  
+> Se tiver uma firewall que não permite ligações a partir da rede VIP pública para o servidor de ficheiros, esta alteração fará com que as cópias de segurança de infra-estrutura efetuar a ativação com "Erro 53 o caminho de rede não foi encontrado". Esta é uma alteração de última hora que tenha não existe solução razoável. Com base nos comentários dos clientes, Microsoft irá reverter esta alteração numa correção. Consulte a [publicar a secção de passos de atualização](#post-update-steps) para obter mais informações sobre correções disponíveis para 1809. Assim que a correção está disponível, certifique-se para aplicá-la depois de atualizar para 1809 apenas se as políticas de rede não permitirem a rede VIP pública para aceder a recursos de infraestrutura. no 1811, esta alteração será aplicada a todos os sistemas. Se aplicar a correção no 1809, não é necessária nenhuma ação adicional.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 

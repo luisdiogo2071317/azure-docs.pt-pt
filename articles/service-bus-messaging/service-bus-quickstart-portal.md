@@ -1,6 +1,6 @@
 ---
-title: Início Rápido – Utilizar o portal do Azure para enviar e receber mensagens do Azure Service Bus | Microsoft Docs
-description: Neste início rápido, vai aprender a enviar e receber mensagens do Service Bus com o portal do Azure
+title: Início rápido - utilizar o portal do Azure para criar uma fila do Service Bus | Documentos da Microsoft
+description: Neste guia de introdução, saiba como criar uma fila do Service Bus com o portal do Azure. Em seguida, usar um aplicativo de cliente de exemplo para enviar mensagens para e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002676"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264025"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início rápido: Enviar e receber mensagens com o portal do Azure e o .NET
-
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.  
 
 ![fila](./media/service-bus-quickstart-portal/quick-start-queue.png)

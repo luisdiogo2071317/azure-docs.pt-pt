@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971806"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Active Directory do Azure com o Salesforce
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD início de sessão único com o Salesforce, execute o
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -180,7 +180,7 @@ Para configurar o Azure AD início de sessão único com o Salesforce, execute o
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. Na **configuração da autenticação** secção, verifique o **AzureSSO** como **serviço de autenticação** de sua configuração SAML SSO e clique em **guardar** .
+11. Na **configuração da autenticação** secção, verifique o **AzureSSO** como **serviço de autenticação** de sua configuração SAML SSO e clique em  **Guardar**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-auth-config.png)
 

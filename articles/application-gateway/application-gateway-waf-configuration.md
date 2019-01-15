@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4e57181b62a6d9070c0b2e4de5008e47b62c56bf
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752729"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54301904"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
 
@@ -25,13 +25,13 @@ A firewall de aplicações do Gateway de aplicação Azure web (WAF) fornece pro
 Firewall de aplicações Web permite aos usuários configurar limites de tamanho do pedido dentro inferiores e superiores. As seguintes configurações de limites de dois tamanho estão disponíveis:
 
 - O campo de tamanho do corpo de pedido máximo é especificado em KBs e controles carrega de limite de tamanho pedido geral, excluindo todos os ficheiros. Este campo pode variar de 1 KB mínimo ao valor máximo de 128 KB. O valor predefinido para o tamanho do corpo de pedido é 128 KB.
-- O campo de limite de carregamento do ficheiro é especificado em MB e rege o tamanho de carregamento de ficheiro máximo permitido. Este campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB. O valor predefinido para o limite de carregamento de ficheiro é 100 MB.
+- O campo de limite de carregamento do ficheiro é especificado em MB e rege o tamanho de carregamento de ficheiro máximo permitido. Este campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB para instâncias grandes SKU enquanto médio SKU tem um máximo de 100 MB. O valor predefinido para o limite de carregamento de ficheiro é 100 MB.
 
 WAF também oferece um botão configurável para ativar ou desativar à inspeção de corpo de pedido. Por predefinição, a inspeção de corpo de pedido é ativada. Se a inspeção de corpo do pedido estiver desativada, o WAF não avalia o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua para impor as regras de WAF em cabeçalhos, cookies e URI. Se a inspeção de corpo do pedido estiver desativada, o campo de tamanho do corpo de pedido máximo não é aplicável e não é possível definir. Desativar a inspeção de corpo de pedido permite que as mensagens maior do que 128 KB sejam enviados para o WAF, mas o corpo da mensagem não é inspecionado relativamente a vulnerabilidades.
 
 ## <a name="waf-exclusion-lists"></a>Listas de exclusão de WAF
 
-![waf exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
+![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 Listas de exclusão de WAF permitem aos utilizadores omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe. Esses atributos são suscetíveis a conter os carateres especiais que podem disparar um falso positivo das regras WAF. Assim que um atributo é adicionado à lista de exclusão de WAF, não é levada em consideração por qualquer regra de WAF configurada e Active Directory. Listas de exclusão são globais em escopo.
 

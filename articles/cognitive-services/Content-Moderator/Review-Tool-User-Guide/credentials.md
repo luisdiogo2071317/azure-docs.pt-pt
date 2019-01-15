@@ -1,22 +1,23 @@
 ---
-title: As credenciais no Azure Content Moderator | Documentos da Microsoft
-description: Gerir as credenciais do Content Moderator para utilizar com as APIs.
+title: Gerir credenciais no Azure Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Gerir as credenciais do Content Moderator, que terá de utilizar as APIs.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260096"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266150"
 ---
-# <a name="manage-credentials"></a>Gerir credenciais
+# <a name="manage-content-moderator-service-credentials"></a>Gerir credenciais de serviço do Content Moderator
 
 As suas credenciais do Content Moderator são criados nas seguintes localizações:
 

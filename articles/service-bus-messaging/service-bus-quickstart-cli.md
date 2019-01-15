@@ -1,22 +1,22 @@
 ---
-title: Início Rápido – Utilizar a CLI do Azure e o Java para enviar e receber mensagens do Service Bus do Azure | Microsoft Docs
-description: Neste início rápido, vai aprender a enviar e receber mensagens do Azure Service Bus com a CLI do Azure e uma de aplicação de Java de exemplo
+title: Início rápido - utilizar a CLI do Azure para criar uma fila do Service Bus | Documentos da Microsoft
+description: Neste início rápido, irá aprender a utilizar a CLI do Azure para criar uma fila do Service Bus. Em seguida, usar um exemplo de aplicação de Java para enviar mensagens para e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998681"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258329"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Início rápido: Enviar e receber mensagens através da CLI do Azure e Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início rápido: Utilizar a CLI do Azure para criar uma fila do Service Bus
 
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade. Um cenário normal do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si (as aplicações não precisam de estar online ao mesmo tempo), transferir alterações de estado ou de dados e envio de mensagens entre as aplicações. 
 
@@ -24,7 +24,7 @@ Por exemplo, uma empresa de revenda poderá enviar os dados do respetivo ponto d
 
 ![fila](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-Este guia de introdução descreve como enviar e receber mensagens com o Service Bus, através da CLI do Azure e da biblioteca de Java do Service Bus. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
+Este início rápido descreve como enviar e receber mensagens com o Service Bus, utilizando a CLI do Azure e a biblioteca de Java do Service Bus. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
 
 Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes
 
 Clique no botão de Cloud Shell no menu no canto superior direito do portal do Azure e na lista pendente **Selecionar ambiente** , selecione **Bash**. 
 
-## <a name="use-cli-to-create-resources"></a>Utilize a CLI para criar recursos
+## <a name="use-the-azure-cli-to-create-resources"></a>Utilizar a CLI do Azure para criar recursos
 
 No Cloud Shell, na linha de comandos do Bash, indique os seguintes comandos para aprovisionar os recursos do Service Bus. Não se esqueça de substituir todos os marcadores de posição pelos valores apropriados:
 
@@ -263,12 +263,12 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, continue no tutorial seguinte para o Service Bus:
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, avance para o tutorial seguinte do Service Bus:
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário com a CLI e o Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Atualizar inventário com a CLI do Azure e Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
-[Conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

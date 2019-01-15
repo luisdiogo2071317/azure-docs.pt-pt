@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: raynew
-ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877172"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262732"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -36,7 +36,7 @@ O servidor de cópia de segurança do Azure protege as cargas de trabalho de má
 | Windows Server via Semianuais - Datacenter/Enterprise/Standard | Volumes, ficheiros, pastas |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | Volumes, ficheiros, pastas |
 | Windows Server 2012 R2 – Datacenter/Enterprise/Standard | Volumes, ficheiros, pastas |
-| Windows Server 2012 – Datacenter/Entprise/Standard | Volumes, ficheiros, pastas |
+| Windows Server 2012 – Datacenter/Enterprise/Standard | Volumes, ficheiros, pastas |
 | Windows Server 2008 R2 – Datacenter/Enterprise/Standard | Volumes, ficheiros, pastas |
 | SQL Server 2016 | Base de Dados |
 | SQL Server 2014 | Base de Dados |
@@ -90,7 +90,7 @@ A máquina virtual do servidor de cópia de segurança do Azure têm de ser asso
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Utilizar uma VM de IaaS no Azure Stack
 
-Ao escolher um servidor para servidor de cópia de segurança do Azure, comece com uma imagem de galeria do Datacenter do Windows Server 2012 R2 ou Windows Server 2016 Datacenter. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual. Os requisitos mínimos recomendados para a máquina do servidor virtual (VM) devem ser: A2 padrão com dois núcleos e 3.5 GB de RAM.
+Ao escolher um servidor para servidor de cópia de segurança do Azure, comece com uma imagem de galeria do Datacenter do Windows Server 2012 R2 ou Windows Server 2016 Datacenter. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual. Os requisitos mínimos recomendados para a máquina do servidor virtual (VM) devem ser: Standard a2 com dois núcleos e 3.5 GB de RAM.
 
 Proteger cargas de trabalho com o Azure Backup Server tem muitos nuances. O artigo [instalar o DPM como máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explica tais nuances. Antes de implementar a máquina, leia este artigo completamente.
 

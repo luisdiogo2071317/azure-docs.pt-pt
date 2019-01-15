@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e31c957e9ef24079d6917109ec9c5f85928bfbd7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545320"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260980"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -27,7 +27,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 |---|---|---|
 | hora | Necessário | O carimbo de hora (UTC) do evento. |
 | resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. Para os serviços de inquilino, esta é a de /tenants/tenant-id/providers/provider-name o formulário. |
-| TenantId | Necessário para os registos de inquilino | O ID de inquilino do que este evento está associado ao inquilino do Active Directory. Esta propriedade só é utilizada para os registos de nível de inquilino, não é apresentado nos registos ao nível do recurso. |
+| tenantId | Necessário para os registos de inquilino | O ID de inquilino do que este evento está associado ao inquilino do Active Directory. Esta propriedade só é utilizada para os registos de nível de inquilino, não é apresentado nos registos ao nível do recurso. |
 | operationName | Necessário | O nome da operação representada por este evento. Se o evento representa uma operação de RBAC, este é o nome da operação de RBAC (ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Modelada normalmente na forma de uma operação do Gestor de recursos, mesmo que não sejam operações de Gestor de recursos de documentado real (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A api-version associada à operação, se o operationName foi executada com uma API (por exemplo. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver nenhuma API que corresponde a esta operação, a versão representa a versão dessa operação, caso as propriedades associadas a operação mudar no futuro. |
 | categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que são apresentados no blob de propriedades de um evento são os mesmos dentro de um tipo de categoria e recursos de log específico. Categorias de registo típicos são "Auditoria" "operacional" "Execução" e "Pedido." |
@@ -93,10 +93,10 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto final, por exemplo, largura de banda, saída, etc.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Evento de Fluxo de Regra do Grupo de Segurança de Rede|Evento de Fluxo de Regra do Grupo de Segurança de Rede|
 |Microsoft.CognitiveServices/accounts|Auditoria|Registos de Auditoria|
-|Microsoft.CognitiveServices/accounts|Operace RequestResponse|Registos de Pedidos e Respostas|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Registos de Pedidos e Respostas|
 |Microsoft.ContainerService/managedClusters|kube apiserver|Servidor de API Kubernetes|
-|Microsoft.ContainerService/managedClusters|Gestor de controladores de kube|Gestor do Controlador Kubernetes|
-|Microsoft.ContainerService/managedClusters|dimensionamento automático do cluster|Dimensionador Automático de Cluster Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Gestor do Controlador Kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Dimensionador Automático de Cluster Kubernetes|
 |Microsoft.ContainerService/managedClusters|Agendador de kube|Programador Kubernetes|
 |Microsoft.ContainerService/managedClusters|Guard|Webhook de Autenticação|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -200,12 +200,12 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.Sql/managedInstances/databases|Erros|Erros|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação de conteúdos|Criação de conteúdos|
-|Microsoft.Web/sites|FunctionExecutionLogs|Registos de execução de função|
-|Microsoft.Web/sites/slots|FunctionExecutionLogs|Registos de execução de função|
+|microsoft.web/sites|FunctionExecutionLogs|Registos de execução de função|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Registos de execução de função|
 
 ## <a name="next-steps"></a>Próximos Passos
 
 * [Saiba mais sobre os registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
-* [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

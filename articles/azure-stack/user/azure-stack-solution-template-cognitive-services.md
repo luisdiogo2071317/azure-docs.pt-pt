@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194692"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260639"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Implementar os serviços cognitivos do Azure para o Azure Stack
 
@@ -41,7 +41,7 @@ Contentorização é uma abordagem para distribuição de software em que uma ap
   Fornece aos utilizadores da aplicação para a versão e atualização dos modelos implementados na sua solução.
 
 - **Arquitetura de portáteis**  
-  Permitir a criação de uma arquitetura de aplicação portáteis, de modo a que pode implementar a sua solução para a cloud pública, para uma nuvem privada de premesis ou o edge. Pode implementar o contentor no serviço Kubernetes do Azure, Azure Container Instances, ou num cluster de Kubernetes no Azure stack. Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Permitir a criação de uma arquitetura de aplicação portátil, para que pode implantar sua solução para a cloud pública, uma privada na cloud no local ou no edge. Pode implementar o contentor no serviço Kubernetes do Azure, Azure Container Instances, ou num cluster de Kubernetes no Azure stack. Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Débito elevado e baixa latência**  
    Forneça os utilizadores da aplicação a capacidade de dimensionar com picos de tráfego para um débito elevado e baixa latência. Ative os serviços cognitivos executar no Azure Kubernetes Service fisicamente perto dos seus dados e lógica do aplicativo.
@@ -140,10 +140,10 @@ Detalhes sobre os campos de chave:
 | Campo | Notas |
 | --- | --- |
 | replicaNumber | Define as réplicas iniciais de instâncias para criar. Com certeza pode dimensioná-lo mais tarde após a implementação. |
-| imageLocation | Indica a localização da imagem de contentor do serviço cognitivos específico no ACR. Por exemplo, o serviço de face: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Indica a localização da imagem de contentor do serviço cognitivos específico no ACR. Por exemplo, o serviço de face: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |O URL de ponto final que anotou no passo de [criar recursos do Azure](#create-azure-resources) |
 | ApiKey | A chave de subscrição indicado no passo de [criar recursos do Azure](#create-azure-resources) |
-| secretName | O nome secreto que anotou no passo de [criar secrete para aceder ao registo de contentor privado](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | O nome secreto que anotou no passo de [criar secrete para aceder ao registo de contentor privado](#create-secrete-to-access-the-private-container-registry) |
 
 ## <a name="deploy-the-cognitive-service"></a>Implementar o serviço cognitivo
 

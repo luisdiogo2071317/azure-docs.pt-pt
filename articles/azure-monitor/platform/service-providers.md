@@ -1,6 +1,6 @@
 ---
 title: Log Analytics para fornecedores de serviços | Documentos da Microsoft
-description: O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
+description: O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de Software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340543"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264777"
 ---
 # <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
 O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -63,7 +63,7 @@ As desvantagens dessa arquitetura são:
 * Talvez seja difícil separar os dados entre os clientes quando eles são mesclados numa única área de trabalho. O método apenas bom para o fazer consiste em utilizar o nome de domínio completamente qualificado do computador (FQDN) ou por meio de subscrição do Azure ID. 
 * Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e a configuração.
 * Recursos de infraestrutura do Azure e PaaS serviços como o diagnóstico do Azure e os registos de auditoria do Azure requer a área de trabalho para estar no mesmo inquilino, como o recurso, portanto, eles não é possível enviar os registos para a área de trabalho central.
-* Todos os agentes VM de todos os clientes serão autenticados para a área de trabalho de cental usando o mesmo ID de área de trabalho e a chave. Não existe nenhum método para bloquear os registos de um cliente específico sem interromper a outros clientes.
+* Todos os agentes VM de todos os clientes serão autenticados para a área de trabalho central, utilizando o mesmo ID de área de trabalho e a chave. Não existe nenhum método para bloquear os registos de um cliente específico sem interromper a outros clientes.
 
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido - registos são armazenados na área de trabalho localizada no inquilino do cliente e alguns deles são extraídos para uma localização central.

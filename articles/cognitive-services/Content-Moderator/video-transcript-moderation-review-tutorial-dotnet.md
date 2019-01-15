@@ -1,27 +1,27 @@
 ---
 title: 'Tutorial: Vídeos moderados e transcrições no .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Como utilizar o Content Moderator para moderar vídeos e transcrições no .NET.
+description: Este tutorial ajuda-o a compreender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6f5a6c6ac4bd125fd7aa6358fe92f9453a0314b1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118579"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266779"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeo e transcrição
 
 As APIs de vídeo do Content Moderator permitem-lhe moderar vídeos e criar revisões de vídeos na ferramenta de revisão manual. 
 
-Este tutorial detalhado ajuda a compreender como criar uma solução completa de moderação de vídeos e transcrições por meio de moderação assistida por computador e criação de revisões com interação humana.
+Este tutorial ajuda-o a compreender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
 
 Transfira a [aplicação de consola C#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) para este tutorial. A aplicação de consola utiliza o SDK e os pacotes associados para realizar as seguintes tarefas:
 

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250213"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302974"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -29,18 +29,25 @@ O fluxo de trabalho de implantação inclui os seguintes passos:
 1. **Registe-se de uma imagem** que emparelha um modelo com um script de classificação e dependências num contêiner portátil 
 1. **Implementar** a imagem como um serviço da web na cloud ou para dispositivos de ponta
 1. **Monitorizar e recolher dados**
+1. **Atualização** uma implementação para utilizar uma nova imagem.
 
 Cada passo pode ser efetuado de forma independente ou como parte de um comando de implementação única. Além disso, pode integrar a implantação num **fluxo de trabalho de CI/CD** conforme ilustrado neste gráfico.
 
 [ !["O azure Machine Learning integração contínua/contínua (CI/CD) ciclo de implantação"](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-
 ## <a name="step-1-register-model"></a>Passo 1: Registar o modelo
 
-O registo de modelo mantém um registo de todos os modelos na sua área de trabalho do serviço do Azure Machine Learning.
-Modelos são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos.
+Registo do modelo permite-lhe armazenar e versão seus modelos na cloud do Azure, na sua área de trabalho. O registo de modelo torna mais fácil organizar e manter o controle de seus modelos de formação.
+ 
+Modelos registrados são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. O serviço Azure Machine Learning suporta modelos armazenados em qualquer modelo que pode ser carregado usando o Python 3. 
 
 Não é possível eliminar modelos que estão a ser utilizados por uma imagem.
+
+Para obter mais informações, consulte a secção de modelo de registro de [implementar modelos](how-to-deploy-and-where.md#registermodel).
+
+Para obter um exemplo de um modelo armazenado no formato de pickle de registro, consulte [Tutorial: Preparar um modelo de classificação de imagem](tutorial-deploy-models-with-aml.md).
+
+Para obter informações sobre como utilizar modelos ONNX, consulte a [ONNX e o Azure Machine Learning](how-to-build-deploy-onnx.md) documento.
 
 ## <a name="step-2-register-image"></a>Passo 2: Registe-se a imagem
 
@@ -58,6 +65,8 @@ O Azure Machine Learning suporta as estruturas mais populares, mas em geral pode
 Em sua área de trabalho foi criada, por isso, foram outros vários outros recursos do Azure utilizados por essa área de trabalho.
 Todos os objetos usados para criar a imagem são armazenados na conta de armazenamento do Azure na sua área de trabalho. A imagem é criada e armazenada no Azure Container Registry. Pode fornecer as marcas de metadados adicionais durante a criação de imagem, que também são armazenados pelo registo de imagem e pode ser consultada para localizar a sua imagem.
 
+Para obter mais informações, consulte a configurar e registar a secção de imagem do [implementar modelos](how-to-deploy-and-where.md#configureimage).
+
 ## <a name="step-3-deploy-image"></a>Passo 3: Implementar a imagem
 
 Pode implantar imagens registadas para a cloud ou para dispositivos periféricos. O processo de implantação cria todos os recursos necessários para monitorizar, balanceamento de carga e dimensionamento automático seu modelo. Acesso aos serviços implementados pode ser protegido com autenticação baseada em certificado ao fornecer os recursos de segurança durante a implementação. Também é possível atualizar uma implementação existente para utilizar uma imagem mais recente.
@@ -66,7 +75,7 @@ Implementações de serviços da Web também podem ser pesquisadas. Por exemplo,
 
 [ ![Destinos de inferência](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
-Pode implantar suas imagens para o seguinte [destinos de implementação](how-to-deploy-and-where.md) na cloud:
+Pode implantar suas imagens para os seguintes destinos de implementação na cloud:
 
 * Instância de Contentor do Azure
 * Serviço Kubernetes do Azure
@@ -75,17 +84,27 @@ Pode implantar suas imagens para o seguinte [destinos de implementação](how-to
 
 Como o seu serviço é implementado, o pedido de inferência é automaticamente com balanceamento de carga e o cluster for aumentado para satisfazer picos a pedido. [Telemetria sobre o seu serviço pode ser capturada](how-to-enable-app-insights.md) no serviço do Azure Application Insights associado à sua área de trabalho.
 
+Para obter mais informações, consulte a secção implementar [implementar modelos](how-to-deploy-and-where.md#deploy).
+
 ## <a name="step-4-monitor-models-and-collect-data"></a>Passo 4: Modelos de monitorizar e recolher dados
 
 Um SDK para captura de registo e dados de modelo estará disponível, para que possa monitorizar a entrada, saída e outros dados relevantes do seu modelo. Os dados são armazenados como um blob na conta de armazenamento do Azure para a área de trabalho.
 
 Para utilizar o SDK com o seu modelo, é possível importar o SDK no seu script de classificação ou a aplicação. Em seguida, pode utilizar o SDK para registos de dados como parâmetros, os resultados ou detalhes de entrada.
 
-Se decidir [ativar a recolha de dados de modelo](how-to-enable-data-collection.md) sempre que implanta a imagem, os detalhes necessários para capturar os dados, como as credenciais para seu armazenamento de BLOBs pessoal, são provisionados automaticamente.
+Se optar por ativar a recolha de dados de modelo, sempre que implanta a imagem, os detalhes necessários para capturar os dados, como as credenciais para seu armazenamento de BLOBs pessoal, são provisionados automaticamente.
 
 > [!Important]
 > Microsoft não vê os dados coletados do seu modelo. Os dados são enviados diretamente para a conta de armazenamento do Azure para a área de trabalho.
 
+Para obter mais informações, consulte [como ativar a recolha de dados de modelo](how-to-enable-data-collection.md).
+
+## <a name="step-5-update-the-deployment"></a>Passo 5: A implementação de atualização
+
+Atualizações ao seu modelo não são automaticamente registradas. Da mesma forma, registar uma nova imagem não atualiza automaticamente as implementações que foram criadas a partir de uma versão anterior da imagem. Em vez disso, deve registar manualmente o modelo, registe-se a imagem e, em seguida, atualizar o modelo. Para obter mais informações, consulte atualizar seção [implementar modelos](how-to-deploy-and-where.md#update).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [como e onde pode implementar modelos](how-to-deploy-and-where.md) com o serviço Azure Machine Learning.
+
+Saiba como criar aplicações de cliente e serviços a que [consumir um modelo implementado como um serviço web](how-to-consume-web-service.md).

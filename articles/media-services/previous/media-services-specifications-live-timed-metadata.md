@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384688"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265895"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto
 
@@ -89,7 +89,7 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 cancelamento e atualizações
+#### <a name="211-cancellation-and-updates"></a>2.1.1 cancelamento e atualizações
 
 As mensagens podem ser canceladas ou atualizadas através do envio de várias mensagens com o mesmo tempo de apresentação e o mesmo ID. O tempo de apresentação e o ID de identificam de forma exclusiva o evento e a última mensagem recebida por um período de apresentação específico que cumpre as restrições de pré-roll é a mensagem de ação. O evento atualizado substitui todas as mensagens recebidas anteriormente. A restrição de pré-agregação de é de quatro segundos. Serão influenciadas mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação.
 
@@ -106,7 +106,7 @@ A faixa dispersa tem de ser declarada na caixa de manifesto de servidor ao vivo 
 | manifestOutput     | Booleano        | Necessário      | TEM de ser "true", para indicar que a faixa dispersa será incorporada no manifesto do cliente Smooth.                                                                                                                                                               |
 | Subtipo            | Cadeia         | Necessário      | DEVE ser "Dados de" código de quatro caracteres.                                                                                                                                                                                                                         |
 | Esquema             | Cadeia         | Necessário      | TEM de ser um URN ou uma URL identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
-| TrackName          | Cadeia         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
+| trackName          | Cadeia         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
 | escala temporal          | Number         | Opcional      | TEM de ser a escala temporal da faixa principal.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -157,7 +157,7 @@ A caixa de MediaDataBox ('mdat') tem de ter o seguinte formato:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 cancelamento de e atualizações
+### <a name="224-cancellation-and-updates"></a>2.2.4 cancelamento e atualizações
 As mensagens podem ser canceladas ou atualizadas através do envio de várias mensagens com o mesmo tempo de apresentação e o mesmo ID.  O tempo de apresentação e o ID de identificam de forma exclusiva o evento. A última mensagem recebida por um período de apresentação específico que cumpre as restrições de pré-implementação, é a mensagem de ação. A mensagem atualizada substitui todas as mensagens recebidas anteriormente.  A restrição de pré-agregação de é de quatro segundos. Serão influenciadas mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação. 
 
 
@@ -400,7 +400,7 @@ Ingestão de transmissão em fluxo uniforme requer que a caixa de dados de supor
 
 **[LIVE FMP4]**  [Especificação de ingestão de MP4 fragmentado em direto de serviços de multimédia do azure](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]**  ISO/IEC 14496-12: O ficheiro de multimédia de base de ISO de parte 12 formato, quarta edição 2012 a 07-15.
+**[ISO-14496-12]** ISO/IEC 14496-12: O ficheiro de multimédia de base de ISO de parte 12 formato, quarta edição 2012 a 07-15.
 
 **[RTMP]**  ["Da adobe em tempo real protocolo de mensagens", 21 de Dezembro de 2012](https://www.adobe.com/devnet/rtmp.html) 
 

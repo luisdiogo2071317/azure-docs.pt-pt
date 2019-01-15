@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390028"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262766"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar a gestão de API do Azure com o Azure Application Insights
 
@@ -64,8 +64,10 @@ Antes de poder utilizar o Azure Application Insights, tem primeiro de criar uma 
 6. Verifique os **ativar** caixa.
 7. Selecione o seu agente de log anexado no **destino** lista pendente.
 8. Entrada **100** como **amostragem (%)** e assinale o **sempre registar erros** caixa de verificação.
-9. Entrada **1024** no **primeiros bytes do corpo** campo.
-10. Clique em **Guardar**.
+9. Clique em **Guardar**.
+
+> [!WARNING]
+> Substituindo o valor predefinido **0** no **primeiros bytes do corpo** campo pode diminuir significativamente o desempenho das suas APIs.
 
 > [!NOTE]
 > Nos bastidores, uma [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) "Application insights" com o nome de entidade é criada no nível da API.
@@ -76,7 +78,7 @@ Antes de poder utilizar o Azure Application Insights, tem primeiro de criar uma 
 | Destino                         | Agente de log Application Insights do Azure | Especifica o agente de log do Application Insights do Azure a ser utilizado                                                                                                                                                                                                                                                                                           |
 | Amostragem (%)                        | decimal                           | Valores de 0 a 100 (percentagem). <br/> Especifica que percentagem de pedidos será registada para o Azure Application Insights. amostragem de 0% significa zero pedidos com sessão iniciados, enquanto a amostragem de 100% significa que todos os pedidos com sessão iniciados. <br/> Esta definição é utilizada para reduzir as implicações de desempenho de pedidos de registo para o Azure Application Insights (consulte a secção abaixo). |
 | Erros de registo de sempre                   | boolean                           | Se esta definição está selecionada, todas as falhas serão registadas para o Azure Application Insights, independentemente do **amostragem** definição.                                                                                                                                                                                                                  |
-| Opções básicas: cabeçalhos              | list                              | Especifica os cabeçalhos que vão ser registados para o Azure Application Insights para pedidos e respostas.  Predefinição: não existem cabeçalhos são registados.                                                                                                                                                                                                             |
+| Opções básicas: Cabeçalhos              | list                              | Especifica os cabeçalhos que vão ser registados para o Azure Application Insights para pedidos e respostas.  Predefinição: não existem cabeçalhos são registados.                                                                                                                                                                                                             |
 | Opções básicas: Primeiros bytes do corpo  | inteiro                           | Especifica quantos primeiros bytes do corpo são registados para o Azure Application Insights para solicitações e respostas.  Predefinição: corpo não é registado.                                                                                                                                                                                              |
 | Opções avançadas: Pedido de front-end  |                                   | Especifica se e como *pedidos de front-end* serão registados para o Azure Application Insights. *Pedido de front-end* é um pedido de entrada para o serviço de gestão de API do Azure.                                                                                                                                                                        |
 | Opções avançadas: Resposta de front-end |                                   | Especifica se e como *respostas de front-end* serão registados para o Azure Application Insights. *Resposta de front-end* é uma resposta de saída do serviço de gestão de API do Azure.                                                                                                                                                                   |

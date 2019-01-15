@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339337"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259969"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -28,12 +28,15 @@ Este artigo explica como as políticas de segurança são configuradas e, como v
 
 Para obter instruções sobre como definir políticas com o PowerShell, consulte [início rápido: Criar uma atribuição de política para identificar recursos incompatíveis com o módulo Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> Centro de segurança iniciada sua integração com o Azure Policy. Os clientes existentes serão migrados automaticamente para a nova iniciativa incorporada no Azure Policy, em vez das políticas de segurança anteriores no Centro de segurança. Esta alteração não afetará seu ambiente, exceto a presença da nova iniciativa na política do Azure ou de recursos.
+
 ## <a name="what-are-security-policies"></a>O que são políticas de segurança?
 As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Azure Policy, pode definir políticas para as suas subscrições do Azure e adaptá-los para o tipo de carga de trabalho ou à sensibilidade dos seus dados. Por exemplo, as aplicações que utilizam dados regulados como, por exemplo, informações de identificação pessoal, podem exigir um nível mais elevado de segurança que outras cargas de trabalho. Para definir uma política nas subscrições ou em grupos de gestão, defina-os no [do Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 As políticas de segurança orientar as recomendações de segurança, que obtém no Centro de segurança do Azure. Pode monitorizar a conformidade com os mesmos para o ajudar a identificar potenciais vulnerabilidades e a mitigar ameaças. Para obter mais informações sobre como determinar a opção adequada para si, consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md).
+
+Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. O intitiative incorporada é atribuído automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria. 
 
 
 ### <a name="management-groups"></a>Grupos de gestão
@@ -57,8 +60,6 @@ Uma política do Azure é composta pelos seguintes componentes:
 - Uma **iniciativa** é uma coleção de políticas.
 - Uma **atribuição** é a aplicação de uma iniciativa ou uma política para um âmbito específico (grupo de gestão, subscrição ou grupo de recursos).
 
-Um recurso é avaliado relativamente às políticas atribuídas ao mesmo e recebe uma taxa de conformidade de acordo com o número de políticas com as quais o recurso está em conformidade.
-
 ## <a name="view-security-policies"></a>Ver as políticas de segurança
 
 Para ver as suas políticas de segurança no Centro de Segurança:
@@ -76,12 +77,9 @@ Para ver as suas políticas de segurança no Centro de Segurança:
   As colunas na tabela apresentam:
 
  - **Atribuição de iniciativa de política** – o Centro de segurança [as políticas incorporadas](security-center-policy-definitions.md) e iniciativas que são atribuídas a um grupo de gestão ou de subscrição.
- - **Conformidade** – geral pontuação de conformidade para um grupo de gestão, a subscrição ou a área de trabalho. A pontuação é a média ponderada das atribuições. A média ponderada aparece no número de políticas de uma única atribuição e o número de recursos aos quais a atribuição se aplica.
-
- Por exemplo, se a sua subscrição tiver duas VMs e uma iniciativa com cinco políticas atribuídas, tem 10 avaliações na sua subscrição. Se uma das VMs não estiver em conformidade com duas das políticas, a pontuação de conformidade geral da atribuição da sua subscrição é de 80%.
-
  - **Cobertura** – identifica o escalão de preço, gratuito ou Standard, que o grupo de gestão, a subscrição ou a área de trabalho está a ser executada.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
  - **As definições** – as subscrições têm a hiperligação **editar definições**. Selecionando **editar definições** permite que Atualize sua [definições do Centro de segurança](security-center-policies-overview.md) para cada grupo de gestão ou de subscrição.
+ - **Pontuação segura** – a [pontuação segura](security-center-secure-score.md) fornece uma medida de quão segura postura de segurança de sua carga de trabalho e o ajuda a priorizar as recomendações para aprimoramento.
 
 2. Selecione o grupo de subscrição ou gestão cujas políticas que pretende visualizar.
 
@@ -214,7 +212,7 @@ Este exemplo mostra como remover uma atribuição:
 |Configurações de segurança |Monitorizar vulnerabilidades do SO no Centro de segurança do Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint protection |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
 |Encriptação de disco |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitor de vulnerabilidades de VM no Centro de segurança do Azure |vulnerabilityAssesmentMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssesmentMonitoringEffect|
 |Firewall de aplicação Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure| |
 

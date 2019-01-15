@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620137"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261184"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
@@ -39,7 +39,7 @@ A implementa de plataforma de identidade do Microsoft da [OAuth 2.0](active-dire
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * API de correio do Office 365: `https://outlook.office.com`
-* O Azure AD Graph: `https://graph.windows.net`
+* Azure AD Graph: `https://graph.windows.net`
 
 > [!NOTE]
 > Recomendamos vivamente que utilize o Microsoft Graph em vez do Azure AD Graph, API de correio do Office 365, etc.
@@ -254,4 +254,4 @@ Para obter mais informações sobre o protocolo OAuth 2.0 e como obter os tokens
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se ou os utilizadores da sua aplicação estão a ver erros inesperados durante o processo de consentimento, consulte este artigo para passos de resolução de problemas: [erro inesperado ao consentir uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Se ou os utilizadores da sua aplicação estão a ver erros inesperados durante o processo de consentimento, consulte este artigo para passos de resolução de problemas: [Erro inesperado ao consentir uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

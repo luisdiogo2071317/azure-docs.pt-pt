@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 85c284c2a0e49d7fa20c0ec342878ffdf9d47387
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198070"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261167"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
 Este artigo fala sobre como utilizar o Azure VM Backup para efetuar o restauro de VMs encriptadas do Azure, se a sua chave e segredo não existem no Cofre de chaves. Estes passos também podem ser usados se quiser manter uma cópia separada de chave (chave de encriptação de chave) e o segredo (chave de encriptação do BitLocker) para a VM restaurada.
@@ -62,7 +62,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## <a name="restore-secret"></a>Restaurar o segredo
 
-Se a VM do Azure sem o Azure AD for encriptada com a BEK apenas (para Windows e VMs do Linux), gerar o nome do segredo e o valor por meio de comandos anteriores e inseri-la para definir o cmdlet secreta para colocar o segredo (BEK) novamente no Cofre de chaves.
+Utilize o ficheiro JSON gerado acima para obter o nome do segredo e o valor e inseri-la para definir o cmdlet secreta colocar novamente o segredo (BEK) no Cofre de chaves. Utilize estes cmdlets, se sua **VM for encriptada com BEK e KEK**.
 
 **Utilize estes cmdlets, se a sua VM do Windows for encriptada com BEK e KEK.**
 
@@ -84,7 +84,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Se a sua VM do Azure com o AD está **encriptados com a BEK apenas**e gerar o ficheiro blob secreta partir do JSON e inseri-la para restaurar o cmdlet secreta para colocar o segredo (BEK) novamente no Cofre de chaves.
+Utilize o ficheiro JSON gerado acima para obter o nome do segredo e o valor e inseri-la para definir o cmdlet secreta colocar novamente o segredo (BEK) no Cofre de chaves. Utilize estes cmdlets, se sua **VM for encriptada com a BEK** apenas.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

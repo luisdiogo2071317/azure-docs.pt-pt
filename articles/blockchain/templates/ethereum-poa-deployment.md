@@ -1,6 +1,6 @@
 ---
 title: Prova de autoridade da Ethereum Consortium - Azure
-description: Utilizar a solução de consórcio Etherereum prova da autoridade para implementar e configurar uma rede Ethereum de consórcio com vários membros
+description: Utilizar a solução de consórcio Ethereum prova da autoridade para implementar e configurar uma rede Ethereum de consórcio com vários membros
 services: azure-blockchain
 keywords: ''
 author: CodyBorn
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974051"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260385"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
 
@@ -272,7 +272,7 @@ Segue-se uma descrição detalhada de cada parâmetro:
 
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
-ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0 e 255|ND
+ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0-255|ND
 ID da rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
 Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|ND
 Opções Avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desativar
@@ -316,7 +316,7 @@ Depois de concluída a implementação, poderá acessar os parâmetros necessár
 
 -   URL de Monitor do Azure
 
--   URL de dados
+-   Data URL
 
 -   ID de recurso de Gateway de VNet (opcional)
 
@@ -347,7 +347,7 @@ Neste primeiro passo usando a implantação com base no IP público é totalment
 
 1.  Partilhe as seguintes informações com o membro de junção. Estas informações podem ser encontradas no seu e-mail de pós-implementação ou na saída da implementação do portal.
 
-    -  Url de dados de consórcio
+    -  Consortium Data Url
 
     -  O número de nós que implementou a
 
@@ -449,7 +449,7 @@ ParityLog_CL
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
-### <a name="ssh-access"></a>Acesso SSH
+### <a name="ssh-access"></a>SSH access
 
 Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segurança do grupo de rede por predefinição. Para aceder às instâncias de máquina virtual na rede PoA, terá de alterar esta regra para \"permitir\"
 
@@ -463,7 +463,7 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
 3.  Selecione o \"permitem-ssh\" regra
 
-    ![o SSH-permitir](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
 
 4.  Alteração \"ação\" para permitir
 

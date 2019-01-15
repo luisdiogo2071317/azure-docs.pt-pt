@@ -1,6 +1,6 @@
 ---
 title: A faturação do Azure e o cenário de orçamento de gestão de custos | Documentos da Microsoft
-description: Saiba como utilizar o Azure automatation para encerrar VMs com base nos limiares de orçamento específico.
+description: Saiba como utilizar a automatização do Azure para encerrar VMs com base nos limiares de orçamento específico.
 services: billing
 documentationcenter: ''
 author: Erikre
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0c67b100b0d44b539a37a8ea54954d58bba38cb5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094818"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267203"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
@@ -275,7 +275,7 @@ Ao criar o grupo de ação, vai apontar para a aplicação lógica que criou ant
 2.  Selecione **grupos de ações** partir do **definição** secção.
 3.  Selecione **adicionar um grupo de ação** partir do **grupos de ação** painel.
 4.  Adicionar e verificar os seguintes itens:
-    - Nome do grupo de ação
+    - Nome do grupo de ações
     - Nome abreviado
     - Subscrição
     - Grupo de recursos

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579435"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265639"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs de relatórios permitem que os clientes do Azure do Enterprise programaticamente extrair dados de faturas e de consumo para ferramentas de análise de dados preferencial. Os clientes empresariais iniciaram uma [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para tornar negociados compromissos monetários e obter acesso aos preços personalizados para recursos do Azure.
@@ -58,7 +58,7 @@ Etags vai ser devolvidas na resposta de toda a API acima. Uma alteração na Eta
 |401| Não autorizado| Chave de API não encontrado, inválido, expirou etc.|
 |404| Não disponível| Ponto final de relatório não foi encontrado|
 |400| Pedido Inválido| Parâmetros inválidos – intervalos de datas, números EA etc.|
-|500| Erro do Servidor| Unexoected erro ao processar o pedido| 
+|500| Erro do Servidor| Erro inesperado ao processar o pedido| 
 
 
 

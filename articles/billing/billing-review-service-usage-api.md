@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395462"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265758"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Reveja a utilização de recursos do Azure com a API REST
 
@@ -39,13 +39,13 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-O `{subscriptionGuid}` parâmetro é obrigatório e deve conter um ID de subscrição que pode ser lidos com o provieed de credenciais no token de API. o `{reportName}`
+O `{subscriptionGuid}` parâmetro é obrigatório e deve conter um ID de subscrição que pode ser lidos com as credenciais fornecidas no token de API. o `{reportName}`
 
 Os seguintes cabeçalhos são necessários: 
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*| Necessário. Definido como `application/json`. |  
+|*Content-Type:*| Necessário. Definido como `application/json`. |  
 |*Autorização:*| Necessário. Definido como válido `Bearer` token. |
 
 Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaixo, o relatório está definido para gerar todos os dias, quando é um ficheiro CSV escrito para um contentor de BLOBs de armazenamento do Azure Active Directory e contém informações de custo para todos os recursos no grupo de recursos de hora a hora `westus`.
@@ -146,7 +146,7 @@ O `Resource` dimensão permite-lhe comunicar os custos para recursos específico
 
 ### <a name="changing-timeframes"></a>Alterar os períodos de tempo
 
-Definir o `timeframe` definição para `Custom` para definir um período de tempo fora da semana para a data e mês até à data incorporada nas opções.
+Definir o `timeframe` definição para `Custom` para definir um período de tempo fora da semana para a data e mês para as opções incorporadas de data.
 
 ```json
 "timeframe": "Custom",

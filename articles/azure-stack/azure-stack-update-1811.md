@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247627"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267322"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -96,7 +96,7 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
 
 - Foi adicionado suporte para principais de serviço com um segredo do cliente com o Active Directory Federated Services (AD FS). Para obter mais informações, consulte [criar principal de serviço para o AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
-- Esta versão adiciona suporte para as seguintes versões de API de serviço de armazenamento do Azure: **07 de 2017-29**, **2017-11-09**. Também é adicionado suporte para as seguintes versões de API de fornecedor de recursos de armazenamento do Azure: **2016-05-01**, **2016-12-01**, **2017-06-01**, e **2017-10-01**. Para obter mais informações, consulte [armazenamento do Azure Stack: Diferenças e considerações](./user/azure-stack-acs-differences.md).
+- Esta versão adiciona suporte para as seguintes versões de API de serviço de armazenamento do Azure: **2017-07-29**, **2017-11-09**. Também é adicionado suporte para as seguintes versões de API de fornecedor de recursos de armazenamento do Azure: **2016-05-01**, **2016-12-01**, **2017-06-01**, e **2017-10-01**. Para obter mais informações, consulte [armazenamento do Azure Stack: Diferenças e considerações](./user/azure-stack-acs-differences.md).
 
 - Foram adicionados novos a comandos com privilégios de ponto de extremidade para atualizar e remover os princípios de serviço para ADFS. Para obter mais informações, consulte [criar principal de serviço para o AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
@@ -262,6 +262,14 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    O erro ocorre se ativar diagnósticos de arranque numa VM, mas eliminar a sua conta de armazenamento de diagnósticos de arranque. Para contornar este problema, recrie a conta de armazenamento com o mesmo nome que utilizou anteriormente.
 
 - Ao criar um [VM da série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 VMs permitem-lhe criar 4, 8, 16 e discos de dados de 32, respetivamente. No entanto, o painel VM de criar mostra 8, 16, 32 e 64 discos de dados.
+
+- Registos de utilização no Azure Stack podem conter capitalização inesperada; Por exemplo:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   Neste exemplo, o nome do grupo de recursos deve ser **AndrewRG**. Pode ignorar com segurança essa inconsistência.
 
 <!-- 3235634 – IS, ASDK -->
 - Para implementar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especifique o sufixo como **Standard_A2_v2** (v em minúsculas). Não utilize **Standard_A2_V2** (V maiúsculo). Isso funciona no global Azure e é uma inconsistência no Azure Stack.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846254"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262902"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -105,7 +105,7 @@ Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente
 
   - **Nome**: o nome da subscrição e grupo
   - **VMs**: o número de máquinas virtuais no grupo
-  - **Modo**: modo de auditoria vai registar as tentativas de executar aplicações de não-lista de permissões; Impor irá não permitir a execução de aplicativos não-lista de permissões
+  - **Modo**: Modo de auditoria vai registar as tentativas de executar aplicações de não-lista de permissões; Impor irá não permitir a execução de aplicativos não-lista de permissões
   - **Alertas**: todas as violações atuais
 
 2. Clique num grupo para fazer alterações na **Editar política de controlo de aplicação** página.
@@ -122,7 +122,7 @@ Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente
    > - Conforme mencionado anteriormente, por predefinição, é sempre configurada uma política de controlo de aplicações nova no modo *Auditoria*. 
    >
 
-4. Sob **extensão de política**, pode adicionar qualquer caminho de aplicação que pretende permitir. Depois de adicionar estes caminhos, o Centro de segurança atualiza a política de whielisting aplicações nas VMs dentro do grupo selecionado de VMS e cria as regras adequadas para estas aplicações, além das regras que já estão em vigor.
+4. Sob **extensão de política**, pode adicionar qualquer caminho de aplicação que pretende permitir. Depois de adicionar estes caminhos, o Centro de segurança atualiza a política de lista de permissões de aplicações nas VMs dentro do grupo selecionado de VMS e cria as regras adequadas para estas aplicações, além das regras que já estão em vigor.
 
 5. Rever as violações atuais listadas na **alertas recentes** secção. Clique em cada linha ser redirecionado para o **alertas** página dentro do Centro de segurança do Azure e ver todos os alertas que foram detetados pelo centro de segurança do Azure nas VMs associadas.
   - **Alertas**: todas as violações que foram registadas.
@@ -130,9 +130,9 @@ Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente
 
 6. Sob **regras de inclusão do publicador**, **regras de inclusão do caminho**, e **regras de inclusão de Hash** pode ver quais permissões de aplicação regras estão atualmente configurado nas VMs dentro de um grupo, de acordo com o tipo de coleção de regra. Para cada regra, pode ver:
 
-  - **Regra**: os parâmetros específicos de acordo com que um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executada.
-  - **Tipo de ficheiro**: os tipos de ficheiros que são abrangidos por uma regra específica. Isso pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permuta desses tipos de ficheiro.
-  - **Os utilizadores**: nome ou o número de utilizadores que têm permissão para executar um aplicativo que é abrangido por uma regra de lista de permissões de aplicação.
+  - **Regra**: Os parâmetros específicos de acordo com que um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executada.
+  - **Tipo de ficheiro**: Os tipos de ficheiros que são abrangidos por uma regra específica. Isto pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permuta desses tipos de ficheiro.
+  - **Os utilizadores**: Nome ou número de utilizadores que têm permissão para executar um aplicativo que é abrangido por uma regra de lista de permissões de aplicação.
 
    ![Regras de inclusão em listas de permissões](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

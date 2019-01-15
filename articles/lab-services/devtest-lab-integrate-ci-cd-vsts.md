@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082956"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263412"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs no seu pipeline de entrega de integração do Azure DevOps e
 Pode utilizar o *do Azure DevTest Labs tarefas* extensão facilmente instalado em DevOps do Azure para integrar o seu pipeline de compilação e versão de CI/CD com o Azure DevTest Labs. A extensão instala três tarefas: 
@@ -85,7 +85,7 @@ Esta secção descreve como criar o modelo Azure Resource Manager que utilizar p
 
 1. Verifique o script seu sistema de controle de origem. Um nome semelhante **GetLabVMParams.ps1**.
 
-   Quando executar esse script no agente como parte do pipeline de versões e se usar como passos de tarefas *cópia de ficheiros do Azure* ou *PowerShell em máquinas de destino*, o script recolhe os valores que precisa Implemente a sua aplicação para a VM. Usaria normalmente estas tarefas para implementar aplicações numa VM do Azure. As tarefas exigem valores, como o nome do grupo de recursos de VM, o endereço IP e o nome de domínio completamente qualificado (FDQN).
+   Quando executar esse script no agente como parte do pipeline de versões e se usar como passos de tarefas *cópia de ficheiros do Azure* ou *PowerShell em máquinas de destino*, o script recolhe os valores que precisa Implemente a sua aplicação para a VM. Usaria normalmente estas tarefas para implementar aplicações numa VM do Azure. As tarefas exigem valores, como o nome do grupo de recursos de VM, o endereço IP e o nome de domínio completamente qualificado (FQDN).
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Criar um pipeline de lançamento no gerenciamento de lançamentos
 Para criar o pipeline de lançamento, faça o seguinte:
@@ -138,7 +138,7 @@ A próxima fase da implementação é criar a VM para utilizar como a "imagem do
 1. No pipeline de versões, selecione **adicionar tarefas** e, em seguida, no **Deploy** separador, adicione uma *Azure PowerShell* tarefas. Configure a tarefa da seguinte forma:
 
    > [!NOTE]
-   > Para recolher os detalhes da VM de laboratórios Dev/Test, veja [Deploy: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) e execute o script.
+   > Para recolher os detalhes da VM de laboratórios Dev/Test, veja [implementar: O Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) e execute o script.
 
    a. Para **tipo de ligação do Azure**, selecione **do Azure Resource Manager**.
 

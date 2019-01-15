@@ -1,5 +1,5 @@
 ---
-title: Acerca
+title: O que é
 titleSuffix: Azure Machine Learning service
 description: Descrição geral do serviço do Azure Machine Learning - uma solução de ciência de dados ponto a ponto integrada para cientistas de dados profissionais desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
 services: machine-learning
@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3d9517bfc03a4d5696a2a97bd41f391e904e4dc8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 14ba6438fe5b797d0070dde773855b9b84322a2c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580592"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263588"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 

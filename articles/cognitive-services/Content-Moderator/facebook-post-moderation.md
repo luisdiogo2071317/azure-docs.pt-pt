@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Moderação de conteúdos do Facebook - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Moderar páginas do Facebook com o Content Moderator.
+description: Neste tutorial, irá aprender a utilizar baseados em machine-learning Content Moderator para ajudar a moderado publicações do Facebook e comentários.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2b655e488b15b4520bc1de24b730f97269bddb4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231806"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260452"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdos do Facebook com o Content Moderator
 
-Neste tutorial, vamos aprender a utilizar o Content Moderator baseado em aprendizagem automática para ajudar a moderar mensagens e comentários do Facebook.
+Neste tutorial, irá aprender a utilizar baseados em machine-learning Content Moderator para ajudar a moderado publicações do Facebook e comentários.
 
 Este tutorial explica como seguir estes passos:
 
@@ -35,7 +35,7 @@ A figura seguinte mostra os blocos modulares da solução.
 
 ## <a name="create-a-content-moderator-team"></a>Criar uma equipa do Content Moderator
 
-Consulte a página [Início Rápido](quick-start.md) para inscrever-se no Content Moderator e criar uma equipa.
+Consulte a [Experimente o Content Moderator na web](quick-start.md) início rápido para inscrever-se o Content Moderator e criar uma equipa.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Configurar o fluxo de trabalho de moderação de imagens (limiar)
 
