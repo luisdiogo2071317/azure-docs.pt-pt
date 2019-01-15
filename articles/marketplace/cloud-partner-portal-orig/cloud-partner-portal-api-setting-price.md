@@ -149,7 +149,7 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituânia            | EUR               |
 | LU         | Luxemburgo           | EUR               |
-| MK         | República da Macedónia FYRO       | MKD QUE               |
+| MK         | Macedónia (ARJM)       | MKD QUE               |
 | MEU         | Malásia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | México               | MXN               |

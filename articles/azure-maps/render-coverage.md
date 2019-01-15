@@ -275,7 +275,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Liechtenstein             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| República da Macedónia                 | ✓ | ✓ |
+| Macedónia (ARJM)                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |

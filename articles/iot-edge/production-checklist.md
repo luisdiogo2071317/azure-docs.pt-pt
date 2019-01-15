@@ -153,7 +153,7 @@ Canais de comunicação entre o IoT Hub do Azure e IoT Edge sempre estão config
 
 ### <a name="whitelist-connections"></a>Ligações de lista de permissões
 
-Se a configuração de rede necessitar que explicitamente ligações de lista branca feita a partir do dispositivos IoT Edge, reveja a lista seguinte de componentes do IoT Edge:
+Se a configuração de rede necessitar que explicitamente ligações de lista aprovada feita a partir do dispositivos IoT Edge, reveja a lista seguinte de componentes do IoT Edge:
 
 * **Agente do IoT Edge** abre uma ligação AMQP/MQTT persistente para o IoT Hub, possivelmente ao longo de WebSockets. 
 * **Hub do IoT Edge** abre uma única ligação AMQP persistente ou várias ligações de MQTT para o IoT Hub, possivelmente ao longo de WebSockets. 

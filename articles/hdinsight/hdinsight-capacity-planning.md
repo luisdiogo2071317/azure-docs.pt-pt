@@ -121,7 +121,7 @@ Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o t
 1. Sobre o **rever + criar** separador, clique em **criar**.
 
 > [!NOTE]  
-> Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista branca](https://aka.ms/canaryintwhitelist).
+> Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista de permissões](https://aka.ms/canaryintwhitelist).
 
 Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 

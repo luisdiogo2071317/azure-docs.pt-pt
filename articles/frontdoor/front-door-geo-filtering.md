@@ -136,7 +136,7 @@ Pode configurar uma política de filtragem geográfica para o seu Front Door com
 | MA | Marrocos|
 | MD | Moldova, República da|
 | MG | Madagáscar|
-| MK | República da Macedónia|
+| MK | Macedónia (ARJM)|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|
