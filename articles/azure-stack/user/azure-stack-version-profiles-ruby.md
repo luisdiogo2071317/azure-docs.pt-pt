@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157450"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263668"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utilizar perfis de versão de API com o Ruby no Azure Stack
 
@@ -90,7 +90,7 @@ Para utilizar o SDK de Ruby do Azure com o Azure Stack, tem de indicar os valore
 | ID de Cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste documento.  |
 | ID da subscrição | AZURE_SUBSCRIPTION_ID | O [ID de subscrição](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como acessa ofertas no Azure Stack. |
 | Segredo do Cliente | AZURE_CLIENT_SECRET | A aplicação do principal de serviço segredo guardado quando principal de serviço foi criado. |
-| Ponto final do Gestor de recursos | ARM_ENDPOINT | Ver [o Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Ponto final do Gestor de recursos | ARM_ENDPOINT | Ver [ponto final do Gestor de recursos do Azure Stack](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>O ponto de final do Gestor de recursos do Azure Stack
 

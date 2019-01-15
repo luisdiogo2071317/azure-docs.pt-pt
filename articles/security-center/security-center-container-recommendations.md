@@ -14,22 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341308"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258480"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do Centro de segurança do Azure container
 
+Ao migrar as suas aplicações de monólito para executar de missão crítica, aplicações nativas da cloud em contentores em produção, pode tirar partido das funcionalidades de contentores, incluindo as atualizações e Implantações simples e rápida. Como o número de contentores implementados continua a aumentar, soluções de segurança tem de estar no local para fornecer-lhe visibilidade para o estado de segurança dos seus contentores e ajudar a protegê-los contra ameaças.
+
+Centro de segurança do Azure fornece as seguintes capacidades para o ajudar a proteger os seus contentores:
+
+- **Visibilidade sobre contentores alojados no IaaS, máquinas do Linux**<br>No Centro de segurança do Azure, no separador de contentores Apresenta todas as máquinas virtuais implementadas com o Docker. Ao explorar os problemas de segurança numa máquina virtual, o Centro de segurança fornece informações adicionais relacionadas com os contentores na máquina, por exemplo, a versão do Docker e o número de imagens em execução no anfitrião.
+
+    ![separador de contentor](./media/security-center-container-recommendations/docker-recommendation.png)
+
+
+- **Recomendações de segurança com base no parâmetro de comparação de itens de configuração para o Docker**<br>Centro de segurança analisa as configurações do Docker e permite-lhe ver configurações incorretas ao fornecer uma lista de todas as regras com falhas que foram analisadas. Centro de segurança fornece diretrizes para ajudar a resolver rapidamente estes problemas e poupar tempo. Centro de segurança avalia as configurações de Docker e fornece-lhe o estado mais recente continuamente.
+
+    ![separador de contentor](./media/security-center-container-recommendations/container-cis-benchmark.png)
+
+- **Deteção de ameaças de contentor em tempo real**<br> Centro de segurança fornece deteção de ameaças em tempo real para os seus contentores em máquinas do Linux com o componente de AuditD. Os alertas identificam várias atividades suspeitas do Docker como, por exemplo, a criação de um contentor com privilégios no anfitrião, uma indicação de servidor de Secure Shell (SSH) em execução dentro de um contentor de Docker ou o uso dos extratores de criptografia. Pode usar essas informações para resolver problemas de segurança e aumente a segurança dos seus contentores rapidamente.
+
+    ![separador de contentor](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>Recomendações
 Utilize as tabelas abaixo como referência para ajudar a compreender os contentores disponíveis alojados em máquinas do IaaS Linux e a avaliação de segurança de suas configurações de Docker.
 
 | Recomendação | Descrição | Remediação |
 | --- | --- | --- |
-|Remediar vulnerabilidades nas configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
+|Remediar vulnerabilidades em configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

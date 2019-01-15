@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230548"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261235"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -98,7 +98,7 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 
 1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
 2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se continuar a falhar, tente utilizar outro navegador da web.
-3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
+3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5 ou 6.7, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
   - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
   - Aceda à página inicial > inventário
   - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
@@ -148,7 +148,7 @@ Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. 
 2. Ir para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Execute o script InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Ocorreu um erro interno UnhandledException: FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Ocorreu um erro interno UnhandledException: System.IO.FileNotFoundException
 
 Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
 
@@ -221,7 +221,7 @@ Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/m
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Resolver problemas de preparação para o Azure
 
-**Problema** | **Corrigir**
+**Problema** | **Fix**
 --- | ---
 Tipo de arranque não suportado | Azure não suporta VMs com o tipo de arranque EFI. Recomenda-se para converter o tipo de arranque BIOS antes de executar uma migração. <br/><br/>Pode usar [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração dessas VMs, pois ele converterá o tipo de arranque da VM para BIOS durante a migração.
 SO de Windows condicionalmente suportado | O sistema operacional passou a sua data de fim de suporte e precisa de um personalizado suporta contrato (CSA) para [suportar no Azure](https://aka.ms/WSosstatement), considere atualizar o SO antes de migrar para o Azure.

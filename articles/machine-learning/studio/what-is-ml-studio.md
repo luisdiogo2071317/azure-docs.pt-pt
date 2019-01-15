@@ -1,6 +1,7 @@
 ---
-title: Descrição geral - Azure Machine Learning Studio | Documentos da Microsoft
-description: Descrição geral do Azure ML Studio, uma ferramenta de arrastar e largar para rapidamente criar modelos de uma biblioteca de algoritmos e módulos prontos a utilizar.
+title: O que é
+titleSuffix: Azure Machine Learning Studio
+description: O Azure Machine Learning Studio é uma ferramenta de arrastar e largar para rapidamente criar modelos de uma biblioteca de prontos a utilizar de algoritmos e módulos.
 keywords: azure machine learning, azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250523"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264365"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -146,7 +147,7 @@ Na aprendizagem supervisionada, se estiver a dar formação sobre um modelo de d
 Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes dados de teste. Utilize dados dos quais já conhece os resultados para saber se o seu modelo prevê com precisão.
 
 ## <a name="other-common-machine-learning-terms"></a>Outros termos comuns do Machine Learning
-* **algoritmo**: Um conjunto de regras utilizadas para resolver problemas através do processamento de dados, matemático ou raciocínio automatizado.
+* **algorithm**: Um conjunto de regras utilizadas para resolver problemas através do processamento de dados, matemático ou raciocínio automatizado.
 * **Deteção de anomalias**: Um modelo que sinaliza eventos ou valores invulgares e ajuda-o a detetar problemas. Por exemplo, a deteção de fraudes de cartões de crédito procura compras invulgares.
 * **dados categóricos**: Dados que estão organizado por categorias e que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para automóveis pode especificar o ano, a marca, o modelo e o preço.
 * **Classificação**: Um modelo para organizar os pontos de dados em categorias com base num conjunto de dados para a qual categoria agrupamentos são já conhecidos.
@@ -154,11 +155,11 @@ Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes
 * **módulo**: Uma parte funcional num modelo de Machine Learning Studio, como o módulo de introdução de dados que lhe permite introduzir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
 * **modelo**: Um modelo de aprendizagem supervisionado é o produto de uma experimentação do machine learning composta por dados de treinamento, um módulo de algoritmo e módulos funcionais, por exemplo, um módulo de modelo de pontuação.
 * **dados numéricos**: Dados que representam medidas (dados contínuos) ou contagem (dados discretos). Também referidos como *dados quantitativos*.
-* **partição**: O método pelo qual dividir os dados em amostras. Consulte o artigo [Partição e amostras](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
+* **partition**: O método pelo qual dividir os dados em amostras. Consulte o artigo [Partição e amostras](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
 * **predição**: Uma predição é uma previsão de um valor ou valores de um modelo de aprendizagem automática. Também pode ver o termo "classificação preditiva". No entanto, as classificações preditivas não são o resultado final de um modelo. Uma avaliação do modelo está de acordo com a pontuação.
-* **Regressão**: Um modelo para prever um valor com base nas variáveis independentes, por exemplo, prever o preço de um automóvel com base no respetivo ano e fazer.
+* **regression**: Um modelo para prever um valor com base nas variáveis independentes, por exemplo, prever o preço de um automóvel com base no respetivo ano e fazer.
 * **pontuação**: Um valor previsto gerado a partir de uma classificação de preparação ou modelo de regressão, utilizando o [módulo do modelo de pontuação](https://msdn.microsoft.com/library/azure/dn905995.aspx) no Machine Learning Studio. Os modelos de classificação também devolvem uma pontuação para indicar a probabilidade do valor previsto. Assim que tiver gerado pontuações de um modelo, pode avaliar exatidão o modelo utilizando o [módulo do modelo de avaliação](https://msdn.microsoft.com/library/azure/dn905915.aspx).
-* **exemplo**: Uma parte de um conjunto de dados que se destina a ser representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
+* **sample**: Uma parte de um conjunto de dados que se destina a ser representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Pode saber as noções básicas de análise preditiva e do Machine Learning utilizando um [tutorial passo a passo](create-experiment.md) e [tendo amostras](sample-experiments.md).  

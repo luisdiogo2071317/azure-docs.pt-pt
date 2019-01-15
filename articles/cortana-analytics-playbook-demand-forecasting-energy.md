@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426259"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306493"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Playbook do modelo de solução do Cortana Intelligence para previsão de procura de energia
 ## <a name="executive-summary"></a>Resumo Executivo
@@ -172,7 +172,7 @@ Em muitos casos, o cliente pode estar interessado em tirar uma justificativa com
 
 Por outro lado, um deve ter uma boa compreensão do valor comercial de operar uma demanda de energia, previsão do (curto ou longo prazo). Na verdade, é importante perceber o valor comercial de cada operação de previsão. Por exemplo, com precisão de previsão de carga de energia para as próximas 24 horas pode impedir overproduction ou pode ajudar a evitar sobrecargas na grade e isso pode ser quantificado em termos de economia financeira numa base diária.
 
-Solução seria de previsão de uma fórmula básica para calcular o benefício financeiro de procura: ![solução de previsão de fórmula básica para calcular o benefício financeiro de procura](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Uma fórmula básica para calcular o benefício financeiro de procura de previsão solução seria: ![Solução de previsão de fórmula básica para calcular o benefício financeiro de procura](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Uma vez que o Cortana Intelligence Suite fornece um modelo de preços pay as you go, não há necessidade de incorrer num componente de custo fixo para esta fórmula. Esta fórmula pode ser calculada numa base diária, mensal ou anual.
 
@@ -269,7 +269,7 @@ Cortana Intelligence Suite pode oferecer suporte os formatos de dados mais comun
 ### <a name="data-ingestion"></a>Ingestion de Dados
 Uma vez que a previsão de procura de energia é prevista de constantemente e com frequência, nós tem de garantir que os dados não processados estão a ser encaminhados por meio de um processo de ingestão de dados sólida e fiável. O processo de ingestão tem de garantir que os dados não processados estão disponíveis para o processo de previsão no tempo necessário. Isso significa que a frequência de ingestão de dados deve ser superior à frequência de previsão.
 
-Por exemplo: se nossa solução de previsão da procura geraria uma previsão novo às 8:00, diariamente, em seguida, precisamos garantir que todos os dados que tenham sido recolhidos durante as últimas 24 horas tiverem sido totalmente ingeridos até esse ponto e tem até mesmo incluam de última hora de  dados.
+Por exemplo: Se nossa solução de previsão da procura geraria uma previsão novo às 8:00, diariamente, em seguida, é necessário garantir que todos os dados que tenham sido recolhidos durante as últimas 24 horas tiverem sido totalmente ingeridos até esse ponto e tem até mesmo incluir na última hora de dados.
 
 Para tal, o Cortana Intelligence Suite oferece várias formas de suporte a um processo de ingestão de dados fiável. Isso será ainda mais abordado a **implementação** seção deste documento.
 
@@ -287,7 +287,7 @@ Depois dos dados não processados foram ingeridos (consulte **ingestão de dados
 
 Nesta secção, que listamos alguns dos recursos de dados comuns, que estão incluídos na energia da previsão de procura modelos.
 
-**Controlado por funcionalidades de tempo:** estas funcionalidades são derivadas dos dados de data/timestamp. Estas são extraídas e convertidas em categóricos recursos como:
+**Hora de base em recursos:** Estas funcionalidades são derivadas dos dados de data/timestamp. Estas são extraídas e convertidas em categóricos recursos como:
 
 * Hora do dia – esta é a hora do dia que aceita valores entre 0 e 23
 * Dia da semana – isso representa o dia da semana e aceita valores entre 1 (Domingo) e 7 (Sábado)
@@ -297,16 +297,16 @@ Nesta secção, que listamos alguns dos recursos de dados comuns, que estão inc
 * Feriado - esse é um recurso de valor binário que usa os valores de 0 para um dia regular ou 1 para um feriado
 * Termos de Fourier-os termos de Fourier são pesos que são derivados do período de tempo e são usados para capturar a sazonalidade (cycles) nos dados. Uma vez que podemos ter várias fases da vida nos nossos dados precisamos vários termos de Fourier. Por exemplo, valores de pedido podem ter anuais, semanais e diários temporadas/ciclos, o que resulta em termos de Fourier 3.
 
-**Funcionalidades de medição independente:** os recursos independentes incluem todos os elementos de dados que gostaríamos de o utilizar como indicadores no nosso modelo. Aqui, podemos excluir o recurso dependente que precisamos para prever.
+**Recursos de medição independente:** Os recursos independentes incluem todos os elementos de dados que gostaríamos de o utilizar como indicadores no nosso modelo. Aqui, podemos excluir o recurso dependente que precisamos para prever.
 
 * Funcionalidade de atraso – são tempo desviado valores da procura real. Por exemplo, as funcionalidades de atraso 1 irão conter o valor a pedido na hora anterior (partindo do princípio de dados por hora) em relação ao timestamp atual. Da mesma forma, vamos adicionar o desfasamento de 2, lag 3, *etc*. A combinação real dos recursos de atraso que são utilizados são determinados durante a fase de modelagem pela avaliação dos resultados de modelo.
 * Longo prazo mais populares – esta funcionalidade representa o crescimento linear de procura entre os anos.
 
-**Funcionalidade dependente:** o recurso dependente é a coluna de dados que gostaríamos de nosso modelo para prever. Com o [supervisionado aprendizagem](https://en.wikipedia.org/wiki/Supervised_learning), precisamos primeiro preparar o modelo usando os recursos dependentes (que é também conhecido como rótulos). Isso permite que o modelo aprender os padrões nos dados associados ao recurso dependente. Previsão de procura de energia, normalmente, queremos prever a procura real e, portanto, usaríamos-lo como o recurso dependente.
+**Funcionalidade dependente:** O recurso dependente é a coluna de dados que gostaríamos de nosso modelo para prever. Com o [supervisionado aprendizagem](https://en.wikipedia.org/wiki/Supervised_learning), precisamos primeiro preparar o modelo usando os recursos dependentes (que é também conhecido como rótulos). Isso permite que o modelo aprender os padrões nos dados associados ao recurso dependente. Previsão de procura de energia, normalmente, queremos prever a procura real e, portanto, usaríamos-lo como o recurso dependente.
 
-**Manipulação de valores em falta:** durante a fase de preparação de dados, seria necessário determinar a melhor estratégia para lidar com valores em falta. É principalmente para isso, usando as várias estatísticas [métodos de imputation dados](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). No caso de previsão de procura de energia, podemos normalmente impute valores em falta utilizando a média móvel de pontos de dados disponíveis anteriores.
+**Processamento de valores em falta:** Durante a fase de preparação de dados, precisamos de determinar a melhor estratégia para lidar com valores em falta. É principalmente para isso, usando as várias estatísticas [métodos de imputation dados](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). No caso de previsão de procura de energia, podemos normalmente impute valores em falta utilizando a média móvel de pontos de dados disponíveis anteriores.
 
-**Normalização de dados:** normalização de dados é outro tipo de transformação que é usado para trazer todos os dados numéricos, como a previsão de procura numa escala similar. Isso normalmente ajuda a melhorar a precisão do modelo e a precisão. Normalmente, fazer isso, dividindo o valor real por intervalo de dados.
+**Normalização de dados:** Normalização de dados é outro tipo de transformação que é usado para trazer todos os dados numéricos, como a previsão de procura numa escala similar. Isso normalmente ajuda a melhorar a precisão do modelo e a precisão. Normalmente, fazer isso, dividindo o valor real por intervalo de dados.
 Isto irá reduzir o valor original num intervalo menor, normalmente entre -1 e 1.
 
 ## <a name="modeling"></a>Modelação
@@ -320,21 +320,21 @@ No caso de fazermos de previsão de procura utiliza dados históricos que estão
 Nos últimos anos algoritmos avançados foram desenvolvidos para acomodar a previsão de séries de tempo e aumentar a exatidão da previsão. Resumidamente, vamos abordar algumas delas aqui.
 
 > [!NOTE]
-> Esta secção não se destina a ser utilizado como uma máquina de aprendizagem e a descrição geral de previsão, mas em vez disso, como um pequeno inquérito de modelar técnicas que são frequentemente utilizadas para previsão de procura. Para obter mais informações e instituições de ensino material sobre previsão de séries de tempo, recomendamos vivamente o livro online [previsão: princípios e práticas recomendadas](https://www.otexts.org/book/fpp).
+> Esta secção não se destina a ser utilizado como uma máquina de aprendizagem e a descrição geral de previsão, mas em vez disso, como um pequeno inquérito de modelar técnicas que são frequentemente utilizadas para previsão de procura. Para obter mais informações e instituições de ensino material sobre previsão de séries de tempo, recomendamos vivamente o livro online [previsão: princípios e práticas recomendadas](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (média)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (média)**
 Média móvel é uma das técnicas analíticas primeiro que foi utilizado para previsão de séries de tempo e é ainda uma das mais frequentemente utilizadas técnicas até hoje. Também é a base para mais avançadas técnicas de previsão. Com a média móvel, previsão o próximo ponto de dados por uma média ao longo dos pontos mais recentes de K, onde K denota a ordem da média móvel.
 
 A técnica de média móvel tem o efeito de suavização a previsão e, portanto, não pode processar bem grande volatilidade dos dados.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (nivelamento exponencial)**](https://www.otexts.org/fpp/7/5)
-Nivelamento exponencial (ETS) é uma família de vários métodos que usam uma média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A idéia é atribuir pesos superior para valores mais recentes e gradualmente diminuir este peso para valores de medida mais antigos. Há uma série de métodos diferentes com esta família, alguns deles incluem manipulação de sazonalidade nos dados, tal como [método de sazonais Holt-Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (nivelamento exponencial)**
+Nivelamento exponencial (ETS) é uma família de vários métodos que usam uma média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A idéia é atribuir pesos superior para valores mais recentes e gradualmente diminuir este peso para valores de medida mais antigos. Há uma série de métodos diferentes com esta família, alguns deles incluem manipulação de sazonalidade nos dados, como o método de Holt-Winters sazonais.
 
 Alguns desses métodos também avaliar a sazonalidade dos dados.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (média móvel integrada de regressão automática)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (média móvel integrada de regressão automática)**
 Automática regressão integrada mover média (ARIMA) é outra família de métodos que é normalmente utilizada para previsão de série temporal. Praticamente combina métodos de regressão automática com a média móvel. Os métodos de regressão automática usar modelos de regressão, efetuando os valores de séries de tempo anterior para calcular o próximo ponto de data. Métodos ARIMA também se aplicam os métodos de diferenciação que incluem a calcular a diferença entre os pontos de dados e a utilização dos mesmos em vez do valor original medido. Por fim, ARIMA também usa as técnicas de média móveis discutidos acima. A combinação de todos esses métodos de várias formas é o que constrói a família de métodos ARIMA.
 
 ETS e ARIMA são amplamente utilizada atualmente para previsão de procura de energia e muitos outros problemas de previsão. Em muitos casos combinados em conjunto para fornecer resultados muito precisos.

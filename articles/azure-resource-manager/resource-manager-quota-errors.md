@@ -1,6 +1,6 @@
 ---
-title: Erros de quota do Azure | Microsoft Docs
-description: Descreve como resolver erros de qouta do recurso.
+title: Erros de quota do Azure | Documentos da Microsoft
+description: Descreve como resolver erros de quota de recursos.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357049"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260231"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Resolva os erros para quotas de recursos
+# <a name="resolve-errors-for-resource-quotas"></a>Resolver erros de quotas de recursos
 
-Este artigo descreve os erros de quota que poderá encontrar durante a implementação de recursos.
+Este artigo descreve o que poderá encontrar ao implementar os recursos de erros de quota.
 
 ## <a name="symptom"></a>Sintoma
 
-Se implementar um modelo que cria os recursos que excedem as quotas do Azure, receberá um erro de implementação que se pareça com:
+Se implementar um modelo que cria recursos que excederem as quotas do Azure, obtém um erro de implementação que é semelhante a:
 
 ```
 Code=OperationNotAllowed
@@ -45,8 +45,8 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>Causa
 
-As quotas são aplicadas por grupo de recursos, subscrições, contas e outros âmbitos. Por exemplo, a sua subscrição pode ser configurada para limitar o número de núcleos para uma região. Se tentar implementar uma máquina virtual com mais núcleos do que a quantidade permitido, receberá um erro a indicar que a quota foi excedida.
-Para informações sobre a quota completa, consulte [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
+As quotas são aplicadas por grupo de recursos, subscrições, contas e outros âmbitos. Por exemplo, a sua subscrição pode ser configurada para limitar o número de núcleos para uma região. Se está tentando implementar uma máquina virtual com o maior número de núcleos que a quantia permitido, receberá um erro a indicar que a quota foi excedida.
+Para informações sobre a quota completa, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -58,7 +58,7 @@ Para a CLI do Azure, utilize o `az vm list-usage` comando para encontrar as quot
 az vm list-usage --location "South Central US"
 ```
 
-Que devolve:
+Que retorna:
 
 ```azurecli
 [
@@ -82,7 +82,7 @@ Para o PowerShell, utilize o **Get-AzureRmVMUsage** comando para encontrar as qu
 Get-AzureRmVMUsage -Location "South Central US"
 ```
 
-Que devolve:
+Que retorna:
 
 ```powershell
 Name                             Current Value Limit  Unit
@@ -94,24 +94,24 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Solução
 
-Para pedir um aumento de quota, aceda ao portal do e um problema de suporte de ficheiros. No problema suporte, pedir um aumento da sua quota para a região na qual pretende implementar.
+Para pedir um aumento de quota, aceda ao portal e um problema de suporte de ficheiros. Na edição de suporte, pedir um aumento da sua quota para a região na qual pretende implementar.
 
 > [!NOTE]
-> Lembre-se de que para os grupos de recursos, a quota para cada região individuais, não para a subscrição completa. Se precisar de implementar 30 núcleos nos EUA oeste, terá de voltar a pedir 30 núcleos do Gestor de recursos em EUA oeste. Se precisar de implementar 30 núcleos em qualquer uma das regiões aos quais têm acesso, deverá solicitar ao para 30 núcleos do Gestor de recursos em todas as regiões.
+> Lembre-se de que para grupos de recursos, a quota para cada região individual, não para a subscrição completa. Se precisar de implementar 30 núcleos na região E.U.A. oeste, terá de pedir 30 núcleos de Gestor de recursos na região E.U.A. oeste. Se precisar de implementar em qualquer uma das regiões às quais tem acesso de 30 núcleos, deve perguntar para 30 núcleos de Gestor de recursos em todas as regiões.
 >
 >
 
-1. Selecione **subscrições**.
+1. Selecione **Subscrições**.
 
    ![Subscrições](./media/resource-manager-quota-errors/subscriptions.png)
 
-2. Selecione a subscrição que tem uma quota maior.
+2. Selecione a subscrição que precisa de uma quota maior.
 
    ![Selecionar subscrição](./media/resource-manager-quota-errors/select-subscription.png)
 
 3. Selecione **utilização + quotas**
 
-   ![Selecione e quotas de utilização](./media/resource-manager-quota-errors/select-usage-quotas.png)
+   ![Selecione a utilização e quotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
 4. No canto superior direito, selecione **pedir aumento**.
 

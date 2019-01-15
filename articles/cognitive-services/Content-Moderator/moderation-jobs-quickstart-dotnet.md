@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: iniciar tarefas de moderação com .NET - Content Moderator'
+title: 'Início rápido: Iniciar tarefas de moderação usando o .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como iniciar trabalhos de moderação com o SDK do Azure Content Moderator para .NET.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: f55906aa9de6faa5979ecedbc3ef288f164fd6c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227443"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261950"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>Início Rápido: iniciar tarefas de moderação com .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Início rápido: Iniciar tarefas de moderação usando o .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Este artigo apresenta informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
  
 - Iniciar uma tarefa de moderação para analisar e criar as revisões para moderadores humanos
 - Obter o estado da revisão pendente
@@ -30,8 +30,7 @@ Este artigo pressupõe que já está familiarizado com o Visual Studio e C#.
 
 ## <a name="sign-up-for-content-moderator"></a>Inscrever-se no Content Moderator
 
-Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição.
-Consulte o [Início Rápido](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição. Siga as instruções em [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) (Criar uma conta dos Serviços Cognitivos) para subscrever o Content Moderator e obter a sua chave.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se numa conta da ferramenta de revisão, se não o tiver feito no passo anterior
 
@@ -41,7 +40,7 @@ Se chegou ao Content Moderator a partir do portal do Azure, [inscreva-se na cont
 
 Depois de concluir os passos anteriores, pode ficar com duas chaves do Content Moderator, se tiver iniciado a partir do portal do Azure. 
 
-Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) para permitir que a aplicação chame a API de revisão e crie as revisões.
+Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
 Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
 
@@ -319,6 +318,6 @@ Verá uma resposta semelhante ao seguinte exemplo:
     }
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

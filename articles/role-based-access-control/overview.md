@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867903"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303329"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controlo de acesso baseado em funções (RBAC)?
 
@@ -78,7 +78,7 @@ O Azure introduziu operações de dados (atualmente em pré-visualização) que 
 
 ### <a name="scope"></a>Âmbito
 
-O *âmbito* é o limite aplicado ao acesso. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
+*Âmbito* é o conjunto de recursos que o acesso se aplica a. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
 No Azure, pode especificar um âmbito a vários níveis: [grupo de gestão](../azure-resource-manager/management-groups-overview.md), subscrição, grupo de recursos ou recurso. Os âmbitos são estruturados numa relação de principal-subordinado.
 
@@ -99,6 +99,12 @@ O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exe
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
 Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Pode ter até 2000 atribuições de funções em cada subscrição. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Várias atribuições de funções
+
+O que acontece se tiver várias atribuições de funções sobrepostos? RBAC é um modelo de cumulativas, pelo que as permissões efetivas são a adição de atribuições de funções. Considere o exemplo seguinte, onde um usuário é concedido a função de contribuinte no âmbito da subscrição e a função de leitor num grupo de recursos. A adição das permissões de contribuinte e as permissões de leitura é, efetivamente, a função de Contribuidor para o grupo de recursos. Portanto, neste caso, a atribuição de função do leitor não tem impacto.
+
+![Várias atribuições de funções](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Atribuições de negação
 
@@ -126,7 +132,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Início Rápido: Conceder acesso a um utilizador com o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
+- [Início rápido: Conceder acesso de utilizador utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
 - [Gerir o acesso através do RBAC e do portal do Azure](role-assignments-portal.md)
 - [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Adoção do Enterprise Cloud: gestão de acesso a recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Adoção do Enterprise Cloud: Gestão de acesso de recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

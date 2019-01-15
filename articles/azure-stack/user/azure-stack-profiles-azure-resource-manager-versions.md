@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036244"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264619"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do fornecedor de recursos suportadas pelo perfis no Azure Stack
 
@@ -48,7 +48,7 @@ Para obter uma explicação de perfis de API e cadência de lançamento de vers�
 | Microsoft.Resources (Azure Resource Manager em si) | 2016-02-01 |
 | Microsoft.Authorization (operações de política) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Política | 2016-10-01 |
 | Recursos | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
@@ -70,7 +70,7 @@ Para mais uma lista das versões para cada tipo de recurso para os fornecedores 
 | Microsoft.Resources<br>(O azure Resource Manager em si) | 2016-02-01 |
 | Microsoft.Authorization<Br>(operações de política) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Política | 2015-10-01-pré-visualização |
 | Recursos | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
@@ -94,7 +94,7 @@ Utilize o controlo de acesso baseado em funções para gerir as ações que os u
 | Definições de Política | 2016-12-01 |
 | Operações de fornecedor | 2015-07-01-pré-visualização |
 | Atribuições de Funções | 2015-07-01 |
-| Definições de funções | 2015-07-01 |
+| Definições de Função | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -118,7 +118,7 @@ As APIs de computação do Azure dão-lhe acesso programático a máquinas virtu
 | Localizações/operações | 2016-03-30 |
 | Localizações/editores | 2016-03-30 |
 | Localizações/utilizações | 2016-03-30 |
-| Localizações/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | Extensões de máquinas virtuais / | 2016-03-30 |
@@ -215,7 +215,7 @@ O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para a
 | Grupos de subscrições/recursos | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Subscrições/recursos | 2016-09-01 |
-| Subscrições/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Inquilinos | 2017-08-01 |
 
@@ -229,7 +229,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Utilizações | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes para a definição de 2018-03-01-híbrida
@@ -245,7 +245,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Definições de Política | 2016-12-01 |
 | Operações de fornecedor | 2015-07-01-pré-visualização |
 | Atribuições de Funções | 2015-07-01 |
-| Definições de funções | 2015-07-01 |
+| Definições de Função | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -256,7 +256,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações/operações | 2016-03-30 |
 | Localizações/editores | 2016-03-30 |
 | Localizações/utilizações | 2016-03-30 |
-| Localizações/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | Extensões de máquinas virtuais / | 2016-03-30 |
@@ -312,7 +312,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Grupos de subscrições/recursos | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Subscrições/recursos | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Inquilinos | 2017-08-01 |
 
@@ -324,7 +324,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Utilizações | 2016-01-01 |
 
 ## <a name="next-steps"></a>Passos Seguintes

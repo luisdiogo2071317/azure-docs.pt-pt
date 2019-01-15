@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: fabbbace7aeefd708a58a0874f9bbfa316d2b3f2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230815"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258703"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
@@ -63,4 +63,4 @@ Como com todos os serviços cognitivos, os desenvolvedores que usam o serviço d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Siga o [Início Rápido](quick-start.md) para começar a utilizar o Content Moderator.
+Começar a utilizar o serviço do Content Moderator, seguindo as instruções em [Experimente o Content Moderator na web](quick-start.md).

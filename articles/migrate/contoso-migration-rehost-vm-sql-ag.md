@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6db4de61f84280b7e34f8a9d5c3290ff6d4f97ab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267390"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: Realojar a uma aplicação no local em VMs do Azure e grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -472,7 +472,7 @@ Os administradores da Contoso executam estes passos da seguinte forma:
 8. Iniciam sessão na máquina novamente e o Assistente de gestão de servidor de configuração é iniciado automaticamente.
 9. No assistente, eles selecionam o NIC para receber o tráfego de replicação. Não é possível alterar esta definição depois de estar configurada.
 10. Selecionar a subscrição, grupo de recursos e cofre no qual pretende registar o servidor de configuração.
-        ![Cofre](./media/contoso-migration-rehost-vm-sql-ag/cswiz1.png) 
+        ![vault](./media/contoso-migration-rehost-vm-sql-ag/cswiz1.png) 
 
 10. Eles, em seguida, transferirem e instalar o servidor MySQL e o VMWare PowerCLI. 
 11. Após a validação, eles especificam o FQDN ou endereço IP do vCenter server ou vSphere no anfitrião. Deixe a porta predefinida e especifique um nome amigável para o servidor vCenter.

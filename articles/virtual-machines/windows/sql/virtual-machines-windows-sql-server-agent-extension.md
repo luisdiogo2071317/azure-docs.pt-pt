@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: 5ffee3bb5cbeff4e2222307e2a1afb4691ae93d5
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3d2873d83274e4f9bfd8aee7668162237083f452
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053045"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303059"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Requisitos para utilizar a extensão do agente IaaS do SQL Server na sua VM:
 * SQL Server 2014
 * SQL Server 2016
 
-**O Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Transferir e configurar os comandos do Azure PowerShell mais recente](/powershell/azure/overview)
 
@@ -74,7 +74,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 ```
 
 > [!IMPORTANT]
-> Se a extensão já não estiver instalada, instalar a extensão reinicia o serviço SQL Server.
+> Se a extensão já não estiver instalada, instalar a extensão reinicia o serviço SQL Server. No entanto, atualizar a extensão SQL IaaS não reinicia o serviço SQL Server. 
 
 > [!NOTE]
 > A extensão do agente IaaS do SQL Server só é suportada no [imagens da Galeria VM do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay as you go ou bring-your-own-license). Não é suportada se instalar manualmente o SQL Server numa máquina virtual apenas de sistema operacional Windows Server ou se implementar uma VM VHD personalizado do SQL Server. Nestes casos, poderá ser possível instalar e gerir a extensão manualmente com o PowerShell, mas não obtém as definições de configuração do SQL Server no portal do Azure. No entanto, é vivamente recomendado em vez disso, instalar uma imagem de galeria VM do SQL Server e, em seguida, personalizá-lo.

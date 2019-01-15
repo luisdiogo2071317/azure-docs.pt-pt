@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253436"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260339"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
@@ -35,10 +35,10 @@ As notas de versão para os serviços BizTalk do Microsoft Azure contêm os prob
 ## <a name="update-history"></a>Atualizar histórico
 ### <a name="october-update"></a>Atualização de Outubro
 * As contas organizacionais são suportadas:  
-  * **Cenário**: registou uma implementação de serviço BizTalk utilizando uma conta Microsoft (como user@live.com). Neste cenário, apenas os utilizadores do Microsoft Account podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta institucional.  
-  * **Cenário**: registou uma implementação de serviço BizTalk utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Azure Active Directory dentro da mesma organização podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta Microsoft.  
+  * **Cenário**: Registrou uma implementação de serviço BizTalk utilizando uma conta Microsoft (como user@live.com). Neste cenário, apenas os utilizadores do Microsoft Account podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta institucional.  
+  * **Cenário**: Registrou uma implementação de serviço BizTalk utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Azure Active Directory dentro da mesma organização podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta Microsoft.  
 * Quando cria um BizTalk Service, são automaticamente registrados no Portal de serviços do BizTalk.
-  * **Cenário**: iniciar sessão no Azure, criar um BizTalk Service e, em seguida, selecione **gerir** pela primeira vez. Quando abre o portal dos serviços do BizTalk, o serviço BizTalk registra automaticamente e está pronto para as suas implementações.  
+  * **Cenário**: Iniciar sessão no Azure, criar um BizTalk Service e, em seguida, selecione **gerir** pela primeira vez. Quando abre o portal dos serviços do BizTalk, o serviço BizTalk registra automaticamente e está pronto para as suas implementações.  
     Ver [Portal dos serviços de registro e a atualizar uma implementação de serviços do BizTalk do BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Atualização de 14 de Agosto
@@ -87,7 +87,7 @@ Eventos de rastreio são capturados até o processamento de mensagens EDI e qual
 X12 receber e enviar definições ([Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre a fase de protocolo.  
 
 ### <a name="update-agreement"></a>Atualizar o contrato
-O Portal de serviços do BizTalk permite-lhe modificar o qualificador de uma identidade quando é configurado um contrato. Isso pode resultar em Propriedades de inconsistence. Por exemplo, há um contrato com ZZ:1234567 e ZZ:7654321 o qualificador. As definições de perfil de Portal dos serviços BizTalk, pode alterar ZZ:1234567 ser 01:ChangedValue. Abrir o contrato e 01:ChangedValue é apresentado em vez de ZZ:1234567.
+O Portal de serviços do BizTalk permite-lhe modificar o qualificador de uma identidade quando é configurado um contrato. Isso pode resultar em Propriedades inconsistentes. Por exemplo, há um contrato com ZZ:1234567 e ZZ:7654321 o qualificador. As definições de perfil de Portal dos serviços BizTalk, pode alterar ZZ:1234567 ser 01:ChangedValue. Abrir o contrato e 01:ChangedValue é apresentado em vez de ZZ:1234567.
 Para modificar o qualificador de uma identidade, eliminar o contrato, atualizar **identidades** no perfil de parceiro e, em seguida, recrie o contrato.  
 
 > AZURE. Esse comportamento de aviso afeta X12 e AS2.  
@@ -175,16 +175,16 @@ Considere o seguinte cenário:
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Pontes não utilize o certificado atualizado, mesmo depois de um certificado foi atualizado no armazenamento de artefactos
 Considere os seguintes cenários:  
 
-**Cenário 1: Utilizar certificados com base em thumbprint para proteger a transferência de mensagens a partir de uma ponte para um ponto de extremidade de serviço**  
+**Cenário 1: A utilização de certificados com base em thumbprint para proteger a transferência de mensagens a partir de uma ponte para um ponto de extremidade de serviço**  
 Considere um cenário onde utiliza certificados baseados em thumbprint no seu projeto de serviço BizTalk. Atualizar o certificado no Portal de serviços do BizTalk com o mesmo nome, mas outra impressão digital, mas não a atualizar o projeto de serviço BizTalk da mesma forma. Neste cenário, a ponte poderá continuar a processar as mensagens, uma vez que os dados mais antigos do certificado podem ainda ser na cache do canal. Depois disso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
+**Solução**: Atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
 
 **Cenário 2: Utilizar comportamentos com base no nome para identificar certificados para proteger a transferência de mensagens a partir de uma ponte para um ponto de extremidade de serviço**
 
 Considere um cenário em que usar comportamentos com base no nome para identificar certificados no seu projeto de serviço BizTalk. Atualizar o certificado no Portal de serviços do BizTalk, mas não a atualizar o projeto de serviço BizTalk da mesma forma. Neste cenário, a ponte poderá continuar a processar as mensagens, uma vez que os dados mais antigos do certificado podem ainda ser na cache do canal. Depois disso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
+**Solução**: Atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Pontes continuam a processar mensagens, mesmo quando a base de dados SQL está offline
 Os pontes de serviços do BizTalk continuam a processar mensagens durante algum tempo, mesmo que o Microsoft Azure SQL Database (que armazena as informações em execução, como os artefactos implementados e pipelines), está offline. Isso ocorre porque os serviços do BizTalk usa os artefactos em cache e a configuração de ponte.
@@ -196,15 +196,15 @@ Considere um cenário em que queira ler uma mensagem XML dentro do código perso
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>Enviar mensagens para uma ponte usando o WCF não dimensionar
 As mensagens enviadas para uma ponte usando o WCF não dimensionar. Em vez disso, deve usar HttpWebRequest, se pretender que um cliente dimensionável.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: Erro do fornecedor de Token depois de atualizar do pré-visualização do BizTalk Services para disponibilidade geral (GA)
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: Erro do fornecedor do token após a atualização da pré-visualização de serviços do BizTalk para disponibilidade geral (GA)
 Existe um EDI ou o contrato de AS2 com lotes Active Directory. Quando o serviço BizTalk é atualizado de pré-visualização para disponibilidade geral, pode ocorrer o seguinte:
 
-* Erro: O fornecedor do token não foi possível fornecer um token de segurança. Fornecedor do token devolvido a mensagem: não foi possível resolver o nome remoto.
+* Erro: O fornecedor do token não foi possível fornecer um token de segurança. Fornecedor do token devolvido a mensagem: Não foi possível resolver o nome remoto.
 * Tarefas do batch são canceladas.
 
-**Solução**: depois do BizTalk Service é atualizado para disponibilidade geral (GA), volte a implementar o contrato.  
+**Solução**: Depois do serviço BizTalk é atualizado para disponibilidade geral (GA), volte a implementar o contrato.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ATUALIZAÇÃO: A caixa de ferramentas mostra os ícones de ponte antigo depois de atualizar o SDK dos serviços do BizTalk
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ATUALIZAÇÃO: Caixa de ferramentas mostra os ícones de ponte antigo depois de atualizar o SDK dos serviços do BizTalk
 Depois de atualizar uma versão anterior do SDK de serviços do BizTalk, que tinha que representa os pontes de ícones antigos, a caixa de ferramentas continua mostrar os ícones antigos de ponte. No entanto, se adicionar uma ponte para a superfície de desenho de projeto do BizTalk Service, a superfície de mostra o ícone de novo.  
 
 **Solução**. Pode contornar este problema ao eliminar os ficheiros. TBD <system drive>: \Users\<utilizador > \AppData\Local\Microsoft\VisualStudio\11.0.  
@@ -214,7 +214,7 @@ Se tiver sessão iniciada no Portal de serviços do BizTalk enquanto os serviço
 
 Esta capacidade não está disponível como parte nesta edição dos serviços BizTalk do Microsoft Azure. Para utilizar estas capacidades de mudar para uma edição adequada.  
 
-**Resolução**: fim de sessão do portal, feche e abra o browser e, em seguida, inicie sessão no portal do.  
+**Resolução**: Terminar sessão no portal, feche e abra o browser e, em seguida, inicie sessão no portal.  
 
 ### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ATUALIZAÇÃO: Novos dados de controlo não aparecem depois dos serviços BizTalk é atualizado para disponibilidade geral
 Assumir um cenário em que tem uma ponte XML implementada na subscrição de pré-visualização do BizTalk Services. Enviar mensagens para a ponte e o controle de dados correspondente está disponível no Portal de serviços do BizTalk. Agora, se os bits de tempo de execução do Portal dos serviços BizTalk e os serviços BizTalk são atualizados para disponibilidade geral e enviar uma mensagem para o mesmo ponto final ponte implementado anteriormente, os dados de controle não aparecem para mensagens enviadas depois da atualização.  

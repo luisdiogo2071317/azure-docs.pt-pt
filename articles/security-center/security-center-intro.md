@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344164"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263568"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -52,9 +52,11 @@ Além disso, o Centro de segurança protege servidores não pertencente ao Azure
 
 Os eventos recolhidos dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer a que adaptadas recomendações (sistema de proteção de tarefas), que deve seguir para se certificar de que as cargas de trabalho são seguras bem como alertas de deteção de ameaças. Deve investigar esses alertas logo que possível para se certificar de que os ataques maliciosos, se não estiverem ocorrendo em suas cargas de trabalho.
 
+Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. A iniciativa incorporada é atribuída automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria. Para obter mais informações sobre as políticas do Centro de segurança na política do Azure, consulte [trabalhar com políticas de segurança](tutorial-security-policy.md).
+
 ## <a name="strengthen-security-posture"></a>Reforçar a postura de segurança
 
-Centro de segurança do Azure permite-lhe reforce a sua postura de segurança. Isso significa que ele ajuda a identificar e executar as tarefas de proteção recomendadas como melhores práticas de segurança e implementá-los em suas máquinas, os serviços de dados e aplicações. Isto inclui a gerir e impor suas diretivas de segurança e tornar-se de que suas máquinas virtuais do Azure, não pertencente ao Azure servidores e serviços PaaS do Azure estão em conformidade. Centro de segurança fornece as ferramentas que tem de ter um panorama geral nas cargas de trabalho, com uma visibilidade focada no seu património de segurança de rede.
+Centro de segurança do Azure permite-lhe reforce a sua postura de segurança. Isso significa que ele ajuda a identificar e executar as tarefas de proteção recomendadas como melhores práticas de segurança e implementá-los em suas máquinas, os serviços de dados e aplicações. Isto inclui a gerir e impor suas diretivas de segurança e tornar-se de que suas máquinas virtuais do Azure, não pertencente ao Azure servidores e serviços PaaS do Azure estão em conformidade. Centro de segurança fornece as ferramentas que tem de ter um panorama geral nas cargas de trabalho, com uma visibilidade focada no seu património de segurança de rede. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gerir política de segurança da organização e a conformidade
 

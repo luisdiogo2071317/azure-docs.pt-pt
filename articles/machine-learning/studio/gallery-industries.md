@@ -1,26 +1,8 @@
 ---
-title: Soluções de setor de Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
-description: A secção de setores da Galeria de IA do Azure reúne vários recursos que são específicos para esses setores como varejo, fabrico, serviços bancários e cuidados de saúde.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-editor: cgronlun
-ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.custom: previous-ms.author=garye, previous-author=garyericson
-ms.author: amlstudiodocs
-ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269333"
+title: TitleSuffix de soluções do setor de Galeria de IA do Azure: Descrição do Azure Machine Learning Studio: A secção de setores da Galeria de IA do Azure reúne vários recursos que são específicos para esses setores como varejo, fabrico, serviços bancários e cuidados de saúde.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=garye, previous-author=garyericson ms.date: 03/31/2017
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Descobrir soluções específicas da indústria na Galeria de IA do Azure
 

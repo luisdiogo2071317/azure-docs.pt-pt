@@ -8,59 +8,68 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8f45e0921748092af4702e03d557e52153a78ec0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249350"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258667"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Início rápido: Efetua uma pesquisa de notícias com o SDK de pesquisa de notícias do Bing para node. js
 
-O SDK da Pesquisa de Notícias do Bing contém a funcionalidade da API REST para consultas de notícias e análise de resultados. 
+Utilize este guia de introdução para a pesquisa de notícias com o SDK de pesquisa de notícias do Bing para node. js. Embora a pesquisa do Bing notícias tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
-O [código-fonte para os exemplos do SDK da Pesquisa de Notícias do Bing em Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) está disponível no Git Hub.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="application-dependencies"></a>Dependências da aplicação
-Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Node.js](https://nodejs.org/en/)
 
 Para configurar uma aplicação de consola com o SDK de pesquisa de notícias do Bing:
-* Executar `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
-* Executar `npm install azure-cognitiveservices-newssearch` no seu ambiente de desenvolvimento.
+1. Executar `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
+2. Executar `npm install azure-cognitiveservices-newssearch` no seu ambiente de desenvolvimento.
 
-## <a name="news-search-client"></a>Cliente da Pesquisa de Notícias
-Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisa*. Crie uma instância do `CognitiveServicesCredentials`:
-```
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-Em seguida, inicie o cliente:
-```
-const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
-let client = new NewsSearchAPIClient(credentials);
-```
-Utilize o cliente para pesquisar com um texto de consulta, neste caso, "Jogos Olímpicos de Inverno":
-```
-client.newsOperations.search('Winter Olympics').then((result) => {
-    console.log(result.value);
-}).catch((err) => {
-    throw err;
-});
 
-```
-O código imprime `result.value` itens para a consola sem analisar qualquer texto. Os resultados, se existirem por categoria, incluirão:
-- tipo: 'NewsArticle'
-- tipo: "Página da Web"
-- tipo: 'VideoObject'
-- tipo: 'ImageObject'
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-<!-- Remove until we can replace with santized version
-![News results](media/node-sdk-quickstart-results.png)
--->
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
+
+1. Crie uma instância de `CognitiveServicesCredentials`. Crie variáveis para sua chave de susbcription e um termo de pesquisa.
+
+    ```javascript
+    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
+    let search_term = 'Winter Olympics'
+    ```
+
+2. Criar uma instância do cliente:
+    
+    ```javascript
+    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    let client = new NewsSearchAPIClient(credentials);
+    ```
+
+## <a name="send-a-search-query"></a>Enviar uma consulta de pesquisa
+
+3. Utilize o cliente para pesquisar com um termo de consulta, neste caso, "Jogos Olímpicos de Inverno":
+    
+    ```javascript
+    client.newsOperations.search(search_term).then((result) => {
+        console.log(result.value);
+    }).catch((err) => {
+        throw err;
+    });
+    ```
+
+O código imprime `result.value` itens na consola sem analisar o texto. Os resultados, se existirem por categoria, incluirão:
+
+- `_type: 'NewsArticle'`
+- `_type: 'WebPage'`
+- `_type: 'VideoObject'`
+- `_type: 'ImageObject'`
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Exemplos de SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+[Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

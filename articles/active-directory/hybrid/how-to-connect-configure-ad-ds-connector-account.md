@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809884"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304045"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
-Um novo módulo do PowerShell com o nome [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzida com compilação 1.1.880.0 (lançado em Agosto de 2018), que inclui um conjunto de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD Ligue-se a implementação. 
+O módulo do PowerShell com o nome [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzida com compilação 1.1.880.0 (lançado em Agosto de 2018), que inclui um conjunto de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD Ligue-se a implementação. 
 
 ## <a name="overview"></a>Descrição geral 
 Os seguintes cmdlets PowerShell pode ser utilizado para configurar permissões do Active Directory da conta do conector do AD DS, para cada recurso que finge para ativar no Azure AD Connect. Para evitar quaisquer problemas, deve preparar permissões do Active Directory com antecedência sempre que deseja instalar o Azure AD Connect com uma conta de domínio personalizado para ligar à sua floresta. Este módulo de ADSyncConfig também pode ser utilizado para configurar permissões após a implementação do Azure AD Connect.
@@ -157,7 +157,7 @@ Este cmdlet irá definir as seguintes permissões:
 
 |Tipo |Nome |Access |Aplica-se A|
 |-----|-----|-----|-----| 
-|Permitir|Conta do conector do AD DS|Propriedade de leitura/escrita|MS-DS-consistência-Guid|Objetos de utilizador de subordinados|
+|Permitir|Conta do conector do AD DS|Propriedade de leitura/escrita|MS-DS-Consistency-Guid|Objetos de utilizador de subordinados|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Permissões para a sincronização de Hash de palavra-passe 
 Para definir permissões para a conta do conector do AD DS ao utilizar a sincronização de Hash de palavra-passe, execute: 
@@ -280,7 +280,7 @@ Por exemplo:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Este cmdlet irá definir as seguintes permissões: 

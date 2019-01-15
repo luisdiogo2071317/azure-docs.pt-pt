@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077441"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260135"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub App Service do Azure com a integração contínua Jenkins e implementação
 
@@ -164,10 +164,10 @@ Aqui está o resultado gerado pela **`create-for-rbac`** comando:
 
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------| 
-   | **ID de subscrição** | <*ID de yourAzureSubscription*> | O valor de GUID para a sua subscrição do Azure <p>**Sugestão**: Se não souber o ID de subscrição do Azure, execute este comando da CLI do Azure da linha de comandos ou no Cloud Shell e, em seguida, utilizar o `id` valor GUID: <p>`az account list` | 
-   | **ID de cliente** | <*ID de yourAzureServicePrincipal*> | O `appId` valor GUID gerado anteriormente para o seu principal de serviço do Azure | 
+   | **ID de subscrição** | <*yourAzureSubscription-ID*> | O valor de GUID para a sua subscrição do Azure <p>**Sugestão**: Se não souber o ID de subscrição do Azure, execute este comando da CLI do Azure da linha de comandos ou no Cloud Shell e, em seguida, utilizar o `id` valor GUID: <p>`az account list` | 
+   | **ID de cliente** | <*yourAzureServicePrincipal-ID*> | O `appId` valor GUID gerado anteriormente para o seu principal de serviço do Azure | 
    | **Segredo do cliente** | <*yourSecurePassword*> | O `password` valor ou o "segredo" fornecida para o seu principal de serviço do Azure | 
-   | **ID do inquilino** | <*ID de yourAzureActiveDirectoryTenant*> | O `tenant` valor GUID para o seu inquilino do Azure Active Directory | 
+   | **ID do inquilino** | <*yourAzureActiveDirectoryTenant-ID*> | O `tenant` valor GUID para o seu inquilino do Azure Active Directory | 
    | **ID** | <*yourAzureServicePrincipalName*> | O `displayName` valor para o seu principal de serviço do Azure | 
    |||| 
 

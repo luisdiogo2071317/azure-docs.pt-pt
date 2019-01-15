@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: d4c5def3cc61c1920ae99d5aa9f97b46cbda0045
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244499"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303589"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Principais funcionalidades e conceitos no Azure Stack
 Se estiver familiarizado com o Microsoft Azure Stack, esses termos e as descrições de recursos poderão ser útil.
@@ -129,23 +129,13 @@ O armazenamento de Filas do Azure fornece um serviço de mensagens na nuvem entr
 A RP de Cofre de chaves fornece gestão e auditoria de segredos, tais como palavras-passe e certificados. Por exemplo, um inquilino pode utilizar a RP de Cofre de chaves para fornecer palavras-passe de administrador ou chaves durante a implementação de VM.
 
 ## <a name="high-availability-for-azure-stack"></a>Elevada disponibilidade para o Azure Stack
-*Aplica-se a: O Azure Stack 1802 ou versões superiores*
+Para assegurar elevada disponibilidade de um sistema de produção de várias VMS no Azure, as VMs são colocadas num [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) que propaga-las em vários domínios de falha e domínios de atualização. Na escala mais pequena do Azure Stack, um domínio de falha num conjunto de disponibilidade é definido como um único nó na unidade de escala.  
 
-Para assegurar elevada disponibilidade de um sistema de produção de várias VMS no Azure, as VMs são colocadas num conjunto de disponibilidade que se propaga-las em vários domínios de falha e domínios de atualização. Dessa forma, [as VMs implementadas em conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) estão fisicamente isoladas umas das outras em racks de servidor separadas para permitir para resiliência de falha, conforme mostrado no diagrama seguinte:
-
-  ![Disponibilidade elevada de pilha do Azure](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Conjuntos de disponibilidade no Azure Stack
 Enquanto a infraestrutura do Azure Stack já está a ser resiliente a falhas, a tecnologia subjacente (clustering de ativação pós-falha) ainda incorre num período de indisponibilidade para as VMs num servidor físico afetado se houver uma falha de hardware. O Azure Stack oferece suporte a ter um conjunto de disponibilidade com um máximo de três domínios de falha para ser consistente com o Azure.
 
 - **Domínios de falha**. Serão fisicamente isoladas umas das outras VMs colocadas num conjunto de disponibilidade ao propagá-los de forma mais uniforme possível através de vários domínios de falha (nós do Azure Stack). Se houver uma falha de hardware, VMs a partir do domínio de falha com falha irão ser reiniciadas em outros domínios de falha, mas, se possível, mantidas em domínios de falha de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware estiver online novamente, as VMs vão ser reequilibradas para manter uma elevada disponibilidade. 
  
 - **Domínios de atualização**. Domínios de atualização são outro conceito do Azure que fornece elevada disponibilidade em conjuntos de disponibilidade. Um domínio de atualização é um grupo lógico de hardware subjacente que pode entrar em manutenção ao mesmo tempo. VMs localizadas no mesmo domínio de atualização serão reiniciadas em conjunto durante a manutenção planeada. Como os inquilinos cria VMs num conjunto de disponibilidade, a plataforma Azure distribui automaticamente as VMs por estes domínios de atualização. No Azure Stack, as VMs estão no ar migrados entre os outros anfitriões no cluster online antes do anfitrião subjacente é atualizado. Uma vez que não existe nenhum tempo de inatividade de inquilino durante uma atualização de anfitrião, a funcionalidade do domínio de atualização no Azure Stack só existe para compatibilidade com o modelo com o Azure. 
-
-### <a name="upgrade-scenarios"></a>Cenários de atualização 
-VMs nos conjuntos de disponibilidade que foram criados antes da versão do Azure Stack 1802 recebem um número predefinido de domínios de falha e de atualização (1 e 1, respectivamente). Para alcançar a elevada disponibilidade para VMs nestes conjuntos de disponibilidade já existente, tem primeiro de eliminar as VMs existentes e, em seguida, implementá-los novamente para uma novo conjunto de disponibilidade com as contagens de domínio de falha e de atualização corretas conforme descrito em [alteração a conjunto de disponibilidade para uma VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-Para conjuntos de dimensionamento de máquina virtual, um conjunto de disponibilidade é criado internamente com um padrão de falhas domínio e de atualização de contagem de domínios (3 e 5, respectivamente). Conta do quaisquer conjuntos de dimensionamento de máquina virtual criados antes da atualização 1802 será colocada num conjunto de disponibilidade com o domínio de falha e de atualização predefinido (1 e 1, respectivamente). Para atualizar estas instâncias do conjunto de dimensionamento máquina virtual para alcançar a propagação mais recente, aumente horizontalmente os conjuntos de dimensionamento de máquina virtual, o número de instâncias que estavam presentes antes da atualização 1802 e, em seguida, eliminar as instâncias mais antigas dos conjuntos de dimensionamento de máquina virtual. 
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções
 Pode utilizar o RBAC para conceder acesso de sistema para os utilizadores autorizados, grupos e serviços ao atribuir-lhes funções numa subscrição, grupo de recursos ou ao nível de recursos individuais. Cada função define o nível de acesso que um utilizador, grupo ou serviço tem sobre recursos do Microsoft Azure Stack.

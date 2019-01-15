@@ -1,23 +1,23 @@
 ---
 title: Fluxos de trabalho de moderação - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Utilize fluxos de trabalho com moderação de conteúdos.
+description: Utilize fluxos de trabalho com operações de tarefa a API de revisão para automatizar as revisões de humanos em loop com base em suas diretivas de conteúdo e os limiares.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226879"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262664"
 ---
-# <a name="moderation-workflows"></a>Fluxos de trabalho de moderação
+# <a name="automate-moderation-reviews-with-workflows"></a>Automatizar as revisões de moderação com fluxos de trabalho
 
 O Content Moderator inclui as ferramentas e APIs para gerir os fluxos de trabalho. Utilizar fluxos de trabalho com o [operações da API tarefa rever](review-api.md) para automatizar a criação de revisão humana em loop com base em suas diretivas de conteúdo e os limiares.
 
@@ -41,7 +41,7 @@ Navegue para o [reveja os fluxos de trabalho da ferramenta](Review-Tool-User-Gui
 
 ### <a name="open-the-default-workflow"></a>Abrir o fluxo de trabalho predefinida
 
-Utilize o **editar** opção para abrir o fluxo de trabalho a página de edição, conforme mostrado na imagem seguinte: ![o fluxo de trabalho do Content Moderator padrão](images/default-workflow-listed.PNG)
+Utilize o **editar** autónoma para abrir o fluxo de trabalho a página de edição, conforme mostrado na imagem seguinte: ![Fluxo de trabalho de padrão de moderador de conteúdo](images/default-workflow-listed.PNG)
 
 ### <a name="the-designer-view"></a>A exibição de design
 
@@ -218,9 +218,9 @@ O [operações de fluxo de trabalho](https://westus.dev.cognitive.microsoft.com/
 
 O **fluxo de trabalho-Get** operação aceita as seguintes entradas:
 
-- **equipe**: O ID da equipa que criou quando configurou seu [rever a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
+- **team**: O ID da equipa que criou quando configurou seu [reveja a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: O nome do seu fluxo de trabalho. Utilize `default` para começar.
-- **OCP-Apim-Subscription-Key**: localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
+- **Ocp-Apim-Subscription-Key**: Localizado no **definições** separador. Para obter mais informações, veja [Descrição geral](overview.md).
 
 Se a operação for bem-sucedida, o **estado de resposta** é `200 OK` e o **conteúdo da resposta** caixa apresenta a definição de fluxo de trabalho no formato JSON.
 Para saber mais, leia os [guia de introdução de consola de API de fluxo de trabalho](try-review-api-job.md).
@@ -231,9 +231,9 @@ A operação de criação e atualização permite a criação de fluxo de trabal
 
 O **fluxo de trabalho a criação ou atualização** operação aceita as seguintes entradas:
 
-- **equipe**: O ID da equipa que criou quando configurou seu [rever a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
+- **team**: O ID da equipa que criou quando configurou seu [reveja a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: O nome do seu fluxo de trabalho. Utilize `default` para começar.
-- **OCP-Apim-Subscription-Key**: localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
+- **Ocp-Apim-Subscription-Key**: Localizado no **definições** separador. Para obter mais informações, veja [Descrição geral](overview.md).
 
 Se a operação for bem-sucedida, o **estado de resposta** é `200 OK` e o **conteúdo da resposta** caixa apresenta `true`. Para saber mais, [faça o test drive do `Create` operação](try-review-api-job.md).
 

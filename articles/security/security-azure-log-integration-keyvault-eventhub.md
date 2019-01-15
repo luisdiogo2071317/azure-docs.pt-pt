@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063918"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303892"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos
 
 >[!IMPORTANT]
-> A funcionalidade de integração de registo do Azure vai ser preterida até 06/01/2019. Downloads de AzLog serão desativados por 27 de Junho de 2018. Para obter orientações sobre o que fazer a postagem de revisão de encaminhamento de movimentação [monitor do Azure de utilização para integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> A funcionalidade de integração de registo do Azure vai ser preterida até 06/01/2019. Downloads de AzLog foram desativados a 27 de Junho de 2018. Para obter orientações sobre o que fazer a postagem de revisão de encaminhamento de movimentação [monitor do Azure de utilização para integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Pode utilizar o Azure Log Integration para obter eventos registrados e disponibilizá-los ao seu sistema de gestão (SIEM) de informações e eventos da segurança. Este tutorial mostra um exemplo de como a integração de registos do Azure pode ser usada para processar registos que são adquiridos através do Event Hubs do Azure.
 
@@ -56,21 +56,21 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
  
 1. Um sistema com acesso à internet que cumpra os requisitos para instalar o Azure Log Integration. O sistema pode estar num serviço em nuvem ou alojadas no local.
 
-1. [Integração de registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324) instalado. Para instalá-lo:
+1. Integração de registos do Azure instalado. Para instalá-lo:
 
    a. Utilize o ambiente de trabalho remoto para ligar ao sistema mencionado no passo 2.   
-   b. Copie o instalador de integração de registos do Azure para o sistema. Pode [transferir os ficheiros de instalação](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Iniciar o instalador e aceite os termos de licença de Software da Microsoft.   
-   d. Se for fornecer informações de telemetria, deixe a caixa de verificação selecionada. Se preferir não enviar informações de utilização à Microsoft, desmarque a caixa de verificação.
-   
+   b. Copie o instalador de integração de registos do Azure para o sistema. c. Iniciar o instalador e aceite os termos de licença de Software da Microsoft.
+
+1. Se for fornecer informações de telemetria, deixe a caixa de verificação selecionada. Se preferir não enviar informações de utilização à Microsoft, desmarque a caixa de verificação.
+
    Para obter mais informações sobre a integração de registos do Azure e como instalá-lo, consulte [integração de registos do Azure com o registo de diagnósticos do Azure e o reencaminhamento de eventos do Windows](security-azure-log-integration-get-started.md).
 
 1. A versão mais recente do PowerShell.
- 
+
    Se tiver instalado o Windows Server 2016, então tem, pelo menos, PowerShell 5.0. Se estiver a utilizar qualquer outra versão do Windows Server, poderá ter uma versão anterior do PowerShell instalado. Pode verificar a versão introduzindo ```get-host``` numa janela do PowerShell. Se não tiver PowerShell 5.0 instalado, pode [baixá-lo](https://www.microsoft.com/download/details.aspx?id=50395).
 
    Depois de ter, pelo menos, PowerShell 5.0, pode avançar para instalar a versão mais recente:
-   
+
    a. Numa janela do PowerShell, introduza o ```Install-Module Azure``` comando. Conclua os passos de instalação.    
    b. Introduza o ```Install-Module AzureRM``` comando. Conclua os passos de instalação.
 

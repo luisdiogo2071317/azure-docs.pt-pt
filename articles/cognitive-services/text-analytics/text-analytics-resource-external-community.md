@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605254"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302263"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo externo e da Comunidade para o serviço cognitivos de análise de texto
 
@@ -25,15 +25,15 @@ ms.locfileid: "45605254"
 
 + [Anúncio original da API de análise do texto (blogue do Azure)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [Utilizar texto chave frase cognitivos serviços API de análise do PowerShell (blogue do MSDN)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ [Utilizar texto chave frase cognitivos serviços API de análise do PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [Dica rápida de R: API de análise de texto dos serviços cognitivos Microsoft (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
++ [Dica R rápida: Análise de texto de serviços cognitivos da Microsoft API (Bloggers de R)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [Análise de sentimentos na aplicação lógica com dados do SQL Server (blogue do TechNet)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
 + [Análise de sentimentos com o Dynamics 365 CRM Online (blogue do MSDN)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
-+ Blogue do Power BI: extração de chave, expressões de mensagens do Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Blogue do Power BI: Extração de expressões-chave de mensagens do Facebook: [Parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
 ## <a name="videos"></a>Vídeos
 
@@ -49,5 +49,5 @@ Está à procura de informações sobre um recurso ou casos de utilização que 
 
 ## <a name="see-also"></a>Consulte também
 
- [Stack Overflow: API de análise de texto do Azure](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [Stack Overflow: Os serviços cognitivos do Azure](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: API de análise de texto do Azure](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Serviços cognitivos do Azure](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

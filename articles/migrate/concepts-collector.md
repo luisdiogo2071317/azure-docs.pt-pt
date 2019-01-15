@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104216"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262613"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -112,7 +112,7 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 **URL** | **Detalhes**  | **Verificação de pré-requisitos**
 --- | --- | ---
 *.portal.azure.com | Aplicável para o Azure Global. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
-*. portal.azure.us | Aplicável apenas para o Azure Government. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
+*.portal.azure.us | Aplicável apenas para o Azure Government. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar manualmente o módulo.
 
 
@@ -126,12 +126,9 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 
 O Recoletor liga-se ao vCenter Server e consultas de metadados da VM e contadores de desempenho. Eis o que precisa para a ligação.
 
-- Apenas vCenter Server 5.5, 6.0 e 6.5 são suportadas as versões.
+- Apenas vCenter Server 5.5, 6.0, 6.5 e 6.7 são suportadas as versões.
 - Precisa de uma conta só de leitura com as permissões resumidas abaixo para a deteção. Pode ser acessados apenas acessíveis com a conta de datacenters para a deteção.
 - Por predefinição, vai ligar ao vCenter Server com um endereço IP ou FQDN. Se o vCenter Server escuta numa porta diferente, se conectar a ela utilizando a forma *IPAddress:Port_Number* ou *FQDN:Port_Number*.
-- Para recolher dados de desempenho de rede e armazenamento, as definições de estatísticas do vCenter Server pode ser definido como nível três.
-- Se o nível é menor do que funciona a deteção de três, mas não serão recolhidos os dados de desempenho. Alguns contadores podem ser recolhidas, mas outros será definido como zero.
-- Se não são recolhidos dados de desempenho de rede e armazenamento, recomendações de tamanho de avaliação são dados de desempenho com base para a CPU e memória e nos dados de configuração para os adaptadores de rede e disco.
 - O Recoletor deve ter uma rede linha Visual para o servidor vCenter.
 
 #### <a name="account-permissions"></a>Permissões de conta
@@ -186,7 +183,7 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novament
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (exemplo de utilização c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
+    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Copie o ficheiro zip para a máquina de virtual do recoletor de Azure Migrate (aplicação recoletora).
 4. Com o botão direito no ficheiro zip e selecione extrair tudo.
 5. Com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
@@ -224,12 +221,12 @@ A aplicação recoletora Deteta os seguintes metadados de configuração para ca
 **Contador** |  **Impacto na avaliação**
 --- | ---
 cpu.usage.average | Tamanho VM recomendados e os custos  
-Mem.Usage.Average | Tamanho VM recomendados e os custos  
+mem.usage.average | Tamanho VM recomendados e os custos  
 virtualDisk.read.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.write.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberReadAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberWriteAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-NET.Received.Average | Calcula o tamanho da VM                          
+net.received.average | Calcula o tamanho da VM                          
 net.transmitted.average | Calcula o tamanho da VM     
 
 ## <a name="next-steps"></a>Passos Seguintes

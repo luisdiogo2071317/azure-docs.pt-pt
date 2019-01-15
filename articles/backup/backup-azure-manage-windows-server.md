@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871344"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261507"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -67,7 +67,7 @@ Clique em mosaicos (exceto o armazenamento de cópia de segurança) para abrir o
 
 ![Menu de alertas de cópia de segurança filtrada para os alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-O menu de alertas de cópia de segurança, na imagem acima, é filtrado por: estado está ativa, é de gravidade crítica e tempo é de 24 horas anteriores.
+O menu de alertas de cópia de segurança, na imagem acima, é filtrado por: Estado está ativa, é de gravidade crítica e tempo é de 24 horas anteriores.
 
 ## <a name="manage-backup-alerts"></a>Gerir alertas de cópia de segurança
 
@@ -85,8 +85,8 @@ A lista de alertas de cópia de segurança apresenta as informações selecionad
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítica | Receber críticas de alertas quando: tarefas de cópia de segurança, tarefas de recuperação a falharem, e quando parar a proteção num servidor, mas manter os dados.|
-| Aviso | Recebe o aviso de alertas quando: tarefas de cópia de segurança concluída com avisos, por exemplo quando menos de 100 ficheiros não são uma cópia de segurança devido a problemas de Corrupção, ou quando maior que 1 000 000 ficheiros são guardados com êxito). |
+| Crítica | Receber críticas de alertas quando: As tarefas de cópia de segurança falhar, as tarefas de recuperação a falharem, e quando parar a proteção num servidor, mas manter os dados.|
+| Aviso | Recebe o aviso de alertas quando: Tarefas de cópia de segurança concluída com avisos, por exemplo quando menos de 100 ficheiros não são uma cópia de segurança devido a problemas de Corrupção, ou quando maior que 1 000 000 ficheiros são guardados com êxito). |
 | Informativo | Atualmente, não existem alertas informativos estão em utilização. |
 
 ### <a name="viewing-alert-details"></a>Visualizar detalhes do alerta
@@ -251,7 +251,7 @@ O dia e hora quando termina a consulta.
 
 Uso **exportar tarefas** para criar uma folha de cálculo que contém todas as informações de menu de tarefas. A folha de cálculo tem uma folha de cálculo que contém um resumo de todas as tarefas e folhas individuais para cada tarefa.
 
-Para exportar as informações de tarefas para uma folha de cálculo, clique em **exportar tarefas**. O serviço cria um speadsheet usando o nome do cofre e data, mas pode alterar o nome.
+Para exportar as informações de tarefas para uma folha de cálculo, clique em **exportar tarefas**. O serviço cria uma folha de cálculo com o nome do cofre e data, mas pode alterar o nome.
 
 ## <a name="monitor-backup-usage"></a>Monitorizar a utilização de cópia de segurança
 
@@ -281,9 +281,9 @@ R3. Sim. Nas seguintes situações, não são enviadas notificações.
 
 ## <a name="troubleshooting-monitoring-issues"></a>Resolução de problemas de monitorização
 
-**Problema:** tarefas de e/ou alertas a partir do agente de cópia de segurança do Azure não aparecem no portal.
+**Problema:** Tarefas de e/ou alertas a partir do agente de cópia de segurança do Azure não aparecem no portal.
 
-**Passos de resolução de problemas:** o processo, ```OBRecoveryServicesManagementAgent```, envia os dados de tarefa e alerta para o serviço de cópia de segurança do Azure. Ocasionalmente, este processo pode ficar bloqueado ou encerramento.
+**Passos de resolução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia os dados de tarefa e alerta para o serviço de cópia de segurança do Azure. Ocasionalmente, este processo pode ficar bloqueado ou encerramento.
 
 1. Para verificar o processo não está em execução, abra **Gerenciador de tarefas**e verificar ```OBRecoveryServicesManagementAgent``` está em execução.
 

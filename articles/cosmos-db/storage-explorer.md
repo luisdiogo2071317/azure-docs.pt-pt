@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044625"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259653"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gerir recursos do Azure Cosmos DB com o Explorador de armazenamento do Azure
 
@@ -266,7 +266,7 @@ Se não conseguir remover uma conta ou se a ligação de reautenticação não f
   - .extaccounts
 - Se quiser remover os recursos de Armazenamento SAS anexados, elimine:
   - a pasta %AppData%/StorageExplorer do Windows
-  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer para Mac
+  - /Users/ < your_name >/biblioteca/aplicação suporte/StorageExplorer para Mac
   - ~/.config/StorageExplorer para Linux
   - **Terá de reintroduzir todas as suas credenciais** se eliminar estes ficheiros
 

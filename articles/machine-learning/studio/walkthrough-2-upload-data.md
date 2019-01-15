@@ -1,26 +1,8 @@
 ---
-title: 'Passo 2: Carregar dados para uma experimentação do Machine Learning Studio - Azure | Documentos da Microsoft'
-description: 'Passo 2 da desenvolver uma solução preditiva passo a passo: Carregar dados públicos armazenados no Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261455"
+title: "Passo 2: Carregar dados para uma experimentação do Machine Learning Studio' titleSuffix: Descrição do Azure Machine Learning Studio: "Passo 2 da desenvolver uma solução preditiva passo a passo: Carregamento armazenados dados públicos no Azure Machine Learning Studio. "
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Passo 2 das instruções: Carregar dados existentes para uma experimentação do Azure Machine Learning Studio
 Este é o segundo passo de passo a passo, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md)

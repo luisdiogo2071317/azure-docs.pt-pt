@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 5a97a4e35f4d2a5f8ec2884c93329e180172f9e1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185227"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261269"
 ---
 # <a name="create-custom-fields-in-log-analytics"></a>Criar campos personalizados no Log Analytics
 
 > [!NOTE]
-> Este artigo descreve como analisar dados de texto no Log Analytics à medida que é recolhido. Há vantagens em texto datain uma consulta de análise depois de serem recolhido conforme descrito em [analisar dados de texto no Log Analytics](../log-query/parse-text.md).
+> Este artigo descreve como analisar dados de texto no Log Analytics à medida que é recolhido. Há vantagens em dados de texto numa consulta de análise depois de serem recolhido conforme descrito em [analisar dados de texto no Log Analytics](../log-query/parse-text.md).
 
 O **campos personalizados** recurso do Log Analytics permite-lhe expandir registos existentes no Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
 

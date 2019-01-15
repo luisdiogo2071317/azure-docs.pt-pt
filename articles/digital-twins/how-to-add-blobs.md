@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 8b17d1ce4ae0b9c37f6ce8d64ecebd25c5c70db3
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231194"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263072"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
 
@@ -24,7 +24,7 @@ Duplos Digital do Azure suporta anexar blobs para dispositivos, espaços e os ut
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
-## <a name="uploading-blobs-an-overview"></a>Carregamento de blobs: uma descrição geral
+## <a name="uploading-blobs-overview"></a>Descrição geral de blobs a carregar
 
 Pode usar várias partes pedidos para carregar blobs para os pontos finais e suas respectivas funcionalidades.
 
@@ -38,13 +38,94 @@ Os esquemas JSON quatro principais são:
 
 ![Esquemas JSON][1]
 
+Metadados do blob JSON está em conformidade com o modelo seguinte:
+
+```JSON
+{
+    "parentId": "00000000-0000-0000-0000-000000000000",
+    "name": "My First Blob",
+    "type": "Map",
+    "subtype": "GenericMap",
+    "description": "A well chosen description",
+    "sharing": "None"
+  }
+```
+
+| Atributo | Tipo | Descrição |
+| --- | --- | --- |
+| **parentId** | Cadeia | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
+| **name** |Cadeia | Um nome amigável a humanos para o blob |
+| **tipo** | Cadeia | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
+| **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
+| **subtype** | Cadeia | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
+| **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
+| **description** | Cadeia | Descrição personalizada do blob |
+| **sharing** | Cadeia | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
+
+Metadados do blob é sempre fornecido como o primeiro segmento com **Content-Type** `application/json` ou como um `.json` ficheiro. Os dados de ficheiro são fornecidos no segundo segmento e podem ser de qualquer tipo MIME suportado.
+
 A documentação de Swagger descreve esses esquemas de modelo detalhes.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Saiba como utilizar a documentação de referência, lendo [como utilizar o Swagger](./how-to-use-swagger.md).
 
-### <a name="examples"></a>Exemplos
+<div id="blobModel"></div>
+
+### <a name="blobs-response-data"></a>Dados de resposta de BLOBs
+
+Blobs individualmente retornados está em conformidade com o esquema JSON do seguinte:
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "type": "string",
+  "subtype": "string",
+  "typeId": 0,
+  "subtypeId": 0,
+  "sharing": "None",
+  "description": "string",
+  "contentInfos": [
+    {
+      "type": "string",
+      "sizeBytes": 0,
+      "mD5": "string",
+      "version": "string",
+      "lastModifiedUtc": "2019-01-12T00:58:08.689Z",
+      "metadata": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      }
+    }
+  ],
+  "fullName": "string",
+  "spacePaths": [
+    "string"
+  ]
+}
+```
+
+| Atributo | Tipo | Descrição |
+| --- | --- | --- |
+| **id** | Cadeia | O identificador exclusivo para o blob |
+| **name** |Cadeia | Um nome amigável a humanos para o blob |
+| **parentId** | Cadeia | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
+| **tipo** | Cadeia | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
+| **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
+| **subtype** | Cadeia | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
+| **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
+| **sharing** | Cadeia | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
+| **description** | Cadeia | Descrição personalizada do blob |
+| **contentInfos** | Array | Especifica informações de metadados não estruturados, incluindo a versão |
+| **fullName** | Cadeia | O nome completo do blob |
+| **spacePaths** | Cadeia | O caminho de espaço |
+
+Metadados do blob é sempre fornecido como o primeiro segmento com **Content-Type** `application/json` ou como um `.json` ficheiro. Os dados de ficheiro são fornecidos no segundo segmento e podem ser de qualquer tipo MIME suportado.
+
+### <a name="blob-multipart-request-examples"></a>Exemplos de pedido com várias partes de blob
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -92,6 +173,7 @@ var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), E
 metadataContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 multipartContent.Add(metadataContent, "metadata");
 
+//MY_BLOB.txt is the String representation of your text file
 var fileContents = new StringContent("MY_BLOB.txt");
 fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
@@ -99,15 +181,27 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-Nos dois exemplos:
+Por último, [cURL](https://curl.haxx.se/) os utilizadores podem executar pedidos de formulário com várias partes da mesma forma:
 
-1. Certifique-se de que os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Certifique-se de que o corpo é com várias partes:
+![Blobs de dispositivo][5]
 
-   - A primeira parte contém os metadados de blob necessários.
-   - A segunda parte contém o arquivo de texto.
+```bash
+curl
+ -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
+ -H "Authorization: Bearer YOUR_TOKEN"
+ -H "Accept: application/json"
+ -H "Content-Type: multipart/form-data"
+ -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "text=PATH_TO_FILE;type=text/plain"
+```
 
-1. Certifique-se de que o arquivo de texto é fornecido como `Content-Type: text/plain`.
+| Valor | Substituir |
+| --- | --- |
+| YOUR_TOKEN | O token de OAuth 2.0 válido |
+| YOUR_SPACE_ID | O ID do espaço para associar o blob com |
+| PATH_TO_FILE | O caminho para o ficheiro de texto |
+
+Uma publicação com êxito retorna a ID do novo blob (realçado em vermelho anteriormente).
 
 ## <a name="api-endpoints"></a>Pontos finais da API
 
@@ -129,15 +223,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | O ID de blob pretendido |
 
-Devolvem de pedidos com êxito uma **DeviceBlob** objeto JSON na resposta. **DeviceBlob** objetos estão em conformidade com o esquema JSON do seguinte:
-
-| Atributo | Tipo | Descrição | Exemplos |
-| --- | --- | --- | --- |
-| **DeviceBlobType** | Cadeia | Uma categoria de BLOBs que pode ser anexada a um dispositivo | `Model` e `Specification` |
-| **DeviceBlobSubtype** | Cadeia | Uma subcategoria de blob que seja mais específica que **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, e `FunctionalSpecification` |
-
-> [!TIP]
-> Utilize a tabela anterior para lidar com dados do pedido devolvido com êxito.
+Pedidos com êxito de devolvem um objeto JSON como [descrito anteriormente](#blobModel).
 
 ### <a name="spaces"></a>Espaços
 
@@ -155,14 +241,9 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | O ID de blob pretendido |
 
-Um pedido de PATCH para o mesmo ponto final descrições de metadados de atualizações e cria novas versões do blob. O pedido HTTP é feito através do método PATCH, juntamente com todos os metadados necessários e dados de formulário com várias partes.
+Pedidos com êxito de devolvem um objeto JSON como [descrito anteriormente](#blobModel).
 
-Operações bem-sucedidas retornam uma **SpaceBlob** objeto que está em conformidade com o esquema abaixo. Pode usá-lo para consumir dados retornados.
-
-| Atributo | Tipo | Descrição | Exemplos |
-| --- | --- | --- | --- |
-| **SpaceBlobType** | Cadeia | Uma categoria de BLOBs que pode ser anexada a um espaço | `Map` e `Image` |
-| **SpaceBlobSubtype** | Cadeia | Uma subcategoria de blob que seja mais específica que **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, e `WayfindingMap` |
+Um pedido de PATCH para o mesmo ponto final descrições de metadados de atualizações e cria as versões do blob. O pedido HTTP é feito através do método PATCH, juntamente com todos os metadados necessários e dados de formulário com várias partes.
 
 ### <a name="users"></a>Utilizadores
 
@@ -180,16 +261,11 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | O ID de blob pretendido |
 
-O JSON devolvido (**UserBlob** objetos) está em conformidade com os seguintes modelos JSON:
-
-| Atributo | Tipo | Descrição | Exemplos |
-| --- | --- | --- | --- |
-| **UserBlobType** | Cadeia | Uma categoria de BLOBs que pode ser anexada a um utilizador | `Image` e `Video` |
-| **UserBlobSubtype** |  Cadeia | Uma subcategoria de blob que seja mais específica que **UserBlobType** | `ProfessionalImage`, `VacationImage`, e `CommercialVideo` |
+Pedidos com êxito de devolvem um objeto JSON como [descrito anteriormente](#blobModel).
 
 ## <a name="common-errors"></a>Erros comuns
 
-Um erro comum é para não incluir as informações de cabeçalho correto:
+Um erro comum envolve não fornecer as informações de cabeçalho correto:
 
 ```JSON
 {
@@ -199,6 +275,13 @@ Um erro comum é para não incluir as informações de cabeçalho correto:
     }
 }
 ```
+
+Para resolver este erro, verifique se o pedido geral tem apropriadas **Content-Type** cabeçalho:
+
+* `multipart/mixed`
+* `multipart/form-data`
+
+Além disso, certifique-se de que cada segmento de várias partes tem um correspondente **Content-Type** conforme necessário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -211,3 +294,4 @@ Um erro comum é para não incluir as informações de cabeçalho correto:
 [2]: media/how-to-add-blobs/blobs-device-api.PNG
 [3]: media/how-to-add-blobs/blobs-space-api.PNG
 [4]: media/how-to-add-blobs/blobs-users-api.PNG
+[5]: media/how-to-add-blobs/curl.PNG

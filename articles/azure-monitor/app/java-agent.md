@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228814"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262137"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
 
@@ -34,7 +34,7 @@ Se tiver [instrumentado a sua aplicação web de Java com o Application Insights
 Para utilizar o agente Java, instalá-lo no seu servidor. As aplicações web tem de ser equipadas com o [SDK de Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador a executar o seu servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para baixar o verson mesmo do agente de Java como pacotes de núcleo e web de Java SDK do Application Insights.
+1. No computador a executar o seu servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para baixar a mesma versão do agente Java como pacotes de núcleo e web de Java SDK do Application Insights.
 2. Edite o script de inicialização do servidor de aplicação e adicione o JVM seguinte:
    
     `javaagent:`*caminho completo para o ficheiro JAR do agente*

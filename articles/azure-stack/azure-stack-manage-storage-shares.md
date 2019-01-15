@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249902"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304406"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack 
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 As informações neste artigo ajudam o monitor de operador de cloud do Azure Stack e gerir a capacidade de armazenamento da sua implementação do Azure Stack. A infraestrutura de armazenamento do Azure Stack aloca um subconjunto da capacidade de armazenamento total da implementação do Azure Stack, a ser utilizado para **serviços de armazenamento**. Os serviços de armazenamento armazenam dados de um inquilino em partilhas em volumes que correspondem a nós da implementação.
 
@@ -79,7 +79,7 @@ Utilize o PowerShell ou o portal de administração para monitorizar as partilha
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 Como um operador de cloud, pode monitorizar a capacidade de armazenamento de uma partilha com o PowerShell **Get-AzsStorageShare** cmdlet. O cmdlet Get-AzsStorageShare devolve o espaço total, alocado e livre em bytes em cada uma das partilhas.   
-![Exemplo: Espaço livre para partilhas de retorno](media/azure-stack-manage-storage-shares/free-space.png)
+![Exemplo: Devolver o espaço livre para partilhas](media/azure-stack-manage-storage-shares/free-space.png)
 
 - **Capacidade total** é o espaço total em bytes, que estão disponíveis na partilha. Este espaço é utilizado para dados e metadados que é mantido pelos serviços de armazenamento.
 - **Utilizado capacidade** é a quantidade de dados em bytes, que é utilizado pelas todas as extensões dos arquivos que armazenam os dados de inquilino e metadados associados.
@@ -101,12 +101,12 @@ Quando utiliza o portal de administração, receber alertas sobre partilhas que 
 > [!IMPORTANT]
 > Como um operador de cloud, mantenha partilhas cheguem a utilização completa. Quando uma partilha é 100% utilizados, o armazenamento já não serviço funções para que a partilha. Para recuperar o espaço livre e restaurar as operações num compartilhamento que é 100% utilizadas, tem de contactar o suporte da Microsoft.
 
-**Aviso**: quando uma partilha de ficheiros é mais de 80% utilizados, receberá um *aviso* alerta no portal de administração: ![exemplo: alerta de aviso](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Aviso**: Quando uma partilha de ficheiros é mais de 80% utilizados, receberá um *aviso* alerta no portal de administração: ![Exemplo: Alerta de aviso](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Crítico**: quando uma partilha de ficheiros é mais de 90% utilizados, receberá um *críticas* alerta no portal de administração: ![exemplo: alerta crítico](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Crítico**: Quando uma partilha de ficheiros é mais de 90% utilizados, receberá um *crítico* alerta no portal de administração: ![Exemplo: Alerta crítico](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Ver detalhes**: no portal de administração que pode abrir os detalhes de um alerta para ver as opções de atenuação: ![exemplo: ver detalhes do alerta](media/azure-stack-manage-storage-shares/alert-details.png)
+**Ver detalhes**: No portal de administração que pode abrir os detalhes de um alerta para ver as opções de atenuação: ![Exemplo: Ver detalhes do alerta](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Gerir o espaço disponível
@@ -119,7 +119,7 @@ Pode recuperar a capacidade utilizada por contas de inquilino foram eliminadas. 
 
 Para obter mais informações, consulte [recuperar a capacidade](azure-stack-manage-storage-accounts.md#reclaim) em gerir recursos de armazenamento.
 
-### <a name="migrate-a-container-between-volumes"></a>Migrar de um contentor entre volumes
+### <a name="migrate-a-container-between-volumes"></a>Migrar contentores entre volumes
 *Esta opção só se aplica a implementações de vários nós.*
 
 Devido a padrões de utilização do inquilino, algumas partilhas de inquilino utilizam mais espaço que outras pessoas. O resultado pode ser uma partilha de que a execução lenta em espaço antes de outras partilhas que estão relativamente não utilizados.
@@ -188,7 +188,7 @@ Migração consolida todas as um blob de contentores na partilha de novo.
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Exemplo: Estado de migração](media/azure-stack-manage-storage-shares/migration-status1.png)
+  ![Exemplo: Estado da migração](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  Pode cancelar uma tarefa de migração em curso. Cancelar a migração em tarefas são processadas de forma assíncrona. Pode controlar o cancelamento utilizando $jobid:
 

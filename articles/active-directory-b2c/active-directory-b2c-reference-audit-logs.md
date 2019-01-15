@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117406"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302039"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Registos de auditoria do acesso ao Azure AD B2C
 
 O Azure Active Directory B2C (Azure AD B2C) emite os registos de auditoria que contém informações de atividade sobre os recursos de B2C, emitidos tokens e acesso de administrador. Este artigo fornece uma breve descrição geral das informações disponíveis por meio de registos de auditoria e instruções sobre como aceder a estes dados para o seu inquilino do Azure AD B2C.
 
 > [!IMPORTANT]
-> Registos de auditoria só são mantidos durante sete dias. Plano para transferir e armazenar os registos através de um dos métodos abaixo se necessitar de um período de retenção mais longo. 
+> Registos de auditoria só são mantidos durante sete dias. Plano para transferir e armazenar os registos através de um dos métodos abaixo se necessitar de um período de retenção mais longo.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Descrição geral das atividades disponíveis na categoria de B2C de registos de auditoria
 O **B2C** categoria nos registos de auditoria contém os seguintes tipos de atividades:
@@ -43,7 +43,7 @@ O exemplo abaixo mostra os dados capturados quando um utilizador inicia sessão 
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Aceder a registos de auditoria através do Portal do Azure
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Certifique-se de que está no diretório do B2C.
-2. Clique em **do Azure Active Directory** na barra de Favoritos à esquerda 
+2. Clique em **do Azure Active Directory** na barra de Favoritos à esquerda
     
     ![Registos de auditoria - botão AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ O exemplo abaixo mostra os dados capturados quando um utilizador inicia sessão 
 
     ![Registos de auditoria - categoria](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-Verá uma lista de atividades iniciadas durante os últimos sete dias. 
+Verá uma lista de atividades iniciadas durante os últimos sete dias.
 - Utilize o **tipo de recurso de atividade** lista pendente para filtrar pelos tipos de atividade descritos acima
 - Utilize o **intervalo de datas** lista pendente para filtrar o intervalo de datas das atividades mostradas
 - Se clicar numa linha específica na lista, uma caixa contextual no lado direito irá mostrar-lhe atributos adicionais associados a atividade
 - Clique em **transferir** para transferir as atividades como um ficheiro csv
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Aceder a registos de auditoria por meio da API de relatórios do Azure AD
-Registos de auditoria são publicados no mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acedidos através da [do Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Registos de auditoria são publicados no mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acedidos através da [do Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para autenticar com o Azure AD, API de relatórios tem primeiro de registar uma aplicação. Lembre-se de que siga os passos em [pré-requisitos para aceder a APIs de relatórios do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
@@ -82,7 +82,7 @@ O script seguinte fornece um exemplo de utilização do PowerShell para consulta
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

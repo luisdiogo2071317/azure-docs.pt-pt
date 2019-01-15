@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412793"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267050"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor a palavra-passe do Windows local offline para VM do Azure
 Pode redefinir a senha do Windows local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado do Azure está instalado. Esse método é a principal maneira para repor uma palavra-passe de uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não está a responder ou deixar de instalar depois de carregar uma imagem personalizada, pode repor manualmente uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe da conta local ao anexar o disco virtual de origem do SO a outra VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
 
 > [!WARNING]
-> Só utilize este processo como um último recurso. Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) primeiro.
+> Utilize este processo apenas como último recurso. Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) primeiro.
 > 
 > 
 
@@ -37,6 +37,19 @@ As principais etapas para a execução de uma palavra-passe local repor para uma
 * Desanexe disco de SO da VM da VM de resolução de problemas.
 * Utilize um modelo do Resource Manager para criar uma VM, com o disco virtual original.
 * Quando é inicializado a nova VM, os ficheiros de configuração que cria atualizar a palavra-passe do utilizador necessária.
+
+> [!NOTE]
+> Pode automatizar os processos seguintes:
+>
+> - Criar a VM de resolução de problemas
+> - Anexar o disco do SO
+> - Volte a criar a VM original
+> 
+> Para tal, utilize o [Scripts de recuperação de VM do Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Se optar por utilizar os Scripts de recuperação de VM do Azure, pode utilizar o seguinte processo na secção "Passos detalhados":
+> 1. Ignorar os passos 1 e 2 usando os scripts para anexar o disco do SO da VM afetada para uma VM de recuperação.
+> 2. Siga os passos 3 a 6 para aplicar as atenuações.
+> 3. Ignore os passos 7 a 9 usando os scripts para recriar a VM.
+> 4. Siga os passos 10 e 11.
 
 ## <a name="detailed-steps"></a>Passos detalhados
 
@@ -133,7 +146,7 @@ Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure Po
      ![Copie o URI do disco](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Crie uma VM a partir do disco de SO da VM de origem:
    
-   Usar [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
+   * Usar [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
    * Se pretende manter todas as definições anteriores para a VM, selecione *Editar modelo* para fornecer a sua VNet existente, a sub-rede, a placa de rede ou o IP público.
    * Na `OSDISKVHDURI` caixa de texto de parâmetro, colar o URI do VHD de origem de se obter no passo anterior:
      

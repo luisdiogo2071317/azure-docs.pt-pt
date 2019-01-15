@@ -1,27 +1,8 @@
 ---
-title: Peça uma data de pergunta pode responder - Azure Machine Learning Studio | Documentos da Microsoft
-description: Aprenda a formular uma pergunta de ciência de dados pequenos em ciência de dados para principiantes 3 vídeo. Inclui uma comparação das perguntas sobre classificação e regressão.
-keywords: problemas de ciência de dados, perguntas sobre a ciência de dados, formule perguntas, as perguntas de regressão, perguntas de classificação, pergunta sharp
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cjgronlund
-ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250983"
+title: Peça que uma data de pergunta pode responder titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda a formular uma pergunta de ciência de dados pequenos em ciência de dados para principiantes 3 vídeo. Inclui uma comparação das perguntas sobre classificação e regressão.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de iniciantes

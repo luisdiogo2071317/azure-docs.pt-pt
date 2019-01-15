@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c841fb8676cff8d15f54384aac84721bc8fb163b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728453"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267526"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -49,12 +49,12 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.aadiam/diagnosticsettings/DELETE | A eliminar uma definição de diagnóstico |
-> | Ação | Microsoft.aadiam/diagnosticsettings/Read | Ler uma definição de diagnóstico |
-> | Ação | Microsoft.aadiam/diagnosticsettings/Write | Escrever uma definição de diagnóstico |
-> | Ação | Microsoft.aadiam/diagnosticsettingscategories/Read | Ler um categorias de definição de diagnóstico |
+> | Ação | microsoft.aadiam/diagnosticsettings/delete | A eliminar uma definição de diagnóstico |
+> | Ação | microsoft.aadiam/diagnosticsettings/read | Ler uma definição de diagnóstico |
+> | Ação | microsoft.aadiam/diagnosticsettings/write | Escrever uma definição de diagnóstico |
+> | Ação | microsoft.aadiam/diagnosticsettingscategories/read | Ler um categorias de definição de diagnóstico |
 
-## <a name="microsoftaddons"></a>Addons
+## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -1010,9 +1010,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | Lê o estado da operação do recurso. |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/disks/read | Devolve o disco de conta de armazenamento. |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/disks/write | Adiciona um disco de conta de armazenamento. |
-> | Ação | Microsoft.ClassicStorage/storageAccounts/images/delete | Elimina uma imagem de conta de armazenamento fornecida. (Preterido. Utilize "Microsoft.ClassicStorage/storageAccounts/vmImages") |
+> | Ação | Microsoft.ClassicStorage/storageAccounts/images/delete | Elimina uma imagem de conta de armazenamento fornecida. (Preterido. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | Devolve o estado de operação de imagem de conta de armazenamento. |
-> | Ação | Microsoft.ClassicStorage/storageAccounts/images/read | Devolve a imagem de conta de armazenamento. (Preterido. Utilize "Microsoft.ClassicStorage/storageAccounts/vmImages") |
+> | Ação | Microsoft.ClassicStorage/storageAccounts/images/read | Devolve a imagem de conta de armazenamento. (Preterido. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso para as contas de armazenamento. |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | Lê o estado da operação do recurso. |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/osImages/delete | Elimina uma imagem do sistema operativo de uma conta de armazenamento. |
@@ -1677,7 +1677,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataLakeStore/operations/read | Obter operações disponíveis do DataLakeStore. |
 > | Ação | Microsoft.DataLakeStore/register/action | Registe a subscrição no DataLakeStore. |
 
-## <a name="microsoftdatamigration"></a>Microsoft. datamigration
+## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -2512,7 +2512,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Insights/Webtests/Read | A ler uma configuração de webtest |
 > | Ação | Microsoft.Insights/Webtests/Write | A escrever para uma configuração de webtest |
 
-## <a name="microsoftintune"></a>Microsoft
+## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -3512,20 +3512,20 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/write | Criar ou atualizar um HubVirtualNetworkConnection |
 > | Ação | Microsoft.Network/virtualHubs/read | Obter um Hub Virtual |
 > | Ação | Microsoft.Network/virtualHubs/write | Criar ou atualizar um Hub Virtual |
-> | Ação | Microsoft.Network/virtualnetworkgateways/Connections/Read | Obter VirtualNetworkGatewayConnection |
+> | Ação | microsoft.network/virtualnetworkgateways/connections/read | Obter VirtualNetworkGatewayConnection |
 > | Ação | Microsoft.Network/virtualNetworkGateways/delete | Elimina um virtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/generatevpnclientpackage/Action | Gerar o pacote do VpnClient para virtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/generatevpnprofile/Action | Gerar o pacote de VpnProfile para o VirtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getadvertisedroutes/Action | Obtém virtualNetworkGateway anunciados rotas |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getbgppeerstatus/Action | Obtém o estado de ponto a ponto do bgp virtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getlearnedroutes/Action | Obtém as rotas aprendida de virtualnetworkgateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getvpnclientconnectionhealth/Action | Obter por Estado de funcionamento de ligação de cliente Vpn para o VirtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Obter Vpnclient Ipsec parâmetros para o cliente de VirtualNetworkGateway P2S. |
-> | Ação | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Obtém o URL de um pacote de perfil do cliente de vpn gerado |
+> | Ação | microsoft.network/virtualnetworkgateways/generatevpnclientpackage/action | Gerar o pacote do VpnClient para virtualNetworkGateway |
+> | Ação | microsoft.network/virtualnetworkgateways/generatevpnprofile/action | Gerar o pacote de VpnProfile para o VirtualNetworkGateway |
+> | Ação | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Obtém virtualNetworkGateway anunciados rotas |
+> | Ação | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Obtém o estado de ponto a ponto do bgp virtualNetworkGateway |
+> | Ação | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Obtém as rotas aprendida de virtualnetworkgateway |
+> | Ação | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Obter por Estado de funcionamento de ligação de cliente Vpn para o VirtualNetworkGateway |
+> | Ação | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Obter Vpnclient Ipsec parâmetros para o cliente de VirtualNetworkGateway P2S. |
+> | Ação | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Obtém o URL de um pacote de perfil do cliente de vpn gerado |
 > | Ação | Microsoft.Network/virtualNetworkGateways/read | Obtém um VirtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/Reset/Action | Repõe um virtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualnetworkgateways/resetvpnclientsharedkey/Action | Repor a chave partilhada do Vpnclient para cliente VirtualNetworkGateway P2S. |
-> | Ação | Microsoft.Network/virtualnetworkgateways/setvpnclientipsecparameters/Action | Defina parâmetros para o cliente de VirtualNetworkGateway P2S de Vpnclient Ipsec. |
+> | Ação | microsoft.network/virtualnetworkgateways/reset/action | Repõe um virtualNetworkGateway |
+> | Ação | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Repor a chave partilhada do Vpnclient para cliente VirtualNetworkGateway P2S. |
+> | Ação | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Defina parâmetros para o cliente de VirtualNetworkGateway P2S de Vpnclient Ipsec. |
 > | Ação | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Suporte de listas de dispositivos Vpn |
 > | Ação | Microsoft.Network/virtualNetworkGateways/write | Cria ou atualiza um VirtualNetworkGateway |
 > | Ação | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtém o anfitrião de bastião refrences numa rede Virtual. |
@@ -3560,9 +3560,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/virtualWans/vpnSites/read | Obtém todos os Sites de VPN que fazem referência a uma Wan Virtual. |
 > | Ação | Microsoft.Network/virtualWans/write | Criar ou atualizar uma Wan Virtual |
 > | Ação | Microsoft.Network/vpnGateways/delete | Elimina um VpnGateway. |
-> | Ação | Microsoft.Network/vpngateways/listvpnconnectionshealth/Action | Obtém o estado de funcionamento de ligação para todos ou um subconjunto de ligações num VpnGateway |
+> | Ação | microsoft.network/vpngateways/listvpnconnectionshealth/action | Obtém o estado de funcionamento de ligação para todos ou um subconjunto de ligações num VpnGateway |
 > | Ação | Microsoft.Network/vpnGateways/read | Obtém um VpnGateway. |
-> | Ação | Microsoft.Network/vpngateways/Reset/Action | Repõe um VpnGateway |
+> | Ação | microsoft.network/vpngateways/reset/action | Repõe um VpnGateway |
 > | Ação | microsoft.network/vpnGateways/vpnConnections/delete | Elimina um VpnConnection. |
 > | Ação | microsoft.network/vpnGateways/vpnConnections/read | Obtém um VpnConnection. |
 > | Ação | microsoft.network/vpnGateways/vpnConnections/write | Coloca um VpnConnection. |
@@ -3669,7 +3669,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.OperationalInsights/linkTargets/read | Apresenta uma lista de contas existentes que não estão associadas uma subscrição do Azure. Para ligar esta subscrição do Azure a uma área de trabalho, utilize um id de cliente devolvido por esta operação na propriedade de id de cliente da operação Criar área de trabalho. |
-> | Ação | Microsoft.operationalinsights/Operations/Read | Apresenta uma lista de todas as operações de API de Rest de OperationalInsights disponíveis. |
+> | Ação | microsoft.operationalinsights/operations/read | Apresenta uma lista de todas as operações de API de Rest de OperationalInsights disponíveis. |
 > | Ação | Microsoft.OperationalInsights/register/action | Registe uma subscrição de um fornecedor de recursos. |
 > | Ação | Microsoft.OperationalInsights/workspaces/analytics/query/action | Usando o novo mecanismo de pesquisa. |
 > | Ação | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Obter esquema de pesquisa V2. |
@@ -3686,7 +3686,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Gera o certificado de registo para a área de trabalho. Este certificado é utilizado para ligar o Microsoft System Center Operation Manager à área de trabalho. |
 > | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Desativa um pacote de informações de uma área de trabalho específica. |
 > | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Permite que um pacote de informações de uma área de trabalho específica. |
-> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Apresenta uma lista de todos os "intelligence packs" que estão visíveis para uma determinado da área de trabalho e também indica se o pacote está ativado ou desativado para essa área de trabalho. |
+> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Apresenta uma lista de todos os "intelligence packs" que estão visíveis para uma determinada área de trabalho e também indica se o pacote está ativado ou desativado para essa área de trabalho. |
 > | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Eliminar serviços ligados na área de trabalho especificada. |
 > | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/read | Obter serviços ligados na área de trabalho especificada. |
 > | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/write | Criar/atualizar serviços ligados na área de trabalho especificada. |
@@ -3857,20 +3857,20 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Ler dados da tabela WUDOStatus |
 > | Ação | Microsoft.OperationalInsights/workspaces/read | Obtém uma área de trabalho existente |
 > | Ação | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | Regenera a chave partilhada de área de trabalho especificada |
-> | Ação | Microsoft.operationalinsights/Workspaces/Rules/Read | Obtenha todas as regras de alerta. |
+> | Ação | microsoft.operationalinsights/workspaces/rules/read | Obtenha todas as regras de alerta. |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Elimina uma consulta de pesquisa guardada |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtém uma consulta de pesquisa guardada |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Results/Read | Serão salvos de resultados de pesquisas. Preterido |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/DELETE | Elimine ações de pesquisa agendada. |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Read | Obter ações de pesquisa agendada. |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Write | Criar ou atualizar ações de pesquisa agendada. |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/DELETE | Elimine procuras agendadas. |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Read | Obtenha pesquisas agendadas. |
-> | Ação | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Write | Criar ou atualizar pesquisas agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/results/read | Serão salvos de resultados de pesquisas. Preterido |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Elimine ações de pesquisa agendada. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | Obter ações de pesquisa agendada. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | Criar ou atualizar ações de pesquisa agendada. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Elimine procuras agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | Obtenha pesquisas agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/write | Criar ou atualizar pesquisas agendadas. |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/write | Cria uma consulta de pesquisa guardada |
 > | Ação | Microsoft.OperationalInsights/workspaces/schema/read | Obtém o esquema de pesquisa para a área de trabalho.  Esquema de pesquisa inclui os campos expostos e os respetivos tipos. |
 > | Ação | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
-> | Ação | Microsoft.operationalinsights/Workspaces/Search/Read | Obtenha os resultados da pesquisa. Preterido. |
+> | Ação | microsoft.operationalinsights/workspaces/search/read | Obtenha os resultados da pesquisa. Preterido. |
 > | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Obtém as chaves partilhadas para a área de trabalho. Estas chaves são utilizadas para ligar os agentes de informações operacionais da Microsoft à área de trabalho. |
 > | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Obtém as chaves partilhadas para a área de trabalho. Estas chaves são utilizadas para ligar os agentes de informações operacionais da Microsoft à área de trabalho. |
 > | Ação | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Elimina uma configuração de armazenamento. Isso deixa de informações operacionais da Microsoft de ler dados da conta de armazenamento. |
@@ -3896,7 +3896,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.OperationsManagement/solutions/read | Obter a solução de OMS a sair |
 > | Ação | Microsoft.OperationsManagement/solutions/write | Criar nova solução OMS |
 
-## <a name="microsoftpolicyinsights"></a>Policyinsights
+## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -4510,8 +4510,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | Atualiza uma política de retenção de curto prazo para uma base de dados gerida |
 > | Ação | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | Etiquetas de sensibilidade da lista de um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/delete | Elimina uma base de dados gerida existente |
-> | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
-> | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para bases de dados de instância gerida |
 > | Ação | Microsoft.Sql/managedInstances/databases/read | Obtém existente a base de dados gerida |
 > | Ação | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Etiquetas de sensibilidade da lista de um determinado banco de dados |
@@ -4542,8 +4542,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/managedInstances/keys/write | Cria uma chave com os parâmetros especificados ou atualiza as propriedades ou etiquetas para a chave de instância gerida especificada. |
 > | Ação | Microsoft.Sql/managedInstances/metricDefinitions/read | Obter definições das métricas de instância gerida |
 > | Ação | Microsoft.Sql/managedInstances/metrics/read | Obter métricas de instância gerida |
-> | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
-> | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para instâncias geridas |
 > | Ação | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | Tipos de retorno da métricas que estão disponíveis para instâncias geridas |
 > | Ação | Microsoft.Sql/managedInstances/read | Devolve a lista de instâncias geridas ou obtém as propriedades para a instância gerida especificada. |
@@ -4626,8 +4626,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/servers/databases/operations/cancel/action | Cancela a base de dados do Azure SQL pendentes operação assíncrona que ainda não tenha terminada. |
 > | Ação | Microsoft.Sql/servers/databases/operations/read | Devolver a lista de operações executadas na base de dados |
 > | Ação | Microsoft.Sql/servers/databases/pause/action | Base de dados de armazém de dados SQL do Azure de colocar em pausa |
-> | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
-> | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para bases de dados |
 > | Ação | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/metricDefinitions/read | Tipos de retorno da métricas que estão disponíveis para bases de dados |
 > | Ação | Microsoft.Sql/servers/databases/queryStore/queryTexts/read | Devolve a coleção de textos de consulta que correspondem aos parâmetros especificados. |
@@ -4832,7 +4832,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | microsoft.storagesync/locations/checkNameAvailability/action | Verifica esse nome de serviço de sincronização de armazenamento é válido e não está em utilização. |
-> | Ação | Microsoft.storagesync/Locations/workflows/Operations/Read | Obtém o estado de uma operação assíncrona |
+> | Ação | microsoft.storagesync/locations/workflows/operations/read | Obtém o estado de uma operação assíncrona |
 > | Ação | microsoft.storagesync/storageSyncServices/delete | Eliminar quaisquer serviços de sincronização de armazenamento |
 > | Ação | microsoft.storagesync/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para os serviços de sincronização de armazenamento |
 > | Ação | microsoft.storagesync/storageSyncServices/read | Ler quaisquer serviços de sincronização de armazenamento |
@@ -5141,44 +5141,44 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.Web/apimanagementaccounts/apiacls/Read | Obtenha Apiacls de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/apiacls/DELETE | Elimine Apiacls de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/apiacls/Read | Obtenha Apiacls de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/apiacls/Write | Atualize Apiacls de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/connectionacls/Read | Obtenha Connectionacls de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/confirmconsentcode/Action | Certifique-se ligações de APIs de contas de gestão Api código consentimento. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/DELETE | Elimine Api Management contas APIs ligações Connectionacls. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/Read | Obter a Api Management contas APIs ligações Connectionacls. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/Write | Atualize a Api Management contas APIs ligações Connectionacls. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/DELETE | Elimine ligações de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/getconsentlinks/Action | Obtenha ligações de consentimento para ligações de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/listconnectionkeys/Action | Lista ligação chaves gestão contas APIs ligações de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/listsecrets/Action | Lista segredos gestão contas APIs ligações de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/Read | Obtenha ligações de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Connections/Write | Atualize ligações de APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/DELETE | Elimine as APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/DELETE | Gestão de Api de eliminar definições de localizados de APIs de contas. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/Read | Gestão de Api de obter definições de localizados de APIs de contas. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/Write | APIs de contas de gestão de Api de atualização localizada definições. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Read | Obtenha as APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/APIs/Write | Atualize as APIs de contas de gestão de Api. |
-> | Ação | Microsoft.Web/apimanagementaccounts/connectionacls/Read | Obtenha Connectionacls de contas de gestão de Api. |
-> | Ação | Microsoft.Web/availablestacks/Read | Obtenha pilhas disponíveis. |
+> | Ação | microsoft.web/apimanagementaccounts/apiacls/read | Obtenha Apiacls de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Elimine Apiacls de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/apiacls/read | Obtenha Apiacls de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/apiacls/write | Atualize Apiacls de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connectionacls/read | Obtenha Connectionacls de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/confirmconsentcode/action | Certifique-se ligações de APIs de contas de gestão Api código consentimento. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/delete | Elimine Api Management contas APIs ligações Connectionacls. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/read | Obter a Api Management contas APIs ligações Connectionacls. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/write | Atualize a Api Management contas APIs ligações Connectionacls. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/delete | Elimine ligações de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/getconsentlinks/action | Obtenha ligações de consentimento para ligações de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/listconnectionkeys/action | Lista ligação chaves gestão contas APIs ligações de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/listsecrets/action | Lista segredos gestão contas APIs ligações de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/read | Obtenha ligações de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/connections/write | Atualize ligações de APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/delete | Elimine as APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/delete | Gestão de Api de eliminar definições de localizados de APIs de contas. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/read | Gestão de Api de obter definições de localizados de APIs de contas. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/write | APIs de contas de gestão de Api de atualização localizada definições. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/read | Obtenha as APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/apis/write | Atualize as APIs de contas de gestão de Api. |
+> | Ação | microsoft.web/apimanagementaccounts/connectionacls/read | Obtenha Connectionacls de contas de gestão de Api. |
+> | Ação | microsoft.web/availablestacks/read | Obtenha pilhas disponíveis. |
 > | Ação | Microsoft.Web/certificates/Delete | Elimine um certificado existente. |
 > | Ação | Microsoft.Web/certificates/Read | Obter a lista de certificados. |
 > | Ação | Microsoft.Web/certificates/Write | Adicionar um novo certificado ou atualizar um já existente. |
-> | Ação | Microsoft.Web/checknameavailability/Read | Verifique se o nome do recurso está disponível. |
-> | Ação | Microsoft.Web/classicmobileservices/Read | Obtenha os serviços móveis clássico. |
+> | Ação | microsoft.web/checknameavailability/read | Verifique se o nome do recurso está disponível. |
+> | Ação | microsoft.web/classicmobileservices/read | Obtenha os serviços móveis clássico. |
 > | Ação | Microsoft.Web/connectionGateways/Delete | Elimina um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Join/Action | Associa um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/ListStatus/Action | Apresenta uma lista de estado de um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Move/Action | Move um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Read | Obter a lista de Gateways de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Write | Cria ou atualiza um Gateway de ligação. |
-> | Ação | Microsoft.Web/Connections/confirmconsentcode/Action | Confirme o código de consentimento de ligações. |
+> | Ação | microsoft.web/connections/confirmconsentcode/action | Confirme o código de consentimento de ligações. |
 > | Ação | Microsoft.Web/connections/Delete | Elimina uma ligação. |
 > | Ação | Microsoft.Web/connections/Join/Action | Associa uma ligação. |
-> | Ação | Microsoft.Web/Connections/listconsentlinks/Action | Ligações de consentimento da lista de ligações. |
+> | Ação | microsoft.web/connections/listconsentlinks/action | Ligações de consentimento da lista de ligações. |
 > | Ação | Microsoft.Web/connections/Move/Action | Move uma ligação. |
 > | Ação | Microsoft.Web/connections/Read | Obter a lista de ligações. |
 > | Ação | Microsoft.Web/connections/Write | Cria ou atualiza uma ligação. |
@@ -5190,338 +5190,338 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/customApis/Read | Obter a lista de API personalizada. |
 > | Ação | Microsoft.Web/customApis/Write | Cria ou atualiza uma API personalizada. |
 > | Ação | Microsoft.Web/deletedSites/Read | Obter as propriedades de uma aplicação de Web eliminado |
-> | Ação | Microsoft.Web/deploymentlocations/Read | Obter as localizações de implementação. |
+> | Ação | microsoft.web/deploymentlocations/read | Obter as localizações de implementação. |
 > | Ação | Microsoft.Web/geoRegions/Read | Obter a lista de regiões de Georreplicação. |
-> | Ação | Microsoft.Web/hostingenvironments/capacities/Read | Obtenha as capacidades de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/capacities/read | Obtenha as capacidades de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/Delete | Eliminar um ambiente de serviço de aplicações |
-> | Ação | Microsoft.Web/hostingenvironments/detectors/Read | Obter os detectores de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/Diagnostics/Read | Obtenha diagnósticos de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/inboundnetworkdependenciesendpoints/Read | Obtenha os pontos de extremidade de rede de todas as dependências de entrada. |
-> | Ação | Microsoft.Web/hostingenvironments/metricdefinitions/Read | Obter definições de métricas de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/multirolepools/metricdefinitions/Read | Obter definições de métricas de multifunções conjuntos de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/multirolepools/Metrics/Read | Obter métricas de multifunções conjuntos de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/detectors/read | Obter os detectores de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/diagnostics/read | Obtenha diagnósticos de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | Obtenha os pontos de extremidade de rede de todas as dependências de entrada. |
+> | Ação | microsoft.web/hostingenvironments/metricdefinitions/read | Obter definições de métricas de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Obter definições de métricas de multifunções conjuntos de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/multirolepools/metrics/read | Obter métricas de multifunções conjuntos de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/multiRolePools/Read | Obter as propriedades de um conjunto de front-end num ambiente de serviço de aplicações |
-> | Ação | Microsoft.Web/hostingenvironments/multirolepools/SKUs/Read | Obter SKUs de multifunções conjuntos de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/multirolepools/usages/Read | Obter utilizações de multifunções conjuntos de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/multirolepools/skus/read | Obter SKUs de multifunções conjuntos de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/multirolepools/usages/read | Obter utilizações de multifunções conjuntos de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/multiRolePools/Write | Criar um novo conjunto de front-end num ambiente de serviço de aplicações ou atualizar um já existente |
-> | Ação | Microsoft.Web/hostingenvironments/Operations/Read | Obter operações de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/outboundnetworkdependenciesendpoints/Read | Obtenha os pontos de extremidade de rede de todas as dependências de saída. |
+> | Ação | microsoft.web/hostingenvironments/operations/read | Obter operações de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/outboundnetworkdependenciesendpoints/read | Obtenha os pontos de extremidade de rede de todas as dependências de saída. |
 > | Ação | Microsoft.Web/hostingEnvironments/Read | Obter as propriedades de um ambiente de serviço de aplicações |
 > | Ação | Microsoft.Web/hostingEnvironments/reboot/Action | Reinicie todas as máquinas num ambiente de serviço de aplicações |
-> | Ação | Microsoft.Web/hostingenvironments/resume/Action | Retomar a ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/serverfarms/Read | Obtenha planos de serviço de aplicações de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/sites/Read | Obter aplicações da Web de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/suspend/Action | Suspenda a ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/usages/Read | Obter utilizações de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/workerpools/metricdefinitions/Read | Obter definições de métrica de Workerpools de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/workerpools/Metrics/Read | Obter métricas de Workerpools de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/resume/action | Retomar a ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/serverfarms/read | Obtenha planos de serviço de aplicações de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/sites/read | Obter aplicações da Web de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/suspend/action | Suspenda a ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/usages/read | Obter utilizações de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/workerpools/metricdefinitions/read | Obter definições de métrica de Workerpools de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/workerpools/metrics/read | Obter métricas de Workerpools de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/workerPools/Read | Obter as propriedades de um conjunto de trabalho num ambiente de serviço de aplicações |
-> | Ação | Microsoft.Web/hostingenvironments/workerpools/SKUs/Read | Obter SKUs de Workerpools de ambientes de alojamento. |
-> | Ação | Microsoft.Web/hostingenvironments/workerpools/usages/Read | Obter utilizações de Workerpools de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/workerpools/skus/read | Obter SKUs de Workerpools de ambientes de alojamento. |
+> | Ação | microsoft.web/hostingenvironments/workerpools/usages/read | Obter utilizações de Workerpools de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/workerPools/Write | Criar um novo conjunto de trabalho num ambiente de serviço de aplicações ou atualizar um já existente |
 > | Ação | Microsoft.Web/hostingEnvironments/Write | Criar um ambiente de serviço de aplicações novo ou atualizar um já existente |
-> | Ação | Microsoft.Web/ishostingenvironmentnameavailable/Read | Get se o nome do ambiente de alojamento está disponível. |
-> | Ação | Microsoft.Web/ishostnameavailable/Read | Verifique se o nome de anfitrião está disponível. |
-> | Ação | Microsoft.Web/isusernameavailable/Read | Verifique se o nome de utilizador está disponível. |
+> | Ação | microsoft.web/ishostingenvironmentnameavailable/read | Get se o nome do ambiente de alojamento está disponível. |
+> | Ação | microsoft.web/ishostnameavailable/read | Verifique se o nome de anfitrião está disponível. |
+> | Ação | microsoft.web/isusernameavailable/read | Verifique se o nome de utilizador está disponível. |
 > | Ação | Microsoft.Web/listSitesAssignedToHostName/Read | Obter nomes de sites atribuídos ao nome de anfitrião. |
-> | Ação | Microsoft.Web/Locations/apioperations/Read | Obter operações de API de localizações. |
-> | Ação | Microsoft.Web/Locations/connectiongatewayinstallations/Read | Obter instalações de gateways de ligação de locais. |
+> | Ação | microsoft.web/locations/apioperations/read | Obter operações de API de localizações. |
+> | Ação | microsoft.web/locations/connectiongatewayinstallations/read | Obter instalações de gateways de ligação de locais. |
 > | Ação | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Vnet ou sub-rede notificação de eliminação para localizações. |
-> | Ação | Microsoft.Web/Locations/extractapidefinitionfromwsdl/Action | Extrair a definição de Api do WSDL para localizações. |
-> | Ação | Microsoft.Web/Locations/listwsdlinterfaces/Action | Interfaces WSDL de lista de localizações. |
-> | Ação | Microsoft.Web/Locations/managedapis/apioperations/Read | Obter operações de API gerido de localizações. |
+> | Ação | microsoft.web/locations/extractapidefinitionfromwsdl/action | Extrair a definição de Api do WSDL para localizações. |
+> | Ação | microsoft.web/locations/listwsdlinterfaces/action | Interfaces WSDL de lista de localizações. |
+> | Ação | microsoft.web/locations/managedapis/apioperations/read | Obter operações de API gerido de localizações. |
 > | Ação | Microsoft.Web/locations/managedapis/Join/Action | Associa uma API gerenciada. |
-> | Ação | Microsoft.Web/Locations/managedapis/Read | Obter localizações de APIs gerenciadas. |
-> | Ação | Microsoft.Web/Operations/Read | Obter operações. |
-> | Ação | Microsoft.Web/publishingusers/Read | Obter utilizadores de publicação. |
-> | Ação | Microsoft.Web/publishingusers/Write | Atualize utilizadores de publicação. |
+> | Ação | microsoft.web/locations/managedapis/read | Obter localizações de APIs gerenciadas. |
+> | Ação | microsoft.web/operations/read | Obter operações. |
+> | Ação | microsoft.web/publishingusers/read | Obter utilizadores de publicação. |
+> | Ação | microsoft.web/publishingusers/write | Atualize utilizadores de publicação. |
 > | Ação | Microsoft.Web/recommendations/Read | Obter a lista de recomendações para as subscrições. |
-> | Ação | Microsoft.Web/register/Action | Registe o fornecedor de recursos de Microsoft. Web para a subscrição. |
-> | Ação | Microsoft.Web/resourcehealthmetadata/Read | Obter metadados de estado de funcionamento do recurso. |
-> | Ação | Microsoft.Web/serverfarms/Capabilities/Read | Obtenha capacidades de planos de serviço de aplicações. |
+> | Ação | microsoft.web/register/action | Registe o fornecedor de recursos de Microsoft. Web para a subscrição. |
+> | Ação | microsoft.web/resourcehealthmetadata/read | Obter metadados de estado de funcionamento do recurso. |
+> | Ação | microsoft.web/serverfarms/capabilities/read | Obtenha capacidades de planos de serviço de aplicações. |
 > | Ação | Microsoft.Web/serverfarms/Delete | Eliminar um plano de serviço de aplicações existentes |
-> | Ação | Microsoft.Web/serverfarms/firstpartyapps/Settings/DELETE | Elimine definições de aplicações de terceiros de primeiro em planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/firstpartyapps/Settings/Read | Obter definições de aplicações de terceiros de primeiro em planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/firstpartyapps/Settings/Write | Atualize definições de aplicações de terceiros de primeiro de planos do serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/DELETE | Elimine reencaminhamentos de espaços de nomes de ligação do serviço de aplicações planos híbrida. |
-> | Ação | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Read | Obtenha os reencaminhamentos de espaços de nomes de ligação do serviço de aplicações planos híbrida. |
-> | Ação | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/sites/Read | Obter planos de serviço de aplicações reencaminhamentos para espaços de nomes de ligação híbrida Web de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/hybridconnectionplanlimits/Read | Obtenha os limites do plano de ligação híbrida do serviço de aplicações planos. |
-> | Ação | Microsoft.Web/serverfarms/hybridconnectionrelays/Read | Obtenha planos de serviço de aplicações híbridas reencaminhamentos de ligação. |
-> | Ação | Microsoft.Web/serverfarms/metricdefinitions/Read | Obter as definições de métricas de planos do serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/Metrics/Read | Obter métricas de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/operationresults/Read | Obter resultados da operação de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/firstpartyapps/settings/delete | Elimine definições de aplicações de terceiros de primeiro em planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/firstpartyapps/settings/read | Obter definições de aplicações de terceiros de primeiro em planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/firstpartyapps/settings/write | Atualize definições de aplicações de terceiros de primeiro de planos do serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Elimine reencaminhamentos de espaços de nomes de ligação do serviço de aplicações planos híbrida. |
+> | Ação | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Obtenha os reencaminhamentos de espaços de nomes de ligação do serviço de aplicações planos híbrida. |
+> | Ação | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Obter planos de serviço de aplicações reencaminhamentos para espaços de nomes de ligação híbrida Web de aplicações. |
+> | Ação | microsoft.web/serverfarms/hybridconnectionplanlimits/read | Obtenha os limites do plano de ligação híbrida do serviço de aplicações planos. |
+> | Ação | microsoft.web/serverfarms/hybridconnectionrelays/read | Obtenha planos de serviço de aplicações híbridas reencaminhamentos de ligação. |
+> | Ação | microsoft.web/serverfarms/metricdefinitions/read | Obter as definições de métricas de planos do serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/metrics/read | Obter métricas de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/operationresults/read | Obter resultados da operação de planos de serviço de aplicações. |
 > | Ação | Microsoft.Web/serverfarms/Read | Obter as propriedades num plano do serviço de aplicações |
 > | Ação | Microsoft.Web/serverfarms/restartSites/Action | Reinicie todas as aplicações Web num plano do serviço de aplicações |
-> | Ação | Microsoft.Web/serverfarms/sites/Read | Obter aplicações de Web de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/SKUs/Read | Obter os SKUs de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/usages/Read | Obter utilizações de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/virtualnetworkconnections/gateways/Write | Atualize os Gateways de ligações de rede Virtual de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/virtualnetworkconnections/Read | Obtenha ligações de rede Virtual de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/DELETE | Elimine rotas de ligações de rede Virtual de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Read | Obter as rotas de ligações de rede Virtual de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Write | Atualize rotas de ligações de rede Virtual de planos de serviço de aplicações. |
-> | Ação | Microsoft.Web/serverfarms/Workers/reboot/Action | Reinicie os trabalhos de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/sites/read | Obter aplicações de Web de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/skus/read | Obter os SKUs de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/usages/read | Obter utilizações de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/virtualnetworkconnections/gateways/write | Atualize os Gateways de ligações de rede Virtual de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/virtualnetworkconnections/read | Obtenha ligações de rede Virtual de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/virtualnetworkconnections/routes/delete | Elimine rotas de ligações de rede Virtual de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/virtualnetworkconnections/routes/read | Obter as rotas de ligações de rede Virtual de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/virtualnetworkconnections/routes/write | Atualize rotas de ligações de rede Virtual de planos de serviço de aplicações. |
+> | Ação | microsoft.web/serverfarms/workers/reboot/action | Reinicie os trabalhos de planos de serviço de aplicações. |
 > | Ação | Microsoft.Web/serverfarms/Write | Criar um plano de serviço de aplicações novo ou atualizar um já existente |
-> | Ação | Microsoft.Web/sites/analyzecustomhostname/Read | Analise o nome de anfitrião personalizado. |
+> | Ação | microsoft.web/sites/analyzecustomhostname/read | Analise o nome de anfitrião personalizado. |
 > | Ação | Microsoft.Web/sites/applySlotConfig/Action | Aplicar a configuração de ranhura de aplicação do web da ranhura de destino para a aplicação web atual |
 > | Ação | Microsoft.Web/sites/backup/Action | Criar uma nova cópia de segurança de aplicação de web |
-> | Ação | Microsoft.Web/sites/backup/Read | Obtenha cópia de segurança de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/backup/Write | Atualize a cópia de segurança de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/backups/Action | Deteta uma cópia de segurança de aplicação existente que pode ser restaurada a partir de um blob no armazenamento do Azure. |
-> | Ação | Microsoft.Web/sites/backups/DELETE | Elimine cópias de segurança de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/backups/List/Action | Backups de aplicações Web de lista. |
+> | Ação | microsoft.web/sites/backup/read | Obtenha cópia de segurança de aplicações de Web. |
+> | Ação | microsoft.web/sites/backup/write | Atualize a cópia de segurança de aplicações de Web. |
+> | Ação | microsoft.web/sites/backups/action | Deteta uma cópia de segurança de aplicação existente que pode ser restaurada a partir de um blob no armazenamento do Azure. |
+> | Ação | microsoft.web/sites/backups/delete | Elimine cópias de segurança de aplicações de Web. |
+> | Ação | microsoft.web/sites/backups/list/action | Backups de aplicações Web de lista. |
 > | Ação | Microsoft.Web/sites/backups/Read | Obter as propriedades de cópia de segurança de uma aplicação web |
-> | Ação | Microsoft.Web/sites/backups/Restore/Action | Restaure cópias de segurança de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/backups/Write | Atualize a cópias de segurança de aplicações Web. |
-> | Ação | Microsoft.Web/sites/config/DELETE | Elimine configuração de aplicações Web. |
+> | Ação | microsoft.web/sites/backups/restore/action | Restaure cópias de segurança de aplicações de Web. |
+> | Ação | microsoft.web/sites/backups/write | Atualize a cópias de segurança de aplicações Web. |
+> | Ação | microsoft.web/sites/config/delete | Elimine configuração de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/list/Action | Lista confidenciais configurações de segurança da aplicação Web, como a publicação de credenciais, as definições da aplicação e as cadeias de ligação |
 > | Ação | Microsoft.Web/sites/config/Read | Obter definições de configuração de aplicação Web |
-> | Ação | Microsoft.Web/sites/config/snapshots/Read | Obter instantâneos de configuração de aplicações Web. |
+> | Ação | microsoft.web/sites/config/snapshots/read | Obter instantâneos de configuração de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/Write | Atualizar as definições de configuração da aplicação Web |
-> | Ação | Microsoft.Web/sites/containerlogs/Action | Obter comprimido registos de contentor para a aplicação Web. |
-> | Ação | Microsoft.Web/sites/continuouswebjobs/DELETE | Elimine tarefas de Web contínua de aplicações Web. |
-> | Ação | Microsoft.Web/sites/continuouswebjobs/Read | Obter tarefas de Web contínua de aplicações Web. |
-> | Ação | Microsoft.Web/sites/continuouswebjobs/Start/Action | Inicie tarefas de Web contínua de aplicações Web. |
-> | Ação | Microsoft.Web/sites/continuouswebjobs/Stop/Action | Pare tarefas de Web contínua de aplicações Web. |
+> | Ação | microsoft.web/sites/containerlogs/action | Obter comprimido registos de contentor para a aplicação Web. |
+> | Ação | microsoft.web/sites/continuouswebjobs/delete | Elimine tarefas de Web contínua de aplicações Web. |
+> | Ação | microsoft.web/sites/continuouswebjobs/read | Obter tarefas de Web contínua de aplicações Web. |
+> | Ação | microsoft.web/sites/continuouswebjobs/start/action | Inicie tarefas de Web contínua de aplicações Web. |
+> | Ação | microsoft.web/sites/continuouswebjobs/stop/action | Pare tarefas de Web contínua de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Delete | Eliminar uma aplicação Web existente |
-> | Ação | Microsoft.Web/sites/Deployments/DELETE | Elimine as implementações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Deployments/log/Read | Obter registos de implementações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Deployments/Read | Obter implementações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Deployments/Write | Atualize as implementações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/detectors/Read | Obtenha os detectores de aplicações Web. |
+> | Ação | microsoft.web/sites/deployments/delete | Elimine as implementações de aplicações Web. |
+> | Ação | microsoft.web/sites/deployments/log/read | Obter registos de implementações de aplicações Web. |
+> | Ação | microsoft.web/sites/deployments/read | Obter implementações de aplicações Web. |
+> | Ação | microsoft.web/sites/deployments/write | Atualize as implementações de aplicações Web. |
+> | Ação | microsoft.web/sites/detectors/read | Obtenha os detectores de aplicações Web. |
 > | Ação | microsoft.web/sites/diagnostics/analyses/execute/Action | Execute a análise de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/analyses/Read | Obtenha a análise de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/aspnetcore/Read | Obtenha o diagnóstico de aplicações Web para a aplicação ASP.NET Core. |
-> | Ação | Microsoft.Web/sites/Diagnostics/autoheal/Read | Obtenha o Autoheal de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/Deployment/Read | Obter a implementação de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/Deployments/Read | Obter implementações de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/analyses/read | Obtenha a análise de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/aspnetcore/read | Obtenha o diagnóstico de aplicações Web para a aplicação ASP.NET Core. |
+> | Ação | microsoft.web/sites/diagnostics/autoheal/read | Obtenha o Autoheal de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/deployment/read | Obter a implementação de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/deployments/read | Obter implementações de diagnóstico de aplicações Web. |
 > | Ação | microsoft.web/sites/diagnostics/detectors/execute/Action | Execute o detetor de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/detectors/Read | Obtenha o detetor de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/failedrequestsperuri/Read | Obter pedidos falhados de diagnóstico de aplicações Web por Uri. |
-> | Ação | Microsoft.Web/sites/Diagnostics/frebanalysis/Read | Obtenha a análise FREB de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/loganalyzer/Read | Obtenha o analisador de registos de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/Read | Obter categorias de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/runtimeavailability/Read | Obtenha disponibilidade de tempo de execução do diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/servicehealth/Read | Obter o estado de funcionamento de serviço de diagnóstico de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/sitecpuanalysis/Read | Obtenha a análise de CPU de Site de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/sitecrashes/Read | Obter falhas de Site de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/sitelatency/Read | Obtenha a latência de Site de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/sitememoryanalysis/Read | Obtenha a análise de memória do Site de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/siterestartsettingupdate/Read | Obtenha a atualização de definição de reinício de Site diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/siterestartuserinitiated/Read | Obter iniciado dos utilizador de reinício de Site para o diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/siteswap/Read | Obtenha a troca de Site de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/ThreadCount/Read | Obter a contagem de threads de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/workeravailability/Read | Obtenha Workeravailability de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Diagnostics/workerprocessrecycle/Read | Obtenha a Reciclagem de processo de trabalho de diagnóstico de aplicações Web. |
-> | Ação | Microsoft.Web/sites/domainownershipidentifiers/Read | Obter identificadores de propriedade do domínio de aplicações Web. |
-> | Ação | Microsoft.Web/sites/domainownershipidentifiers/Write | Atualize os identificadores de propriedade do domínio de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Functions/Action | Aplicações Web de funções. |
-> | Ação | Microsoft.Web/sites/Functions/DELETE | Elimine funções de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Functions/listsecrets/Action | Funções de aplicações de Web de segredos de lista. |
-> | Ação | Microsoft.Web/sites/Functions/masterkey/Read | Obtenha Masterkey de funções de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Functions/Read | Obter funções de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Functions/token/Read | Token de funções de aplicações de Web de GET. |
-> | Ação | Microsoft.Web/sites/Functions/Write | Atualize funções de aplicações Web. |
-> | Ação | Microsoft.Web/sites/hostnamebindings/DELETE | Elimine enlaces de nome de anfitrião de aplicações Web. |
-> | Ação | Microsoft.Web/sites/hostnamebindings/Read | Obter os enlaces de nome de anfitrião de aplicações Web. |
-> | Ação | Microsoft.Web/sites/hostnamebindings/Write | Atualize os enlaces de nome de anfitrião de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/detectors/read | Obtenha o detetor de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/failedrequestsperuri/read | Obter pedidos falhados de diagnóstico de aplicações Web por Uri. |
+> | Ação | microsoft.web/sites/diagnostics/frebanalysis/read | Obtenha a análise FREB de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/loganalyzer/read | Obtenha o analisador de registos de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/read | Obter categorias de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/runtimeavailability/read | Obtenha disponibilidade de tempo de execução do diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/servicehealth/read | Obter o estado de funcionamento de serviço de diagnóstico de aplicações de Web. |
+> | Ação | microsoft.web/sites/diagnostics/sitecpuanalysis/read | Obtenha a análise de CPU de Site de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/sitecrashes/read | Obter falhas de Site de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/sitelatency/read | Obtenha a latência de Site de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/sitememoryanalysis/read | Obtenha a análise de memória do Site de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/siterestartsettingupdate/read | Obtenha a atualização de definição de reinício de Site diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/siterestartuserinitiated/read | Obter iniciado dos utilizador de reinício de Site para o diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/siteswap/read | Obtenha a troca de Site de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/threadcount/read | Obter a contagem de threads de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/workeravailability/read | Obtenha Workeravailability de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Obtenha a Reciclagem de processo de trabalho de diagnóstico de aplicações Web. |
+> | Ação | microsoft.web/sites/domainownershipidentifiers/read | Obter identificadores de propriedade do domínio de aplicações Web. |
+> | Ação | microsoft.web/sites/domainownershipidentifiers/write | Atualize os identificadores de propriedade do domínio de aplicações Web. |
+> | Ação | microsoft.web/sites/functions/action | Aplicações Web de funções. |
+> | Ação | microsoft.web/sites/functions/delete | Elimine funções de aplicações Web. |
+> | Ação | microsoft.web/sites/functions/listsecrets/action | Funções de aplicações de Web de segredos de lista. |
+> | Ação | microsoft.web/sites/functions/masterkey/read | Obtenha Masterkey de funções de aplicações Web. |
+> | Ação | microsoft.web/sites/functions/read | Obter funções de aplicações Web. |
+> | Ação | microsoft.web/sites/functions/token/read | Token de funções de aplicações de Web de GET. |
+> | Ação | microsoft.web/sites/functions/write | Atualize funções de aplicações Web. |
+> | Ação | microsoft.web/sites/hostnamebindings/delete | Elimine enlaces de nome de anfitrião de aplicações Web. |
+> | Ação | microsoft.web/sites/hostnamebindings/read | Obter os enlaces de nome de anfitrião de aplicações Web. |
+> | Ação | microsoft.web/sites/hostnamebindings/write | Atualize os enlaces de nome de anfitrião de aplicações Web. |
 > | Ação | Microsoft.Web/sites/hostruntime/host/_master/read | Obter a chave mestra da aplicação de função para operações de administração |
 > | Ação | Microsoft.Web/sites/hostruntime/host/action | Execute a aplicação de funções, como uma ação de tempo de execução acionadores de sincronização, adicionar funções, invocar funções, eliminar as funções etc. |
-> | Ação | Microsoft.Web/sites/hybridconnection/DELETE | Elimine ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnection/Read | Obter ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnection/Write | Atualize a ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnectionnamespaces/relays/DELETE | Elimine reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnectionnamespaces/relays/listkeys/Action | Lista as chaves Web aplicações híbridas ligação espaços de nomes reencaminhamentos. |
-> | Ação | Microsoft.Web/sites/hybridconnectionnamespaces/relays/Read | Obtenha os reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnectionnamespaces/relays/Write | Atualize reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/hybridconnectionrelays/Read | Obtenha os reencaminhamentos de ligação de aplicações híbridas de Web. |
-> | Ação | Microsoft.Web/sites/instances/Deployments/DELETE | Elimine as implementações de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/Deployments/Read | Obter implementações de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/Extensions/log/Read | Obter registos de extensões de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/Extensions/Read | Obtenha as extensões de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/processes/DELETE | Elimine processos de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/processes/Read | Obter processos de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/processes/threads/Read | Obtenha os Threads de processos de instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/instances/Read | Obter instâncias de aplicações Web. |
-> | Ação | Microsoft.Web/sites/listsyncfunctiontriggerstatus/Action | Lista sincronização função acionador Estado aplicações Web. |
-> | Ação | Microsoft.Web/sites/metricdefinitions/Read | Obter definições de métrica de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/Metrics/Read | Obter métricas de aplicações Web. |
-> | Ação | Microsoft.Web/sites/metricsdefinitions/Read | Obter definições de métricas de aplicações Web. |
-> | Ação | Microsoft.Web/sites/migratemysql/Action | Migre aplicações Web do MySql. |
-> | Ação | Microsoft.Web/sites/migratemysql/Read | Obter as Web Apps migrar MySql. |
-> | Ação | Microsoft.Web/sites/networktrace/Action | Aplicações de Web de rastreio de rede. |
-> | Ação | Microsoft.Web/sites/newpassword/Action | Aplicações Web de newpassword. |
-> | Ação | Microsoft.Web/sites/operationresults/Read | Obter resultados da operação de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Operations/Read | Obter operações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/perfcounters/Read | Obter os contadores de desempenho de aplicações Web. |
-> | Ação | Microsoft.Web/sites/premieraddons/DELETE | Elimine complementos de Premier de aplicações Web. |
-> | Ação | Microsoft.Web/sites/premieraddons/Read | Obtenha suplementos de Premier de aplicações Web. |
-> | Ação | Microsoft.Web/sites/premieraddons/Write | Atualize complementos de Premier de aplicações Web. |
-> | Ação | Microsoft.Web/sites/privateaccess/Read | Obter dados em torno de ativação de acesso de sites privados e redes virtuais autorizadas, que pode aceder ao site. |
-> | Ação | Microsoft.Web/sites/processes/Read | Obter processos de aplicações Web. |
-> | Ação | Microsoft.Web/sites/publiccertificates/DELETE | Elimine certificados de aplicações públicas da Web. |
-> | Ação | Microsoft.Web/sites/publiccertificates/Read | Obter certificados de aplicações públicas da Web. |
-> | Ação | Microsoft.Web/sites/publiccertificates/Write | Atualize certificados de aplicações públicas da Web. |
+> | Ação | microsoft.web/sites/hybridconnection/delete | Elimine ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnection/read | Obter ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnection/write | Atualize a ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnectionnamespaces/relays/delete | Elimine reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnectionnamespaces/relays/listkeys/action | Lista as chaves Web aplicações híbridas ligação espaços de nomes reencaminhamentos. |
+> | Ação | microsoft.web/sites/hybridconnectionnamespaces/relays/read | Obtenha os reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnectionnamespaces/relays/write | Atualize reencaminhamentos de espaços de nomes de ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/hybridconnectionrelays/read | Obtenha os reencaminhamentos de ligação de aplicações híbridas de Web. |
+> | Ação | microsoft.web/sites/instances/deployments/delete | Elimine as implementações de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/deployments/read | Obter implementações de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/extensions/log/read | Obter registos de extensões de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/extensions/read | Obtenha as extensões de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/processes/delete | Elimine processos de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/processes/read | Obter processos de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/processes/threads/read | Obtenha os Threads de processos de instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/instances/read | Obter instâncias de aplicações Web. |
+> | Ação | microsoft.web/sites/listsyncfunctiontriggerstatus/action | Lista sincronização função acionador Estado aplicações Web. |
+> | Ação | microsoft.web/sites/metricdefinitions/read | Obter definições de métrica de aplicações de Web. |
+> | Ação | microsoft.web/sites/metrics/read | Obter métricas de aplicações Web. |
+> | Ação | microsoft.web/sites/metricsdefinitions/read | Obter definições de métricas de aplicações Web. |
+> | Ação | microsoft.web/sites/migratemysql/action | Migre aplicações Web do MySql. |
+> | Ação | microsoft.web/sites/migratemysql/read | Obter as Web Apps migrar MySql. |
+> | Ação | microsoft.web/sites/networktrace/action | Aplicações de Web de rastreio de rede. |
+> | Ação | microsoft.web/sites/newpassword/action | Aplicações Web de newpassword. |
+> | Ação | microsoft.web/sites/operationresults/read | Obter resultados da operação de aplicações Web. |
+> | Ação | microsoft.web/sites/operations/read | Obter operações de aplicações Web. |
+> | Ação | microsoft.web/sites/perfcounters/read | Obter os contadores de desempenho de aplicações Web. |
+> | Ação | microsoft.web/sites/premieraddons/delete | Elimine complementos de Premier de aplicações Web. |
+> | Ação | microsoft.web/sites/premieraddons/read | Obtenha suplementos de Premier de aplicações Web. |
+> | Ação | microsoft.web/sites/premieraddons/write | Atualize complementos de Premier de aplicações Web. |
+> | Ação | microsoft.web/sites/privateaccess/read | Obter dados em torno de ativação de acesso de sites privados e redes virtuais autorizadas, que pode aceder ao site. |
+> | Ação | microsoft.web/sites/processes/read | Obter processos de aplicações Web. |
+> | Ação | microsoft.web/sites/publiccertificates/delete | Elimine certificados de aplicações públicas da Web. |
+> | Ação | microsoft.web/sites/publiccertificates/read | Obter certificados de aplicações públicas da Web. |
+> | Ação | microsoft.web/sites/publiccertificates/write | Atualize certificados de aplicações públicas da Web. |
 > | Ação | Microsoft.Web/sites/publish/Action | Publicar uma aplicação Web |
 > | Ação | Microsoft.Web/sites/publishxml/Action | Obter o xml do perfil de publicação para uma aplicação Web |
-> | Ação | Microsoft.Web/sites/publishxml/Read | Obter aplicações Web XML de publicação. |
+> | Ação | microsoft.web/sites/publishxml/read | Obter aplicações Web XML de publicação. |
 > | Ação | Microsoft.Web/sites/Read | Obter as propriedades de uma aplicação Web |
-> | Ação | Microsoft.Web/sites/recommendationhistory/Read | Obter histórico de recomendações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/recommendations/disable/Action | Desative as recomendações de aplicações Web. |
+> | Ação | microsoft.web/sites/recommendationhistory/read | Obter histórico de recomendações de aplicações Web. |
+> | Ação | microsoft.web/sites/recommendations/disable/action | Desative as recomendações de aplicações Web. |
 > | Ação | Microsoft.Web/sites/recommendations/Read | Obter a lista de recomendações para a aplicação web. |
-> | Ação | Microsoft.Web/sites/RECOVER/Action | Recupere a aplicações Web. |
+> | Ação | microsoft.web/sites/recover/action | Recupere a aplicações Web. |
 > | Ação | Microsoft.Web/sites/resetSlotConfig/Action | Repor a configuração de aplicações web |
-> | Ação | Microsoft.Web/sites/resourcehealthmetadata/Read | Obter metadados de estado de funcionamento do recurso de aplicações Web. |
+> | Ação | microsoft.web/sites/resourcehealthmetadata/read | Obter metadados de estado de funcionamento do recurso de aplicações Web. |
 > | Ação | Microsoft.Web/sites/restart/Action | Reiniciar uma aplicação Web |
-> | Ação | Microsoft.Web/sites/Restore/Read | Obtenha o restauro de aplicações Web. |
-> | Ação | Microsoft.Web/sites/Restore/Write | Restaure aplicações Web. |
-> | Ação | Microsoft.Web/sites/restorefrombackupblob/Action | Restaure aplicação Web a partir do Blob de cópia de segurança. |
-> | Ação | Microsoft.Web/sites/restorefromdeletedwebapp/Action | Restaure aplicações Web da aplicação eliminada. |
-> | Ação | Microsoft.Web/sites/restoresnapshot/Action | Restaure instantâneos de aplicações Web. |
-> | Ação | Microsoft.Web/sites/siteextensions/DELETE | Elimine extensões de Site de aplicações Web. |
-> | Ação | Microsoft.Web/sites/siteextensions/Read | Obtenha as extensões de Site de aplicações Web. |
-> | Ação | Microsoft.Web/sites/siteextensions/Write | Atualize extensões de Site de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/analyzecustomhostname/Read | Obter as Web Apps ranhuras analisar nome de anfitrião personalizado. |
+> | Ação | microsoft.web/sites/restore/read | Obtenha o restauro de aplicações Web. |
+> | Ação | microsoft.web/sites/restore/write | Restaure aplicações Web. |
+> | Ação | microsoft.web/sites/restorefrombackupblob/action | Restaure aplicação Web a partir do Blob de cópia de segurança. |
+> | Ação | microsoft.web/sites/restorefromdeletedwebapp/action | Restaure aplicações Web da aplicação eliminada. |
+> | Ação | microsoft.web/sites/restoresnapshot/action | Restaure instantâneos de aplicações Web. |
+> | Ação | microsoft.web/sites/siteextensions/delete | Elimine extensões de Site de aplicações Web. |
+> | Ação | microsoft.web/sites/siteextensions/read | Obtenha as extensões de Site de aplicações Web. |
+> | Ação | microsoft.web/sites/siteextensions/write | Atualize extensões de Site de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/analyzecustomhostname/read | Obter as Web Apps ranhuras analisar nome de anfitrião personalizado. |
 > | Ação | Microsoft.Web/sites/slots/applySlotConfig/Action | Aplica a configuração de ranhura de aplicação do web da ranhura de destino para a ranhura atual. |
 > | Ação | Microsoft.Web/sites/slots/backup/Action | Crie nova cópia de segurança da ranhura de aplicação Web. |
-> | Ação | Microsoft.Web/sites/slots/backup/Read | Obtenha cópia de segurança de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/backup/Write | Atualize a cópia de segurança de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/backups/Action | Detete cópias de segurança de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/backups/DELETE | Elimine cópias de segurança de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/backups/List/Action | Cópias de segurança da ranhuras de aplicações do Web de lista. |
+> | Ação | microsoft.web/sites/slots/backup/read | Obtenha cópia de segurança de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/backup/write | Atualize a cópia de segurança de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/backups/action | Detete cópias de segurança de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/backups/delete | Elimine cópias de segurança de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/backups/list/action | Cópias de segurança da ranhuras de aplicações do Web de lista. |
 > | Ação | Microsoft.Web/sites/slots/backups/Read | Obter as propriedades de cópia de segurança dos blocos de aplicação uma web |
-> | Ação | Microsoft.Web/sites/slots/backups/Restore/Action | Restaure Backups de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/config/DELETE | Elimine configuração de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/backups/restore/action | Restaure Backups de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/config/delete | Elimine configuração de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/config/list/Action | Lista confidenciais configurações de segurança da ranhura de aplicação Web, como a publicação de credenciais, as definições da aplicação e as cadeias de ligação |
 > | Ação | Microsoft.Web/sites/slots/config/Read | Obter definições de configuração da ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/config/Write | Atualizar as definições de configuração da ranhura de aplicação Web |
-> | Ação | Microsoft.Web/sites/slots/containerlogs/Action | Obter comprimido registos de contentor para a ranhura de aplicação Web. |
-> | Ação | Microsoft.Web/sites/slots/continuouswebjobs/DELETE | Elimine tarefas de Web contínua de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/continuouswebjobs/Read | Obtenha as Web Apps ranhuras Webjobs contínuos. |
-> | Ação | Microsoft.Web/sites/slots/continuouswebjobs/Start/Action | Inicie tarefas de Web contínua de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/continuouswebjobs/Stop/Action | Pare tarefas de Web contínua de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/containerlogs/action | Obter comprimido registos de contentor para a ranhura de aplicação Web. |
+> | Ação | microsoft.web/sites/slots/continuouswebjobs/delete | Elimine tarefas de Web contínua de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/continuouswebjobs/read | Obtenha as Web Apps ranhuras Webjobs contínuos. |
+> | Ação | microsoft.web/sites/slots/continuouswebjobs/start/action | Inicie tarefas de Web contínua de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/continuouswebjobs/stop/action | Pare tarefas de Web contínua de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Delete | Eliminar uma ranhura de aplicação Web existente |
-> | Ação | Microsoft.Web/sites/slots/Deployments/DELETE | Elimine as implementações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Deployments/log/Read | Obter registos de implementações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Deployments/Read | Obter implementações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Deployments/Write | Atualize as implementações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/detectors/Read | Obtenha os detectores de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/deployments/delete | Elimine as implementações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/deployments/log/read | Obter registos de implementações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/deployments/read | Obter implementações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/deployments/write | Atualize as implementações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/detectors/read | Obtenha os detectores de ranhuras de aplicações Web. |
 > | Ação | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Execute a análise de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/analyses/Read | Obtenha a análise de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/aspnetcore/Read | Obtenha diagnósticos de ranhuras de aplicações Web para a aplicação ASP.NET Core. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/autoheal/Read | Obtenha o Autoheal de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/Deployment/Read | Obter a implementação de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/Deployments/Read | Obter implementações de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/analyses/read | Obtenha a análise de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/aspnetcore/read | Obtenha diagnósticos de ranhuras de aplicações Web para a aplicação ASP.NET Core. |
+> | Ação | microsoft.web/sites/slots/diagnostics/autoheal/read | Obtenha o Autoheal de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/deployment/read | Obter a implementação de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/deployments/read | Obter implementações de diagnóstico de ranhuras de aplicações Web. |
 > | Ação | microsoft.web/sites/slots/diagnostics/detectors/execute/Action | Execute o detetor de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/detectors/Read | Obtenha o detetor de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/frebanalysis/Read | Obter análises de FREB de diagnóstico de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/loganalyzer/Read | Obtenha o analisador de Log de diagnóstico de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/Read | Obtenha diagnósticos de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/runtimeavailability/Read | Obtenha disponibilidade de tempo de execução do diagnóstico de ranhuras de aplicações da Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/servicehealth/Read | Obter o estado de funcionamento do Web Apps ranhuras diagnóstico serviço. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/sitecpuanalysis/Read | Obtenha a análise de CPU de Site de diagnóstico ranhuras aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/sitecrashes/Read | Obter falhas de Site do diagnóstico de ranhuras de aplicações da Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/sitelatency/Read | Obtenha a latência de Site de diagnóstico de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/sitememoryanalysis/Read | Obtenha a análise de memória de Site de diagnóstico ranhuras aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/siterestartsettingupdate/Read | Obter blocos de aplicativos de Web diagnóstico atualização de definição de reinício de Site. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/siterestartuserinitiated/Read | Obtenha as Web Apps ranhuras diagnóstico Site reinício iniciada pelo utilizador. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/siteswap/Read | Obtenha a troca de Site de diagnóstico de ranhuras aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/ThreadCount/Read | Obter a contagem de threads de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/workeravailability/Read | Obtenha Workeravailability de diagnóstico de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Diagnostics/workerprocessrecycle/Read | Obtenha os Reciclagem do processo de trabalho do diagnóstico de ranhuras do Web Apps. |
-> | Ação | Microsoft.Web/sites/slots/domainownershipidentifiers/Read | Obter identificadores de propriedade de domínio de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/Functions/Read | Obter funções de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hostnamebindings/DELETE | Elimine enlaces de nome de anfitrião de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hostnamebindings/Read | Obter os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hostnamebindings/Write | Atualize os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnection/DELETE | Elimine a ligação de híbrida de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnection/Read | Obter ligação de híbrida de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnection/Write | Atualize a ligação de híbrida de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnectionnamespaces/relays/DELETE | Elimine reencaminhamentos de espaços de nomes de ligação do Web Apps ranhuras híbrida. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnectionnamespaces/relays/Write | Atualize reencaminhamentos de espaços de nomes de ligação do Web Apps ranhuras híbrida. |
-> | Ação | Microsoft.Web/sites/slots/hybridconnectionrelays/Read | Obtenha as Web Apps ranhuras híbrida ligação reencaminhamentos. |
-> | Ação | Microsoft.Web/sites/slots/instances/Deployments/Read | Obter implementações de instâncias de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/instances/processes/DELETE | Elimine processos de instâncias de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/instances/processes/Read | Obter processos de instâncias de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/instances/Read | Obter instâncias de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/metricdefinitions/Read | Obter definições de métricas de ranhuras de aplicações de Web. |
-> | Ação | Microsoft.Web/sites/slots/Metrics/Read | Obter métricas de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/migratemysql/Read | Obter Web blocos de aplicativos migrar MySql. |
-> | Ação | Microsoft.Web/sites/slots/networktrace/Action | Blocos de aplicativos de Web de rastreio de rede. |
-> | Ação | Microsoft.Web/sites/slots/newpassword/Action | Ranhuras de aplicações Web de newpassword. |
-> | Ação | Microsoft.Web/sites/slots/operationresults/Read | Obter resultados de operação de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Operations/Read | Obter operações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/perfcounters/Read | Obter os contadores de desempenho de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/phplogging/Read | Obtenha Phplogging de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/premieraddons/DELETE | Elimine complementos de Premier de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/premieraddons/Read | Obtenha suplementos de Premier de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/premieraddons/Write | Atualize complementos de Premier de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/publiccertificates/DELETE | Elimine certificados públicos de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/publiccertificates/Read | Obter certificados públicos de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/publiccertificates/Write | Criar ou atualizar certificados públicos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/detectors/read | Obtenha o detetor de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/frebanalysis/read | Obter análises de FREB de diagnóstico de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/loganalyzer/read | Obtenha o analisador de Log de diagnóstico de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/read | Obtenha diagnósticos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/runtimeavailability/read | Obtenha disponibilidade de tempo de execução do diagnóstico de ranhuras de aplicações da Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/servicehealth/read | Obter o estado de funcionamento do Web Apps ranhuras diagnóstico serviço. |
+> | Ação | microsoft.web/sites/slots/diagnostics/sitecpuanalysis/read | Obtenha a análise de CPU de Site de diagnóstico ranhuras aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/sitecrashes/read | Obter falhas de Site do diagnóstico de ranhuras de aplicações da Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/sitelatency/read | Obtenha a latência de Site de diagnóstico de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/sitememoryanalysis/read | Obtenha a análise de memória de Site de diagnóstico ranhuras aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/siterestartsettingupdate/read | Obter blocos de aplicativos de Web diagnóstico atualização de definição de reinício de Site. |
+> | Ação | microsoft.web/sites/slots/diagnostics/siterestartuserinitiated/read | Obtenha as Web Apps ranhuras diagnóstico Site reinício iniciada pelo utilizador. |
+> | Ação | microsoft.web/sites/slots/diagnostics/siteswap/read | Obtenha a troca de Site de diagnóstico de ranhuras aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/threadcount/read | Obter a contagem de threads de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/workeravailability/read | Obtenha Workeravailability de diagnóstico de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | Obtenha os Reciclagem do processo de trabalho do diagnóstico de ranhuras do Web Apps. |
+> | Ação | microsoft.web/sites/slots/domainownershipidentifiers/read | Obter identificadores de propriedade de domínio de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/functions/read | Obter funções de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hostnamebindings/delete | Elimine enlaces de nome de anfitrião de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hostnamebindings/read | Obter os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hostnamebindings/write | Atualize os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hybridconnection/delete | Elimine a ligação de híbrida de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hybridconnection/read | Obter ligação de híbrida de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hybridconnection/write | Atualize a ligação de híbrida de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/delete | Elimine reencaminhamentos de espaços de nomes de ligação do Web Apps ranhuras híbrida. |
+> | Ação | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/write | Atualize reencaminhamentos de espaços de nomes de ligação do Web Apps ranhuras híbrida. |
+> | Ação | microsoft.web/sites/slots/hybridconnectionrelays/read | Obtenha as Web Apps ranhuras híbrida ligação reencaminhamentos. |
+> | Ação | microsoft.web/sites/slots/instances/deployments/read | Obter implementações de instâncias de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/instances/processes/delete | Elimine processos de instâncias de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/instances/processes/read | Obter processos de instâncias de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/instances/read | Obter instâncias de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/metricdefinitions/read | Obter definições de métricas de ranhuras de aplicações de Web. |
+> | Ação | microsoft.web/sites/slots/metrics/read | Obter métricas de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/migratemysql/read | Obter Web blocos de aplicativos migrar MySql. |
+> | Ação | microsoft.web/sites/slots/networktrace/action | Blocos de aplicativos de Web de rastreio de rede. |
+> | Ação | microsoft.web/sites/slots/newpassword/action | Ranhuras de aplicações Web de newpassword. |
+> | Ação | microsoft.web/sites/slots/operationresults/read | Obter resultados de operação de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/operations/read | Obter operações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/perfcounters/read | Obter os contadores de desempenho de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/phplogging/read | Obtenha Phplogging de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/premieraddons/delete | Elimine complementos de Premier de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/premieraddons/read | Obtenha suplementos de Premier de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/premieraddons/write | Atualize complementos de Premier de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/publiccertificates/delete | Elimine certificados públicos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/publiccertificates/read | Obter certificados públicos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/publiccertificates/write | Criar ou atualizar certificados públicos de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/publish/Action | Publicar uma ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/publishxml/Action | Obter o xml do perfil de publicação para a ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/Read | Obter as propriedades de um bloco de implementação de aplicação Web |
-> | Ação | Microsoft.Web/sites/slots/RECOVER/Action | Recupere ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/recover/action | Recupere ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/resetSlotConfig/Action | Repor a configuração do bloco de aplicação web |
-> | Ação | Microsoft.Web/sites/slots/resourcehealthmetadata/Read | Obter metadados de estado de funcionamento de recursos de ranhuras das aplicações Web. |
+> | Ação | microsoft.web/sites/slots/resourcehealthmetadata/read | Obter metadados de estado de funcionamento de recursos de ranhuras das aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/restart/Action | Reiniciar uma ranhura de aplicação Web |
-> | Ação | Microsoft.Web/sites/slots/Restore/Read | Obtenha o restauro de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/Restore/Write | Restaure ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/restorefrombackupblob/Action | Restaure a ranhura de aplicações Web do Blob de cópia de segurança. |
-> | Ação | Microsoft.Web/sites/slots/restorefromdeletedwebapp/Action | Restaure ranhuras de aplicação Web da aplicação eliminada. |
-> | Ação | Microsoft.Web/sites/slots/restoresnapshot/Action | Restaure instantâneos de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/siteextensions/DELETE | Elimine extensões de Site de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/siteextensions/Read | Obtenha as extensões de Site de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/siteextensions/Write | Atualize extensões de Site de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/restore/read | Obtenha o restauro de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/restore/write | Restaure ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/restorefrombackupblob/action | Restaure a ranhura de aplicações Web do Blob de cópia de segurança. |
+> | Ação | microsoft.web/sites/slots/restorefromdeletedwebapp/action | Restaure ranhuras de aplicação Web da aplicação eliminada. |
+> | Ação | microsoft.web/sites/slots/restoresnapshot/action | Restaure instantâneos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/siteextensions/delete | Elimine extensões de Site de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/siteextensions/read | Obtenha as extensões de Site de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/siteextensions/write | Atualize extensões de Site de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/slotsdiffs/Action | Obter as diferenças na configuração entre a aplicação web e ranhuras |
 > | Ação | Microsoft.Web/sites/slots/slotsswap/Action | Trocar as ranhuras de implementação de aplicação Web |
-> | Ação | Microsoft.Web/sites/slots/snapshots/Read | Obter instantâneos de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/snapshots/read | Obter instantâneos de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/sourcecontrols/Delete | Eliminar definições de configuração de controlo de origem da ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/sourcecontrols/Read | Obter definições de configuração de controlo de código fonte da ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/sourcecontrols/Write | Atualizar definições de configuração de controlo de origem da ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/start/Action | Iniciar um bloco de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/stop/Action | Parar uma ranhura de aplicação Web |
-> | Ação | Microsoft.Web/sites/slots/Sync/Action | Ranhuras de aplicações Web de sincronização. |
-> | Ação | Microsoft.Web/sites/slots/triggeredwebjobs/DELETE | Elimine aplicações/ranhuras WebJobs Acionadas da Web. |
-> | Ação | Microsoft.Web/sites/slots/triggeredwebjobs/Read | Obter aplicações/ranhuras WebJobs Acionadas da Web. |
-> | Ação | Microsoft.Web/sites/slots/triggeredwebjobs/Run/Action | Ranhuras de aplicações Web de execução os WebJobs acionados. |
-> | Ação | Microsoft.Web/sites/slots/usages/Read | Obter utilizações de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/virtualnetworkconnections/DELETE | Elimine ligações de rede Virtual de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/virtualnetworkconnections/gateways/Write | Atualize os Gateways de ligações de rede Virtual de ranhuras aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/virtualnetworkconnections/Read | Obtenha ligações de rede Virtual de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/virtualnetworkconnections/Write | Atualize ligações de rede Virtual de ranhuras de aplicações Web. |
-> | Ação | Microsoft.Web/sites/slots/webjobs/Read | Obtenha o WebJobs de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/sync/action | Ranhuras de aplicações Web de sincronização. |
+> | Ação | microsoft.web/sites/slots/triggeredwebjobs/delete | Elimine aplicações/ranhuras WebJobs Acionadas da Web. |
+> | Ação | microsoft.web/sites/slots/triggeredwebjobs/read | Obter aplicações/ranhuras WebJobs Acionadas da Web. |
+> | Ação | microsoft.web/sites/slots/triggeredwebjobs/run/action | Ranhuras de aplicações Web de execução os WebJobs acionados. |
+> | Ação | microsoft.web/sites/slots/usages/read | Obter utilizações de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/virtualnetworkconnections/delete | Elimine ligações de rede Virtual de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/virtualnetworkconnections/gateways/write | Atualize os Gateways de ligações de rede Virtual de ranhuras aplicações Web. |
+> | Ação | microsoft.web/sites/slots/virtualnetworkconnections/read | Obtenha ligações de rede Virtual de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/virtualnetworkconnections/write | Atualize ligações de rede Virtual de ranhuras de aplicações Web. |
+> | Ação | microsoft.web/sites/slots/webjobs/read | Obtenha o WebJobs de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Write | Criar uma nova ranhura de aplicação Web ou atualizar um já existente |
 > | Ação | Microsoft.Web/sites/slotsdiffs/Action | Obter as diferenças na configuração entre a aplicação web e ranhuras |
 > | Ação | Microsoft.Web/sites/slotsswap/Action | Trocar as ranhuras de implementação de aplicação Web |
-> | Ação | Microsoft.Web/sites/snapshots/Read | Obter instantâneos de aplicações Web. |
+> | Ação | microsoft.web/sites/snapshots/read | Obter instantâneos de aplicações Web. |
 > | Ação | Microsoft.Web/sites/sourcecontrols/Delete | Eliminar definições de configuração de controlo de origem da aplicação Web |
 > | Ação | Microsoft.Web/sites/sourcecontrols/Read | Obter definições de configuração de controlo de código fonte da aplicação Web |
 > | Ação | Microsoft.Web/sites/sourcecontrols/Write | Atualizar definições de configuração de controlo de origem da aplicação Web |
 > | Ação | Microsoft.Web/sites/start/Action | Iniciar uma aplicação Web |
 > | Ação | Microsoft.Web/sites/stop/Action | Parar uma aplicação Web |
-> | Ação | Microsoft.Web/sites/Sync/Action | Aplicações Web de sincronização. |
-> | Ação | Microsoft.Web/sites/syncfunctiontriggers/Action | Acionadores de função de sincronização para aplicações Web. |
-> | Ação | Microsoft.Web/sites/triggeredwebjobs/DELETE | Elimine WebJobs Acionadas de aplicações Web. |
-> | Ação | Microsoft.Web/sites/triggeredwebjobs/History/Read | Obter histórico de WebJobs Acionadas aplicações Web. |
-> | Ação | Microsoft.Web/sites/triggeredwebjobs/Read | Obtenha o WebJobs Acionadas de aplicações Web. |
-> | Ação | Microsoft.Web/sites/triggeredwebjobs/Run/Action | Aplicações Web de execução os WebJobs acionados. |
-> | Ação | Microsoft.Web/sites/usages/Read | Obter utilizações de aplicações Web. |
-> | Ação | Microsoft.Web/sites/virtualnetworkconnections/DELETE | Elimine ligações de rede Virtual de aplicações Web. |
-> | Ação | Microsoft.Web/sites/virtualnetworkconnections/gateways/Read | Obter Gateways de ligações de rede Virtual de aplicações Web. |
-> | Ação | Microsoft.Web/sites/virtualnetworkconnections/gateways/Write | Atualize os Gateways de ligações de rede Virtual de aplicações Web. |
-> | Ação | Microsoft.Web/sites/virtualnetworkconnections/Read | Obtenha ligações de rede Virtual de aplicações Web. |
-> | Ação | Microsoft.Web/sites/virtualnetworkconnections/Write | Atualize ligações de rede Virtual de aplicações Web. |
-> | Ação | Microsoft.Web/sites/webjobs/Read | Obtenha o WebJobs de aplicações Web. |
+> | Ação | microsoft.web/sites/sync/action | Sync Web Apps. |
+> | Ação | microsoft.web/sites/syncfunctiontriggers/action | Acionadores de função de sincronização para aplicações Web. |
+> | Ação | microsoft.web/sites/triggeredwebjobs/delete | Elimine WebJobs Acionadas de aplicações Web. |
+> | Ação | microsoft.web/sites/triggeredwebjobs/history/read | Obter histórico de WebJobs Acionadas aplicações Web. |
+> | Ação | microsoft.web/sites/triggeredwebjobs/read | Obtenha o WebJobs Acionadas de aplicações Web. |
+> | Ação | microsoft.web/sites/triggeredwebjobs/run/action | Aplicações Web de execução os WebJobs acionados. |
+> | Ação | microsoft.web/sites/usages/read | Obter utilizações de aplicações Web. |
+> | Ação | microsoft.web/sites/virtualnetworkconnections/delete | Elimine ligações de rede Virtual de aplicações Web. |
+> | Ação | microsoft.web/sites/virtualnetworkconnections/gateways/read | Obter Gateways de ligações de rede Virtual de aplicações Web. |
+> | Ação | microsoft.web/sites/virtualnetworkconnections/gateways/write | Atualize os Gateways de ligações de rede Virtual de aplicações Web. |
+> | Ação | microsoft.web/sites/virtualnetworkconnections/read | Obtenha ligações de rede Virtual de aplicações Web. |
+> | Ação | microsoft.web/sites/virtualnetworkconnections/write | Atualize ligações de rede Virtual de aplicações Web. |
+> | Ação | microsoft.web/sites/webjobs/read | Obtenha o WebJobs de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Write | Criar uma nova aplicação Web ou atualizar um já existente |
-> | Ação | Microsoft.Web/SKUs/Read | Obter SKUs. |
-> | Ação | Microsoft.Web/sourcecontrols/Read | Obtenha controles da fonte. |
-> | Ação | Microsoft.Web/sourcecontrols/Write | Controles da fonte de atualização. |
-> | Ação | Microsoft.Web/unregister/Action | Anular o registo do fornecedor de recursos de Microsoft. Web para a subscrição. |
-> | Ação | Microsoft.Web/Validate/Action | Valide. |
-> | Ação | Microsoft.Web/verifyhostingenvironmentvnet/Action | Certifique-se de Vnet do ambiente de alojamento. |
+> | Ação | microsoft.web/skus/read | Obter SKUs. |
+> | Ação | microsoft.web/sourcecontrols/read | Obtenha controles da fonte. |
+> | Ação | microsoft.web/sourcecontrols/write | Controles da fonte de atualização. |
+> | Ação | microsoft.web/unregister/action | Anular o registo do fornecedor de recursos de Microsoft. Web para a subscrição. |
+> | Ação | microsoft.web/validate/action | Valide. |
+> | Ação | microsoft.web/verifyhostingenvironmentvnet/action | Certifique-se de Vnet do ambiente de alojamento. |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

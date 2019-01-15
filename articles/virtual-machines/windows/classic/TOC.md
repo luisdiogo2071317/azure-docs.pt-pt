@@ -1,5 +1,6 @@
 # Descrição geral
-## [Sobre máquinas virtuais](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Extensões de VMs](agents-and-extensions-classic.md)
+## [Disponibilidade](configure-availability-classic.md)
 ## [FAQ](faq-classic.md)
 
 # Introdução
@@ -29,20 +30,17 @@
 ### [Manutenção](planned-maintenance-schedule-classic.md)
 
 ## Gerir
-### [Migrar da implementação Clássica para Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migrar da implementação Clássica para Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Gerir as VMs com o Azure PowerShell](manage-psh-classic.md)
 ### [Acerca dos agentes e das extensões de VM](agents-and-extensions-classic.md)
 ### [Gerir extensões de VMs](manage-extensions-classic.md)
 
 ## Gerir as cargas de trabalho
-### [Computação de Alto Desempenho (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### Computação de alto desempenho (HPC)
 #### [Dimensionar recursos automaticamente](hpcpack-cluster-node-autogrowshrink.md)
 #### [Gerir nós de computação](hpcpack-cluster-node-manage.md)
 #### [Criar um cluster](hpcpack-cluster-powershell-script.md)
 #### [Configurar um cluster para executar aplicações MPI](hpcpack-rdma-cluster.md)
-#### [Executar cargas de trabalho do Excel e SOA](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Criar o nó principal com uma imagem do Mercado](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Submeter tarefas do local para o Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -57,7 +55,6 @@
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Criar modelos do Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates)
 ## [REST de Computação](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST de Rede](https://msdn.microsoft.com/library/jj157182.aspx)

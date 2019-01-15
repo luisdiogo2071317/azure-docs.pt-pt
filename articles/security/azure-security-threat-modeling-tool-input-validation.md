@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234600"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266922"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produtos/serviços | Artigo |
@@ -27,7 +27,7 @@ ms.locfileid: "51234600"
 | **Aplicação Web** | <ul><li>[Desativar o XSLT scripts para todas as transformações com folhas de estilo não fidedigno](#disable-xslt)</li><li>[Certifique-se de que cada página que pode conter o conteúdo de utilizador controlável opta ativamente por detecção automática de MIME](#out-sniffing)</li><li>[Proteger ou desativar a resolução de entidades XML](#xml-resolution)</li><li>[Aplicações com o HTTP. sys efetuar verificação de canonização do URL](#app-verification)</li><li>[Certifique-se de que controles adequados estão em vigor quando abertos ao recebimento de arquivos de usuários](#controls-users)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados numa aplicação Web para acesso a dados](#typesafe)</li><li>[Utilizar classes de ligações de modelo separado ou apresenta uma lista de filtro de associação para impedir a vulnerabilidade de atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar a saída da web não fidedignos antes da composição](#rendering)</li><li>[Realizar validação de entrada e filtragem no tipo de cadeia de caracteres de todas as propriedades do modelo](#typemodel)</li><li>[A limpeza deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto avançado](#richtext)</li><li>[Não atribua elementos DOM a Coletores de que não têm a codificação incorporadas](#inbuilt-encode)</li><li>[Validar se todos os redirecionamentos de dentro do aplicativo são fechados ou feitos com segurança](#redirect-safe)</li><li>[Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos de controlador](#string-method)</li><li>[Definir o tempo limite de limite superior para a expressão regular de processamento para impedir que o DoS devido a más expressões regulares](#dos-expression)</li><li>[Evite utilizar Html.Raw em modos de exibição do Razor](#html-razor)</li></ul> | 
 | **Base de Dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a validação de modelo é feita nos métodos da Web API](#validation-api)</li><li>[Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos da Web API](#string-api)</li><li>[Certifique-se de que são utilizados os parâmetros de tipo seguro na Web API para acesso a dados](#typesafe-api)</li></ul> | 
-| **DB de documentos do Azure** | <ul><li>[Utilizar consultas SQL parametrized para o Azure Cosmos DB](#sql-docdb)</li></ul> | 
+| **DB de documentos do Azure** | <ul><li>[Utilizar consultas SQL parametrizadas para o Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validação de entrada do WCF por meio da associação de esquema](#schema-binding)</li><li>[Validação de entrada WCF por meio dos Inspetores de parâmetro](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Desativar o XSLT scripts para todas as transformações com folhas de estilo não fidedigno
@@ -39,7 +39,7 @@ ms.locfileid: "51234600"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Segurança XSLT](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript propriedade](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Passos** | XSLT oferece suporte a scripts no interior de folhas de estilo usando o `<msxml:script>` elemento. Isso permite que as funções personalizadas ser usado numa transformação XSLT. O script é executado sob o contexto do processo de executar a transformação. XSLT script tem de ser desativada quando num ambiente não fidedigno para impedir a execução de código não confiável. *Se utilizar o .NET:* XSLT de scripts está desativada por predefinição; no entanto, deve garantir que ele não foi explicitamente ativado através do `XsltSettings.EnableScript` propriedade.|
+| **Passos** | XSLT oferece suporte a scripts no interior de folhas de estilo usando o `<msxml:script>` elemento. Isso permite que as funções personalizadas ser usado numa transformação XSLT. O script é executado sob o contexto do processo de executar a transformação. XSLT script tem de ser desativada quando num ambiente não fidedigno para impedir a execução de código não confiável. *Se utilizar o .NET:* Scripts de XSLT está desativada por padrão. No entanto, tem de garantir que ele não foi explicitamente ativado através do `XsltSettings.EnableScript` propriedade.|
 
 ### <a name="example"></a>Exemplo 
 
@@ -191,7 +191,7 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Tenha em atenção que o MSXML6, ProhibitDTD está definido como true (processamento de DTD desativar) por predefinição. Para o código de Apple OSX/iOS, existem dois analisadores XML, pode utilizar: NSXMLParser e libXML2. 
+Tenha em atenção que o MSXML6, ProhibitDTD está definido como true (processamento de DTD desativar) por predefinição. Para o código de Apple OSX/iOS, existem dois analisadores XML, que pode usar: NSXMLParser e libXML2. 
 
 ## <a id="app-verification"></a>Aplicações com o HTTP. sys efetuar verificação de canonização do URL
 
@@ -653,7 +653,7 @@ myCommand.Fill(userDataset);
 ```
 No exemplo de código anterior, o valor de entrada não pode ser mais de 11 carateres. Se os dados não está em conformidade com o tipo ou definido pelo parâmetro de comprimento, a classe SqlParameter lançará uma exceção. 
 
-## <a id="sql-docdb"></a>Utilizar consultas SQL parametrized para o Cosmos DB
+## <a id="sql-docdb"></a>Utilizar consultas SQL parametrizadas para o Cosmos DB
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |

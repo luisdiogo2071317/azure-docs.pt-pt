@@ -1,27 +1,8 @@
 ---
-title: Exemplos de algoritmos - Azure Machine Learning Studio | Documentos da Microsoft
-description: Uma descrição geral de fácil compreensão das noções básicas do machine learning inclui exemplos de algoritmo. O infográfico transferível abrange a maioria de machine learning perguntas.
-keywords: Noções básicas de aprendizagem máquina, exemplos de algoritmos da aprendizagem automática para iniciantes, perguntas do machine learning, algoritmos populares, infográfico de algoritmo
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodc18
-ms.author: garye
-editor: cgronlun
-ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275742"
+title: TitleSuffix de exemplos de algoritmo: Descrição do Azure Machine Learning Studio: Uma descrição geral de fácil compreensão das noções básicas do machine learning inclui exemplos de algoritmo. O infográfico transferível abrange a maioria de machine learning perguntas.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem automática
 Baixe esta descrição geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning. Exemplos de algoritmos ajudam a iniciantes de aprendizado de máquina compreender quais algoritmos para utilização e o que eles são usados para.

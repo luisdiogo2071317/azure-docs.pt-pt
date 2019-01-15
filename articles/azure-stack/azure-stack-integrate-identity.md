@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188901"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263801"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -66,7 +66,7 @@ As seguintes informações são necessárias como entradas para os parâmetros d
 
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
-|CustomADGlobalCatalog|FQDN do destino de floresta do Active Directory<br>que pretende integrar com o|contoso.com|
+|CustomADGlobalCatalog|FQDN do destino de floresta do Active Directory<br>que pretende integrar com o|Contoso.com|
 |CustomADAdminCredentials|Um utilizador com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Configurar Sites do Active Directory
@@ -171,7 +171,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do fornecedor de afirmações. Parece dessa forma, na página de aterrissagem do AD FS.|Contoso|
-|CustomADFSFederationMetadataFileContent|Conteúdo de metadados|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Conteúdo de metadados|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Criar ficheiro de metadados de Federação
 
@@ -319,7 +319,7 @@ Se ocorrer um erro que deixa o ambiente num Estado em que já não pode autentic
 2. Em seguida, execute o seguinte cmdlet:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    Depois de executar a ação de reversão, todas as alterações de configuração são revertidas. Apenas a autenticação com o incorporado **CloudAdmin** utilizador é possível.

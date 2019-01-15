@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: C# da API de Voz do Microsoft Translator'
+title: 'Início rápido: API de voz do tradutorC#'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913534"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259027"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Início Rápido: API de Voz do Microsoft Translator com C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Início rápido: API de voz do Translator comC# 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -26,7 +26,7 @@ Este artigo mostra como utilizar a API de Voz do Microsoft Translator para tradu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.) Se utilizar o Mac OS ou Linux também pode utilizar o editor de texto [Visual Studio Code] (https://code.visualstudio.com/Download) como alternativa.
+Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.) Se utilizar o SO Mac ou Linux também pode utilizar o editor de texto [Visual Studio Code](https://code.visualstudio.com/Download) como alternativa.
 
 Vai necessitar de ter um ficheiro .wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro .wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz.
 
@@ -152,7 +152,7 @@ Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)

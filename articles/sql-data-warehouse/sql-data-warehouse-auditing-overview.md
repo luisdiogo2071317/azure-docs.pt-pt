@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260385"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267441"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -107,7 +107,7 @@ Antes de configurar a auditoria, auditoria de verificação se estiver a utiliza
 
 5. Clique nas **OK** botão para guardar a configuração de detalhes de armazenamento.
 6. Sob **registo ao evento**, clique em **êxito** e **falha** para registar todos os eventos ou escolha categorias de eventos individuais.
-7. Se estiver a configurar auditoria para uma base de dados, terá de alterar a cadeia de ligação do seu cliente para garantir a auditoria de dados é capturado corretamente. Verifique os [modificar FDQN de servidor na cadeia de ligação](sql-data-warehouse-auditing-downlevel-clients.md) tópico para ligações de cliente de nível inferior.
+7. Se estiver a configurar auditoria para uma base de dados, terá de alterar a cadeia de ligação do seu cliente para garantir a auditoria de dados é capturado corretamente. Verifique os [modificar FQDN do servidor na cadeia de ligação](sql-data-warehouse-auditing-downlevel-clients.md) tópico para ligações de cliente de nível inferior.
 8. Clique em **OK**.
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
@@ -196,7 +196,7 @@ Uma lista parcial de "Clientes de nível inferior" inclui:
 * JDBC (embora JDBC suporta TDS 7.4, a funcionalidade de redirecionamento de TDS não é totalmente suportada)
 * Entediante (para node. js)
 
-**Comentário:** o modificação do FDQN de servidor anterior pode ser útil também para aplicar uma política de auditoria de ao nível do SQL Server, sem a necessidade de uma configuração passo em cada base de dados (atenuação temporária).     
+**Comentário:** Modificação do FQDN do servidor anterior pode ser útil também para aplicar uma política de auditoria do SQL Server ao nível de mensagens em fila sem a necessidade de um passo de configuração em cada base de dados (atenuação temporária).     
 
 
 

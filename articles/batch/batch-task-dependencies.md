@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865238"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266659"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar as dependências de tarefas para executar tarefas que dependem de outras tarefas
 
@@ -123,7 +123,7 @@ Para criar a dependência, forneça a primeira e última IDs de tarefas no inter
 > [!IMPORTANT]
 > Quando utilizar intervalos de ID de tarefa para as suas dependências, apenas as tarefas com IDs que representa valores de número inteiro serão selecionadas pelo intervalo. Portanto, o intervalo `1..10` irá selecionar tarefas `3` e `7`, mas não `5flamingoes`. 
 > 
-> Zeros à esquerda não são significativo ao avaliar as dependências de intervalo, para que as tarefas com identificadores de cadeias de caracteres `4`, `04` e `004` ficará *dentro* o intervalo e eles serão todos tratados como tarefa `4`, para que o primeiro a conclusão da outra irá satisfazer a dependência.
+> Zeros à esquerda não são significativos ao avaliar as dependências de intervalo, para que as tarefas com identificadores de cadeias de caracteres `4`, `04` e `004` ficará *dentro* o intervalo e eles serão todos tratados como tarefa `4`, para que o primeiro a conclusão da outra irá satisfazer a dependência.
 > 
 > Todas as tarefas no intervalo tem de satisfazer a dependência, concluindo com êxito ou, concluindo com uma falha que está mapeada para uma ação de dependência definida como **Satisfy**. Consulte a [ações de dependência](#dependency-actions) secção para obter detalhes.
 >

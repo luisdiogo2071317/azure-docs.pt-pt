@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 0680140d9f4f4e77b5029c30c37f4c531652c6f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119123"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262494"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente Log Analytics para Windows e Linux
 
@@ -175,7 +175,7 @@ Utilize um dos seguintes procedimentos para desinstalar o agente do Windows ou L
 O ficheiro transferido para o agente é um pacote de instalação autónoma e contém criado com IExpress. O programa de configuração para o agente e os ficheiros de suporte estão contidos no pacote e precisa extraídos para desinstalar corretamente com a linha de comando mostrada no exemplo a seguir.
 
 1. Inicie sessão computador com uma conta que tenha direitos administrativos.
-2. Para extrair os ficheiros de instalação do agente de uma linha de comandos elevada, execute `extract MMASetup-<platform>.exe` e que irá solicitar que o caminho extrair ficheiros para. Em alternativa, pode especificar o caminho pela transmissão de argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Para obter mais informações sobre o swtiches da linha de comandos suportados pelo IExpress, consulte [comutadores da linha de comandos para IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) e, em seguida, atualize o exemplo de acordo com as suas necessidades.
+2. Para extrair os ficheiros de instalação do agente de uma linha de comandos elevada, execute `extract MMASetup-<platform>.exe` e que irá solicitar que o caminho extrair ficheiros para. Em alternativa, pode especificar o caminho pela transmissão de argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Para obter mais informações sobre as opções da linha de comandos suportados pelo IExpress, consulte [comutadores da linha de comandos para IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) e, em seguida, atualize o exemplo de acordo com as suas necessidades.
 3. Na linha de comandos, escreva `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Agente do Linux

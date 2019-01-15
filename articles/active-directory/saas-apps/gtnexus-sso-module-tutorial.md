@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com vista Global flexível | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e flexíveis vista Global.
+title: 'Tutorial: Integração do Active Directory do Azure com o sistema de SSO GTNexus | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o sistema de SSO GTNexus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068892"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263497"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Tutorial: Integração do Active Directory do Azure com vista Global flexíveis
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integração do Active Directory do Azure com o sistema de SSO GTNexus
 
-Neste tutorial, saiba como integrar flexíveis vista Global com o Azure Active Directory (Azure AD).
-Integração flexível vista Global com o Azure AD fornece as seguintes vantagens:
+Neste tutorial, saiba como integrar o sistema de SSO GTNexus com o Azure Active Directory (Azure AD).
+Integração do sistema de SSO GTNexus com o Azure AD fornece as seguintes vantagens:
 
-* Pode controlar no Azure AD que tenha acesso flexível vista Global.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada flexíveis vista Global (Single Sign-On) com as suas contas do Azure AD.
+* Pode controlar no Azure AD que tenha acesso ao sistema de SSO GTNexus.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para GTNexus o sistema de SSO (Single Sign-On) com as suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
 Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com vista Global flexíveis, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o sistema de SSO GTNexus, terá dos seguintes itens:
 
 * Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Flexível vista Global única início de sessão ativada subscrição
+* Sistema de SSO GTNexus logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Flexível suporta vista Global **IDP** iniciada SSO
+* Suporta o sistema de SSO GTNexus **IDP** iniciada SSO
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Adicionando flexíveis vista Global da Galeria
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>Adicionando o sistema de SSO GTNexus da Galeria
 
-Para configurar a integração do Panorama Global flexíveis no Azure AD, terá de adicionar vista Global flexíveis a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do sistema de SSO GTNexus com o Azure AD, terá de adicionar o sistema de SSO GTNexus a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar vista Global flexíveis a partir da galeria, execute os seguintes passos:**
+**Para adicionar o sistema de SSO GTNexus partir da galeria, execute os seguintes passos:**
 
 1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
@@ -64,31 +64,31 @@ Para configurar a integração do Panorama Global flexíveis no Azure AD, terá 
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **flexíveis vista Global**, selecione **flexíveis vista Global** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **sistema de SSO GTNexus**, selecione **sistema de SSO GTNexus** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Flexível vista Global na lista de resultados](common/search-new-app.png)
+     ![Sistema de SSO GTNexus na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com vista Global flexível com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na vista Global flexível deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com o sistema de SSO GTNexus com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no sistema de SSO GTNexus deve ser estabelecido.
 
-Para configurar e testar o Azure AD início de sessão único com o Vista Global flexíveis, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com o sistema de SSO GTNexus, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar flexíveis Global vista de início de sessão único](#configure-flex-global-view-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar GTNexus SSO sistema início de sessão único](#configure-gtnexus-sso-system-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste flexíveis vista Global](#create-flex-global-view-test-user)**  - para ter um equivalente da Eduarda Almeida na vista Global flexíveis que está ligado à representação de utilizador do Azure AD.
+5. **[Criar utilizador de teste de sistema de SSO GTNexus](#create-gtnexus-sso-system-test-user)**  - para ter um equivalente da Eduarda Almeida no sistema de SSO GTNexus que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
 Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com vista Global flexíveis, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com o sistema de SSO GTNexus, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **flexíveis vista Global** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **sistema de SSO GTNexus** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD início de sessão único com vista Global flexíveis
 
     ![image](common/browse-upload-metadata.png)
 
-    c. Depois do ficheiro de metadados é carregado com êxito, o **identificador** e **URL de resposta** automaticamente povoada na caixa de texto do Vista Global flexíveis secção de introdução de valores:
+    c. Depois do ficheiro de metadados é carregado com êxito, o **identificador** e **URL de resposta** automaticamente povoada na caixa de texto do sistema de SSO GTNexus secção de introdução de valores:
 
     ![image](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Para configurar o Azure AD início de sessão único com vista Global flexíveis
 
     ![O link de download de certificado](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Configurar Vista Global flexíveis início de sessão único
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Configurar o GTNexus SSO sistema início de sessão único
 
-Para configurar o início de sessão único num **flexíveis vista Global** lado, terá de enviar o **XML de metadados de Federação** para [equipa de suporte flexíveis a vista Global](mailto:support@gtnexus.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **sistema de SSO GTNexus** lado, terá de enviar o **XML de metadados de Federação** para [equipa de suporte do sistema de SSO GTNexus](mailto:support@gtnexus.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -152,15 +152,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso flexível vista Global.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao sistema de SSO GTNexus.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **flexíveis vista Global**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **o sistema de SSO GTNexus**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **flexíveis vista Global**.
+2. Na lista de aplicações, selecione **sistema de SSO GTNexus**.
 
-    ![A ligação de vista Global flexíveis na lista de aplicações](common/all-applications.png)
+    ![A ligação do sistema de SSO GTNexus na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
@@ -176,17 +176,17 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-### <a name="create-flex-global-view-test-user"></a>Criar utilizador de teste flexíveis vista Global
+### <a name="create-gtnexus-sso-system-test-user"></a>Criar utilizador de teste de sistema de SSO GTNexus
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na vista Global flexíveis. Trabalhar com [equipa de suporte flexíveis a vista Global](mailto:support@gtnexus.com) para adicionar os utilizadores na plataforma flexível vista Global. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no sistema de SSO GTNexus. Trabalhar com [equipa de suporte do sistema de SSO GTNexus](mailto:support@gtnexus.com) para adicionar os utilizadores na plataforma do sistema de SSO GTNexus. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de vista Global flexível no painel de acesso, deve ser automaticamente conectado à vista Global flexíveis para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clica no mosaico de sistema de SSO GTNexus no painel de acesso, deve ser automaticamente conectado ao sistema de SSO GTNexus para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
 - [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

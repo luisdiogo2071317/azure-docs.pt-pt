@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 95a76cd46a86f70213ca381df4d52463666ace8d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108455"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259607"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar Micrometer com o SDK de Java do Azure Application Insights
 Métricas de medidas de monitorização de aplicações do micrometer para aplicações baseadas em JVM de código e permite-lhe exportar os dados para os seus favoritos sistemas de monitorização. Este artigo irá ensiná-lo a utilizar Micrometer com o Application Insights para o Spring Boot e as aplicações não Spring Boot.
@@ -89,7 +89,7 @@ Métricas predefinidas:
 *    Configurada automaticamente métricas para Tomcat, JVM, Logback métricas, métricas de Log4J, métricas de tempo de atividade, métricas de processador, FileDescriptorMetrics.
 *    Por exemplo, se o netflix hystrix está presente no caminho da classe recebemos essas métricas também. 
 *    As métricas seguintes podem estar disponíveis, adicionando beans respectivos. 
-        - CacheMetrics (CaffineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -101,19 +101,19 @@ Métricas predefinidas:
 Como desativar a recolha de métricas automática: 
  
 - Métricas JVM: 
-    - Management.Metrics.binders.jvm.Enabled=FALSE 
+    - management.metrics.binders.jvm.enabled=false 
 - Métricas de Logback: 
-    - Management.Metrics.binders.logback.Enabled=FALSE
+    - management.metrics.binders.logback.enabled=false
 - Métricas de tempo de atividade: 
     - Management.Metrics.binders.uptime.Enabled=FALSE 
 - Métricas de processador:
-    -  Management.Metrics.binders.Processor.Enabled=FALSE 
+    -  management.metrics.binders.processor.enabled=false 
 - FileDescriptorMetrics:
-    - Management.Metrics.binders.Files.Enabled=FALSE 
+    - management.metrics.binders.files.enabled=false 
 - Métricas de hystrix se biblioteca no caminho da classe: 
-    - Management.Metrics.binders.hystrix.Enabled=FALSE 
+    - management.metrics.binders.hystrix.enabled=false 
 - Métricas de AspectJ se biblioteca no caminho da classe: 
-    - Spring.AOP.Enabled=FALSE 
+    - spring.aop.enabled=false 
 
 > [!NOTE]
 > Especificar as propriedades acima no ficheiro Application ou application.yml da sua aplicação de Spring Boot

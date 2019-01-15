@@ -1,23 +1,21 @@
 ---
-title: Do Machine learning cábula do algoritmo - Azure Machine Learning Studio | Documentos da Microsoft
+title: Cábula do algoritmo de aprendizagem automática
+titleSuffix: Azure Machine Learning Studio
 description: Uma máquina imprimível cábula do algoritmo de aprendizagem ajuda-o a escolher o algoritmo certo para o modelo de previsão no Azure Machine Learning Studio.
-keywords: cábula do algoritmo, truques e dicas, algoritmo de machine learning
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274518"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264313"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 

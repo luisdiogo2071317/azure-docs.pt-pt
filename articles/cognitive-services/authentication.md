@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726295"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305456"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar pedidos para os serviços cognitivos do Azure
 
@@ -35,7 +35,7 @@ Vamos analisar rapidamente os cabeçalhos de autenticação disponíveis para ut
 | Cabeçalho | Descrição |
 |--------|-------------|
 | OCP-Apim-Subscription-Key | Utilize este cabeçalho para autenticar com uma chave de subscrição para um serviço específico ou uma chave de subscrição de múltiplos serviços. |
-| OCP-Apim-subscrição-região | Este cabeçalho só é necessário quando utilizar uma chave de subscrição de múltiplos serviços com o [API de texto do Translator](./Translator/reference/v3-0-reference.md). Utilize este cabeçalho para especificar a região de subscrição. |
+| Ocp-Apim-Subscription-Region | Este cabeçalho só é necessário quando utilizar uma chave de subscrição de múltiplos serviços com o [API de texto do Translator](./Translator/reference/v3-0-reference.md). Utilize este cabeçalho para especificar a região de subscrição. |
 | Autorização | Utilize este cabeçalho se estiver a utilizar um token de autenticação. Os passos para efetuar uma troca de tokens são detalhados nas seções a seguir. O valor fornecido segue este formato: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Autenticar com uma chave de subscrição de serviço único
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+O vídeo seguinte demonstra como utilizar uma chave de serviços cognitivos. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticar com uma chave de subscrição de múltiplos serviços
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Esta opção também utiliza uma chave de subscrição para autenticar pedidos. A principal diferença é que uma chave de subscrição não está associada a um serviço específico, em vez disso, uma única chave pode ser utilizada para autenticar pedidos para vários serviços cognitivos. Ver [preços dos serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações sobre a disponibilidade regional, funcionalidades suportadas e preços.
 
 A chave de subscrição é fornecida em cada pedido como o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+[![Demonstração de chave de subscrição de múltiplos serviços para os serviços cognitivos](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Regiões suportadas
 

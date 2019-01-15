@@ -1,34 +1,17 @@
 ---
-title: Depurar o seu modelo - Azure Machine Learning Studio | Documentos da Microsoft
-description: Como depurar erros produzidos por módulos preparar modelo e Pontuar modelo no Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268891"
+title: Depure seu titleSuffix do modelo: Descrição do Azure Machine Learning Studio: Como depurar erros produzidos por módulos preparar modelo e Pontuar modelo no Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depurar o seu modelo no Azure Machine Learning Studio
 
-Este artigo explica os possíveis motivos por que qualquer uma das seguintes duas falhas podem ser encontrada durante a execução de um modelo de:
+Ao executar um modelo, poderão ocorrer os seguintes erros:
 
 * o [Train Model] [ train-model] módulo gera um erro 
 * o [modelo de pontuação] [ score-model] módulo produz resultados incorretos 
 
+Este artigo explica as causas em potencial para estes erros.
 
 
 ## <a name="train-model-module-produces-an-error"></a>Módulo do modelo de formação produz um erro
@@ -59,15 +42,15 @@ O [modelo de pontuação] [ score-model] módulo requer duas entradas:
 1. Uma saída do modelo treinado a [Train Model] [ train-model] módulo.
 2. Um conjunto de dados classificação diferente do conjunto de dados usado para treinar o modelo.
 
-É possível que, embora a experimentação for bem-sucedida, o [modelo de pontuação] [ score-model] módulo produz resultados incorretos. Vários cenários podem fazer com que isso aconteça:
+É possível que, embora a experimentação for bem-sucedida, o [modelo de pontuação] [ score-model] módulo produz resultados incorretos. Vários cenários podem fazer com que este problema acontecer:
 
 1. Se a etiqueta especificada é categórica, e é preparado um modelo de regressão nos dados, uma saída incorreta poderia ser produzida pelos [modelo de pontuação] [ score-model] módulo. Isso é porque regressão requer uma variável de resposta contínuas. Neste caso, seria mais adequado utilizar um modelo de classificação. 
 
-2. Da mesma forma, se é preparado um modelo de classificação num conjunto de dados ter números de pontos de vírgula flutuante na coluna de etiqueta, poderá produzir resultados indesejáveis. Isto acontece porque necessita de classificação de uma variável de resposta discreto que apenas permite valores nesse intervalo através de um conjunto finito e, normalmente, um pouco pequeno, de classes.
+2. Da mesma forma, se é preparado um modelo de classificação num conjunto de dados ter números de pontos de vírgula flutuante na coluna de etiqueta, poderá produzir resultados indesejáveis. Isto acontece porque necessita de classificação de uma variável de resposta discreto que apenas permite valores nesse intervalo através de um conjunto finito e pequeno, de classes.
 
 3. Se o conjunto de dados de classificação não contém todos os recursos usados para treinar o modelo, o [modelo de pontuação] [ score-model] produz um erro.
 
-4. Se uma linha no conjunto de dados de classificação contiver um valor em falta ou um valor de infinito de qualquer um dos seus recursos, o [modelo de pontuação] [ score-model] não irá produzir qualquer saída correspondente a essa linha.
+4. Se uma linha no conjunto de dados de classificação contiver um valor em falta ou um valor de infinito de qualquer um dos seus recursos, o [modelo de pontuação] [ score-model] não produz qualquer saída correspondente a essa linha.
 
 5. O [modelo de pontuação] [ score-model] pode produzir saídas idênticas para todas as linhas no conjunto de dados de classificação. Isto pode ocorrer, por exemplo, quando tentar classificação com florestas de decisão, se o número mínimo de exemplos por nó de folha é escolhido para ser mais do que o número de exemplos de treinamento disponíveis.
 

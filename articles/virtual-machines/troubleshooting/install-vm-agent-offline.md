@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192061"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259687"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o agente de Máquina Virtual do Azure no modo offline 
 
@@ -35,6 +35,14 @@ Instale o agente de VM no modo offline nos seguintes cenários:
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Como instalar o agente da VM no modo offline
 
 Utilize os seguintes passos para instalar o agente da VM no modo offline.
+
+> [!NOTE]
+> Pode automatizar o processo de instalação do agente de VM no modo offline.
+> Para tal, utilize o [Scripts de recuperação de VM do Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Se optar por utilizar os Scripts de recuperação de VM do Azure, pode utilizar o seguinte processo:
+> 1. Ignore o passo 1 usando os scripts para anexar o disco do SO da VM afetada para uma VM de recuperação.
+> 2. Siga os passos 2 a 10 para aplicar as atenuações.
+> 3. Ignore o passo 11 usando os scripts para recriar a VM.
+> 4. Siga o passo 12.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Passo 1: Anexar o disco do SO da VM para outra VM como um disco de dados
 

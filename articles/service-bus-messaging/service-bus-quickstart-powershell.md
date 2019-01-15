@@ -1,6 +1,6 @@
 ---
-title: Início Rápido – Enviar e receber mensagens de e para o Service Bus do Azure | Microsoft Docs
-description: Neste início rápido, vai aprender a enviar e a receber mensagens do Service Bus com o PowerShell e o cliente .NET Standard
+title: Início rápido – utilize o Azure PowerShell para criar uma fila do Service Bus | Documentos da Microsoft
+description: Neste início rápido, irá aprender a utilizar o Azure PowerShell para criar uma fila do Service Bus. Em seguida, usar um aplicativo de exemplo para enviar mensagens para e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242437"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259670"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Início Rápido: Enviar e receber mensagens com o Azure PowerShell e o .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o Azure PowerShell para criar uma fila do Service Bus
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.
 
 ![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -256,7 +255,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, avance para o tutorial seguinte do Service Bus:
 

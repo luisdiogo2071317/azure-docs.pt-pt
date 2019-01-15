@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037384"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263516"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplementar o ASDK
 Neste artigo, irá aprender a implementar novamente o Azure Stack Development Kit (ASDK) num ambiente de não produção. Como atualizar o ASDK não é suportada, precisa completamente reimplantá-la para mover para uma versão mais recente. Também pode implementar novamente o ASDK em qualquer altura em que pretende iniciar do zero.
@@ -32,7 +32,7 @@ Neste artigo, irá aprender a implementar novamente o Azure Stack Development Ki
 ## <a name="remove-azure-registration"></a>Remover o registo do Azure 
 Se tiver registado anteriormente a instalação de ASDK com o Azure, deverá remover o recurso de Registro antes de reimplantar o ASDK. Volte a registar o ASDK para ativar a disponibilidade de itens no marketplace, quando implementar novamente o ASDK. Se não tiver registado anteriormente o ASDK com a sua subscrição do Azure, pode ignorar esta secção.
 
-Para remover o recurso de registo, utilize o **Remove-AzsRegistration** cmdlet para anular o registo do Azure Stack. Em seguida, utilize o **Remove-AzureRMRsourceGroup** cmdlet para eliminar o grupo de recursos do Azure Stack da sua subscrição do Azure:
+Para remover o recurso de registo, utilize o **Remove-AzsRegistration** cmdlet para anular o registo do Azure Stack. Em seguida, utilize o **Remove-AzureRMResourceGroup** cmdlet para eliminar o grupo de recursos do Azure Stack da sua subscrição do Azure:
 
 1. Abra uma consola do PowerShell como administrador no computador que tenha acesso ao ponto final com privilégios. Para o ASDK, que é o computador de anfitrião do kit de desenvolvimento.
 

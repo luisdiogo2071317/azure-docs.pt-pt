@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "36338327"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306884"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 Não, o BGP é suportado no Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e nos gateways de VPN **HighPerformance**. O SKU **Básico** NÃO é suportado.
@@ -30,8 +30,8 @@ Não, os Gateways de VPN do Azure suportam ASNs de 16 bits, hoje.
 ### <a name="are-there-asns-reserved-by-azure"></a>Existem ASNs reservados pelo Azure?
 Sim, os seguintes ASNs são reservados pelo Azure para peerings internos e externos:
 
-* Public ASNs: 8074, 8075, 12076
-* ASNs privados: 65515 65517, 65518, 65519, 65520
+* ASNs públicos: 8074, 8075, 12076
+* ASNs privados: 65515, 65517, 65518, 65519, 65520
 
 Não pode especificar estes ASNs para os seus dispositivos VPN no local quando se liga a gateways de VPN do Azure.
 
@@ -68,7 +68,7 @@ Sim, pode utilizar o BGP para ligações em vários locais e ligações VNet a V
 Sim, pode misturar ligações BGP e não BGP para o mesmo gateway de VPN do Azure.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>O gateway de VPN do Azure suporta encaminhamento de trânsito BGP?
-Sim, o encaminhamento de trânsito BGP é suportado. No entanto, os gateways de VPN do Azure **NÃO** anunciarão rotas predefinidas a outros elementos de rede BGP. Para ativar o encaminhamento de trânsito através de vários gateways de VPN do Azure, tem de ativar o BGP em todas as ligações VNet para VNet intermédias.
+Sim, o encaminhamento de trânsito BGP é suportado. No entanto, os gateways de VPN do Azure **NÃO** anunciarão rotas predefinidas a outros elementos de rede BGP. Para ativar o encaminhamento de trânsito através de vários gateways de VPN do Azure, tem de ativar o BGP em todas as ligações VNet para VNet intermédias. Para obter mais informações, consulte [sobre o BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Posso ter mais do que um túnel entre o gateway de VPN do Azure e a minha rede no local?
 Sim, pode estabelecer mais do que um túnel VPN S2S entre um gateway de VPN do Azure e a sua rede no local. Tenha em atenção que todos estes túneis serão contados tendo em conta o número total de túneis dos seus gateways de VPN do Azure e tem de ativar o BGP em ambos os túneis.

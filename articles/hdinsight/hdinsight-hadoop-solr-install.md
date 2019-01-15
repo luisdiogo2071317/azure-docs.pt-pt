@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713561"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259636"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Instalar e utilizar o Apache Solr nos clusters do HDInsight baseado em Windows
 
@@ -166,7 +166,7 @@ Tem de começar com indexação Solr com alguns arquivos de dados. Em seguida, p
 
    Este comando copia o instantâneo de /example/data/no contentor dentro do padrão de conta de armazenamento associada ao cluster.
 
-## <a name="install-solr-using-aure-powershell"></a>Instalar o Solr com o Azure PowerShell
+## <a name="install-solr-using-azure-powershell"></a>Instalar o Solr com o Azure PowerShell
 Ver [HDInsight personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Apache Spark com o Azure PowerShell. É necessário personalizar o script a utilizar [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Instalar o Solr com o .NET SDK

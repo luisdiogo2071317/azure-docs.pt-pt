@@ -1,27 +1,8 @@
 ---
-title: Copiar dos outros dados ciência exemplos – Azure Machine Learning Studio | Documentos da Microsoft
-description: 'Segredos comerciais da ciência de dados: Obtenha outras pessoas para fazer seu trabalho para. Obtenha exemplos do machine learning a partir da Galeria de IA do Azure.'
-keywords: Exemplos de ciência de dados, exemplo de aprendizado de máquina, algoritmo de clustering de exemplo do algoritmo de clustering
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/05/2018
-ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260383"
+title: Copie dos outros dados ciência exemplos titleSuffix: Descrição do Azure Machine Learning Studio: "Segredos comerciais da ciência de dados: Obtenha outras pessoas para fazer seu trabalho para. Obter exemplos do machine learning a partir da Galeria de IA do Azure. "
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/05/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de iniciantes

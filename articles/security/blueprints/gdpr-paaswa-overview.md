@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600816"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267220"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para GDPR
 
@@ -35,7 +35,7 @@ Esta arquitetura de referência, o guia de implementação associados e o modelo
 ## <a name="architecture-diagram-and-components"></a>Diagrama de arquitetura e componentes
 Esta solução fornece uma arquitetura de referência para um aplicativo da web de PaaS com um back-end de base de dados do Azure SQL. O aplicativo web é hospedado num Azure App Service ambiente isolado, que é um ambiente privado e dedicado num datacenter do Azure. A carga de ambiente equilibra o tráfego para a aplicação web em VMs geridas pelo Azure. Esta arquitetura também inclui os grupos de segurança de rede, um Gateway de aplicação, o DNS do Azure e o Balanceador de carga. Além disso, o Azure Monitor fornece análise em tempo real do Estado de funcionamento do sistema. **Azure recomenda configurar uma ligação VPN ou ExpressRoute para importação de dados e de gestão para a sub-rede de arquitetura de referência.**
 
-![PaaS Applicaiton de Web para o diagrama de arquitetura de referência do GDPR](images/gdpr-paaswa-architecture.png?raw=true "Applicaiton de Web de PaaS para o diagrama de arquitetura de referência GDPR")
+![Aplicação Web de PaaS para o diagrama de arquitetura de referência do GDPR](images/gdpr-paaswa-architecture.png?raw=true "aplicativo da Web de PaaS para o diagrama de arquitetura de referência GDPR")
 
 Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura de implementação estão localizadas no [arquitetura de implantação](#deployment-architecture) secção.
 
@@ -62,7 +62,7 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
-**O Azure Resource Manager**: [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
+**Azure Resource Manager**: [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
 
 **Ambiente de serviço de aplicações v2**: O [ambiente de serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/environment/intro) é uma funcionalidade do serviço de aplicações que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicativos de serviço de aplicações a uma escala elevada.
 
@@ -181,7 +181,7 @@ Além disso, as seguintes soluções de monitorização são incluídas como par
 
 O diagrama de fluxo de dados para esta arquitetura de referência está disponível para [transferir](https://aka.ms/gdprPaaSdfd) ou podem ser encontradas abaixo. Esse modelo pode ajudar os clientes a compreender os pontos do potencial risco de na infraestrutura de sistema ao fazer modificações.
 
-![PaaS Applicaiton de Web para o modelo de risco do GDPR](images/gdpr-paaswa-threat-model.png?raw=true "Applicaiton de Web de PaaS para o modelo de risco GDPR")
+![Aplicação Web de PaaS para o modelo de risco do GDPR](images/gdpr-paaswa-threat-model.png?raw=true "aplicativo da Web de PaaS para o modelo de risco GDPR")
 
 ## <a name="compliance-documentation"></a>Documentação de conformidade
 O [Azure no Security and Compliance Blueprint – matriz de responsabilidade do cliente com o GDPR](https://aka.ms/gdprCRM) apresenta uma lista de responsabilidades de controlador e o processador para todos os artigos GDPR. Tenha em atenção que, para serviços do Azure, um cliente é, normalmente, o controlador e Microsoft atua como o processador.

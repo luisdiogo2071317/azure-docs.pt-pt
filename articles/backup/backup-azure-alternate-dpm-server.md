@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: adigan
-ms.openlocfilehash: aa2796ab8e4cd9b8ab5e7fc3b4804f5535ac3518
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 66d78be296d0786626325df36aa133d277131b3b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254456"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267101"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 Pode utilizar o Azure Backup Server para recuperar os dados que fez backup para um cofre dos serviços de recuperação. Por isso, o processo para fazer é integrado ao console de gerenciamento do servidor de cópia de segurança do Azure e é semelhante para o fluxo de trabalho de recuperação para outros componentes de cópia de segurança do Azure.
 
 > [!NOTE]
-> Este artigo se aplica a [System Center Data Protection Manager 2012 R2 com UR7 ou posterior] (https://support.microsoft.com/en-us/kb/3065246), combinada com o [agente de cópia de segurança do Azure mais recente](https://aka.ms/azurebackup_agent).
+> Este artigo se aplica [System Center Data Protection Manager 2012 R2 com UR7 ou posterior](https://support.microsoft.com/en-us/kb/3065246), combinado com o [agente de cópia de segurança do Azure mais recente](https://aka.ms/azurebackup_agent).
 >
 >
 
@@ -82,10 +82,10 @@ Para recuperar dados de um servidor de cópia de segurança do Azure:
 ## <a name="troubleshooting-error-messages"></a>Mensagens de erro de resolução de problemas
 | Não. | Mensagem de Erro | Passos de resolução de problemas |
 |:---:|:--- |:--- |
-| 1. |Este servidor não está registado no cofre especificado pelas credenciais do cofre. |**Causa:** este erro ocorre quando o ficheiro de credenciais do cofre selecionado não pertence ao Cofre de serviços de recuperação associado com o Azure Backup Server no qual a recuperação é tentada. <br> **Resolução:** transferir o ficheiro de credenciais do Cofre de serviços de recuperação do cofre para que o servidor de cópia de segurança do Azure está registrado. |
-| 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor do DPM. |**Causa:** existem não existem outros servidores de cópia de segurança do Azure registados no Cofre de serviços de recuperação, ou os servidores ainda não carregou os metadados ou o servidor selecionado não é um servidor de cópia de segurança do Azure (também conhecido como o Windows Server ou o cliente do Windows). <br> **Resolução:** se existem outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado. <br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna irá carregar os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
-| 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** existem não existem outros servidores do Azure cópia de segurança que são registados no cofre a partir do qual está sendo tentada a recuperação.<br>**Resolução:** se existem outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado.<br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna carrega os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
-| 4. |A frase de acesso de encriptação fornecida não corresponde à frase de acesso associada ao seguinte servidor: **<server name>** |**Causa:** a frase de acesso de encriptação utilizado no processo de encriptar os dados a partir de dados do servidor de cópia de segurança do Azure que está a ser recuperados não coincide com a frase de acesso de encriptação fornecida. O agente não consegue desencriptar os dados. Por conseguinte, a recuperação falhará.<br>**Resolução:** forneça o exato mesmo encriptação frase de acesso associado com o servidor de cópia de segurança do Azure, cujos dados está a ser recuperados. |
+| 1. |Este servidor não está registado no cofre especificado pelas credenciais do cofre. |**Causa:** Este erro ocorre quando o ficheiro de credenciais do cofre selecionado não pertence ao Cofre de serviços de recuperação associado com o Azure Backup Server no qual a recuperação é tentada. <br> **Resolução:** Transferir o ficheiro de credenciais do cofre a partir do Cofre de serviços de recuperação para o qual o servidor de cópia de segurança do Azure está registrado. |
+| 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor do DPM. |**Causa:** Existem que não existem outros servidores de cópia de segurança do Azure registados no Cofre de serviços de recuperação, ou os servidores ainda não carregou os metadados para o servidor selecionado não é um servidor de cópia de segurança do Azure (também conhecido como o Windows Server ou o cliente do Windows). <br> **Resolução:** Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado. <br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna irá carregar os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
+| 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** Não existem não existem outros servidores do Azure cópia de segurança que são registados no cofre a partir do qual está sendo tentada a recuperação.<br>**Resolução:** Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado.<br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna carrega os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
+| 4. |A frase de acesso de encriptação fornecida não corresponde à frase de acesso associada ao seguinte servidor: **<server name>** |**Causa:** A frase de acesso de encriptação utilizado no processo de encriptar os dados a partir de dados do servidor de cópia de segurança do Azure que está a ser recuperados não corresponde a frase de acesso de encriptação fornecida. O agente não consegue desencriptar os dados. Por conseguinte, a recuperação falhará.<br>**Resolução:** Forneça o exato mesmo encriptação frase de acesso associado com o servidor de cópia de segurança do Azure, cujos dados está a ser recuperados. |
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435570"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261473"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -49,9 +49,9 @@ Este tutorial requer que execute o PowerShell localmente. Tem de ter versão 6.1
 
 Existem três requisitos chave para este cenário funcionar corretamente:
 
-- Uma Rota Definida pelo Utilizador na sub-rede spoke que aponta para o endereço IP do Azure Firewall como o gateway predefinido. A propagação de rotas BGP tem de ser **Desativada** nesta tabela de rotas.
-- Uma Rota Definida pelo Utilizador na sub-rede de gateway do hub tem de apontar para o endereço IP da firewall como o salto seguinte para as redes spoke.
-- Não é necessária nenhuma Rota Definida pelo Utilizador na sub-rede do Azure Firewall, pois o mesmo aprende as rotas do BGP.
+- Um utilizador rota definida (URD) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway predefinido. A propagação de rotas BGP tem de ser **Desativada** nesta tabela de rotas.
+- Um UDR na sub-rede de gateway do hub tem de apontar para o endereço IP de firewall como salto seguinte para as redes de spoke.
+- Não é necessária nenhuma UDR a sub-rede de Firewall do Azure, à medida que aprende as rotas do BGP.
 - Certifique-se de que define **AllowGatewayTransit** no peering de VNet-Hub para VNet-Spoke e que utiliza **UseRemoteGateways** no peering de VNet-Spoke para VNet-Hub.
 
 Veja a secção [Criar Rotas](#create-routes) neste tutorial para perceber como estas rotas são criadas.
@@ -60,7 +60,7 @@ Veja a secção [Criar Rotas](#create-routes) neste tutorial para perceber como 
 >Firewall do Azure tem de ter conectividade à internet direta. Se tiver ativado o túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, terá de configurar 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**e, em seguida, atribua-o para  **AzureFirewallSubnet**.
 
 >[!NOTE]
->Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se UIR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, o UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
+>Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se um UDR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, um UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

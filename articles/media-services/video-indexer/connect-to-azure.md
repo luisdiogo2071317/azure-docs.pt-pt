@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833691"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261558"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
 
@@ -98,6 +98,9 @@ Procure **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estado
 
 Se a falha na ligação para o Azure, pode tentar resolver o problema ao ligar-se manualmente.
 
+> [!NOTE]
+> É altamente recomendável ter as seguintes contas de três na mesma região: a conta do Video Indexer que estiver a estabelecer ligação com a conta de Media Services, bem como a conta de armazenamento do Azure ligado à mesma conta de Media Services.
+
 ### <a name="create-and-configure-a-media-services-account"></a>Criar e configurar uma conta de serviços de multimédia
 
 1. Utilize o [Azure](https://portal.azure.com/) portal para criar uma conta de Media Services do Azure, conforme descrito na [criar uma conta](../previous/media-services-portal-create-account.md).
@@ -168,7 +171,7 @@ As seguintes considerações relacionadas de serviços de multimédia do Azure a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode interagir programaticamente com a sua conta de avaliação e/ou com as suas contas do indexador de vídeo que estiver ligadas ao azure ao seguir as instruções em: [utilize as APIs](video-indexer-use-apis.md).
+Pode interagir programaticamente com a sua conta de avaliação e/ou com as suas contas do indexador de vídeo que estiver ligadas ao azure ao seguir as instruções em: [Utilizar APIs](video-indexer-use-apis.md).
 
 Deve usar o mesmo utilizador do Azure AD que utilizou quando ligar ao Azure.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244421"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266750"
 ---
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Assistente
 
@@ -77,7 +77,8 @@ O assistente identifica as tabelas que não são tabelas replicadas mas benefici
 
 Migre o seu modelo de implementação da conta de armazenamento para Azure Resource Manager (ARM) para tirar partido das implementações de modelo, opções de segurança adicionais e a capacidade de atualizar para uma conta GPv2 para utilização de funcionalidades mais recentes do armazenamento do Azure. O assistente irá identificar quaisquer contas de armazenamento autónomo que estão a utilizar o modelo de implementação clássica e recomenda a migração para o modelo de implementação ARM.
 
-Alertas Clássicos no Azure Monitor é anunciada a extinção em Junho de 2019, recomenda-se que Atualize sua conta de armazenamento clássica para ARM para manter a funcionalidade de alerta com a nova plataforma de alerta. Para obter mais informações, consulte [clássico de alertas de reforma](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
+> [!NOTE]
+> Alertas Clássicos no Azure Monitor é anunciada a extinção em Junho de 2019, recomenda-se que Atualize a sua conta de armazenamento clássica para ARM para manter a funcionalidade de alerta com a nova plataforma. Para obter mais informações, consulte [clássico de alertas de reforma](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

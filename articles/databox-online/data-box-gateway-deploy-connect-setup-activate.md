@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120518"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260440"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure (pré-visualização) 
 
@@ -94,7 +94,7 @@ Está agora a **Dashboard** do seu dispositivo.
    
    Na **Web proxy** página:
    
-   1. Forneça o **URL de proxy Web** neste formato: *http://&lt;endereço de IP do anfitrião ou FDQN&gt;: número de porta*. Tenha em atenção que não são suportados HTTPS URLs.
+   1. Forneça o **URL de proxy Web** neste formato: *http://&lt;endereço IP do anfitrião ou FQDN&gt;: número de porta*. Tenha em atenção que não são suportados HTTPS URLs.
    2. Especifique **autenticação** como **básica** ou **None**.
    3. Se utilizar a autenticação, também terá de fornecer um **nome de utilizador** e **palavra-passe**.
    4. Clique em **Aplicar**. Isto irá validar e aplicar as definições de proxy da web configurado.

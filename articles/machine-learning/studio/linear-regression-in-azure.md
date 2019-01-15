@@ -1,27 +1,7 @@
 ---
-title: Utilizar a regressão linear no Machine Learning Studio - Azure | Documentos da Microsoft
-description: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276684"
+title: Utilizar regressão linear no Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e nos serviços do Azure Machine Learning Studio: MS. Service de machine learning: ms.component de machine learning: studio topic: artigo
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Utilizar regressão linear no Azure Machine Learning Studio
 > *Kate Baroni* e *Ben Boatman* é enterprise arquitetos de soluções em Data Insights Center of Excellence do Microsoft. Neste artigo, eles descrevem sua experiência de migrar um pacote de análise de regressão existente para uma solução baseada na cloud com o Azure Machine Learning. 
@@ -83,7 +63,7 @@ Quando Aplicamos as recomendações, obtivemos o mesmo desempenho de linha de ba
 | --- |:---:|:---:|:---:|
 | Valor com nome |Actuals (numérico) |Mesmo |Mesmo |
 | Aprendiz |Excel-dados > análise -> regressão |Regressão linear. |Regressão linear |
-| Opções de aprendiz |N/A |Predefinições |quadrados do menos comuns<br />ERROS DE L2 = 0.005 |
+| Opções de aprendiz |N/A |Predefinições |quadrados do menos comuns<br />L2 = 0.005 |
 | Conjunto de dados |26 linhas, funcionalidades de 3, 1 etiqueta. Todos os numérica. |Mesmo |Mesmo |
 | Divisão: Preparar |Excel com base em com as linhas primeiro 18, testadas nas 8 pela última vez linhas. |Mesmo |Mesmo |
 | Divisão: Teste |Fórmula de regressão de Excel aplicada às 8 pela última vez linhas |Mesmo |Mesmo |
@@ -95,7 +75,7 @@ Quando Aplicamos as recomendações, obtivemos o mesmo desempenho de linha de ba
 
 Além disso, os coeficientes do Excel em comparação com bem os pesos de funcionalidade no modelo treinado do Azure:
 
-|  | Coeficientes do Excel | Pesos de funcionalidade do Azure |
+|  | Coeficientes do Excel | Azure Feature Weights |
 | --- |:---:|:---:|
 | Intercepção/tendência |19470209.88 |19328500 |
 | Funcionalidade A |0.832653063 |0.834156 |

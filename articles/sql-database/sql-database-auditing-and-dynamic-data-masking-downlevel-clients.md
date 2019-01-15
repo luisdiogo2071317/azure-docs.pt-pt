@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816060"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258956"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Suportam de clientes de nível inferior de base de dados do SQL - e ponto final de IP é alterado para auditoria de tabelas
 
@@ -43,7 +43,7 @@ Uma lista parcial de "Clientes de nível inferior" inclui:
 * JDBC (embora JDBC suporta TDS 7.4, a funcionalidade de redirecionamento de TDS não é totalmente suportada)
 * Entediante (para node. js)
 
-**Comentário:** o modificação do FDQN de servidor acima pode ser útil também para aplicar uma política de auditoria de ao nível do SQL Server, sem a necessidade de uma configuração passo em cada base de dados (atenuação temporária).
+**Comentário:** Modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de auditoria do SQL Server ao nível de mensagens em fila sem a necessidade de um passo de configuração em cada base de dados (atenuação temporária).
 
 ## <a id="subheading-2"></a>Ponto final de IP é alterado ao ativar a auditoria
 Tenha em atenção que, quando ativar a auditoria de tabela, o ponto final do IP da base de dados será alterado. Se tiver definições de strict firewall, Atualize as definições de firewall em conformidade.

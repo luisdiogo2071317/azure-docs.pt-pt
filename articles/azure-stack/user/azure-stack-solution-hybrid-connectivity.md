@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: a219ec1797ff74bd1a9ff458e34650d1545f1172
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 19c5e530822d1d9c2b4ec815b37b3373e8e39b02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585786"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305983"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: configurar a conectividade de cloud híbrida com o Azure e o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode aceder a recursos com segurança no global Azure e usando o padrão de conectividade híbrida do Azure Stack.
 
@@ -59,8 +59,8 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
 
 ### <a name="azure"></a>Azure
 
- - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
- - Criar uma [aplicação Web](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) no Azure. Tome nota do URL da aplicação Web, porque ele será necessário no tutorial.
+ - Se não tiver uma subscrição do Azure, crie uma  [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)  antes de começar.
+ - Criar uma [aplicação Web](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) no Azure. Tome nota do URL da aplicação Web, porque ele será necessário no tutorial.
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -68,7 +68,7 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
    >[!Note]
    >Implementar o ASDK pode demorar até 7 horas, por isso, planeie em conformidade.
 
- - Implementar [serviço de aplicações](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) serviços de PaaS para o Azure Stack.
+ - Implementar [serviço de aplicações](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) serviços de PaaS para o Azure Stack.
  - [Criar planos e ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no ambiente do Azure Stack.
  - [Criar subscrição de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) dentro do ambiente do Azure Stack.
 
@@ -81,46 +81,46 @@ Certifique-se de que cumpre os seguintes critérios antes de começar a configur
 
 #### <a name="tutorial-example-values"></a>Valores de exemplo tutorial
 
-Os exemplos neste tutorial utilizam os seguintes valores. Pode utilizar estes valores para criar um ambiente de teste ou consultá-los para uma melhor compreensão dos exemplos. Para obter mais informações sobre as definições do Gateway de VPN em geral, veja [Sobre as Definições do Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
+Os exemplos neste tutorial utilizam os seguintes valores. Pode utilizar estes valores para criar um ambiente de teste ou consultá-los para uma melhor compreensão dos exemplos. Para obter mais informações sobre o Gateway de VPN definições em geral, consulte [sobre o VPN Gateway Settings](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
 Especificações de ligação:
 
- - **Tipo de VPN**: baseado na rota
- - **Tipo de ligação**: Site a site (IPsec)
- - **Tipo de gateway**: VPN
- - **Nome da ligação do Azure**: Azure-Gateway-AzureStack-S2SGateway (o portal será preenchido automaticamente este valor)
- - **Nome da ligação do Azure Stack**: AzureStack-Gateway-Azure-S2SGateway (o portal será preenchido automaticamente este valor)
- - **Chave partilhada**: qualquer compatível com o hardware VPN, com valores em ambos os lados da ligação correspondentes
- - **Subscrição**: preferencial qualquer subscrição
- - **Grupo de recursos**: teste infra-estrutura
+ - **Tipo de VPN**: Baseado na rota
+ - **Tipo de ligação**: Site-site (IPsec)
+ - **Tipo de gateway**: VPN
+ - **Nome da ligação do Azure**: Azure-Gateway-AzureStack-S2SGateway (o portal será preenchido automaticamente este valor)
+ - **Nome da ligação do Azure Stack**: AzureStack-Gateway-Azure-S2SGateway (o portal será preenchido automaticamente este valor)
+ - **Chave partilhada**: Qualquer compatível com o hardware VPN, com valores em ambos os lados da ligação correspondentes
+ - **Subscrição**: Qualquer subscrição preferencial
+ - **Grupo de recursos**: Teste-infra-estrutura
 
 Endereços IP de rede e sub-rede:
 
 | Ligação do Azure/Azure Stack | Nome | Subrede | Endereço IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
-| VNet do Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
+| Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
-| VNet do Azure Stack | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
+| Azure Stack vNet | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
-| Gateway de rede Virtual do Azure | Gateway do Azure |  |  |
+| Gateway de rede Virtual do Azure | Azure-Gateway |  |  |
 | Gateway de rede Virtual do Azure Stack | AzureStack-Gateway |  |  |
-| IP público do Azure | GatewayPublicIP do Azure |  | Determinar durante a criação |
-| IP público do Azure Stack | AzureStack GatewayPublicIP |  | Determinar durante a criação |
-| Gateway de rede Local do Azure | AzureStack S2SGateway<br>   10.100.100.0/23 |  | Valor IP público do Azure Stack |
-| Gateway de rede Local do Azure Stack | S2SGateway do Azure<br>10.100.102.0/23 |  | Valor IP público do Azure |
+| IP público do Azure | Azure-GatewayPublicIP |  | Determinar durante a criação |
+| IP público do Azure Stack | AzureStack-GatewayPublicIP |  | Determinar durante a criação |
+| Gateway de rede Local do Azure | AzureStack-S2SGateway<br>   10.100.100.0/23 |  | Valor IP público do Azure Stack |
+| Gateway de rede Local do Azure Stack | Azure-S2SGateway<br>10.100.102.0/23 |  | Valor IP público do Azure |
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Criar uma rede virtual no Azure global e o Azure Stack
 
-Utilize os seguintes passos para criar uma rede virtual com o portal. Pode usar esses [valores de exemplo](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) se estiver a utilizar este artigo como um tutorial. No entanto, se estiver a utilizar este artigo para configurar um ambiente de produção, substitua as definições de exemplo pelos seus próprios valores.
+Utilize os seguintes passos para criar uma rede virtual com o portal. Pode usar esses [valores de exemplo](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) se estiver a utilizar este artigo como um tutorial. No entanto, se estiver a utilizar este artigo para configurar um ambiente de produção, substitua as definições de exemplo pelos seus próprios valores.
 
 > [!IMPORTANT]
 > Tem de se certificar de que não existir uma sobreposição de endereços IP no Azure ou no Azure Stack espaços de endereços da vNet.
 
 Para criar uma vNet no Azure:
 
-1. Utilizar o browser para ligar para o [portal do Azure](http://portal.azure.com/) e inicie sessão com a sua conta do Azure.
-2. Selecione **criar um recurso**. Na **pesquisar no marketplace** , insira `virtual network`'. Encontrar **rede Virtual** na lista de resultados e, em seguida, selecione **rede Virtual**.
-3. Do **selecionar um modelo de implementação** , selecione **Gestor de recursos**e, em seguida, selecione **criar**.
+1. Utilizar o browser para ligar para o [portal do Azure](http://portal.azure.com/) e inicie sessão com a sua conta do Azure.
+2. Selecione **criar um recurso**. Na **pesquisar no marketplace** , insira `virtual network`'. Encontrar **rede Virtual** na lista de resultados e, em seguida, selecione **rede Virtual**.
+3. Partir do **selecionar um modelo de implementação** , selecione **Resource Manager**e, em seguida, selecione **criar**.
 4. No **criar rede virtual**, configurar as definições da VNet. Os nomes de campos obrigatórios são prefixados com um asterisco vermelho.  Ao introduzir um valor válido, o asterisco muda para uma marca de verificação verde.
 
 Para criar uma vNet no Azure Stack:
@@ -131,38 +131,38 @@ Para criar uma vNet no Azure Stack:
 
 Antes de ligar a rede virtual a um gateway, terá de criar a sub-rede do gateway para a rede virtual que pretende ligar. Os serviços do gateway utilizam os endereços IP que especificar na sub-rede de gateway.
 
-Na [portal do Azure](http://portal.azure.com/), navegue para o Gestor de recursos de rede virtual onde pretende criar um gateway de rede virtual.
+Na [portal do Azure](http://portal.azure.com/), navegue para o Gestor de recursos de rede virtual onde pretende criar um gateway de rede virtual.
 
 1. Selecione a vNet para abrir o **rede Virtual** página.
-2. Na **configurações**, selecione **sub-redes**.
-3. Sobre o **sub-redes** página, selecione **+ sub-rede de Gateway** para abrir o **adicionar sub-rede** página.
+2. Na **configurações**, selecione **sub-redes**.
+3. Sobre o **sub-redes** página, selecione **+ sub-rede de Gateway** para abrir o **adicionar sub-rede** página.
 
     ![Adicionar sub-rede do gateway](media/azure-stack-solution-hybrid-connectivity/image4.png)
 
-4. O **nome** para a sub-rede é preenchida automaticamente com o valor "GatewaySubnet". Este valor é necessário para o Azure reconheça a sub-rede como a sub-rede do gateway.
-5. Alteração da **intervalo de endereços** valores que são fornecidos para corresponder aos seus requisitos de configuração e, em seguida, selecione **OK**.
+4. O **Name** para a sub-rede é preenchida automaticamente com o valor "GatewaySubnet". Este valor é necessário para o Azure reconheça a sub-rede como a sub-rede do gateway.
+5. Alteração da **intervalo de endereços** valores que são fornecidos para corresponder aos seus requisitos de configuração e, em seguida, selecione **OK**.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Criar um Gateway de rede Virtual no Azure e o Azure Stack
 
 Utilize os seguintes passos para criar um gateway de rede virtual no Azure.
 
-1. No lado esquerdo da página do portal, selecione **+** e introduza "gateway de rede virtual" no campo de pesquisa.
-2. Na **resultados**, selecione **gateway de rede Virtual**.
-3. Na **gateway de rede Virtual**, selecione **Create** para abrir o **criar gateway de rede virtual** página.
+1. No lado esquerdo da página do portal, selecione **+**  e introduza "gateway de rede virtual" no campo de pesquisa.
+2. Na **resultados**, selecione **gateway de rede Virtual**.
+3. Na **gateway de rede Virtual**, selecione **Create** para abrir o **criar gateway de rede virtual** página.
 4. No **criar gateway de rede virtual**, especifique os valores para o seu gateway de rede, conforme mostrado na **valores de exemplo Tutorial**e os seguintes valores adicionais:
 
     - **SKU**: básico
-    - **Rede virtual**: selecione a rede Virtual que criou anteriormente. A sub-rede do gateway que criou é selecionada automaticamente.
-    - **Configuração do primeiro IP**: Este é o IP público do seu Gateway.
+    - **Rede virtual**: Selecione a rede Virtual que criou anteriormente. A sub-rede do gateway que criou é selecionada automaticamente.
+    - **Configuração do primeiro IP**:  Este é o IP público do seu Gateway.
         - Selecione **criar configuração de IP do gateway**, que leva-o para o **escolher endereço IP público** página.
-        - Selecione **+ criar novo** para abrir o **Criar endereço IP público** página.
-        - Introduza um **nome** para seu endereço IP público. Deixe o SKU como **básica**e, em seguida, selecione **OK** para guardar as alterações.
+        - Selecione **+ criar novo** para abrir o **Criar endereço IP público** página.
+        - Introduza um **Name** para seu endereço IP público. Deixe o SKU como **básica**e, em seguida, selecione **OK** para guardar as alterações.
 
        > [!Note]
        > Atualmente, o Gateway de VPN só suporta alocação de endereço IP público dinâmico. No entanto, isso não significa que o endereço IP é alterado depois do que é atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Redimensionar, repor ou outra manutenção/atualização interna ao gateway de VPN não alterar o endereço IP.
 
 4. Verifique se as definições do gateway.
-5. Selecione **criar** para criar o gateway VPN. As definições do gateway são validadas e o mosaico "Gateway de rede Virtual da implementação" é apresentado no seu dashboard.
+5. Selecione **Create** para criar o gateway VPN. As definições do gateway são validadas e o mosaico "Gateway de rede Virtual da implementação" é apresentado no seu dashboard.
 
    >[!Note]
    >A criação de um gateway pode demorar até 45 minutos. Poderá ter de atualizar a página do portal para ver o estado concluído.
@@ -181,18 +181,18 @@ O gateway de rede local refere-se normalmente à sua localização no local. Dar
   >[!Note]
   >Se as alterações de rede no local ou se precisar alterar o endereço IP público para o dispositivo VPN, pode atualizar facilmente estes valores mais tarde.
 
-1. No portal, selecione **+ criar um recurso**.
-2. Na caixa de pesquisa, introduza **gateway de rede Local**, em seguida, selecione **Enter** para procurar. Isto irá devolver uma lista de resultados.
-3. Selecione **gateway de rede Local**, em seguida, selecione **Create** para abrir o **criar gateway de rede local** página.
+1. No portal, selecione **+ criar um recurso**.
+2. Na caixa de pesquisa, introduza **gateway de rede Local**, em seguida, selecione **Enter** para procurar. Isto irá devolver uma lista de resultados.
+3. Selecione **gateway de rede Local**, em seguida, selecione **Create** para abrir o **criar gateway de rede local** página.
 4. No **criar gateway de rede local**, especifique os valores para o seu gateway de rede local, com o nosso **valores de exemplo Tutorial**. Incluem os seguintes valores adicionais.
 
-    - **Endereço IP**: Este é o endereço IP público do dispositivo VPN que pretende que o Azure ou no Azure Stack para ligar a. Especifique um endereço IP público válido que não está protegido por um NAT para que o Azure consegue contactar o endereço. Se não tiver o endereço IP neste momento, pode utilizar o valor do exemplo como um espaço reservado, mas terá de voltar atrás e substituir o marcador de posição pelo endereço IP público do seu dispositivo VPN. Azure não consegue ligar ao dispositivo, enquanto não fornecer um endereço válido.
-    - **Espaço de endereços**: Este é o intervalo de endereço para a rede que representa esta rede local. Pode adicionar vários intervalos de espaço de endereços. Certifique-se de que os intervalos que especificar não se sobrepõem aos intervalos de outras redes às quais deseja se conectar. O Azure irá encaminhar o intervalo de endereços que especificou no endereço IP do dispositivo VPN no local. Utilize os seus próprios valores para ligar ao seu site no local, não um valor de exemplo.
-    - **Configurar definições de BGP**: Utilize apenas quando configurar o BGP. Caso contrário, não selecione esta opção.
-    - **Subscrição**: Certifique-se de que é apresentada a subscrição correta.
-    - **Grupo de recursos**: selecione o grupo de recursos que pretende utilizar. Pode criar um novo grupo de recursos ou selecionar um que já criou.
-    - **Localização**: selecione a localização que este objeto será criado. Pode querer selecionar a mesma localização que a VNet se encontra, mas não é necessário para fazer isso.
-5. Quando terminar de especificar os valores necessários, selecione **criar** para criar o gateway de rede local.
+    - **Endereço IP**: Este é o endereço IP público do dispositivo VPN que pretende que o Azure ou no Azure Stack para ligar a. Especifique um endereço IP público válido que não está protegido por um NAT para que o Azure consegue contactar o endereço. Se não tiver o endereço IP neste momento, pode utilizar o valor do exemplo como um espaço reservado, mas terá de voltar atrás e substituir o marcador de posição pelo endereço IP público do seu dispositivo VPN. Azure não consegue ligar ao dispositivo, enquanto não fornecer um endereço válido.
+    - **Espaço de endereços**: Este é o intervalo de endereços para a rede que representa esta rede local. Pode adicionar vários intervalos de espaço de endereços. Certifique-se de que os intervalos que especificar não se sobrepõem aos intervalos de outras redes às quais deseja se conectar. O Azure irá encaminhar o intervalo de endereços que especificou no endereço IP do dispositivo VPN no local. Utilize os seus próprios valores para ligar ao seu site no local, não um valor de exemplo.
+    - **Configurar definições de BGP**: Utilize apenas quando configurar o BGP. Caso contrário, não selecione esta opção.
+    - **Subscrição**: Certifique-se de que é apresentada a subscrição correta.
+    - **Grupo de recursos**: Selecione o grupo de recursos que pretende utilizar. Pode criar um novo grupo de recursos ou selecionar um que já criou.
+    - **Localização**: Selecione a localização que este objeto será criado. Pode querer selecionar a mesma localização que a VNet se encontra, mas não é necessário para fazer isso.
+5. Quando terminar de especificar os valores necessários, selecione **Create** para criar o gateway de rede local.
 6. Repita estes passos (1 a 5) na sua implementação do Azure Stack.
 
 ## <a name="configure-your-connection"></a>Configurar a ligação
@@ -204,23 +204,23 @@ As ligações de Site a Site para uma rede no local requerem um dispositivo VPN.
 
 Utilize os seguintes passos para criar uma ligação de VPN de Site a Site entre o gateway de rede virtual e o dispositivo VPN no local.
 
-1. No portal do Azure, selecione **+ criar um recurso**.
+1. No portal do Azure, selecione **+ criar um recurso**.
 2. Procure **ligações**.
-3. Na **resultados**, selecione **ligações**.
+3. Na **resultados**, selecione **ligações**.
 4. No **conexão**, selecione **criar**.
 5. No **criar ligação**, configure as seguintes definições:
 
-    - **Tipo de ligação**: selecione o Site a site (IPSec).
-    - **Grupo de recursos**: selecione o grupo de recursos de teste.
-    - **Gateway de rede virtual**: selecione o gateway de rede Virtual que criou.
-    - **Gateway de rede local**: selecione o Gateway de rede Local que criou.
-    - **Nome da ligação**: Este é preenchido automaticamente com os valores dos dois gateways.
-    - **Chave partilhada**: este valor tem de corresponder ao valor que está a utilizar para o dispositivo VPN no local. Exemplo do tutorial utiliza "abc123", mas pode e (deve) utilizar algo mais complexo. O importante é que este valor tem de ser o mesmo valor que especificou quando configurar o dispositivo VPN.
+    - **Tipo de ligação**: Selecione o Site a site (IPSec).
+    - **Grupo de recursos**: Selecione o grupo de recursos de teste.
+    - **Gateway de rede virtual**: Selecione o gateway de rede Virtual que criou.
+    - **Gateway de rede local**: Selecione o Gateway de rede Local que criou.
+    - **Nome da ligação**: Isso é preenchido automaticamente com os valores dos dois gateways.
+    - **Chave partilhada**: Este valor tem de corresponder ao valor que está a utilizar para o dispositivo VPN no local. Exemplo do tutorial utiliza "abc123", mas pode e (deve) utilizar algo mais complexo. O importante é que este valor tem de ser o mesmo valor que especificou quando configurar o dispositivo VPN.
     - Os valores para **subscrição**, **grupo de recursos**, e **localização** são fixos.
 
 6. Selecione **OK** para criar a ligação.
 
-Pode ver a ligação no **ligações** página do gateway de rede virtual. O estado será alterado de *desconhecido* para *Connecting*e clique em *Succeeded*.
+Pode ver a ligação no **conexões** página do gateway de rede virtual. O estado será alterado de *desconhecido* para *ligar*e clique em *Succeeded*.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

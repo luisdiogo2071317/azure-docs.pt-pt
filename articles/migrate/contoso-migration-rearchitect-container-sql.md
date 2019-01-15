@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9fd83124585e3a0eb19c43e278eeeacb6ec4409c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094110"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267424"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração de Contoso: Rearquitetar uma aplicação no local para um contentor do Azure e a base de dados do Azure SQL
 
@@ -24,15 +24,15 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 --- | --- | ---
 [Artigo 1: Descrição geral](contoso-migration-overview.md) | Descrição geral da série de artigos, estratégia de migração da Contoso e as aplicações de exemplo que são utilizadas da série. | Disponível
 [Artigo 2: Implementar a infraestrutura do Azure](contoso-migration-infrastructure.md) | Contoso prepara a sua infraestrutura no local e a respetiva infraestrutura do Azure para a migração. A mesma infra-estrutura é utilizada para todos os artigos de migração da série. | Disponível
-[Artigo 3: Avaliar a recursos no local para migração para o Azure](contoso-migration-assessment.md)  | Contoso é executada uma avaliação da sua aplicação da SmartHotel360 no local em execução no VMware. Contoso avalia as VMs de aplicação com o serviço Azure Migrate e a base de dados de SQL Server do aplicativo com o Assistente de migração de dados. | Disponível
+[Artigo 3: Avalie os recursos no local para migração para o Azure](contoso-migration-assessment.md)  | Contoso é executada uma avaliação da sua aplicação da SmartHotel360 no local em execução no VMware. Contoso avalia as VMs de aplicação com o serviço Azure Migrate e a base de dados de SQL Server do aplicativo com o Assistente de migração de dados. | Disponível
 [Artigo 4: Realojar a uma aplicação numa VM do Azure e a instância gerida da base de dados do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso é executada uma migração lift-and-shift para o Azure para a sua aplicação da SmartHotel360 no local. Contoso migra a aplicação front-end VM com [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra a base de dados de aplicação para uma instância gerida da base de dados SQL do Azure utilizando o [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponível   
-[Artigo 5: Realojar a uma aplicação em VMs do Azure](contoso-migration-rehost-vm.md) | Contoso migra a sua aplicação da SmartHotel360 VMs para VMs do Azure com o serviço Site Recovery. | Disponível
+[5 do artigo: Realojar a uma aplicação em VMs do Azure](contoso-migration-rehost-vm.md) | Contoso migra a sua aplicação da SmartHotel360 VMs para VMs do Azure com o serviço Site Recovery. | Disponível
 [Artigo 6: Realojar a uma aplicação em VMs do Azure e, num grupo de Disponibilidade AlwaysOn do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra a aplicação da SmartHotel360. A Contoso utiliza o Site Recovery para migrar as VMs da aplicação. Ele usa o serviço de migração de base de dados para migrar a base de dados de aplicação para um cluster do SQL Server que está protegido por um grupo de Disponibilidade AlwaysOn. | Disponível 
 [Artigo 7: Realojar uma aplicação do Linux em VMs do Azure](contoso-migration-rehost-linux-vm.md) | Contoso é uma migração lift-and-shift da aplicação de osTicket do Linux para VMs do Azure, com o Azure Site Recovery concluída | Disponível
 [Artigo 8: Realojar uma aplicação do Linux em VMs do Azure e MySQL do Azure](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra a aplicação de osTicket do Linux para VMs do Azure com o Azure Site Recovery e migra a base de dados de aplicação para uma instância do servidor MySQL do Azure com o MySQL Workbench. | Disponível
 [Artigo 9: Refatorizar uma aplicação na base de dados de aplicações Web do Azure e SQL do Azure](contoso-migration-refactor-web-app-sql.md) | Contoso migra a aplicação da SmartHotel360 para uma aplicação Web do Azure e migra a base de dados de aplicação para uma instância de servidor SQL do Azure com o Assistente de migração de base de dados | Disponível
 [Artigo 10: Refatorizar uma aplicação do Linux em aplicações Web do Azure e MySQL do Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra sua osTicket de aplicação do Linux para uma aplicação web do Azure em várias regiões do Azure utilizando o Gestor de tráfego do Azure, integrado com o GitHub para a entrega contínua. Contoso migra a base de dados de aplicação para uma base de dados do Azure para a instância do MySQL. | Disponível 
-[Artigo 11: Refatorar TFS nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
+[Artigo 11: Refatorar o TFS em serviços do Azure DevOps](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
 Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados SQL do Azure | Contoso migra sua SmartHotel de aplicação para o Azure. Em seguida, rearchitects a camada de web de aplicação como um contentor do Windows em execução no Azure Service Fabric e base de dados com a base de dados do Azure SQL. | Este artigo
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo de SmartHotel com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service (AKS), as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível 
 [Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
@@ -44,10 +44,10 @@ Neste artigo, a Contoso migra o WPF de Windows de duas camadas, XAML formulário
 A equipe de liderança de TI da Contoso tem trabalhado em estreita colaboração com parceiros de negócios para compreender o que quer alcançar com esta migração:
 
 - **Resolver o crescimento do negócio**: Contoso está a crescer e assim há pressão sobre seus sistemas no local e a infraestrutura.
-- **Aumentar a eficiência**: a Contoso precisa de remover procedimentos desnecessários e simplificar processos para desenvolvedores e usuários.  Necessidades de negócio IT velocidade e não desperdício de tempo ou dinheiro, entregando assim mais rapidamente sobre os requisitos dos clientes.
-- **Aumente a agilidade**: Contoso TI tem de ser mais reativos para com as necessidades do negócio. Tem de ser capaz de reagir mais rapidamente do que as alterações no marketplace, para ativar o sucesso numa economia global.  Ele não pode obter na forma como ou se tornar um bloqueador de negócios.
-- **Dimensionamento**: à medida que a empresa cresce com êxito, TI da Contoso tem de fornecer sistemas que são capazes de aumentar ao ritmo mesmo.
-- **Os custos**: Contoso, além de minimizar os custos de licenciamento.
+- **Aumentar a eficiência**: A Contoso precisa de remover procedimentos desnecessários e simplificar processos para desenvolvedores e usuários.  Necessidades de negócio IT velocidade e não desperdício de tempo ou dinheiro, entregando assim mais rapidamente sobre os requisitos dos clientes.
+- **Aumente a agilidade**:  Contoso TI tem de ser mais reativos para com as necessidades do negócio. Tem de ser capaz de reagir mais rapidamente do que as alterações no marketplace, para ativar o sucesso numa economia global.  Ele não pode obter na forma como ou se tornar um bloqueador de negócios.
+- **Dimensionamento**: À medida que a empresa cresce com êxito, TI da Contoso tem de fornecer sistemas que são capazes de aumentar ao ritmo mesmo.
+- **Os custos**: Contoso quer minimizar os custos de licenciamento.
 
 ## <a name="migration-goals"></a>Objetivos de migração
 
@@ -113,7 +113,7 @@ Contoso avalia a estrutura proposta ao juntar-se de uma lista de prós e contras
 --- | --- | ---
 [Assistente de migração de base de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Avalia e detetar problemas de compatibilidade que podem afetar a funcionalidade de banco de dados no Azure. O DMA avalia a paridade de funcionalidades entre o SQL origens e destinos e recomenda melhorias de desempenho e confiabilidade. | É uma ferramenta transferível gratuita.
 [Base de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) | Fornece um serviço de base de dados da cloud relacional completamente gerido inteligente. | Custo com base nas funcionalidades, débito e tamanho. [Saiba mais](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-[Registo de contentor do Azure](https://azure.microsoft.com/services/container-registry/) | Armazena imagens de todos os tipos de implementações de contentor. | Custo com base em recursos, armazenamento e a duração de utilização. [Saiba mais](https://azure.microsoft.com/pricing/details/container-registry/).
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Armazena imagens de todos os tipos de implementações de contentor. | Custo com base em recursos, armazenamento e a duração de utilização. [Saiba mais](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Baseia-se e opere aplicações sempre ativa, dimensionáveis e distribuídas | Encargos com base no tamanho, a localização e a duração de nós de computação. [Saiba mais](https://azure.microsoft.com/pricing/details/service-fabric/).
 [DevOps do Azure](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fornece uma integração contínua e um pipeline de implementação contínua (CI/CD) para o desenvolvimento de aplicações. O pipeline é iniciado com um repositório de Git para o gerenciamento de código da aplicação, um sistema de compilação para produzir pacotes e outros artefactos de compilação e um sistema de gerenciamento de liberação para implementar as alterações no desenvolvimento, teste e ambientes de produção.
 
@@ -136,13 +136,13 @@ Eis como Contoso é executada a migração:
 > [!div class="checklist"]
 > * **Passo 1: Aprovisionar uma instância de base de dados SQL no Azure**: Contoso Aprovisiona uma instância do SQL no Azure. Depois da VM é migrada para um contentor do Azure web de front-end, a instância de contentor com o front-end da web de aplicação irá apontar para esta base de dados.
 > * **Passo 2: Criar um Azure Container Registry (ACR)**: Contoso aprovisiona um registo de contentor de enterprise para as imagens de contentor do docker.
-> * **Passo 3: Aprovisionar do Azure Service Fabric**: aprovisiona um Cluster do Service Fabric.
+> * **Passo 3: Aprovisionar o Azure Service Fabric**: Ele fornece um Cluster do Service Fabric.
 > * **Passo 4: Gerir certificados de recursos de infraestrutura do serviço**: Contoso configura certificados para acesso de serviços de DevOps do Azure para o cluster.
-> * **Passo 5: Migrar a base de dados com o DMA**: ele migra a base de dados de aplicação com o Assistente de migração de base de dados.
+> * **Passo 5: Migrar a base de dados com o DMA**: Ele migra a base de dados de aplicação com o Assistente de migração de base de dados.
 > * **Passo 6: Configurar os serviços do Azure DevOps**: Contoso configura um projeto novo nos serviços de DevOps do Azure e importa o código para o repositório de Git.
 > * **Passo 7: Converta a aplicação**: Contoso converte a aplicação para um contentor utilizando ferramentas de DevOps do Azure e o SDK.
 > * **Passo 8: Configurar a criação e versão**: Contoso configura os pipelines de compilação e versão para criar e publicar a aplicação para o ACR e o Cluster do Service Fabric.
-> * **Passo 9: Expandir a aplicação**: depois da aplicação é pública, Contoso estende para tirar partido das capacidades do Azure e republishes-lo para o Azure com o pipeline.
+> * **Passo 9: Expandir as aplicações**: Depois da aplicação é pública, Contoso estende para tirar partido das capacidades do Azure e republishes-lo para o Azure com o pipeline.
 
 
 
@@ -361,7 +361,7 @@ Os administradores da Contoso agora migrar a base de dados.
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## <a name="step-6-set-up-azure-devops-services"></a>Passo 6: Configurar os serviços do Azure DevOps
+## <a name="step-6-set-up-azure-devops-services"></a>Passo 6: Configurar serviços de DevOps do Azure
 
 A Contoso precisa de criar a infraestrutura de DevOps e pipelines para a aplicação.  Para tal, os administradores da Contoso criar um novo projeto de DevOps do Azure, importar seu código e, em seguida, criar e lançar pipelines.
 
@@ -502,7 +502,7 @@ Os administradores de contoso agora configurar serviços de DevOps do Azure para
 
     ![Publicar](./media/contoso-migration-rearchitect-container-sql/publish5.png)
 
-## <a name="step-9-extend-the-app-and-republish"></a>Passo 9: Expandir a aplicação e voltar a publicar
+## <a name="step-9-extend-the-app-and-republish"></a>Passo 9: Expanda a aplicação e voltar a publicar
 
 Após a aplicação da SmartHotel360 e a base de dados estão em execução no Azure, a Contoso pretende expandir as aplicações.
 

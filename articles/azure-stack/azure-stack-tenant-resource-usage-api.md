@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379717"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302736"
 ---
 # <a name="tenant-resource-usage-api"></a>API de utilização de recursos de inquilino
 
@@ -36,7 +36,7 @@ O pedido obtém os detalhes de consumo para as subscrições de pedido e para o 
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argumentos
-| **Argumento** | **Descrição** |
+| **Argument** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Gestor de recursos ponto final do Azure do seu ambiente do Azure Stack. A Convenção do Azure Stack é o nome do ponto final do Gestor de recursos do Azure está no formato `https://management.{domain-name}`. Por exemplo, crie uma para o kit de desenvolvimento, o nome de domínio é local.azurestack.external, em seguida, o ponto de final do Gestor de recursos é `https://management.local.azurestack.external`. |
 | *subId* |ID de subscrição do utilizador que está fazendo a chamada. Pode utilizar esta API apenas a consulta para utilização de uma única subscrição. Fornecedores podem utilizar a API de utilização do fornecedor de recursos para utilização da consulta para todos os inquilinos. |
@@ -74,7 +74,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 ```
 
 ### <a name="response-details"></a>Detalhes da resposta
-| **Argumento** | **Descrição** |
+| **Argument** | **Descrição** |
 | --- | --- |
 | *id* |ID exclusivo do agregado de utilização |
 | *name* |Nome do agregado de utilização |
@@ -82,7 +82,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *subscriptionId* |Identificador de subscrição do utilizador do Azure |
 | *usageStartTime* |Hora de registo de utilização a que pertence este agregado de utilização de início de UTC |
 | *usageEndTime* |Hora de fim de UTC de registo de utilização a que pertence este agregado de utilização |
-| *instanceData* |Pares de chave-valor dos detalhes de instância (num novo formato):<br>  *resourceUri*: completamente qualificado do ID de recurso, incluindo grupos de recursos e o nome da instância <br>  *localização*: região em que este serviço foi executado <br>  *etiquetas*: etiquetas de recursos especificadas pelo utilizador <br>  *additionalInfo*: obter mais detalhes sobre o recurso que foi consumido, por exemplo, tipo de imagem ou de versão do SO |
+| *instanceData* |Pares de chave-valor dos detalhes de instância (num novo formato):<br>  *resourceUri*: ID de recurso completamente qualificado, incluindo grupos de recursos e o nome da instância <br>  *Localização*: Região em que este serviço foi executado <br>  *tags*: Sinalizadores de recursos especificadas pelo utilizador <br>  *additionalInfo*: Escreva mais detalhes sobre o recurso que foi consumido, por exemplo, a versão do SO ou a imagem |
 | *quantity* |Quantidade de consumo de recursos que ocorreram neste período de tempo |
 | *meterId* |ID exclusivo para o recurso que foi consumido (também denominado *ResourceID*) |
 

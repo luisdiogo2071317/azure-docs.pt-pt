@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002659"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304844"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as unidades transmissão em fluxo
 
@@ -58,6 +58,8 @@ Para obter mais informações sobre como escolher o número certo de SUs, consul
 Elementos de consulta (orientados a tempo) temporal são o conjunto básico de operadores com monitoração de estado fornecido pelo Stream Analytics. Stream Analytics gere o estado destas operações internamente em nome de utilizador, através da gestão do consumo de memória, ponto de verificação para resiliência e recuperação de estado durante as atualizações de serviço. Apesar do Stream Analytics gere totalmente os Estados, há uma série de recomendações de melhores práticas que devem considerar os utilizadores.
 
 Tenha em atenção que uma tarefa com lógica de consulta complexas poderia ter alta utilização de % SU, mesmo quando ele não está continuamente a receber eventos de entrada. Isto pode acontecer após um pico nos eventos de entrada e saídos. A tarefa poderá continuar a manter o estado na memória se a consulta é complexa.
+
+% De utilização SU, de repente, pode remover como 0 durante um curto período antes de entrar novamente para níveis esperados. Isto acontece devido a erros transitórios ou atualizações de sistema iniciada.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com monitoração de Estado nos elementos temporais
 Um da capacidade única de trabalho do Azure Stream Analytics consiste em efetuar o processamento com monitoração de estado, tais como funções de análise temporais, associações temporais e agregados em janelas. Cada um destes operadores mantém informações de estado. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 

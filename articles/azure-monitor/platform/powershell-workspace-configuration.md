@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: a77406fd6a466ed92f6eb3ed3401e987831e3da0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063195"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267302"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics numa linha de comandos ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
@@ -173,7 +173,7 @@ New-AzureRmOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupNam
 Enable-AzureRmOperationalInsightsLinuxCustomLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Syslog
-New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernal syslog collection"
+New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernel syslog collection"
 Enable-AzureRmOperationalInsightsLinuxSyslogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Windows Event
@@ -190,17 +190,17 @@ No exemplo acima regexDelimiter foi definida como "\\n" para a nova linha. O del
 
 | Formato | Formato de JSON RegEx usa dois \\ para cada \ num padrão RegEx por isso, se o teste num aplicativo de RegEx reduzir \\ para \ |
 | --- | --- |
-| HH: MM: DE AAAA-MM-DD | ((\\\\1!d{2})\|(\\\\1!d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\1!d)) \\ \\s ((\\\\1!d)\|([0-1]\\\\1!d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
-| M/AAAA HH: MM: SS AM/PM | (([0-1]\\\\1!d)\|[0-9]) / (([0-3]\\\\1!d)\|(\\\\1!d)) / ((\\\\1!d{2})\|( \\ \\1!d{4}))\\\\s ((\\\\1!d)\|([0-1]\\\\1!d)\|(2[0-4])): [0-5] [0-9]: [ 0-5] [0-9]\\\\s (AM\|PM\|estou\|pm) |
+| HH: MM: DE AAAA-MM-DD | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| M/AAAA HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
 | MMM/dd/aaaa hh: mm: | ((([0-3]\\\\1!d)\|(\\\\1!d)) / (Jan\|Fevereiro\|Mar\|Maio\|Abr\|Jul\|Jun\|Ago\|Oct\|Sep\|Nov\|Dec\|jan\|Fevereiro\|mar\|pode\|Abr\|jul\|jun\|Ago\|oct\|sep\|nov\|dez) / ((\\\\1!d{2})\|(\\\\1!d{4})) \\ \\s ((\\\\1!d)\|([0-1]\\\\1!d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
 | MMM dd aaaa hh: mm: | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Poderá\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|Setembro\|Oct(?:o ero)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0 2]? \\ \\1!d{1})\|(?: [3] [01]{1}))) (?! [\\\\1!d]).* ? ((?: (?: [1]{1}\\\\1!d{1}\\\\1!d{1}\\\\1!d{1})\|(?: [2]{1} \\ \\1!d{3}))) (?! [\\\\1!d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
-| yyMMdd hh: mm: | ([0-9]{2}([0] [1 a 9]\|[1][0-2]) ([0-2] [0-9]\|[3][0-1])\\\\s\\\\s? ( [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| ddMMyy hh: mm: | (([0-2] [0-9]\|[3][0-1]) ([0] [1 a 9]\|[1][0-2]) [0-9]{2}\\\\s\\\\s? ( [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| yyMMdd hh: mm: | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| ddMMyy hh: mm: | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
 | MMM 1!d hh: mm: | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s\\\\s? ( [0]? [1 a 9] \|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0-1]? [ 0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
 | MMM 1!d hh: mm:<br> dois espaços após MMM | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s\\\\s ([0]? [ 1 a 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
 | MMM 1!d hh: mm: | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s ([0]? [ 1 a 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
 | dd/MMM/yyyy:HH:mm:ss + zzzz<br> onde + é + ou a -<br> onde zzzz tempo de deslocamento | (([0-2] [1 a 9]\|[3][0-1])\\\\/ (Jan\|Fevereiro\|Mar\|Abr\|Maio\|Jun\|Jul\|Ago\|Sep \|Oct\|Nov\|dez)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
-| aaaa-MM-ddTHH<br> O T é uma literal letra T | ((\\\\1!d{2})\|(\\\\1!d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\1!d)) T ((\\\\1!d)\|([0-1]\\\\1!d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| aaaa-MM-ddTHH<br> O T é uma literal letra T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurar o Log Analytics para indexar o diagnóstico do Azure
 Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o diagnóstico do Azure ativada e configurada para gravar numa área de trabalho do Log Analytics. Esta abordagem envia dados diretamente para o Log Analytics e não necessita de dados a ser escritos para uma conta de armazenamento. Os recursos suportados incluem:

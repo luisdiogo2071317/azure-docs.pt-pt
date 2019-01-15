@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980874"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266199"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore Java registos de rastreio no Application Insights
 Se estiver a utilizar Logback ou Log4J (versão 1.2 ou 2.0) para o rastreio, pode ter os registos de rastreio enviados automaticamente para o Application Insights, onde pode explorar e pesquisar nos mesmos.
@@ -98,7 +98,7 @@ Em seguida, Atualize as dependências do projeto, para obter os binários transf
 ```
 
 #### <a name="otherwise-"></a>Caso contrário...
-Siga as orientações para instalar o SDK de Java do Application Insights manualmente, transferir jar (depois de ariving na página da Central Maven clique no link de "jar" na seção download) para appender apropriado e adicionar jar appender transferido para o projeto.
+Siga as diretrizes para manualmente instalar o SDK de Java do Application Insights, transfira o jar (após a chegar ao clique de página da Central Maven no link "jar" na seção download) para appender adequado e a adicionar jar appender transferido para o projeto.
 
 | Logger | Transferência | Biblioteca |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ Os appenders do Application Insights podem ser referenciadas por qualquer logger
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Prozkoumat trasování no portal do Application Insights
 Agora que configurou o seu projeto para enviar os rastreios para o Application Insights, pode ver e procurar estes rastreios no portal do Application Insights, o [pesquisa] [ diagnostic] painel.
 
-Submetida de exceções por meio de agentes será apresentada no portal como telemetria de exceção.
+Submetido por meio de agentes Coletores de exceções serão apresentadas no portal como telemetria de exceção.
 
 ![No portal do Application Insights, abrir a pesquisa](./media/java-trace-logs/10-diagnostics.png)
 

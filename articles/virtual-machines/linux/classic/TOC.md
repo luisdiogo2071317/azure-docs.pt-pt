@@ -1,4 +1,4 @@
-# [Descrição geral](../overview.md)
+# Descrição geral
 ## [Extensões de VMs](agents-and-extensions-classic.md)
 ## [Disponibilidade](configure-availability-classic.md)
 ## [FAQ](faq-classic.md)
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Criar modelos do Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates)
 ## [REST de Computação](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST de Rede](https://msdn.microsoft.com/library/jj157182.aspx)

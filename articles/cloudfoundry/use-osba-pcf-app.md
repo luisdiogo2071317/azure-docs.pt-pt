@@ -5,17 +5,17 @@ manager: jeconnoc
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 01/18/2019
+ms.date: 01/11/2019
 ms.topic: tutorial
 description: Explica como configurar uma aplicação da Cloud Foundry da Pivotal para utilizar um Open Service Broker para a base de dados do Azure
 keywords: Pivotal Cloud Foundry, Cloud Foundry, abra o Service Broker, o Open Service Broker for Azure
 tags: Cloud-Foundry
-ms.openlocfilehash: cbaf1bc65950abb88630e90a62c4c1f5a8d3e7ec
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d553cd09ef42e47e3a10fb96039063b8aae665cb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244091"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258880"
 ---
 # <a name="tutorial-use-an-open-service-broker-for-azure-database-with-an-application-on-pivotal-cloud-foundry"></a>Tutorial: Utilizar um Open Service Broker para a base de dados do Azure com uma aplicação no Cloud Foundry da Pivotal
 

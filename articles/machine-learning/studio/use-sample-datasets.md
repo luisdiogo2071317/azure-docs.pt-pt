@@ -1,26 +1,8 @@
 ---
-title: Utilizar os conjuntos de dados de exemplo - Azure Machine Learning Studio | Documentos da Microsoft
-description: Descrições dos conjuntos de dados utilizadas em modelos de exemplo incluídos no Machine Learning Studio. Pode utilizar estes conjuntos de dados de exemplo para suas experimentações.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270489"
+title: Utilize o titleSuffix de conjuntos de dados de exemplo: Descrição do Azure Machine Learning Studio: Descrições dos conjuntos de dados utilizadas em modelos de exemplo incluídos no Machine Learning Studio. Pode utilizar estes conjuntos de dados de exemplo para suas experimentações.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -49,7 +31,7 @@ Um subconjunto de 1994 recenseamento banco de dados, usando os adultos de trabal
 <p></p>
 <b>Utilização:</b> Classificar as pessoas que utilizam dados demográficos para prever se uma pessoa recebe mais de 50 mil por ano.
 <p></p>
-<b>Pesquisas relacionadas:</b> Kohavi, r, Becker, B., (1996). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Kohavi, R., Becker, B., (1996). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -70,7 +52,7 @@ A classificação de risco está inicialmente associada a preço automática. Em
 <p></p>
 <b>Utilização:</b> Prever a classificação de risco por recursos, com a regressão ou classificação multivariate. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Schlimmer, J.C. (1987). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Schlimmer, J.C. (1987). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -101,7 +83,7 @@ Dados de Doador incluem os meses desde a última doação) e frequência ou o n�
 <p></p>
 <b>Utilização:</b> O objetivo é prever por meio de classificação, se o doador doou sangue em Março de 2007, onde 1 indica um doador durante o período de destino e 0 um não-doador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
 Yeh, eu-Cheng, Yang, King-Jang e Ting, etiqueta-Ming de VPN, "descoberta de dados de conhecimento no modelo RFM usando a seqüência de Bernoulli,"especialista em sistemas com aplicativos, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -114,7 +96,7 @@ Um dos três relacionados com o cancro conjuntos de dados fornecidos pelo Instit
 <p></p>
 <b>Utilização:</b> Classificar o tipo de cancro, com base em 9 atributos, alguns dos quais estão lineares e alguns são categóricos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> O.L. Wohlberg, W.H., rua, W.N. e Mangasarian, (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> O.L. Wohlberg, W.H., rua, W.N. e Mangasarian, (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -167,7 +149,7 @@ Um conjunto de perfis de energia simulado, com base em 12 criar diferentes forma
 <p></p>
 <b>Utilização:</b> Utilize regressão ou classificação para prever a classificação de eficiência energética com base em como uma das duas respostas reais com valores. Para a classificação de Roc, é arredondar a variável de resposta para o número inteiro mais próximo. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Xifara, A. & Tsanas, A. (2012). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Xifara, A. & Tsanas, A. (2012). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -180,7 +162,7 @@ O conjunto de dados abrange o período de tempo de Abril de Outubro de 2013. Ant
   <li>O conjunto de dados foi filtrado para abranger apenas os 70 aeroportos mais ocupados no território continental dos EUA</li>
   <li>Cancelado voos foram etiquetados como atrasado mais de 15 minutos</li>
   <li>Foram filtrados desviados voos</li>
-  <li>Foram selecionadas as seguintes colunas: Ano, mês, DayofMonth, DayOfWeek, deteção de Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, foi cancelada</li>
+  <li>Foram selecionadas as seguintes colunas: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -203,9 +185,9 @@ Contém dados de informações sobre o clima, como índices de temperatura e hum
 <p></p>
 <b>Utilização:</b> Esta é uma tarefa de regressão difícil, em que o objetivo é prever a área burned de floresta desencadeado. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
-[Cortez e Morais, 2007] P. Cortez e Morais de r. Uma abordagem de mineração de dados para prever com dados Meteorological floresta desencadeado. No J. Neves, F. de M. Santos e J. Machado Eds., novas tendências em Inteligência Artificial, judiciais 2007 EPIA 13 - português conferência em Inteligência Artificial, Dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez e Morais, 2007] P. Cortez e Morais de r. Uma abordagem de mineração de dados para prever com dados Meteorological floresta desencadeado. In J. Neves, M. F. Santos e J. Machado Eds., novas tendências em Inteligência Artificial, judiciais 2007 EPIA 13 - português conferência em Inteligência Artificial, Dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -232,7 +214,7 @@ Isto é, talvez, a base de dados mais conhecido para ser encontrados na literatu
 <p></p>
 <b>Utilização:</b> Prever o tipo de íris de medidas.  
 <p></p>
-<b>Pesquisas relacionadas:</b> Fisher, R.A. (1988). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Fisher, R.A. (1988). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -251,7 +233,7 @@ Os dados de lista de consumo de combustível para vários automóveis em quilóm
 <p></p>
 <b>Utilização:</b> Prever a economia de combustível com base em atributos discretos de valor múltiplos três e cinco atributos contínuos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> StatLib, Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> StatLib, Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -261,7 +243,7 @@ Um subconjunto de dados do Instituto nacional de Diabetes e da base de dados Dig
 <p></p>
 <b>Utilização:</b> Preveja se o requerente tem diabetes (classificação binária). 
 <p></p>
-<b>Pesquisas relacionadas:</b> Sigillito, V. (1990). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Sigillito, V. (1990). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -271,7 +253,7 @@ Um conjunto de metadados sobre clientes, incluindo dados demográficos e prefer�
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -282,7 +264,7 @@ Um conjunto de metadados sobre restaurantes e as respetivas funcionalidades, com
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -293,7 +275,7 @@ Contém as classificações dadas por usuários para restaurantes numa escala de
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -306,7 +288,7 @@ Este conjunto de dados contém uma série de registos a partir do acinzentado re
 <p></p>
 As notas de aço siga um conjunto padrão, definido pela SAE e outras organizações. Está procurando uma específicas de "nível" (a variável de classe) e quiser compreender os valores necessários. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Sterling, D. & Buntine, W. (ND). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Sterling, D. & Buntine, W. (NA). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
 Um guia útil para acinzentado notas pode ser encontrado aqui: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -327,7 +309,7 @@ Os dados terem sido previamente processados para criar um cluster elongated com 
 <p></p>
 Além disso, tenha em atenção que o número de eventos de segundo plano (h, para hadronic showers) é subestimado. Medidas reais, a classe de h ou ruído representa a maioria dos eventos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola </td>
+<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola </td>
 </tr>
 
 <tr>

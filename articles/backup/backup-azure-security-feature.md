@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261745"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266999"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cópias de segurança híbridas que utilizam o Azure Backup
 Preocupações sobre problemas de segurança, como software maligno, ransomware e intrusões, estão a aumentar. Esses problemas de segurança podem ser caras, em termos de dinheiro e dados. Para proteger contra esses ataques, a cópia de segurança do Azure agora fornece as funcionalidades de segurança para ajudar a proteger cópias de segurança híbridas. Este artigo aborda como ativar e utilizar estas funcionalidades, utilizando um agente de serviços de recuperação do Azure e o servidor de cópia de segurança do Azure. Estas funcionalidades incluem:
@@ -26,7 +26,7 @@ Preocupações sobre problemas de segurança, como software maligno, ransomware 
 > Recursos de segurança não devem ser ativados se estiver usando a infraestrutura de cópia de segurança de VM de serviço (IaaS). Estas funcionalidades ainda não estão disponíveis para cópia de segurança de VM de IaaS, portanto, o que permite que eles não terão qualquer impacto. Recursos de segurança devem ser ativados apenas se estiver a utilizar: <br/>
 >  * **O agente de cópia de segurança do Azure**. Versão de agente mínima 2.0.9052. Após ativar estas funcionalidades, deve atualizar para esta versão do agente para executar operações críticas. <br/>
 >  * **O Azure Backup Server**. Versão mínima do Microsoft Azure Backup agent 2.0.9052 com o Azure Backup Server atualização 1. <br/>
->  * **O System Center Data Protection Manager**. Azure Backup agent a versão mínima 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou o Data Protection Manager 2016 UR2. <br/> 
+>  * **System Center Data Protection Manager**. Azure Backup agent a versão mínima 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou o Data Protection Manager 2016 UR2. <br/>
 
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Cópia de segurança retém os dados de cópia de segurança eliminados durante 
 
 Para **agente dos serviços de recuperação do Azure** utilizadores:
 
-1. Se o computador em que ocorreram cópias de segurança ainda esteja disponível, utilize [recuperar os dados na mesma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) nos serviços de recuperação do Azure, para recuperar todos os pontos de recuperação antigos.
+1. Se o computador em que ocorreram cópias de segurança ainda esteja disponível, voltar a proteger as origens de dados eliminados e utilizar o [recuperar os dados na mesma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) nos serviços de recuperação do Azure, para recuperar todos os pontos de recuperação antigos.
 2. Se este computador não estiver disponível, utilize [recuperar para uma máquina alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) para utilizar outro computador de serviços de recuperação do Azure para obter esses dados.
 
 Para **Azure Backup Server** utilizadores:
@@ -83,7 +83,7 @@ Como parte da adição de uma camada adicional de autenticação para operaçõe
 
 > [!NOTE]
 
-> Atualmente, o pin de segurança não é suportada para **parar proteção com eliminação de dados** do DPM e o MABS. 
+> Atualmente, o pin de segurança não é suportada para **parar proteção com eliminação de dados** do DPM e o MABS.
 
 Para receber este PIN:
 
@@ -109,7 +109,7 @@ Os recursos de segurança mencionados neste artigo fornecem mecanismos de defesa
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
 | Alteração de política |Não foi possível modificar a política de cópia de segurança. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft. |**Causa:**<br/>Este erro é quando as definições de segurança estiverem ativadas, tente reduzir o período de retenção abaixo os valores mínimo especificado acima e estiver a utilizar a versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deve definir o período de retenção acima de retenção mínimo período especificado (sete dias para diariamente, quatro semanas para semanais, três semanas para mensal ou um ano para anual) continuar com a política relacionadas com atualizações. Opcionalmente, a abordagem preferencial seria para atualizar o agente de cópia de segurança, servidor de cópia de segurança do Azure e/ou DPM UR para tirar partido de todas as atualizações de segurança. |
-| Alterar frase de acesso |PIN de segurança introduzido está incorreto. (ID: 100130) Fornece o PIN de segurança correto para concluir esta operação. |**Causa:**<br/> Este erro é fornecido ao introduzir o PIN de segurança inválido ou expirou ao efetuar a operação crítica (como alterar frase de acesso). <br/>**Ação recomendada:**<br/> Para concluir a operação, tem de introduzir o PIN de segurança válido. Para obter o PIN, inicie sessão no portal do Azure e navegue para cofre dos serviços de recuperação > Definições > propriedades > gerar PIN de segurança. Utilize este PIN para alterar a frase de acesso. |
+| Alterar frase de acesso |PIN de segurança introduzido está incorreto. (ID: Forneça 100130) o PIN de segurança correto para concluir esta operação. |**Causa:**<br/> Este erro é fornecido ao introduzir o PIN de segurança inválido ou expirou ao efetuar a operação crítica (como alterar frase de acesso). <br/>**Ação recomendada:**<br/> Para concluir a operação, tem de introduzir o PIN de segurança válido. Para obter o PIN, inicie sessão no portal do Azure e navegue para cofre dos serviços de recuperação > Definições > propriedades > gerar PIN de segurança. Utilize este PIN para alterar a frase de acesso. |
 | Alterar frase de acesso |Falha na operação. ID: 120002 |**Causa:**<br/>Este erro é quando as definições de segurança estiverem ativadas, tentar alterar frase de acesso e estiver a utilizar a versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a frase de acesso, primeiro tem de atualizar o agente de cópia de segurança para a versão mínima 2.0.9052 mínimo, o servidor de cópia de segurança do Azure para atualização mínima 1, e/ou DPM mínima do DPM 2012 R2 UR12 ou DPM 2016 UR2 (download links a seguir), em seguida, introduza o PIN de segurança válido. Para obter o PIN, inicie sessão no portal do Azure e navegue para cofre dos serviços de recuperação > Definições > propriedades > gerar PIN de segurança. Utilize este PIN para alterar a frase de acesso. |
 
 ## <a name="next-steps"></a>Passos Seguintes

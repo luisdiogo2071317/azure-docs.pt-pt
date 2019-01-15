@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7201f2a5d2e1b3967bd84ddb78797debdf14aeb
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 29d99a6114f1a8dafa2e3a837fe807a1bbee1343
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065703"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Active Directory do Azure com ServiceNow
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD início de sessão único com ServiceNow, execute os 
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -214,7 +214,7 @@ Para configurar o Azure AD início de sessão único com ServiceNow, execute os 
         * Cópia **home page do ServiceNow** valor, cole-a no **URL de início de sessão** caixa de texto no **ServiceNow domínio e URLs** secção no portal do Azure.
 
             > [!NOTE]
-            > Home page de instância do ServiceNow é uma concatenação das suas **URL de inquilino ServieNow** e **/navpage.do** (por exemplo:`https://fabrikam.service-now.com/navpage.do`).
+            > Home page de instância do ServiceNow é uma concatenação das suas **URL de inquilino do ServiceNow** e **/navpage.do** (por exemplo:`https://fabrikam.service-now.com/navpage.do`).
 
         * Cópia **ID de entidade / emissor** valor, cole-o na **identificador** caixa de texto no **ServiceNow domínio e URLs** secção no portal do Azure.
 

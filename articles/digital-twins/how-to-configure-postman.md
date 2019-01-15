@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
-ms.openlocfilehash: a5d0b6abdee44bdd1e174fa2c8551fbeac768e5d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232639"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259279"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
 
@@ -47,7 +47,7 @@ Configure a sua aplicação do Azure Active Directory para utilizar o fluxo de c
 
 1. Configurar uma **URL de resposta** para `https://www.getpostman.com/oauth2/callback`.
 
-      ![URL de resposta do Azure Active Directory][2]
+      ![Azure Active Directory Reply URL][2]
 
 1. Copie o e mantenha os **ID da aplicação** da sua aplicação do Azure Active Directory. É utilizado nos passos que se seguem.
 
@@ -102,7 +102,7 @@ Depois de concluir os passos anteriores, configure o Postman para fazer uma soli
 
 1. Serialize dados que não sejam de texto em ficheiros. Dados JSON seriam guardados como um ficheiro JSON.
 1. Sob o **corpo** separador, adicione cada ficheiro ao atribuir um **chave** nome, selecionando `file` ou `text`.
-1. Em seguida, selecione o ficheiro através do **Escolher ficheiro** botão.
+1. Em seguida, selecione cada ficheiro através do **Escolher ficheiro** botão.
 
    ![Exemplo de cliente do postman][5]
 

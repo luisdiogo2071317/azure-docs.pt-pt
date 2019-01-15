@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213829"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306391"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -79,6 +79,14 @@ Um grupo de sincronização tem as seguintes propriedades:
 -   **Resolver conflitos:** Sincronização de dados fornece duas opções para resolução de conflitos *Hub wins* ou *wins membro*.
     -   Se selecionou *Hub wins*, as alterações no hub substitui sempre as alterações no membro.
     -   Se selecionou *wins membro*, as alterações nas alterações de substituição de membro no hub. Se existir mais do que um membro, o valor final depende qual membro sincroniza pela primeira vez.
+
+## <a name="compare-data-sync-with-transactional-replication"></a>Comparar a sincronização de dados com a replicação transacional
+
+| | Sincronização de Dados | Replicação transacional |
+|---|---|---|
+| Vantagens | -Suporte de ativo-ativo<br/>Bidirecional entre o local e a base de dados SQL do Azure | -Menor latência<br/>-Consistência transacional<br/>-Reutilizar topologia existente após a migração |
+| Desvantagens | -5 min ou mais latência<br/>-Sem uma consistência transacional<br/>-Maior impacto no desempenho | -Não é possível publicar a partir da base de dados única base de dados do Azure SQL<br/>-Custo de manutenção elevada |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introdução à Sincronização de Dados do SQL
 

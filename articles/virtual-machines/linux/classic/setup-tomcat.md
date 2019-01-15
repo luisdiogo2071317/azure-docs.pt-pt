@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420086"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266948"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configure o tomcat7 numa máquina virtual Linux com o Azure
 Apache Tomcat (ou simplesmente Tomcat, também anteriormente denominado Tomcat Jacarta) é um servidor de web de código-fonte aberto e um contentor de servlet desenvolvidos pelo Apache Software Foundation (ASF). Tomcat implementa o Servlet Java e as especificações de páginas JavaServer (JSP), na Sun Microsystems. Tomcat fornece um ambiente de servidor de web de Java HTTP puro para executar código Java. A configuração mais simples, Tomcat é executado num processo único sistema operacional. Este processo é executado uma máquina virtual de Java (JVM). Cada solicitação de HTTP a partir de um browser para Tomcat é processada como um thread separado no processo de Tomcat.  
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássica](../../../resource-manager-deployment-model.md). Este artigo aborda como usar o modelo de implementação clássica. Recomendamos que as implementações mais novas utilizem o modelo de Gestor de recursos. Para utilizar um modelo do Resource Manager para implementar uma VM do Ubuntu com Open JDK e Tomcat, veja [este artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [O Azure Resource Manager e clássica](../../../resource-manager-deployment-model.md). Este artigo aborda como usar o modelo de implementação clássica. Recomendamos que as implementações mais novas utilizem o modelo de Gestor de recursos. Para utilizar um modelo do Resource Manager para implementar uma VM do Ubuntu com Open JDK e Tomcat, veja [este artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Neste artigo, instalará o Tomcat7 numa imagem do Linux e implementá-la no Azure.  
@@ -75,7 +75,7 @@ Siga estes passos para gerar a chave de autenticação SSH.
 
 4. Configure outras definições conforme necessário e, em seguida, clique em **criar**.  
 
-## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: Preparar a sua máquina virtual para Tomcat7
+## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: Preparar a sua máquina virtual Tomcat7
 Nesta fase, irá configurar um ponto final para tráfego de Tomcat e, em seguida, ligar a sua nova máquina virtual.
 
 ### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Passo 1: Abra a porta HTTP para permitir o acesso web
@@ -98,7 +98,7 @@ Porta TCP 8080 é o número de porta predefinido que Tomcat utiliza para escutar
       ![Captura de ecrã da interface do Usuário que mostra o comando Add, Porta pública e porta privada][7]
 4. Clique em **OK** para adicionar o ponto final à máquina virtual.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>Passo 2: Ligar-se para a imagem criada
+### <a name="step-2-connect-to-the-image-you-created"></a>Passo 2: Ligue-se para a imagem criada
 Pode escolher uma ferramenta de SSH para ligar à máquina virtual. Neste exemplo, vamos utilizar o PuTTY.  
 
 1. Obtenha o nome DNS da sua máquina virtual a partir do portal.
@@ -114,7 +114,7 @@ Pode escolher uma ferramenta de SSH para ligar à máquina virtual. Neste exempl
 4. Depois de baixar, clique no ficheiro executável Putty.exe. Configuração do PuTTY, configure as opções básicas com o nome de anfitrião e o número que é obtido a partir das propriedades da sua máquina virtual porta.   
 ![Opções de nome e a porta de anfitrião de captura de ecrã que mostra a configuração do PuTTY][9]
 
-5. No painel esquerdo, clique em **conexão** > **SSH** > **Auth**e, em seguida, clique em **procurar** para especificar o localização do ficheiro privateKey.ppk. O ficheiro de privateKey.ppk contém a chave privada que é gerada pelo PuTTYgen anteriormente no "fase 1: criar uma imagem" secção deste artigo.  
+5. No painel esquerdo, clique em **conexão** > **SSH** > **Auth**e, em seguida, clique em **procurar** para especificar o localização do ficheiro privateKey.ppk. O ficheiro de privateKey.ppk contém a chave privada que é gerada pelo PuTTYgen anteriormente no "fase 1: Criar uma imagem"seção deste artigo.  
 ![Captura de ecrã que mostra a hierarquia de diretório de conexão e o botão Procurar][10]
 
 6. Clique em **Open** (Abrir). O utilizador poderá ser alertado por uma caixa de mensagem. Se tiver configurado o nome DNS e corretamente o número de porta, clique em **Sim**.
@@ -123,10 +123,10 @@ Pode escolher uma ferramenta de SSH para ligar à máquina virtual. Neste exempl
 7. For solicitado a digitar seu nome de utilizador.  
 ![Captura de ecrã que mostra onde se deve introduzir o nome de utilizador][12]
 
-8. Introduza o nome de utilizador que utilizou para criar a máquina virtual no "fase 1: criar uma imagem" descrita anteriormente neste artigo. Verá algo semelhante ao seguinte:  
+8. Introduza o nome de utilizador que utilizou para criar a máquina virtual no "fase 1: Criar uma imagem"secção anteriormente neste artigo. Verá algo semelhante ao seguinte:  
 ![Captura de ecrã que mostra a confirmação de autenticação][13]
 
-## <a name="phase-3-install-software"></a>Fase 3: Instalar o software
+## <a name="phase-3-install-software"></a>Fase 3: Instalar software
 Nesta fase, instale o ambiente de tempo de execução Java, Tomcat7 e outros componentes de Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Ambiente de tempo de execução de Java
@@ -135,13 +135,13 @@ Tomcat é escrito em Java. Ver [JDKs suportados pelo Azure](https://aka.ms/azure
 
 #### <a name="install-azure-supported-jdk"></a>Instalar o JDK suportado do Azure
 
-Siga o `apt-get` documentadas de instruções de instalação do [Azul Zulu Enteprise para o Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) Web site.
+Siga o `apt-get` documentadas de instruções de instalação do [Azul Zulu Enterprise para o Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) Web site.
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Confirme que a instalação de Java é efetuada com êxito
 Pode utilizar um comando semelhante ao seguinte para testar se o ambiente de tempo de execução Java está instalado corretamente:  
     Java-versão  
 
-Deverá ver uma mensagem semelhante ao seguinte: ![mensagem de instalação OpenJDK com êxito][14]
+Deverá ver uma mensagem semelhante ao seguinte: ![Mensagem de instalação de OpenJDK com êxito][14]
 
 
 ### <a name="install-tomcat7"></a>Instalar Tomcat7
@@ -212,7 +212,7 @@ Depois de ligar, deverá ver algo semelhante ao seguinte:
 
   * A porta de escuta do Tomcat não é o mesmo que a porta privada do ponto final de sua máquina virtual para o tráfego de Tomcat.  
 
-     Verifique a sua porta pública e as definições de ponto final de porta privada e certifique-se de que a porta privada é que o mesmo que o Tomcat escutar a porta. Consulte "fase 1: criar uma imagem" secção deste artigo para obter instruções sobre como configurar pontos finais para a máquina virtual.  
+     Verifique a sua porta pública e as definições de ponto final de porta privada e certifique-se de que a porta privada é que o mesmo que o Tomcat escutar a porta. Consulte "fase 1: Criar uma imagem"seção deste artigo para obter instruções sobre como configurar pontos finais para a máquina virtual.  
 
      Para determinar a porta de escuta do Tomcat, abra /etc/httpd/conf/httpd.conf (versão do Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por predefinição, a porta de escuta do Tomcat é 8080. Segue-se um exemplo:  
 
@@ -230,7 +230,7 @@ Depois de ligar, deverá ver algo semelhante ao seguinte:
      Só pode ver a página predefinida do Tomcat do anfitrião local. O problema é mais provável que a porta, o que está atendendo a solicitações por Tomcat, é bloqueada pela firewall. Pode utilizar a ferramenta de w3m para procurar a página Web. Os seguintes comandos instalar w3m e navegue para a página padrão do Tomcat:  
 
 
-        sudo yum install w3m w3m img
+        sudo yum  install w3m w3m-img
 
 
         w3m http://localhost:8080  
@@ -239,9 +239,9 @@ Depois de ligar, deverá ver algo semelhante ao seguinte:
   * Se o Tomcat escutar porta não é o mesmo que a porta privada do ponto final para o tráfego para a máquina virtual, tem de alterar a porta privada para ser que o mesmo que o Tomcat escutar a porta.   
   2. Se o problema é causado por firewall/iptables, adicione as seguintes linhas para /etc/sysconfig/iptables. A segunda linha só é necessário para tráfego https:  
 
-      -A -p tcp -m tcp – dport 80 -j ACCEPT de entrada
+      -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 
-      -A -p tcp -m tcp – dport 443 -j ACCEPT de entrada  
+      -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
      > [!IMPORTANT]
      > Certifique-se de que as linhas anteriores são posicionadas acima quaisquer linhas que globalmente seriam restringem o acesso, como o seguinte: - A -j REJEITAR – reject-com proibida de anfitrião de icmp de entrada

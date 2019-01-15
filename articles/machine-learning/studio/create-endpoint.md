@@ -1,26 +1,8 @@
 ---
-title: Criar pontos finais de serviço Web - Azure Machine Learning Studio | Documentos da Microsoft
-description: Criação de pontos finais de serviço da Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 10/04/2016
-ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275895"
+title: A criar titleSuffix de pontos finais de serviço Web: Descrição do Azure Machine Learning Studio: Criação de pontos finais de serviço da Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Criação de pontos de extremidade dos serviços de web do Azure Machine Learning Studio implementados
 > [!NOTE]

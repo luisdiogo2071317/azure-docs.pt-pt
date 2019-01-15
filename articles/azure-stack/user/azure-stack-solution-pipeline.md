@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247882"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263225"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e no Azure Stack
 
@@ -289,7 +289,7 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 | ID da subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
 | Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
 | ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo. |
-| Chave de Principal de serviço | THESCRETGOESHERE = | A chave do mesmo artigo (ou a palavra-passe se utilizou o script). |
+| Chave de Principal de serviço | THESCRETGOESHERE= | A chave do mesmo artigo (ou a palavra-passe se utilizou o script). |
 | ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
@@ -307,7 +307,7 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 
 | Nome | Exemplo | Descrição |
 | --- | --- | --- |
-| Nome da ligação | O Azure Stack ADFS | O nome da ligação. |
+| Nome da ligação | Azure Stack ADFS | O nome da ligação. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL do ambiente | `https://management.local.azurestack.external` | Ponto final de gestão. |
 | Nível de âmbito | Subscrição | O âmbito da ligação. |
@@ -360,7 +360,7 @@ Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutu
 
 1. Iniciar sessão nos serviços de DevOps do Azure com uma organização que pode criar um pipeline de compilação.
 
-2. Navegue para o **criar o Web Applicaiton** página para o projeto.
+2. Navegue para o **Criar aplicação Web** página para o projeto.
 
 3. Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .net Core.
 

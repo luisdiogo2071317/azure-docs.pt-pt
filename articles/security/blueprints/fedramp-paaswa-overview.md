@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602091"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261592"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS para FedRAMP
 
@@ -53,7 +53,7 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
-**O Azure Resource Manager**: [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
+**Azure Resource Manager**: [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
 
 **Ambiente de serviço de aplicações v2**: O [ambiente de serviço de aplicações (ASE) do Azure](https://docs.microsoft.com/azure/app-service/environment/intro) é uma funcionalidade do serviço de aplicações que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicativos de serviço de aplicações a uma escala elevada.
 
@@ -165,7 +165,7 @@ Além disso, as seguintes soluções de monitorização são incluídas como par
 
 O diagrama de fluxo de dados para esta arquitetura de referência está disponível para [transferir](https://aka.ms/fedrampPaaSWebAppDFD) ou podem ser encontradas abaixo. Esse modelo pode ajudar os clientes a compreender os pontos do potencial risco de na infraestrutura de sistema ao fazer modificações.
 
-![Aplicação Web de PaaS para o modelo de risco do FedRAMP](images/fedramp-paaswa-threat-model.png?raw=true "Applicaiton de Web de PaaS para o modelo de risco do FedRAMP")
+![Aplicação Web de PaaS para o modelo de risco do FedRAMP](images/fedramp-paaswa-threat-model.png?raw=true "aplicativo da Web de PaaS para o modelo de risco do FedRAMP")
 
 ## <a name="compliance-documentation"></a>Documentação de conformidade
 O [Azure no Security and Compliance Blueprint - matriz de responsabilidade de cliente elevada do FedRAMP](https://aka.ms/blueprinthighcrm) apresenta uma lista de todos os controlos de segurança necessários para a linha de base do FedRAMP elevado. A matriz indica se a implementação de cada controle é da responsabilidade da Microsoft, o cliente, ou partilhados entre os dois.

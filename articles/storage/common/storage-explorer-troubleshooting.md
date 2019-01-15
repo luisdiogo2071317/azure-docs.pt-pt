@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616202"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264110"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -21,7 +21,7 @@ Explorador de armazenamento do Microsoft Azure é uma aplicação autónoma que 
 
 Este guia resume as soluções para problemas comuns detetados no Explorador de armazenamento.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: O certificado Autoassinado na cadeia de certificados (e erros semelhantes)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado Autoassinado na cadeia de certificados (e erros semelhantes)
 
 Erros de certificado são causados por uma das duas seguintes situações:
 
@@ -100,7 +100,7 @@ Se não é possível obter as suas subscrições depois de entrar com êxito, te
 Se não é possível remover um recurso de armazenamento através da IU ou conta anexada, pode eliminar manualmente todos os recursos anexados ao eliminar as seguintes pastas:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -172,7 +172,7 @@ Se acidentalmente anexados utilizando um URL de SAS inválido e não é possíve
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
 Para distribuições de Linux que não seja o Ubuntu 16.04, terá de instalar manualmente algumas dependências. Em geral, os seguintes pacotes são necessários:
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * GCC atualizado

@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376957"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305966"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Substituir um disco físico no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo descreve o processo geral para substituir um disco físico no Azure Stack. Se um disco físico falhar, deverá substituí-la logo que possível.
 
 Pode utilizar este procedimento para os sistemas integrados e para as implementações do kit de desenvolvimento com discos de fontes.
 
-Substituição de disco real passos irão variar com base no seu fornecedor de hardware do fabricante de equipamento original (OEM). Consulte a documentação do fornecedor campo unidade substituível em (FRU) para obter passos detalhados que são específicas para o seu sistema. 
+Substituição de disco real passos irão variar com base no seu fornecedor de hardware do fabricante de equipamento original (OEM). Consulte a documentação do fornecedor campo unidade substituível em (FRU) para obter passos detalhados que são específicas para o seu sistema. 
 
 ## <a name="review-disk-alert-information"></a>Reveja as informações de alerta de disco
-Quando um disco falha, receberá um alerta que indica que conectividade foi perdida a um disco físico. 
+Quando um disco falha, receberá um alerta que indica que conectividade foi perdida a um disco físico. 
 
  ![Disco físico perdeu a conectividade de exibição de alerta](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Siga as instruções de FRU do seu fornecedor de hardware de OEM para substitui�
 
 Para impedir a utilização de um disco não suportado num sistema integrado, o sistema bloqueia discos que não são suportados pelo seu fornecedor. Se tentar usar um disco não suportado, um novo alerta indica que um disco tem sido colocado em quarentena devido a um modelo não suportado ou firmware.
 
-Depois de substituir o disco, o Azure Stack é automaticamente Deteta o novo disco e inicia o processo de reparação do disco virtual.  
+Depois de substituir o disco, o Azure Stack é automaticamente Deteta o novo disco e inicia o processo de reparação do disco virtual.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Verificar o estado de reparação de disco virtual
  

@@ -1,22 +1,23 @@
 ---
-title: Moderação de conteúdos assistida e revisões realizadas por pessoas no Content Moderator | Documentos da Microsoft
+title: Incorporar revisões realizadas por pessoas a moderação de conteúdos - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Como as máquinas e humanos juntos oferecem os melhores resultados de moderação de conteúdos
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854225"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264738"
 ---
-# <a name="review-tool-overview"></a>Descrição geral da ferramenta de revisão
+# <a name="learn-about-the-review-tool"></a>Saiba mais sobre a ferramenta de revisão
 
 Obter os melhores resultados quando pessoas e máquinas que trabalham em conjunto em moderação de conteúdos. Máquinas efetivamente aumentam revisões realizadas por pessoas, em que a confiança da previsão tem auxiliado ou ser moderadas dentro de um contexto do mundo real. O resultado é um processo de moderação de conteúdos de híbrido que tem um desempenho melhor do que se os humanos ou máquinas foram trabalhando sozinho.
 

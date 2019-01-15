@@ -12,19 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 1/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3c2da9830a8ddbce842d959ba086bf4eb30d5fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337262"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258769"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contactos de segurança no Centro de segurança do Azure
 Centro de segurança do Azure irá recomendar que forneça os detalhes de contacto de segurança para a sua subscrição do Azure se ainda não o fez. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. MSRC executa segurança selecione monitorização da rede do Azure e infraestrutura e recebe a reclamações de abuso e inteligência de ameaças de terceiros.
 
-É enviada uma notificação de e-mail na primeira ocorrência diária de um alerta e apenas para alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Grupos de recursos numa subscrição herdarão essas configurações.
+É enviada uma notificação de e-mail na primeira ocorrência diária de um alerta e apenas para alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Grupos de recursos numa subscrição herdarão essas configurações. 
+
+Notificações de e-mail de alerta são enviadas:
+- Apenas para alertas de gravidade elevada
+- Para um destinatário de e-mail única por tipo de alerta por dia  
+- Não mais de 3 mensagens de e-mail são enviadas para um único destinatário no mesmo dia
+- Cada mensagem de e-mail contém um único alerta, não uma agregação de alertas
+ 
+Por exemplo, se uma mensagem de e-mail já foi enviada para o alertar sobre um ataque RDP, não receberá outra mensagem de e-mail sobre um ataque RDP no mesmo dia, mesmo se outro alerta é acionada. 
+ 
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Não se trata de um guia passo-a-passo.

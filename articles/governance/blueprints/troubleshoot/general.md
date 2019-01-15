@@ -4,17 +4,17 @@ description: Saiba como resolver problemas de criação e a atribuição de esqu
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315533"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261932"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
 
@@ -52,6 +52,20 @@ Uma política, poderá entrar em conflito com a implantação por uma série de 
 #### <a name="resolution"></a>Resolução
 
 Altere o plano gráfico para que não entra em conflito com as políticas nos detalhes do erro. Se esta alteração não for possível, uma opção alternativa é fazer com o âmbito da atribuição de política foi alterado para que o plano gráfico já não está em conflito com a política.
+
+### <a name="escape-function-parameter"></a>Cenário: Parâmetro de esquema é uma função
+
+#### <a name="issue"></a>Problema
+
+Parâmetros de esquema que são as funções são processados antes de ser passado para artefactos.
+
+#### <a name="cause"></a>Causa
+
+Passar um parâmetro de esquema que utiliza uma função, como `[resourceGroup().tags.myTag]`para um artefato resulta no resultado processado da função a ser definido no artefacto, em vez da função dinâmica.
+
+#### <a name="resolution"></a>Resolução
+
+Para passar uma função através de como um parâmetro, toda a cadeia com de escape `[` , de modo a que o parâmetro de esquema é semelhante a `[[resourceGroup().tags.myTag]`. O caráter de escape faz com que os planos gráficos tratar o valor como uma cadeia de caracteres ao processar o plano gráfico. Planos gráficos locais, em seguida, onde a função no artefacto permitindo que seja dinâmica, conforme o esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

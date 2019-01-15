@@ -1,5 +1,5 @@
 ---
-title: 'Aplicações de SaaS: cópias de segurança georredundante de base de dados SQL do Azure para recuperação após desastre | Documentos da Microsoft'
+title: 'Aplicações de SaaS: Azure base de dados SQL com redundância geográfica cópias de segurança para recuperação após desastre | Documentos da Microsoft'
 description: Saiba como utilizar cópias de segurança georredundante de base de dados do Azure SQL para recuperar de uma aplicação SaaS multi-inquilino em caso de interrupção
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352945"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264755"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilizar o restauro geográfico para recuperar uma aplicação SaaS multi-inquilino de cópias de segurança da base de dados
 
@@ -114,7 +114,7 @@ Nesta tarefa, iniciar um processo para sincronizar a configuração de servidore
 
 3. Defina o seguinte:
 
-    $DemoScenario = 1: iniciar uma tarefa em segundo plano que se sincroniza o servidor de inquilino e informações de configuração do conjunto para o catálogo.
+    $DemoScenario = 1: Inicie uma tarefa em segundo plano que se sincroniza o servidor de inquilino e informações de configuração do conjunto para o catálogo.
 
 4. Para executar o script de sincronização, selecione F5. 
 
@@ -174,7 +174,7 @@ Imagine que houver uma falha na região em que a aplicação é implementada e e
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o valor seguinte:
 
-    $DemoScenario = 2: recuperar a aplicação para uma região de recuperação através do restauro de cópias de segurança georredundante.
+    $DemoScenario = 2: Recupere a aplicação para uma região de recuperação através do restauro de cópias de segurança georredundante.
 
 2. Para executar o script, selecione F5.  
 
@@ -209,7 +209,7 @@ Antes mesmo de restauração dos bancos de dados do inquilino, pode aprovisionar
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina a propriedade seguinte:
 
-    $DemoScenario = 3: aprovisionar um inquilino novo na região de recuperação.
+    $DemoScenario = 3: Aprovisione um inquilino novo na região de recuperação.
 
 2. Para executar o script, selecione F5.
 
@@ -262,7 +262,7 @@ Nesta tarefa, atualizar uma das bases de dados inquilinas restaurada. As cópias
 
 2. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o valor seguinte:
 
-    $DemoScenario = 4: eliminar um evento de um inquilino na região de recuperação.
+    $DemoScenario = 4: Elimine um evento de um inquilino na região de recuperação.
 
 3. Para executar o script, selecione F5.
 
@@ -320,13 +320,13 @@ Se seguiu o tutorial, o script reativa imediatamente Fabrikam Jazz Club e Dogwoo
   
 1. No ISE do PowerShell, no ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script, certifique-se de que o processo de sincronização do catálogo ainda está em execução na sua instância do PowerShell. Se necessário, reinicie-o através da definição:
 
-    $DemoScenario = 1: iniciar a sincronização de servidor de inquilino, o conjunto e informações de configuração de base de dados para o catálogo.
+    $DemoScenario = 1: Inicie a sincronização de servidor de inquilino, o conjunto e informações de configuração de base de dados para o catálogo.
 
     Para executar o script, selecione F5.
 
 2.  Em seguida, para iniciar o processo de repatriation, defina:
 
-    $DemoScenario = 5: repatriate a aplicação em sua região original.
+    $DemoScenario = 5: Repatriate a aplicação em sua região original.
 
     Para executar o script de recuperação numa nova janela do PowerShell, selecione F5. Repatriation demora vários minutos e pode ser monitorado na janela do PowerShell.
 
@@ -352,7 +352,7 @@ O processo de restauro cria todos os recursos de recuperação num grupo de recu
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
     
-    $DemoScenario = 6: eliminar recursos obsoletos da região de recuperação.
+    $DemoScenario = 6: Elimine recursos obsoletos da região de recuperação.
 
 2. Para executar o script, selecione F5.
 

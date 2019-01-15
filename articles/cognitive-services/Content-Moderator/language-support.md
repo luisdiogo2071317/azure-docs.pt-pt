@@ -1,21 +1,21 @@
 ---
 title: Suporte de idiomas - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas suportados pela Content Moderator API.
+description: Esta é uma lista de idiomas natural que suporta a API Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276385"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263676"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idiomas para a Content Moderator API
 
@@ -44,7 +44,7 @@ ms.locfileid: "52276385"
 | Farsi | Búlgaro | Coreano                        | Eslovaco
 | Francês | Catalão | Norueguês                        | Espanhol
 | Alemão | Curdo central | Polaco        | Turco
-| Grego | Cheroqui | Português
+| Grego | Cherokee | Português
 | Haitian | Chinês (Simplificado) | Romeno
 | Hebraico | Chinês (tradicional) - RAE de Hong Kong | Russo
 | Hindi | Chinês (tradicional) – Taiwan | Sérvio Cirílico
@@ -89,7 +89,7 @@ ms.locfileid: "52276385"
 | Ugaritic | Letão
 | Usbeque (Cirílico) | Lituano
 | Usbeque (Latim) | Luxemburguês
-| Písmo vai | Macedónio
+| Vai | Macedónio
 | Yi | Malaio
 | Zhuang, Chuang | Malayalam
 | | Maltês

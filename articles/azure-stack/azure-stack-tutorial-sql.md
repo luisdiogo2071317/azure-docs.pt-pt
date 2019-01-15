@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954917"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259755"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferecem elevada disponibilidade bases de dados do SQL
 
@@ -141,7 +141,7 @@ Certifique-se de que usar o IP público ou o FQDN completo para o IP público do
 > [!NOTE]
 > Este passo deve ser executado a partir do portal de administração do Azure Stack por um operador de pilha do Azure.
 
-Com o ouvinte de Balanceador de carga do grupo de disponibilidade SQL AlwaysOn informações de início de sessão de autenticação de IP público e o SQL, um operador de pilha do Azure podem agora [criar um servidor de alojamento de SQL a utilizar o grupo de Disponibilidade AlwaysOn do SQL](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+Com o ouvinte de Balanceador de carga do grupo de disponibilidade SQL AlwaysOn informações de início de sessão de autenticação de IP público e o SQL, um operador de pilha do Azure podem agora [criar um servidor de alojamento de SQL com o grupo de disponibilidade do AlwaysOn de SQL](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
 Certifique-se também de que tiver criado a planos e ofertas para facilitar a criação de base de dados do SQL AlwaysOn disponíveis aos utilizadores. O operador terá de adicionar o **Microsoft.SqlAdapter** para um plano de serviço e criar uma quota de novo especificamente para bases de dados de elevada disponibilidade. Para obter mais informações sobre a criação de planos, consulte [descrição geral do plano, oferta, quota e subscrição](azure-stack-plan-offer-quota-overview.md).
 

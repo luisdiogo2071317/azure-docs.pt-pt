@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839520"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305076"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendações de elevada disponibilidade do Assistente
 
@@ -35,20 +35,16 @@ Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais
 
 Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O assistente identifica os conjuntos de disponibilidade que contenham uma única máquina virtual e recomenda adicionar uma ou mais máquinas virtuais ao mesmo. Esta configuração garante que, durante a um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível e cumpre o SLA de máquinas virtuais do Azure. Pode escolher para criar uma máquina virtual ou para adicionar uma máquina virtual existente para o conjunto de disponibilidade.  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Utilize o Managed Disks para melhorar a fiabilidade dos dados
+Máquinas virtuais que estão num conjunto de disponibilidade com discos que partilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas de unidade de escala de armazenamento única durante as falhas. O assistente irá identificar esses conjuntos de disponibilidade e recomendamos migrar para Managed Disks do Azure. Isto irá garantir que os discos das máquinas virtuais diferentes no conjunto de disponibilidade estão suficientemente isolados para evitar um ponto único de falha. 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Certifique-se a tolerância a falhas de gateway de aplicação
+
 Para garantir a continuidade de negócio de aplicativos de missão crítica que têm a tecnologia gateways de aplicação, o Advisor identifica instâncias de gateway de aplicação que não estão configuradas para tolerância a falhas e sugere ações de remediação que pode efetuar. Advisor identifica os gateways de aplicação de instância única de médias ou grandes, e ele recomenda adicionar pelo menos uma instância mais. Ele também identifica instance único ou vários gateways de aplicação pequenos e recomenda a migração para médias ou grandes SKUs. Advisor recomenda estas ações para garantir que as instâncias de gateway de aplicação estão configuradas para satisfazer os requisitos de SLA atuais para estes recursos.
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Melhorar o desempenho e fiabilidade dos discos da máquina virtual
-
-Advisor identifica as máquinas virtuais com discos standard e recomenda a atualização para os discos premium.
- 
-Armazenamento Premium do Azure fornece suporte de discos de elevado desempenho e de baixa latência para máquinas virtuais que executam cargas de trabalho de e/S intensivas. Discos da máquina virtual que utilizem contas de armazenamento premium armazenam dados em unidades de estado sólido (SSDs). Para obter o melhor desempenho para a sua aplicação, recomendamos que migre qualquer discos de máquinas virtuais que requerem elevado IOPS para o armazenamento premium. 
-
-Se os seus discos não necessitam de IOPS elevado, pode limitar os custos mantendo-os no armazenamento standard. Armazenamento Standard armazena dados de disco de máquina virtual em unidades de disco rígido (HDDs) em vez do SSDs. Pode optar por migrar discos da máquina virtual para discos premium. Os discos Premium são suportados na máquina de virtual a maioria dos SKUs. No entanto, em alguns casos, se pretender utilizar os discos premium, precisará atualizar a sua máquina virtual SKUs também.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Proteger os dados de máquina virtual de eliminação acidental
 
-Configurar a cópia de segurança da máquina virtual garante a disponibilidade dos seus dados críticos e oferece proteção contra eliminação ou corrupção acidental.  Advisor identifica as máquinas virtuais em que a cópia de segurança não está ativada, e ele recomenda a ativação de cópia de segurança. 
+Configurar a cópia de segurança da máquina virtual garante a disponibilidade dos seus dados críticos e oferece proteção contra eliminação ou corrupção acidental. Advisor identifica as máquinas virtuais em que a cópia de segurança não está ativada, e ele recomenda a ativação de cópia de segurança. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Certifique-se de que tem acesso a especialistas de cloud do Azure, sempre que precisar
 
@@ -69,6 +65,10 @@ Se um perfil do Gestor de tráfego estiver configurado para encaminhamento geogr
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Eliminar o uso de forma recuperável na sua conta de armazenamento do Azure para guardar e recuperar dados em caso de uma substituição acidental ou eliminação
 
 Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando dados são substituídos, é gerado um instantâneo eliminado de forma recuperável para guardar o estado dos dados substituídos. Isto permite-lhe recuperar em caso da eliminação acidental, ou substitui. O assistente identifica as contas de armazenamento que não têm a eliminação de forma recuperável ativada e sugere que o ative.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurar o gateway de VPN ativos-ativos para resiliência de ligação
+
+Configuração de ativo-ativo, ambas as instâncias de um gateway VPN irão estabelecer túneis S2S VPN para o dispositivo VPN no local. Quando um evento de manutenção planeada ou não planeado eventos acontece à instância de um gateway, o tráfego irá ser mudado ao longo para o outro túnel IPsec ativo automaticamente. O Assistente do Azure irá identificar os gateways de VPN que não estejam configurados como ativo-ativo e sugerir configurá-las para elevada disponibilidade.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de elevada disponibilidade no Advisor
 

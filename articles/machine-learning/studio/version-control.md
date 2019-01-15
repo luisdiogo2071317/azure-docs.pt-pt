@@ -1,27 +1,7 @@
 ---
-title: Gestão de ciclo de vida de aplicações - Azure Machine Learning Studio | Documentos da Microsoft
-description: Aplicar as práticas recomendadas de gerenciamento do ciclo de vida de aplicativos no Azure Machine Learning Studio
-keywords: Controle de versão do ALM, AML, o Azure ML, gerenciamento do ciclo de vida de aplicativos,
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.openlocfilehash: f331ebb85e1cf47dc1235138376704b08d217e82
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249758"
+title: TitleSuffix de gerenciamento de ciclo de vida do aplicativo: Descrição do Azure Machine Learning Studio: Aplicar as práticas recomendadas de gerenciamento do ciclo de vida de aplicativos nos serviços do Azure Machine Learning Studio: MS. Service de machine learning: ms.component de machine learning: studio topic: artigo
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 10/27/2016
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gestão de ciclo de vida de aplicações no Azure Machine Learning Studio
 O Azure Machine Learning Studio é uma ferramenta para o desenvolvimento de experiências de machine learning são operacionalizadas na plataforma cloud do Azure. Ele é, como o IDE do Visual Studio e o serviço em nuvem dimensionáveis mesclado numa única plataforma. Pode incorporar práticas de gerenciamento de ciclo de vida de aplicativos (ALM) padrão do controle de versão diversos recursos para execução automática e a implantação, Azure Machine Learning Studio. Este artigo aborda algumas das opções e abordagens.

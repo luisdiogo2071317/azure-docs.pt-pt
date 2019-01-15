@@ -1,44 +1,44 @@
 ---
 title: Texto moderado com listas de termos personalizados - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Testar as listas de termos personalizada na consola de Content Moderator API.
+description: Utilize a API de gestão da lista para criar listas personalizadas de termos para utilizar com a API de moderação de texto.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fea671df0609b9c4dca9eaae99d1bfe667616837
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220283"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259432"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com listas de termos personalizada na consola de API
 
-A lista global de padrão de termos no Azure Content Moderator é suficiente para as necessidades de moderação mais conteúdas. No entanto, poderá ter de o ecrã para termos que são específicos para sua organização. Por exemplo, pode querer nomes de concorrência de etiquetas para examinar detalhadamente. 
+A lista global predefinida de termos no Azure Content Moderator é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, poderá ter de filtrar termos que são específicos da sua organização. Por exemplo, poderá querer etiquetar nomes de concorrentes para nova revisão. 
 
 Utilizar o [API de gestão da lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) para criar listas personalizadas de termos para utilizar com a API de moderação de texto. O **texto - ecrã** operação analisa o texto relativamente a profanidades e também compara o texto em relação a listas de bloqueios personalizadas e partilhados.
 
 > [!NOTE]
-> Existe um limite máximo de **apresenta uma lista de 5 termo** cada lista para **não pode exceder 10 000 termos**.
+> Existe um limite máximo de **5 listas de termos**, sendo que cada lista **não pode exceder 10 000 termos**.
 >
 
 Pode utilizar a API de gestão da lista para efetuar as seguintes tarefas:
-- Crie uma lista.
-- Adicione termos a uma lista.
-- Termos de tela contra os termos numa lista.
-- Elimine termos de uma lista.
-- Elimine uma lista.
-- Edite informações da lista.
-- Atualize o índice para que as alterações à lista estão incluídas numa nova análise.
+- Criar uma lista.
+- Adicionar termos a uma lista.
+- Filtrar termos em relação aos termos de uma lista.
+- Eliminar termos de uma lista.
+- Eliminar uma lista.
+- Editar informações da lista.
+- Atualizar o índice para que as alterações à lista sejam incluídas numa nova análise.
 
 ## <a name="use-the-api-console"></a>Utilizar a consola de API
 
-Antes de pode testar a API na consola do online, terá a chave de subscrição. Esta chave está localizada no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, consulte [descrição geral](overview.md).
+Antes de pode testar a API na consola do online, terá a chave de subscrição. Esta chave está localizada no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, veja [Descrição geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
@@ -121,11 +121,11 @@ Depois de efetuar alterações a uma lista de termo, tem de atualizar o seu índ
 
 ## <a name="delete-terms-and-lists"></a>Eliminar termos e listas
 
-A eliminar um termo ou uma lista é simples. Utilize a API para realizar as seguintes tarefas:
+Eliminar um termo ou uma lista é simples. Utilize a API para realizar as seguintes tarefas:
 
-- Elimine um termo. (**Prazo – eliminar**)
-- Elimine todas as condições numa lista sem a eliminação da lista. (**Prazo – eliminar todos os termos**)
-- Elimine uma lista e todos os respetivos conteúdos. (**Listas de termos - Delete**)
+- Eliminar um termo. (**Prazo – eliminar**)
+- Eliminar todos os termos numa lista sem eliminar a lista. (**Prazo – eliminar todos os termos**)
+- Eliminar uma lista e todo o conteúdo da mesma. (**Listas de termos - Delete**)
 
 Este exemplo elimina um único termo.
 

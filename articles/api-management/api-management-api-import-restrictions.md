@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a4f9147008ceb0de32e0f5879a194b45bd4c6421
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245400"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265452"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -35,7 +35,7 @@ Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de
 * **$ref** ponteiros não podem referenciar arquivos externos.
 * **x-ms-caminhos** e **x-servers** são as extensões suportadas apenas.
 * Extensões personalizadas são ignoradas ao importar e não são guardadas ou preservadas para exportação.
-* **Recursão** -gestão de API não suporta definições definidas recursivamente (por exemplo, que faça referência a próprios).
+* **Recursão** -gestão de API não suporta definições definidas recursivamente (por exemplo, esquemas que faça referência a próprios).
 * URL do ficheiro de origem (se disponível) é aplicada a URLs do servidor relativo.
 
 ### <a name="open-api-v2"> </a>Versão 2 do OpenAPI

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727094"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306459"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
@@ -32,7 +33,7 @@ Coexistam duas camadas de postura de segurança no Azure Stack. A primeira camad
 
 A postura de segurança para o Azure Stack foi concebida para se Defender contra ameaças modernas e foi concebida para cumprir os requisitos das normas de conformidade principais. Como resultado, a postura de segurança da infraestrutura do Azure Stack baseia-se em dois pilares:
 
- - **Assumir que houve violação**  
+ - **Assume Breach**  
 A partir do princípio de que o sistema já foi infringido, concentrar *detetar e limitar o impacto de violações de* versus apenas tentando impedir ataques. 
  - **Protegidos por predefinição**  
 Uma vez que a infraestrutura é executado em hardware bem definido e software, Azure Stack *permite, configura e valida todos os recursos de segurança* por predefinição.
@@ -70,7 +71,7 @@ Todos os componentes no Azure Stack (anfitriões Hyper-V e máquinas virtuais) �
 Em cenários de ligação, atualizações de definições e de motor antivírus são aplicadas várias vezes por dia. Em cenários desconectados, atualizações de antimalware são aplicadas como parte das atualizações mensais do Azure Stack. Para obter mais informações, consulte [atualizar o antivírus do Windows Defender no Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modelo de administração restrita
-Administração no Azure Stack é controlada através da utilização de três pontos de entrada, cada um com uma finalidade específica: 
+Administração no Azure Stack é controlada por meio de três pontos de entrada, cada um com uma finalidade específica: 
 1. O [Portal de administrador](azure-stack-manage-portals.md) fornece uma experiência de apontar e clicar para operações de gestão diárias.
 2. O Azure Resource Manager expõe todas as operações de gestão do Portal do administrador por meio de uma API REST, utilizado pelo PowerShell e CLI do Azure. 
 3. Para operações específicas de nível baixo, por exemplo dados center integração ou oferecer suporte a cenários, Azure Stack expõe um ponto de extremidade do PowerShell chamado [ponto final com privilégios](azure-stack-privileged-endpoint.md). Este ponto final expõe apenas um conjunto na lista de permissões de cmdlets e ele é bastante auditado.
