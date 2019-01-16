@@ -11,29 +11,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090370"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332528"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização do Azure Stack para o Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização do Azure Stack para o Azure
 
-Dados de utilização, também chamados de dados de consumo, representam a quantidade de recursos utilizados. 
+Dados de utilização, também chamados de dados de consumo, representam a quantidade de recursos utilizados.
 
-Sistemas do Azure Stack vários nós que utilizam o modelo de faturação baseado no consumo devem reportar dados de utilização do Azure para fins de faturação.  Operadores do Azure Stack devem configurar a sua instância do Azure Stack para reportar dados de utilização para o Azure.
+Sistemas de vários nós de pilha do Azure que utilizam o modelo de faturação baseado no consumo devem reportar dados de utilização do Azure para efeitos de faturação. Operadores do Azure Stack devem configurar a sua instância do Azure Stack para reportar dados de utilização para o Azure.
 
-> [!NOTE]
-> Relatórios de dados de utilização é necessário para os utilizadores com vários nós do Azure Stack portadores de licenças de acordo com o modelo de Pay-as que use. É opcional para os clientes que sob o modelo de capacidade de licença (consulte a [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento do Azure Stack, operadores do Azure Stack podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não são cobrados de qualquer utilização em que incorrem. 
+> [!IMPORTANT]
+> Todas as cargas de trabalho [tem de ser implementada nas subscrições do inquilino](#are-users-charged-for-the-infrastructure-vms) para estar em conformidade com os termos de licenciamento do Azure Stack.
 
+Relatórios de dados de utilização é necessário para os utilizadores com vários nós do Azure Stack portadores de licenças de acordo com o modelo de Pay-as que use. É opcional para os clientes que sob o modelo de capacidade de licença (consulte a [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento do Azure Stack, operadores do Azure Stack podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não são cobrados de qualquer utilização em que incorrem.
 
 ![fluxo de faturação](media/azure-stack-usage-reporting/billing-flow.png)
 
-Dados de utilização são enviados do Azure Stack para o Azure através de Bridge do Azure. No Azure, o sistema de comércio processa os dados de utilização e gera a fatura. Depois de fatura é gerada, o proprietário da subscrição do Azure pode ver e transferi-lo a partir da [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). Para saber mais sobre como é licenciado do Azure Stack, veja a [do Azure Stack pacotes e preços documento](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
+Dados de utilização são enviados do Azure Stack para o Azure através de Bridge do Azure. No Azure, o sistema de comércio processa os dados de utilização e gera a fatura. Depois de fatura é gerada, o proprietário da subscrição do Azure pode ver e transferi-lo a partir da [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). Para saber mais sobre como é licenciado do Azure Stack, veja a [do Azure Stack pacotes e preços documento](https://go.microsoft.com/fwlink/?LinkId=842847).
 
 ## <a name="set-up-usage-data-reporting"></a>Configurar relatórios de dados de utilização
 
@@ -48,32 +49,31 @@ Para configurar os relatórios de dados de utilização, terá [registe a sua in
 
 ## <a name="generate-usage-data-reporting"></a>Gerar relatórios de dados de utilização
 
-1. Para testar os relatórios de dados de utilização, crie alguns recursos no Azure Stack. Por exemplo, pode criar uma [conta de armazenamento](azure-stack-provision-storage-account.md), [VM do Windows Server](azure-stack-provision-vm.md) e uma VM do Linux com os SKUs básico e Standard para ver como é comunicada a utilização de núcleos. Os dados de utilização para diferentes tipos de recursos são reportados a diferentes indicadores.
+- Para testar os relatórios de dados de utilização, crie alguns recursos no Azure Stack. Por exemplo, pode criar uma [conta de armazenamento](azure-stack-provision-storage-account.md), [VM do Windows Server](azure-stack-provision-vm.md) e uma VM do Linux com os SKUs básico e Standard para ver como é comunicada a utilização de núcleos. Os dados de utilização para diferentes tipos de recursos são reportados a diferentes indicadores.
 
-2. Deixe os seus recursos em execução para algumas horas. Informações de utilização são recolhidas aproximadamente uma vez por hora. Depois de coletar, estes dados são transmitidos para o Azure e processados para o sistema de comércio do Azure. Este processo pode demorar algumas horas.
+- Deixe os seus recursos em execução para algumas horas. Informações de utilização são recolhidas aproximadamente uma vez por hora. Depois de coletar, estes dados são transmitidos para o Azure e processados para o sistema de comércio do Azure. Este processo pode demorar algumas horas.
 
 ## <a name="view-usage---csp-subscriptions"></a>Ver utilização - subscrições de CSP
 
-Se tiver registado a sua pilha do Azure com uma subscrição do CSP, pode ver a utilização e custos da mesma forma na qual ver o consumo do Azure. Utilização de pilha do Azure estará incluída na sua fatura e no ficheiro de reconciliação, disponível através dos [Centro de parceiros](https://partnercenter.microsoft.com/partner/home). O ficheiro de reconciliação é atualizado mensalmente. Se precisar de aceder às informações de utilização recentes do Azure Stack, pode utilizar as APIs do Centro de parceiros.
+Se tiver registado a sua pilha do Azure com uma subscrição do CSP, pode ver a utilização e custos da mesma forma na qual ver o consumo do Azure. Utilização de pilha do Azure estará incluída na sua fatura e no ficheiro de reconciliação, disponível através da [Centro de parceiros](https://partnercenter.microsoft.com/partner/home). O ficheiro de reconciliação é atualizado mensalmente. Se precisar de aceder às informações de utilização recentes do Azure Stack, pode utilizar as APIs do Centro de parceiros.
 
-   ![Centro de parceiros](media/azure-stack-usage-reporting/partner-center.png)
-
+![Centro de parceiros](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage--enterprise-agreement-subscriptions"></a>Ver utilização – subscrições de contrato Enterprise
 
-Se tiver registado a sua utilização de uma subscrição do Enterprise Agreement do Azure Stack, pode ver a utilização e custos no [Portal de EA](https://ea.azure.com/). Utilização do Azure da pilha será incluída nos downloads avançados juntamente com a utilização do Azure na secção de relatórios no portal do EA. 
+Se tiver registado a sua utilização de uma subscrição do Enterprise Agreement do Azure Stack, pode ver a utilização e custos no [portal EA](https://ea.azure.com/). Utilização do Azure Stack está incluída nos downloads avançados juntamente com a utilização do Azure na secção relatórios neste portal. 
 
 ## <a name="view-usage--other-subscriptions"></a>Ver utilização – outras subscrições
 
-Se tiver registado a sua pilha do Azure com qualquer outro tipo de subscrição, por exemplo, uma subscrição Pay As You Go, pode ver a utilização e custos no Centro de contas do Azure. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o Azure o administrador de conta e selecione a subscrição do Azure que utilizou para registar o Azure Stack. Pode ver os dados de utilização do Azure Stack, o montante cobrado por cada um dos recursos utilizados, conforme mostrado na imagem seguinte:
+Se tiver registado a sua pilha do Azure através de qualquer tipo de outra subscrição; Por exemplo, uma subscrição Pay As You Go, pode ver a utilização e custos no Centro de contas do Azure. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o Azure o administrador de conta e selecione a subscrição do Azure que utilizou para registar o Azure Stack. Pode ver os dados de utilização do Azure Stack, o montante cobrado por cada um dos recursos utilizados, conforme mostrado na imagem seguinte:
 
-   ![fluxo de faturação](media/azure-stack-usage-reporting/pricing-details.png)
+![fluxo de faturação](media/azure-stack-usage-reporting/pricing-details.png)
 
-Recursos do Azure Stack não são cobrados para o Kit de desenvolvimento do Azure Stack, portanto, o preço é mostrado como $0,00.
+Para o Kit de desenvolvimento do Azure Stack, recursos do Azure Stack não são cobrados, para que o preço é mostrado como $0,00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>As implementações do Azure Stack são cobradas?
 
-Utilização de recursos é gratuita para o Azure Stack Development Kit. Enquanto que para sistemas de vários nós do Azure Stack, são cobrados a carga de trabalho VMs e serviços de armazenamento e dos serviços de aplicações.
+Utilização de recursos é gratuita para o Azure Stack Development Kit. Do Azure Stack com vários nó sistemas, a carga de trabalho VMs, serviços de armazenamento e dos serviços de aplicações, são cobrados.
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Os utilizadores são cobrados para as VMs de infraestrutura?
 
@@ -83,14 +83,15 @@ Os utilizadores cobrados apenas para VMs que são executadas em subscrições de
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tenho uma licença do Windows Server que pretende utilizar no Azure Stack, como fazê-lo?
 
-Utilizar as licenças existentes evita a geração de medidores de utilização. Licenças existentes do Windows Server podem ser utilizadas no Azure Stack, conforme descrito na secção "Using software existente com o Azure Stack" [guia de licenciamento do Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes têm de implementar as suas máquinas virtuais do Windows Server, tal como descrito no [benefício híbrido para a licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artigo para poder utilizar as suas licenças existentes.
+Utilizar as licenças existentes evita a geração de medidores de utilização. Licenças existentes do Windows Server podem ser utilizadas no Azure Stack, conforme descrito na secção "Using software existente com o Azure Stack" a [guia de licenciamento do Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536). Os clientes devem implementar suas máquinas virtuais do Windows Server, conforme descrito no [benefício híbrido para a licença do Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) artigo para poder utilizar as suas licenças existentes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Qual assinatura é cobrada pelos recursos consumidos?
+
 A subscrição que é fornecida quando [registar o Azure Stack com o Azure](azure-stack-register.md) é cobrado.
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Que tipos de subscrições são suportados para relatórios de dados de utilização?
 
-Para multinode do Azure Stack, são suportadas subscrições Enterprise Agreement (EA) e CSP. Para o Kit de desenvolvimento do Azure Stack, subscrições de contrato Enterprise (EA), o pay as you go, o CSP e o MSDN suportam relatórios de dados de utilização.
+Para vários nós do Azure Stack, são suportadas subscrições Enterprise Agreement (EA) e CSP. Para o Kit de desenvolvimento do Azure Stack, subscrições de contrato Enterprise (EA), o pay as you go, o CSP e o MSDN suportam relatórios de dados de utilização.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>O trabalho em clouds independentes de geração de relatórios de dados de utilização?
 
@@ -98,7 +99,7 @@ No Kit de desenvolvimento do Azure Stack, relatórios de dados de utilização r
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por que a utilização comunicada na pilha do Azure não corresponde ao relatório gerado a partir do Centro de contas do Azure?
 
-Há sempre um atraso entre os dados de utilização comunicados pela utilização do Azure Stack APIs e os dados de utilização comunicados pelo centro de contas do Azure. Este atraso é o tempo necessário para carregar dados de utilização do Azure Stack para comércio do Azure. Devido a este atraso, utilização, que ocorre um pouco antes da meia-noite pode aparecer no Azure do dia seguinte. Se utilizar o [APIs de utilização do Azure Stack](azure-stack-provider-resource-api.md)e comparar os resultados para a utilização comunicadas no portal de faturação do Azure, verá uma diferença.
+Há sempre um atraso entre os dados de utilização comunicados pela utilização do Azure Stack APIs e os dados de utilização comunicados pelo centro de contas do Azure. Este atraso é o tempo necessário para carregar dados de utilização do Azure Stack para comércio do Azure. Devido a este atraso, utilização, que ocorre um pouco antes da meia-noite pode aparecer no Azure do dia seguinte. Se utilizar o [utilização do Azure Stack APIs](azure-stack-provider-resource-api.md)e comparar os resultados para a utilização comunicadas no portal de faturação do Azure, verá uma diferença.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

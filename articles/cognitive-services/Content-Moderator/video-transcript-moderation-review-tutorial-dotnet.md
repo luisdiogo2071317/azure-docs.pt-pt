@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6f5a6c6ac4bd125fd7aa6358fe92f9453a0314b1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266779"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332698"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeo e transcrição
 
@@ -241,7 +241,7 @@ O código realiza os seguintes passos:
 
 - Efetua verificações para garantir que a configuração em `App.config` contém todos os dados necessários
 - Efetua verificações para garantir que o binário `ffmpeg` está presente
-- Compila o nome de ficheiro de saída ao anexar `_c.mp4` ao nome de base do ficheiro (tal como `Example.mp4` -> `E>xample_c.mp4`)
+- Compila o nome de ficheiro de saída ao anexar `_c.mp4` ao nome de base do ficheiro (tal como `Example.mp4` -> `Example_c.mp4`)
 - Cria uma cadeia de linha de comandos para realizar a conversão
 - Inicia um processo `ffmpeg` com recurso à linha de comandos
 - Aguarda que o vídeo seja processado

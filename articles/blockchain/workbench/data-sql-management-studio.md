@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259788"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332460"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilizar os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
@@ -34,7 +34,7 @@ Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar
 
 3. Na caixa de diálogo **Ligar ao Servidor**, introduza o nome do servidor e as credenciais da base de dados.
 
-    Se estiver a utilizar as credenciais criadas pelo processo de implementação do Azure Blockchain Workbench, o nome de utilizador será **dbadmin** e a palavra-passe será a mesma que forneceu durante a implementação.
+    Se estiver a utilizar as credenciais criadas pelo processo de implementação do Azure Blockchain Workbench, o nome de utilizador é **dbadmin** e a palavra-passe é a mesma que forneceu durante a implementação.
 
     ![Introduzir as credenciais de SQL](./media/data-sql-management-studio/sql-creds.png)
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar
     ![Lista de bases de dados](./media/data-sql-management-studio/db-list.png)
 
 5. Para ver os dados associados a qualquer uma das vistas de base de dados, pode gerar automaticamente uma instrução select através dos seguintes passos.
-6. Clique com o botão direito do rato em qualquer uma das vistas de base de dados no Object Explorer.
+6. Clique com botão direito qualquer uma das vistas da base de dados no pesquisador de objetos.
 7. Selecione **Vista de script como**.
 8. Selecione **SELECT para**.
 9. Selecione **Nova Janela do Editor de Consultas**.

@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822471"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332477"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
 Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, ficará a saber como:
 
@@ -38,7 +38,7 @@ Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o t
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. A configuração está disponível através do portal do Azure e a REST API. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1, guardados na sua conta de armazenamento.
+> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -212,7 +212,7 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
-| C            | Estado do fluxo de **apenas a versão 2** | Captura o estado do fluxo. Estados possíveis **B**: Begin, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é terminado. As estatísticas são fornecidas. |
+| C            | Estado do fluxo de **apenas a versão 2** | Captura o estado do fluxo. Estados possíveis **B**: Iniciar, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: Continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é terminado. As estatísticas são fornecidas. |
 | 30 | Pacotes enviados - origem para destino **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. |
 | 16978 | Bytes enviados - origem para destino **apenas 2 da versão** | O número total de bytes de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload. | 
 | 24 | Pacotes enviados - destino para origem **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviadas do destino para origem, desde a última atualização. |

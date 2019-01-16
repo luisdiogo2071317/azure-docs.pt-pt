@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024914"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332647"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-oracle-connector.md)
 > * [Versão 2 (versão atual)](../connector-oracle.md)
 
@@ -73,7 +73,7 @@ Este conector Oracle suporta duas versões de controladores:
 
     Se selecionou **instalação XCopy**, conclua os passos descritos no arquivo Readme htm. Recomendamos que selecione o instalador com a interface do Usuário (não o instalador de XCopy).
 
-    Depois de instalar o fornecedor, reinicie o serviço de anfitrião de Gateway de gestão de dados no seu computador com o miniaplicativo serviços ou o Gestor de configuração do Data Management Gateway.  
+    Depois de instalar o fornecedor, reinicie o serviço de anfitrião de Gateway de gestão de dados no seu computador com o miniaplicativo serviços ou o Gestor de configuração do Data Management Gateway.
 
 Se utilizar o Assistente para copiar para criar o pipeline da cópia, o tipo de controlador é autodetermined. O controlador Microsoft é utilizado por predefinição, a menos que a sua versão do gateway é anterior à versão 2.7 ou selecione Oracle como o sink.
 
@@ -87,12 +87,12 @@ Também pode utilizar uma das seguintes ferramentas para criar um pipeline: o **
 
 Se usar as ferramentas ou APIs, conclua os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
-1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines. 
+1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines.
 2. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados. Por exemplo, se estiver a copiar dados de uma base de dados Oracle para o armazenamento de Blobs do Azure, crie dois serviços ligados para ligar a sua base de dados Oracle e a conta de armazenamento do Azure à fábrica de dados. Para propriedades de serviço ligado que são específicas a Oracle, consulte [propriedades do serviço ligado](#linked-service-properties).
 3. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. O exemplo no passo anterior, vai criar um conjunto de dados para especificar a tabela na base de dados do Oracle que contém os dados de entrada. Criar outro conjunto de dados para especificar o contentor de BLOBs e a pasta que contém os dados copiados da base de dados Oracle. Para as propriedades do conjunto de dados que são específicas para Oracle, consulte [propriedades do conjunto de dados](#dataset-properties).
-4. Criar uma **pipeline** que tem uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. O exemplo anterior, usa **OracleSource** como uma origem e **BlobSink** como sink para a atividade de cópia. Da mesma forma, se estiver a copiar do armazenamento de Blobs do Azure para uma base de dados do Oracle, usar **BlobSource** e **OracleSink** na atividade de cópia. Para propriedades de atividade de cópia que são específicas para uma base de dados do Oracle, consulte [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, selecione a ligação para seu armazenamento de dados na secção anterior. 
+4. Criar uma **pipeline** que tem uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. O exemplo anterior, usa **OracleSource** como uma origem e **BlobSink** como sink para a atividade de cópia. Da mesma forma, se estiver a copiar do armazenamento de Blobs do Azure para uma base de dados do Oracle, usar **BlobSource** e **OracleSink** na atividade de cópia. Para propriedades de atividade de cópia que são específicas para uma base de dados do Oracle, consulte [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, selecione a ligação para seu armazenamento de dados na secção anterior.
 
-Quando utiliza o assistente, as definições de JSON para estas entidades do Data Factory são criadas automaticamente para: ligada a serviços, conjuntos de dados e o pipeline. Ao utilizar ferramentas ou APIs (exceto para a API .NET), define essas entidades do Data Factory, utilizando o formato JSON.  Para exemplos que têm definições de JSON para entidades do Data Factory que utilizar para copiar dados de ou para uma base de dados do Oracle no local, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Quando utiliza o assistente, as definições de JSON para estas entidades do Data Factory são criadas automaticamente para: ligada a serviços, conjuntos de dados e o pipeline. Ao utilizar ferramentas ou APIs (exceto para a API .NET), define essas entidades do Data Factory, utilizando o formato JSON. Para exemplos que têm definições de JSON para entidades do Data Factory que utilizar para copiar dados de ou para uma base de dados do Oracle no local, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON que utilizar para definir entidades do Data Factory.
 
@@ -136,8 +136,7 @@ Para saber mais sobre os formatos permitidos, consulte [fornecedor de dados do O
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md). 
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md).
 
 As secções de um ficheiro JSON do conjunto de dados, tais como a estrutura, disponibilidade e a política, são semelhantes para todos os tipos de conjunto de dados (por exemplo, para o Oracle, o armazenamento de Blobs do Azure e o armazenamento de tabelas do Azure).
 
@@ -158,7 +157,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Criar pipelines](data-factory-create-pipelines.md). 
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Criar pipelines](data-factory-create-pipelines.md).
 
 As propriedades, como o nome, descrição, entrada e saída de tabelas e a política estão disponíveis para todos os tipos de atividades.
 
@@ -181,14 +180,14 @@ Na atividade de cópia, quando a origem é o **OracleSource** tipo, as seguintes
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. |**Período de tempo**<br/><br/> Exemplo: 30: 00:00 (30 minutos) |Não |
+| writeBatchTimeout |O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. |**timespan**<br/><br/> Exemplo: 30: 00:00 (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Número inteiro (número de linhas) |Não (predefinição: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta para a atividade de cópia executar, para que os dados de um setor específico é limpo. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifica o nome de coluna para a atividade de cópia preencher com um identificador de setor geradas automaticamente.  O valor para **sliceIdentifierColumnName** é utilizado para limpar os dados de um setor específico quando voltar a executar. |O nome da coluna de uma coluna com o tipo de dados do **binary(32)**. |Não |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar dados de e para a base de dados Oracle
 
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para uma base de dados Oracle e de ou para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks listados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.   
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para uma base de dados Oracle e de ou para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks listados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.
 
 **Exemplo: Copiar dados do Oracle para o armazenamento de Blobs do Azure**
 
@@ -254,12 +253,12 @@ A definição **externo**: **verdadeiro** informa o serviço Data Factory, que o
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ Os dados são escritos para um blob novo a cada hora (**frequência**: **hora**,
 
 **Pipeline com uma atividade de cópia**
 
-O pipeline contém uma atividade de cópia que tenha configurado para utilizar os conjuntos de dados de entrada e saídos e agendada para ser executada uma vez por hora. No pipeline de definição de JSON, o **origem** tipo está definido como **OracleSource** e o **sink** tipo está definido como **BlobSink**.  A consulta SQL que especificou utilizando o **oracleReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
+O pipeline contém uma atividade de cópia que tenha configurado para utilizar os conjuntos de dados de entrada e saídos e agendada para ser executada uma vez por hora. No pipeline de definição de JSON, o **origem** tipo está definido como **OracleSource** e o **sink** tipo está definido como **BlobSink**. A consulta SQL que especificou utilizando o **oracleReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
 
 **Exemplo: Copiar dados de armazenamento de Blobs do Azure para Oracle**
 
-Este exemplo mostra como copiar dados de uma conta de armazenamento de Blobs do Azure para uma base de dados do Oracle no local. No entanto, pode copiar dados *diretamente* de qualquer uma das origens listadas na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.  
+Este exemplo mostra como copiar dados de uma conta de armazenamento de Blobs do Azure para uma base de dados do Oracle no local. No entanto, pode copiar dados *diretamente* de qualquer uma das origens listadas na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.
 
 O exemplo possui as seguintes entidades do Data Factory:
 
@@ -503,16 +502,16 @@ O exemplo parte do princípio de que criou uma tabela chamada **MyTable** no Ora
 
 **Pipeline com uma atividade de cópia**
 
-O pipeline contém uma atividade de cópia que tenha configurado para utilizar os conjuntos de dados de entrada e saídos e agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **BlobSource** e o **sink** tipo está definido como **OracleSink**.  
+O pipeline contém uma atividade de cópia que tenha configurado para utilizar os conjuntos de dados de entrada e saídos e agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **BlobSource** e o **sink** tipo está definido como **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
 
 **Mensagem de erro**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Causas possíveis**
 
@@ -584,7 +583,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
 
 Poderá ter de ajustar a cadeia de consulta em sua atividade de cópia com base em como as datas são configuradas na sua base de dados Oracle. Eis um exemplo (com o **to_date** função):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Mapeamento de tipo para Oracle
@@ -613,7 +612,7 @@ Ao mover dados do Oracle, são utilizados os seguintes mapeamentos do tipo de da
 | NCLOB |Cadeia |
 | NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
 | NVARCHAR2 |Cadeia |
-| NÃO PROCESSADOS |Byte[] |
+| RAW |Byte[] |
 | ROWID |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |
