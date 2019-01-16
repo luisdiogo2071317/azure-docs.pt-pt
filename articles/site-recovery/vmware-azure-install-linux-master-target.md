@@ -1,17 +1,19 @@
 ---
 title: Instalar um servidor de destino principal do Linux para reativação pós-falha para um site no local | Documentos da Microsoft
 description: Saiba como configurar um servidor de destino principal do Linux para reativação pós-falha para um site no local durante a recuperação após desastre de VMs de VMware para o Azure com o Azure Site Recovery.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974387"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321416"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -49,9 +51,9 @@ São suportados os seguintes kernels suportados do Ubuntu.
 
 |Série de kernel  |Suporta até  |
 |---------|---------|
-|4.4      |4.4.0-81-Generic         |
-|4.8      |4.8.0-56-Generic         |
-|4.10     |4.10.0-24-Generic        |
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Implementar o servidor de destino mestre
@@ -68,7 +70,7 @@ Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar
     ![Selecione uma Linguagem](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Selecione **instalar o servidor Ubuntu**e, em seguida, selecione **Enter**.
 
-    ![Selecione instalar Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)
+    ![Select Install Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)
 
 1.  Selecione **inglês** como sua linguagem preferida e, em seguida, selecione **Enter**.
 
@@ -350,7 +352,7 @@ Verá que o **versão** campo indica o número de versão de destino mestre.
 
 * Devido a algumas configurações de NIC personalizadas, a interface de rede está desativada durante o arranque e não é possível inicializar o agente de destino mestre. Certifique-se de que as seguintes propriedades estão corretamente definidas. Verifique estas propriedades no Ethernet cartão /etc/sysconfig/network-scripts/ifcfg do arquivo-eth *.
     * BOOTPROTO=dhcp
-    * ONBOOT = Sim
+    * ONBOOT=yes
 
 
 ## <a name="next-steps"></a>Passos Seguintes
