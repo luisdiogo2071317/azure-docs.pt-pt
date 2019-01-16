@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231075"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332324"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -67,7 +66,7 @@ Os passos seguintes descrevem como configurar um limite para gerir o volume de d
 
 1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
 2. Sobre o **utilização e custos estimados** para a área de trabalho selecionada, clique em **gestão de volumes de dados** da parte superior da página. 
-5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Alertar quando o limite diário atingido
 Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](alerts-metric.md).      
@@ -161,7 +160,7 @@ Para compreender o número de computadores (nós) que fornecem dados por dia no 
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para obter uma lista de computadores a enviar **faturados os tipos de dados** (alguns tipos de dados são gratuitos), aproveitar o `_IsBilled` propriedade:
+Para obter uma lista de computadores a enviar **faturados os tipos de dados** (alguns tipos de dados são gratuitos), aproveitar o [_IsBillable](log-standard-properties.md#isbillable) propriedade:
 
 `union withsource = tt * 
 | where _IsBillable == true 

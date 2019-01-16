@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413273"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331222"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 
-> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
@@ -88,7 +88,7 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
 
 As secções seguintes deste artigo explicam cada propriedade de nível superior. Todas são opcionais, a menos que indicado de outra forma.
 
-## <a name="aggregator"></a>agregador
+## <a name="aggregator"></a>aggregator
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
@@ -109,12 +109,15 @@ Controles a [funcionalidade de amostragem no Application Insights](./functions-m
 }
 ```
 
+> [!NOTE]
+> Amostragem de registo pode fazer com que algumas execuções a não aparecer no painel de monitorização do Application Insights.
+
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |isEnabled|true|Ativa ou desativa a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limiar em que amostragem começa.| 
 
-## <a name="cosmosdb"></a>cosmos DB
+## <a name="cosmosdb"></a>cosmosDb
 
 Definição de configuração pode ser encontrada na [Cosmos DB acionadores e enlaces](functions-bindings-cosmosdb-v2.md#host-json).
 
@@ -200,7 +203,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define o nível de registo de ficheiros está ativado.  As opções são `never`, `always`, `debugOnly`. |
-|LogLevel|n/d|Objeto que define a categoria de registo de filtragem para as funções na aplicação. Versão 2.x segue o layout do ASP.NET Core para filtragem de categoria do registo. Isto permite-lhe filtrar o registo para funções específicas. Para obter mais informações, consulte [filtragem de Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|logLevel|n/d|Objeto que define a categoria de registo de filtragem para as funções na aplicação. Versão 2.x segue o layout do ASP.NET Core para filtragem de categoria do registo. Isto permite-lhe filtrar o registo para funções específicas. Para obter mais informações, consulte [filtragem de Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
 |consola|n/d| O [consola](#console) definição de registo. |
 |applicationInsights|n/d| O [Application Insights](#applicationinsights) definição. |
 
@@ -228,7 +231,7 @@ Esta definição é um elemento subordinado [registo](#logging). Ele controla a 
 
 Definições de configuração podem ser encontradas na [acionadores de fila de armazenamento e enlaces](functions-bindings-storage-queue.md#host-json).  
 
-## <a name="sendgrid"></a>SendGrid
+## <a name="sendgrid"></a>sendGrid
 
 Definição de configuração pode ser encontrada na [SendGrid acionadores e enlaces](functions-bindings-sendgrid.md#host-json).
 

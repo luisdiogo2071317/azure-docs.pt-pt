@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 23e6d044a1c08fb585e01d61a97deaf87e24cbb9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: aa221569cec6df298db4a90560ac7ea0992dd120
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743107"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318733"
 ---
 # <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Tutorial: Carregar imagens para a API de pesquisa Visual do Bing
 
@@ -628,7 +628,7 @@ O `addShopping()` função cria uma ligação para qualquer devolveu resultados 
 
 ### <a name="products-insights"></a>Informações de produtos
 
-O `addProducts()` função cria uma ligação para qualquer devolveu resultados compras fazendo a iteração a lista de `Products` ações e a acrescentar um `<img>` marcar para o exterior `<div>` para cada um.
+O `addProducts()` função cria uma ligação para qualquer devolvidos resultados de produtos com a iteração através da lista de `Products` ações e a acrescentar um `<img>` marcar para o exterior `<div>` para cada um.
 
 ```javascript
 

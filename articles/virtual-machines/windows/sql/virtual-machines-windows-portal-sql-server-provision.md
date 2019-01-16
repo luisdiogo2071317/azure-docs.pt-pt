@@ -3,7 +3,7 @@ title: Aprovisionamento de guia para VMs do SQL Server do Windows no portal do A
 description: Este guia de procedimentos descreve as opções para a criação de máquinas de virtuais do Windows SQL Server 2017 no portal do Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
-ms.author: jroth
-ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704543"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330896"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -54,7 +55,7 @@ Quando cria uma máquina virtual do SQL Server, pode selecionar uma das várias 
 
 1. Reveja as imagens do SQL Server disponíveis. Cada imagem identifica uma versão do SQL Server e um sistema operativo.
 
-1. Selecione a imagem com o nome **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016 (Licença do SQL Server gratuita: SQL Server 2017 Developer no Windows Server 2016)**.
+1. Selecione a imagem com o nome **licença gratuita do SQL Server: O SQL Server 2017 Developer no Windows Server 2016**.
 
    > [!TIP]
    > A edição de programador é utilizada nestas instruções porque é uma edição completa, gratuita do SQL Server para teste de desenvolvimento. Apenas paga pelo custo de execução da VM. No entanto, é livre para escolher qualquer uma das imagens para utilizar esta explicação passo a passo. Para obter uma descrição de imagens disponíveis, consulte a [descrição geral de máquinas virtuais do SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -249,7 +250,7 @@ A tabela seguinte lista os parâmetros necessários para configurar a Integraç�
 | **URL do Cofre de Chaves** |A localização do cofre de chaves. |https://contosokeyvault.vault.azure.net/ |
 | **Nome principal** |Nome principal do serviço Azure Active Directory. Este nome também é referido como o ID de Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Segredo principal** |Segredo principal do serviço Azure Active Directory. Este segredo também é referido como o Segredo do Cliente. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Nome da credencial** |**Nome da credencial**: a Integração AKV cria uma credencial dentro do SQL Server, permitindo que a VM tenha acesso ao cofre de chaves. Escolha um nome para esta credencial. |mycred1 |
+| **Nome da credencial** |**Nome da credencial**: A integração AKV cria uma credencial dentro do SQL Server, permitindo que a VM tem acesso ao Cofre de chaves. Escolha um nome para esta credencial. |mycred1 |
 
 Para obter mais informações, consulte o artigo [Configurar a Integração do Cofre de Chaves do Azure para o SQL Server em VMs do Azure](virtual-machines-windows-ps-sql-keyvault.md).
 

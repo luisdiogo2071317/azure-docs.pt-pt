@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af66a8c28ebdbc04ffb451ea9249dcd1d72c1c71
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022602"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331848"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para tabelas do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
 3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para o armazenamento de tabela do Azure, consulte [exemplos JSON](#json-examples) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON. Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para o armazenamento de tabela do Azure, consulte [exemplos JSON](#json-examples) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para o armazenamento de tabelas do Azure: 
 
@@ -252,48 +252,48 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **AzureTableSource** e **sink** tipo está definido como **BlobSink**. A consulta SQL especificada com **AzureTableSourceQuery** propriedade seleciona os dados da partição predefinida a cada hora para copiar.
 
 ```JSON
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureTabletoBlob",
                 "description": "copy activity",
                 "type": "Copy",
                 "inputs": [
-                      {
+                    {
                         "name": "AzureTableInput"
                     }
                 ],
                 "outputs": [
-                      {
-                            "name": "AzureBlobOutput"
-                      }
+                    {
+                        "name": "AzureBlobOutput"
+                    }
                 ],
                 "typeProperties": {
-                      "source": {
+                    "source": {
                         "type": "AzureTableSource",
                         "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "BlobSink"
-                      }
+                    }
                 },
                 "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
-                },                
+                    "frequency": "Hour",
+                    "interval": 1
+                },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
             }
-         ]    
+        ]
     }
 }
 ```
@@ -419,13 +419,13 @@ O exemplo copia dados a uma tabela chamada "MyTable" na tabela do Azure. Crie um
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **BlobSource** e **sink** tipo está definido como **AzureTableSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureBlobtoTable",
         "description": "Copy Activity",
@@ -453,7 +453,7 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
         "scheduler": {
           "frequency": "Hour",
           "interval": 1
-        },                        
+        },
         "policy": {
           "concurrency": 1,
           "executionPriorityOrder": "OldestFirst",
@@ -461,8 +461,8 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 ## <a name="type-mapping-for-azure-table"></a>Mapeamento do tipo de tabela do Azure
@@ -496,12 +496,12 @@ Defina o conjunto de dados de origem do Blob da seguinte forma, juntamente com d
     "name": " AzureBlobInput",
     "properties":
     {
-         "structure":
-          [
-                { "name": "userid", "type": "Int64"},
-                { "name": "name", "type": "String"},
-                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
-          ],
+        "structure":
+        [
+            { "name": "userid", "type": "Int64"},
+            { "name": "name", "type": "String"},
+            { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+        ],
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {

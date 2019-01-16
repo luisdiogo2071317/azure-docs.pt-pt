@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4ba55d58a24045141800efb97a0f523d2a9cd242
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304504"
+ms.locfileid: "54321743"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
 
@@ -325,8 +325,6 @@ No Explorador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*.  
 ```
 
 Também tem de atualizar o valor da propriedade de URL da Aplicação no projeto Voto para que um browser se abra para a porta correta quando depura a sua aplicação.  No Explorador de Soluções, selecione o projeto **Voto** e atualize a propriedade **URL da Aplicação** para **8080**.
-
-![URL da Aplicação](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Implementar e executar a aplicação de Voto localmente
 Agora, já pode executar a aplicação de Voto para depuração. No Visual Studio, prima **F5** para implementar a aplicação para o seu cluster do Service Fabric local no modo de depuração. A aplicação irá falhar se, anteriormente, não tiver aberto o Visual Studio como **administrador**.

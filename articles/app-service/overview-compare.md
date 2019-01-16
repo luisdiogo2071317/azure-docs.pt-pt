@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729721"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322032"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 
@@ -53,7 +53,7 @@ A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Servi�
 | Aumentar horizontalmente para várias instâncias sem reimplementar |X |X |X |X |As Máquinas Virtuais podem ser aumentadas horizontalmente para várias instâncias, mas os serviços que estão em execução nas mesmas têm de ser escritos de forma a suportar esse aumento horizontal. Tem de configurar um balanceador de carga para encaminhar os pedidos entre as máquinas e certifique-se de que tem mais de uma instância de VM no [conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md). |
 | Suporte para SSL |X |X |X |X |Nas aplicações Web do Serviço de Aplicações, o SSL para nomes de domínios personalizados só é suportado nos modos Básico e Standard. Para obter informações sobre como utilizar o SSL com as aplicações Web, veja [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Configurar certificados SSL para sites do Azure). |
 | Integração com o Visual Studio |X |X |X |X | |
-| Depuração Remota |X |X |X | | |
+| Depuração Remota |X |X |X |X | |
 | Implementar código com TFS |X |X |X |X | |
 | Isolamento de rede com a [Rede Virtual do Azure](/azure/virtual-network/) |X |X |X |X |Veja também [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) (Integração da Rede Virtual dos Web Sites do Azure) |
 | Suporte para o [Gestor de Tráfego do Azure](/azure/traffic-manager/) |X |X |X |X | |

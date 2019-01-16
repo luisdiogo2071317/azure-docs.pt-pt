@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091747"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320318"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de entrega de conteúdos
 
@@ -83,7 +83,7 @@ Entrega geral web é a opção de otimização mais comuns. Foi concebido para a
 Um site típico contém conteúdo estático e dinâmico. Conteúdo estático inclui imagens, bibliotecas JavaScript e folhas de estilos que podem ser armazenados em cache e entregues aos utilizadores diferentes. Conteúdo dinâmico é personalizado para um utilizador individual, tais como itens de notícias são adaptadas para um perfil de utilizador. Não é colocado em cache de conteúdo dinâmico, como o conteúdo do carrinho de compras, uma vez que é exclusivo para cada utilizador. Entrega geral web pode otimizar o seu site inteiro. 
 
 > [!NOTE]
-> Se estiver a utilizar um **CDN do Azure Standard da Akamai** de perfil, selecione este tipo de otimização se o tamanho de arquivo média é menor do que 10 MB. Othewise, se o tamanho de arquivo média for superior a 10 MB, selecione **transferência de ficheiros grandes** partir do **otimizado para** na lista pendente.
+> Se estiver a utilizar um **CDN do Azure Standard da Akamai** de perfil, selecione este tipo de otimização se o tamanho de arquivo média é menor do que 10 MB. Caso contrário, se o tamanho de arquivo média for superior a 10 MB, selecione **transferência de ficheiros grandes** partir do **otimizado para** na lista pendente.
 
 ### <a name="general-media-streaming"></a>Transmissão geral de multimédia
 

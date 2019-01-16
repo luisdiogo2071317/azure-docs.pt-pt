@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/17/2018
-ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543816"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332086"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução com funcionalidades JSON na base de dados do Azure SQL
 Azure base de dados SQL permite-lhe analisa e consulta dados representados no JavaScript Object Notation [(JSON)](http://www.json.org/) formate e exportar os seus dados relacionais como texto JSON. Os seguintes cenários JSON estão disponíveis na base de dados do Azure SQL:
@@ -163,7 +163,7 @@ Base de dados SQL do Azure também permite transformar coleções de JSON para d
 
 OPENJSON é uma função de valor de tabela que analisa o texto JSON, localiza uma matriz de objetos JSON, itera através de elementos da matriz e retorna uma linha no resultado da saída para cada elemento da matriz.
 
-![JSON em tabela](./media/sql-database-json-features/image_2.png)
+![JSON tabular](./media/sql-database-json-features/image_2.png)
 
 No exemplo acima, podemos especificar onde localizar a matriz JSON que deve ser aberta (em $. Caminho de ordens), que colunas devem ser devolvidas como resultado e onde encontrar os valores JSON que vão ser devolvidos como células.
 
@@ -175,7 +175,7 @@ AS BEGIN
 
     insert into Orders(Number, Date, Customer, Quantity)
     select Number, Date, Customer, Quantity
-    OPENJSON (@orders)
+    FROM OPENJSON (@orders)
      WITH (
             Number varchar(200),
             Date datetime,

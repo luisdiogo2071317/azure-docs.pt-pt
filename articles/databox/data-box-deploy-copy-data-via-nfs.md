@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ba6bc2cf3cf5286719bc6da519aabb364302af3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 646acca7eeb2e811f8683a1d35ff8c6efae130da
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550556"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319016"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio de NFS 
 
@@ -38,7 +38,7 @@ Antes de começar, certifique-se de que:
 
 ## <a name="connect-to-data-box"></a>Ligar ao Data Box
 
-Com base na conta de armazenamento selecionada, o Data Box cria até:
+Data Box com base na conta de armazenamento selecionada, cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
 - Uma partilha para uma conta de armazenamento de blobs ou premium. 
 
@@ -49,7 +49,7 @@ Considere o seguinte exemplo.
 - Conta de armazenamento: *Mystoracct*
 - Partilha para o blob de bloco: *Mystoracct_BlockBlob/my-container/blob*
 - Partilha para o blob de página: *Mystoracct_PageBlob/my-container/blob*
-- Partilha de ficheiros: *Mystoracct_AzFile/my-partilhar*
+- Partilha de ficheiros: *Mystoracct_AzFile/my-share*
 
 Se estiver a utilizar um computador anfitrião do Linux, execute os passos seguintes para configurar o Data Box para permitir o acesso aos clientes NFS.
 

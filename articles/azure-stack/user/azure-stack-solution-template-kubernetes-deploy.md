@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722401"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320026"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementar o Kubernetes para o Azure Stack
 
@@ -139,7 +139,7 @@ Conceder ao principal de serviço acesso à sua subscrição para que o principa
 
 1. Introduza o **chave pública SSH** utilizado na autorização de todas as máquinas de Linux criados como parte do cluster de Kubernetes e DVM.
 
-1. Introduza o **prefixo de DNS de perfil do mestre** que seja exclusivo para a região. Tem de ser um nome exclusivo para a região, tal como `k8s-12345`. Tente optou por ele mesmo que o grupo de recursos dê um nome como melhor prática.
+1. Introduza o **prefixo de DNS de perfil do mestre** que seja exclusivo para a região. Tem de ser um nome exclusivo para a região, tal como `k8s-12345`. Tente fazer o mesmo que o nome do grupo de recursos como melhor prática.
 
     > [!Note]  
     > Para cada cluster, utilize um prefixo DNS de perfil de mestre de novos e únicos.
@@ -150,9 +150,9 @@ Conceder ao principal de serviço acesso à sua subscrição para que o principa
 
 1. Selecione o **contagem de perfil do conjunto de nós de Kubernetes**. A contagem de contém o número de agentes no cluster. 
 
-1. Selecione o **perfil de armazenamento**. Pode escolher **Blob de disco** ou **disco gerido**. Esta ação Especifica as VMs de nó de tamanho de VM de Kubernetes. 
+1. Selecione o **perfil de armazenamento**. Pode escolher **Blob de disco** ou **disco gerido**. 
 
-1. Introduza o **ID de cliente do Principal de serviço** é utilizada pelo fornecedor de cloud do Azure do Kubernetes. O ID de cliente identificado como o ID da aplicação quando o criou o seu principal de serviço.
+1. Introduza o **ID de cliente do Principal de serviço** é utilizada pelo fornecedor de cloud do Azure do Kubernetes. O ID de cliente foi identificado como o ID da aplicação quando o criou o seu principal de serviço.
 
 1. Introduza o **segredo do cliente de Principal de serviço** que criou ao criar o seu principal de serviço.
 
@@ -160,7 +160,7 @@ Conceder ao principal de serviço acesso à sua subscrição para que o principa
 
 ### <a name="3-summary"></a>3. Resumo
 
-1. Selecione o resumo. O painel apresenta uma mensagem de validação para as definições de configurações de Cluster de Kubernetes.
+1. Selecione o resumo. O painel apresenta uma mensagem de validação para as definições de configuração de Cluster de Kubernetes.
 
     ![Implementar Modelo de Solução](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 

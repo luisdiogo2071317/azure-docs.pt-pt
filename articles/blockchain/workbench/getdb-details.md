@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4020500e20973e8818320424833815c1b5224f6c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0d806491c58c4b1881adc2fd830de7c7b9f0859d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243104"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331933"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Obter informações sobre a base de dados do Azure Blockchain Workbench
 
@@ -23,7 +23,7 @@ Este artigo mostra como obter informações detalhadas sobre a base de dados do 
 
 ## <a name="overview"></a>Descrição geral
 
-São fornecidas informações sobre as aplicações, os fluxos de trabalho e a execução de contrato inteligente através das vistas de base de dados na BD SQL do Blockchain Workbench. Os programadores podem utilizar estas informações quando utilizarem ferramentas como o Microsoft Excel, PowerBI, Visual Studio e SQL Server Management Studio.
+São fornecidas informações sobre as aplicações, os fluxos de trabalho e a execução de contrato inteligente através das vistas de base de dados na BD SQL do Blockchain Workbench. Os desenvolvedores podem usar essas informações ao utilizar ferramentas como o Microsoft Excel, o Power BI, o Visual Studio e o SQL Server Management Studio.
 
 Antes de um programador conseguir ligar à base de dados, precisa de:
 
@@ -34,7 +34,7 @@ Antes de um programador conseguir ligar à base de dados, precisa de:
 
 Para ligar à base de dados:
 
-1. Inicie sessão no Portal do Azure com uma conta que tenha permissões de **Proprietário** para os recursos do Azure Blockchain Workbench.
+1. Inicie sessão no portal do Azure com uma conta que tenha **proprietário** permissões para os recursos do Azure Blockchain Workbench.
 2. Na navegação à esquerda, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos para a sua implementação do Blockchain Workbench.
 4. Selecione **Tipo** para ordenar a lista de recursos e, em seguida, selecione **SQL Server**. A lista ordenada na captura de ecrã seguinte mostra duas bases de dados SQL, a "mestra" e a que utiliza "lhgn" como **Prefixo de recurso**.

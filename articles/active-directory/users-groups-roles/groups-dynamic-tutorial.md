@@ -1,5 +1,5 @@
 ---
-title: Tutorial de adição e remoção de utilizadores automaticamente na adesão dinâmica a grupo no Azure Active Directory
+title: Associação ao grupo dinâmico de adicionar utilizadores de remove - tutorial - Azure Active Directory
 description: Neste tutorial, via utilizar grupos com regras de adesão de utilizador para adicionar ou remover utilizadores automaticamente.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2119bb60cbdc36f62623ce0db52885e17f3d3006
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 6efb649142f43a98ea08c99ae853de0fc0c8ea3c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209176"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321268"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros de grupos automaticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
 No Azure Active Directory (Azure AD), pode adicionar ou remover de forma automática utilizadores de grupos de segurança ou de grupos do Office 365, para que não o tenha de fazer manualmente. Sempre que as propriedades de um utilizador ou dispositivo são alteradas, o Azure AD avalia todas as regras do grupo dinâmico no seu inquilino para ver essa alteração deve adicionar ou remover os membros.
 
@@ -83,7 +83,7 @@ Talvez o que tenha em mente seja atribuir todos os utilizadores convidados aos s
 1. Selecione **Azure Active Directory** > **Grupos**. Selecione o nome do grupo **Todos os utilizadores** para abri-lo.
 1. Selecione **Regras de adesão dinâmica**, limpe o texto completo da regra e selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

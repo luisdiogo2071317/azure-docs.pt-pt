@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958810"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322049"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
 Este artigo mostra-lhe como criar uma conta de automatização do Azure no portal do Azure. Pode utilizar a conta de automatização de portal para avaliar e saiba mais sobre a automatização sem utilizar soluções de gestão adicionais ou integração com o Azure Log Analytics. Pode adicionar essas soluções de gestão ou integrar com o Log Analytics para monitorização avançada de tarefas de runbook em qualquer momento no futuro.
 
-Com uma conta de automatização, pode autenticar runbooks ao gerir recursos no Azure Resource Manager ou o modelo de implementação clássica. Uma conta de automatização podem gerir os recursos em todas as regiões e as subscrições para um determinado inquilino.
+Com uma conta de automatização, pode autenticar runbooks ao gerir recursos no Azure Resource Manager ou o modelo de implementação clássica. Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino.
 
 Quando cria uma conta de automatização no portal do Azure, estas contas são criadas automaticamente:
 
@@ -69,7 +69,7 @@ Para criar uma conta de automatização do Azure no portal do Azure, conclua os 
   >
   > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. Na **adicionar conta de automatização** painel, na **nome** , introduza um nome para a sua nova conta de automatização. Este nome não pode ser alterado depois de este será escolhido. *Nomes de conta de automatização são exclusivos por grupo de recursos e região.*
+1. Na **adicionar conta de automatização** painel, na **nome** , introduza um nome para a sua nova conta de automatização. Este nome não pode ser alterado depois de este será escolhido. *Nomes de conta de automatização são exclusivos por grupo de recursos e região. Os nomes de contas de automatização que foram eliminados poderão não estar imediatamente disponíveis.*
 1. Se tiver mais de uma assinatura, além da **subscrição** caixa, especifique a subscrição que pretende utilizar para a nova conta.
 1. Para **grupo de recursos**, introduza ou selecione um grupo de recursos novo ou existente.
 1. Para **localização**, selecione uma localização do datacenter do Azure.

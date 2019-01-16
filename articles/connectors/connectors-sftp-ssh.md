@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979102"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320791"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP através do SSH e o Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para automatizar as tarefas que monitorizarem, criarem, enviarem e recebem arqui
 * Obter conteúdo do ficheiro e metadados.
 * Extraia os arquivos para pastas.
 
-Em comparação com o [conector do SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos até *1GB* de tamanho. Para ficheiros maiores do que 1GB, pode usar o SFTP-SSH conector adição [segmentação para lidar com mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). Para obter mais diferenças, reveja [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
+Em comparação com o [conector do SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos até *1GB* de tamanho. Para obter mais diferenças, reveja [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
 
 Pode usar acionadores que monitorar eventos em seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações que executar diversas tarefas no seu servidor SFTP. Pode também ter outras ações na sua aplicação lógica a utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar alertas por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com.
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -44,11 +44,11 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
   >
   > O SFTP-SSH conector suporta *apenas* estas chaves privadas, formatos, algoritmos e as impressões digitais:
   > 
-  > * **Formatos de chave privados**: RSA (Rivest Shamir Adleman) e DSA (algoritmo de Assinatura Digital) chaves nos OpenSSH e ssh.com formatos
+  > * **Formatos de chave privados**: RSA (Rivest Shamir Adleman) e chaves DSA (algoritmo de Assinatura Digital) nos formatos OpenSSH e ssh.com
   > * **Algoritmos de encriptação**: DES-EDE3-CBC, EDE3-CFB de DES, DES-CBC, AES-CBC-de-128, 192-AES-CBC e 256-AES-CBC
   > * **Impressão digital**: MD5
 
-* Lê ou escreve ficheiros até *1GB* de tamanho em comparação comparado o conector do SFTP. Para mais de 1 GB de arquivos, usar [segmentação para lidar com mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
+* Lê ou escreve ficheiros até *1GB* no tamanho em comparação comparado o conector do SFTP, mas processa dados em partes de 50 MB, não de 1 GB partes.
 
 * Fornece a **criar pasta** ação, que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -66,7 +66,7 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
   >
   > O SFTP-SSH conector suporta *apenas* estes formatos de chave privados, algoritmos e as impressões digitais:
   > 
-  > * **Formatos de chave privados**: RSA (Rivest Shamir Adleman) e DSA (algoritmo de Assinatura Digital) chaves nos OpenSSH e ssh.com formatos
+  > * **Formatos de chave privados**: RSA (Rivest Shamir Adleman) e chaves DSA (algoritmo de Assinatura Digital) nos formatos OpenSSH e ssh.com
   > * **Algoritmos de encriptação**: DES-EDE3-CBC, EDE3-CFB de DES, DES-CBC, AES-CBC-de-128, 192-AES-CBC e 256-AES-CBC
   > * **Impressão digital**: MD5
   >
@@ -137,13 +137,13 @@ Quando solicitar o conteúdo do ficheiro, o acionador não obter ficheiros maior
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH acionar: quando um ficheiro é adicionado ou modificado
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH acionar: Quando um ficheiro é adicionado ou modificado
 
 Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo cumpre uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esses conteúdos numa pasta no servidor SFTP. 
 
-**Exemplo de Enterprise**: pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
+**Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH ação: obter o conteúdo
+### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH ação: Obter o conteúdo
 
 Esta ação obtém o conteúdo de um arquivo num servidor SFTP. Por exemplo, pode adicionar o acionador do exemplo anterior e uma condição que o conteúdo do ficheiro tem de cumprir. Se a condição for verdadeira, pode executar a ação que obtém o conteúdo. 
 

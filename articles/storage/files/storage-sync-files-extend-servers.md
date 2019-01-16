@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ccb34dac88825877a925b99d51ce5af9b10331d0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 661df6039948539d6b50b4c8caf8ca7bd9b58730
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201224"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321503"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir servidores de ficheiros do Windows com o Azure File Sync
 
@@ -181,7 +181,7 @@ Em seguida, na VM de Datacenter do Windows Server 2016, instale o módulo Azure 
 1. Execute o seguinte comando:
 
    ```powershell
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name AzureRm
    ```
 
    > [!NOTE]
@@ -200,7 +200,7 @@ Em seguida, na VM de Datacenter do Windows Server 2016, instale o módulo Azure 
 
 1. Resposta **Sim** ou **Sim para todos** para continuar com a instalação.
 
-O módulo `Az` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação do mesmo transfere todos os módulos disponíveis do Azure Resource Manager e disponibiliza os respetivos cmdlets para utilização.
+O módulo `AzureRM` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação do mesmo transfere todos os módulos disponíveis do Azure Resource Manager e disponibiliza os respetivos cmdlets para utilização.
 
 Neste momento, configurou o ambiente para o tutorial. Está pronto para implementar o serviço de sincronização de armazenamento.
 

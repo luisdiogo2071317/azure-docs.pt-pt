@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410158"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330726"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens no Azure Logic Apps do batch
 
@@ -50,20 +50,20 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
 
 1. Na [portal do Azure](https://portal.azure.com) ou o Visual Studio, criar uma aplicação lógica com este nome: "BatchReceiver" 
 
-2. No estruturador de aplicações lógicas, adicione a **Batch** acionador, que inicia o fluxo de trabalho de aplicação lógica. Na caixa de pesquisa, introduza "batch" como o filtro. Selecione este acionador: **mensagens do Batch**
+2. No estruturador de aplicações lógicas, adicione a **Batch** acionador, que inicia o fluxo de trabalho de aplicação lógica. Na caixa de pesquisa, introduza "batch" como o filtro. Selecione este acionador: **Mensagens de batch**
 
    ![Adicionar acionador "Mensagens do Batch"](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Defina propriedades de recetor de lote: 
+3. Defina essas propriedades para o recetor de batch: 
 
    | Propriedade | Descrição | 
    |----------|-------------|
-   | **Modo de lote** | - **Inline**: para definir critérios de versão do acionador de lote <br>- **Conta de integração**: para definir várias configurações de critérios de lançamento por meio de um [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, pode manter estas configurações, tudo num único local, em vez de em aplicações lógicas separadas. | 
+   | **Modo de lote** | - **Inline**: Para definir critérios de versão do acionador de lote <br>- **Conta de integração**: Para definir várias configurações de critérios de lançamento por meio de um [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, pode manter estas configurações, tudo num único local, em vez de em aplicações lógicas separadas. | 
    | **Nome do lote** | O nome para o batch, o que é "TestBatch" neste exemplo e aplica-se apenas ao **Inline** modo de lote |  
-   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo e seleciona os critérios para atender às antes do processamento de cada lote do batch: <p>- **Com base de contagem de mensagens**: O número de mensagens para recolher no lote, por exemplo, 10 mensagens <br>- **Tamanho com base**: O tamanho de lote máximo em bytes, por exemplo, 100 MB <br>- **Programação com base**: O intervalo e a frequência entre batch for lançada, por exemplo, 10 minutos. A periodicidade mínima é de 60 segundos ou 1 minuto. Os valores de minutos fracionados efetivamente são arredondados para 1 minuto. Para especificar uma data de início e hora, escolha **Mostrar opções avançadas**. <br>- **Selecionar tudo**: utilizar os critérios especificados. | 
+   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo e seleciona os critérios para atender às antes do processamento de cada lote do batch: <p>- **Com base de contagem de mensagens**: O número de mensagens para recolher no lote, por exemplo, 10 mensagens <br>- **Tamanho com base**: O tamanho de lote máximo em bytes, por exemplo, 10 MB <br>- **Programação com base**: O intervalo e a frequência entre as versões do batch, por exemplo, 10 minutos. A periodicidade mínima é de 60 segundos ou 1 minuto. Os valores de minutos fracionados efetivamente são arredondados para 1 minuto. Para especificar uma data de início e hora, escolha **Mostrar opções avançadas**. <br>- **Selecionar tudo**: Utilize os critérios especificados. | 
    ||| 
-   
-   Neste exemplo seleciona todos os critérios:
+
+   Este exemplo mostra todos os critérios, mas para seus próprios testes, selecione apenas um critério:
 
    ![Fornecer detalhes do acionador de lote](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,12 +76,12 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
 
    2. Na caixa de pesquisa, introduza "enviar e-mail" como o filtro.
    Com base no seu fornecedor de e-mail, selecione um conector de e-mail.
-      
+
       Por exemplo, se tem uma conta pessoal, tal como @outlook.com ou @hotmail.com, seleccione o conector do Outlook.com. 
       Se tiver uma conta do Gmail, selecione o conector do Gmail. 
       Este exemplo utiliza o Outlook do Office 365. 
 
-   3. Selecione a ação: **enviar um e-mail - <*fornecedor de e-mail*>**
+   3. Selecione a ação: **Enviar um e-mail - <*fornecedor de e-mail*>**
 
       Por exemplo:
 
@@ -98,7 +98,7 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
 
      ![Na lista de conteúdo dinâmico, selecione "Nome da partição"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     Numa seção posterior, pode especificar uma chave de partição exclusiva que divide o lote de destino em subconjuntos lógicos em que pode enviar mensagens. 
+     Mais tarde, em que o remetente do batch, pode especificar uma chave de partição exclusiva que divide o lote de destino em subconjuntos lógicos em que pode enviar mensagens. 
      Cada conjunto tem um número exclusivo que é gerado pela aplicação de lógica de remetente do batch. 
      Esta capacidade permite-lhe utilizar um único lote com vários subconjuntos e definir cada subconjunto com o nome que fornece.
 
@@ -127,10 +127,10 @@ Agora, crie um ou mais aplicações do lógicas de remetente batch que enviam me
 
 * Certifique-se do recetor de batch e o remetente de batch partilham a mesma região do Azure *e* subscrição do Azure. Caso contrário, não é possível selecionar o recetor de batch ao criar o remetente de batch porque eles não são visíveis para si.
 
-1. Criar outra aplicação de lógica com este nome: "BatchSender"
+1. Crie outra aplicação de lógica com este nome: "BatchSender"
 
    1. Na caixa de pesquisa, introduza "recurrence" como o filtro. 
-   Selecione este acionador: **periodicidade - agenda**
+   Selecione este acionador: **Periodicidade - agenda**
 
       ![Adicionar o acionador "– de periodicidade"](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -143,7 +143,7 @@ Agora, crie um ou mais aplicações do lógicas de remetente batch que enviam me
    1. No acionador de periodicidade, escolha **novo passo**.
 
    2. Na caixa de pesquisa, introduza "batch" como o filtro. 
-   Selecione o **ações** lista e, em seguida, selecione a ação: **escolher um fluxo de trabalho do Logic Apps com o acionador de lote - enviar mensagens para o lote**
+   Selecione o **ações** lista e, em seguida, selecione a ação: **Escolha um fluxo de trabalho do Logic Apps com o acionador de lote - enviar mensagens para o lote**
 
       ![Selecione "Escolher um fluxo de trabalho do Logic Apps com o acionador de lote"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 

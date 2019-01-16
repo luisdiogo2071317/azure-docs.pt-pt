@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794248"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322100"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
@@ -45,7 +45,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
 
 * **Agenda de cópia de segurança**: A hora ou a frequência no qual pretende efetuar cópias de segurança periódicas. Um pode agendar cópias de segurança recorrentes intervalo especificado ou numa hora fixa diárias / semanais.
 
-    1. **Com base na frequência de cópia de segurança agendada**: Este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em intervalos fixos. Intervalo de tempo pretendido entre duas cópias de segurança consecutivas é definido usando o formato de ISO8601. Com base na frequência de cópia de segurança agendada suporta minuto do intervalo resolução até.
+    1. **Com base na frequência de cópia de segurança agendada**: Este tipo de agenda deve ser utilizado se a necessidade é fazer a cópia de segurança de dados em intervalos fixos. Intervalo de tempo pretendido entre duas cópias de segurança consecutivas é definido usando o formato de ISO8601. Com base na frequência de cópia de segurança agendada oferece suporte a resolução de intervalo para o minuto.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

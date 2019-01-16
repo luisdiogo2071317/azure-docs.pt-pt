@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/11/2019
-ms.openlocfilehash: 5db9e1f348fed9592d33e9240180db7f2667bb56
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244550"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329469"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Instância gerida de replicação de base de dados SQL
 
@@ -35,7 +35,7 @@ Em geral, o publicador e distribuidor tem ambos de ser seja na cloud ou no local
 
 - **Publicador com o distribuidor remoto na instância gerida**
 
-   ![Replication-with-Azure-SQL-DB-separate-Managed-instances-Publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
    Editor e distribuidor estão configurados em duas instâncias geridas. Nesta configuração:
 
@@ -45,7 +45,7 @@ Em geral, o publicador e distribuidor tem ambos de ser seja na cloud ou no local
 
 - **Editor e distribuidor no local com o subscritor na instância gerida**
 
-   ![Replication-from-On-Premises-to-Azure-SQL-DB-Subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
+   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
 
    Nesta configuração, uma base de dados SQL do Azure é um subscritor. Esta configuração suporta a migração no local para o Azure. Na função de subscritor, base de dados SQL não necessita de instância gerida, no entanto, pode utilizar uma instância gerida do SQL da base de dados como um passo na migração do local para o Azure. Para obter mais informações sobre os subscritores do Azure SQL Database, consulte [replicação de base de dados SQL](replication-to-sql-database.md).
 
@@ -199,4 +199,5 @@ Não são suportadas as seguintes funcionalidades:
 
 ## <a name="see-also"></a>Consultar Também
 
+- [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [O que é uma instância gerida?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

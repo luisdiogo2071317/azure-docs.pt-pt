@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233104"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332205"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault
 ## <a name="introduction"></a>Introdução
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 Na sua aplicação de consola, pode utilizar a mesma chamada como antes de obter este segredo como um SymmetricKey.

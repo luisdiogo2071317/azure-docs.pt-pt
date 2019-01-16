@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426932"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319550"
 ---
-# <a name="schedule-your-first-test"></a>Agendar o seu primeiro teste
+# <a name="scheduling-a-test"></a>Agendamento de um teste
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ Enquanto o fluxo de trabalho de aprovação de teste pode ser utilizado para exe
 Antes de seguir este guia de introdução, deverá concluir os seguintes itens:
 
 - [Configurar a sua validação como recursos de serviço](azure-stack-vaas-set-up-resources.md)
-- [Implementar o agente local](azure-stack-vaas-local-agent.md) (recomendado)
-- [Validação como um conceito de principais de serviço](azure-stack-vaas-key-concepts.md) (recomendado)
+- [Implementar o agente local](azure-stack-vaas-local-agent.md) (obrigatório)
+- [Validação como um conceito de principais de serviço](azure-stack-vaas-key-concepts.md) (obrigatório)
 
 ## <a name="start-a-workflow"></a>Iniciar um fluxo de trabalho
 

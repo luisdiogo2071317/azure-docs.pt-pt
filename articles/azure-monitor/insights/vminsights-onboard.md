@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190334"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332001"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos. 
@@ -308,7 +308,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 1. Está pronto para implementar este modelo, utilizando o seguinte comando do PowerShell:
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     A alteração de configuração pode demorar alguns minutos a concluir. Quando estiver concluída, é apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:

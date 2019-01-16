@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855769"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329978"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR
 
@@ -24,10 +24,10 @@ Os contentores oferecem novos níveis de virtualização, isolando as dependênc
 
 Criar e testar imagens de contentor com o ACR tarefas de quatro formas:
 
-* [Tarefas rápidas](#quick-task): criar e enviar por push contentor imagens sob demanda, no Azure, sem precisar de uma instalação local do motor do Docker. Pense `docker build`, `docker push` na cloud. Compilação a partir do código-fonte local ou um repositório de Git.
-* [Criar em consolidação de código de origem](#automatic-build-on-source-code-commit): acionar uma compilação de imagem de contentor automaticamente quando o código é consolidado para um repositório de Git.
-* [Criar na atualização da imagem base](#automate-os-and-framework-patching): acionar uma compilação de imagem de contentor quando tiver sido atualizada a imagem de base dessa imagem.
-* [Tarefas de vários passos](#multi-step-tasks-preview) (pré-visualização): definir tarefas de vários passos que criar imagens, executam contentores como comandos e enviar imagens para um registo. Esta funcionalidade de pré-visualização das tarefas de ACR suporta a execução da tarefa a pedido e compilação de imagem paralela, testar e operações de push.
+* [Tarefas rápidas](#quick-task): Criar e enviar por push contentor imagens sob demanda, no Azure, sem precisar de uma instalação local do motor do Docker. Pense `docker build`, `docker push` na cloud. Compilação a partir do código-fonte local ou um repositório de Git.
+* [Criar em consolidação de código de origem](#automatic-build-on-source-code-commit): Acione uma compilação de imagem de contentor automaticamente quando o código ser enviado para um repositório de Git.
+* [Criar na atualização da imagem base](#automate-os-and-framework-patching): Acione uma compilação de imagem de contentor quando tiver sido atualizada a imagem de base dessa imagem.
+* [Tarefas de vários passos](#multi-step-tasks-preview) (pré-visualização): Defina tarefas de vários passos que criar imagens, executam contentores como comandos e enviar imagens para um registo. Esta funcionalidade de pré-visualização das tarefas de ACR suporta a execução da tarefa a pedido e compilação de imagem paralela, testar e operações de push.
 
 ## <a name="quick-task"></a>Tarefas rápidas
 
@@ -57,7 +57,7 @@ Saiba como utilizar tarefas rápidas no primeiro tutorial de tarefas do ACR, [cr
 Utilize tarefas de ACR para acionar automaticamente uma imagem de contentor criar quando o código ser enviado para um repositório de Git. Criar tarefas, configuráveis com o comando da CLI do Azure [tarefas de acr az][az-acr-task], permitem-lhe especificar um repositório de Git e, opcionalmente, um ramo e Dockerfile. Quando a sua equipa de consolidações código para o repositório, um webhook criado para tarefas de ACR aciona uma compilação da imagem de contentor definida no repositório.
 
 > [!IMPORTANT]
-> Se tiver criado anteriormente tarefas durante a pré-visualização com o `az acr build-task` comando, essas tarefas têm de ser recriado com o [tarefa do az acr] [ az-acr-task] comando.
+> Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o comando [az acr task][az-acr-task].
 
 Saiba como acionar compilações em consolidação de código de origem no segundo tutorial de tarefas do ACR, [compilações de imagem de contentor de automatizar com tarefas de registo de contentor do Azure](container-registry-tutorial-build-task.md).
 
@@ -65,7 +65,7 @@ Saiba como acionar compilações em consolidação de código de origem no segun
 
 O poder das tarefas do ACR para realmente aprimorar seu fluxo de trabalho de compilação do contentor é proveniente de sua capacidade de detetar uma atualização para uma imagem base. Quando a imagem base atualizada é emitida para o seu registo, o ACR tarefas pode criar automaticamente quaisquer imagens de aplicação com base no mesmo.
 
-Podem ser amplamente categorizadas em imagens de contentor *base* imagens e *aplicação* imagens. As imagens bases incluem, geralmente, o sistema operativo e as estruturas de aplicativo no qual a aplicação é criada, juntamente com outras personalizações. Estas imagens de bases são normalmente baseadas nas imagens de montante públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], ou [node. js][base-node]. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
+Podem ser amplamente categorizadas em imagens de contentor *base* imagens e *aplicação* imagens. As imagens bases incluem, geralmente, o sistema operativo e as estruturas de aplicativo no qual a aplicação é criada, juntamente com outras personalizações. Estas imagens de bases são, elas próprias, normalmente com base nas imagens a montante públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], ou [node. js ][base-node]. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
 
 Quando uma imagem de estrutura de aplicação ou sistema operacional é atualizada, o responsável pela manutenção a montante, por exemplo com um patch de segurança crítico do sistema operacional, tem também de atualizar suas imagens base para incluir a correção crítica. Cada imagem de aplicação, em seguida, deve também ser reconstruída para incluir essas correções a montante agora incluídas em sua imagem base.
 
@@ -78,7 +78,7 @@ Saiba mais sobre o sistema operacional e a aplicação de patches de estrutura n
 
 ## <a name="multi-step-tasks-preview"></a>Tarefas de vários passos (pré-visualização)
 
-Tarefas de vários passos, uma funcionalidade de pré-visualização de tarefas do ACR, fornece a definição de tarefa com base no passo e execução para criação, teste e aplicar patches em imagens de contentor na cloud. Passos de tarefas definem compilação de imagem de contentor individual e operações de push. Também podem definir a execução de um ou mais contentores, com cada passo com o contentor de como o seu ambiente de execução.
+Tarefas de vários passos, uma funcionalidade de pré-visualização de tarefas do ACR, fornece a definição de tarefa com base no passo e execução para criação, teste e aplicar patches em imagens de contentor na cloud. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
 
 Por exemplo, pode criar uma tarefa de várias etapa que automatiza o seguinte:
 
@@ -101,7 +101,7 @@ Saiba mais sobre tarefas de vários passos em [executar vários passo compilaç�
 Quando estiver pronto para automatizar o sistema operacional e a estrutura de aplicação de patches ao criar as imagens de contentor na cloud, veja a série de tutoriais de tarefas de ACR de três partes.
 
 > [!div class="nextstepaction"]
-> [Criar imagens de contentor na cloud com tarefas de registo de contentor do Azure](container-registry-tutorial-quick-task.md)
+> [Compilar imagens de contentor na cloud com o Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

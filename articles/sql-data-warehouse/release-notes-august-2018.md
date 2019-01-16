@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c52fcd544e22c274d0e9053da93d2b9dee0df695
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286637"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320366"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no Azure SQL Data Warehouse? Agosto de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Agosto de 2018.
@@ -23,9 +23,9 @@ O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve 
 ## <a name="automatic-intelligent-insights"></a>Informações inteligentes automática
 A Microsoft introduziu [automática informações inteligentes](https://azure.microsoft.com/blog/automatic-intelligent-insights-to-optimize-performance-with-sql-data-warehouse/) para fornecer a promessa de cloud de automatização para o seu armazém de dados. Já não terá de monitorizar o seu armazém de dados de estatísticas de tabela distorção e inferior ao ideal de dados. Sem custos adicionais, o SQL Data Warehouse apresenta informações inteligentes para todas as instâncias de geração 2. Integrando [do Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), automaticamente pode receber recomendações de melhores práticas para melhorar o desempenho das cargas de trabalho ativas. O SQL Data Warehouse analisa suas recomendações de carga de trabalho e superfícies com base na sua utilização. Esta análise ocorre diária que lhe permite monitorizar os relatórios de utilização e recomendações de melhorias à sua carga de trabalho.
 
-Pode ver as recomendações no portal do Assistente do Azure: ![recomendações de Portal do Azure Advisor para o Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
+Pode ver as recomendações no portal do Assistente do Azure: ![Recomendações de Portal de assistente do Azure para o armazém de dados SQL do Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
 
-Pode explorar cada categoria para ver as recomendações para o alerta específico: ![detalhes de recomendação do Azure Advisor Portal do Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
+Pode explorar cada categoria para ver as recomendações para o alerta específico: ![Detalhes de recomendação do Portal do Assistente do Azure para o armazém de dados SQL do Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
 
 
 ## <a name="bug-fixes"></a>Correções de erros

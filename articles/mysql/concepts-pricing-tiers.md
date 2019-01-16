@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 805f7844b144da1feb141a46080912790008f32e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538776"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321386"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -52,14 +52,14 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | EUA Centro-Sul | X | X |
 | EUA Oeste | X | X |
 | EUA Oeste 2 |  | X |
+| Sul do Brasil | X | X |
 | Canadá Central | X | X |
 | Leste do Canadá | X | X |
-| Sul do Brasil | X | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
-| Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
+| Reino Unido Oeste |  | X |
 | Ásia Oriental | X | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
@@ -67,17 +67,22 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
 | Índia Central | X | X |
-| Oeste da Índia | X | X |
 | Sul da Índia |  | X |
+| Oeste da Índia | X | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
 | Coreia do Sul Central |  | X |
 | Coreia do Sul |  | X |
+| Leste da China 1 | X |  |
+| Leste da China 2 |  | X |
+| Norte da China 1 | X |  |
+| Norte da China 2 |  | X |
 | Alemanha Central |  | X |
 | US DoD Centro  | X |  |
 | US DoD Leste  | X |  |
 | Gov (US) - Arizona |  | X |
 | Gov (US) - Texas |  | X |
+| Gov (US) - Virginia |  | X |
 
 ## <a name="storage"></a>Armazenamento
 
@@ -88,7 +93,7 @@ O armazenamento que Aprovisiona é a quantidade de capacidade de armazenamento d
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB e 4 TB | 5 GB e 4 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>IOPS de 6000 máx. | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>IOPS de 6000 máx. |
+| IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS |
 
 É possível adicionar a capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
 

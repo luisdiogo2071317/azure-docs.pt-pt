@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262919"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329995"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicação do Azure
 
@@ -41,7 +41,7 @@ A tabela seguinte apresenta uma lista e descreve cada etapa de publicação e fo
 | Validação de unidade de teste          | < a 2 horas   | (Opcional) Se uma versão de teste estiver presente, a Microsoft valida que pode ser implantado e replicada.  |
 | Empacotamento e registo de geração de oportunidades potenciais | < 1 hora  | Ativos de técnicos da oferta são empacotados para uso do cliente e os sistemas de oportunidades potenciais são configurados e implementados. |
 |  Aprovação do publicador             |  manual    | Revisão do publicador final e a confirmação antes da oferta entra no ar. A oferta está agora disponível para pré-visualização.  Pode implementar a sua oferta nas subscrições selecionadas (nos passos de informações oferta) para verificar que cumpre todos os seus requisitos.  Depois de verificar a oferta, selecione **Go Live** para que a sua oferta pode mover para o passo seguinte. |
-| Revisão da Microsoft                | 7 - 14 dias * | A Microsoft holística analisa a sua aplicação do Azure e envia um e-mail se são descobertos problemas.  * Raramente, este passo pode demorar mais de 14 dias, consoante a complexidade da aplicação e os problemas descobertos.  |
+| Revisão da Microsoft                | 7 - 14 dias | A Microsoft holística analisa a sua aplicação do Azure e envia um e-mail se são descobertos problemas.  O comprimento deste passo depende da complexidade do aplicativo, os problemas descobertos e imediatamente como responder a elas.  |
 | Em direto                           | < 1 dia | Oferta é lançada, replicada para as regiões especificadas e disponibilizada ao público. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
  

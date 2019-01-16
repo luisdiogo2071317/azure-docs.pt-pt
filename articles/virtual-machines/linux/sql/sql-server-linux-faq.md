@@ -3,21 +3,22 @@ title: SQL Server em máquinas virtuais do Linux do Azure FAQ | Documentos da Mi
 description: Este artigo fornece respostas às perguntas mais frequentes sobre a execução do SQL Server em VMs do Linux do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
-ms.author: jroth
-ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039960"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330437"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Perguntas mais frequentes para o SQL Server em máquinas de virtuais do Linux do Azure
 
@@ -60,7 +61,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
    As máquinas de virtuais RHEL e SLES exigem uma subscrição sem limite de gastos e um método de pagamento verificado (normalmente, um cartão de crédito) associados à subscrição. Se aprovisionar uma VM de SLES ou RHEL sem remover o limite de gastos, a subscrição será obter desativada e todas as VMs/serviços parados. Caso se depare com este estado, para reativar a subscrição [remover o limite de gastos](https://account.windowsazure.com/subscriptions). Os créditos restantes vão ser restaurados para o ciclo de faturação atual, mas uma sobretaxa de imagem RHEL ou SLES VM entram no seu cartão de crédito se optar por começar novamente e continuar a executá-lo.
 
-## <a name="licensing"></a>Licenças
+## <a name="licensing"></a>Licenciamento
 
 1. **Como posso instalar minha cópia licenciada do SQL Server numa VM do Azure?**
 

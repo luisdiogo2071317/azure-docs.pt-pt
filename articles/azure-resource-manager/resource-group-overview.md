@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
+ms.date: 01/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 24646c9448a70af228085c99f03ab844e5af7e9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c447efba4fe6a3e3b969ea228a60e1ba8dd39f9d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053147"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320876"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Poderá não ver esses componentes como entidades separadas, em vez disso, vê-los como relacionadas e interdependentes partes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação. 
@@ -37,7 +37,7 @@ A imagem seguinte mostra como todas as ferramentas interagem com a mesma API do 
 Se é a primeira vez que utiliza o Azure Resource Manager, existem alguns termos com os quais poderá não estar familiarizado.
 
 * **recurso** -um item gerível que está disponível através do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual, mas existem muitos mais.
-* **grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Veja [Grupos de recursos](#resource-groups).
+* **grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos inclui os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Veja [Grupos de recursos](#resource-groups).
 * **fornecedor de recursos** - Um serviço que fornece os recursos que pode implementar e gerir através do Resource Manager. Cada fornecedor de recursos oferece operações para trabalhar com os recursos implementados. Alguns fornecedores de recursos comuns são Microsoft.Compute, que fornece o recurso de máquina virtual, o Microsoft.Storage, que fornece o recurso de conta de armazenamento, e o Microsoft.Web que fornece recursos relacionados com aplicações Web. Veja [Fornecedores de recursos](#resource-providers).
 * **Modelo do Resource Manager** - Ficheiro de um JavaScript Object Notation (JSON) que define um ou mais recursos para implementar num grupo de recursos. Também define dependências entre os recursos implementados. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida. Veja [Implementação de modelos](#template-deployment).
 * **sintaxe declarativa** - sintaxe que permite afirmar "Aqui está o que pretendo criar" sem ter de escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No ficheiro, é possível definir as propriedades da infraestrutura de implementação para o Azure. 
@@ -255,4 +255,4 @@ Para obter informações sobre como utilizar estas linguagens com os seus recurs
 Neste artigo, aprendeu a utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure. Avance para o artigo seguinte para aprender a criar o seu primeiro modelo do Azure Resource Manager.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Quickstart: Criar e implementar modelos Azure Resource Manager com o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)

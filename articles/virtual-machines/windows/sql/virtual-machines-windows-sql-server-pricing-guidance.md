@@ -3,7 +3,7 @@ title: Gerir os custos com eficiência para o SQL Server em máquinas virtuais d
 description: Disponibiliza as melhores práticas para a escolha certa máquina do SQL Server virtual modelo de preços.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496468"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330795"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientações de preços para as VMs do SQL Server do Azure
 
@@ -54,7 +55,7 @@ Para criar uma VM do SQL Server 2017 do Azure com uma destas imagens, consulte a
 
 Se tiver uma carga de trabalho de produção não lightweight, utilize uma das seguintes edições do SQL Server:
 
-| Edição do SQL Server | Carga de trabalho |
+| SQL Server Edition | Carga de trabalho |
 |-----|-----|
 | Web | Sites da web pequeno |
 | Standard | Pequenas e médias cargas de trabalho |

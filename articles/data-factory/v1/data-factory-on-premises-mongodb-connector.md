@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4059d8d2f6020a23e3593bb906c2e3fc64a4779e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025594"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331542"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-on-premises-mongodb-connector.md)
 > * [Versão 2 (versão atual)](../connector-mongodb.md)
 
@@ -31,12 +31,12 @@ ms.locfileid: "54025594"
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de um banco de dados do MongoDB local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
-Pode copiar dados de um arquivo de dados do MongoDB no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. O Data factory suporta, atualmente, apenas mover dados de um arquivo de dados do MongoDB para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados do MongoDB. 
+Pode copiar dados de um arquivo de dados do MongoDB no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. O Data factory suporta, atualmente, apenas mover dados de um arquivo de dados do MongoDB para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados do MongoDB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço do Azure Data Factory conseguir ligar à base de dados MongoDB no local, tem de instalar os seguintes componentes:
 
-- Versões suportadas do MongoDB são:  2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
+- Versões suportadas do MongoDB são: 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
 - O Data Management Gateway no mesmo computador que aloja a base de dados ou numa máquina separada para evitar competindo por recursos com a base de dados. O Data Management Gateway é um software que liga origens de dados no local para serviços cloud de forma segura e gerida. Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes sobre o Data Management Gateway. Ver [mover dados do local para a cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados mover dados.
 
     Ao instalar o gateway, ele automaticamente instala um driver de Microsoft MongoDB ODBC utilizado para ligar ao MongoDB.
@@ -49,15 +49,15 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
 1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
-2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do MongoDB no local, consulte [exemplo de JSON: Copiar dados do MongoDB para BLOBs do Azure](#json-example-copy-data-from-mongodb-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do MongoDB no local, consulte [exemplo de JSON: Copiar dados do MongoDB para BLOBs do Azure](#json-example-copy-data-from-mongodb-to-azure-blob) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para a origem do MongoDB:
 
@@ -125,11 +125,11 @@ Como primeiro passo, o gateway de gestão de dados de acordo com as instruções
         "typeProperties":
         {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
+            "server": "< The IP address or host name of the MongoDB server >",
             "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
             "username": "<username>",
             "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< The database that you want to use to check your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<mygateway>"
         }
@@ -155,12 +155,12 @@ Como primeiro passo, o gateway de gestão de dados de acordo com as instruções
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
+    "name": "MongoDbInputDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": "OnPremisesMongoDbLinkedService",
         "typeProperties": {
-            "collectionName": "<Collection name>"    
+            "collectionName": "<Collection name>"
         },
         "availability": {
             "frequency": "Hour",
@@ -246,7 +246,7 @@ O pipeline contém uma atividade de cópia que está configurado para usar a ent
                 "typeProperties": {
                     "source": {
                         "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                        "query": "$$Text.Format('select * from MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -324,14 +324,14 @@ Pode utilizar o [Assistente para copiar](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "ExampleTable" abaixo é uma tabela do MongoDB que tem uma coluna com uma matriz de objetos em cada célula – notas fiscais e uma coluna com uma matriz de tipos escalares – classificações.
 
-| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
+| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: item "123": "torradeira", price: Desconto "456",: "0,2"}, {invoice_id: item "124": "oven", price: Desconto "1235",: "0,2"}] |Prateado |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135,": "frigorífico", price: Desconto "12543": "0,0"}] |Dourado |[1,2] |
+| 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar nesta única tabela. A primeira tabela virtual é a tabela de base com o nome "ExampleTable", mostrado abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
-| ID | Nome do cliente | Nível de Serviço |
+| _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Prateado |
 | 2222 |XYZ |Dourado |
@@ -344,7 +344,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam as matrizes ori
 
 Tabela de "ExampleTable_Invoices":
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | Item | preço | Desconto |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -352,7 +352,7 @@ Tabela de "ExampleTable_Invoices":
 
 Tabela de "ExampleTable_Ratings":
 
-| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |

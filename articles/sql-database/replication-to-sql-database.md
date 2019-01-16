@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: a4b1b4a7e106ad9dcd1746030daac562d7f123bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041531"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330165"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação de bases de dados de base de dados SQL, únicas e em pool
 
@@ -37,7 +37,7 @@ Replicação do SQL Server pode ser configurada para bases de dados únicos e em
 - SQL Server 2017 (14.x)
 - SQL Server 2016 (13.x)
 - SQL Server 2014 (12.x) SP1 CU3
-- CU10 RTM do SQL Server 2014 (12.x)
+- SQL Server 2014 (12.x) RTM CU10
 - CU8 do SQL Server 2012 (11.x) SP2 ou SP3
 - A tentar configurar a replicação com uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não foi possível ligar ao subscritor.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome > pedido pelo início de sessão. O início de sessão falhou.).  
 - Para utilizar todos os recursos do Azure SQL Database, tem de utilizar as versões mais recentes [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
@@ -57,7 +57,7 @@ Replicação do SQL Server pode ser configurada para bases de dados únicos e em
 
 ## <a name="replication-architecture"></a>Arquitetura da replicação  
 
-![replicação-para--base de dados sql](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Cenários  
 
@@ -111,6 +111,7 @@ Crie uma publicação e uma subscrição de emissão. Para obter mais informaç�
 
 ## <a name="see-also"></a>Consultar Também  
 
+- [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma subscrição de emissão](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

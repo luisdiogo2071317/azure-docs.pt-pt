@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ffd1b96e721707f69c47a7cbf11d60f17f3a7d2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105428"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320485"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versão atual](connector-mongodb.md)
 
@@ -104,7 +104,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": {
@@ -205,14 +205,14 @@ Tabelas virtuais referem-se aos dados na tabela real, permitindo que o driver ac
 
 Por exemplo, ExampleTable aqui é uma tabela do MongoDB que tem uma coluna com uma matriz de objetos em cada célula – notas fiscais e uma coluna com uma matriz de tipos escalares – classificações.
 
-| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
+| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: item "123",: "torradeira", price: Desconto "456": "0,2"}, {invoice_id: item "124": "oven", price: Desconto "1235,": "0,2"}] |Prateado |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135,": "frigorífico", price: Desconto "12543": "0,0"}] |Dourado |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Prateado |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar nesta única tabela. A primeira tabela virtual é a tabela de base com o nome "ExampleTable", mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
-| ID | Nome do cliente | Nível de Serviço |
+| _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Prateado |
 | 2222 |XYZ |Dourado |
@@ -225,21 +225,20 @@ As tabelas seguintes mostram as tabelas virtuais que representam as matrizes ori
 
 **Tabela de "ExampleTable_Invoices":**
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | Item | preço | Desconto |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
 | 2222 |0 |135 |frigorífico |12543 |0.0 |
 
-**Tabela de "ExampleTable_Ratings":**
+**Table “ExampleTable_Ratings":**
 
-| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

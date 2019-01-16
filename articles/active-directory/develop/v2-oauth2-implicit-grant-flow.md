@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962584"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321522"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -54,7 +54,7 @@ O diagrama seguinte mostra a aparência de todo início de sessão fluxo implíc
 Inicialmente iniciar a sessão do utilizador na sua aplicação, pode enviar um [OpenID Connect](v2-protocols-oidc.md) pedido de autorização e obtenha um `id_token` do ponto final v2.0.
 
 > [!IMPORTANT]
-> Para com êxito solicitar um token de ID, o registo de aplicações no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **permitir fluxo implícito** ativado para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: **o valor fornecido para o parâmetro de entrada "response_type" não é permitido para este cliente. Valor esperado é 'code'**
+> Para pedidos com êxito um token de ID, o registo de aplicações no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **permitir fluxo implícito** ativado para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: **O valor fornecido para o parâmetro de entrada "response_type" não é permitido para este cliente. Valor esperado é 'code'**
 
 ```
 // Line breaks for legibility only
@@ -111,7 +111,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` |If incluído `response_type` inclui `token`. Será sempre `Bearer`. |
 | `expires_in`|If incluído `response_type` inclui `token`. Indica o número de segundos que o token for válido, para fins de colocação em cache. |
 | `scope` |If incluído `response_type` inclui `token`. Indica os âmbitos que se para o qual o access_token será válido. Não pode incluir todos os âmbitos solicitados, se não fosse aplicáveis para o utilizador (no caso de âmbitos de só de AAD a ser solicitada quando uma conta pessoal é utilizada para iniciar sessão). |
-| `id_token` | Um assinado JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
+| `id_token` | Um assinado JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** Só será fornecido se `openid` âmbito foi pedido. |
 | `state` |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
 
 #### <a name="error-response"></a>Resposta de erro
@@ -192,7 +192,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` | Será sempre `Bearer`. |
 | `expires_in` | Indica o número de segundos que o token for válido, para fins de colocação em cache. |
 | `scope` | Indica os âmbitos que se para o qual o access_token será válido. Não pode incluir todos os âmbitos solicitados, se não fosse aplicáveis para o utilizador (no caso de âmbitos de só de AAD a ser solicitada quando uma conta pessoal é utilizada para iniciar sessão). |
-| `id_token` | Um assinado JSON Web Token (JWT). If incluído `response_type` inclui `id_token`. A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token` referência](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
+| `id_token` | Um assinado JSON Web Token (JWT). If incluído `response_type` inclui `id_token`. A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token` referência](id-tokens.md). <br> **Nota:** Só será fornecido se `openid` âmbito foi pedido. |
 | `state` |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
 
 

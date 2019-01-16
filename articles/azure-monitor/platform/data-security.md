@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: a791ac5424a0c0e70ba5480e51f5e21fe3c061ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104748"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319057"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados de análise de registo
 Este documento destina-se para fornecer informações específicas para o Log Analytics, que é um recurso do Azure Monitor, para complementar as informações sobre [Centro de fidedignidade do Azure](../../security/security-microsoft-trust-center.md).  
@@ -174,7 +174,13 @@ Conforme descrito acima, são enviados dados do servidor de gestão ou agentes d
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço Log Analytics recebe e processa dados
 O serviço Log Analytics garante que os dados recebidos de uma origem fidedigna ao validar os certificados e a integridade dos dados com a autenticação do Azure. Os dados não processados não processados, em seguida, são armazenados num Hub de eventos do Azure na região, eventualmente, serão armazenados os dados em repouso. O tipo de dados armazenados depende dos tipos de soluções que foram importados e utilizadas para recolher dados. Em seguida, o Log Analytics service processos os dados não processados e ingere-lo no banco de dados.
 
-O período de retenção de dados recolhidos, armazenados na base de dados depende do plano de preços selecionado. Para o *gratuito* camada, os dados recolhidos estão disponíveis durante sete dias. Para o *pago* camada, os dados recolhidos está disponível para 31 dias por predefinição, mas pode ser estendida e 730 dias. Os dados são armazenados encriptados em inatividade no armazenamento do Azure, para garantir a confidencialidade de dados, e os dados são replicados dentro da região local, utilizar o armazenamento localmente redundante (LRS). As duas últimas semanas de dados também são armazenadas na cache baseada em SSD e esta cache atualmente não é encriptado.  Estamos atualmente a trabalhar para suportar a encriptação de cache baseada em SSD.      
+O período de retenção de dados recolhidos, armazenados na base de dados depende do plano de preços selecionado. Para o *gratuito* camada, os dados recolhidos estão disponíveis durante sete dias. Para o *pago* camada, os dados recolhidos está disponível para 31 dias por predefinição, mas pode ser estendida e 730 dias. Os dados são armazenados encriptados em inatividade no armazenamento do Azure, para garantir a confidencialidade de dados, e os dados são replicados dentro da região local, utilizar o armazenamento localmente redundante (LRS). As duas últimas semanas de dados também são armazenadas na cache baseada em SSD e esta cache é criptografado, exceto nas seguintes regiões:
+
+* EUA Centro-Oeste
+* EUA Oeste 2
+* Reino Unido Sul 
+
+Estamos atualmente a trabalhar para incluir suporte para estas regiões.     
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilizar o Log Analytics para acessar os dados
 Para acessar sua área de trabalho do Log Analytics, iniciar sessão no portal do Azure com a conta organizacional ou a conta Microsoft que configurou anteriormente. Todo o tráfego entre o portal e serviço do Log Analytics é enviado através de um canal seguro de HTTPS. Quando utilizar o portal, um ID de sessão é gerado no cliente de utilizador (navegador da web) e os dados são armazenados num cache local até que a sessão é terminada. Quando terminado, a cache é eliminada. Cookies de lado do cliente, que não contêm informações de identificação pessoal, não são automaticamente removidos. Cookies de sessão são marcados HTTPOnly e estão protegidos. Após um período de inatividade pré-determinado, foi terminada a sessão do portal do Azure.

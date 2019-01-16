@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824290"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332307"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo para grupos de segurança de rede
 
@@ -33,10 +33,12 @@ Embora os registos de fluxo NSGs de destino, não são apresentados os mesmos co
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+Pode analisar os registos de fluxo e obter informações sobre o tráfego de rede através de [análise de tráfego](traffic-analytics.md).
+
 As mesmas políticas de retenção vistas para outros registos aplicam-se aos registos de fluxo. Pode definir a política de retenção do registo de 1 dia para dias 2147483647. Se não definir uma política de retenção, os registos são mantidos para sempre.
 
-Também pode analisar os registos de fluxo usando [análise de tráfego](traffic-analytics.md).
+> [!NOTE] 
+> Utilizar a funcionalidade de política de retenção com o registo de fluxo de NSG pode resultar num grande volume de operações de armazenamento e os custos associados. Se não requerem a funcionalidade de política de retenção, recomendamos que defina este valor como 0.
 
 
 ## <a name="log-file"></a>Ficheiro de registo
@@ -63,7 +65,7 @@ Os registos de fluxo incluem as seguintes propriedades:
                     * **Protocolo** -o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
                     * **Fluxo de tráfego** -a direção do fluxo de tráfego. Os valores válidos são **eu** de entrada e **s** para saída.
                     * **Decisão de tráfego** - se o tráfego foi permitido ou negado. Os valores válidos são **uma** para permitido e **1!d** para negado.
-                    * **Estado do fluxo - versão 2 apenas** -captura o estado do fluxo. Estados possíveis **B**: Begin, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é terminado. As estatísticas são fornecidas.
+                    * **Estado do fluxo - versão 2 apenas** -captura o estado do fluxo. Estados possíveis **B**: Iniciar, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: Continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é terminado. As estatísticas são fornecidas.
                     * **Pacotes de - de origem para destino - versão 2 apenas** o número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização.
                     * **Bytes enviados - origem para destino - versão 2 apenas** o número total de bytes de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.
                     * **Pacotes - destino para origem - versão 2 apenas** o número total de pacotes TCP ou UDP enviadas do destino para origem, desde a última atualização.
@@ -71,7 +73,7 @@ Os registos de fluxo incluem as seguintes propriedades:
 
 ## <a name="nsg-flow-logs-version-2"></a>Versão 2 de registos de fluxo NSG
 > [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. A configuração está disponível através do Portal do Azure e a REST API. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
+> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 Versão 2 dos logs de apresenta o estado do fluxo. Pode configurar qual é a versão dos registos de fluxo de recebe. Para saber como ativar os registos de fluxo, veja [registo do fluxo do NSG ativar](network-watcher-nsg-flow-logging-portal.md).
 
@@ -79,13 +81,19 @@ Estado do fluxo *B* é registado quando um fluxo é iniciado. Estado do fluxo *C
 
 Para continuação *C* e de fim *i* Estados de fluxo, as contagens de byte e pacotes são agregadas contagens desde o momento do registo anterior para a cadeia de identificação de fluxo. O número total de pacotes transferidos referenciar a conversação do exemplo anterior, é 1021 + 52 + 8005 + 47 = 9125. É o número total de bytes transferidos 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-**Exemplo**: fluxo de cadeias de identificação de uma conversa de TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
+**Exemplo**: Cadeias de identificação do fluxo de uma conversa de TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
 
 Para continuação *C* e de fim *i* Estados de fluxo, as contagens de byte e pacotes são agregadas contagens desde o momento do registo anterior para a cadeia de identificação de fluxo. O número total de pacotes transferidos referenciar a conversação do exemplo anterior, é 1021 + 52 + 8005 + 47 = 9125. É o número total de bytes transferidos 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que se seguem a lista de propriedades descrita na secção anterior.
+
+## <a name="nsg-flow-logging-considerations"></a>Considerações de registo do fluxo NSG
+
+**Ativar NSG fluxo o registo em todos os NSGs anexados a um recurso**: Fluxo de início de sessão do Azure está configurado no recurso NSG. Um fluxo só pode ser associado a uma regra de NSG. Em cenários em que são utilizados vários NSGs, recomendamos que o registo do fluxo do NSG está ativado em todos os NSGs aplicada a interface de rede ou sub-rede de um recurso para garantir que todo o tráfego é registrado. Ver [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obter mais informações sobre grupos de segurança de rede. 
+
+**Os custos de registo do fluxo**: Registo do fluxo do NSG é faturado o volume de registos produzidos. Volume de tráfego elevado pode resultar num volume de registo de fluxo de grandes dimensões e os custos associados. Preços do log de fluxo de NSG não incluem os custos subjacentes de armazenamento. Utilizar a funcionalidade de política de retenção com o registo de fluxo de NSG pode resultar num grande volume de operações de armazenamento e os custos associados. Se não requerem a funcionalidade de política de retenção, recomendamos que defina este valor como 0. Ver [preços de observador de rede](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) e [preços de armazenamento do Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) para obter mais detalhes.
 
 ## <a name="sample-log-records"></a>Registros de log de exemplo
 

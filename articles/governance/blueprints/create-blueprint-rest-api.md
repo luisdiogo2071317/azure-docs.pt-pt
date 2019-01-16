@@ -4,17 +4,17 @@ description: Utilize o Azure Blueprints para criar, definir e implementar artefa
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 999df06e7a22201ee9c1134ec3eb04fced43a2f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265826"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320689"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -68,7 +68,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
-- `{YourMG}` -Substituir com o ID do seu grupo de gestão 
+- `{YourMG}` -Substituir com o ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
 1. Crie o objeto _esquema_ inicial. O **Corpo do Pedido** inclui propriedades sobre o esquema, grupos de recursos a criar e todos os parâmetros ao nível do esquema. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
@@ -130,7 +130,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema.
+1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo utiliza a _contribuinte_ função incorporada com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI da API REST
 
@@ -150,7 +150,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema.
+1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema. Este exemplo utiliza a _aplicar etiqueta e respetivo valor predefinido para grupos de recursos_ política incorporada com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI da API REST
 
@@ -178,7 +178,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte.
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a _aplicar etiqueta e respetivo valor predefinido para grupos de recursos_ política incorporada com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI da API REST
 
@@ -292,7 +292,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema.
+1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza a _proprietário_ função incorporada com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - URI da API REST
 

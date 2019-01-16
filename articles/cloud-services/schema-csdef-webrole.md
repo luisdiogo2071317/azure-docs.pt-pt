@@ -1,5 +1,5 @@
 ---
-title: Def de serviços Cloud do Azure Esquema de WebRole | Documentos da Microsoft
+title: Def de serviços Cloud do Azure WebRole Schema | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -13,12 +13,12 @@ caps.latest.revision: 60
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002318"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331950"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Esquema de WebRole de definição dos serviços Cloud do Azure
 A função da web do Azure é uma função personalizada para a programação de aplicativo web como suportado pelo IIS 7, como ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -44,11 +44,11 @@ Segue-se o formato básico de um ficheiro de definição de serviço que contém
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  
@@ -198,7 +198,7 @@ A tabela seguinte descreve os atributos do `LocalStorage` elemento.
 | --------- | ---- | ----------- |  
 |nome|cadeia|Necessário. Um nome exclusivo para o armazenamento local.|  
 |cleanOnRoleRecycle|boolean|Opcional. Indica se o arquivo local deve ser limpos quando a função é reiniciada. Valor predefinido é `true`.|  
-|sizeInMb|Int|Opcional. A quantidade desejada de espaço de armazenamento para alocar para o armazenamento local, em MB. Se não for especificado, o espaço de armazenamento padrão atribuído é 100 MB. A quantidade mínima de espaço de armazenamento que pode ser atribuído é 1 MB.<br /><br /> O tamanho máximo dos recursos locais é depende do tamanho de máquina virtual. Para obter mais informações, consulte [tamanhos de Máquina Virtual para serviços em nuvem](cloud-services-sizes-specs.md).|  
+|sizeInMb|int|Opcional. A quantidade desejada de espaço de armazenamento para alocar para o armazenamento local, em MB. Se não for especificado, o espaço de armazenamento padrão atribuído é 100 MB. A quantidade mínima de espaço de armazenamento que pode ser atribuído é 1 MB.<br /><br /> O tamanho máximo dos recursos locais é depende do tamanho de máquina virtual. Para obter mais informações, consulte [tamanhos de Máquina Virtual para serviços em nuvem](cloud-services-sizes-specs.md).|  
   
 O nome do diretório alocado para o recurso de armazenamento local corresponde como o valor fornecido para o atributo de nome.
 
@@ -221,10 +221,10 @@ A tabela seguinte descreve os atributos do `InputEndpoint` elemento.
 | --------- | ---- | ----------- |  
 |nome|cadeia|Necessário. Um nome exclusivo para o ponto final externo.|  
 |protocolo|cadeia|Necessário. O protocolo de transporte para o ponto final externo. Para uma função da web, os valores possíveis são `HTTP`, `HTTPS`, `UDP`, ou `TCP`.|  
-|porta|Int|Necessário. A porta para o ponto final externo. Pode especificar qualquer número de porta que escolher, mas os números de porta especificados para cada função no serviço tem de ser exclusivos.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
+|porta|int|Necessário. A porta para o ponto final externo. Pode especificar qualquer número de porta que escolher, mas os números de porta especificados para cada função no serviço tem de ser exclusivos.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
 |certificado|cadeia|É necessário para um ponto final HTTPS. O nome de um certificado definido por um `Certificate` elemento.|  
-|localPort|Int|Opcional. Especifica uma porta utilizada para ligações internas no ponto final. O `localPort` atributo mapeia a porta externa no ponto final a uma porta interna numa função. Isto é útil em cenários em que uma função têm de comunicar para um componente interno numa porta que diferente da que é exposto externamente.<br /><br /> Se não for especificado, o valor de `localPort` é o mesmo que o `port` atributo. Defina o valor da `localPort` para "*" para atribuir automaticamente uma porta não alocada que é detectável usando a API de tempo de execução.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `localPort` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|  
-|ignoreRoleInstanceStatus|boolean|Opcional. Quando o valor deste atributo é definido como `true`, o estado de um serviço é ignorado e o ponto final não será removido pelo balanceador de carga. Definir este valor para `true` útil na depuração de ocupado instâncias de um serviço. O valor predefinido é `false`. **Nota:** um ponto de extremidade pode receber tráfego, mesmo quando a função não está no estado pronto.|  
+|localPort|int|Opcional. Especifica uma porta utilizada para ligações internas no ponto final. O `localPort` atributo mapeia a porta externa no ponto final a uma porta interna numa função. Isto é útil em cenários em que uma função têm de comunicar para um componente interno numa porta que diferente da que é exposto externamente.<br /><br /> Se não for especificado, o valor de `localPort` é o mesmo que o `port` atributo. Defina o valor da `localPort` para "*" para atribuir automaticamente uma porta não alocada que é detectável usando a API de tempo de execução.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `localPort` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|  
+|ignoreRoleInstanceStatus|boolean|Opcional. Quando o valor deste atributo é definido como `true`, o estado de um serviço é ignorado e o ponto final não será removido pelo balanceador de carga. Definir este valor para `true` útil na depuração de ocupado instâncias de um serviço. O valor predefinido é `false`. **Nota:**  Um ponto de extremidade pode receber tráfego, mesmo quando a função não está no estado pronto.|  
 |loadBalancerProbe|cadeia|Opcional. O nome da sonda de Balanceador de carga associado com o ponto final de entrada. Para obter mais informações, consulte [esquema de LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
@@ -236,7 +236,7 @@ A tabela seguinte descreve os atributos do `InternalEndpoint` elemento.
 | --------- | ---- | ----------- |  
 |nome|cadeia|Necessário. Um nome exclusivo para o ponto final interno.|  
 |protocolo|cadeia|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `HTTP`, `TCP`, `UDP`, ou `ANY`.<br /><br /> Um valor de `ANY` Especifica que qualquer protocolo, qualquer porta é permitida.|  
-|porta|Int|Opcional. A porta utilizada para ligações com balanceamento de carga interno no ponto final. Ponto final utiliza duas portas de uma carga balanceada. A porta utilizada para o endereço IP público e a porta utilizada no endereço IP privado. Normalmente, estes são elas são definidas com o mesmo, mas pode optar por utilizar portas diferentes.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `Port` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|  
+|porta|int|Opcional. A porta utilizada para ligações com balanceamento de carga interno no ponto final. Ponto final utiliza duas portas de uma carga balanceada. A porta utilizada para o endereço IP público e a porta utilizada no endereço IP privado. Normalmente, estes são elas são definidas com o mesmo, mas pode optar por utilizar portas diferentes.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `Port` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|  
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint  
 O `InstanceInputEndpoint` elemento descreve um instância ponto final de entrada para uma função da web. Um ponto de final de entrada de instância é associado a uma instância de função específica usando o encaminhamento de porta no balanceador de carga. Cada ponto de final de entrada de instância é mapeado para uma porta específica de um intervalo de portas possíveis. Este elemento é o principal do `AllocatePublicPortFrom` elemento.
@@ -248,7 +248,7 @@ A tabela seguinte descreve os atributos do `InstanceInputEndpoint` elemento.
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
 |nome|cadeia|Necessário. Um nome exclusivo para o ponto final.|  
-|localPort|Int|Necessário. Especifica a porta interna que todas as instâncias de função irão escutar para receber o tráfego de entrada reencaminhado do Balanceador de carga. Intervalo de valores possíveis entre 1 e 65535, inclusive.|  
+|localPort|int|Necessário. Especifica a porta interna que todas as instâncias de função irão escutar para receber o tráfego de entrada reencaminhado do Balanceador de carga. Intervalo de valores possíveis entre 1 e 65535, inclusive.|  
 |protocolo|cadeia|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `udp` ou `tcp`. Utilize `tcp` para tráfego baseado em http/https.|  
   
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom  
@@ -265,7 +265,7 @@ A tabela seguinte descreve os atributos do `FixedPort` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|porta|Int|Necessário. A porta para o ponto final interno. Isso tem o mesmo efeito que a definição do `FixedPortRange` min e max à mesma porta.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
+|porta|int|Necessário. A porta para o ponto final interno. Isso tem o mesmo efeito que a definição do `FixedPortRange` min e max à mesma porta.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
 
 ##  <a name="FixedPortRange"></a> FixedPortRange  
 O `FixedPortRange` elemento Especifica o intervalo de portas que são atribuídas ao ponto final interno ou o ponto final de entrada de instância e a porta utilizada para a carga de conjuntos com balanceamento de ligações no ponto final.
@@ -279,7 +279,7 @@ A tabela seguinte descreve os atributos do `FixedPortRange` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|min.|Int|Necessário. A porta mínima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
+|min.|int|Necessário. A porta mínima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
 |máx.|cadeia|Necessário. A porta máxima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|  
 
 ##  <a name="Certificates"></a> Certificados  
@@ -311,9 +311,9 @@ A tabela seguinte descreve os atributos do `Import` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|moduleName|cadeia|Necessário. O nome do módulo para importar. Módulos de importação válidos são:<br /><br /> -RemoteAccess<br />-RemoteForwarder<br />-Diagnostics<br /><br /> Os módulos de RemoteAccess e RemoteForwarder permitem-lhe configurar a sua instância de função para ligações de ambiente de trabalho remotas. Para obter mais informações, consulte [ativar a ligação de ambiente de trabalho remota](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> O módulo de diagnóstico permite-lhe recolher dados de diagnóstico para uma instância de função.|  
+|moduleName|cadeia|Necessário. O nome do módulo para importar. Módulos de importação válidos são:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-Diagnostics<br /><br /> Os módulos de RemoteAccess e RemoteForwarder permitem-lhe configurar a sua instância de função para ligações de ambiente de trabalho remotas. Para obter mais informações, consulte [ativar a ligação de ambiente de trabalho remota](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> O módulo de diagnóstico permite-lhe recolher dados de diagnóstico para uma instância de função.|  
 
-##  <a name="Runtime"></a> Tempo de execução  
+##  <a name="Runtime"></a> Runtime  
 O `Runtime` elemento descreve uma coleção de variáveis definições de ambiente para uma função da web que controlam o ambiente de tempo de execução do processo de anfitrião do Azure. Este elemento é o principal do `Environment` elemento. Este elemento é opcional e uma função pode ter apenas um bloco de tempo de execução.
 
 O `Runtime` elemento só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.
@@ -324,7 +324,7 @@ A tabela seguinte descreve os atributos do `Runtime` elemento:
 | --------- | ---- | ----------- |  
 |executionContext|cadeia|Opcional. Especifica o contexto em que o processo de função é iniciado. O contexto predefinido é `limited`.<br /><br /> -   `limited` – O processo é iniciado sem privilégios de administrador.<br />-   `elevated` – O processo é iniciado com privilégios de administrador.|  
 
-##  <a name="Environment"></a> Ambiente  
+##  <a name="Environment"></a> Environment  
 O `Environment` elemento descreve uma coleção de definições de variáveis de ambiente para uma função da web. Este elemento é o principal do `Variable` elemento. Uma função pode ter qualquer número de variáveis de ambiente definidas.
 
 ##  <a name="Variable"></a> Variável  
@@ -346,7 +346,7 @@ A tabela seguinte descreve os atributos do `RoleInstanceValue` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|XPath|cadeia|Opcional. Caminho de localização das definições de implementação para a instância. Para obter mais informações, consulte [variáveis de configuração com XPath](cloud-services-role-config-xpath.md).<br /><br /> Tem de incluir um atributo de valor ou uma `RoleInstanceValue` elemento.|  
+|xpath|cadeia|Opcional. Caminho de localização das definições de implementação para a instância. Para obter mais informações, consulte [variáveis de configuração com XPath](cloud-services-role-config-xpath.md).<br /><br /> Tem de incluir um atributo de valor ou uma `RoleInstanceValue` elemento.|  
 
 ##  <a name="EntryPoint"></a> EntryPoint  
 O `EntryPoint` elemento Especifica o ponto de entrada para uma função. Este elemento é o principal do `NetFxEntryPoint` elementos. Estes elementos permitem-lhe especificar uma aplicação diferente da predefinição WaWorkerHost.exe para atuar como o ponto de entrada da função.
@@ -412,7 +412,7 @@ O `Bindings` elemento descreve um conjunto de enlaces para um Web site. É o ele
 
 O `Bindings` elemento só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.
 
-##  <a name="Binding"></a> Ligação  
+##  <a name="Binding"></a> Binding  
 O `Binding` elemento Especifica informações de configuração necessárias para os pedidos para comunicar com uma site ou aplicação web.
 
 O `Binding` elemento só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.
@@ -423,14 +423,14 @@ O `Binding` elemento só está disponível a utilizar a versão do SDK do Azure 
 |endpointName|cadeia|Necessário. Especifica o nome do ponto de extremidade para fazer a ligação.|  
 |hostHeader|cadeia|Opcional. Especifica um nome de anfitrião que permite-lhe alojar vários sites, com nomes de anfitrião diferente, numa combinação de número de porta/endereço IP único.|  
 
-##  <a name="Startup"></a> Arranque  
+##  <a name="Startup"></a> Startup  
 O `Startup` elemento descreve uma coleção de tarefas que são executadas quando a função é iniciada. Este elemento pode ser o pai do `Variable` elemento. Para obter mais informações sobre como utilizar as tarefas de arranque de função, veja [como configurar tarefas de arranque](cloud-services-startup-tasks.md). Este elemento é opcional e uma função pode ter apenas um bloco de arranque.
 
 A tabela seguinte descreve o atributo do `Startup` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|prioridade|Int|Apenas para utilização interna.|  
+|prioridade|int|Apenas para utilização interna.|  
 
 ##  <a name="Task"></a> Tarefa  
 O `Task` elemento Especifica a tarefa de arranque que acontece quando a função for iniciada. Tarefas de arranque podem ser utilizadas para executar tarefas que preparam a função para executar essa instalação de componentes de software ou executar outras aplicações. Tarefas são executadas na ordem em que aparecem dentro de `Startup` bloco do elemento.
@@ -441,7 +441,7 @@ A tabela seguinte descreve os atributos do `Task` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|linha de comandos|cadeia|Necessário. Um script, como um arquivo CMD, que contém os comandos para executar. Ficheiros de comando e em lote de arranque tem de ser guardados no formato ANSI. Formatos de arquivo que definir um marcador de ordem de bytes no início do ficheiro não irão processar corretamente.|  
+|commandLine|cadeia|Necessário. Um script, como um arquivo CMD, que contém os comandos para executar. Ficheiros de comando e em lote de arranque tem de ser guardados no formato ANSI. Formatos de arquivo que definir um marcador de ordem de bytes no início do ficheiro não irão processar corretamente.|  
 |executionContext|cadeia|Especifica o contexto em que o script é executado.<br /><br /> -   `limited` [Default] – executar com os mesmos privilégios que a função que aloja o processo.<br />-   `elevated` – Execute com privilégios de administrador.|  
 |taskType|cadeia|Especifica o comportamento de execução do comando.<br /><br /> -   `simple` [Default] – o sistema aguarda a tarefa sair antes de quaisquer outras tarefas são iniciadas.<br />-   `background` – O sistema não espere que a tarefa sair.<br />-   `foreground` – Semelhante ao plano de fundo, exceto a função não for reiniciada, até que todas as tarefas de primeiro plano sair.|  
 

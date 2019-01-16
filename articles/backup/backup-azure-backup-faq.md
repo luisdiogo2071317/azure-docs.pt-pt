@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107721"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319465"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -111,19 +111,19 @@ O Azure Backup suporta estes sistemas operativos para criar cópias de seguranç
 **OS**| **SKU** |**Detalhes**
 --- | --- | ---
 Estação de trabalho | |
-Windows 10 64 bits | Enterprise, Pro, Home | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
+Windows 10 64 bit | Enterprise, Pro, Home | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8.1 de 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
-O Windows 7 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
+Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Servidor | |
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | O serviço mais recente do wit pacotes/atualizações.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com as atualizações/mais recentes service packs.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com as atualizações/mais recentes service packs.
 Windows Storage Server 2016 de 64 bits | Standard, Workgroup | Com as atualizações/mais recentes service packs.
-Windows Storage Server 2012 R2 de 64 bits | Standard, o grupo de trabalho, essencial | Com as atualizações/mais recentes service packs.
+Windows Storage Server 2012 R2 de 64 bits | Standard, Workgroup, Essential | Com as atualizações/mais recentes service packs.
 Windows Storage Server 2012 de 64 bits | Standard, Workgroup | Com as atualizações/mais recentes service packs.
 Windows Server 2008 R2 SP1 de 64 bits | Standard, Enterprise, Datacenter, Foundation | Com as atualizações mais recentes.
-Windows Server 2008 de 64 bits | Standard, Enterprise e Datacenter | Com as atualizações mais recentes.
+Windows Server 2008 64 bit | Standard, Enterprise e Datacenter | Com as atualizações mais recentes.
 
 Para cópias de segurança do Linux de VM do Azure, o Azure Backup suporta [a lista de distribuições apoiadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), exceto Core OS Linux e o sistema operativo de 32 bits. Outras distribuições do Linux bring-your-own poderão funcionar, desde que o agente da VM está disponível na VM e haja suporte para Python.
 

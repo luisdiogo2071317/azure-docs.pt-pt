@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7fb03cf5dbcd7455f0d4e8f4a69bb1c6d23a83
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0440d1b0c3045feb6d670dae2645590febfa5bc6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497079"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320162"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de múltiplos SID SAP NetWeaver
 
@@ -471,7 +471,7 @@ O objetivo é instalar vários SAP ABAP ASCS ou SAP Java SCS em cluster instânc
 >O número máximo de instâncias do SAP ASCS/SCS num cluster WSFC é igual ao número máximo de IPs de front-end privado para cada Balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre os limites de Balanceador de carga, consulte o "IP de front-end privado por Balanceador de carga" no [limites de rede: o Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre os limites de Balanceador de carga, consulte o "IP de front-end privado por Balanceador de carga" no [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de elevada disponibilidade teria o seguinte aspeto:
 
@@ -489,7 +489,7 @@ Para preparar a infraestrutura, pode instalar uma instância do SAP ASCS/SCS adi
 
 | Nome do parâmetro | Valor |
 | --- | --- |
-| SAP ASCS/SCS SID |PR1-lb-ascs |
+| SAP ASCS/SCS SID |pr1-lb-ascs |
 | Balanceador de carga interno do SAP DBMS | PR5 |
 | Nome de anfitrião virtual de SAP | pr5-sap-cl |
 | Endereço IP de anfitrião virtual do SAP ASCS/SCS (endereço IP do Balanceador de carga do Azure adicionais) | 10.0.0.50 |
@@ -607,7 +607,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 Após a execução do script, os resultados são apresentados no portal do Azure, conforme mostrado na captura de ecrã seguinte:
@@ -668,6 +668,6 @@ O procedimento de alto nível é o seguinte:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Limites de rede: o Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Balanceador de carga de vários VIPs para o Azure][load-balancer-multivip-overview]
 - [Guia para elevada disponibilidade SAP NetWeaver em VMs do Windows][sap-ha-guide]

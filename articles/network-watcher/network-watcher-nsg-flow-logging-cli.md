@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822488"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332341"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo do grupo de segurança da rede com o CLI do Azure
 
@@ -34,7 +34,7 @@ Os registos de fluxo do grupo de segurança de rede são uma funcionalidade do o
 Para efetuar os passos neste artigo, precisa [instale a interface de linha de comandos do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 > [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. A configuração está disponível através do Portal do Azure e a REST API. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
+> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
@@ -50,6 +50,8 @@ O comando para ativar os registos de fluxo é mostrado no exemplo a seguir:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+# Configure 
+az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
 A conta de armazenamento que especificou não pode ter regras de rede configuradas para o mesmo que restringem o acesso de rede apenas aos serviços da Microsoft ou as redes virtuais específicas. A conta de armazenamento pode ser o mesmo, ou uma subscrição do Azure diferente, que o NSG que ativar o registo de fluxo para. Se usar a subscrições diferentes, têm ambos de ser associados ao mesmo inquilino do Azure Active Directory. A conta que utiliza para cada subscrição tem de ter o [as permissões necessárias](required-rbac-permissions.md). 
@@ -68,7 +70,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  http://storageexplorer.com/
 
-Se for especificada uma conta de armazenamento, os arquivos de captura de pacotes são guardados para uma conta de armazenamento na seguinte localização:
+Se for especificada uma conta de armazenamento, ficheiros de registo de fluxo são guardados para uma conta de armazenamento na seguinte localização:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

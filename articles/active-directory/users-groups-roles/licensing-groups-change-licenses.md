@@ -1,10 +1,10 @@
 ---
-title: Como migrar com segurança os utilizadores entre licenças de produtos com o licenciamento com o botão com base em grupo no Azure Active Directory | Documentos da Microsoft
-description: Descreve o processo recomendado para migrar os utilizadores entre licenças de produto diferente (Office 365 Enterprise E1 e E3) ao utilizar o licenciamento baseado em grupo
+title: Como migrar os utilizadores entre licenças de produtos com grupos - Azure Active Directory | Documentos da Microsoft
+description: Descreve o processo recomendado para migrar os utilizadores entre licenças de produto diferente (Office 365 Enterprise E1 e E3) com o licenciamento baseado em grupo
 services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211796"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319423"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Como migrar com segurança os utilizadores entre licenças de produtos com o licenciamento baseado em grupo
 
@@ -66,7 +67,7 @@ O objetivo de migração está a utilizar o licenciamento baseado em grupo para 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrar um único utilizador, utilizando o portal do Azure
 Este é um passo a passo simple como migrar um único utilizador.
 
-**PASSO 1**: O utilizador tem uma *licença de origem* que é herdada do grupo. Não existem não existem atribuições diretas para a licença:
+**PASSO 1**: O utilizador tem um *licença de origem* que é herdada do grupo. Não existem não existem atribuições diretas para a licença:
 
 ![Utilizador com uma licença de origem herdada do grupo](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
@@ -74,7 +75,7 @@ Este é um passo a passo simple como migrar um único utilizador.
 
 ![Utilizador com licença de uma origem e destino herdadas de grupos](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**PASSO 3**: O utilizador é removido do grupo de origem e de licenciamento baseado em grupo processa a alteração. O utilizador tem agora o apenas a *licença de destino*:
+**PASSO 3**: O utilizador é removido do grupo de origem e o licenciamento baseado em grupo processa a alteração. O utilizador tem agora o apenas a *licença de destino*:
 
 ![Utilizador com uma licença de destino herdada do grupo](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrar os utilizadores entre produtos com planos de serviço em conflito
-O objetivo de migração está a utilizar o licenciamento baseado em grupo para alterar as licenças de utilizador de um *licença de origem* (neste exemplo: Office 365 Enterprise E1) para um *licença de destino* (neste exemplo: Office 365 Enterprise PLANO E3). Neste cenário, os dois produtos contêm planos de serviço em conflito, para que tenha de resolver o conflito de migrar os utilizadores. Para obter mais informações sobre estes conflitos, consulte [do Active Directory, resolução de problemas do grupo de licenciamento: planos de serviço em conflito](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Em nenhum momento durante a migração devem os usuários perderão acesso aos serviços ou dados. A migração é efetuada em pequenos "lotes". Pode validar o resultado para cada lote e minimizar o âmbito de quaisquer problemas que possam ocorrer durante o processo. Em geral, o processo é o seguinte:
+O objetivo de migração está a utilizar o licenciamento baseado em grupo para alterar as licenças de utilizador de um *licença de origem* (neste exemplo: Office 365 Enterprise E1) para um *licença de destino* (neste exemplo: Office 365 Enterprise E3). Neste cenário, os dois produtos contêm planos de serviço em conflito, para que tenha de resolver o conflito de migrar os utilizadores. Para obter mais informações sobre estes conflitos, consulte [do Active Directory, resolução de problemas do grupo de licenciamento: Planos de serviço em conflito](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Em nenhum momento durante a migração devem os usuários perderão acesso aos serviços ou dados. A migração é efetuada em pequenos "lotes". Pode validar o resultado para cada lote e minimizar o âmbito de quaisquer problemas que possam ocorrer durante o processo. Em geral, o processo é o seguinte:
 
 1.  Os utilizadores são membros de um grupo de origem e eles herdam o *licença de origem* desse grupo.
 
@@ -195,7 +196,7 @@ O objetivo de migração está a utilizar o licenciamento baseado em grupo para 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrar um único utilizador, utilizando o portal do Azure
 Este é um passo a passo simple como migrar um único utilizador.
 
-**PASSO 1**: O utilizador tem uma *licença de origem* que é herdada do grupo. Não existem não existem atribuições diretas para a licença:
+**PASSO 1**: O utilizador tem um *licença de origem* que é herdada do grupo. Não existem não existem atribuições diretas para a licença:
 
 ![Utilizador com uma licença de origem herdada do grupo](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
@@ -203,7 +204,7 @@ Este é um passo a passo simple como migrar um único utilizador.
 
 ![Utilizador com uma licença de origem herdada da licença de grupo e de destino no Estado com erros](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**PASSO 3**: O utilizador é removido do grupo de origem e de licenciamento baseado em grupo processa a alteração. O *licença de destino* é aplicada ao usuário:
+**PASSO 3**: O utilizador é removido do grupo de origem e o licenciamento baseado em grupo processa a alteração. O *licença de destino* é aplicada ao usuário:
 
 ![Utilizador com uma licença de destino herdada do grupo](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

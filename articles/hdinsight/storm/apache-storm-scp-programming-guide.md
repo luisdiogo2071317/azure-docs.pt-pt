@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631826"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332103"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
@@ -204,7 +204,7 @@ Para o bolt não transacional ack de suporte, ele deve explicitamente `Ack()` ou
     public abstract void Ack(SCPTuple tuple);
     public abstract void Fail(SCPTuple tuple);
 
-### <a name="statestore"></a>Statestore de SMS
+### <a name="statestore"></a>StateStore
 `StateStore` Fornece serviços de metadados, geração de sequência monotónica e coordenação livre de espera. Abstrações de simultaneidade distribuída de nível superior podem ser criadas no `StateStore`, incluindo bloqueios distribuídos, filas distribuídas, as barreiras e serviços de transação.
 
 SCP os aplicativos podem utilizar o `State` objeto para manter algumas informações no [Apache ZooKeeper](https://zookeeper.apache.org/), especialmente para topologia transacional. Assim, se spout transacional falhar e reiniciar, pode obter as informações necessárias do ZooKeeper e reinicie o pipeline.
@@ -228,7 +228,7 @@ O `StateStore` objeto tem principalmente estes métodos:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +249,7 @@ O `StateStore` objeto tem principalmente estes métodos:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
@@ -354,23 +354,23 @@ SCP.NET adicionou as seguintes funções para definir topologias transacional:
 
 | **Novas funções** | **Parâmetros** | **Descrição** |
 | --- | --- | --- |
-| **topolopy TX, e.u.a.** |nome de topologia<br />mapa de spout<br />mapa de bolt |Definir uma topologia de transacional com o nome de topologia, &nbsp;spouts mapa de definição e o mapa de definição de bolts |
-| **SCP-tx-spout** |Exec-nome<br />args<br />campos |Defina um spout transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout |
-| **SCP-tx-batch-bolt** |Exec-nome<br />args<br />campos |Defina um Bolt Batch transacional. Ele executa o aplicativo com ***exec-name*** usando ***args.***<br /><br />Os campos é os campos de saída para o bolt. |
-| **SCP-tx-commit-bolt** |Exec-nome<br />args<br />campos |Defina um bolt de consolidação transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt |
-| **nontx topolopy** |nome de topologia<br />mapa de spout<br />mapa de bolt |Definir uma topologia não transacional com o nome de topologia,&nbsp; spouts mapa de definição e o mapa de definição de bolts |
-| **SCP spout** |Exec-nome<br />args<br />campos<br />parâmetros |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
-| **SCP bolt** |Exec-nome<br />args<br />campos<br />parâmetros |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **tx-topolopy** |nome de topologia<br />spout-map<br />bolt-map |Definir uma topologia de transacional com o nome de topologia, &nbsp;spouts mapa de definição e o mapa de definição de bolts |
+| **scp-tx-spout** |exec-name<br />args<br />campos |Defina um spout transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />campos |Defina um Bolt Batch transacional. Ele executa o aplicativo com ***exec-name*** usando ***args.***<br /><br />Os campos é os campos de saída para o bolt. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />campos |Defina um bolt de consolidação transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt |
+| **nontx-topolopy** |nome de topologia<br />spout-map<br />bolt-map |Definir uma topologia não transacional com o nome de topologia,&nbsp; spouts mapa de definição e o mapa de definição de bolts |
+| **scp-spout** |exec-name<br />args<br />campos<br />parâmetros |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **scp-bolt** |exec-name<br />args<br />campos<br />parâmetros |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
 
 SCP.NET tem as seguintes palavras-chave definidas:
 
 | **palavras-chave** | **Descrição** |
 | --- | --- |
-| **: nome** |Definir o nome de topologia |
+| **:name** |Definir o nome de topologia |
 | **: topologia** |Definir a topologia usando as funções anteriores e criar nas. |
-| **: p** |Defina a sugestão de paralelismo para cada spout ou bolt. |
-| **: config** |Definir parâmetros de configurar ou atualizar os existentes |
-| **: esquema** |Defina o esquema de Stream. |
+| **:p** |Defina a sugestão de paralelismo para cada spout ou bolt. |
+| **:config** |Definir parâmetros de configurar ou atualizar os existentes |
+| **:schema** |Defina o esquema de Stream. |
 
 E os parâmetros usados com freqüência:
 
@@ -517,7 +517,7 @@ Componente de SCP inclui lado Java e C\# lado. Para interagir com nativos Spouts
    
    O método de desserialização no lado Java deve ser especificado no ficheiro SPEC:
    
-     (o scp-spout
+     (scp-spout
    
        {
          "plugin.name" "HybridTopology.exe"

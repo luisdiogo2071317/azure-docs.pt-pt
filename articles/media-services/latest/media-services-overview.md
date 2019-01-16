@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 12/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: f959ce8d29975fc7c667185ef5bc2547825bccc0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a91dd80e70719777b1b2269d7f660787803b88b3
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406918"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319924"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -72,41 +72,7 @@ Alguns exemplos incluem
 * não devolver as chaves de restrição no get do ContentKeyPolicy, 
 * não devolver a parte da cadeia de consulta do URL (para remover a assinatura) dos URLs de Entrada de Tarefas.
 
-O seguinte exemplo .NET mostra como obter uma chave de assinatura da política existente. Precisa de utilizar **GetPolicyPropertiesWithSecretsAsync** para chegar à chave.
-
-```csharp
-private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string contentKeyPolicyName)
-{
-    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
-
-    if (policy == null)
-    {
-        // Configure and create a new policy.
-        
-        . . . 
-        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
-    }
-    else
-    {
-        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
-        {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
-            {
-                TokenSigningKey = signingKey.KeyValue;
-            }
-        }
-    }
-
-    return policy;
-}
-```
+Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-dotnet-howto.md) exemplo.
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3?
 

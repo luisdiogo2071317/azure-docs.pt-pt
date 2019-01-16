@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: bd5c3a6fc4a2d6f6a8b4f07154c02d7d29211ec9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1300ac9b6ba0eee8698e268fb9cc613955deb74e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078597"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321927"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo contém perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -119,7 +119,7 @@ Precisa de uma conta de armazenamento LRS ou GRS. Recomendamos GRS para que os d
 * **VMs do Azure, VMware e servidores físicos:** Uma frequência de replicação não é relevante aqui. A replicação é contínua.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Pode expandir a replicação do site de recuperação existente para outro site terciária?
-Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-replication-the-first-time-i-replicate-to-azure"></a>Posso fazer uma replicação offline pela primeira vez que faço a replicação para o Azure?
 Tal não é suportado. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).

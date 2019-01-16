@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727008"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321318"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -53,7 +53,7 @@ Veja o exemplo de idioma específico:
 * [C#](#trigger---c-example)
 * [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
@@ -332,10 +332,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-example"></a>Acionador - exemplo de Java
+### <a name="trigger---java-examples"></a>Acionador - exemplos de Java
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função devolve uma resposta de código de 200 de estado HTTP com um corpo de pedido que prefixos o corpo do pedido acionadora com um "Olá","greeting.
+* [Leia o parâmetro da cadeia de consulta](#read-parameter-from-the-query-string-java)
+* [Ler o corpo de um pedido POST](#read-body-from-a-post-request-java)
+* [Parâmetro de leitura de uma rota](#read-parameter-from-a-route-java)
+* [Corpo de POJO de leitura de um pedido POST](#read-pojo-body-from-a-post-request-java)
 
+Os exemplos seguintes mostram o acionador HTTP de enlace num *Function* ficheiro e respetivos [das funções do Java](functions-reference-java.md) que usar a ligação. 
 
 Aqui está o *Function* ficheiro:
 
@@ -358,17 +362,181 @@ Aqui está o *Function* ficheiro:
 }
 ```
 
-Eis o código Java:
+#### <a name="read-parameter-from-the-query-string-java"></a>Leia o parâmetro da cadeia de consulta (Java)  
+
+Este exemplo lê um parâmetro, denominado ```id```, na cadeia de consulta e utiliza-o para criar um documento JSON devolvido ao cliente, com o tipo de conteúdo ```application/json```. 
 
 ```java
-@FunctionName("hello")
-public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context)
-    {
-        // default HTTP 200 response code
-        return String.format("Hello, %s!", request);
+    @FunctionName("TriggerStringGet")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+
+        // Get named parameter
+        String id = request.getQueryParameters().getOrDefault("id", "");
+
+        // Convert and display
+        if (id.isEmpty()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String name = "fake_name";
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
     }
+```
+
+#### <a name="read-body-from-a-post-request-java"></a>Ler o corpo de um pedido POST (Java)  
+
+Este exemplo lê o corpo do pedido POST, como um ```String```e utiliza-o para criar um documento JSON devolvido ao cliente, com o tipo de conteúdo ```application/json```.
+
+```java
+    @FunctionName("TriggerStringPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(""));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String body = request.getBody().get();
+            final String jsonDocument = "{\"id\":\"123456\", " + 
+                                         "\"description\": \"" + body + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-parameter-from-a-route-java"></a>Parâmetro de leitura de uma rota (Java)  
+
+Este exemplo lê um parâmetro obrigatório, com o nome ```id```e um parâmetro opcional ```name``` partir do caminho de rota e utiliza-os para criar um documento JSON devolvido ao cliente, com o tipo de conteúdo ```application/json```. T
+
+```java
+    @FunctionName("TriggerStringRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+            HttpRequestMessage<Optional<String>> request,
+            @BindingName("id") String id,
+            @BindingName("name") String name,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Route parameters are: " + id);
+
+        // Convert and display
+        if (id == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-pojo-body-from-a-post-request-java"></a>Corpo de POJO de leitura de um pedido POST (Java)  
+
+Aqui está o código para o ```ToDoItem``` classe, referenciado neste exemplo:
+
+```java
+
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public ToDoItem(String id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
 }
+
+```
+
+Este exemplo lê o corpo de um pedido POST. O corpo do pedido obtém automaticamente desserializado num ```ToDoItem``` de objeto e é devolvido ao cliente, com o tipo de conteúdo ```application/json```. O ```ToDoItem``` parâmetro é serializado pelo tempo de execução de funções à medida que é atribuído para o ```body``` propriedade do ```HttpMessageResponse.Builder``` classe.
+
+```java
+    @FunctionName("TriggerPojoPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<ToDoItem>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final ToDoItem body = request.getBody().get();
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(body)
+                          .build();
+        }
+    }
 ```
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
@@ -397,9 +565,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 | **tipo** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
 | **direção** | n/d| Necessário - tem de ser definido como `in`. |
 | **name** | n/d| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. |
-| <a name="http-auth"></a>**authLevel** |  **authLevel** |Determina o chaves, se houver, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave de API é necessário.</li><li><code>function</code>&mdash;É necessária uma chave de API específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;A chave mestra é necessária.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina o chaves, se houver, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave de API é necessário.</li><li><code>function</code>&mdash;É necessária uma chave de API específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;A chave mestra é necessária.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
 | **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para o qual a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Ver [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
-| **rota** | **rota** | Define o modelo de rota, controlar a que URLs responde de sua função de pedido. O valor predefinido se não for fornecida nenhuma é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
+| **route** | **rota** | Define o modelo de rota, controlar a que URLs responde de sua função de pedido. O valor predefinido se não for fornecida nenhuma é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para o tempo de execução do versão 1.x._<br/><br/>Configura o acionador HTTP para atuar como um [webhook](https://en.wikipedia.org/wiki/Webhook) recetor para o fornecedor especificado. Não definir o `methods` propriedade se definir esta propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final do webhook para fins gerais sem lógica para um provedor específico. Esta definição limita pedidos apenas às através de HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde às [GitHub webhooks](https://developer.github.com/webhooks/). Não utilize o _authLevel_ propriedade com o GitHub webhooks. Para obter mais informações, consulte a secção de webhooks do GitHub neste artigo.</li><li><code>slack</code>&mdash;A função responde às [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não utilize o _authLevel_ propriedade com Slack webhooks. Para obter mais informações, consulte a secção de Slack webhooks neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Acionador - utilização

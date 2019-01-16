@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com KnowledgeOwl | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com KnowledgeOwl | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446149"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Azure Active Directory com KnowledgeOwl
+# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Active Directory do Azure com KnowledgeOwl
 
 Neste tutorial, saiba como integrar KnowledgeOwl com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com KnowledgeOwl, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um KnowledgeOwl logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do KnowledgeOwl com o Azure AD, terá de adiciona
 
 **Para adicionar KnowledgeOwl a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -150,9 +150,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem anterior e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo | Espaço de Nomes|
+    | Nome do Atributo | Valor do Atributo | Espaço de nomes|
     | ------------------- | -------------------- | -----|
-    | ssoid | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
     
@@ -186,7 +186,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Desloque para baixo até o **SAML SSO integração** e execute os seguintes passos:
+1. Desloque-se para **SAML SSO integração** e execute os seguintes passos:
     
     ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
@@ -254,7 +254,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no KnowledgeOwl. KnowledgeOwl suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder KnowledgeOwl se não existir ainda.
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de KnowledgeOwl](mailto:support@knowledgeowl.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de KnowledgeOwl](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -286,7 +286,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: 5a5154d8d3a4922dead686c3d5002eaae818ff5a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1df948d2b3127ede7129d26401cd5f0c80e964fb
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201368"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331746"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -423,6 +423,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define a [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizada para subscrever a eventos no hub. Se for omitido, o `$Default` for utilizado. |
 |**Cardinalidade** | n/d | Para Javascript. Definido como `many` para ativar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. |
 |**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nomes do hub de eventos. Copiar esta cadeia de ligação ao clicar no **informações da ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
+|**path**|**EventHubName**|O nome do hub de eventos. Pode ser referenciada através das definições de aplicação `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -1,17 +1,19 @@
 ---
 title: Excluir discos da replicação ao configurar a recuperação após desastre com o serviço Azure Site Recovery | Documentos da Microsoft
 description: Descreve como excluir discos da VM da replicação durante a recuperação após desastre para o Azure.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/19/2019
+ms.author: mayg
+ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849025"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321233"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam.
@@ -57,7 +59,7 @@ Para compreender a funcionalidade de exclusão de discos, consideremos dois cen�
 - Disco tempdb do SQL Server
 - Disco do ficheiro de paginação (pagefile.sys)
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: excluir o disco tempdb do SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
 Consideremos uma máquina virtual do SQL Server que tem um tempdb que pode ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -160,12 +162,12 @@ BD-Disk2 (disco excluído) | Disk2 | E:\ | Ficheiros temporários
 DB-Disk3 (disco excluído) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco do ficheiro de paginação (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco do ficheiro de paginação (pagefile.sys)
 
 Consideremos uma máquina virtual que tem um disco de ficheiro de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o ficheiro de paginação está configurado na unidade D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O ficheiro de paginação está configurado na unidade d:
 Segue-se a configuração do disco:
 
 **Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
@@ -194,7 +196,7 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual do Azur
 
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o ficheiro de paginação está configurado noutra unidade (que não seja a unidade D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O ficheiro de paginação está configurado noutra unidade (que não seja a unidade d)
 
 Segue-se a configuração de disco da máquina virtual de origem:
 

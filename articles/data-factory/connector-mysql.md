@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/23/2018
+ms.date: 01/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f3d6434c7226465f9e054d5e5bf35fbb228b311
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c14bf7c108251a4ec00f5e2f0b1254f83121866e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014492"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321114"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versão atual](connector-mysql.md)
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Pode copiar dados da base de dados do MySQL para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector de MySQL suporta MySQL **versão 5.1 e acima**.
+Especificamente, este conector de MySQL suporta MySQL **versão 5.6 e 5.7**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MySQL:
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver utiliza encriptação SSL e verificação ao ligar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / preferencial (1) **(predefinição)** / necessária (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
-| useSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema, ou a partir de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
+| UseSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema, ou a partir de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
 
 **Exemplo:**
 
@@ -70,8 +70,8 @@ As seguintes propriedades são suportadas para o serviço ligado do MySQL:
         "type": "MySql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -227,7 +227,6 @@ Ao copiar dados do MySQL, os seguintes mapeamentos são utilizados entre tipos d
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int` |
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

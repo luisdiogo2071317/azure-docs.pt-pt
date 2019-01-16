@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9b7104d27e7f8c384c742a3988ad7400c232d162
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023044"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330420"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados para e da base de dados do SQL Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54023044"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector de base de dados do Azure SQL no V2](../connector-azure-sql-database.md).
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de e para a base de dados do Azure SQL. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.  
+Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de e para a base de dados do Azure SQL. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 Pode copiar dados **da base de dados do Azure SQL** para os seguintes dados armazena:
@@ -47,18 +47,18 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de/para uma
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
-1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines. 
-2. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados. Por exemplo, se estiver a copiar dados de um armazenamento de Blobs do Azure para uma base de dados SQL do Azure, criar dois serviços ligados para ligar a sua conta de armazenamento do Azure e a base de dados SQL do Azure à fábrica de dados. Para as propriedades do serviço ligado que são específicas para a base de dados do Azure SQL, consulte [propriedades do serviço ligado](#linked-service-properties) secção. 
+1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines.
+2. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados. Por exemplo, se estiver a copiar dados de um armazenamento de Blobs do Azure para uma base de dados SQL do Azure, criar dois serviços ligados para ligar a sua conta de armazenamento do Azure e a base de dados SQL do Azure à fábrica de dados. Para as propriedades do serviço ligado que são específicas para a base de dados do Azure SQL, consulte [propriedades do serviço ligado](#linked-service-properties) secção.
 3. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. O exemplo mencionado no último passo, vai criar um conjunto de dados para especificar o contentor de BLOBs e a pasta que contém os dados de entrada. Além disso, crie outro conjunto de dados para especificar a tabela SQL na base de dados SQL do Azure que contém os dados copiados do armazenamento de Blobs. Para as propriedades do conjunto de dados que são específicas para o Azure Data Lake Store, consulte [propriedades do conjunto de dados](#dataset-properties) secção.
 4. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, vai utilizar BlobSource como uma origem e SqlSink como sink para a atividade de cópia. Da mesma forma, se estiver a copiar na SQL Database do Azure para armazenamento de Blobs do Azure, utilize SqlSource e BlobSink a atividade de cópia. Para propriedades de atividade de cópia que são específicas para a base de dados do Azure SQL, consulte [propriedades da atividade copy](#copy-activity-properties) secção. Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, clique na ligação na secção anterior para seu armazenamento de dados.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para uma base de dados do SQL do Azure, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-sql-database) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON. Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para uma base de dados do SQL do Azure, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-sql-database) seção deste artigo.
 
-As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para a base de dados do Azure SQL: 
+As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para a base de dados do Azure SQL:
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 Um SQL do Azure ligado serviço liga a uma base de dados SQL do Azure à fábrica de dados. A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço ligado SQL do Azure.
@@ -72,7 +72,7 @@ Um SQL do Azure ligado serviço liga a uma base de dados SQL do Azure à fábric
 > Configurar [Firewall de base de dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) o servidor de base de dados [permitir que os serviços do Azure aceder ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a base de dados do Azure SQL fora do Azure incluindo de origens de dados no local com o gateway de fábrica de dados, configure o intervalo de endereços IP apropriado para a máquina que está a enviar dados para a base de dados do Azure SQL.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um conjunto de dados para representar os dados de entrada ou de saída numa base de dados SQL do Azure, defina a propriedade de tipo de conjunto de dados para: **AzureSqlTable**. Definir o **linkedServiceName** serviço ligado de propriedade de conjunto de dados para o nome do SQL do Azure.  
+Para especificar um conjunto de dados para representar os dados de entrada ou de saída numa base de dados SQL do Azure, defina a propriedade de tipo de conjunto de dados para: **AzureSqlTable**. Definir o **linkedServiceName** serviço ligado de propriedade de conjunto de dados para o nome do SQL do Azure.
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, BLOBs do Azure, tabela do Azure, etc.).
 
@@ -134,9 +134,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -184,7 +184,7 @@ O mesmo define as seguintes entidades do Data Factory:
 4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [BLOBs do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 5. R [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que utiliza [SqlSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia dados de séries de tempo (hora a hora, diária, etc.) de uma tabela na base de dados SQL do Azure para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.  
+O exemplo copia dados de séries de tempo (hora a hora, diária, etc.) de uma tabela na base de dados SQL do Azure para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 
 **Serviço de ligado de base de dados SQL do Azure:**
 
@@ -248,7 +248,7 @@ A definição "externo": "true" informa o serviço Azure Data Factory que o conj
 }
 ```
 
-Consulte a [propriedades do tipo de conjunto de dados SQL do Azure](#dataset) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.  
+Consulte a [propriedades do tipo de conjunto de dados SQL do Azure](#dataset) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
 
 **Conjunto de dados de Blobs do Azure:**
 
@@ -309,20 +309,20 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
   }
 }
 ```
-Consulte a [propriedades do tipo de conjunto de dados de Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.  
+Consulte a [propriedades do tipo de conjunto de dados de Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
 
 **Uma atividade de cópia num pipeline com a origem SQL e de sink do Blob:**
 
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **SqlSource** e **sink** tipo está definido como **BlobSink**. A consulta SQL especificada para o **SqlReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoBlob",
         "description": "copy activity",
@@ -346,7 +346,7 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
             "type": "BlobSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -357,8 +357,8 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 No exemplo, **sqlReaderQuery** especificado para o SqlSource. A atividade de cópia executa esta consulta em relação à origem de SQL Database do Azure para obter os dados. Em alternativa, pode especificar um procedimento armazenado, especificando o **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se o procedimento armazenado recebe parâmetros).
@@ -368,7 +368,7 @@ Se não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas d
 Consulte a [origem de Sql](#sqlsource) secção e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) para a lista de propriedades suportadas por SqlSource e BlobSink.
 
 ### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Exemplo: Copiar dados de Blobs do Azure para a base de dados do Azure SQL
-O exemplo define as seguintes entidades do Data Factory:  
+O exemplo define as seguintes entidades do Data Factory:
 
 1. Um serviço ligado do tipo [AzureSqlDatabase](#linked-service-properties).
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -506,13 +506,13 @@ Consulte a [propriedades do tipo de conjunto de dados SQL do Azure](#dataset) se
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **BlobSource** e **sink** tipo está definido como **SqlSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureBlobtoSQL",
         "description": "Copy Activity",
@@ -536,7 +536,7 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
             "type": "SqlSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -547,8 +547,8 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 Consulte a [Sink do Sql](#sqlsink) secção e [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) para a lista de propriedades suportadas por SqlSink e BlobSource.
@@ -561,8 +561,8 @@ Esta secção fornece um exemplo para copiar dados a partir de uma tabela de ori
 ```SQL
 create table dbo.SourceTbl
 (
-       name varchar(100),
-       age int
+    name varchar(100),
+    age int
 )
 ```
 **Tabela de destino:**
@@ -570,9 +570,9 @@ create table dbo.SourceTbl
 ```SQL
 create table dbo.TargetTbl
 (
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
+    identifier int identity(1,1),
+    name varchar(100),
+    age int
 )
 ```
 Tenha em atenção que a tabela de destino tem uma coluna de identidade.
@@ -618,14 +618,14 @@ Tenha em atenção que a tabela de destino tem uma coluna de identidade.
         },
         "external": false,
         "policy": {}
-    }    
+    }
 }
 ```
 
 Tenha em atenção que, como sua tabela de origem e destino têm diferente esquema (o destino tem uma coluna adicional com identidade). Neste cenário, tem de especificar **estrutura** propriedade na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Invocar um procedimento armazenado do sink do SQL
-Para obter um exemplo de invocação de um procedimento armazenado do sink do SQL numa atividade de cópia de um pipeline, veja [invocar um procedimento armazenado para o sink do SQL na atividade de cópia](data-factory-invoke-stored-procedure-from-copy-activity.md) artigo. 
+Para obter um exemplo de invocação de um procedimento armazenado do sink do SQL numa atividade de cópia de um pipeline, veja [invocar um procedimento armazenado para o sink do SQL na atividade de cópia](data-factory-invoke-stored-procedure-from-copy-activity.md) artigo.
 
 ## <a name="type-mapping-for-azure-sql-database"></a>Mapeamento do tipo de base de dados do Azure SQL
 Conforme mencionado na [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo atividade de cópia executa conversões de tipos automáticas de tipos de origem para o sink de tipos com a seguinte abordagem de passo 2:
@@ -674,7 +674,7 @@ Ao mover dados de e para a base de dados do Azure SQL, são utilizados os seguin
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem para colunas no conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-copy"></a>Cópia passível de repetição
-Quando se copiam dados para a base de dados do SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar um UPSERT em vez disso, consulte [Repeatable escrever SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) artigo. 
+Quando se copiam dados para a base de dados do SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar um UPSERT em vez disso, consulte [Repeatable escrever SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) artigo.
 
 Quando armazena a cópia de dados de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor será novamente executado de qualquer forma, terá de certificar-se de que os mesmos dados é de leitura não questão número de vezes que um setor é executado. Ver [Repeatable ler a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 

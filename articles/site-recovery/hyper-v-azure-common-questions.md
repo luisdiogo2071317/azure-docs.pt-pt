@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 8ba188db87ffc0d428c7349c902cf60bec65d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788485"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319222"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -140,7 +140,7 @@ Para a replicação, uma VM de Hyper-V tem de executar um sistema operativo supo
 VMs de Hyper-V podem ser replicadas cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.
 
 ###<a name="can-i-extend-replication"></a>Posso expandir a replicação?
-Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Posso fazer uma replicação inicial offline?
 Tal não é suportado. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).

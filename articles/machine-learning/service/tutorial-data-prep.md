@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079243"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321879"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
 Neste tutorial, saiba como preparar dados para regressão de modelagem, utilizando o SDK do Azure Machine Learning Data Prep. Executar várias transformações para filtrar e combinar os dois conjuntos de dados de táxis NYC diferentes.  
 
-Este tutorial é a primeira parte de uma série de tutoriais de duas partes. Depois de concluir a série de tutoriais, pode prever o custo de uma viagem de táxis ao preparar um modelo sobre os recursos de dados. Esses recursos incluem o dia de recolha e tempo, o número de passageiros e o local de recebimento.
+Este tutorial é a **primeira parte de uma série composta por duas partes**. Depois de concluir a série de tutoriais, pode prever o custo de uma viagem de táxis ao preparar um modelo sobre os recursos de dados. Esses recursos incluem o dia de recolha e tempo, o número de passageiros e o local de recebimento.
 
 Neste tutorial:
 

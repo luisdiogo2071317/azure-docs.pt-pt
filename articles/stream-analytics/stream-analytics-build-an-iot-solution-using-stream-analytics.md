@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971108"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321573"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -36,7 +36,7 @@ Depois de concluir esta solução, é possível:
 ## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, incidir!"
 Uma estação de ligação é um fenômeno comuns. Se deparar com elas em muitas expressways, pontes e túneis em todo o mundo. Cada estação de ligação tem vários estandes de ligação. Em estandes manuais, parar para pagar a ligação para um atendedor. Em estandes automatizadas, um sensor na parte superior de cada stand analisa um cartão RFID afixação windshield de sua veículo conforme passa o pedágio. É fácil de visualizar a passagem para dos veículos através destas estações de ligação como um fluxo de eventos através do qual podem ser executadas operações interessantes.
 
-! [Imagem de carros em estandes incidir] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth. jpg)
+![Imagem de carros em estandes de ligação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Dados recebidos
 Esta solução funciona com dois fluxos de dados. Instalado na entrada e saída das estações de número de sensores produzem o primeiro fluxo. O fluxo segundo é um conjunto de dados de pesquisa estática que tem dados de registo de veículos.

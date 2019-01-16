@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 1bfc97eb850cf81ff638f92bc628c856fa75681e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9ec183c55a74a2ab12c8accb8b3578ea530f1da2
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230667"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322083"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de recursos do Azure Active Directory
 
@@ -36,9 +36,9 @@ Pode encontrar informações adicionais sobre o licenciamento nas seguintes pág
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Orientação de licenciamento do Azure AD B2B](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-foundation-of-security"></a>Fase 1: Base de segurança
+## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Criar uma base de segurança
 
-Fase 1, os administradores ativar funcionalidades de segurança de linha de base criar uma base mais segura e fácil de usar no Azure AD antes que importe ou crie contas de utilizador normal. Nesta fase fundamental garante que está num estado mais seguro desde o início e de que os utilizadores finais só tem de ser introduzida para novos conceitos de uma vez.
+Nesta fase, os administradores ativar funcionalidades de segurança de linha de base criar uma base mais segura e fácil de usar no Azure AD antes que importe ou crie contas de utilizador normal. Nesta fase fundamental garante que está num estado mais seguro desde o início e de que os utilizadores finais só tem de ser introduzida para novos conceitos de uma vez.
 
 | Tarefa | Detalhe | Licença necessária |
 | ---- | ------ | ---------------- |
@@ -57,9 +57,9 @@ Fase 1, os administradores ativar funcionalidades de segurança de linha de base
 | [Utilizar eventos de risco para acionar a autenticação multifator e alterações de palavra-passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Ative a automatização que pode acionar eventos, tais como o multi-factor authentication, reposição de palavra-passe e bloqueio de inícios de sessão com base no risco. | Azure AD Premium P2 |
 | [Ativar o registo convergido para reposição de palavra-passe self-service e do Azure AD multi-factor Authentication (pré-visualização)](../authentication/concept-registration-mfa-sspr-converged.md) | Permitir que os utilizadores registar a partir de uma experiência comum para o Azure multi-factor Authentication e reposição de palavra-passe self-service. | Azure AD Premium P1 |
 
-## <a name="phase-2-users-synchronization-and-devices"></a>Fase 2: Os utilizadores, sincronização e dispositivos
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar utilizadores, ativar a sincronização e gerir dispositivos
 
-Na fase 2, podemos adicionar a base sedimentada em fase 1, ao importar nossos usuários e ativar a sincronização, planeamento de acesso de convidado e a preparação para suportar funcionalidades adicionais.
+Em seguida, podemos adicionar a base sedimentada em fase 1, ao importar nossos usuários e ativar a sincronização, planeamento de acesso de convidado e a preparação para suportar funcionalidades adicionais.
 
 | Tarefa | Detalhe | Licença necessária |
 | ---- | ------ | ---------------- |
@@ -72,9 +72,9 @@ Na fase 2, podemos adicionar a base sedimentada em fase 1, ao importar nossos us
 | [Decidir qual a estratégia de gestão de dispositivos](../devices/overview.md) | Decida o que sua organização permite sobre dispositivos. Registar vs associar, Bring Your Own Device vs empresa fornecido. | |
 | [Implantar o Windows Hello para empresas em sua organização](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Preparar para a autenticação sem palavra-passe com o Windows Hello | |
 
-## <a name="phase-3-applications"></a>Fase 3: Aplicações
+## <a name="phase-3-manage-applications"></a>Fase 3: Gerir aplicações
 
-Fase 3, os administradores começam o processo contínuo para adicionar em aplicativos.
+À medida que Continuamos a criação de fases anteriores, podemos identificar aplicativos candidatos à migração e integração com o Azure AD e concluir a configuração desses aplicativos.
 
 | Tarefa | Detalhe | Licença necessária |
 | ---- | ------ | ---------------- |
@@ -82,15 +82,15 @@ Fase 3, os administradores começam o processo contínuo para adicionar em aplic
 | [Integrar aplicações SaaS suportadas na Galeria](../manage-apps/add-application-portal.md) | O Azure AD tem uma galeria que contém a milhares de aplicações previamente integradas. Alguns aplicativos de que sua organização utiliza provavelmente estão presentes na Galeria acessível diretamente a partir do portal do Azure. | Azure AD Gratuito |
 | [Utilize o Proxy de aplicações para integrar aplicações no local](../manage-apps/application-proxy-add-on-premises-application.md) | Proxy de aplicações permite aos utilizadores aceder a aplicações no local ao iniciar sessão com a respetiva conta do Azure AD. | Azure AD Básico |
 
-## <a name="phase-4-privileged-identities-access-reviews-and-user-lifecycle"></a>Fase 4: Ciclo de vida do utilizador, as revisões de acesso e identidades privilegiadas
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Auditar as identidades privilegiadas, concluir uma revisão de acesso e gerir o ciclo de vida do utilizador
 
 Fase 4 vê os administradores a imposição de princípios de privilégios mínimos para a administração, as revisões de acesso primeiro a concluir e ativar a automatização de tarefas comuns de ciclo de vida do utilizador.
 
 | Tarefa | Detalhe | Licença necessária |
 | ---- | ------ | ---------------- |
-| [Impor a utilização do Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Remova funções administrativas a contas de usuários normais do dia a dia. Os utilizadores administrativos tornar elegíveis para utilizar a respetiva função depois que os sucedem uma verificação de autenticação multifator, fornecer uma justificação de negócio ou o pedido de aprovação de aprovadores designados. | Azure AD Premium P2 |
+| [Impor a utilização do Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remova funções administrativas a contas de usuários normais do dia a dia. Os utilizadores administrativos tornar elegíveis para utilizar a respetiva função depois que os sucedem uma verificação de autenticação multifator, fornecer uma justificação de negócio ou o pedido de aprovação de aprovadores designados. | Azure AD Premium P2 |
 | [Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Contacte as equipas de segurança e liderança globais para criar uma política de revisão de acesso para rever o acesso administrativo com base nas políticas da sua organização. | Azure AD Premium P2 |
-| [Políticas de associação de grupo dinâmico de implementar](../users-groups-roles/groups-dynamic-membership.md) | Utilize grupos dinâmicos para atribuir automaticamente os utilizadores a grupos com base nos seus atributos de RH (ou sua fonte de verdade), por exemplo, departamento, título, região e outros atributos. |  |
+| [Implementar políticas de associação de grupo dinâmico](../users-groups-roles/groups-dynamic-membership.md) | Utilize grupos dinâmicos para atribuir automaticamente os utilizadores a grupos com base nos seus atributos de RH (ou sua fonte de verdade), por exemplo, departamento, título, região e outros atributos. |  |
 | [Implementar o provisionamento de aplicativos de grupo com base](../manage-apps/what-is-access-management.md) | Utilize o aprovisionamento da gestão de acesso baseado em grupo para aprovisionar automaticamente os utilizadores para aplicações SaaS. |  |
 | [Automatizar o aprovisionamento de utilizador e de desaprovisionamento](../manage-apps/user-provisioning.md) | Remova passos manuais do seu ciclo de vida de conta de funcionário para evitar acessos não autorizados. Sincronize as identidades da sua origem de verdade (sistema de RH) para o Azure AD. |  |
 

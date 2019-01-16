@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426847"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320961"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>O Azure Active Directory v 2.0 e o protocolo OpenID Connect
 
@@ -86,7 +86,7 @@ Quando a aplicação web tiver de autenticar o utilizador, pode direcionar o uti
 * O pedido tem de incluir o `nonce` parâmetro.
 
 > [!IMPORTANT]
-> Por ordem para com êxito solicitar um token de ID, o registo de aplicações no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **[concessão implícita](v2-oauth2-implicit-grant-flow.md)** ativado para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: "o valor fornecido para o parâmetro de entrada"response_type"não é permitido para este cliente. Valor esperado é 'code' "
+> Para solicitar com êxito um token de ID, o registo de aplicações no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **[concessão implícita](v2-oauth2-implicit-grant-flow.md)** ativado para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: "O valor fornecido para o parâmetro de entrada"response_type"não é permitido para este cliente. Valor esperado é 'code' "
 
 Por exemplo:
 
@@ -207,13 +207,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Quando redireciona o utilizador para o `end_session_endpoint`, o ponto final v2.0 limpa a sessão do utilizador do navegador. No entanto, o utilizador poderá ainda estar conectado a outras aplicações que utilizam contas da Microsoft para a autenticação. Para permitir que esses aplicativos iniciar sessão do utilizador horizontalmente em simultâneo, a versão 2.0 o ponto final envia um pedido HTTP GET para o registados `LogoutUrl` de todos os aplicativos que o utilizador tem atualmente sessão iniciado no. Aplicativos devem responder a essa solicitação limpar todas as sessões que identifica o usuário e retornando um `200` resposta. Se desejar oferecer suporte a fim de sessão em seu aplicativo único, tem de implementar como um `LogoutUrl` no código da aplicação. Pode definir o `LogoutUrl` partir do portal de registo da aplicação.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: aquisição do token de acesso
+## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: Aquisição de token de acesso
 
 Muitos aplicativos web precisam não apenas iniciar sessão do utilizador no, mas também para aceder a um serviço da web em nome do utilizador ao utilizar o OAuth. Este cenário combina o OpenID Connect para a autenticação de utilizador ao obter simultaneamente um código de autorização que pode utilizar para obter os tokens de acesso, se estiver a utilizar o fluxo de código de autorização de OAuth.
 
 O fluxo de início de sessão e aquisição de token OpenID Connect completo é semelhante ao seguinte diagrama. Descreveremos cada etapa detalhadamente nas próximas seções deste artigo.
 
-![Protocolo do OpenID Connect: aquisição do Token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocolo do OpenID Connect: Aquisição do token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
 
 ## <a name="get-access-tokens"></a>Obter os tokens de acesso
 Para adquirir os tokens de acesso, modifique o pedido de início de sessão:

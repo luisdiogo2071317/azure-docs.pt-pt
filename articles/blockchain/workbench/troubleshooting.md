@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405489"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329740"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>O Azure Blockchain Workbench, resolução de problemas
 
@@ -26,7 +26,7 @@ Um script do PowerShell está disponível para ajudá-lo em desenvolvedor depura
 * Application Insights
 * Monitorização (Log Analytics) do Azure
 
-Pode utilizar as informações para determinar os passos seguintes e determinar a causa raiz dos problemas. 
+Pode utilizar as informações para determinar os passos seguintes e determinar a causa raiz dos problemas.
 
 ## <a name="troubleshooting-script"></a>Script de resolução de problemas
 
@@ -48,7 +48,7 @@ O script aceita os seguintes parâmetros:
 
 | Parâmetro  | Descrição | Necessário |
 |---------|---------|----|
-| subscriptionID | SubscriptionID para criar ou localizar todos os recursos. | Sim |
+| SubscriptionID | SubscriptionID para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do grupo de recursos do Azure onde tiver sido implementada Blockchain Workbench. | Sim |
 | OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, por predefinição, o diretório atual. | Não |
 | LookbackHours | Número de horas para utilizar quando extrair telemetria. Valor predefinido é de 24 horas. O valor máximo é de 90 horas | Não |
@@ -75,4 +75,4 @@ O **métricas** pasta contém métricas de vários componentes do sistema ao lon
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Arquitetura do Azure Blockchain Workbench](architecture.md)
+> [Guia de resolução de problemas do Azure Blockchain Workbench Application Insights](https://aka.ms/workbenchtroubleshooting)

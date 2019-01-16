@@ -1,6 +1,6 @@
 ---
-title: Grupo de definições de política de nome para grupos do Office 365 no Azure Active Directory (pré-visualização) | Documentos da Microsoft
-description: Como configurar a expiração de grupos do Office 365 no Azure Active Directory (pré-visualização)
+title: Nome de política (pré-visualização) - grupos do Office 365 - Azure Active Directory de grupo | Documentos da Microsoft
+description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory (pré-visualização)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275113"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321726"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -200,7 +200,7 @@ Carga de trabalho | Conformidade
 ----------- | -------------------------------
 Portais de Active Directory do Azure | Portal do Azure AD e portal do painel de acesso mostrarem o nome de política imposta nomenclatura quando o usuário digita um nome de grupo ao criar ou editar um grupo. Quando um usuário insere uma palavra bloqueada personalizada, é apresentada uma mensagem de erro com a palavra bloqueada para que o utilizador pode removê-lo.
 Outlook Web Access (OWA) | Outlook Web Access mostra a política de nomes impostas nome quando o usuário digita um nome de grupo ou o alias de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada na interface do Usuário, juntamente com a palavra bloqueada, para que o utilizador pode removê-lo.
-Ambiente de trabalho do Outlook | Grupos criados no ambiente de trabalho do Outlook estão em conformidade com as definições de política de nomenclatura. Aplicação de ambiente de trabalho do Outlook ainda não mostra a pré-visualização do nome do grupo de imposto e não devolve os erros personalizados palavra bloqueada quando o usuário insere o nome do grupo. No entanto, a política de nomes é aplicada automaticamente quando criar ou editar um grupo e os utilizadores veem as mensagens de erro, se existirem palavras bloqueadas personalizadas no alias ou nome do grupo.
+Outlook Desktop | Grupos criados no ambiente de trabalho do Outlook estão em conformidade com as definições de política de nomenclatura. Aplicação de ambiente de trabalho do Outlook ainda não mostra a pré-visualização do nome do grupo de imposto e não devolve os erros personalizados palavra bloqueada quando o usuário insere o nome do grupo. No entanto, a política de nomes é aplicada automaticamente quando criar ou editar um grupo e os utilizadores veem as mensagens de erro, se existirem palavras bloqueadas personalizadas no alias ou nome do grupo.
 Microsoft Teams | Microsoft Teams mostra o nome da política imposta de nomes, quando o usuário insere um nome da equipa de grupos. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é apresentada juntamente com a palavra bloqueada para que o utilizador pode removê-lo.
 SharePoint  |  SharePoint mostra o nome de política imposta nomenclatura quando o usuário digita um site dê um nome ou endereço de e-mail de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é apresentada, juntamente com a palavra bloqueada para que o utilizador pode removê-lo.
 Microsoft Stream | Microsoft Stream mostra o nome da política imposta de nomes, quando o usuário digita um nome de grupo ou o alias de e-mail do grupo de grupos. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada com a palavra bloqueada para que o utilizador pode removê-lo.

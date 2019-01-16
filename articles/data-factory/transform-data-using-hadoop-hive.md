@@ -8,18 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 6dc702b4bcffc0d1dec299093aa05ba480e9bbf8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019984"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321340"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade de Hive do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-hive-activity.md)
 > * [Versão atual](transform-data-using-hadoop-hive.md)
 
@@ -55,17 +56,18 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade            | Descrição                              | Necessário |
-| ------------------- | ---------------------------------------- | -------- |
-| nome                | Nome da atividade                     | Sim      |
-| descrição         | Texto que descreve o que a atividade é utilizada para | Não       |
-| tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive | Sim      |
+| Propriedade            | Descrição                                                  | Necessário |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| nome                | Nome da atividade                                         | Sim      |
+| descrição         | Texto que descreve o que a atividade é utilizada para                | Não       |
+| tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
 | linkedServiceName   | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | scriptLinkedService | Referência para um serviço ligado de armazenamento do Azure utilizada para armazenar o script de ramo de registo a ser executado. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
 | scriptPath          | Forneça o caminho para o ficheiro de script armazenado no armazenamento do Azure mencionados pelo scriptLinkedService. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim      |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
 | argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
 | Define             | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       |
+| queryTimeout        | Consultar o valor de tempo limite (em minutos).  Aplicável quando o cluster do HDInsight é com o Enterprise Security Package ativada. | Não       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras formas: 

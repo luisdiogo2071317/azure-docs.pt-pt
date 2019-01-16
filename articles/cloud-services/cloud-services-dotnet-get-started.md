@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716111"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332069"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -357,7 +357,7 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 
 ### <a name="set-project-references"></a>Definir referências do projeto
 1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do rato no projeto ContosoAdsWeb e, em seguida, em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
-2. No projeto ContosoAdsWorker, defina uma referência para o projeto ContosoAdsCommon.
+2. No projeto ContosoAdsWorker, defina uma referência ao projeto ContosoAdsCommon.
 
     O ContosoAdsCommon conterá o modelo de dados e a classe de contexto do Entity Framework, que serão utilizados no front-end e back-end.
 3. No projeto ContosoAdsWorker, defina uma referência para `System.Drawing`.
@@ -380,7 +380,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 3. No projeto ContosoAdsCloudService, clique com o botão direito do rato em ContosoAdsWeb em **Funções** e, em seguida, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Na janela de propriedades **ContosAdsWeb [Função]**, clique no separador **Definições** e, em seguida, em **Adicionar Definição**.
+4. Na **ContosoAdsWeb [função]** janela Propriedades, clique no **definições** separador e, em seguida, clique em **Adicionar definição**.
 
     Deixe **Configuração do Serviço** definida para **Todas as Configurações**.
 5. Adicione uma definição denominada *StorageConnectionString*. Defina o **Tipo** para *ConnectionString* e o **Valor** para *UseDevelopmentStorage = true*.
@@ -407,7 +407,7 @@ Para adicionar ficheiros a um projeto ou a uma pasta, clique com o botão direit
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
 
    * *Global.asax.cs*.  
-   * Na *Views\Shared* pasta: *\_Layout. cshtml*.
+   * Na *Views\Shared* pasta: *\_Layout.cshtml*.
    * Na *vistas \ início* pasta: *Index. cshtml*.
    * Na *controladores* pasta: *AdController.cs*.
    * Na pasta *Vistas\Anúncio* (crie a pasta primeiro): cinco ficheiros *.cshtml*.

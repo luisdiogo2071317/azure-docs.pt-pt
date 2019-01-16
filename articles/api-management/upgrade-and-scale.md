@@ -11,18 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441694"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319865"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e dimensionar uma instância de gestão de API do Azure  
 
 Os clientes podem aumentar uma instância de gestão de API do Azure (APIM) ao adicionar e remover unidades. R **unidade** é composto por recursos do Azure dedicados e tem uma determinada carga-orientação de capacidade, expressada como um número de API de chamadas por mês. Este número não representa um limite de chamada, mas em vez disso, um valor de débito máximo para permitir o planeamento de capacidade aproximada. O débito Efetivo e latência amplamente variam dependendo de fatores como o número e a velocidade das ligações simultâneas, o tipo e número de políticas configuradas, os tamanhos de solicitação e resposta e latência de back-end.
 
-Capacidade e o preço de cada unidade depende da **escalão** no qual existe a unidade. Pode escolher entre quatro escalões: **desenvolvedor**, **básica**, **padrão**, **Premium**. Se precisar de aumentar a capacidade para um serviço dentro de uma camada, deve adicionar uma unidade. Se a camada atualmente selecionado na sua instância APIM não permite a adição de mais unidades, terá de atualizar para um escalão de nível superior.
+Capacidade e o preço de cada unidade depende da **escalão** no qual existe a unidade. Pode escolher entre quatro escalões: **Desenvolvedor**, **básica**, **padrão**, **Premium**. Se precisar de aumentar a capacidade para um serviço dentro de uma camada, deve adicionar uma unidade. Se a camada atualmente selecionado na sua instância APIM não permite a adição de mais unidades, terá de atualizar para um escalão de nível superior.
 
 O preço de cada unidade e os recursos disponíveis (por exemplo, a implementação de várias regiões) depende do escalão que escolheu para a instância APIM. O [os detalhes dos preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explica o preço por unidade e funcionalidades que pode obter em cada escalão. 
 
@@ -45,7 +45,7 @@ Para seguir os passos deste artigo, tem de:
 
 ## <a name="upgrade-and-scale"></a>Atualizar e dimensionar  
 
-Pode escolher entre quatro escalões: **desenvolvedor**, **básica**, **padrão** e **Premium**. O **desenvolvedor** camada deve ser utilizada para avaliar o serviço; não deve ser utilizada para produção. O **desenvolvedor** escalão não tem SLA e não pode expandir este escalão (unidades de adicionar/remover). 
+Pode escolher entre quatro escalões: **Desenvolvedor**, **básica**, **padrão** e **Premium**. O **desenvolvedor** camada deve ser utilizada para avaliar o serviço; não deve ser utilizada para produção. O **desenvolvedor** escalão não tem SLA e não pode expandir este escalão (unidades de adicionar/remover). 
 
 **Básica**, **padrão** e **Premium** são os escalões de produção com o SLA e podem ser dimensionados. O **básica** camada é a camada mais barato que tem o SLA e pode ser dimensionado até 2 unidades, **padrão** camada pode ser dimensionada para até quatro unidades. Pode adicionar qualquer número de unidades para o **Premium** escalão.
 

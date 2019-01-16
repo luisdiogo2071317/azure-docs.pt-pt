@@ -3,7 +3,7 @@ title: Cópia de segurança automatizada para SQL Server 2014 máquinas virtuais
 description: Explica a funcionalidade de cópia de segurança automatizada para SQL Server 2014 VMs em execução no Azure. Este artigo é específico para VMs com o Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ca9c7611197de001265f70fd1b34314d90ee83b2
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256617"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329847"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Cópia de segurança automatizada para máquinas de virtuais do SQL Server 2014 (Resource Manager)
 
@@ -191,7 +192,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Pode demorar vários minutos para instalar e configurar o agente IaaS do SQL Server.
 
 > [!NOTE]
-> Existem outras definições para **New-AzureRmVMSqlServerAutoBackupConfig** que se apliquem apenas a v2 do SQL Server 2016 e cópia de segurança automatizada. SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**,  **FullBackupStartHour**, **FullBackupWindowInHours**, e **LogBackupFrequencyInMinutes**. Se está tentando configurar estas definições numa máquina virtual do SQL Server 2014, não há nenhum erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual do SQL Server 2016, veja [v2 de cópia de segurança automatizada para SQL Server 2016 máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup-v2.md).
+> Existem outras definições para **New-AzureRmVMSqlServerAutoBackupConfig** que se apliquem apenas a v2 do SQL Server 2016 e cópia de segurança automatizada. SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, e **LogBackupFrequencyInMinutes**. Se está tentando configurar estas definições numa máquina virtual do SQL Server 2014, não há nenhum erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual do SQL Server 2016, veja [v2 de cópia de segurança automatizada para SQL Server 2016 máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup-v2.md).
 
 Para ativar a encriptação, modifique o script anterior para passar a **EnableEncryption** parâmetro juntamente com uma palavra-passe (cadeia segura) para o **CertificatePassword** parâmetro. O seguinte script permite que as definições de cópia de segurança automatizada no exemplo anterior e adiciona a encriptação.
 
@@ -280,7 +281,7 @@ Outra opção consiste em tirar partido da funcionalidade de correio de base de 
 
 Cópia de segurança automatizada configura a cópia de segurança gerida em VMs do Azure. Portanto, é importante [reveja a documentação de cópia de segurança gerida no SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-Pode encontrar a cópia de segurança adicional e restaurar as orientações para o SQL Server em VMs do Azure no seguinte artigo: [cópia de segurança e restaurar para o SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Pode encontrar a cópia de segurança adicional e restaurar as orientações para o SQL Server em VMs do Azure no seguinte artigo: [Cópia de segurança e restauro para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

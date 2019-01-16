@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: e38aab92dccd096e639df04cc0f4cfec5ccb5bf0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 69a07499b5d29fb3b8d8473c85ca345aa7ce60ac
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650896"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330369"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster do Apache Spark no HDInsight
 
@@ -60,7 +60,7 @@ E não é escrito nenhum registo de controlador.
 1. Adicione hdiuser ao grupo de Hadoop. 
 2. Fornece 777 permissões sobre /var/log/spark após a criação do cluster. 
 3. Atualize a localização de registo do spark com o Ambari para ser um diretório com 777 permissões.  
-4. Spark de execução-submeter como sudo.  
+4. Run spark-submit as sudo.  
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Conector do Spark-Phoenix não é suportado
 

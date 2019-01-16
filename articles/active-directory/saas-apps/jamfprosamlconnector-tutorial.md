@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810819"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Active Directory do Azure com o Jamf Pro
 
@@ -151,11 +151,11 @@ Para configurar o Azure AD início de sessão único com o Jamf Pro, execute os 
 
     c. Selecione o **NameID** opção para **mapeamento de utilizadores: SAML**. Por predefinição, esta definição está definida como **NameID** , mas pode definir um atributo personalizado.
 
-    d. Selecione **E-Mail** para **mapeamento de utilizador: O JAMF PRO**. O Jamf Pro mapeia os atributos SAML enviados pelo IdP das seguintes formas: por utilizadores e grupos. Quando um usuário tenta acessar o Jamf Pro, por predefinição o Jamf Pro obtém informações sobre o utilizador a partir do fornecedor de identidade e compara com algo de contas de utilizador do Jamf Pro. Se a conta de utilizador de entrada não existir no Jamf Pro, em seguida, a correspondência de nomes de grupo ocorre.
+    d. Selecione **E-Mail** para **mapeamento de utilizador: JAMF PRO**. O Jamf Pro mapeia os atributos SAML enviados pelo IdP das seguintes formas: por utilizadores e grupos. Quando um usuário tenta acessar o Jamf Pro, por predefinição o Jamf Pro obtém informações sobre o utilizador a partir do fornecedor de identidade e compara com algo de contas de utilizador do Jamf Pro. Se a conta de utilizador de entrada não existir no Jamf Pro, em seguida, a correspondência de nomes de grupo ocorre.
 
     e. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no **o nome de ATRIBUTO de grupo** caixa de texto.
 
-7. Sobre o mesmo desloque-se de página para baixo até **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
+7. Sobre o mesmo desloque-se de página para **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 

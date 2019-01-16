@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ee99733440d74424f98a2ed16de83c88bae53ff1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188645"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321794"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
 
 A actividade de função do Azure permite-lhe executar [as funções do Azure](../azure-functions/functions-overview.md) no pipeline do Data Factory. Para executar uma função do Azure, terá de criar uma ligação de serviço ligado e uma atividade que especifica a função do Azure que pretende executar.
+
+Para uma introdução de oito minutos e uma demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
 ## <a name="azure-function-linked-service"></a>Serviço ligado de função do Azure
 

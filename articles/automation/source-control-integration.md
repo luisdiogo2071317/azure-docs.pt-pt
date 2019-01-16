@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342243"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330777"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -24,7 +24,7 @@ A automatização do Azure suporta 3 tipos de controle de origem:
 
 * GitHub
 * DevOps do Azure (Git)
-* DevOps do Azure (TFVC)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
@@ -50,15 +50,18 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controlo de origem     | Um nome amigável para o controle de origem        |
-|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> GitHub</br>DevOps do Azure (Git)</br> DevOps do Azure (TFVC)        |
+|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> GitHub</br>DevOps do Azure (Git)</br> Azure DevOps (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Este valor é extraído do repositório de controle de origem. Exemplo: $/ ContosoFinanceTFVCExample         |
-|Ramo     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
+|Branch     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks         |
 |Sincronização automática     | Folheio ou desativar a sincronização automática quando uma consolidação é efetuada no repositório de controle de origem         |
 |Publicar o Runbook     | Se definido como **no**, após os runbooks são sincronizados a partir do controlo de origem que serão publicados automaticamente.         |
 |Descrição     | Um campo de texto para fornecer detalhes adicionais        |
 
 ![Resumo de controlo de origem](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Certifique-se de que iniciou sessão com a conta correta quando configurar o controlo de origem. Se houver dúvida, abra um novo separador no seu browser e terminar sessão da visualstudio.com ou github.com e tente novamente a ligação de controlo de origem.
 
 ## <a name="syncing"></a>A sincronizar
 
@@ -112,12 +115,12 @@ Controlo de origem requer algumas permissões mínimas para tokens de acesso pes
 |Âmbito  |Descrição  |
 |---------|---------|
 |**repo** (repositório)     |         |
-|Estado de repositório:     | Estado de consolidação de acesso         |
+|repo:status     | Estado de consolidação de acesso         |
 |repo_deployment      | Estado de implementação de acesso         |
 |public_repo     | Repositórios públicos de acesso         |
-|**Admin: repo_hook**     |         |
-|escrita: repo_hook     | Escrever ganchos de repositório         |
-|leitura: repo_hook|Leia os ganchos de repositório|
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Escrever ganchos de repositório         |
+|read:repo_hook|Leia os ganchos de repositório|
 
 ### <a name="azure-devops"></a>DevOps do Azure
 

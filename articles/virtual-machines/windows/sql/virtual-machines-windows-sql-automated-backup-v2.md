@@ -3,7 +3,7 @@ title: Automatizada v2 de cópia de segurança para VMs do Azure do SQL Server 2
 description: Explica a funcionalidade de cópia de segurança automatizada para SQL Server 2016/2017 VMs em execução no Azure. Este artigo é específico para VMs com o Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246825"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331660"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Resource Manager)
 
@@ -41,8 +42,8 @@ Para utilizar a cópia de segurança automatizada v2, reveja os seguintes pré-r
 
 **Versão/edição do SQL Server**:
 
-- Do SQL Server 2016: Programador, Standard ou Enterprise
-- Do SQL Server 2017: Programador, Standard ou Enterprise
+- SQL Server 2016: Programador, Standard ou Enterprise
+- SQL Server 2017: Programador, Standard ou Enterprise
 
 > [!IMPORTANT]
 > V2 de cópia de segurança automatizada funciona com o SQL Server 2016 ou superior. Se estiver a utilizar o SQL Server 2014, pode utilizar a cópia de segurança automatizada v1 para fazer backup de seus bancos de dados. Para obter mais informações, consulte [cópia de segurança automatizada para SQL Server 2014 máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
@@ -73,7 +74,7 @@ A tabela seguinte descreve as opções que podem ser configuradas para cópia de
 
 | Definição | Intervalo (predefinição) | Descrição |
 | --- | --- | --- |
-| **Cópias de segurança do sistema da base de dados** | Ativar/desativar (desativado) | Quando ativada, esta funcionalidade também cria cópias de segurança de bases de dados do sistema: mestre, MSDB e Model. Para as bases de dados MSDB e Model, certifique-se de que estão no modo de recuperação completo se pretender que os backups de log a tomar. Backups de log nunca serão direcionados para o mestre. E não existem cópias de segurança são encaminhadas para TempDB. |
+| **Cópias de segurança do sistema da base de dados** | Ativar/desativar (desativado) | Quando ativada, esta funcionalidade também cria cópias de segurança de bases de dados do sistema: Mestre, MSDB e Model. Para as bases de dados MSDB e Model, certifique-se de que estão no modo de recuperação completo se pretender que os backups de log a tomar. Backups de log nunca serão direcionados para o mestre. E não existem cópias de segurança são encaminhadas para TempDB. |
 | **Agenda de cópia de segurança** | Manual/automatizada (automatizada) | Por predefinição, a agenda de cópia de segurança é determinada automaticamente com base no crescimento do registo. Agenda de cópia de segurança manual permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem a frequência especificada e durante a janela de tempo especificado de um determinado dia. |
 | **Frequência de cópia de segurança completa** | Diários/semanais | Frequência de cópias de segurança completas. Em ambos os casos, as cópias de segurança completas começarem durante a próxima janela de tempo agendado. Quando é selecionado semanais, cópias de segurança foi de duram vários dias até que todas as bases de dados com êxito efetuou uma cópia. |
 | **Hora de início de cópia de segurança completa** | 00:00 – 23:00 (01:00) | Hora de início da determinado dia durante os quais podem ocorrer as cópias de segurança completas. |
@@ -89,8 +90,8 @@ Tem uma VM do SQL Server que contém um número de bases de dados grandes.
 Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes definições:
 
 - Agenda de cópia de segurança: **Manual**
-- Total de frequência de cópia de segurança: **semanal**
-- Total de hora de início de cópia de segurança: **01:00**
+- Frequência de cópia de segurança completa: **Semanal**
+- Hora de início de cópia de segurança completa: **01:00**
 - Janela de tempo de cópia de segurança completa: **1 hora**
 
 Isso significa que a próxima janela de backup disponível é Terça-feira às AM de 1 para 1 hora. Nessa altura, a cópia de segurança automatizada começa a cópia de segurança das suas bases de dados, um por vez. Neste cenário, as suas bases de dados são suficientemente grandes para que as cópias de segurança completas concluam das bases de dados de algumas primeiro. No entanto, depois de uma hora nem todas as bases de dados tem sido submetidas a backup.
@@ -107,8 +108,8 @@ Tem uma VM do SQL Server que contém um número de bases de dados grandes.
 Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes definições:
 
 - Agenda de cópia de segurança: Manual
-- Total de frequência de cópia de segurança: diária
-- Total de hora de início de cópia de segurança: 22:00
+- Frequência de cópia de segurança completa: Diariamente
+- Hora de início de cópia de segurança completa: 22:00
 - Janela de tempo de cópia de segurança completa: 6 horas
 
 Isso significa que a próxima janela de backup disponível é a segunda-feira às 22:00 durante 6 horas. Nessa altura, a cópia de segurança automatizada começa a cópia de segurança das suas bases de dados, um por vez.
@@ -331,7 +332,7 @@ Outra opção consiste em tirar partido da funcionalidade de correio de base de 
 ## <a name="next-steps"></a>Passos Seguintes
 V2 de cópia de segurança automatizada configura a cópia de segurança gerida em VMs do Azure. Portanto, é importante [reveja a documentação de cópia de segurança gerida](https://msdn.microsoft.com/library/dn449496.aspx) para compreender o comportamento e as implicações.
 
-Pode encontrar a cópia de segurança adicional e restaurar as orientações para o SQL Server em VMs do Azure no seguinte artigo: [cópia de segurança e restaurar para o SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Pode encontrar a cópia de segurança adicional e restaurar as orientações para o SQL Server em VMs do Azure no seguinte artigo: [Cópia de segurança e restauro para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

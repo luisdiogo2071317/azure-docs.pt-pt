@@ -3,7 +3,7 @@ title: Automatizar tarefas de gestão em VMs do SQL (Resource Manager) | Documen
 description: Este artigo descreve como gerir a extensão de agente do SQL Server, que automatiza tarefas de administração do SQL Server específicas. Estes incluem a cópia de segurança automatizada, a aplicação de patches automatizada e integração do Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.openlocfilehash: 3d2873d83274e4f9bfd8aee7668162237083f452
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303059"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329322"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]

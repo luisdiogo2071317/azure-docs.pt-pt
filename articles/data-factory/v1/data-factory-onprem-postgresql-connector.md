@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025713"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331882"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-postgresql-connector.md)
 > * [Versão 2 (versão atual)](../connector-postgresql.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "54025713"
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados do PostgreSQL no local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
-Pode copiar dados de um arquivo de dados do PostgreSQL no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, veja [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). O Data factory suporta, atualmente, mover dados de uma base de dados do PostgreSQL para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para uma base de dados PostgreSQL. 
+Pode copiar dados de um arquivo de dados do PostgreSQL no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, veja [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). O Data factory suporta, atualmente, mover dados de uma base de dados do PostgreSQL para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para uma base de dados PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,10 +46,10 @@ Gateway é necessário mesmo se a base de dados do PostgreSQL está hospedado nu
 Para o Data Management Gateway ligar à base de dados do PostgreSQL, instalar o [Ngpsql o fornecedor de dados para o PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) com a versão 2.0.12 mezi 3.1.9 no mesmo sistema, como o Data Management Gateway. PostgreSQL versão 7.4 e acima é suportada.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do PostgreSQL no local através de APIs/ferramentas diferentes. 
+Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do PostgreSQL no local através de APIs/ferramentas diferentes.
 
-- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: 
+- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+- Também pode utilizar as seguintes ferramentas para criar um pipeline:
     - Portal do Azure
     - Visual Studio
     - Azure PowerShell
@@ -57,15 +57,15 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
     - API .NET
     - API REST
 
-     Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+    Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
 1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
-2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do PostgreSQL no local, consulte [exemplo de JSON: Copiar dados do PostgreSQL para BLOBs do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON. Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do PostgreSQL no local, consulte [exemplo de JSON: Copiar dados do PostgreSQL para BLOBs do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para um arquivo de dados do PostgreSQL:
 
@@ -77,7 +77,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | tipo |A propriedade de tipo tem de ser definida como: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
-| esquema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
+| schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
@@ -104,14 +104,14 @@ Quando a origem é do tipo **RelationalSource** (que inclui o PostgreSQL), as se
 | consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 > [!NOTE]
-> Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.  
+> Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.
 
 **Exemplo:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo JSON: Copiar dados do PostgreSQL para BLOBs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.   
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
@@ -153,10 +153,10 @@ Como primeiro passo, configure o gateway de gestão de dados. As instruções es
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        }
     }
 }
 ```
@@ -307,22 +307,22 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 | Tipo de base de dados PostgreSQL | Aliases de PostgresSQL | Tipo de .NET framework |
 | --- | --- | --- |
 | abstime | |Datetime | &nbsp;
-| bigint |Int8 |Int64 |
+| bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte [], cadeia de caracteres | &nbsp;
-| bit variado [(n)] |varbit |Byte [], cadeia de caracteres |
+| bit [(n)] | |Byte[], String | &nbsp;
+| bit variado [(n)] |varbit |Byte[], String |
 | boolean |Bool |Booleano |
-| Caixa | |Byte [], cadeia de caracteres |&nbsp;
-| bytea | |Byte [], cadeia de caracteres |&nbsp;
+| Caixa | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | caráter [(n)] |char [(n)] |Cadeia |
 | caráter variados [(n)] |varchar [(n)] |Cadeia |
 | CID | |Cadeia |&nbsp;
-| CIDR | |Cadeia |&nbsp;
-| Círculo | |Byte [], cadeia de caracteres |&nbsp;
+| cidr | |Cadeia |&nbsp;
+| Círculo | |Byte[], String |&nbsp;
 | date | |Datetime |&nbsp;
 | daterange | |Cadeia |&nbsp;
-| precisão dupla |FLOAT8 |Valor de duplo |
-| inet | |Byte [], cadeia de caracteres |&nbsp;
+| precisão dupla |float8 |Valor de duplo |
+| inet | |Byte[], String |&nbsp;
 | intarry | |Cadeia |&nbsp;
 | int4range | |Cadeia |&nbsp;
 | int8range | |Cadeia |&nbsp;
@@ -330,18 +330,18 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 | intervalo de [campos] [(p)] | |Timespan |&nbsp;
 | json | |Cadeia |&nbsp;
 | jsonb | |Byte[] |&nbsp;
-| Linha | |Byte [], cadeia de caracteres |&nbsp;
-| lseg | |Byte [], cadeia de caracteres |&nbsp;
-| macaddr | |Byte [], cadeia de caracteres |&nbsp;
+| Linha | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
 | dinheiro | |Decimal |&nbsp;
 | numérico [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Cadeia |&nbsp;
 | OID | |Int32 |&nbsp;
-| caminho | |Byte [], cadeia de caracteres |&nbsp;
+| caminho | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| Ponto de | |Byte [], cadeia de caracteres |&nbsp;
-| Polígono | |Byte [], cadeia de caracteres |&nbsp;
-| real |FLOAT4 |Único |
+| point | |Byte[], String |&nbsp;
+| Polígono | |Byte[], String |&nbsp;
+| real |float4 |Único |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | série |serial4 |Int32 |

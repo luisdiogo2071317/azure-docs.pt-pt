@@ -1,18 +1,18 @@
 ---
 title: Executar o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure | Documentos da Microsoft
 description: Este artigo descreve como executar o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 4aec31acf5a279f5ac887788d7e1554c31dfe342
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846628"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321182"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementação do Azure Site Recovery para recuperação após desastre de Hyper-V para o Azure
 
@@ -38,15 +38,15 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | O nome de utilizador para ligar ao anfitrião Hyper-V ou cluster Hyper-V. O utilizador tem de ter acesso administrativo.|
-| -ServerListFile | O ficheiro com a lista de servidores que contém as VMs das quais criar o perfil. O caminho do ficheiro pode ser absoluto ou relativo. Este ficheiro deve conter um dos seguintes em cada linha:<ul><li>Nome de anfitrião do Hyper-V ou endereço IP</li><li>Nome de cluster do Hyper-V ou endereço IP</li></ul><br>**Exemplo:** o ficheiro ServerList.txt contém os servidores seguintes:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | O ficheiro com a lista de servidores que contém as VMs das quais criar o perfil. O caminho do ficheiro pode ser absoluto ou relativo. Este ficheiro deve conter um dos seguintes em cada linha:<ul><li>Nome de anfitrião do Hyper-V ou endereço IP</li><li>Nome de cluster do Hyper-V ou endereço IP</li></ul><br>**Exemplo:** Ficheiro ServerList. txt contém os seguintes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) A convenção de nomenclatura universal (UNC) ou o caminho do diretório local para armazenar os dados gerados durante esta operação. Se não for especificado um nome, o diretório com o nome ProfiledData no caminho atual é utilizado como diretório predefinido.|
 |-OutputFile| (Opcional) O ficheiro com a lista de VMs obtida dos servidores de Hyper-V é guardado. Se um nome não for mencionado, os detalhes são armazenados em VMList.txt.  Utilize o ficheiro para iniciar a criação de perfis depois de remover as VMs que não precisam de ter o perfil criado.|
 |-Password|(Opcional) A palavra-passe para ligar ao anfitrião Hyper-V. Se não o especificar como um parâmetro, ser-lhe-á solicitado quando executar o comando.|
 
 ### <a name="getvmlist-discovery"></a>Deteção de GetVMList
 
-- **Cluster Hyper-V**: quando o nome do cluster Hyper-V é fornecido no ficheiro da lista de servidores, a ferramenta encontra todos os nós Hyper-V do cluster e obtém as VMs presentes em cada anfitrião Hyper-V.
-**Anfitrião Hyper-V**: quando é fornecido o nome do anfitrião Hyper-V, a ferramenta verifica primeiro se pertence a um cluster. Se sim, a ferramenta obtém os nós que pertencem ao cluster. Em seguida, obtém as VMs de cada anfitrião do Hyper-V. 
+- **Cluster Hyper-V**: Quando o nome do cluster Hyper-V é fornecido no ficheiro de lista do servidor, a ferramenta encontra todos os nós de Hyper-V do cluster e obtém as VMs presentes em cada dos anfitriões do Hyper-V.
+**Anfitrião Hyper-V**: Quando recebe o nome de anfitrião do Hyper-V, a ferramenta verifica primeiro se pertence a um cluster. Se sim, a ferramenta obtém os nós que pertencem ao cluster. Em seguida, obtém as VMs de cada anfitrião do Hyper-V. 
 
 Também pode escolher listar, num ficheiro, os nomes amigáveis ou os endereços IP das VMs para as quais quer criar perfis manualmente.
 
@@ -87,7 +87,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | O nome de utilizador para ligar ao anfitrião Hyper-V ou cluster Hyper-V. O utilizador tem de ter acesso administrativo.|
-| -VMListFile | O ficheiro com a lista de VMs para as quais criar perfis. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** o ficheiro VMList.txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | O ficheiro com a lista de VMs para as quais criar perfis. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** Vmlist. txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|O número de minutos durante os quais a criação de perfis será executada. O mínimo é de 30 minutos.|
 |-NoOfHoursToProfile|O número de horas durante os quais a criação de perfis será executada.|
 |-NoOfDaysToProfile |O número de dias durante os quais a criação de perfis será executada. Recomendamos que execute a criação de perfis por mais de 7 dias. Esta duração ajuda a garantir que o padrão da carga de trabalho no seu ambiente ao longo do período especificado é respeitado e utilizado para proporcionar uma recomendação precisa.|
@@ -167,7 +167,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | Nome do parâmetro | Descrição |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | O ficheiro que contém a lista de VMs para as quais foram criados perfis e para as quais o relatório será gerado. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** o ficheiro VMList.txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | O ficheiro que contém a lista de VMs para as quais foram criados perfis e para as quais o relatório será gerado. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** Vmlist. txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|O tipo de virtualização (VMware ou Hyper-V).|
 |-Directory|(Opcional) O caminho UNC ou o caminho do diretório local onde são armazenados os dados da criação de perfis (ficheiros gerados durante a criação de perfis). Estes dados são necessários para gerar o relatório. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 | -User | (Opcional) O nome de utilizador para ligar ao anfitrião Hyper-V ou cluster Hyper-V. O utilizador tem de ter acesso administrativo. O utilizador e a palavra-passe são utilizados para obter as últimas informações de configuração das VMs (como o número de discos, núcleos e NICs) a utilizar no relatório. Se este valor não for indicado, são utilizadas as informações de configuração recolhidas durante a criação de perfis.|
@@ -177,7 +177,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -StartDate | (Opcional) A data e hora de início, no formato MM-DD-AAAA:HH:MM (24 horas). StartDate tem de ser especificado juntamente com EndDate. Se StartDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
 | -EndDate | (Opcional) A data e hora de fim, no formato MM-DD-AAAA:HH:MM (24 horas). EndDate tem de ser especificado juntamente com StartDate. Se EndDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expresso em percentagem. A predefinição é 30 por cento. |
-| -UseManagedDisks | (Opcional) UseManagedDisks: Sim/Não. A predefinição é Sim. O número de máquinas virtuais que podem ser colocadas numa única conta de armazenamento é calculado consoante a ativação pós-falha/ativação pós-falha de teste de máquinas virtuais seja realizada num disco gerido, em vez de num disco não gerido. |
+| -UseManagedDisks | (Opcional) UseManagedDisks: Sim/não. A predefinição é Sim. O número de máquinas virtuais que podem ser colocadas numa única conta de armazenamento é calculado consoante a ativação pós-falha/ativação pós-falha de teste de máquinas virtuais seja realizada num disco gerido, em vez de num disco não gerido. |
 |-SubscriptionId |(Opcional) A GUID da subscrição. Utilize este parâmetro para gerar o relatório de estimativa de custos com o preço mais recente com base na sua subscrição, na oferta que está associada à sua subscrição e na região de destino do Azure na moeda especificada.|
 |-TargetRegion|(Opcional) A região do Azure para onde está direcionada a replicação. Dado que o Azure tem custos diferentes por região, para gerar um relatório com uma região de destino do Azure específica, utilize este parâmetro. A predefinição é euaoeste2 ou a última região de destino utilizada. Consulte a lista de [regiões de destino suportadas](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada à subscrição. A Predefinição é MS-AZR-0003P (Pay As You Go).|
@@ -278,7 +278,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Directory|(Opcional) O caminho UNC ou o caminho do diretório local onde são armazenados os dados da criação de perfis (ficheiros gerados durante a criação de perfis). Estes dados são necessários para gerar o relatório. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
 | -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Definições** > **Chaves de Acesso** > **Chave1**.|
-| -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** o ficheiro VMList.txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** Vmlist. txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando a região do Azure de destino for Azure US Government ou Azure China.|
 
 ### <a name="example"></a>Exemplo

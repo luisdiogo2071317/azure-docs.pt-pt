@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018233"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330811"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-file-system-connector.md)
 > * [Versão 2 (versão atual)](../connector-file-system.md)
 
@@ -41,7 +41,7 @@ Pode copiar dados de arquivos de dados seguintes **para um sistema de ficheiros 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline. 
+> Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline.
 
 ## <a name="enabling-connectivity"></a>Ativar a conectividade
 Fábrica de dados suporta a ligação de e para um sistema de ficheiros no local através de **Data Management Gateway**. Tem de instalar o Data Management Gateway no seu ambiente no local para o serviço fábrica de dados ligar a nenhum repositório de dados local suportada, incluindo o sistema de ficheiros. Para saber mais sobre o Gateway de gestão de dados e para obter instruções passo a passo sobre como configurar o gateway, veja [mover dados entre origens no local e a nuvem com o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Para além dos Data Management Gateway, não existem outros arquivos binários precisam ser instalados para comunicar de e para um sistema de ficheiros no local. Tem de instalar e utilizar o Gateway de gestão de dados, mesmo que o sistema de ficheiros é na VM de IaaS do Azure. Para obter informações detalhadas sobre o gateway, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
@@ -57,7 +57,7 @@ Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
-1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines. 
+1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines.
 2. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados. Por exemplo, se estiver a copiar dados de um armazenamento de Blobs do Azure para um sistema de ficheiros no local, crie dois serviços ligados para ligar o seu sistema de ficheiros no local e a conta de armazenamento do Azure à fábrica de dados. Para as propriedades do serviço ligado que são específicas para um sistema de ficheiros no local, consulte [propriedades do serviço ligado](#linked-service-properties) secção.
 3. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. O exemplo mencionado no último passo, vai criar um conjunto de dados para especificar o contentor de BLOBs e a pasta que contém os dados de entrada. Além disso, crie outro conjunto de dados para especificar a pasta e o nome de ficheiro (opcional) no seu sistema de ficheiros. Para as propriedades do conjunto de dados que são específicas para o sistema de ficheiros no local, consulte [propriedades do conjunto de dados](#dataset-properties) secção.
 4. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, vai utilizar BlobSource como uma origem e FileSystemSink como sink para a atividade de cópia. Da mesma forma, se estiver a copiar do sistema de arquivos no local para o armazenamento de Blobs do Azure, utilize FileSystemSource e BlobSink a atividade de cópia. Para propriedades de atividade de cópia que são específicas para o sistema de ficheiros no local, consulte [propriedades da atividade copy](#copy-activity-properties) secção. Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, clique na ligação na secção anterior para seu armazenamento de dados.
@@ -83,7 +83,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 | Cenário | Alojar na definição de serviço ligado | folderPath na definição do conjunto de dados |
 | --- | --- | --- |
 | Pasta local no computador Gateway de gestão de dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\* |D:\\ \\ (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/> host local (para versões anteriores que o Data Management Gateway 2.0) |. \\ \\ ou pasta\\\\subpasta (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/>D:\\ \\ ou d:\\\\pasta\\\\subpasta (para a versão do gateway abaixo 2.0) |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\MyServer\\\\partilhar |. \\ \\ ou pasta\\\\subpasta |
+| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\myserver\\\\share |. \\ \\ ou pasta\\\\subpasta |
 
 >[!NOTE]
 >Durante a criação de através da interface do Usuário, não precisa de barra invertida duplo de entrada (`\\`) para o escape tal como faz via JSON, especifique a barra invertida única.
@@ -129,7 +129,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados. Ele 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape '\' para carateres especiais na cadeia de caracteres. Não é suportado o filtro de carateres universais. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
-| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Não |
+| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. <br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: "fileFilter": "*. log"<br/>Exemplo 2: "fileFilter": -1 - de 2014?. txt"<br/><br/>Tenha em atenção que fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. |Não |
 | partitionedBy |Pode usar partitionedBy para especificar um folderPath/nome de ficheiro dinâmica para dados de séries temporais. Um exemplo é folderPath parametrizado por cada hora de dados. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
@@ -161,7 +161,7 @@ Neste exemplo, {setor} é substituído pelo valor da variável de sistema SliceS
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -254,7 +254,7 @@ Recomendamos que utilize o **encryptedCredential** propriedade em vez disso, o *
 
 **Conjunto de dados de entrada de sistema de ficheiros no local:**
 
-Dados são captados um novo ficheiro a cada hora. As propriedades de folderPath e nome de ficheiro são determinadas com base na hora de início do setor.  
+Dados são captados um novo ficheiro a cada hora. As propriedades de folderPath e nome de ficheiro são determinadas com base na hora de início do setor.
 
 Definição `"external": "true"` informa a fábrica de dados que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
@@ -383,13 +383,13 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
 O pipeline contém uma atividade de cópia que está configurada para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **FileSystemSource**, e **sink** tipo está definido como **BlobSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ Dados são copiados para um novo ficheiro a cada hora. O nome de ficheiro para o
 O pipeline contém uma atividade de cópia que está configurada para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **SqlSource**e o **sink** tipo está definido como **FileSystemSink**. A consulta SQL especificado para o **SqlReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink na definição da atividade de cópia. Para obter detalhes, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 

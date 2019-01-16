@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 5af1d91a51b090821b5bbb314834db0d5cbe6a26
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ada31066b905ca4335acf78ae87534e4c359651
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607753"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331865"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gerir o acesso de utilizador com as revisões de acesso do Azure AD
 
@@ -44,11 +44,11 @@ Uma revisão de acesso pode ter um ou mais utilizadores como revisores.
 
 2. Decida se quer que cada utilizador faça a revisão do seu próprio acesso ou se quer ter um ou mais utilizadores incumbidos de rever o acesso de todos os utilizadores.
 
-3. Ative as revisões de acesso de modo a serem apresentadas nos painéis de acesso do revisor. Como administrador global ou administrador de conta de utilizador, aceda à [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Como administrador global ou administrador de conta de utilizador, aceda à [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Inicie a revisão de acesso. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+4. Crie a revisão de acesso. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
 
-5. Peça aos revisores para darem o seu parecer. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde [realizam a revisão de acesso](perform-access-review.md).
+5. Quando a revisão de acesso é iniciado, pedir os revisores para dar entrada. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde [realizam a revisão de acesso](perform-access-review.md).
 
 6. Se os revisores não tiverem dado o seu parecer, pode pedir ao Azure AD para lhes enviar um lembrete. Por predefinição, o Azure AD envia automaticamente um lembrete aos revisores que ainda não responderam a meio do prazo para a data de fim.
 

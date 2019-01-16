@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021123"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331814"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -86,7 +86,7 @@ Pode instalar o runtime de integração autoalojado ao transferir um pacote de i
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Instalar e registar o runtime de integração autoalojado do Centro de Download
 
 1. Vá para o [página de download do Microsoft integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Selecione **baixe**, selecione a versão adequada (**32-bit** ou **64-bit**) e selecione **seguinte**.
+2. Selecione **baixe**, selecione a versão de 64 bits (32 bits não é suportado) e selecione **próxima**.
 3. Execute o ficheiro MSI diretamente, ou guardá-lo no seu disco rígido e executá-lo.
 4. Sobre o **bem-vindo** página, selecione um idioma e selecione **próxima**.
 5. Aceite os termos de licença de Software da Microsoft e selecione **seguinte**.

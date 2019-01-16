@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
-ms.openlocfilehash: 0926859037c358aaf94ec51d9614cc9c02629e7f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7f1b84f62bae3640e7ac20c2e4a395033d1d687c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451940"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319359"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o agente do Linux do Azure numa VM
 
@@ -315,7 +315,7 @@ zypper info python-azure-agent
 
 #### <a name="check-available-updates"></a>Verificar as atualizações disponíveis
 
-No resultado de acima, este mostrará se o pacote está atualizada.
+No resultado de acima, este mostrará se o pacote está atualizado.
 
 #### <a name="install-the-latest-package-version"></a>Instalar a versão mais recente do pacote
 

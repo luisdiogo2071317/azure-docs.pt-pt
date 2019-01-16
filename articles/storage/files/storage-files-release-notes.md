@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 87e6f2c956766011adef23ce9a8565625483a244
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635549"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321539"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,25 +25,25 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Rollup de - de atualização de Dezembro [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de Dezembro de 2018 | Suportado (versão recomendada) |
-| Pacote cumulativo de atualizações de Dezembro | 4.1.0.0 | 4 de Dezembro de 2018 | Suportadas |
+| Rollup de - de atualização de Janeiro de 2019 [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 de Janeiro de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Dezembro de 2018 [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de Dezembro de 2018 | Suportadas |
+| Pacote cumulativo de atualizações de Dezembro de 2018 | 4.1.0.0 | 4 de Dezembro de 2018 | Suportadas |
 | Versão de v4 | 4.0.1.0 | 13 de Novembro de 2018 | Suportadas |
-| Pacote cumulativo de atualizações de Setembro | 3.3.0.0 | 24 de setembro de 2018 | Suportadas |
-| Pacote cumulativo de atualizações de Agosto | 3.2.0.0 | 15 de agosto de 2018 | Suportadas |
+| Pacote cumulativo de atualizações de Setembro de 2018 | 3.3.0.0 | 24 de setembro de 2018 | Suportadas |
+| Pacote cumulativo de atualizações de Agosto de 2018 | 3.2.0.0 | 15 de agosto de 2018 | Suportadas |
 | Disponibilidade geral | 3.1.0.0 | 19 de Julho de 2018 | Suportadas |
-| Rollup de atualização de Junho | 3.0.13.0 | 29 de Junho de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Atualização 2 | 3.0.12.0 | 22 de maio de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Rollup de atualização de Abril | 2.3.0.0 | 8 de Maio de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Pacote cumulativo de atualizações de Março | 2.2.0.0 | 12 de Março de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Pacote cumulativo de atualizações de Fevereiro | 2.1.0.0 | 28 de fevereiro de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Atualização 1 | 2.0.11.0 | 8 de fevereiro de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Pacote cumulativo de atualizações de Janeiro | 1.4.0.0 | 8 de Janeiro de 2018 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Update rollup de Novembro | 1.3.0.0 | 30 de Novembro de 2017 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Pacote cumulativo de atualizações de Outubro | 1.2.0.0 | 31 de outubro de 2017 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
-| Versão de pré-visualização inicial | 1.1.0.0 | 26 de setembro de 2017 | Não suportado - a expirou de versão do agente de 1 de Outubro de 2018 |
+| Agentes expiradas | 1.1.0.0 - 3.0.13.0 | N/A | Não suportado - a expirou de versões do agente de 1 de Outubro de 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4300"></a>Versão do agente 4.3.0.0
+As notas de versão seguintes destinam-se a versão 4.3.0.0 do agente do Azure File Sync disponibilizada 14 de Janeiro de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 4.0.1.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Ficheiros não são dispostos em camadas após atualizar o agente de sincronização de ficheiros do Azure para a versão 4.x.
+- AfsUpdater.exe é agora suportado no Windows Server 2019.
+- Melhorias de confiabilidade de diversos para sincronização. 
 
 ## <a name="agent-version-4200"></a>Versão do agente 4.2.0.0
 As notas de versão seguintes destinam-se a versão 4.2.0.0 do agente do Azure File Sync disponibilizada 10 de Dezembro de 2018. Estas notas são adicionais as notas de versão enumeradas para a versão 4.0.1.0.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230378"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330680"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -469,7 +469,10 @@ Esta é uma lista dos formatos de áudio suportados que são enviados em cada pe
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Texto é enviado como o corpo de um HTTP `POST` pedido. Pode ser texto simples (ASCII ou UTF-8) ou [Speech Synthesis Markup Language](speech-synthesis-markup.md) formato de (SSML) (UTF-8). Pedidos de texto simples de utilizar voz de padrão do serviço de voz e linguagem. Com SSML pode especificar a voz e linguagem.
+O corpo de cada `POST` solicitação é enviada como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML permite-lhe escolher a voz e idioma de fala sintetizada, devolvido pelo serviço de texto para voz. Para obter uma lista completa de vozes suportados, consulte [suporte de idiomas](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Se utilizar uma voz personalizada, o corpo de um pedido pode ser enviado como texto simples (ASCII ou UTF-8).
 
 ### <a name="sample-request"></a>Pedido de exemplo
 

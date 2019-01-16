@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122841"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54314094"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento. 
 
@@ -108,9 +108,9 @@ Máquinas de virtuais de série NDv2 é uma nova adição à família de GPU con
 <br>
 
 
-| Tamanho              | da vCPU | GPU              | Memória  | NICs (Máx) | Um máximo de Tamanho do disco           | Um máximo de discos de dados (1023 GB cada) | Largura de banda de rede de máx. | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 giB | 8          | 1344 temporária / 2948XIO | 32    | 24.000 Mbps             | 
+| Tamanho              | vCPU | GPU              | Memória  | NICs (Máx) | Um máximo de Tamanho do disco           | Um máximo de discos de dados (1023 GB cada) | Largura de banda de rede de máx. | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | 24.000 Mbps           |
 
 ## <a name="nd-series"></a>Série ND
 
@@ -129,7 +129,7 @@ As máquinas de virtuais de série ND são que uma novidade na família de GPU c
 | Standard_ND6s |6 |112 | 736 | 1 | 24 | 12 | 4 |
 | Standard_ND12s |12 |224 | 1474 | 2 | 48 | 24 | 8 | 
 | Standard_ND24s |24 |448 | 2948 | 4 | 96 | 32 | 8 |
-| Standard_ND24rs * |24 |448 | 2948 | 4 | 96 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 96 | 32 | 8 |
 
 1 GPU = um cartão de P40.
 

@@ -1,23 +1,23 @@
 ---
-title: Utilizadores, grupos, licenciamento e funções para grandes organizações no Azure Active Directory | Microsoft Docs
+title: Os utilizadores, grupos, licenciamento e descrição geral de funções - Azure Active Directory | Documentos da Microsoft
 description: A relação entre utilizadores e licenças atribuídas, funções de administrador, adesão a grupos no Azure Active Directory
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 01/14/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 7f588766ead19f2cbca22aab596e6dc9d0210791
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: HT
+ms.openlocfilehash: 2689ec400b7d29c9f086481056e5f554d7fde95a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019927"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321964"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilizadores, grupos, licenciamento e funções para grandes organizações
 
@@ -68,7 +68,7 @@ O Azure AD também oferece um controle granular dos dados que fluem entre a apli
 * Iniciar e parar o serviço de aprovisionamento do Azure AD para uma aplicação, limpar a cache de ou reiniciar o serviço
 * Ver o **Relatório de atividades de aprovisionamento** que fornece um registo de todos os utilizadores e grupos criados, atualizados e removidos entre o Azure AD e a aplicação, e o **relatório de erros de aprovisionamento** que fornece mensagens de erro mais detalhadas
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se for um administrador principiante do Azure AD, conheça os princípios básicos em [Noções Básicas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 

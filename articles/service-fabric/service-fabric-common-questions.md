@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537635"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320604"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -56,7 +56,7 @@ Para os clusters que não são executados no Azure, temos [fornecido um aplicati
 
 **Resposta de curta** - não. 
 
-**Há muito tempo a responder** – embora os conjuntos de dimensionamento de máquinas virtuais de grande permitem-lhe dimensionar uma máquina virtual de instâncias de VM de até 1000 de conjunto de dimensionamento, isso é feito pelo uso de grupos de colocação (PGs). Domínios de falha (FDs) e domínios de atualização (UDs) só são consistentes dentro de uma colocação grupo Service fabric utiliza domínios de falha e domínios de atualização para tomar decisões de colocação das suas instâncias de serviço/réplicas do serviço. Uma vez que os domínios de falha e domínios de atualização são comparáveis apenas dentro de um grupo de colocação, SF não é possível usá-lo. Por exemplo, se a VM1 no PG1 tiver uma topologia de FD = 0 e VM9 no PG2 tem uma topologia de FD = 4, não significa que VM1 e VM2 estiverem em dois Racks de Hardware diferentes, que, por conseguinte, SF não é possível utilizar os valores de FD nesse caso para tomar decisões de colocação.
+**Há muito tempo a responder** – embora os conjuntos de dimensionamento de máquinas virtuais de grande permitem-lhe dimensionar uma máquina virtual até 1000 instâncias de VM do conjunto de dimensionamento, isso é feito pelo uso de grupos de colocação (PGs). Domínios de falha (FDs) e domínios de atualização (UDs) só são consistentes dentro de uma colocação grupo Service fabric utiliza domínios de falha e domínios de atualização para tomar decisões de colocação das suas instâncias de serviço/réplicas do serviço. Uma vez que os domínios de falha e domínios de atualização são comparáveis apenas dentro de um grupo de colocação, SF não é possível usá-lo. Por exemplo, se a VM1 no PG1 tiver uma topologia de FD = 0 e VM9 no PG2 tem uma topologia de FD = 4, não significa que VM1 e VM2 estiverem em dois Racks de Hardware diferentes, que, por conseguinte, SF não é possível utilizar os valores de FD nesse caso para tomar decisões de colocação.
 
 Existem outros problemas com conjuntos de dimensionamento de máquinas virtuais de grande atualmente, como a falta de nível 4 de suporte de balanceamento de carga. Consulte para [detalhes em grandes conjuntos de dimensionamento](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 

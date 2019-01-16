@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201317"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332256"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
 
@@ -76,7 +76,7 @@ Temos uma pré-visualização privada para uma cópia de segurança do SAP HANA 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como posso decidir se pretende restaurar discos apenas ou uma VM completa?
 Considere um restauro de VM como uma opção de criação rápida para uma VM do Azure. Esta opção alterações de nomes de disco, contentores utilizados pelos discos, endereços IP públicos e os nomes de interface de rede. A alteração mantém recursos exclusivos, quando é criada uma VM. A VM não é adicionada a um conjunto de disponibilidade.
 
-A opção de disco restauro, se quiser:
+Pode utilizar a opção de disco de restauro para:
   * Personalize as VMS que são criadas. Por exemplo, altere o tamanho.
   * Adicionar definições de configuração que não estavam lá no momento da cópia de segurança
   * Controle a Convenção de nomenclatura para recursos que são criados.

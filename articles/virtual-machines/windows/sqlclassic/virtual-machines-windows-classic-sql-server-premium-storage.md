@@ -3,7 +3,7 @@ title: Utilizar o armazenamento Premium do Azure com o SQL Server | Documentos d
 description: Este artigo utiliza recursos criados com o modelo de implementação clássica e fornece orientações sobre como utilizar o armazenamento Premium do Azure com o SQL Server em execução em máquinas de virtuais do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
-ms.author: jroth
-ms.openlocfilehash: 0b7e7f43724b3facd04b8da05ca054fd5ea0022b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317761"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332171"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral
@@ -41,7 +42,7 @@ Este artigo fornece orientações para migrar uma Máquina Virtual com o SQL Ser
 
 Para obter mais informações sobre o SQL Server em máquinas de virtuais do Azure, consulte [SQL Server em máquinas de virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-**Autor:** Daniel Sol **revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
+**Autor:** Daniel Sol **Technical Reviewers:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## <a name="prerequisites-for-premium-storage"></a>Pré-requisitos para o armazenamento Premium
 Existem vários pré-requisitos para utilizar o armazenamento Premium.
@@ -233,7 +234,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Passo 6: Criar a VM
+#### <a name="step-6-create-vm"></a>Passo 6: Criar VM
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -281,7 +282,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Criar uma nova VM para utilizar o armazenamento Premium com uma imagem personalizada
 Este cenário demonstra em que tem imagens personalizadas existentes que residem numa conta de armazenamento Standard. Conforme mencionado, se pretende colocar o VHD do SO no armazenamento Premium tem de copiar a imagem que existe na conta de armazenamento Standard e transferi-las para um armazenamento Premium, antes de poder ser utilizada. Se tiver uma imagem no local, pode também utilizar este método para copiá-lo diretamente para a conta de armazenamento Premium.
 
-#### <a name="step-1-create-storage-account"></a>Passo 1: Criar a conta de armazenamento
+#### <a name="step-1-create-storage-account"></a>Passo 1: Criar Conta de Armazenamento
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -350,7 +351,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 >
 >
 
-#### <a name="step-7--build-the-vm"></a>Passo 7: Criar a VM
+#### <a name="step-7--build-the-vm"></a>Passo 7:  Criar a VM
 Aqui estão a criar a VM da sua imagem e anexar dois VHDs de armazenamento Premium:
 
 ```powershell
@@ -502,10 +503,10 @@ Há um período de indisponibilidade quando transferir aplicações e os utiliza
 ### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migrar sempre sobre as implementações para o período de indisponibilidade mínimo
 Existem duas estratégias para migrar implementações Always On para o período de indisponibilidade mínimo:
 
-1. **Utilizar um secundário existente: Site único**
-2. **Utilizar existentes réplicas secundárias: múltiplos sites**
+1. **Utilize um secundário existente: Site único**
+2. **Utilize as réplicas secundárias existentes: Múltiplos sites**
 
-#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Utilizar um secundário existente: Site único
+#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Utilize um secundário existente: Site único
 Uma estratégia para o período de indisponibilidade mínimo é pegar uma cloud existente secundário e removê-lo a partir do serviço cloud atual. Em seguida, copie os VHDs para a nova conta de armazenamento Premium e criar a VM no novo serviço cloud. Em seguida, atualize o serviço de escuta de clustering e de ativação pós-falha.
 
 ##### <a name="points-of-downtime"></a>Pontos de tempo de inatividade
@@ -549,7 +550,7 @@ Este documento não demonstre um exemplo completo de ponto a ponto, no entanto, 
 * Se utilizar passos 5ii, em seguida, adicione SQL1 como um possível proprietário para o recurso de endereço IP foi adicionado
 * Ativações pós-falha de teste.
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Utilizar existentes réplicas secundárias: múltiplos sites
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Utilize as réplicas secundárias existentes: Multilocal
 Se tiver nós em mais de um datacenter do Azure (DC) ou se tiver um ambiente híbrido, pode utilizar uma configuração Always On neste ambiente, para minimizar o período de indisponibilidade.
 
 A abordagem é alterar a sincronização Always On para síncrono para no local ou DC secundário do Azure e, em seguida, ativação pós-falha ao longo para que o SQL Server. Em seguida, copie os VHDs a uma conta de armazenamento Premium e voltar a implementar a máquina num novo serviço cloud. Atualizar o serviço de escuta e, em seguida, efetuar a reativação pós-falha.
@@ -595,7 +596,7 @@ Este cenário pressupõe que documentamos a instalação e saber como o armazena
 O restante deste artigo fornece um exemplo detalhado de conversão de um cluster multissite Always On para o armazenamento Premium. Também converte o serviço de escuta de utilizar um balanceador de carga externo (ELB) para um balanceador de carga interno (ILB).
 
 ### <a name="environment"></a>Ambiente
-* Windows 2 mil 12 / SQL 2 mil 12
+* Windows 2k12 / SQL 2k12
 * Ficheiros de 1 DB no SP
 * 2 x agrupamentos de armazenamento por nó
 
@@ -661,10 +662,10 @@ Seria prudente necessário duplicar o número permitido de falha, para fazer iss
 
 Altere o máximo de falhas para 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço de IP de adição para o grupo de Cluster <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço IP de adição para o grupo de Cluster <Optional>
 Se tiver apenas um endereço IP para o grupo de Cluster e isso é alinhado à sub-rede na cloud, saiba, se acidentalmente colocar offline todos os nós de cluster na cloud na rede, em seguida, o recurso de IP do Cluster e o nome de rede de Cluster não são conseguir fique online. Nesta situação, impede que as atualizações para outros recursos de cluster.
 
-#### <a name="step-4-dns-configuration"></a>Passo 4: Configuração de DNS
+#### <a name="step-4-dns-configuration"></a>Passo 4: Configuração do DNS
 Implementar uma transição tranquila depende de como DNS está a ser utilizado e atualizado.
 Quando o Always On está instalado, ele cria um grupo de recursos de Cluster do Windows, se abrir o Gestor de clusters de ativação pós-falha, verá que no mínimo, ele tem três recursos, são os dois que o documento refere-se a:
 
@@ -720,7 +721,7 @@ Se a aplicação de cliente SQL suporta o .net 4.5 SQLClient, em seguida, pode u
 
 Para obter mais informações sobre as definições anteriores, consulte [palavra-chave de MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [SqlClient suporte para elevada disponibilidade, recuperação após desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
-#### <a name="step-5-cluster-quorum-settings"></a>Passo 5: Definições de quórum de Cluster
+#### <a name="step-5-cluster-quorum-settings"></a>Passo 5: Definições de quórum do cluster
 Como vai ser peguem pelo menos um servidor de SQL para baixo ao mesmo tempo, deve modificar a configuração de quórum do cluster, se utilizar o testemunho de partilha de ficheiros (FSW) com dois nós, deve definir o quórum para permitir que a maioria de nós e utilizar o voto dinâmico , permitindo a um único nó permaneça permanente.
 
 ```powershell
@@ -729,7 +730,7 @@ Set-ClusterQuorum -NodeMajority
 
 Para obter mais informações sobre como gerir e configurar o quórum do cluster, consulte [configurar e gerir o quórum num Cluster de ativação pós-falha do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
-#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Passo 6: Extrair pontos finais existentes e ACLs
+#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Passo 6: Extrair os pontos finais existentes e ACLs
 
 ```powershell
 #GET Endpoint info
@@ -740,7 +741,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConf
 
 Guarde este texto num ficheiro.
 
-#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Passo 7: Alterar os modos de replicação e de parceiros de ativação pós-falha
+#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Passo 7: Parceiros de ativação pós-falha de alteração e modos de replicação
 Se tiver mais de dois servidores do SQL Server, deve alterar a ativação pós-falha da outra secundária em outro controlador de domínio ou no local para 'Síncrono' e torná-lo um parceiro de ativação pós-falha automática (AFP), isto é, para manter HA, lidando simultaneamente e estiver a efetuar alterações. Pode fazê-lo por meio de TSQL de modificar, no entanto, SSMS:
 
 ![Appendix6][16]
@@ -804,7 +805,7 @@ Para volumes TLOG, isso devem ser definidos como NONE.
 
 ![Appendix7][17]
 
-#### <a name="step-10-copy-vhds"></a>Passo 10: Copiar VHDS
+#### <a name="step-10-copy-vhds"></a>Passo 10: VHDS de cópia
 
 ```powershell
 #Ensure you have created the container for these:
@@ -860,7 +861,7 @@ Para obter informações para blobs individuais:
 Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 ```
 
-#### <a name="step-11-register-os-disk"></a>Passo 11: Disco de Registre-se o sistema operacional
+#### <a name="step-11-register-os-disk"></a>Passo 11: Registe-se o disco do SO
 
 ```powershell
 #Change storage account
@@ -914,7 +915,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 ```
 
-#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Passo 13: Criar ILB no novo Cloud Svc, adicionar carga balanceada pontos de extremidade e ACLs
+#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Passo 13: Criar o ILB no novo Cloud Svc, adicionar carga balanceada pontos de extremidade e ACLs
 
 ```powershell
 #Check for existing ILB
@@ -939,7 +940,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
 
-#### <a name="step-14-update-always-on"></a>Passo 14: Atualizar-se sempre em
+#### <a name="step-14-update-always-on"></a>Passo 14: Atualização Always On
 
 ```powershell
 #Code to be executed on a Cluster Node
@@ -971,7 +972,7 @@ Agora, remova o serviço em nuvem antigo endereço IP.
 #### <a name="step-15-dns-update-check"></a>Passo 15: Verificação de atualizações de DNS
 Agora, deve verificar servidores DNS nas suas redes de cliente do SQL Server e certifique-se de que a clustering adicionou o registo de anfitrião extra para o endereço IP foi adicionado. Se esses servidores DNS não tem atualizado, considere forçar uma transferência de zona DNS e certifique-se de que os clientes na lá sub-rede são capazes de resolver para os dois sempre em endereços IP, isto é, de modo não é necessário aguardar que a replicação automática de DNS.
 
-#### <a name="step-16-reconfigure-always-on"></a>Passo 16: Reconfigurar-se sempre em
+#### <a name="step-16-reconfigure-always-on"></a>Passo 16: Reconfigure Always On
 Neste momento, aguarde pela secundário nesse nó que foi migrado para ressincronizar totalmente com o nó no local e mude para o nó de replicação síncrona e torná-lo a AFP.  
 
 #### <a name="step-17-migrate-second-node"></a>Passo 17: Migrar o segundo nó
@@ -1114,7 +1115,7 @@ Para obter informações para blobs individuais:
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
-#### <a name="step-21-register-os-disk"></a>Passo 21: Disco de Registre-se o sistema operacional
+#### <a name="step-21-register-os-disk"></a>Passo 21: Registe-se o disco do SO
 
 ```powershell
 #change storage account to the new XIO storage account

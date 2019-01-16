@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023101"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330012"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice da Azure Search utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,15 +40,15 @@ Pode criar um pipeline com uma atividade de cópia que emite dados de um arquivo
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
 1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
-2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados para o índice da Azure Search, consulte [exemplo de JSON: Copiar dados do SQL Server no local para o índice da Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados para o índice da Azure Search, consulte [exemplo de JSON: Copiar dados do SQL Server no local para o índice da Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para o índice da Azure Search:
 
@@ -113,11 +113,11 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 
 O exemplo a seguir mostra:
 
-1.  Um serviço ligado do tipo [AzureSearch](#linked-service-properties).
-2.  Um serviço ligado do tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
-3.  Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-4.  Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureSearchIndex](#dataset-properties).
-4.  R [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que utiliza [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) e [AzureSearchIndexSink](#copy-activity-properties).
+1. Um serviço ligado do tipo [AzureSearch](#linked-service-properties).
+2. Um serviço ligado do tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
+3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureSearchIndex](#dataset-properties).
+4. R [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que utiliza [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) e [AzureSearchIndexSink](#copy-activity-properties).
 
 O exemplo copia dados de séries de tempo de uma base de dados do SQL Server no local para um índice da Azure Search à hora. As propriedades JSON utilizadas neste exemplo são descritas nas seções a seguir os exemplos.
 
@@ -201,7 +201,7 @@ O exemplo copia dados para um índice da Azure Search com o nome **produtos**. F
             "frequency": "Minute",
             "interval": 15
         }
-   }
+    }
 }
 ```
 
@@ -210,13 +210,13 @@ O exemplo copia dados para um índice da Azure Search com o nome **produtos**. F
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **SqlSource** e **sink** tipo está definido como **AzureSearchIndexSink**. A consulta SQL especificada para o **SqlReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "SqlServertoAzureSearchIndex",
         "description": "copy activity",
@@ -240,7 +240,7 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
             "type": "AzureSearchIndexSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -251,8 +251,8 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -288,7 +288,7 @@ Se estiver a copiar dados de um arquivo de dados na cloud para o Azure Search, `
 
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink na definição da atividade de cópia. Para obter detalhes, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="performance-and-tuning"></a>Desempenho e otimização  
+## <a name="performance-and-tuning"></a>Desempenho e otimização
 Consulte a [guia de sintonização de desempenho de atividade de cópia e](data-factory-copy-activity-performance.md) para saber mais sobre os fatores chave a que um impacto no desempenho de movimento de dados (atividade de cópia) e diversas maneiras para otimizá-lo.
 
 ## <a name="next-steps"></a>Passos Seguintes

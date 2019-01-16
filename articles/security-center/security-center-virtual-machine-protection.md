@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723234"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321595"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -44,7 +44,6 @@ Sob **computação e aplicações**, existem os seguintes separadores:
 - **Serviços Cloud**: lista das suas funções de trabalho e na Web monitorizadas pelo Centro de Segurança.
 - **Serviços de aplicações (pré-visualização)**: lista de seus ambientes do serviço de aplicações e o estado de segurança atual de cada.
 - **Contentores (pré-visualização)**: lista de contentores do alojadas em máquinas do IaaS Linux e a avaliação de segurança de suas configurações de Docker.
-- **Conjuntos de dimensionamento de VM (pré-visualização)**: lista de seus conjuntos de dimensionamento e as recomendações.
 - **(Pré-visualização) de recursos de computação**: lista de recomendações para os seus recursos de computação, tais como clusters do Service Fabric e dos hubs de eventos.
 
 Para continuar, selecione **computação e aplicações** sob **hygeine de segurança do recurso**.
@@ -162,24 +161,6 @@ Existem três tipos de ícones representados nesta lista:
 
     ![Atualização do serviço de aplicações](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Conjuntos de dimensionamento de máquina virtual (pré-visualização)
-Centro de segurança Deteta automaticamente se têm as conjuntos de escalas e recomenda que instale o Microsoft Monitoring Agent nestes conjuntos de dimensionamento. 
-
-Para instalar o Microsoft Monitoring Agent: 
-
-1. Selecione a recomendação **instalar o agente de monitorização no conjunto de dimensionamento de máquina virtual**. Obter uma lista de conjuntos de dimensionamento não monitorizado.
-2. Selecione um conjunto de dimensionamento de mau estado de funcionamento. Siga as instruções para instalar o agente de monitorização através de uma área de trabalho preenchida existente ou crie um novo. Certifique-se de definir a área de trabalho [escalão de preço](security-center-pricing.md) se não estiver definido.
-
- ![Instalar MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Se pretender definir conjuntos de dimensionamento de novo para instalar automaticamente o Microsoft Monitoring Agent:
-1. Aceda à política do Azure e clique em **definições**.
-2. Pesquisa para a política **agente de implementar o Log Analytics para conjuntos de dimensionamento de VM do Windows** e clique no mesmo.
-3. Clique em **Atribuir**.
-4. Definir o **âmbito** e **área de trabalho do Log Analytics** e clique em **atribuir**.
-
-Se pretender definir existente todos os conjuntos de dimensionamento para instalar o Microsoft Monitoring Agent, no Azure Policy, aceda a **remediação** e aplicar a política existente para conjuntos de dimensionamento existente.
-
 
 ## <a name="compute-and-app-recommendations"></a>Recomendações de computação e de aplicação
 |Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
@@ -238,11 +219,7 @@ Se pretender definir existente todos os conjuntos de dimensionamento para instal
 |Máquina|30|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|
 |Máquina|1|Migrar máquinas virtuais para novos recursos do Azure Resource Manager|Utilizar o Azure Resource Manager para as suas máquinas virtuais para fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos, Autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança. |
 |Máquina|30|Remediar vulnerabilidades através de uma solução de avaliação de vulnerabilidade|As máquinas virtuais para o qual é implementar uma solução de terceiros de 3 de avaliação do vulnerabilidade estão a ser continuamente avaliadas em relação a aplicação e vulnerabilidades do SO. Sempre que encontram-se estas vulnerabilidades, elas estão disponíveis para obter mais informações, como parte da recomendação.|
-|Conjuntos de dimensionamento de máquinas virtuais |4|Ativar registos de diagnóstico em conjuntos de dimensionamento de Máquina Virtual|Ativar os registos e mantenha-os para até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação. Isto é útil quando ocorrer um incidente de segurança ou a rede estiver comprometida.|
-|Conjuntos de dimensionamento de máquinas virtuais|35|Remediar vulnerabilidades na configuração de segurança nos seus conjuntos de dimensionamento de máquina virtual|Remediar vulnerabilidades na configuração de segurança nos conjuntos de dimensionamento da máquina virtual para protegê-los de ataques. |
-|Conjuntos de dimensionamento de máquinas virtuais|5|Remediar falhas de estado de funcionamento do endpoint protection em conjuntos de dimensionamento de máquina virtual|Corrija as falhas de estado de funcionamento de proteção do ponto final nos conjuntos de dimensionamento da máquina virtual para protegê-los de ameaças e vulnerabilidades. |
-|Conjuntos de dimensionamento de máquinas virtuais|10|Instalar a solução de proteção de ponto final em conjuntos de dimensionamento de máquina virtual|Instale uma solução de proteção de ponto final em seus conjuntos de dimensionamento de máquina virtual, para protegê-los de ameaças e vulnerabilidades. |
-|Conjuntos de dimensionamento de máquinas virtuais|40|Instalar atualizações do sistema em conjuntos de dimensionamento de máquina virtual|Instale o sistema de segurança em falta e as atualizações críticas para proteger os conjuntos de dimensionamento da máquina virtual do Windows e do Linux. |
+
  
 
 

@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233740"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321423"
 ---
 # <a name="application-architecture-on-azure"></a>Arquitetura de aplicações no Azure
 Para ajudar a proteger suas soluções com base na cloud no Microsoft Azure, uma base sólida de arquitetura é fundamental. Arquitetos, designers e implementadores beneficiam de um conhecimento forte da arquitetura de aplicações e serviços. Esse conhecimento básico ajuda-o a compreender todos os componentes das suas soluções com base na cloud e tornar mais fácil de integrar a segurança em todos os aspectos de seu design e implementação.
 
 Temos o seguinte para ajudá-lo com suas investigações de arquiteturais e os designs:
 
-* Infográficos arquiteturais
 * Planos de arquitetura
 * Conjunto de símbolo de cloud e enterprise
 * Modelo de plano gráfico 3D do Visio
-
-## <a name="architectural-infographics"></a>Infográficos arquiteturais
-A Microsoft publica vários arquiteturais cartazes/infográficos relacionados. Eles incluem:
-
-* [Criação de aplicativos na Cloud reais](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Dimensionar com os serviços Cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Planos de arquitetura
 A Microsoft publica um conjunto de alto nível [planos de arquitetura](https://aka.ms/azblueprints) mostra como criar tipos específicos de sistemas usando produtos da Microsoft.

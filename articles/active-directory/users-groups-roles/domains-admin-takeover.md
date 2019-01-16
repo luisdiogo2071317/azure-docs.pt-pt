@@ -1,5 +1,5 @@
 ---
-title: Obtenção de controlo de administrador de um diretório não gerido ou um inquilino de cópias de sombra no Azure Active Directory | Documentos da Microsoft
+title: Obtenção de controlo de um diretório não gerido - administrador - Azure Active Directory | Documentos da Microsoft
 description: Como assumir um nome de domínio DNS num diretório não gerido (inquilino de cópias de sombra) no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121197"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320247"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se de um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](directory-self-service-signup.md)
@@ -93,7 +93,7 @@ Obtenção do controlo administrativo externo é suportada pelos seguintes servi
 Os planos de serviço com suporte incluem:
 
 - Power BI gratuito
-- O Power BI Pro
+- Power BI Pro
 - Gratuita do PowerApps
 - PowerFlow gratuita
 - RMS para indivíduos
@@ -118,7 +118,7 @@ Quando efetua um obtenção de controlo, conteúdo do Power BI externo que foi c
 Pode ver estes cmdlets utilizados [exemplo de PowerShell](#powershell-example).
 
 
-Cmdlet | Utilização 
+cmdlet | Utilização 
 ------- | -------
 `connect-msolservice` | Quando lhe for pedido, inicie sessão no seu inquilino gerido.
 `get-msoldomain` | Mostra os nomes de domínio associados ao inquilino atual.

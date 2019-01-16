@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102810"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320060"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure
 O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração atualmente suportados pelo serviço de migração de base de dados do Azure e o estado (privada [ou limitado] pré-visualização, pré-visualização pública ou em disponibilidade geral) ou a cada cenário.
@@ -40,18 +40,18 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | Destino  | Origem | Suporte |
 | ------------- | ------------- | :-------------: |
 | **BD SQL do Azure**  | SQL Server | ✔ |
-|   | SQL DE RDS  |  ✔ |
+|   | RDS SQL  |  ✔ |
 |   | Oracle  |   |
 | **MI de BD SQL do Azure**  | SQL Server  | ✔ |
-|   | SQL DE RDS  | ✔ |
+|   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **VM do SQL do Azure**  | SQL Server  | ✔ |
+| **VM do SQL do Azure**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **BD do Cosmos**  | MongoDB  | ✔ |
-| **BD do Azure para MySQL**  | MySLQ  |  |
+| **BD do Cosmos**  | MongoDB | ✔ |
+| **BD do Azure para MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **BD do Azure para PostgresSQL**  | PostgreSQL |  |
-|  | PostgreSQL RDS  |  |
+|  | RDS PostgreSQL  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Suporte de migração online (sincronização contínua)
 A tabela seguinte mostra o suporte de serviço de migração de base de dados do Azure para migrações online.
@@ -59,18 +59,18 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | Destino  | Origem | Suporte |
 | ------------- | ------------- | :-------------: |
 | **BD SQL do Azure**  | SQL Server | ✔ |
-|   | SQL DE RDS  |   |
+|   | RDS SQL  |   |
 |   | Oracle  |  ✔ |
 | **MI de BD SQL do Azure**  | SQL Server  | ✔ |
-|   | SQL DE RDS  |  |
+|   | RDS SQL  |  |
 |   | Oracle  | ✔  |
 | **VM do SQL do Azure**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **BD do Cosmos**  | MongoDB  | ✔ |
-| **BD do Azure para MySQL**  | MySLQ  | ✔ |
+| **BD do Azure para MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **BD do Azure para PostgresSQL**  | PostgreSQL | ✔ |
-|  | PostgreSQL RDS  | ✔ |
+|  | RDS PostgreSQL  | ✔ |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para uma descrição geral do serviço de migração de base de dados do Azure e a disponibilidade regional, consulte o artigo [o que é o Azure Database Migration Service](dms-overview.md). 

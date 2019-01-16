@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2019
+ms.date: 01/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 6729a800450b9602bff1f85a3a40804edf05b048
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244924"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321760"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços da Microsoft em Cibersegurança
 
@@ -37,7 +37,6 @@ Saiba mais sobre os serviços fornecidos pelo Microsoft Services:
 * [Ambiente de administração de segurança avançada](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
 * [Serviços de implementação do Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
 * [Proteger contra o movimento Lateral de conta](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Serviços de deteção de ameaças da Microsoft](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
 * [Resposta a incidentes e recuperação](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Saiba mais](https://aka.ms/cyberserv) sobre a segurança de serviços do Microsoft consulting services.

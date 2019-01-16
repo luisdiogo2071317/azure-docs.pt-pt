@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 737cb31fd4e33229e0317e6a0610fb098beed6f4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191909"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322015"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 
 Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azure](storage-files-planning.md) e [planear uma implementação do Azure File Sync](storage-sync-files-planning.md) antes de concluir os passos descritos neste artigo.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma conta de armazenamento do Azure e um arquivo do Azure partilham na mesma região que pretende implementar o Azure File Sync. Para obter mais informações, consulte:
