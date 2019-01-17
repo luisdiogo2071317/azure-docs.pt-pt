@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959549"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357883"
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
@@ -29,8 +29,6 @@ O Microsoft Azure Stack é uma plataforma de cloud híbrida que lhe permite forn
 
 O Azure Stack é oferecida na duas opções de implementação para satisfazer as necessidades.
 
-## <a name="azure-stack-integrated-systems"></a>Sistemas integrados do Azure Stack
-Os sistemas integrados do Azure Stack são fornecidos através de uma parceria da Microsoft e [parceiros de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), ao criar uma solução que oferece inovação ao ritmo da cloud e simplicidade na gestão de computação. Por o Azure Stack ser oferecido como um sistema de hardware e software integrados, tem a flexibilidade e controlo de que precisa, juntamente com a capacidade de inovar na cloud. Sistemas de pilha integrado do Azure vão de tamanho de 4 a 16 nós e, em conjunto, são suportados pela Microsoft e parceiros de hardware.  Utilize os sistemas do Azure Stack integrados para criar novos cenários e implementar novas soluções para as cargas de trabalho de produção.
 
 ## <a name="azure-stack-development-kit"></a>Development Kit do Azure Stack
 
@@ -44,6 +42,9 @@ O ASDK tem as seguintes limitações:
 * O ASDK está associado um único fornecedor de identidade do Azure Active Directory (Azure AD) ou dos Serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições a cada utilizador.
 * Por os componentes do Azure Stack estarem implementados num computador anfitrião, há recursos físicos limitados disponíveis para os recursos de inquilinos. Esta configuração não se destina à avaliação de dimensionamento ou de desempenho.
 * Os cenários de rede estão limitados devido aos requisitos de implementação NIC e de único anfitrião.
+
+## <a name="azure-stack-integrated-systems"></a>Sistemas integrados do Azure Stack
+Os sistemas integrados do Azure Stack são fornecidos através de uma parceria da Microsoft e [parceiros de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), ao criar uma solução que oferece inovação ao ritmo da cloud e simplicidade na gestão de computação. Por o Azure Stack ser oferecido como um sistema de hardware e software integrados, tem a flexibilidade e controlo de que precisa, juntamente com a capacidade de inovar na cloud. Sistemas de pilha integrado do Azure vão de tamanho de 4 a 16 nós e, em conjunto, são suportados pela Microsoft e parceiros de hardware.  Utilize os sistemas do Azure Stack integrados para criar novos cenários e implementar novas soluções para as cargas de trabalho de produção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

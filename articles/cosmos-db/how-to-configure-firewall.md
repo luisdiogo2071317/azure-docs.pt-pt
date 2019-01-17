@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033167"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359430"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Configurar uma firewall IP para a sua conta do Azure Cosmos DB
 
@@ -145,10 +145,10 @@ Pode resolver problemas com uma política de controlo de acesso IP utilizando as
 Ao ativar uma política de controlo de acesso IP para a sua conta do Azure Cosmos DB, bloquear todos os pedidos à sua conta a partir de máquinas fora da lista de intervalos de endereços IP permitidos. Para ativar as operações do plano de dados portal, como navegação nos contentores e consulta de documentos, tem de permitir explicitamente o acesso ao portal do Azure utilizando o **Firewall** painel no portal.
 
 ### <a name="sdks"></a>SDKs 
-Quando acede a recursos do Azure Cosmos DB através de SDKs de máquinas que não estejam na lista de permitidos, um genérico **404 não encontrado** resposta é devolvida com sem detalhes adicionais. Verifique se a lista IP permitida para a sua conta e certifique-se de que a configuração da política correta é aplicada à sua conta do Azure Cosmos DB. 
+Quando acede a recursos do Azure Cosmos DB através de SDKs de máquinas que não estejam na lista de permitidos, um genérico **403 Proibido** resposta é devolvida com sem detalhes adicionais. Verifique se a lista IP permitida para a sua conta e certifique-se de que a configuração da política correta é aplicada à sua conta do Azure Cosmos DB. 
 
 ### <a name="source-ips-in-blocked-requests"></a>IPs de origem em pedidos bloqueados
-Ative o registo de diagnóstico na sua conta do Azure Cosmos DB. Estes registos mostram cada solicitação e resposta. Internamente, as mensagens relacionadas com a firewall são registadas com um código de retorno 403. Ao filtrar essas mensagens, pode ver os IPs de origem para os pedidos bloqueados. Ver [registo de diagnósticos do Azure Cosmos DB](logging.md).
+Ative o registo de diagnóstico na sua conta do Azure Cosmos DB. Estes registos mostram cada solicitação e resposta. As mensagens relacionadas com a firewall são registadas com um código de retorno 403. Ao filtrar essas mensagens, pode ver os IPs de origem para os pedidos bloqueados. Ver [registo de diagnósticos do Azure Cosmos DB](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Pedidos a partir de uma sub-rede com um ponto final de serviço para o Azure Cosmos DB ativada
 Pedidos a partir de uma sub-rede numa rede virtual que tenha um ponto de extremidade de serviço para o Azure Cosmos DB ativada envia a identidade de rede e sub-rede virtual para contas do Azure Cosmos DB. Estes pedidos não tem o IP público da origem, para que os filtros de IP rejeitá-las. Para permitir o acesso a partir de sub-redes específicas nas redes virtuais, adicione uma lista de controlo de acesso, conforme descrito na [como configurar a rede virtual e o acesso com base na sub-rede para a sua conta do Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md). Pode demorar até 15 minutos para as regras de firewall aplicar.

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051956"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354584"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK para a API de SQL: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "54051956"
 
 * Para obter um diagnóstico transporte direct/TCP, adicionado TransportException, um tipo de exceção do SDK. Quando presente nas mensagens de exceção, este tipo imprime informações adicionais de resolução de problemas de conectividade do cliente.
 
-* Foram adicionados novos constuctor sobrecarga que aceita um HttpMessageHandler, uma pilha de manipulador HTTP para utilizar para enviar pedidos do HttpClient (por exemplo, HttpClientHandler).
+* Foram adicionados novos sobrecarga do construtor que aceita um HttpMessageHandler, uma pilha de manipulador HTTP para utilizar para enviar pedidos do HttpClient (por exemplo, HttpClientHandler).
 
 * Corrigi erro em que o cabeçalho com valores nulos não foram a ser processado devidamente.
 
@@ -265,7 +265,7 @@ ms.locfileid: "54051956"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Foi adicionado o suporte para contas de base de dados de várias regiões.
 * Foi adicionado suporte para repetição em pedidos limitados.  Utilizador pode personalizar o número de repetições e o tempo de espera máximo ao configurar a propriedade Retryoptions.
-* Adicionar uma nova interface de IDocumentClient que define as assinaturas de todas as propriedades de DocumenClient e métodos.  Como parte dessa alteração, alterar também os métodos de extensão que criar IQueryable e IOrderedQueryable para métodos na classe DocumentClient em si.
+* Adicionar uma nova interface de IDocumentClient que define as assinaturas de todos os métodos e propriedades de DocumentClient.  Como parte dessa alteração, alterar também os métodos de extensão que criar IQueryable e IOrderedQueryable para métodos na classe DocumentClient em si.
 * Opção de configuração foi adicionado para definir o ServicePoint.ConnectionLimit para um ponto de final do Azure Cosmos DB determinado Uri.  Utilize ConnectionPolicy.MaxConnectionLimit para alterar o valor predefinido, que está definido como 50.
 * IPartitionResolver preterido e sua implementação.  Suporte para IPartitionResolver está obsoleto. Recomenda-se que utilize coleções Particionadas para armazenamento mais elevado e débito.
 
@@ -282,7 +282,7 @@ ms.locfileid: "54051956"
 * Implementado [particionados coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Fixo]**  Lança de ponto final de consultar o Azure Cosmos DB: "System.Net.Http.HttpRequestException: Ocorreu um erro ao copiar o conteúdo para um fluxo ".
+* **[Fixo]**  Lança de ponto final de consultar o Azure Cosmos DB: 'System.Net.Http.HttpRequestException: Ocorreu um erro ao copiar o conteúdo para um fluxo ".
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * LINQ expandido suportam incluindo novos operadores para expressões de paginação, condicionais e comparação de intervalo.
@@ -312,7 +312,7 @@ ms.locfileid: "54051956"
 * Foi adicionado IsValid() e IsValidDetailed() no LINQ para geoespacial
 * Suporte a provedores de LINQ avançado:
   * **Matemática** -Abs, funções Acos, Asin, Atan, invisível, Cos, Exp, andar, Log, Log10, Pow, Round, início de sessão, Sin, Sqrt, Tan, truncar
-  * **Cadeia de caracteres** -Concat, contém, EndsWith, IndexOf, contagem, ToLower, TrimStart, substituir, inverso, TrimEnd, StartsWith, SubString, ToUpper
+  * **String** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Matriz** -Concat, contém, contagem
   * **IN** operador
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 5f3e7164c0569422fe164283efaa8f282ccfe9f8
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318948"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359294"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -85,9 +85,11 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
 
     Deverá ver agora as partilhas como pastas.
     
+    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+
     **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
     
-    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+     
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para o Data Box
 
@@ -96,7 +98,11 @@ Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar d
 - Certifique-se de que copia os dados para partilhas correspondentes para o formato de dados apropriados. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Se o formato de dados não corresponde ao tipo de partilha apropriadas, em seguida, num passo posterior, o carregamento de dados para o Azure irá falhar.
 -  Ao copiar dados, certifique-se de que o tamanho dos dados está em conformidade com os limites de tamanho descritos a [armazenamento do Azure e limites do Data Box](data-box-limits.md).
 - Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
-- Recomendamos que não utilizar o SMB e NFS ao mesmo tempo ou copiar mesmo dados para o mesmo destino final no Azure. Nestes casos, não é possível determinar o resultado final.
+- Recomendamos que:
+    - Não utilize o SMB e NFS ao mesmo tempo.
+    - Copie os mesmos dados para o mesmo destino final no Azure. 
+     
+  Nestes casos, não é possível determinar o resultado final.
 - Sempre crie uma pasta para os ficheiros que pretende copiar abaixo da partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
 
 Depois de se ligar à partilha de SMB, iniciar a cópia de dados. Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:

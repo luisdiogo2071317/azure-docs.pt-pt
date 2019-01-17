@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339404"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358988"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -49,13 +49,19 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
    Sim. O Azure mantém apenas uma imagem por versão principal e de edição. Por exemplo, quando um novo service pack do SQL Server for lançado, o Azure adiciona uma nova imagem na Galeria para esse pacote de serviço. A imagem do SQL Server para o service pack anterior é imediatamente removida do portal do Azure. No entanto, ele ainda está disponível para aprovisionamento a partir do PowerShell dos três próximos meses. Depois de três meses, a imagem do service pack anterior já não está disponível. Esta política de remoção também seria aplicada caso uma versão do SQL Server se torna não suportada quando ela atinge o final do seu ciclo de vida.
 
+
+1. **É possível implementar uma imagem mais antiga do SQL Server que não está visível no Portal do Azure?**
+
+   Sim, com o PowerShell. Para obter mais informações sobre a implementação de VMs do SQL Server com o PowerShell, consulte [como aprovisionar máquinas virtuais do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Pode criar uma imagem VHD de uma VM do SQL Server?**
 
    Sim, mas aqui estão algumas considerações. Se implementar este VHD para uma nova VM no Azure, fazer não ge a seção de configuração do SQL Server no portal. Em seguida, tem de gerir as opções de configuração do SQL Server através do PowerShell. Além disso, faturada à tarifa da VM de SQL foi originalmente baseia sua imagem. Isso vale mesmo que remova o SQL Server a partir de VHD antes de implementar. 
 
 1. **É possível definir configurações não apresentadas na galeria da máquina virtual (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   Não. Para imagens de Galeria de máquinas virtuais que incluem o SQL Server, tem de selecionar uma das imagens fornecidas.
+   Não. Para imagens de Galeria de máquinas virtuais que incluem o SQL Server, tem de selecionar uma das imagens fornecidas pelo portal do Azure ou através de [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Criação
 
@@ -102,11 +108,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
  
    Sim. Todos os clientes conseguem registar com o novo fornecedor de recursos de VM do SQL Server. No entanto, apenas os clientes com o benefício do Software Assurance podem ativar a [Azure híbrido benefício (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (ou de BYOL) numa VM do SQL Server. 
 
-1. **O que acontece com o _\*Microsoft.SqlVirtualMachine_\* recurso se o recurso da VM é movido ou removido?** 
+1. **O que acontece com o _* Microsoft.SqlVirtualMachine_* recurso se o recurso da VM é movido ou removido?** 
 
    Quando o recurso de Microsoft.Compute/VirtualMachine é removido ou movido, em seguida, o recurso de Microsoft.SqlVirtualMachine associado é notificado para replicar a operação de forma assíncrona.
 
-1. **O que acontece com a VM se a _\*Microsoft.SqlVirtualMachine_\* recurso é ignorado?**
+1. **O que acontece com a VM se a _* Microsoft.SqlVirtualMachine_* recurso é ignorado?**
 
    O recurso de Microsoft.Compute/VirtualMachine não é afetado quando é arrastado para o recurso de Microsoft.SqlVirtualMachine. No entanto, as alterações de licenciamento serão predefinido para a origem da imagem original. 
 

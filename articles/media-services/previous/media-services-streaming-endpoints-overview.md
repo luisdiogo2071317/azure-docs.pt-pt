@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240227"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359992"
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240227"
 
 No Microsoft Azure Media Services (AMS), um **ponto final de transmissão em fluxo** representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdos (CDN) para uma maior distribuição. Serviços de multimédia também fornecem uma integração perfeita do CDN do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em direto, um vídeo sob demanda ou transferência progressiva de seus recursos na sua conta de Media Services. Cada conta de Media Services do Azure inclui um padrão StreamingEndpoint. Pontos finais adicionais podem ser criadas sob a conta. Existem duas versões de pontos finais, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, qualquer acabada de criar contas do AMS irão incluir versão 2.0 **predefinição** StreamingEndpoint. Transmissão em fluxo pontos finais adicionais que adicionar a esta conta também será a versão 2.0. Esta alteração não afetará as contas existentes; pontos finais existentes serão a versão 1.0 e podem ser atualizados para a versão 2.0. Com esta alteração vão ocorrer alterações de comportamento, a faturação e a funcionalidade (para obter mais informações, consulte a **transmissão em fluxo de tipos e versões** secção documentados abaixo).
 
-Além disso, começando com a versão 2,15 (lançado em Janeiro de 2017), serviços de multimédia do Azure adicionadas as seguintes propriedades para a entidade de ponto final de transmissão em fluxo: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Para uma visão geral detalhada destas propriedades, consulte [isso](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Serviços de multimédia do Azure adicionadas as seguintes propriedades para a entidade de ponto final de transmissão em fluxo: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Para uma visão geral detalhada destas propriedades, consulte [isso](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Quando cria uma conta de Media Services do Azure um padrão de ponto final de transmissão em fluxo standard é criado por si a **parado** estado. Não é possível eliminar o ponto final de transmissão em fluxo predefinido. Dependendo da disponibilidade da CDN do Azure na região de destino, por predefinição de predefinido criado recentemente ponto final de transmissão em fluxo também inclui "StandardVerizon" CDN integração de fornecedor. 
-
->[!NOTE]
->Integração da CDN do Azure pode ser desativada antes de iniciar o ponto final de transmissão em fluxo.
+                
+> [!NOTE]
+> Integração da CDN do Azure pode ser desativada antes de iniciar o ponto final de transmissão em fluxo. O `hostname` e o URL de transmissão em fluxo permanece o mesmo se ou não ativar a CDN.
 
 Este tópico apresenta uma visão geral das principais funcionalidades que são fornecidos por pontos finais de transmissão em fluxo.
+
+## <a name="naming-conventions"></a>Convenções de nomenclatura
+
+Para o ponto final predefinido: `{AccountName}.streaming.mediaservices.windows.net`
+
+Para pontos finais adicionais: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos de transmissão em fluxo e versões
 
 ### <a name="standardpremium-types-version-20"></a>Tipos de Standard/Premium (versão 2.0)
 
-A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **padrão** e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
+A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **Standard** e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
 
 Tipo|Descrição
 ---|---
@@ -92,7 +97,7 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
-De | Para | Ação
+A partir de | Para | Ação
 ---|---|---
 Clássica|Standard|Tem de participar
 Clássica|Premium| Dimensionamento (unidades de transmissão em fluxo adicional)

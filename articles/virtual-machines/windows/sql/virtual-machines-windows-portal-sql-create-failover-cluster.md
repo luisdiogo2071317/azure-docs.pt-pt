@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237969"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359940"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -71,8 +71,10 @@ Existem algumas coisas que precisa saber e algumas coisas que precisa em vigor a
 ### <a name="what-to-know"></a>O que deve saber
 Deve ter uma compreensão operacional das seguintes tecnologias:
 
-- [Tecnologias de cluster do Windows](https://technet.microsoft.com/library/hh831579.aspx)
-- [Instâncias de Cluster de ativação pós-falha do SQL Server](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Tecnologias de cluster do Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Instâncias de Cluster de ativação pós-falha do SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
+
+Uma diferença importante é que num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos que um único NIC por servidor (nó de cluster) e uma única sub-rede. Redes do Azure tem redundância física que torna desnecessário NICs e sub-redes adicionais num cluster de convidados de VM de IaaS do Azure. Embora o relatório de validação de cluster irá emitir um aviso de que os nós só são acessíveis numa única rede, este aviso pode ser ignorado com segurança em clusters de ativação pós-falha de convidado de VM de IaaS do Azure. 
 
 Além disso, deve ter uma compreensão geral das seguintes tecnologias:
 
@@ -111,10 +113,10 @@ Com a configuração destes pré-requisitos, pode avançar com a criação do cl
    - Clique em **conjunto de disponibilidade**.
    - Clique em **Criar**.
    - Sobre o **criar conjunto de disponibilidade** painel, defina os seguintes valores:
-      - **Nome**: um nome para o conjunto de disponibilidade.
-      - **Subscrição**: sua subscrição do Azure.
+      - **Nome**: Um nome para o conjunto de disponibilidade.
+      - **Subscrição**: A sua subscrição do Azure.
       - **Grupo de recursos**: Se pretender utilizar um grupo existente, clique em **utilizar existente** e selecione o grupo da lista pendente. Caso contrário, escolha **criar novo** e escreva um nome para o grupo.
-      - **Localização**: definir o local onde planeja criar as suas máquinas virtuais.
+      - **Localização**: Defina a localização em que planeja criar as suas máquinas virtuais.
       - **Domínios de falha**: Utilize a predefinição (3).
       - **Domínios de atualização**: Utilize a predefinição (5).
    - Clique em **criar** criar a disponibilidade definida.
@@ -312,7 +314,7 @@ Os discos para S2D tem de estar em branco e sem partições ou outros dados. Par
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>Passo 3: Testar a ativação pós-falha de cluster de ativação pós-falha
+## <a name="step-3-test-failover-cluster-failover"></a>Passo 3: Ativação pós-falha de cluster de ativação pós-falha de teste
 
 No Gestor de clusters de ativação pós-falha, certifique-se de que pode mover o recurso de armazenamento para o outro nó de cluster. Se consegue ligar ao cluster de ativação pós-falha com **Gestor de clusters de ativação pós-falha** e mover o armazenamento de um nó para outro, está pronto para configurar a FCI.
 
@@ -345,7 +347,7 @@ Depois de configurar o cluster de ativação pós-falha e todos os componentes d
    >[!NOTE]
    >Se utilizou uma imagem de galeria do Azure Marketplace com o SQL Server, ferramentas do SQL Server foram incluídas com a imagem. Se não utilizou esta imagem, instale as ferramentas do SQL Server em separado. Ver [transferir o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Passo 5: Criar o Balanceador de carga do Azure
+## <a name="step-5-create-azure-load-balancer"></a>Passo 5: Criar um balanceador de carga do Azure
 
 Em máquinas virtuais do Azure, clusters, utilize um balanceador de carga para manter um endereço IP que tem de estar num nó de cluster, ao mesmo tempo. Nesta solução, o Balanceador de carga contém o endereço IP para a FCI do SQL Server.
 
@@ -363,14 +365,14 @@ Para criar o Balanceador de carga:
 
 1. Configure o Balanceador de carga com:
 
-   - **Nome**: um nome que identifique o Balanceador de carga.
-   - **Tipo de**: O balanceador de carga pode ser públicas ou privadas. Um balanceador de carga privada pode ser acessado de dentro da mesma VNET. As aplicações mais do Azure podem utilizar um balanceador de carga privado. Se seu aplicativo precisa de aceder ao SQL Server diretamente através da Internet, utilize um balanceador de carga público.
-   - **Rede virtual**: A mesma rede que as máquinas virtuais.
-   - **Sub-rede**: A mesma sub-rede que as máquinas virtuais.
+   - **Nome**: Um nome que identifica o Balanceador de carga.
+   - **Tipo de**: O Balanceador de carga pode ser público ou privado. Um balanceador de carga privada pode ser acessado de dentro da mesma VNET. As aplicações mais do Azure podem utilizar um balanceador de carga privado. Se seu aplicativo precisa de aceder ao SQL Server diretamente através da Internet, utilize um balanceador de carga público.
+   - **Rede virtual**: A rede mesmo que as máquinas virtuais.
+   - **Sub-rede**: Da mesma sub-rede que as máquinas virtuais.
    - **O endereço IP privado**: O mesmo endereço IP que atribuiu para o recurso de rede de cluster do SQL Server FCI.
-   - **Subscrição**: sua subscrição do Azure.
-   - **Grupo de recursos**: utilizar o mesmo grupo de recursos como suas máquinas virtuais.
-   - **Localização**: utilizar a mesma localização do Azure como máquinas virtuais.
+   - **Subscrição**: A sua subscrição do Azure.
+   - **Grupo de recursos**: Utilize o mesmo grupo de recursos como suas máquinas virtuais.
+   - **Localização**: Utilize a mesma localização do Azure como máquinas virtuais.
    Veja a imagem seguinte:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -395,9 +397,9 @@ Para criar o Balanceador de carga:
 
 1. Sobre o **adicionar sonda de estado de funcionamento** painel, <a name="probe"> </a>definir o estado de funcionamento parâmetros de pesquisa:
 
-   - **Nome**: um nome para a sonda de estado de funcionamento.
+   - **Nome**: Um nome para a sonda de estado de funcionamento.
    - **Protocolo**: TCP.
-   - **Porta**: definido como uma porta TCP disponível. Esta porta precisa de uma porta de firewall aberta. Utilize o [mesma porta](#ports) definido para a sonda de estado de funcionamento à firewall.
+   - **Porta**: Definido como uma porta TCP disponível. Esta porta precisa de uma porta de firewall aberta. Utilize o [mesma porta](#ports) definido para a sonda de estado de funcionamento à firewall.
    - **Intervalo**: 5 segundos.
    - **Limiar de mau estado de funcionamento**: 2 falhas consecutivas.
 
@@ -411,15 +413,15 @@ Para criar o Balanceador de carga:
 
 1. Defina parâmetros de regras de balanceamento de carga:
 
-   - **Nome**: um nome para a regras de balanceamento de carga.
-   - **Endereço IP de front-end**: utilizar o endereço IP para o recurso de rede de cluster do SQL Server FCI.
-   - **Porta**: definida para a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
-   - **Porta de back-end**: este valor usa a mesma porta como a **porta** valor quando ativa **IP flutuante (devolução direta do servidor)**.
-   - **Conjunto back-end**: utilizar o nome do conjunto de back-end que configurou anteriormente.
-   - **Sonda de estado de funcionamento**: utilizar a sonda de estado de funcionamento que configurou anteriormente.
-   - **Persistência da sessão**: nenhuma.
+   - **Nome**: Um nome para a regras de balanceamento de carga.
+   - **Endereço IP de front-end**: Utilize o endereço IP para o recurso de rede de cluster do SQL Server FCI.
+   - **Porta**: Definir para a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
+   - **Porta de back-end**: Este valor usa a mesma porta como a **porta** valor quando ativa **IP flutuante (devolução direta do servidor)**.
+   - **Conjunto back-end**: Utilize o nome do conjunto de back-end que configurou anteriormente.
+   - **Sonda de estado de funcionamento**: Utilize a sonda de estado de funcionamento que configurou anteriormente.
+   - **Persistência da sessão**: Nenhum.
    - **Tempo limite (minutos) de inatividade**: 4.
-   - **Vírgula flutuante (devolução direta do servidor) de IP**: ativada
+   - **Vírgula flutuante (devolução direta do servidor) de IP**: Ativado
 
 1. Clique em **OK**.
 
@@ -444,7 +446,7 @@ No script anterior, defina os valores para o seu ambiente. A lista seguinte desc
 
    - `<Cluster Network Name>`: Nome do Cluster de ativação pós-falha do Windows Server para a rede. Na **Gestor de clusters de ativação pós-falha** > **redes**, clique com o botão direito na rede e clique em **propriedades**. O valor correto está sob **nome** sobre o **geral** separador. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: Nome do recurso de endereço IP de FCI SQL Server. Na **Gestor de clusters de ativação pós-falha** > **funções**, sob a função do SQL Server FCI, em **nome do servidor**, clique com o botão direito do rato no recurso de endereço IP e clique em **Propriedades**. O valor correto está sob **nome** sobre o **geral** separador. 
+   - `<SQL Server FCI IP Address Resource Name>`: Nome do recurso de endereço IP do SQL Server FCI. Na **Gestor de clusters de ativação pós-falha** > **funções**, sob a função do SQL Server FCI, em **nome do servidor**, clique com o botão direito do rato no recurso de endereço IP e clique em **Propriedades**. O valor correto está sob **nome** sobre o **geral** separador. 
 
    - `<ILBIP>`: O endereço IP do ILB. Este endereço é configurado no portal do Azure como o endereço de front-end do ILB. Isso também é o endereço IP do SQL Server FCI. Pode encontrá-lo na **Gestor de clusters de ativação pós-falha** na mesma página de propriedades onde localizado o `<SQL Server FCI IP Address Resource Name>`.  
 
@@ -459,7 +461,7 @@ Depois de definir a sonda de cluster, pode ver todos os parâmetros de cluster n
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Passo 7: Testar ativação pós-falha do FCI
+## <a name="step-7-test-fci-failover"></a>Passo 7: Ativação pós-falha da FCI de teste
 
 Ativação pós-falha de teste da FCI para validar a funcionalidade de cluster. Siga os passos abaixo:
 

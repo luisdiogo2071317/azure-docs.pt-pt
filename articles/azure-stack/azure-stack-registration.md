@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002489"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359549"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -52,9 +52,9 @@ Antes de registar o Azure Stack com o Azure, tem de ter:
 
 - O nome de utilizador e palavra-passe para uma conta que seja o proprietário da subscrição.
 
-- A conta de utilizador tem de ter acesso à subscrição do Azure e ter permissões para criar aplicações de identidades e de principais de serviço no diretório associado a essa subscrição.
+- A conta de utilizador tem de ter acesso à subscrição do Azure e ter permissões para criar aplicações de identidades e de principais de serviço no diretório associado a essa subscrição. Recomendamos que registe o Azure Stack com o Azure utilizando a administração de menor privilégio ao [criar uma conta de serviço para utilizar para o registo](azure-stack-registration-role.md) em vez de utilizar credenciais de administrador global.
 
-- Registado o fornecedor de recursos do Azure Stack (consulte a secção de registar o fornecedor de recursos do Azure Stack abaixo para obter detalhes).
+- Registado o fornecedor de recursos do Azure Stack (consulte a secção de registar o fornecedor de recursos do Azure Stack seguinte para obter detalhes).
 
 Após o registo, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente permissões de administrador global da conta de restabelecimento ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
 
@@ -68,11 +68,11 @@ Para registar com êxito o Azure Stack, o modo de idioma do PowerShell deve ser 
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Certifique-se de que a saída devolve **FullLanguageMode**. Se qualquer outro modo de idioma é retornado, registo, terá de ser executado em outra máquina ou o modo de idioma tem de ser definido como **FullLanguageMode** antes de continuar.
+Certifique-se de que a saída devolve **FullLanguageMode**. Se qualquer outro modo de idioma é retornado, registo tem de ser executado em outra máquina ou o modo de idioma tem de ser definido como **FullLanguageMode** antes de continuar.
 
 ### <a name="install-powershell-for-azure-stack"></a>Instalar o PowerShell para o Azure Stack
 
-Tem de utilizar o PowerShell mais recente para o Azure Stack para registar com o Azure.
+Utilize o PowerShell mais recente para o Azure Stack para registar com o Azure.
 
 Se não a versão mais recente ainda não estiver instalada, veja [instalar o PowerShell para o Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
@@ -86,7 +86,7 @@ Para garantir que está a utilizar a versão mais recente, deve excluir as vers�
 
 Pode ser a sua implementação do Azure Stack *ligados* ou *desligado*.
 
- - **Ligado**  
+ - **Connected**  
  Ligar significa que ter implementado o Azure Stack para que possam ligar à Internet e para o Azure. Ter Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) para seu armazenamento de identidade. Com uma implementação de ligado, pode escolher entre dois modelos de faturação: pay-as que use ou baseada em capacidade.
     - [Registar uma ligada do Azure Stack com o Azure com o **pay-as que use** modelo de faturação](#register-connected-with-pay-as-you-go-billing)
     - [Registar uma ligada do Azure Stack com o Azure com o **capacidade** modelo de faturação](#register-connected-with-capacity-billing)
@@ -101,7 +101,7 @@ Quando registar o Azure Stack com o Azure, tem de fornecer um nome de registo ú
 > [!NOTE]
 > Registos de pilha do Azure com o modelo de faturação com base na capacidade, terá de alterar o nome exclusivo ao registar novamente depois que essas subscrições anuais expirarem, a menos que [eliminar o registo expirado](azure-stack-registration.md#change-the-subscription-you-use) e voltar a registar com Azure.
 
-Para determinar o ID de Cloud para a sua implementação do Azure Stack, abra o PowerShell como administrador num computador pode acessar o ponto final com privilégios, execute os seguintes comandos e registe os **CloudID** valor: 
+Para determinar o ID de Cloud para a sua implementação do Azure Stack, abra o PowerShell como administrador no computador que pode aceder ao ponto final com privilégios, execute os seguintes comandos e registe os **CloudID** valor: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -147,7 +147,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Em seguida, na mesma sessão do PowerShell, certifique-se que estiver conectado ao contexto correto de PowerShell do Azure. Esta é a conta do Azure que foi utilizada para registar o fornecedor de recursos do Azure Stack, acima. PowerShell para executar:
+6. Em seguida, na mesma sessão do PowerShell, certifique-se que estiver conectado ao contexto correto de PowerShell do Azure. Esta é a conta do Azure que foi utilizada para registar o fornecedor de recursos do Azure Stack anteriormente. PowerShell para executar:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -170,7 +170,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    ```
    Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registo](#registration-reference).
 
-  O processo demorará entre 10 a 15 minutos. Quando o comando for concluído, verá a mensagem **"o seu ambiente está agora registado e ativado usando os parâmetros fornecidos."**
+  O processo demora entre 10 a 15 minutos. Quando o comando for concluído, verá a mensagem **"o seu ambiente está agora registado e ativado usando os parâmetros fornecidos."**
 
 ## <a name="register-connected-with-capacity-billing"></a>Registre-se conectado com a faturação de capacidade
 
@@ -284,7 +284,7 @@ Para obter a chave de ativação, execute os seguintes cmdlets do PowerShell:
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Criar um recurso de ativação no Azure Stack
 
-Regressar ao ambiente do Azure Stack com o ficheiro ou o texto da chave de ativação criada a partir de Get-AzsActivationKey. Em seguida vai criar um recurso de ativação no Azure Stack com essa chave de ativação. Para criar um recurso de ativação, execute os seguintes cmdlets do PowerShell:  
+Regressar ao ambiente do Azure Stack com o ficheiro ou o texto da chave de ativação criada a partir de Get-AzsActivationKey. Em seguida, vai criar um recurso de ativação no Azure Stack com essa chave de ativação. Para criar um recurso de ativação, execute os seguintes cmdlets do PowerShell:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -306,9 +306,21 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 
 2. A partir do Dashboard, selecione **gestão da região**.
 
+3. Selecione **propriedades**. Este painel mostra o estado e os detalhes do seu ambiente. O estado pode ser **registada** ou **não registado**.
+
     [ ![Mosaico de gestão de região](media/azure-stack-registration/admin1sm.png "mosaico de gestão da região") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. Selecione **propriedades**. Este painel mostra o estado e os detalhes do seu ambiente. O estado pode ser **registada** ou **não registado**. Se registrado, ela também mostra o ID de subscrição do Azure que utilizou para registar o Azure Stack, juntamente com o grupo de recursos de registo e o nome.
+    Se registrado, as propriedades incluem:
+    
+    - **ID de subscrição de registo**: O ID de subscrição do Azure, registado e associados ao Azure Stack
+    - **Grupo de recursos de registo**: O grupo de recursos do Azure na subscrição associada que contém os recursos do Azure Stack.
+
+4. Utilize o portal do Azure para ver os registos de aplicações do Azure Stack. Inicie sessão no portal do Azure com uma conta associada à subscrição utilizada para registar o Azure Stack. Mudar para o inquilino associado com o Azure Stack.
+5. Navegue para **do Azure Active Directory > registos de aplicações > ver todas as aplicações**.
+
+    ![Registos de aplicações](media/azure-stack-registration/app-registrations.png)
+
+    Registos de aplicações do Azure Stack têm o prefixo **do Azure Stack**.
 
 Em alternativa, pode verificar se o registo foi concluída com êxito ao utilizar a funcionalidade de gestão do Marketplace. Se vir uma lista de itens do marketplace no painel de gestão do Marketplace, o registo foi concluída com êxito. No entanto, em ambientes desligados, não será capaz de ver os itens do marketplace no gerenciamento do Marketplace. No entanto, pode utilizar a ferramenta de offline para verificar o registo.
 
@@ -353,7 +365,7 @@ Terá de atualizar ou renovar o registo nas seguintes circunstâncias:
 
 #### <a name="remove-the-activation-resource-from-azure-stack"></a>Remover o recurso de ativação do Azure Stack
 
-Primeiro terá de remover o recurso de ativação do Azure Stack e, em seguida, o recurso de registo no Azure.  
+Tem primeiro de remover o recurso de ativação do Azure Stack e, em seguida, o recurso de registo no Azure.  
 
 Para remover o recurso de ativação no Azure Stack, execute os seguintes cmdlets do PowerShell no seu ambiente do Azure Stack:  
 
@@ -383,7 +395,7 @@ Tem agora completamente registo anulado com êxito num cenário de desligado e t
 
 ### <a name="disable-or-enable-usage-reporting"></a>Desativar ou ativar o relatório de utilização
 
-Para ambientes do Azure Stack que utilizam um modelo de faturação de capacidade, desativar a utilização de relatórios com o **UsageReportingEnabled** parâmetro através de um a **conjunto AzsRegistration** ou a  **Get-AzsRegistrationToken** cmdlets. O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado terá de desativar os relatórios de utilização.
+Para ambientes do Azure Stack que utilizam um modelo de faturação de capacidade, desativar a utilização de relatórios com o **UsageReportingEnabled** parâmetro através de um a **conjunto AzsRegistration** ou a  **Get-AzsRegistrationToken** cmdlets. O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização.
 
 #### <a name="with-a-connected-azure-stack"></a>Com um ligado do Azure Stack
 
@@ -417,7 +429,7 @@ Mover um recurso de registro entre grupos de recursos na mesma subscrição **é
 
 ## <a name="registration-reference"></a>Referência de registo
 
-### <a name="set-azsregistration"></a>Conjunto AzsRegistration
+### <a name="set-azsregistration"></a>Set-AzsRegistration
 
 Pode usar o conjunto AzsRegistration para registar o Azure Stack com o Azure e ativar ou desativar a oferta de itens no marketplace e relatórios de utilização.
 
@@ -441,13 +453,13 @@ Para executar o cmdlet, terá de:
 | ResourceGroupLocation | Cadeia |  |
 | BillingModel | Cadeia | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se é ou não a funcionalidade de gestão do marketplace está disponível no portal. Definido como VERDADEIRO se registar com ligação à internet. Definido como FALSO se registar em ambientes desligados. Para registros desconectados, o [ferramenta de distribuição offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser utilizado para transferência de itens do marketplace. |
-| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado terá de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
+| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
 | AgreementNumber | Cadeia |  |
-| registrationName | Cadeia | Defina um nome exclusivo para o registo, se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo Azure ID de subscrição. O parâmetro tem um valor predefinido de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
+| RegistrationName | Cadeia | Defina um nome exclusivo para o registo, se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo Azure ID de subscrição. O parâmetro tem um valor predefinido de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken irá gerar um token de registo dos parâmetros de entrada.
+Get-AzsRegistrationToken gera um token de registo a partir os parâmetros de entrada.
 
 ```PowerShell  
     Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
@@ -463,7 +475,7 @@ Get-AzsRegistrationToken irá gerar um token de registo dos parâmetros de entra
 | ResourceGroupLocation | Cadeia |  |
 | BillingModel | Cadeia | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso |  |
-| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado terá de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
+| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
 | AgreementNumber | Cadeia |  |
 
 

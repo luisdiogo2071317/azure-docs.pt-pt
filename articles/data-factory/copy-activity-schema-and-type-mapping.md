@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025458"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358716"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia de fábrica de dados do Azure faz o mapeamento de esquema e o mapeamento de tipo de dados de origem de dados para dados de sink quando executar a cópia de dados.
@@ -142,7 +142,7 @@ Se estiver a utilizar a sintaxe do `"columnMappings": "UserId: MyUserId, Group: 
 
 ## <a name="schema-mapping"></a>Mapeamento de esquema
 
-Mapeamento de esquema aplica-se quando a cópia de dados entre hierárquicas em forma de dados e os dados em forma tabela, por exemplo, copiar do MongoDB/REST para o ficheiro de texto e de cópia a partir de SQL para a API de MongoDB do Azure Cosmos DB. As seguintes propriedades são suportadas na atividade de cópia `translator` secção:
+Mapeamento de esquema aplica-se ao copiar dados entre hierárquicas em forma de dados e dados em forma tabela, por exemplo, a cópia a partir de MongoDB/REST para o arquivo de texto e a cópia da SQL API do Azure Cosmos DB para MongoDB. As seguintes propriedades são suportadas na atividade de cópia `translator` secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |

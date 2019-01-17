@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 09d982c98e830b957be8db43974e3a44df505967
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321063"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359413"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -114,6 +114,9 @@ R. Se o LED indicador de falha do sistema estiver ligado, significa que o sistem
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P. Não consigo aceder à palavra-passe de desbloqueio do Data Box no portal do Azure. O que correu mal?
 R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, verifique as permissões na sua subscrição e na sua conta de armazenamento. Confirme que tem a permissão Contribuidor ou Proprietário ao nível do grupo de recursos. Se não, em seguida, tem de ter, pelo menos, permissão de função de operador de caixa de dados para ver as credenciais de acesso.
+
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. Configuração do canal de porta é suportada na caixa de dados? E quanto a MPIO?
+R. Não suportamos a configuração do canal de porta, a configuração de Multipath e/s (MPIO) ou a configuração de vLAN no Data Box.
 
 ## <a name="track-status"></a>Acompanhar o estado
 
@@ -223,20 +226,20 @@ R.  O serviço Azure Data Box disponibiliza, de forma nativa, relatórios que po
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Que tipos de relatórios estão disponíveis para suportar a cadeia de custódia?
 R.  Para suportar a cadeia de custódia, estão disponíveis os seguintes relatórios:
 
-- Logística de transporte da DHL e da UPS.
+- Logística de UPS de transporte.
 - Registo de ligar e de partilha de acesso do utilizador.
 - Ficheiro de manifesto com uma verificação de redundância cíclica de 64 bits (CRC-64) ou soma de verificação para cada ficheiro que é ingerido pelo Data Box.
 - Relatórios de ficheiros que não foram devidamente carregados para a conta de armazenamento do Azure.
 - Limpeza do dispositivo Data Box (de acordo com as normas 800 88R1 da NIST) após a cópia dos dados para a sua conta de armazenamento do Azure.
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Estão disponíveis os registos de acompanhamento das transportadoras (da UPS/DHL)? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Está a operadora controlo registos (a partir de UPS) disponível? 
 R.  Os registos de acompanhamento da transportadora são guardados no histórico de encomendas do Data Box. Este relatório está disponível após o dispositivo ter chegado ao datacenter do Azure e de os dados no mesmo terem sido limpos. Para necessidades imediatas, também pode aceder diretamente ao site da transportadora com o número de acompanhamento da encomenda e obter as informações de acompanhamento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Posso transportar o Data Box para o datacenter do Azure? 
-R.  Não. Atualmente, o datacenter do Azure não aceita a entrega do Data Box por parte de clientes nem transportadoras que não a UPS/DHL.
+R.  Não. Atualmente o datacenter do Azure não aceita a entrega da caixa de dados de clientes ou de operadoras diferente no-BREAK.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os [requisitos de sistema do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034323"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359464"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
@@ -94,7 +94,7 @@ Adicionámos um orquestrador para coordenar as funções de atividade. Vamos ago
 
 ## <a name="create-an-activity-function"></a>Criar uma função de atividade
 
-1. Repita os passos das secções anteriores para criar uma terceira função usando o modelo de Acionador HTTP. Mas, desta vez chamar a função de `SayHello`.
+1. Repita os passos das secções anteriores para criar uma terceira função usando o modelo de Acionador HTTP. Mas, desta vez chamar a função de `E1_SayHello`.
 
 2. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
 
@@ -121,9 +121,11 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
     ![Resultado local do Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Cole o URL do pedido HTTP na barra de endereço do browser e ver o estado da sua orquestração.
+4. Substitua `{functionName}` por `OrchestratorFunction`.
 
-5. Para parar a depuração, prima Shift + F1.
+5. Usando uma ferramenta como [Postman](https://www.getpostman.com/) ou [cURL](https://curl.haxx.se/), enviar um pedido de HTTP POST para o ponto de final do URL.
+
+6. Para parar a depuração, prima Shift + F1 no VS Code.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 

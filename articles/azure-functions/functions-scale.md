@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722080"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359872"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
 As funções do Azure é executado em dois modos diferentes: Plano de consumo e plano de serviço de aplicações do Azure. O plano de consumo aloca automaticamente a potência de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código não está em execução. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.
 
 > [!NOTE]  
-> [Alojamento do Linux](functions-create-first-azure-function-azure-cli-linux.md) só se encontra disponível num plano do serviço de aplicações.
+> Plano de consumo para Linux está [agora em pré-visualização pública](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
 
 Se não estiver familiarizado com as funções do Azure, veja a [descrição geral das funções do Azure](functions-overview.md).
 

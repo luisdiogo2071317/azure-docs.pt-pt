@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724873"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359498"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar o Cosmos DB com o Azure Search utilizando indexadores
 
@@ -38,7 +38,7 @@ O vídeo seguinte, Andrew Liu gerente de programa do DB Cosmos Azure demonstra c
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Tipos de API suportados
 
-Embora o Azure Cosmos DB suporta uma variedade de APIs e modelos de dados, estende o suporte de produção do indexador de Azure Search para apenas a API de SQL. Suporte para o Azure Cosmos DB para a MongoDB API está atualmente em pré-visualização pública.  
+Embora o Azure Cosmos DB suporta uma variedade de APIs e modelos de dados, estende o suporte de produção do indexador de Azure Search para apenas a API de SQL. Suporte para a API do Azure Cosmos DB para o MongoDB está atualmente em pré-visualização pública.  
 
 Suporte para as APIs adicionais é próximo. Para nos ajudar a priorizar quais para suportar pela primeira vez, volte a converter o seu voto no web site a voz do utilizador:
 
@@ -96,16 +96,16 @@ Para criar uma origem de dados, faça uma POSTAGEM:
 
 O corpo do pedido contém a definição de origem de dados, que deve incluir os seguintes campos:
 
-* **Nome**: Escolha o nome para representar a sua base de dados.
-* **Tipo de**: Tem de ser `documentdb`.
+* **name**: Escolha o nome para representar a sua base de dados.
+* **type**: Tem de ser `documentdb`.
 * **credenciais**:
   
   * **connectionString**: Necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para coleções de MongoDB, adicione **ApiKind = MongoDb** para a cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Evite os números de porta no url do ponto final. Se incluir o número de porta, o Azure Search será não é possível indexar a base de dados do Azure Cosmos DB.
-* **contentor**:
+* **container**:
   
-  * **Nome**: Necessário. Especifica o id da coleção da base de dados ser indexados.
-  * **consulta**: Opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar. Para coleções de MongoDB, as consultas não são suportadas. 
+  * **name**: Necessário. Especifica o id da coleção da base de dados ser indexados.
+  * **query**: Opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar. Para coleções de MongoDB, as consultas não são suportadas. 
 * **dataChangeDetectionPolicy**: Recomendado. Ver [indexar documentos alterados](#DataChangeDetectionPolicy) secção.
 * **dataDeletionDetectionPolicy**: Opcional. Ver [indexar documentos eliminado](#DataDeletionDetectionPolicy) secção.
 
@@ -182,9 +182,9 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatível |
 | --- | --- |
-| Bool |Boolean, EDM |
+| Bool |Edm.Boolean, Edm.String |
 | Números que são semelhantes a números inteiros |Edm.Int32, Edm.Int64, Edm.String |
-| Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, EDM |
+| Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, Edm.String |
 | Cadeia |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
 | Cadeias de caracteres que se pareçam com datas |Edm.DateTimeOffset, Edm.String |

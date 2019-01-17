@@ -1,6 +1,6 @@
 ---
-title: Painel de definições do Application Insights Profiler do Azure | Documentos da Microsoft
-description: Ver estado do criador de perfil e iniciar sessões de criação de perfis
+title: Utilizar o painel de definições do Azure Application Insights Profiler | Documentos da Microsoft
+description: Ver estado do Profiler e iniciar sessões de criação de perfis
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,109 +12,117 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b656fb521ad72256e91de63e96aa261f1e94bd13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 16e855d8c9c5863339ec09b48d41d6f011b3e836
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083446"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358682"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar Application Insights Profiler
 
-## <a name="profiler-settings-page"></a>Página de definições do Profiler
+## <a name="profiler-settings-pane"></a>Painel de definições do Profiler
 
-A página de definições do criador de perfil pode ser aberta a partir da página de desempenho do Application Insights ao premir o **Profiler** botão.
+Para abrir o painel de definições do Azure Application Insights Profiler, vá para o painel de desempenho do Application Insights e, em seguida, selecione o **Profiler** botão.
 
-![configurar a entrada do painel de criador de perfil][configure-profiler-entry]
+![Configurar o painel do Profiler][configure-profiler-entry]
 
-A página de configurar o Application Insights Profiler contém quatro recursos: 
-1. **Perfil agora** -clicar neste botão, fará com que sessões de criação de perfis iniciar para todas as aplicações que estejam ligadas a esta instância do Application Insights
-1. **Ligado aplicações** -lista de aplicativos de envio de criador de perfil para este recurso do Application Insights
-1. **Sessões em curso** - quando pressiona **perfil agora**, o estado da sessão serão apresentadas aqui)
-1. **Recentes de sessões de criação de perfis** -mostra informações sobre sessões de criação de perfis nos últimos.
+O **configurar o Application Insights Profiler** painel contém quatro recursos: 
+* **Perfil agora**: Inicia a criação de perfis de sessões para todas as aplicações que estejam ligadas a esta instância do Application Insights.
+* **Ligado aplicações**: Apresenta uma lista de aplicações que a criação de perfis de enviar dados para este recurso do Application Insights.
+* **Sessões em curso**: Apresenta o estado da sessão quando seleciona **perfil agora**. 
+* **Recentes de sessões de criação de perfis**: Mostra informações sobre sessões de criação de perfis nos últimos.
 
 ![Profiler sob demanda][profiler-on-demand]
 
-## <a name="app-service-environments-ase"></a>Ambientes de serviço de aplicações (ASE)
-Dependendo de como o seu ASE é configurado, a chamada para verificar o estado do agente pode ser bloqueada. Esta página será apresentada a mensagem de que o agente não está em execução quando na verdade é. Para garantir que pode verificar o webjob em seu aplicativo. Mas se todas as definições de aplicação estão definidas corretamente e a extensão de site do App Insights está instalada no seu aplicativo, o criador de perfil será executado e verá recentes sessões de criação de perfil na lista, se houver tráfego adequado para a aplicação.
+## <a name="app-service-environment"></a>Ambiente do Serviço de Aplicações
+Dependendo da configuração do ambiente de serviço de aplicações do Azure, a chamada para verificar o estado do agente poderá ser bloqueada. O painel pode apresentar uma mensagem que o agente não está em execução mesmo quando está em execução. Para certificar-se de que é, verifique o webjob em seu aplicativo. Se todos os valores de definições de aplicação estão corretos e a extensão de site do Application Insights está instalada no seu aplicativo, Profiler está em execução. Se a sua aplicação está a receber suficiente tráfego, recentes sessões de criação de perfis devem ser exibidos numa lista.
 
 ## <a id="profileondemand"></a> Acionar manualmente o Profiler
 
-Profiler pode ser acionada manualmente com o clique de um botão. Suponha que está executando um teste de desempenho da web. Precisará rastreios para ajudar a compreender sobre a execução da sua aplicação web sob carga. É crucial ter controlo sobre o quando os rastreios são capturados, uma vez que sabe quando executará o teste de carga, mas o intervalo de amostragem aleatória pode perdê-lo.
-Os passos seguintes mostram como funciona este cenário:
+Pode acionar manualmente Profiler com um único clique. Suponha que está a executar um teste de desempenho da web. Precisará rastreios para ajudar a compreender sobre a execução da sua aplicação web sob carga. Ter controlo sobre o quando os rastreios são capturados é crucial, porque sabe quando o teste de carga será executado. Mas o intervalo de amostragem aleatória pode perdê-lo.
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Opcional) Passo 1: Gerar tráfego para a sua aplicação web ao iniciar um teste de desempenho da web
+As secções seguintes mostram como funciona este cenário:
+
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passo 1: (Opcional) Gerar tráfego para a sua aplicação web ao iniciar um teste de desempenho da web
 
 Se a sua aplicação web já tiver o tráfego de entrada ou se quiser gerar tráfego manualmente, ignore esta secção e continue no passo 2.
 
-Navegue até ao portal do Application Insights **configurar > testes de desempenho**. Clique no botão de nova para iniciar um novo teste de desempenho.
+1. No portal do Application Insights, selecione **configurar** > **testes de desempenho**. 
 
-![Criar novo teste de desempenho][create-performance-test]
+1. Para iniciar um novo teste de desempenho, selecione o **New** botão.
 
-Na **novo teste de desempenho** painel, configurar o URL de destino do teste. Aceite todas as configurações padrão e comece a executar o teste de carga.
+   ![Criar novo teste de desempenho][create-performance-test]
 
-![Configurar teste de carga][configure-performance-test]
+1. Na **novo teste de desempenho** painel, configurar o URL de destino do teste. Aceite todas as configurações padrão e, em seguida, selecione **teste de execução** para começar a executar o teste de carga.
 
-Verá que o novo teste é colocada na fila em primeiro lugar, seguido de um Estado de "em curso".
+    ![Configurar teste de carga][configure-performance-test]
 
-![teste de carga é submetido e colocados em fila][load-test-queued]
+    Novo teste é colocada na fila em primeiro lugar, seguido de estado *em curso*.
 
-![teste de carga está em execução em curso][load-test-in-progress]
+    ![teste de carga é submetido e colocados em fila][load-test-queued]
 
-### <a name="step-2-start-profiler-on-demand"></a>Passo 2: Iniciar o gerador de perfis sob demanda
+    ![teste de carga está em execução em curso][load-test-in-progress]
 
-Assim que estiver a executar o teste de carga, podemos começar a profiler para capturar rastreios na aplicação web, enquanto ele está recebendo a carga.
-Navegue até ao painel Configurar Profiler:
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Passo 2: Iniciar uma sessão de sob demanda do Profiler
+
+1. Quando o teste de carga está em execução, comece Profiler para capturar rastreios na aplicação web, enquanto ele está recebendo a carga.
+
+1. Vá para o **Profiler configurar** painel.
 
 
 ### <a name="step-3-view-traces"></a>Passo 3: Ver rastreios
 
-Assim que o criador de perfil termina a execução, siga as instruções na notificação para aceder à rastreios de página e vista de desempenho.
+Após a conclusão do Profiler em execução, siga as instruções na notificação para aceder à rastreios de painel e vista de desempenho.
 
-## <a name="troubleshooting-on-demand-profiler"></a>Criador de perfil sob demanda de resolução de problemas
+## <a name="troubleshoot-the-profiler-on-demand-session"></a>Resolver problemas relacionados com a sessão de sob demanda do Profiler
 
-Às vezes, poderá ver a mensagem de erro de tempo limite do Profiler depois de uma sessão a pedido:
+Depois de uma sessão sob demanda, pode receber uma mensagem de erro de tempo limite do Profiler:
 
 ![Erro de tempo limite do Profiler][profiler-timeout]
 
-Pode haver dois motivos por que vir este erro:
+Pode receber este erro para qualquer um dos seguintes motivos:
 
-1. A sessão de criador de perfil sob demanda foi concluída com êxito, mas demorou mais tempo a processar os dados recolhidos do Application Insights. Se os dados não foi concluída a ser processado em 15 minutos, o portal irá apresentar uma mensagem de tempo limite. Embora após algum tempo, rastreios do Profiler serão exibido. Se isto acontecer, simplesmente ignore a mensagem de erro por enquanto. Estamos a trabalhar ativamente numa solução.
+* A sessão de Profiler sob demanda foi concluída com êxito, mas demorou mais tempo que o esperado para processar os dados recolhidos do Application Insights.  
 
-1. A aplicação web tem uma versão mais antiga do agente do Profiler que não tenha a funcionalidade sob demanda. Se ativou anteriormente o perfil do Application Insights, as chances são de que tem de atualizar o agente do Profiler para começar a utilizar a funcionalidade sob demanda.
+  Se os dados não processados em 15 minutos, o portal apresenta uma mensagem de tempo limite. Depois de um tempo, no entanto, rastreios do Profiler serão exibido. Se receber uma mensagem de erro, ignorá-la por agora. Estamos a trabalhar ativamente numa solução.
+
+* A aplicação web tem uma versão mais antiga do agente do Profiler que não tem a funcionalidade sob demanda.  
+
+  Se ativou o Application Insights Profiler anteriormente, precisará de atualizar o agente do Profiler para começar a utilizar a funcionalidade sob demanda.
   
-Siga estes passos para verificar e instalar o Profiler mais recente:
+Vá para os serviços de aplicação **as definições da aplicação** painel e verificar as seguintes definições:
+* **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua a chave de instrumentação adequada para o Application Insights.
+* **APPINSIGHTS_PORTALINFO**: ASP.NET
+* **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-1. Aceda às definições de aplicação de serviços de aplicação e verificar se as seguintes definições estão configuradas:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua a chave de instrumentação adequada para o Application Insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 se qualquer uma destas definições não se encontram definidos, vá para o painel de ativação do Application Insights para instalar a extensão de site mais recente.
+Se qualquer um dos valores anteriores não se encontram definidos, instale a extensão de site mais recente, fazendo o seguinte:
 
-1. Aceda ao painel do Application Insights no portal dos serviços de aplicações.
+1. Vá para o **Application Insights** painel no portal dos serviços de aplicações.
 
     ![Ativar o Application Insights a partir do portal dos serviços de aplicações][enable-app-insights]
 
-1. Se vir um botão 'Update' na página seguinte, clique nele para atualizar a extensão de site do Application Insights que vai instalar o agente mais recente do Profiler.
+1. Se o **Application Insights** painel apresenta um **atualizar** botão, selecione-o para atualizar a extensão de site do Application Insights que vai instalar o agente mais recente do Profiler.
 
     ![Atualizar a extensão de site][update-site-extension]
 
-1. Em seguida, clique em **alterar** para garantir que o Profiler está ativado e selecione **OK** para guardar as alterações.
+1. Para garantir que o Profiler está ativado, selecione **alteração**e, em seguida, selecione **OK** para guardar as alterações.
 
     ![Alterar e salvar o app insights][change-and-save-appinsights]
 
-1. Volte ao **as definições da aplicação** separador para o serviço de aplicações para verificar novamente os seguintes itens de definições de aplicação estão definidos:
+1. Volte ao **as definições da aplicação** painel para o serviço de aplicações para se certificar de que os seguintes valores estão definidos:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua a chave de instrumentação adequada para o application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![definições de aplicações para o criador de perfil][app-settings-for-profiler]
+    ![Definições de aplicações para Profiler][app-settings-for-profiler]
 
-1. Opcionalmente, verifique a versão de extensão e certificar-se de que não existe nenhuma atualização disponível.
+1. Opcionalmente, selecione **extensões**e, em seguida, verifique a versão de extensão e determinar se uma atualização está disponível.
 
     ![verificação de atualização da extensão][check-for-extension-update]
 
-## <a name="next-steps"></a>Próximos Passos
-[Ative Profiler e ver rastreios](profiler-overview.md ?toc=/azure/azure-monitor/toc.json)
+## <a name="next-steps"></a>Passos Seguintes
+[Ative Profiler e ver rastreios](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 84e56610cb0f9090d8cacc461a73bf41d05f2251
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033490"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358118"
 ---
 # <a name="ip-firewall-for-azure-cosmos-accounts"></a>Firewall do IP para contas do Cosmos do Azure
 
@@ -19,7 +19,7 @@ Para proteger os dados armazenados na sua conta, do Azure Cosmos DB suporta um m
 
 ## <a id="ip-access-control-overview"></a>Descrição geral de controlo de acesso IP
 
-Por predefinição, sua conta do Cosmos do Azure é acessível a partir da internet, desde que o pedido seja acompanhado por um token de autorização válida. Para configurar o controlo de acesso baseado em política IP, o utilizador tem de fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Routing) a serem incluídos como a lista de permitidos do cliente IPs para aceder a uma conta do Cosmos do Azure especificada. Depois desta configuração é aplicada, quaisquer pedidos provenientes de máquinas fora desta lista de permissões recebem um 404 resposta (não encontrado). Ao usar o firewall do IP, recomenda-se para permitir que o portal do Azure aceder à sua conta. O acesso é necessário para permitir a utilização do data explorer, bem como para obter métricas para a sua conta, que aparecem no portal do Azure.
+Por predefinição, sua conta do Cosmos do Azure é acessível a partir da internet, desde que o pedido seja acompanhado por um token de autorização válida. Para configurar o controlo de acesso baseado em política IP, o utilizador tem de fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Routing) a serem incluídos como a lista de permitidos do cliente IPs para aceder a uma conta do Cosmos do Azure especificada. Depois desta configuração é aplicada, quaisquer pedidos provenientes de máquinas fora desta lista de permissões recebem 403 (proibido) resposta. Ao usar o firewall do IP, recomenda-se para permitir que o portal do Azure aceder à sua conta. O acesso é necessário para permitir a utilização do data explorer, bem como para obter métricas para a sua conta, que aparecem no portal do Azure.
 
 Pode combinar o firewall baseado em IP com a sub-rede e o controlo de acesso VNET. Ao combiná-los, pode limitar o acesso a qualquer origem de que tem um IP público e/ou de uma sub-rede específica na VNET. Para saber mais sobre como utilizar a sub-rede e o controlo de acesso com base na VNET, veja [recursos de acesso do Azure Cosmos DB a partir de redes virtuais](vnet-service-endpoint.md).
 

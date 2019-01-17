@@ -1,59 +1,33 @@
 ---
-title: Instância gerida de replicação de base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba como utilizar a replicação do SQL Server com a instância gerida da base de dados SQL do Azure
+title: Configurar a replicação na instância gerida da base de dados SQL do Azure | Documentos da Microsoft
+description: Saiba mais sobre como configurar a replicação transacional na instância gerida da base de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329469"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360093"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Instância gerida de replicação de base de dados SQL
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurar a replicação na instância gerida da base de dados SQL do Azure
 
-A replicação está disponível para pré-visualização pública no [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor.
-
-## <a name="common-configurations"></a>Configurações comuns
-
-Em geral, o publicador e distribuidor tem ambos de ser seja na cloud ou no local. São suportadas as seguintes configurações:
-
-- **Publicador com o distribuidor local na instância gerida**
-
-   ![Replication-with-Azure-SQL-DB-Single-Managed-Instance-Publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Bases de dados do publicador e distribuidor estão configurados numa única instância gerida.
-
-- **Publicador com o distribuidor remoto na instância gerida**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Editor e distribuidor estão configurados em duas instâncias geridas. Nesta configuração:
-
-  - Ambas as instâncias geridas estão na mesma vNet.
-
-  - Ambas as instâncias geridas estão na mesma localização.
-
-- **Editor e distribuidor no local com o subscritor na instância gerida**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   Nesta configuração, uma base de dados SQL do Azure é um subscritor. Esta configuração suporta a migração no local para o Azure. Na função de subscritor, base de dados SQL não necessita de instância gerida, no entanto, pode utilizar uma instância gerida do SQL da base de dados como um passo na migração do local para o Azure. Para obter mais informações sobre os subscritores do Azure SQL Database, consulte [replicação de base de dados SQL](replication-to-sql-database.md).
+Replicação transacional permite-lhe replicar dados dos bancos de dados do SQL Server ou de instância gerida da base de dados SQL do Azure para a instância gerida, ou envie as alterações feitas em seus bancos de dados na instância gerida para outro SQL Server, base de dados do Azure ou outro Instância gerida. A replicação está em pré-visualização pública no [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Ver [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
 
 ## <a name="requirements"></a>Requisitos
 
 Editor e distribuidor na base de dados do Azure SQL requer:
 
-- Instância gerida da base de dados SQL do Azure.
+- O Azure SQL Database Managed Instance que não esteja na configuração de Geo-DR.
 
    >[!NOTE]
    >Bases de dados SQL do Azure que não estão configurados com a instância gerida só é possível os subscritores.
@@ -74,7 +48,13 @@ Suporta:
 
 - Os assinantes podem ser bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL, bases de dados individuais na base de dados do Azure SQL ou no local.
 
-- Unidirecional ou bidirecional de replicação
+- Unidirecional ou bidirecional de replicação.
+
+Não são suportadas as seguintes funcionalidades:
+
+- Subscrições atualizáveis.
+
+- Georreplicação ativa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configurar o exemplo de publicação e distribuição
 
@@ -188,15 +168,7 @@ Suporta:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Limitações
-
-Não são suportadas as seguintes funcionalidades:
-
-- Subscrições atualizáveis
-
-- Georreplicação ativa
-
+   
 ## <a name="see-also"></a>Consultar Também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)

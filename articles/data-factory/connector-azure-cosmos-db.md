@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0d66c7d714aeac28a46adb31fdb73b4781ac81f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6dd7707c489bbbad7a97a0ec0a76e7c631bd1465
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024727"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359260"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB (API de SQL) com o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Versão atual](connector-azure-cosmos-db.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para o Azure Cosmos DB (SQL API). O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
 >[!NOTE]
->Esse suporte apenas do conector copiar dados de/para Cosmos DB SQL API. Para a API de MongoDB, consulte [conector de API do Cosmos DB MongoDB](connector-azure-cosmos-db-mongodb-api.md). Outros tipos de API não são agora suportados.
+>Esse suporte apenas do conector copiar dados de/para Cosmos DB SQL API. Para o MongoDB, consulte [conector de API do Azure Cosmos DB para o MongoDB](connector-azure-cosmos-db-mongodb-api.md). Outros tipos de API não são agora suportados.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

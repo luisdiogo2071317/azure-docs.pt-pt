@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307080"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358665"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças da Microsoft
 
@@ -33,12 +33,12 @@ A ferramenta permite que qualquer pessoa:
 
 Aqui estão algumas capacidades de ferramentas e inovações, entre outras:
 
-* **Automatização:** orientação e comentários num modelo de desenho
-* **STRIDE por elemento:** orientada a análise de ameaças e mitigações
-* **Relatórios:** atividades de segurança e de teste na fase de verificação
-* **Metodologia exclusiva:** permite aos utilizadores visualizar e compreender as ameaças melhor
+* **Automatização:** Documentação de orientação e comentários num modelo de desenho
+* **STRIDE por elemento:** Análise interativa de ameaças e mitigações
+* **Relatórios:** Atividades de segurança e de teste na fase de verificação
+* **Metodologia exclusiva:** Permite aos utilizadores visualizar e compreender as ameaças melhor
 * **Concebido para programadores e Centered no Software:** muitas abordagens são centradas em ativos ou atacantes. Podemos são centrados no software. Criamos em atividades que todos os arquitetos e desenvolvedores de software estão familiarizados, como o desenho de imagens para sua arquitetura de software
-* **Concentra-se na análise de Design:** pode consultar a termo "a Modelagem de ameaças" requisitos de um ou uma técnica de análise de design. Às vezes, ele se refere a uma mistura complexa dos dois. A abordagem de SDL da Microsoft para a Modelagem de ameaças é uma técnica de análise de design em destaque
+* **Concentra-se na análise de Design:** A termo "a Modelagem de ameaças" pode consultar os requisitos de um ou uma técnica de análise de design. Às vezes, ele se refere a uma mistura complexa dos dois. A abordagem de SDL da Microsoft para a Modelagem de ameaças é uma técnica de análise de design em destaque
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -46,7 +46,7 @@ A tabela abaixo contém links importantes para começar a usar a ferramenta de m
 
 | Passo  | Descrição                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Transferir o ferramenta de modelagem de ameaças](https://aka.ms/tmtpreview)                                |
+| **1** | [Transferir o ferramenta de modelagem de ameaças](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Leia o que nosso guia de introdução](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Se familiarizar com os recursos](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Saiba mais sobre as categorias de ameaças gerado](./azure-security-threat-modeling-tool-threats.md)   |

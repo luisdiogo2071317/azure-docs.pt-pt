@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 09f7fba2b8ae3b3ccc8710ffe9302d02d311c74c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514337"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359396"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividades para auditar as ações em recursos
 
@@ -53,7 +53,7 @@ Pode recuperar informações de registos de atividade através do portal, PowerS
 
     ![Opções de filtro de conjunto](./media/resource-group-audit/set-filter.png)
 
-4. Se tiver de executar a consulta novamente mais tarde, selecione **guardar** e dê um nome de consulta.
+4. Se tiver de executar a consulta novamente mais tarde, selecione **filtros atuais do Pin** e atribua um nome.
 
     ![Guardar consulta](./media/resource-group-audit/save-query.png)
 5. Para executar rapidamente uma consulta, pode selecionar uma das consultas incorporadas, tais como implementações falhadas.

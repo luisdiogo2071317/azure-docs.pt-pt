@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742395"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54355912"
 ---
 Se quiser permitir que apenas Inscreva-se na sua aplicação, utilize um **Inscreva-se** fluxo de utilizador. Este fluxo de utilizador descreve as experiências que os clientes passam por durante a inscrição e os conteúdos de tokens que a aplicação recebe nas inscrições com êxito.
 

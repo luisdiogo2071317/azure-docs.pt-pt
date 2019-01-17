@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246471"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359277"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs do
+
 > [!NOTE]
 > Para perguntas de codificador premium, envie um e-mail mepd@microsoft.com.
 > 
@@ -38,11 +38,13 @@ Este documento contém uma lista de formatos de ficheiro de entrada e saída e c
 **Media Encoder Premium Workflow** suporta legendagem de áudio descritas [isso](#closed_captioning) secção. 
 
 ## <a id="input_formats"></a>Formatos e Codecs de entrada de fluxo de trabalho de Premium de codificador de multimédia
+
 A seção a seguir lista os codecs e formatos de arquivo que este processador de multimédia suporta como entrada.
 
 ### <a name="input-containerfile-formats"></a>Formatos de arquivo/contentor de entrada
+
 * Adobe® Flash® F4V
-* FICHEIROS DO MXF/SMPTE 377M
+* MXF/SMPTE 377M
 * GXF
 * Fluxos de transporte de MPEG-2
 * Fluxos do programa de MPEG-2
@@ -51,6 +53,7 @@ A seção a seguir lista os codecs e formatos de arquivo que este processador de
 * AVI (descomprimido 8 bits/10 bits)
 
 ### <a name="input-video-codecs"></a>Codecs de vídeo de entrada
+
 * AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra
 * Avid DNxHD (no MXF)
 * DVCPro/DVCProHD (no MXF)
@@ -61,19 +64,22 @@ A seção a seguir lista os codecs e formatos de arquivo que este processador de
 * Windows Media vídeo/VC-1
 
 ### <a name="input-audio-codecs"></a>Codecs de áudio de entrada
+
 * AES (SMPTE 331m e 302 M, AES3 2003)
 * Dolby® E
 * Dolby® Digital (AC3)
 * AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
 * MPEG camada 2
 * MP3 (MPEG-1 camada de áudio 3)
-* Áudio de suporte de dados do Windows
+* Windows Media Audio
 * WAV/PCM
 
 ## <a id="output_format"></a>E Codecs do codificador de multimédia Premium formatos de saída de fluxo de trabalho
+
 A seção a seguir lista os codecs e formatos de arquivo que são suportados como saída deste processador de multimédia.
 
 ### <a name="output-containerfile-formats"></a>Formatos de arquivo/contêiner de saída
+
 * Adobe® Flash® F4V
 * Ficheiros do MXF (OP1a, XDCAM e AS02)
 * O protocolo DPP (incluindo AS11)
@@ -85,6 +91,7 @@ A seção a seguir lista os codecs e formatos de arquivo que são suportados com
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Codecs de vídeo de saída
+
 * AVC (H.264; de 8 bits; até o perfil de alto nível 5.2; 4 K Ultra em alta definição; Dentro de AVC)
 * Avid DNxHD (no MXF)
 * DVCPro/DVCProHD (no MXF)
@@ -92,20 +99,26 @@ A seção a seguir lista os codecs e formatos de arquivo que são suportados com
 * MPEG-1
 * Windows Media vídeo/VC-1
 * Criação de miniaturas de JPEG
+* HEVC (H.265; 8 e 10 bits, principal e o perfil de 10 principal)
+
+  Suporte para HDR 10 está disponível em determinados cenários, entre em contato com mepd@microsoft.com para obter mais informações
+
 
 ### <a name="output-audio-codecs"></a>Codecs de áudio de saída
+
 * AES (SMPTE 331m e 302 M, AES3 2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) até 7.1
 * AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
 * MPEG camada 2
 * MP3 (MPEG-1 camada de áudio 3)
-* Áudio de suporte de dados do Windows
+* Windows Media Audio
 
 >[!NOTE]
 >Se a codificar em Dolby® Digital (AC3), a saída só pode ser escrita em ficheiros MP4 de ISO.
 
 ## <a id="closed_captioning"></a>Suporte para legendagem de áudio
+
 Diante de ingestão **Media Encoder Premium Workflow** suporta:
 
 1. Ficheiros de SCC
@@ -122,14 +135,18 @@ Na saída, as seguintes opções estão disponíveis:
 5. Ficheiro de legenda de SRT
 6. Fluxos do DVB subtítulo
 
-Nota: todos os formatos de saída acima não são suportados para a entrega por meio de transmissão em fluxo nos serviços de multimédia do Azure.
+> [!NOTE]
+> Nem todos os formatos de saída acima são suportados para entrega via transmissão em fluxo nos serviços de multimédia do Azure.
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
 Se o seu vídeo de entrada não contém legendagem de áudio, a saída Asset ainda conterá um ficheiro vazio do TTML. 
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

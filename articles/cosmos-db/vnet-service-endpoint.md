@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037400"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358733"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Aceder a recursos do Azure Cosmos DB a partir de redes virtuais
 
 Pode configurar a conta do Cosmos do Azure para permitir o acesso apenas a partir de uma sub-rede específica da rede virtual (VNET). Ativando [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para aceder ao Azure Cosmos DB na sub-rede numa rede virtual, o tráfego a partir dessa sub-rede é enviado para o Azure Cosmos DB com a identidade do sub-rede e da rede Virtual. Assim que o ponto de extremidade de serviço do Azure Cosmos DB está ativado, pode limitar o acesso à sub-rede, adicionando-o à sua conta do Cosmos do Azure.
 
-Por predefinição, uma conta do Cosmos do Azure é acessível a partir de qualquer origem se o pedido seja acompanhado por um token de autorização válida. Quando adiciona um ou mais sub-redes nas VNETs, apenas os pedidos com origem dessas sub-redes irão obter uma resposta válida. Pedidos com origem em qualquer outra origem irão receber uma resposta 404 (não encontrado). 
+Por predefinição, uma conta do Cosmos do Azure é acessível a partir de qualquer origem se o pedido seja acompanhado por um token de autorização válida. Quando adiciona um ou mais sub-redes nas VNETs, apenas os pedidos com origem dessas sub-redes irão obter uma resposta válida. Pedidos com origem em qualquer outra origem irão receber uma resposta (proibido) 403. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -34,7 +34,7 @@ Existem dois passos necessários para limitar o acesso à conta do Cosmos do Azu
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>ACLs de rede virtual e Firewall do IP irão rejeitar pedidos ou ligações? 
 
-Quando acedem a firewall do IP ou de rede virtual regras são adicionadas, apenas os pedidos de respostas válidas de get origens permitidas. Outros pedidos são rejeitados com um 404 (não encontrado). É importante distinguir firewall da conta do Cosmos do Azure a partir de uma firewall ao nível de ligação. A origem ainda pode ligar ao serviço e as ligações propriamente ditas não são rejeitadas.
+Quando acedem a firewall do IP ou de rede virtual regras são adicionadas, apenas os pedidos de respostas válidas de get origens permitidas. Outros pedidos são rejeitados com um erro 403 (proibido). É importante distinguir firewall da conta do Cosmos do Azure a partir de uma firewall ao nível de ligação. A origem ainda pode ligar ao serviço e as ligações propriamente ditas não são rejeitadas.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Os meus pedidos começou a ser bloqueado quando eu habilitei o ponto final de serviço para o Azure Cosmos DB na sub-rede. O que aconteceu?
 

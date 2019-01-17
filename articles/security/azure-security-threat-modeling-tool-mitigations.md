@@ -1,11 +1,11 @@
 ---
-title: Azure mitigações - ferramenta de modelação de ameaça Microsoft - | Microsoft Docs
-description: Página de mitigações para a Microsoft ameaça modelação ferramenta Realce possíveis soluções para o mais expostas gerado ameaças.
+title: Atenuações - ferramenta de modelagem de ameaças da Microsoft - Azure | Documentos da Microsoft
+description: Página de atenuações para a Microsoft Threat Modeling Tool realçar possíveis soluções para a mais exposta gerada ameaças.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867984"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359141"
 ---
-# <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações de ferramenta de modelação de ameaça na Microsoft
+# <a name="microsoft-threat-modeling-tool-mitigations"></a>Atenuações de ferramenta de modelagem de ameaças na Microsoft
 
-A ferramenta de modelação de ameaça é um elemento principal do Microsoft Security Development Lifecycle (SDL). Permite arquitetos de software identificar e mitigar os potenciais problemas de segurança numa fase inicial, quando são relativamente fácil e económica para resolver. Como resultado, reduz significativamente o custo total de desenvolvimento. Além disso, vamos concebidas a ferramenta com especialistas de segurança não em mente, facilitando modelação de ameaça para todos os programadores ao fornecer orientações claras sobre sobre como criar e analisar os modelos de ameaça.
+A ferramenta de modelagem de ameaças é um elemento central do Microsoft Security Development Lifecycle (SDL). Ele permite que arquitetos de software identificar e mitigar potenciais problemas de segurança no início, quando são relativamente fácil e económica para resolver. Como resultado, reduz consideravelmente o custo total de desenvolvimento. Além disso, projetamos a ferramenta de com não-especialistas em segurança em mente, facilitando a Modelagem de ameaças para todos os desenvolvedores ao fornecer uma orientação clara sobre como criar e analisar os modelos de ameaças.
 
-Visite o  **[ferramenta modelação de ameaça](./azure-security-threat-modeling-tool.md)**  para começar a utilizar hoje em dia!
+Visite o **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** para começar já hoje!
 
-## <a name="mitigation-categories"></a>Categorias de mitigação
+## <a name="mitigation-categories"></a>Categorias de atenuação
 
-As mitigações de ferramenta de modelação de ameaça são categorizadas, de acordo com a Frame de segurança de aplicação Web, que consiste no seguinte:
+As atenuações de ferramenta de modelagem de ameaças são categorizadas, de acordo com o quadro de segurança de aplicação Web, que consiste no seguinte:
 
 | Categoria | Descrição |
 | -------- | ----------- |
-| **[Auditoria e registo](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Quem fez o quê e quando? Registo de auditoria e fazer referência a forma como a aplicação regista eventos relacionados com segurança |
-| **[Autenticação](./azure-security-threat-modeling-tool-authentication.md)** | Quem tem a? A autenticação é o processo de onde uma entidade comprova a identidade de outra entidade, normalmente, através de credenciais, tais como o nome de utilizador e palavra-passe |
-| **[Autorização](./azure-security-threat-modeling-tool-authorization.md)** | O que fazer? Autorização é como a aplicação fornece controlos de acesso para recursos e operações |
-| **[Segurança de comunicação](./azure-security-threat-modeling-tool-communication-security.md)** | Quem é a falar com? Segurança de comunicação assegura que todas as comunicações feita está possíveis |
-| **[Gestão de configuração](./azure-security-threat-modeling-tool-configuration-management.md)** | Que executa a aplicação como? As bases de dados que estabelecer ligação ao? Como é administrada a sua aplicação? Como são protegidas estas definições? Gestão de configuração que se refere a forma como a aplicação processa estes problemas operacionais |
-| **[Criptografia](./azure-security-threat-modeling-tool-cryptography.md)** | Como é a manter os segredos (confidencialidade)? Como é a verificação do adulterar os dados ou bibliotecas (integridade)? Como são fornecer seeds para valores aleatórios que tem de ser criptograficamente fortes? Criptografia refere-se à forma como a aplicação impõe confidencialidade e integridade |
-| **[Gestão de exceções](./azure-security-threat-modeling-tool-exception-management.md)** | Quando uma chamada do método na sua aplicação falha, o que faz a aplicação? Quanto pode revelar? Devolver informações de erro amigável aos utilizadores finais? Transmitir informações da exceção importantes para o autor da chamada? A aplicação falha corretamente? |
-| **[Entrada de validação](./azure-security-threat-modeling-tool-input-validation.md)** | Como sabe que a entrada que recebe a sua aplicação é válidos e seguro? Entrada de validação refere-se à forma como a aplicação filtra, scrubs ou rejeita entrada antes do processamento adicional. Considere constraining entrada através de pontos de entrada e saída através de pontos de saída de codificação. Confia dados a partir de origens, como bases de dados e partilhas de ficheiros? |
-| **[Dados confidenciais](./azure-security-threat-modeling-tool-sensitive-data.md)** | Como a sua aplicação processar dados confidenciais? Os dados confidenciais refere-se à forma como a aplicação processa todos os dados que devem ser protegidos na memória, através da rede, ou nos arquivos persistentes |
-| **[Gestão de sessão](./azure-security-threat-modeling-tool-session-management.md)** | Como a sua aplicação processar e proteger as sessões de utilizador? Uma sessão refere-se a uma série de relacionados interações entre um utilizador e a sua aplicação Web |
+| **[Auditoria e registo](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Quem fez o quê e quando? Registo de auditoria e veja como o seu aplicativo registra os eventos relacionados à segurança |
+| **[Autenticação](./azure-security-threat-modeling-tool-authentication.md)** | Quem é? A autenticação é o processo em que uma entidade comprova a identidade de outra entidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe |
+| **[Autorização](./azure-security-threat-modeling-tool-authorization.md)** | O que fazer? Autorização é como o seu aplicativo fornece controlos de acesso para recursos e operações |
+| **[Segurança da comunicação](./azure-security-threat-modeling-tool-communication-security.md)** | Que estão falando para? Segurança da comunicação garante que todas as comunicações feita são tão segura quanto possível |
+| **[Gestão de configuração](./azure-security-threat-modeling-tool-configuration-management.md)** | Quem executar seu aplicativo como? Quais bancos de dados que estabelecer ligação ao? Como é que o seu aplicativo é administrado? Como são protegidas estas definições? Gestão de configuração que se refere a como seu aplicativo lida com esses problemas operacionais |
+| **[Cryptography](./azure-security-threat-modeling-tool-cryptography.md)** | Como mantendo segredos (confidencialidade)? Como está protegendo contra adulteração seus dados ou bibliotecas (integridade)? Como está a fornecer sementes para valores aleatórios que têm de ser criptograficamente fortes? Criptografia se refere à forma como o seu aplicativo impõe a confidencialidade e integridade |
+| **[Gestão de exceções](./azure-security-threat-modeling-tool-exception-management.md)** | Quando uma chamada de método em seu aplicativo falha, o que faz seu aplicativo? Quanto revelar? Devolve informações de erro amigável aos utilizadores finais? Passar informações valiosas de exceção para o chamador? Seu aplicativo falhar corretamente? |
+| **[Validação de entrada](./azure-security-threat-modeling-tool-input-validation.md)** | Como sabe que o seu aplicativo receba a entrada é válido e seguro? Validação de entrada se refere à forma como seu aplicativo filtra, scrubs ou rejeita a entrada antes de processamento adicional. Considere a restrição de entrada por meio de pontos de entrada e a codificação de saída por meio de pontos de saída. Confia dados a partir de origens, como bases de dados e partilhas de ficheiros? |
+| **[Dados confidenciais](./azure-security-threat-modeling-tool-sensitive-data.md)** | Como é que o seu aplicativo com dados confidenciais? Dados confidenciais que se refere a como seu aplicativo lida com todos os dados que têm de ser protegidos na memória, através da rede, ou nos arquivos persistentes |
+| **[Gerenciamento de sessões](./azure-security-threat-modeling-tool-session-management.md)** | Como seu aplicativo processar e proteger as sessões de utilizador? Uma sessão refere-se a uma série de relacionados interações entre um utilizador e a sua aplicação Web |
 
 Isto ajuda a identificar:
 
-* Onde é efetuadas as mais comuns prende
-* Onde estão os melhoramentos mais acionáveis
+* Em que são feitos os erros mais comuns
+* Onde estão os aprimoramentos mais passíveis de ação
 
-Como resultado, pode utiliza estas categorias concentrar-se e dar prioridade ao seu trabalho de segurança, para que o se souber que os problemas de segurança atuais mais predominantes ocorrer nas categorias entradas de validação, a autenticação e autorização, pode iniciar não existe. Para obter mais informações, visite  **[esta ligação patente](https://www.google.com/patents/US7818788)**
+Como resultado, pode utiliza estas categorias concentrar-se e priorizar seu trabalho de segurança, para que se conhece que os problemas de segurança mais predominantes ocorrerem nas categorias de autorização, autenticação e validação de entrada, pode começar por aqui. Para obter mais informações, visite  **[esta ligação de patente](https://www.google.com/patents/US7818788)**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Visite  **[ameaças de ferramenta de modelação de ameaça](./azure-security-threat-modeling-tool-threats.md)**  para saber mais sobre as categorias de ameaça utiliza a ferramenta para gerar ameaças de design possíveis.
+Visite **[ameaças de ferramenta de modelagem de ameaças](./azure-security-threat-modeling-tool-threats.md)** para saber mais sobre as categorias de ameaças, a ferramenta usa para gerar a ameaças de design possíveis.

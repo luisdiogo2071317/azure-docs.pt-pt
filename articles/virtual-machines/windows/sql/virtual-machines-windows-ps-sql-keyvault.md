@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1d977631b9975f717d60afff6f1b303fdd4039ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328822"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358699"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em máquinas virtuais do Azure (Resource Manager)
 
@@ -37,6 +37,10 @@ Se estiver a executar o SQL Server com máquinas no local, existem [etapas que p
 Quando esta funcionalidade está ativada, ele automaticamente instala o conector do SQL Server, configura o fornecedor EKM para aceder ao Azure Key Vault e cria a credencial para que possa aceder ao Cofre de. Se verificasse os passos na documentação do locais mencionado anteriormente, pode ver que esse recurso automatiza os passos 2 e 3. A única coisa que ainda precisava manualmente a fazer é criar o Cofre de chaves e as chaves. A partir daí, a configuração completa da sua VM de SQL é automatizada. Depois desta funcionalidade concluída esta configuração, pode executar instruções T-SQL para começar a encriptar as bases de dados ou cópias de segurança, tal como faria normalmente.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > O fornecedor de EKM versão 1.0.4.0 está instalado na VM do SQL Server através da [extensão SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Atualizar a extensão de IaaS do SQL não irá atualizar a versão do fornecedor. Volte a considerar atualizar manualmente a versão do fornecedor EKM se for necessário (por exemplo, quando migrar para uma instância gerida de SQL).
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Ativar e configurar a integração AKV
 Pode ativar a integração AKV durante o aprovisionamento ou configurá-lo para as VMs existentes.

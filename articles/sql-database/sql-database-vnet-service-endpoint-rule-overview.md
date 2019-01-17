@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728130"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359855"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
 
@@ -118,8 +118,9 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
 
 - Regras de rede virtual são aplicadas apenas a redes virtuais do Azure Resource Manager; e não à [modelo de implementação clássica] [ arm-deployment-model-568f] redes.
 
-- Pontos finais de serviço de rede virtual Diante de ativar a base de dados do Azure SQL também permite que os pontos finais para os serviços MySQL e PostgreSQL Azure. No entanto, com Diante de pontos de extremidade, tentativas para ligar a partir de pontos de extremidade às instâncias de MySQL ou PostgreSQL irão falhar.
-  - O motivo é que MySQL e PostgreSQL atualmente suporta a ACL da.
+- Pontos finais de serviço de rede virtual Diante de ativar a base de dados do Azure SQL também permite que os pontos finais para os serviços MySQL e PostgreSQL Azure. No entanto, com Diante de pontos de extremidade, tentativas para ligar a partir de pontos de extremidade às instâncias de MySQL ou PostgreSQL poderão falhar.
+  - O motivo é que MySQL e PostgreSQL provável que não têm uma regra de rede virtual configurada. Tem de configurar uma regra de rede virtual para a base de dados do Azure para MySQL e PostgreSQL e a ligação serão bem sucedida.
+
 - Na firewall, intervalos de endereços IP que se aplicam para os seguintes itens de rede, mas as regras de rede virtual não:
   - [Rede privada virtual (VPN) site a Site (S2S)][vpn-gateway-indexmd-608y]
   - No local através de [ExpressRoute][expressroute-indexmd-744v]
@@ -322,7 +323,7 @@ Já tem de ter uma sub-rede que está marcada com o ponto de extremidade de serv
 > - **Pronto:** Indica que a operação iniciada foi concluída com êxito.
 > - **Falhou:** Indica que a operação iniciada falhou.
 > - **Eliminado:** Apenas aplica-se para a operação de eliminação e indica que a regra foi eliminada e já não se aplica.
-> - **Em curso:** Indica que a operação está em curso. Se aplica a regra antiga enquanto a operação estiver neste estado.
+> - **InProgress:** Indica que a operação está em curso. Se aplica a regra antiga enquanto a operação estiver neste estado.
 
 <a name="anchor-how-to-links-60h" />
 

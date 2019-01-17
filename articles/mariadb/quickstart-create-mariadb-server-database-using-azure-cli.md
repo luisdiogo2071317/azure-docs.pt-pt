@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190343"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359328"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
 
@@ -59,10 +59,10 @@ versão | **10.2** | A versão do motor principal de MariaDB.
 admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *a sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
 
-O valor do parâmetro **sku-name** segue a convenção *escalão de preço*\_*geração de computação*\_*vCores*, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_4` é mapeado para o escalão de preço Básico, a geração de computação Ger 5 e 4 vCores.
-+ `--sku-name GP_Gen5_32` é mapeado para o escalão de preço Fins Gerais, a geração de computação Ger 5 e 32 vCores.
-+ `--sku-name MO_Gen5_2` é mapeado para o escalão de preço Otimizado para Memória, a geração de computação Ger 5 e 2 vCores.
+O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
++ `--sku-name B_Gen5_1` é mapeado para básico, fins 5 e 1 vCore. Esta opção é o menor SKU disponível.
++ `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
++ `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
 Para obter informações sobre os valores válidos por região e para os escalões, veja [Escalões de preço](./concepts-pricing-tiers.md).
 

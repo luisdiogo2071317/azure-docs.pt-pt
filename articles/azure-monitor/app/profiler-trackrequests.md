@@ -1,6 +1,6 @@
 ---
 title: Escrever código para monitorizar os pedidos com o Azure Application Insights | Documentos da Microsoft
-description: Escrever código para monitorizar os pedidos com o Application Insights para que possa obter os perfis para seus pedidos
+description: Escreva código para monitorizar os pedidos com o Application Insights para que possa obter os perfis para seus pedidos.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bdbca30d31febe37e6b568894179c88d834d3a83
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266694"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359647"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escrever código para monitorizar os pedidos com o Application Insights
 
-Para ver perfis para a sua aplicação na página de desempenho, o Application Insights tem de estar controlo pedidos para a sua aplicação. O Application Insights automaticamente pode monitorizar os pedidos para as aplicações que são baseiam-se em arquiteturas que já estão instrumentadas, como ASP.net e ASP.Net Core. Mas para outras aplicações, como funções de trabalho do serviço Cloud do Azure e APIs sem monitoração de estado do Service Fabric, a necessidade de escrever código para dizer ao Application Insights, onde os pedidos de início e fim. Uma vez que escreveu esse código, telemetria de pedidos será enviada para o Application Insights e verá a telemetria na página de desempenho e perfis serão recolhidos para essas solicitações. 
+Para ver perfis para a sua aplicação na página de desempenho, o Azure Application Insights tem de monitorizar os pedidos para a sua aplicação. O Application Insights automaticamente pode monitorizar os pedidos para as aplicações que são criadas com a estruturas já instrumentada. Dois exemplos são ASP.NET e ASP.NET Core. 
 
-Aqui estão as etapas que necessárias para monitorizar os pedidos manualmente:
+Para outros aplicativos, como funções de trabalho de serviços Cloud do Azure e APIs sem monitoração de estado do Service Fabric, terá de escrever código para dizer ao Application Insights, onde os pedidos de início e de fim. Depois que escreveu esse código, telemetria de pedidos é enviada para o Application Insights. Pode ver a telemetria na página de desempenho e perfis são recolhidos para esses pedidos. 
 
+Para monitorizar manualmente os pedidos, faça o seguinte:
 
   1. No início do tempo de vida do aplicativo, adicione o seguinte código:  
 
@@ -36,7 +37,7 @@ Aqui estão as etapas que necessárias para monitorizar os pedidos manualmente:
         ```
       Para obter mais informações sobre esta configuração de chave de instrumentação globais, consulte [utilizar o Service Fabric com o Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Para qualquer parte do código que deseja instrumentar, adicione uma `StartOperation<RequestTelemetry>` **USING** instrução em torno dele, conforme mostrado no exemplo a seguir:
+  1. Para qualquer parte do código que deseja instrumentar, adicione uma `StartOperation<RequestTelemetry>` **usando** instrução em torno dele, conforme mostrado no exemplo a seguir:
 
         ```csharp
         using Microsoft.ApplicationInsights;

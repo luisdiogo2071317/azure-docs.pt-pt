@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331797"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358835"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
@@ -24,6 +24,16 @@ Quando cria uma ligação, tem de especificar um *tipo de ligação*. O tipo de 
 
 >[!NOTE]
 >Os elementos seguros na automatização do Azure incluem as credenciais, certificados, ligações e variáveis encriptadas. Esses ativos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada num sistema gerido Key Vault. Antes de armazenar um recurso seguro, a chave é carregada a partir do Key Vault e, em seguida, utilizada para encriptar o elemento. Este processo é gerido pela automatização do Azure.
+
+## <a name="connection-types"></a>Tipos de ligação
+
+Existem três tipos de ligações incorporadas disponíveis na automatização do Azure:
+
+* **Azure** -esta ligação pode ser utilizada para gerir recursos clássicos.
+* **AzureClassicCertificate** -esta ligação é utilizada pela **AzureClassicRunAs** conta.
+* **AzureServicePrincipal** -esta ligação é utilizada pela **AzureRunAs** conta.
+
+Na maioria dos casos não é necessário criar um recurso de ligação, já que é criado quando cria um [conta RunAs](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
 

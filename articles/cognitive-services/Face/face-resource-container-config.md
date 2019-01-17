@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725065"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359447"
 ---
 # <a name="configure-containers"></a>Configurar contentores
 
@@ -116,7 +116,7 @@ O contentor de Face armazena BLOBs, cache, metadados e dados de fila, consoante 
   O contentor de rostos utiliza o armazenamento do Azure e o Azure Cosmos DB para distribuir estes quatro tipos de dados entre armazenamento persistente. Dados de BLOBs e filas são processados pelo armazenamento do Azure. Dados de metadados e o cache são processados pelo Azure Cosmos DB. Se o contentor de Face está parado ou removido, todos os dados no armazenamento para esse contentor permanece armazenado no armazenamento do Azure e o Azure Cosmos DB.  
   Os recursos utilizados pelo cenário de armazenamento do Azure têm os seguintes requisitos adicionais
   * O recurso de armazenamento do Azure tem de utilizar o tipo de conta StorageV2
-  * O recurso do Azure Cosmos DB tem de utilizar o Azure Cosmos DB para a MongoDB API
+  * O recurso do Azure Cosmos DB tem de utilizar o Azure Cosmos DB API para MongoDB
 
 Os cenários de armazenamento e as definições de configuração associados são geridas pelos `Storage` objeto no `CloudAI` seção de configuração. As seguintes definições de configuração estão disponíveis no `Storage` objeto:
 

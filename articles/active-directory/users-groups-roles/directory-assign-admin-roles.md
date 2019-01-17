@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c0575472a4fa480117aaab6904a417746616b7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 50fbafdf714e6071ffac6f9f18d0802ecc1e574d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322134"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360059"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -49,7 +49,8 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de dispositivos na cloud](#cloud-device-administrator)**: Os utilizadores nesta função podem ativar, desativar e eliminar dispositivos no Azure AD e ler as chaves do BitLocker do Windows 10 (caso exista) no portal do Azure. A função não concede permissões para gerir todas as propriedades no dispositivo.
 
-* **[Administrador de conformidade](#compliance-administrator)**: Os utilizadores com esta função possuem permissões de gestão no Centro de Segurança e Conformidade do Office 365 e no Centro Administração do Exchange. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de conformidade](#compliance-administrator)**: Os utilizadores com esta função têm permissões para gerir as funcionalidades relacionadas com a conformidade no Centro de conformidade do Microsoft 365, o Centro de segurança do Microsoft 365, o Centro de administração do Microsoft 365 e o Azure. Os utilizadores também podem gerir todos os recursos no Exchange Centro de administração, Gestor de conformidade e as Equipes e Skype para o Centro de administração de negócios e criar pedidos de suporte para o Azure e o Microsoft 365. Estão disponíveis em mais informações [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Administrador de acesso condicional](#conditional-access-administrator)**: Os utilizadores com esta função têm a capacidade de gerir as definições de acesso condicional do Azure Active Directory.
   > [!NOTE]

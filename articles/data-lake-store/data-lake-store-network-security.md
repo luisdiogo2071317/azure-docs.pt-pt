@@ -1,6 +1,6 @@
 ---
 title: Segurança de rede no Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Compreenda de que forma é que a firewall de IP e a integração da rede virtual funcionam no Azure Data Lake Storage Gen1.
+description: Compreender a integração da rede virtual como funciona na geração 1 de armazenamento do Azure Data Lake
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288004"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359311"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integração da rede virtual para o Azure Data Lake Storage Gen1 - Pré-visualização
 
-Este artigo apresenta a integração da rede virtual para o Azure Data Lake Storage Gen1, que está em pré-visualização. Com a integração da rede virtual, pode configurar as suas contas para que aceitem o tráfego apenas de redes virtuais e sub-redes específicas. 
+Este artigo apresenta a integração da rede virtual de geração 1 de armazenamento do Azure Data Lake. Com a integração da rede virtual, pode configurar as suas contas para que aceitem o tráfego apenas de redes virtuais e sub-redes específicas. 
 
 Esta funcionalidade ajuda a proteger a sua conta do Data Lake Storage de ameaças externas.
 
@@ -65,25 +65,25 @@ Para além de proteger as contas do Data Lake Storage para acesso a partir da re
 Utilize uma solução de firewall na rede virtual para filtrar o tráfego de saída com base no URL da conta de destino. Permita o acesso apenas a contas do Data Lake Storage Gen1 aprovadas.
 
 Algumas opções disponíveis são:
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [implemente e configure uma firewall do Azure firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) para a sua rede virtual. Proteja o tráfego de saída do Data Lake Storage e limite-o ao URL conhecido e aprovado.
-- [firewall de aplicação virtual de rede](https://azure.microsoft.com/solutions/network-appliances/): o seu administrador poderá permitir que só sejam utilizados determinados fornecedores de firewall comerciais. Utilize uma solução de firewall de aplicação virtual de rede que esteja disponível no Azure Marketplace para realizar a mesma função.
+- [Firewall do Azure](https://docs.microsoft.com/azure/firewall/overview): [Implementar e configurar uma firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) da rede virtual. Proteja o tráfego de saída do Data Lake Storage e limite-o ao URL conhecido e aprovado.
+- [Aplicação virtual de rede](https://azure.microsoft.com/solutions/network-appliances/) firewall: O administrador pode permitir a utilização de apenas alguns fornecedores de firewall comercial. Utilize uma solução de firewall de aplicação virtual de rede que esteja disponível no Azure Marketplace para realizar a mesma função.
 
 > [!NOTE]
 > A utilização de firewalls no caminho dos dados introduz um salto adicional no caminho. Pode afetar o desempenho da rede relativamente à troca de dados completa. A disponibilidade de débito e a latência da ligação podem ser afetadas. 
 
 ## <a name="limitations"></a>Limitações
 
-- Os clusters do HDI que tenham sido criados antes de o suporte da integração de rede virtual do Data Lake Storage Gen1 estar disponível têm de ser recriados, de modo a suportarem esta funcionalidade nova.
+- Clusters do HDInsight que foram criados antes do suporte de integração da rede virtual de geração 1 de armazenamento do Data Lake estava disponível tem de ser recriadas para suportar esta nova funcionalidade.
  
-- Quando cria um cluster do HDInsight novo e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual ativada, o processo falha. Primeiro, desative a regra da rede virtual. No painel **Firewall and virtual networks** (Firewall e redes virtuais) da conta do Data Lake Storage, selecione **Allow access from all networks and services** (Permitir acesso a partir de todas as redes e serviços). Para obter mais informações, veja a secção [Exceções](##Exceptions).
+- Quando cria um cluster do HDInsight novo e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual ativada, o processo falha. Primeiro, desative a regra da rede virtual. No painel **Firewall and virtual networks** (Firewall e redes virtuais) da conta do Data Lake Storage, selecione **Allow access from all networks and services** (Permitir acesso a partir de todas as redes e serviços). Em seguida, criar o cluster de HDInsight antes de finalmente Reabilitar a regra de rede virtual ou anule a seleção **permitir o acesso a partir de todas as redes e serviços**. Para obter mais informações, veja a secção [Exceções](##Exceptions).
 
-- A pré-visualização da integração de rede virtual do Data Lake Storage Gen1 não funciona com [identidades geridas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Integração da rede virtual do Data Lake Storage Gen1 não funciona com o [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - Os dados de ficheiros e pastas na conta do Data Lake Storage Gen1 com a rede virtual ativada não estão acessíveis a partir do portal. Esta restrição inclui acesso a partir de uma VM que esteja dentro da rede virtual, bem como atividades como a utilização do Data Explorer. As atividades de gestão da conta continuam a funcionar. Os dados de ficheiros e pastas na conta do Data Lake Storage com a rede virtual ativada estão acessíveis a partir de todos os recursos externos ao portal. Esses recursos incluem acesso de SDK, scripts do PowerShell e outros serviços do Azure quando não tenham origem no portal. 
 
 ## <a name="configuration"></a>Configuração
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Passo 1: Configurar a rede virtual para utilizar um ponto final de serviço do Azure AD
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Passo 1: Configurar a rede virtual para utilizar um ponto de extremidade de serviço do Azure AD
 
 1.  Aceda ao portal do Azure e inicie sessão na sua conta.
  
@@ -107,7 +107,7 @@ Algumas opções disponíveis são:
  
     ![Adição bem-sucedida do ponto final de serviço](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Passo 2: Configurar a rede virtual ou a sub-rede permitida para a conta do Data Lake Storage Gen1
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Passo 2: Configurar a sub-rede para a sua conta do Data Lake Storage Gen1 ou rede virtual permitido
 
 1.  Depois de configurar a rede virtual, [crie uma conta do Azure Data Lake Storage Gen1 nova](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) na sua subscrição. Em alternativa, pode aceder a uma conta já existente. A conta do Data Lake Storage Gen1 tem de estar na mesma região que a rede virtual.
  

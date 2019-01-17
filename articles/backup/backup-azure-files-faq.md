@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793517"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359906"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -94,11 +94,14 @@ Sim. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a p
 
 ## <a name="manage-backup"></a>Gerir a Cópia de Segurança
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>Posso utilizar o PowerShell para configurar/gerir/restaurar cópias de segurança de partilhas de ficheiros do Azure? <br/>
+Sim. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md)
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Posso aceder aos instantâneos realizados pelas Cópias de Segurança do Azure e montá-los? <br/>
 Todos os Instantâneos tirados pelo Azure Backup podem ser acedidos ao utilizar a opção Ver Instantâneos no portal, no PowerShell ou na CLI. Para saber mais sobre os instantâneos de partilha de Ficheiros do Azure, veja [Descrição geral de instantâneos de partilha de Ficheiros do Azure (pré-visualização)](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>Qual é a retenção máxima que posso configurar para as Cópias de Segurança? <br/>
-A cópia de segurança das partilhas de ficheiros do Azure permite manter as cópias de segurança diárias até 120 dias.
+Cópia de segurança para partilhas de ficheiros do Azure oferece a capacidade de configurar as políticas de retenção de cópia de segurança para 180 dias. No entanto, utilizar o [opção "cópia de segurança a pedido", no PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), pode manter um ponto de recuperação até mesmo há 10 anos.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>O que acontece quando altero a Política de cópias de segurança de uma partilha de ficheiros do Azure? <br/>
 Quando é aplicada uma política nova a uma ou mais partilhas de ficheiros, a agenda e a retenção da política nova são seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se for reduzida, são marcados para eliminação no trabalho de limpeza seguinte.

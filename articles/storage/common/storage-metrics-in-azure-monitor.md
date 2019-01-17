@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994441"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354606"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -341,6 +341,7 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 | BlobCapacity | O total de armazenamento de BLOBs utilizado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
 | BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
 | ContainerCount    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| IndexCapacity     | A quantidade de armazenamento utilizado pelo índice hierárquica do ADLS geração 2 <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
@@ -368,7 +369,7 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 ## <a name="transaction-metrics"></a>Métricas de transação
 
-Métricas de transação são enviadas do armazenamento do Azure para o Azure Monitor a cada minuto. Todas as métricas de transação estão disponíveis no nível de conta e de serviço (armazenamento de BLOBs, armazenamento de tabelas, ficheiros do Azure e o armazenamento de filas). O intervalo de agregação define o intervalo de tempo que são apresentados valores de métrica. O detalhamento de agregação suportado para todas as métricas de transação é PT1H e PT1M.
+Métricas de transação são emitidas em cada solicitação para uma conta de armazenamento do armazenamento do Azure para o Azure Monitor. No caso de nenhuma atividade na sua conta de armazenamento, haverá sem dados nas métricas de transação no período. Todas as métricas de transação estão disponíveis no nível de conta e de serviço (armazenamento de BLOBs, armazenamento de tabelas, ficheiros do Azure e o armazenamento de filas). O intervalo de agregação define o intervalo de tempo que são apresentados valores de métrica. O detalhamento de agregação suportado para todas as métricas de transação é PT1H e PT1M.
 
 O armazenamento do Azure fornece as seguintes métricas de transação no Azure Monitor.
 
@@ -379,7 +380,7 @@ O armazenamento do Azure fornece as seguintes métricas de transação no Azure 
 | Saída | A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessServerLatency | O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessE2ELatency | A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor total de pedidos faturáveis e dividindo-o pelo número de pedidos aplicáveis, incluindo os pedidos que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99,99 |
+| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor total de pedidos faturáveis e dividindo-o pelo número de pedidos aplicáveis, incluindo os pedidos que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 

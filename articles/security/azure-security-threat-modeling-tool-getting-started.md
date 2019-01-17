@@ -3,9 +3,9 @@ title: Introdução ao Azure - ferramenta de modelagem de ameaças Microsoft - |
 description: Esta é uma visão mais profunda Realce a ferramenta de modelagem de ameaças em ação.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096779"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359481"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guia de introdução a ferramenta de modelagem de ameaças
 
-A equipe de nuvem e de ferramentas de segurança empresarial lançou a pré-visualização de ferramenta de modelagem de ameaças início deste ano como um livre  **[clique para download](https://aka.ms/tmtpreview)**. A alteração no mecanismo de entrega permite-nos enviar as mais recentes melhorias e correções de erros para os clientes sempre que abrem a ferramenta, tornando mais fácil de manter e utilizar.
+2018 a ferramenta Microsoft de modelagem de ameaças lançada como disponibilidade geral, em Setembro de 2018, como um livre  **[clique para download](https://aka.ms/threatmodelingtool)**. A alteração no mecanismo de entrega permite-nos enviar as mais recentes melhorias e correções de erros para os clientes sempre que abrem a ferramenta, tornando mais fácil de manter e utilizar.
 Este artigo orienta-o processo de introdução com a abordagem de modelagem de ameaças do Microsoft SDL e mostra-lhe como utilizar a ferramenta para desenvolver ótimos modelos de risco como um backbone de seu processo de segurança.
 
 Este artigo baseia-se no conhecimento existente de abordagem de modelagem de ameaças SDL. Para uma análise rápida, consulte **[aplicativos de Web de modelagem de ameaças](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada do **[descobrir segurança falhas usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** Artigo do MSDN publicado em 2006.
@@ -67,14 +67,14 @@ Nesta secção, vamos seguir:
 
 Que passam pelo processo de desenvolvimento de seu primeiro modelo de risco.
 
-> Ricardo: Olá Cristina, trabalhei no diagrama de modelo de ameaças e Queríamos ter a certeza, temos os detalhes da direita. Vocês podem me ajudar procurá-lo ao longo do?
-> Cristina: absolutamente. Vamos dar uma olhada.
+> Ricardo: Olá Cristina, eu trabalhados o diagrama do modelo de risco e queria certificar-se de que temos os detalhes da direita. Vocês podem me ajudar procurá-lo ao longo do?
+> Cristina: Com certeza. Vamos dar uma olhada.
 > Ricardo abre-se a ferramenta e compartilha seu ecrã com Cristina.
 
 ![Modelo de ameaças básico](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Ok, parece simples, mas examiná-me-lo?
-> Ricardo:-se! Eis a divisão:
+> Cristina: OK, parece simples, mas examiná-me-lo?
+> Ricardo: -Se! Eis a divisão:
 > - Nosso utilizador humano é desenhado como uma entidade externa — um quadrado
 > - Estão a enviar comandos para o nosso servidor Web — o círculo
 > - O servidor Web está consultando um banco de dados (por duas linhas paralelas)
@@ -111,7 +111,7 @@ A descrição feita em contato com ele percebe a importância da adição de um 
 Como Ricardo foram consideradas as ameaças de divulgação de informações, Paul percebeu que o plano de controlo de acesso necessário a algumas contas somente leitura para auditoria e geração de relatórios. Ele identificaria se deve ser uma ameaça de novo, mas as atenuações eram os mesmos, para que ele indicados a ameaça em conformidade.
 Ele também pensamos divulgação de informações mais um pouco e percebi que as bandas de cópia de segurança foram vai precisar de encriptação, uma tarefa para a equipe de operações.
 
-As garantias de ameaças não aplicáveis para o design devido a atenuações existentes ou de segurança pode ser alterado para "Não aplicável" na lista suspensa de estado. Há três outras opções: não iniciado – a seleção predefinida, tem de investigação – é utilizado para dar seguimento itens e Mitigated – assim que ele é totalmente trabalhado.
+As garantias de ameaças não aplicáveis para o design devido a atenuações existentes ou de segurança pode ser alterado para "Não aplicável" na lista suspensa de estado. Há três outras opções: A seleção predefinida, tem de investigação – não iniciado – utilizado para dar seguimento itens e Mitigated – assim que ele é totalmente trabalhado.
 
 ## <a name="reports--sharing"></a>Relatórios e de partilha
 
@@ -143,4 +143,4 @@ A abordagem que Apresentamos aqui de modelagem de risco é consideravelmente mai
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Envie suas dúvidas, comentários e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/tmtpreview)**  a ferramenta de modelagem de ameaças para começar a utilizar.
+Envie suas dúvidas, comentários e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/threatmodelingtool)**  a ferramenta de modelagem de ameaças para começar a utilizar.

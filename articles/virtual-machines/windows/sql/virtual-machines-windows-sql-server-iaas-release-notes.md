@@ -15,22 +15,34 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e3f44181ca1a5ea64815aadf52aa7ea792a21416
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993145"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358580"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server nas notas de versão da Máquina Virtual do Azure
 
 Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server incorporado. Este artigo lista os novos recursos e aprimoramentos que pode esperar que a versão mais recente do SQL Server implementado numa máquina virtual do Azure. 
 
+## <a name="december-2018"></a>Dezembro de 2018
+
+| **Alteração** | Detalhes |
+| --- | --- |
+| **Novo fornecedor de recursos do grupo de cluster do SQL** | Há um novo fornecedor de recursos (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroup) que define os metadados sobre o Cluster de ativação pós-falha do Windows. Associar uma VM do SQL Server para o *SqlVirtualMachineGroup* inicializa o serviço de Cluster de ativação pós-falha do Windows e associa a VM ao cluster.  |
+|**Automatizar a configuração de uma implantação de grupo de disponibilidade com modelos de início rápido do Azure** |Agora é possível criar o Cluster de ativação pós-falha do Windows, Junte-se a VMs do SQL Server para o mesmo, criar o serviço de escuta e configurar o Balanceador de carga interno com dois modelos de início rápido do Azure. Para obter mais informações, consulte [criar WSFC, o serviço de escuta e configurar o ILB para um grupo de disponibilidade Always On numa VM do SQL Server com o modelo de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Registo do fornecedor de recursos de VM do SQL automática** | VMs do SQL Server implementado depois este mês são automaticamente registrados com o novo fornecedor de recursos do SQL Server. VMs do SQL Server implementadas antes deste mês ainda tem de ser registado manualmente. Para obter mais informações, consulte [registar a VM de SQL existente com o novo fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider).|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="november-2018"></a>Novembro de 2018
-- **Fornecedor de recursos do novo SQL**: existe um fornecedor de recursos novo para VMs de SQL que permitem a melhor gerenciamento da sua VM. Para obter mais informações sobre a registar a sua VM, consulte [registar a VM de SQL existente com o novo fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
-- **Mudar o modelo de licenciamento**: agora pode alternar entre o modelo de pagamento por utilização e a trazer a sua própria licença para a VM do SQL através da CLI do Azure ou do PowerShell. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md)
 
+| **Alteração** | Detalhes |
+| --- | --- |
+| **Fornecedor de recursos de VM do SQL nova** |  Existe um fornecedor de recursos novo para VMs do SQL Server (Microsoft.SqlVirtualMachine) que permite um melhor gerenciamento de sua VM do SQL Server. Para obter mais informações sobre a registar a sua VM, consulte [registar a VM de SQL existente com o novo fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider). |
+|**Mudar o modelo de licenciamento** |Agora pode alternar entre o modelo de pagamento por utilização e a trazer a sua própria licença para a VM do SQL através da CLI do Azure ou do Powershell. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

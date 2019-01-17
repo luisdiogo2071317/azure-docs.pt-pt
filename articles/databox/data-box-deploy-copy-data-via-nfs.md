@@ -1,19 +1,19 @@
 ---
 title: Copiar dados para o Microsoft Azure Data Box através do NFS | Documentos da Microsoft
-description: Aprenda a copiar dados para o Azure Data Box
+description: Saiba como copiar dados para o Azure Data Box por meio de NFS
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 646acca7eeb2e811f8683a1d35ff8c6efae130da
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319016"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359821"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio de NFS 
 
@@ -44,12 +44,13 @@ Data Box com base na conta de armazenamento selecionada, cria até:
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
 
-Considere o seguinte exemplo. 
-
-- Conta de armazenamento: *Mystoracct*
-- Partilha para o blob de bloco: *Mystoracct_BlockBlob/my-container/blob*
-- Partilha para o blob de página: *Mystoracct_PageBlob/my-container/blob*
-- Partilha de ficheiros: *Mystoracct_AzFile/my-share*
+A tabela seguinte mostra o caminho UNC até as partilhas no seu URL de caminho Data Box e o armazenamento do Azure, onde os dados são carregados. O URL de caminho final do armazenamento do Azure pode derivar do caminho da partilha UNC.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Blobs de blocos do Azure | <li>Caminho UNC para partilhas: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Blobs de páginas do Azure  | <li>Caminho UNC para partilhas: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Ficheiros do Azure       |<li>Caminho UNC para partilhas: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Se estiver a utilizar um computador anfitrião do Linux, execute os passos seguintes para configurar o Data Box para permitir o acesso aos clientes NFS.
 
@@ -71,14 +72,17 @@ Se estiver a utilizar um computador anfitrião do Linux, execute os passos segui
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
+    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
+
 ## <a name="copy-data-to-data-box"></a>Copiar dados para o Data Box
 
-Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes da cópia de dados, certifique-se de que revê as seguintes considerações:
+Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes de iniciar a cópia de dados, reveja as seguintes considerações:
 
 - Certifique-se de que copia os dados para partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Se o formato de dados não corresponder à partilha apropriada (tipo de armazenamento), num passo posterior, o carregamento de dados para o Azure falhará.
 -  Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box](data-box-limits.md). 
 - Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 - Recomendamos que não utilize as opções SMB e NFS em simultâneo nem copie os mesmos dados para o mesmo destino final no Azure. Nesses casos, não é possível determinar o resultado final.
+- **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
 
 Se estiver a utilizar um computador anfitrião do Linux, utilize um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -117,6 +121,10 @@ Se estiver a utilizar a opção rsync para uma cópia de múltiplos threads, sig
      em que j especifica o número de paralelização, X = número de cópias paralelas
 
      Recomendamos que comece com 16 cópias paralelas e aumente o número de threads consoante os recursos disponíveis.
+
+- Para garantir a integridade dos dados, a soma de verificação é calculada inline à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço utilizado e o espaço livre no seu dispositivo.
+    
+   ![Verificar o espaço livre e utilizado no dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="prepare-to-ship"></a>Preparar para enviar
 
