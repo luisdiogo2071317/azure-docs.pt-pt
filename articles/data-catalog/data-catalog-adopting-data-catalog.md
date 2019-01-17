@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406503"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353265"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 Este artigo vai ajudá-lo a começar a adotar o **Catálogo de Dados do Azure** na sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, tem de se concentrar em três itens principais: definir a visão, identificar os casos de utilização empresarial fundamentais dentro da organização e escolher um projeto piloto.
@@ -66,7 +66,7 @@ Eis algumas sugestões para identificar casos de utilização:
 * **Defina os objetivos da equipa** -De que modo a equipa atinge os objetivos? Não se foque ainda no Catálogo de Dados, pois pretende ser objetivo nesta fase. Lembre-se de que se trata dos resultados de negócios, não da tecnologia.
 * **Defina o problema empresarial** - Quais são os problemas que a equipa enfrenta relativamente a localizar e saber mais sobre os recursos de dados? Por exemplo, poderão encontrar informações sobre origens de dados importantes nos livros do Excel numa pasta de rede, e a equipa pode passar muito tempo a localizar os livros.
 * **Compreenda a cultura de equipa relacionada com a mudança** - Muitos desafios de adoção estão relacionados com a resistência a mudanças, e não com a implementação de uma nova ferramenta. A forma como uma equipa responde à mudança é importante ao identificar casos de utilização, uma vez que o processo existente pode estar implementado porque "Fizemos sempre assim" ou "se funciona, porquê mudar?". A adoção de qualquer nova ferramenta ou processo é sempre mais fácil quando as pessoas afetadas compreendem o valor que irá ser alcançado com a mudança e apreciam a importância de resolver os problemas.
-* **Mantenha o foco relacionado com recursos de dados** - Ao discutir os problemas empresariais que uma equipa enfrenta, terá de "cortar as ervas-daninhas" e concentrar-se no que é relevante para tirar partido dos recursos de dados empresariais com maior eficácia.
+* **Manter o foco relacionado com recursos de dados** -ao discutir os problemas de negócios uma equipa enfrenta, terá de "cortar as daninhas" e concentrar-se no que é relevante para tirar partido dos recursos de dados empresariais com mais eficiência.
 
 Eis alguns casos de utilização de exemplo relacionados com o Catálogo de Dados:
 

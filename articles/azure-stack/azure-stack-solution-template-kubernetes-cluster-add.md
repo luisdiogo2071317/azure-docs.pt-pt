@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264059"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352687"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar o Kubernetes para o mercado do Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "54264059"
 > [!note]  
 > Kubernetes no Azure Stack está em pré-visualização.
 
-Pode oferecer Kubernetes como um item do mercado para os seus utilizadores. Os utilizadores podem implementar Kubernetes numa operação única e coordenada.
+Pode oferecer Kubernetes como um item do mercado para os seus utilizadores. Os utilizadores podem, em seguida, implemente o Kubernetes numa operação única e coordenada.
 
 O seguinte artigo examinar o uso de um modelo Azure Resource Manager para implementar e aprovisionar os recursos para um cluster de Kubernetes autónomo. O item do Marketplace de Cluster de Kubernetes 0.3.0 requer a versão do Azure Stack 1808. Antes de começar, verifique o Azure Stack e as definições de inquilino do Azure global. Recolha as informações necessárias sobre o Azure Stack. Adicione recursos necessários para o seu inquilino e a pilha do Azure Marketplace. O cluster depende de um Ubuntu server, o script personalizado e os itens do Kubernetes para ser no marketplace.
 
@@ -48,7 +48,7 @@ Crie um plano, uma oferta e uma subscrição para o item do Marketplace de Kuber
 
 1. Selecione **alterar estado**. Selecione **público**.
 
-1. Selecione **+ criar um recurso** > **ofertas e planos** > **subscrição** para criar uma nova subscrição.
+1. Selecione **+ criar um recurso** > **ofertas e planos** > **subscrição** para criar uma subscrição.
 
     a. Introduza um **nome a apresentar**.
 
@@ -59,6 +59,124 @@ Crie um plano, uma oferta e uma subscrição para o item do Marketplace de Kuber
     d. Definir o **inquilino Directory** para o inquilino do Azure AD para o Azure Stack. 
 
     e. Selecione **oferecem**. Selecione o nome da oferta que criou. Tome nota do ID de subscrição.
+
+## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Criar um principal de serviço e as credenciais no AD FS
+
+Se usar o Active Directory Federated Services (AD FS) para o seu serviço de gestão de identidade, terá de criar um principal de serviço para os utilizadores a implementar um cluster de Kubernetes.
+
+1. Criar e exportar um certificado para ser utilizado para criar o principal de serviço. O seguinte trecho de código abaixo mostra como criar um certificado autoassinado. 
+
+    - Terá das seguintes partes de informações:
+
+       | Valor | Descrição |
+       | ---   | ---         |
+       | Palavra-passe | A palavra-passe do certificado. |
+       | Caminho de certificados local | O nome de ficheiro e caminho do certificado. Por exemplo: `path\certfilename.pfx` |
+       | Nome do certificado | O nome do certificado. |
+       | Localização do arquivo de certificados |  Por exemplo, `Cert:\LocalMachine\My` |
+
+    - Abra o PowerShell com uma linha de comandos elevada. Execute o seguinte script com os parâmetros atualizados para seus valores:
+
+        ```PowerShell  
+        # Creates a new self signed certificate 
+        $passwordString = "<password>"
+        $certlocation = "<local certificate path>.pfx"
+        $certificateName = "<certificate name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        $params = @{
+        CertStoreLocation = $certStoreLocation
+        DnsName = $certificateName
+        FriendlyName = $certificateName
+        KeyLength = 2048
+        KeyUsageProperty = 'All'
+        KeyExportPolicy = 'Exportable'
+        Provider = 'Microsoft Enhanced Cryptographic Provider v1.0'
+        HashAlgorithm = 'SHA256'
+        }
+        
+        $cert = New-SelfSignedCertificate @params -ErrorAction Stop
+        Write-Verbose "Generated new certificate '$($cert.Subject)' ($($cert.Thumbprint))." -Verbose
+        
+        #Exports certificate with password in a .pfx format
+        $pwd = ConvertTo-SecureString -String $passwordString -Force -AsPlainText
+        Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
+        ```
+
+2. Crie principal de serviço com o certificado.
+
+    - Terá das seguintes partes de informações:
+
+       | Valor | Descrição                     |
+       | ---   | ---                             |
+       | ERCS IP | No ASDK, o ponto final com privilégios é normalmente `AzS-ERCS01`. |
+       | Nome da aplicação | Um nome simple para o principal de serviço de aplicações. |
+       | Localização do arquivo de certificados | O caminho no computador onde armazenou o certificado. Por exemplo: `Cert:\LocalMachine\My\<someuid>` |
+
+    - Abra o PowerShell com uma linha de comandos elevada. Execute o seguinte script com os parâmetros atualizados para seus valores:
+
+        ```PowerShell  
+        #Create service principle using the certificate
+        $privilegedendpoint="<ERCS IP>"
+        $applicationName="<application name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        # Get certificate information
+        $cert = Get-Item $certStoreLocation
+        
+        # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+        $creds = Get-Credential
+
+        # Creating a PSSession to the ERCS PrivilegedEndpoint
+        $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+        # Get Service Principle Information
+        $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
+
+        # Get Stamp information
+        $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+
+        # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+
+        # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+        # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $TenantID = $AzureStackInfo.AADTenantID
+
+        # Register an AzureRM environment that targets your Azure Stack instance
+        Add-AzureRMEnvironment `
+        -Name "AzureStackUser" `
+        -ArmEndpoint $ArmEndpoint
+
+        # Set the GraphEndpointResourceId value
+        Set-AzureRmEnvironment `
+        -Name "AzureStackUser" `
+        -GraphAudience $GraphAudience `
+        -EnableAdfsAuthentication:$true
+        Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+        -ServicePrincipal `
+        -CertificateThumbprint $ServicePrincipal.Thumbprint `
+        -ApplicationId $ServicePrincipal.ClientId `
+        -TenantId $TenantID
+
+        # Output the SPN details
+        $ServicePrincipal
+        ```
+
+    - Os detalhes do princípio de serviço, veja como o fragmento abaixo
+
+        ```Text  
+        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+        PSComputerName        : azs-ercs01
+        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+        ```
 
 ## <a name="add-an-ubuntu-server-image"></a>Adicionar uma imagem do Ubuntu server
 
@@ -75,7 +193,7 @@ Adicione a imagem de Ubuntu Server seguinte no Marketplace:
 1. Selecione a versão mais recente do servidor. Verifique a versão completa e certifique-se de que tem a versão mais recente:
     - **Publisher**: Canónico
     - **Oferecer**: UbuntuServer
-    - **Versão**: 16.04.201806120 (ou posterior)
+    - **Versão**: 16.04.201806120 (ou versão mais recente)
     - **SKU**: 16.04-LTS
 
 1. Selecione **transferir.**
@@ -94,11 +212,11 @@ Adicione do Kubernetes a partir do Marketplace:
 
 1. Selecione o script com o seguinte perfil:
     - **Oferecer**: Script personalizado para Linux 2.0
-    - **Versão**: 2.0.6 (ou posterior)
+    - **Versão**: 2.0.6 (ou versão mais recente)
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > Mais de uma versão de Script personalizado para Linux pode estar relacionada. Terá de adicionar a versão mais recente do item.
+    > Mais de uma versão de Script personalizado para Linux pode estar relacionada. Terá de adicionar a última versão do item.
 
 1. Selecione **transferir.**
 
@@ -124,7 +242,7 @@ Adicione do Kubernetes a partir do Marketplace:
 
 ## <a name="update-or-remove-the-kubernetes"></a>Atualizar ou remover o Kubernetes 
 
-Ao atualizar o item de Kubernetes, terá de remover o item que esteja no Marketplace. Em seguida, pode seguir as instruções neste artigo para adicionar o Kubernetes no Marketplace.
+Ao atualizar o item de Kubernetes, irá remover o item anterior no Marketplace. Siga as instruções neste artigo para adicionar que os Kubernetes atualizar no Marketplace.
 
 Para remover o item de Kubernetes:
 

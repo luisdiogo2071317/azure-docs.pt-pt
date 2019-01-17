@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842277"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353129"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>O Azure AD B2C: Início de sessão com uma aplicação iOS
+# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Inicie sessão com uma aplicação iOS
 
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Com um protocolo de padrão aberto oferece mais opções de programador ao selecionar uma biblioteca para integrar com os nossos serviços. Fornecemos este passo a passo e outros, como ele para auxiliar os desenvolvedores a escrita de aplicativos que se conectam a plataforma do Microsoft Identity. A maioria das bibliotecas que implementam [especificação do especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) consegue ligar à plataforma do Microsoft Identity.
 
@@ -29,7 +29,7 @@ A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OA
 Se estiver familiarizado com o OAuth2 ou o OpenID Connect, grande parte este exemplo de configuração pode não fazer muito sentido para. Recomendamos que leia a breve [descrição geral do protocolo aqui documentado](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório do Azure AD B2C
-Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino. Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos e muito mais. Se ainda não tiver um, [crie um diretório do B2C](active-directory-b2c-get-started.md) antes de continuar.
+Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino. Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos e muito mais. Se ainda não tiver um, [crie um diretório do B2C](tutorial-create-tenant.md) antes de continuar.
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 Em seguida, precisa de criar uma aplicação no diretório do B2C. O registo de aplicações dá-informações do Azure AD que necessita para comunicar de forma segura com a sua aplicação. Para criar uma aplicação móvel, siga [estas instruções](active-directory-b2c-app-registration.md). É necessário:
@@ -39,13 +39,11 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. O registo de 
 * Configurar uma **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). São necessários mais tarde este URI.
 
 ## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
-No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Quando cria o fluxo de utilizador, certifique-se de que para:
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Quando cria o fluxo de utilizador, certifique-se de que para:
 
 * Sob **atributos de inscrição**, selecione o atributo **nome a apresentar**.  Pode selecionar também outros atributos.
 * Sob **afirmações de aplicação**, selecione as declarações **nome a apresentar** e **ID de objeto do utilizador**. Pode selecionar outras afirmações.
 * Copiar o **nome** de cada fluxo de utilizador depois de o criar. O nome do fluxo de utilizador tem o prefixo `b2c_1_` quando guardar o fluxo de utilizador.  É necessário o nome de fluxo de utilizador mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar os fluxos de utilizador, está pronto para criar a sua aplicação.
 

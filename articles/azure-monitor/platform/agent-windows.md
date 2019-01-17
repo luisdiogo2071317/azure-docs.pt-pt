@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104127"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352823"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -57,9 +57,9 @@ Para configurar a utilização do [TLS 1.2](https://docs.microsoft.com/windows-s
 
 Configurar o .NET Framework 4.6 ou posterior para dar suporte seguro criptografia, como, por padrão, ele está desabilitada. O [criptografia segura](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de rede mais seguros, como o TLS 1.2 e bloqueia protocolos que não são seguros. 
 
-1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\Software\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**.  
-3. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
+3. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**. 
 5. Reinicie o sistema para as definições entrem em vigor. 
 
@@ -100,7 +100,7 @@ A tabela seguinte realça os parâmetros específicos do Log Analytics, suportad
 |OPINSIGHTS_PROXY_USERNAME               | Nome de utilizador para aceder a um proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Palavra-passe para aceder a um proxy autenticado |
 
-1. Para extrair os ficheiros de instalação do agente de uma linha de comandos elevada, execute `MMASetup-<platform>.exe /c` e que irá solicitar que o caminho extrair ficheiros para.  Em alternativa, pode especificar o caminho pela transmissão de argumentos `MMASetup-<platform>.exe /c /t:<Path>`.  
+1. Para extrair os ficheiros de instalação do agente de uma linha de comandos elevada, execute `MMASetup-<platform>.exe /c` e que irá solicitar que o caminho extrair ficheiros para.  Em alternativa, pode especificar o caminho pela transmissão de argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Para instalar o agente e configurá-lo para reportar a uma área de trabalho na cloud comercial do Azure, a partir da pasta silenciosamente extraiu os ficheiros de configuração para o tipo: 
    
      ```dos

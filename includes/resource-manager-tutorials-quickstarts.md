@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729344"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334368"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
@@ -48,5 +48,6 @@ Utilize os seguintes inícios rápidos e tutoriais para saber como desenvolver m
     |[Implementar extensões SQL](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Execute tarefas de pós-implementação ao utilizar extensões. O tutorial, vai implementar uma extensão de script de cliente para instalar o servidor web na máquina virtual. |
     |[Proteger os artefactos](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Proteja os artefactos necessários para concluir as implementações. O tutorial, saiba como proteger o artefacto que utilizou no tutorial de extensões de implementar o SQL. |
     |[Utilize as práticas recomendadas de implementação segura](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Utilize o Azure Deployment manager. |
+    |[Tutorial: Resolver problemas de implementações de modelo do Resource Manager](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Resolva problemas de implementação do modelo.|
 
 Estes tutoriais podem ser utilizados individualmente ou como uma série para saber os principais conceitos de desenvolvimento do modelo do Resource Manager.

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064700"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352942"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
@@ -189,7 +189,7 @@ Com a aplicação de geração de dados, agora pode ver o fluxo dos dados do hub
     ![Conjunto de resultados das mensagens](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX tem uma política de agregação (criação de batches) para ingestão de dados, concebida para otimizar o processo de ingestão. A política está configurada para 5 minutos, pelo que poderá experienciar uma latência.
+    > O Explorador de dados do Azure tem uma política de agregação (criação de batches) para ingestão de dados, concebida para otimizar o processo de ingestão. A política está configurada para 5 minutos, pelo que poderá experienciar uma latência.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -208,4 +208,4 @@ Se não planear voltar a utilizar o hub de eventos, limpe **test-hub-rg**, para 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)

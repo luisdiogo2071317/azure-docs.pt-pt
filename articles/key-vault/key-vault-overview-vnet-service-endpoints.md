@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c035b7c6bbd687ca2922d5f52e2ddaa0c96e50c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002433"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351429"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 
@@ -68,12 +68,13 @@ Aqui está uma lista de serviços confiáveis que têm permissão para aceder um
 |Serviço de implementação de modelos do Azure Resource Manager|[Transmitir valores seguros durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
 |Azure Disk Encryption para serviço encriptação de volumes|Permita o acesso à chave do BitLocker (Windows VM) ou a frase de acesso do DM (Linux VM) e a chave de encriptação de chave, durante a implementação da máquina virtual. Isto permite [do Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Permitir cópia de segurança e restauro de relevantes chaves e segredos durante a cópia de segurança de máquinas virtuais do Azure, utilizando [cópia de segurança do Azure](../backup/backup-introduction-to-azure-backup.md).|
-|O Exchange Online e SharePoint Online|Permitir o acesso à chave do cliente para a encriptação do serviço de armazenamento do Azure com [chave de cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online & SharePoint Online|Permitir o acesso à chave do cliente para a encriptação do serviço de armazenamento do Azure com [chave de cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Permitir o acesso à chave de inquilino para [do Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Serviço de Aplicações do Azure|[Implementar o certificado de aplicação Web do Azure através do Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
 |Base de Dados SQL do Azure|[Encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Storage do Azure|[Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encriptação de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
+|O Azure databricks|[Serviço de análise com base no Apache Spark rápida, fácil e de colaboração](../azure-databricks/what-is-azure-databricks.md)|
 
 
 

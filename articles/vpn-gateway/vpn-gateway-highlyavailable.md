@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054743"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353282"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade em Vários Locais de Elevada Disponibilidade e VNet a VNet
 Este artigo disponibiliza uma descrição geral das opções de configurações de elevada disponibilidade para a conectividade em vários locais e VNet a VNet através dos Gateways de VPN do Azure.
@@ -49,7 +49,8 @@ Esta configuração fornece vários túneis ativos do mesmo gateway de VPN do Az
 3. O BGP é necessário para esta configuração. Cada gateway de rede local que representa um dispositivo VPN tem de ter um endereço IP de elemento de rede BGP especificado na propriedade “BgpPeerIpAddress”.
 4. O campo da propriedade AddressPrefix de cada gateway de rede local não se pode sobrepor. Deve especificar "BgpPeerIpAddress" no formato /32 CIDR no campo AddressPrefix, por exemplo, 10.200.200.254/32.
 5. Deve utilizar o BGP para anunciar os mesmos prefixos dos mesmos prefixos da rede no local ao gateway de VPN do Azure e o tráfego será encaminhado através destes túneis simultaneamente.
-6. Cada ligação é contabilizada face ao número máximo de túneis do seu gateway de VPN do Azure, 10 para os SKUs Básico e Standard e 30 para o SKU HighPerformance. 
+6. Tem de utilizar o encaminhamento do igual cost multi path (ECMP).
+7. Cada ligação é contabilizada face ao número máximo de túneis do seu gateway de VPN do Azure, 10 para os SKUs Básico e Standard e 30 para o SKU HighPerformance. 
 
 Nesta configuração, o gateway de VPN do Azure continua no modo ativo-em espera, pelo que o mesmo comportamento de ativação pós-falha e a breve interrupção ainda vão ocorrer, conforme descrito [anteriormente](#activestandby). Contudo, esta configuração protege de falhas ou interrupções na sua rede no local e nos seus dispositivos VPN.
 

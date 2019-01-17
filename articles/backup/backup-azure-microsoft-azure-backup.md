@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728281"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351616"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Este artigo explica como preparar o ambiente para fazer cópias de segurança de
 >
 >
 
-Também pode proteger a infraestrutura como um cargas de trabalho do serviço (IaaS), como VMs no Azure.
+MABS implementado na VM do Azure pode criar cópias de segurança da VM no Azure, mas eles devem estar no mesmo domínio para permitir a operação de cópia de segurança. O processo para criar uma VM do Azure permanece o mesmo que o backup de VMs no local, no entanto, implementar MABS no Azure tem algumas limitações. Para obter mais informações sobre limitação consulte [DPM como máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e procedimentos para restaurar VMs implementadas com o modelo do Resource Manager.
@@ -43,7 +43,7 @@ O Azure Backup Server herda grande parte da funcionalidade de cópia de seguran�
 A primeira etapa para colocar o servidor de cópia de segurança do Azure em funcionamento é configurar um servidor do Windows. O servidor pode ser no Azure ou no local.
 
 ### <a name="using-a-server-in-azure"></a>Utilizar um servidor no Azure
-Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem da galeria do Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server Datacenter de 2019. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca utilizou o Azure. Os requisitos mínimos recomendados para a máquina do servidor virtual (VM) devem ser: A2 padrão com dois núcleos e 3,5 GB de RAM.
+Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem da galeria do Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server Datacenter de 2019. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca utilizou o Azure. Os requisitos mínimos recomendados para a máquina do servidor virtual (VM) devem ser: Standard a2 com dois núcleos e 3,5 GB de RAM.
 
 Proteger cargas de trabalho com o Azure Backup Server tem muitos nuances. O artigo [instalar o DPM como máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explica tais nuances. Antes de implementar a máquina, leia este artigo completamente.
 
@@ -52,7 +52,7 @@ Se não pretender executar o servidor de base no Azure, pode executar o servidor
 
 | Sistema Operativo | Plataforma | SKU |
 |:--- | --- |:--- |
-| Windows Server de 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 e posterior) |
+| Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 e posterior) |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials (MABS V2 e posterior) |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
@@ -263,7 +263,7 @@ Eis os passos se precisar de mover o MABS para um novo servidor, mantendo o arma
 9. Restaurar a partir do SQL a DPMDB
 10. Instalar, de linha de comandos de administrador no novo servidor cd para o Microsoft Azure Backup, localização e a pasta bin
 
-Exemplo de caminho: C:\windows\system32 > cd "c:\Program Files\Microsoft Backup\DPM\DPM\bin\ do Azure
+Exemplo de caminho: C:\Windows\System32 > cd "c:\Program Files\Microsoft Backup\DPM\DPM\bin\ do Azure
 para o Azure backup execute DPMSYNC-SYNC
 
 10) Execute o DPMSYNC-SYNC Nota Se tiver adicionado novos discos ao agrupamento de armazenamento do DPM em vez de mover os antigos, em seguida, execute DPMSYNC - Reallocatereplica

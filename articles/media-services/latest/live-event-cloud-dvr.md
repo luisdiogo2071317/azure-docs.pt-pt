@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407971"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352364"
 ---
 # <a name="using-a-cloud-dvr"></a>Utilizar um DVR na cloud
 
@@ -35,7 +35,10 @@ Cada **LiveOutput** está associado um **Asset**, que utiliza para gravar o víd
 R **LiveEvent** suporta até três em execução em simultâneo **LiveOutput**s para que possa criar no máximo de 3 gravações/arquivos de um fluxo em direto. Isto permite publicar e arquivar diferentes partes de um evento, conforme necessário. Suponha que precisa difundir um 24x7 live linear feed e criar "gravações" dos programas diferentes ao longo do dia para oferecer aos clientes como conteúdo sob demanda para visualização catch-up. Para este cenário, crie primeiro um LiveOutput principal, com uma janela de arquivo curtos de 1 hora ou menos – este é o principal em fluxo em direto que os visualizadores têm acesso seriam otimizar em. Criaria uma **StreamingLocator** para que isso **LiveOutput** e publicá-la para a sua aplicação ou site como o feed de "Live". Embora o **LiveEvent** está em execução, pode criar programaticamente uma segundo simultâneas **LiveOutput** no início de um programa (ou 5 minutos desde o início para fornecer alguns identificadores para cortar mais tarde). Este segundo **LiveOutput** podem ser eliminadas de 5 minutos após o programa é concluído. Com este segundo **Asset**, pode criar uma nova **StreamingLocator** para publicar este programa como um recurso de demanda no catálogo da sua aplicação. Pode repetir esse processo várias vezes para outros limites do programa ou destaques que deseja compartilhar, como vídeos a pedido, enquanto "Live" feed da primeira **LiveOutput** continua a difundir o feed linear. 
 
 > [!NOTE]
-> **LiveOutput**s início após a criação e param quando eliminado. Ao eliminar a **LiveOutput**, não está a eliminar subjacentes **Asset** e conteúdo no ativo.  
+> **LiveOutput**s início após a criação e param quando eliminado. Ao eliminar a **LiveOutput**, não está a eliminar subjacentes **Asset** e conteúdo no ativo. 
+>
+> Se tiver publicado **localizador de transmissão em fluxo**s no ativo para o **LiveOutput**, o evento (até o tamanho de janela DVR) irá continuar a ser visualizado até a hora de fim do **localizador de transmissão em fluxo**  ou até ao eliminar o localizador, o que ocorrer primeiro.   
+  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

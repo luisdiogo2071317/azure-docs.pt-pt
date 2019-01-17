@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078075"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351514"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utilizar o Azure Key Vault para transmitir o valor do parâmetro segura durante a implementação
 
@@ -84,14 +84,14 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Para utilizar o modelo do Resource Manager: veja [Tutorial: integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+Para utilizar o modelo do Resource Manager: Consulte [Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
-> Cada serviço do Azure tem requisitos de palavra-passe específica. Por exemplo, os requisitos da máquina virtual do Azure podem ser encontrados em [quais são os requisitos de palavra-passe ao criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> Cada serviço do Azure tem requisitos de palavra-passe específicos. Por exemplo, os requisitos da máquina virtual do Azure podem ser encontrados em [quais são os requisitos de palavra-passe ao criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="enable-access-to-the-secret"></a>Ativar o acesso para o segredo
 
-Diferente de definição `enabledForTemplateDeployment` para `true`, o utilizador a implementar o modelo tem de ter o `Microsoft.KeyVault/vaults/deploy/action` permissão de âmbito que contém o Cofre de chaves, incluindo o grupo de recursos e Cofre de chaves. O [proprietário](../role-based-access-control/built-in-roles.md#owner) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) ambas as funções de concedem o acesso. Se criar o Cofre de chaves, é o proprietário para que tenha a permissão. Se o Cofre de chaves numa subscrição diferente, o proprietário do Cofre de chaves tem de ser grand o acesso.
+Diferente de definição `enabledForTemplateDeployment` para `true`, o utilizador a implementar o modelo tem de ter o `Microsoft.KeyVault/vaults/deploy/action` permissão de âmbito que contém o Cofre de chaves, incluindo o grupo de recursos e Cofre de chaves. O [proprietário](../role-based-access-control/built-in-roles.md#owner) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) ambas as funções de concedem o acesso. Se criar o Cofre de chaves, é o proprietário para que tenha a permissão. Se o Cofre de chaves numa subscrição diferente, o proprietário do Cofre de chaves tem de conceder o acesso.
 
 O procedimento seguinte mostra como criar uma função com o mínimo permssion e como atribuir o utilizador
 1. Crie um ficheiro JSON da definição de função personalizada:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742589"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54355726"
 ---
 Se pretender ativar apenas o início de sessão na sua aplicação, utilize um **início de sessão** fluxo de utilizador. Este fluxo de utilizador descreve as experiências que os clientes terão durante o início de sessão e os conteúdos de tokens que a aplicação receberá nos inícios de sessão com êxito.
 

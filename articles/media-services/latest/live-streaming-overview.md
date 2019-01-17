@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788213"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354183"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -29,6 +29,22 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 - Componentes nos serviços de multimédia, permitem-lhe ingerir, pré-visualização, do pacote, gravam, encriptar e transmitir o evento em direto para os seus clientes ou para uma CDN para uma maior distribuição.
 
 Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas dos componentes principais envolvidos na transmissão em fluxo em direto com os serviços de multimédia.
+
+## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
+
+Eis os passos para um fluxo de trabalho de transmissão em fluxo em direto:
+
+1. Criar uma **evento em direto**.
+2. Criar uma nova **Asset** objeto.
+3. Criar uma **Live saída** e utilize o nome de recurso que criou.
+4. Criar uma **política de transmissão em fluxo** e **chave de conteúdo** se pretende encriptar o seu conteúdo com o DRM.
+5. Se não utilizar DRM, crie uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.
+6. Listar os caminhos na **política de transmissão em fluxo** para recuperar os URLs para utilizar (esses são determinísticos).
+7. Obter o nome do anfitrião para o **ponto final de transmissão em fluxo** que deseja transmitir em fluxo de (Certifique-se de que o ponto final de transmissão em fluxo está em execução). 
+8. Combine o URL no passo 6 com o nome de anfitrião no passo 7 para obter o URL completo.
+9. Se pretender parar a tornar sua **evento em direto** podem ser visualizados, terá de parar a transmissão em fluxo do evento, eliminando a **localizador de transmissão em fluxo**.
+
+Para obter mais informações, consulte um [tutorial de transmissão em fluxo em direto](stream-live-tutorial-with-api.md) que se baseia a [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
 
 ## <a name="overview-of-main-components"></a>Descrição geral dos componentes principais
 
@@ -89,9 +105,10 @@ O seguinte artigo contém uma tabela que compara as funcionalidades dos dois tip
 
 R [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite-lhe controlar as propriedades do fluxo em direto saída, como muito da transmissão em fluxo é registrada (por exemplo, a capacidade de DVR na cloud) e se é ou não podem iniciar os visualizadores assistem à transmissão em direto. A relação entre um **LiveEvent** e a respetiva **LiveOutput**relação s é semelhante à transmissão de televisão tradicional, no qual um canal (**LiveEvent**) representa um fluxo constante de vídeo e uma gravação (**LiveOutput**) tem um âmbito para um segmento de tempo específico (por exemplo, noite notícias da 6 17:30, para as 19:00: 00). Pode gravar programas de televisão com um gravador de vídeo Digital (DVR) – a funcionalidade equivalente no LiveEvents é gerenciada por meio da propriedade ArchiveWindowLength. É uma duração de período de tempo de ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR e pode ser definida a partir de um mínimo de 3 minutos até um máximo de 25 horas.
 
-
 > [!NOTE]
-> **LiveOutput**s início após a criação e param quando eliminado. Ao eliminar a **LiveOutput**, não está a eliminar subjacentes **Asset** e conteúdo no ativo.  
+> **LiveOutput**s início após a criação e param quando eliminado. Ao eliminar a **LiveOutput**, não está a eliminar subjacentes **Asset** e conteúdo no ativo. 
+>
+> Se tiver publicado **localizador de transmissão em fluxo**s no ativo para o **LiveOutput**, o evento (até o tamanho de janela DVR) irá continuar a ser visualizado até a hora de fim do **localizador de transmissão em fluxo**  ou até ao eliminar o localizador, o que ocorrer primeiro.   
 
 Para obter mais informações, consulte [DVR na cloud do Using](live-event-cloud-dvr.md).
 
@@ -110,21 +127,6 @@ Para obter informações detalhadas, consulte [Estados e faturação](live-event
 ## <a name="latency"></a>Latência
 
 Para obter informações detalhadas sobre a latência de LiveEvents, consulte [latência](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
-
-Eis os passos para um fluxo de trabalho de transmissão em fluxo em direto:
-
-1. Crie um LiveEvent.
-2. Crie um novo objeto de recurso.
-3. Crie um LiveOutput e utilize o nome de recurso que criou.
-4. Crie uma política de transmissão em fluxo e a chave de conteúdo, se pretende encriptar o seu conteúdo com o DRM.
-5. Se não utilizar DRM, criar um localizador de transmissão em fluxo com os tipos de política de transmissão em fluxo internos.
-6. Listar os caminhos na política de transmissão em fluxo para recuperar os URLs para utilizar (esses são determinísticos).
-7. Obtenha o nome de anfitrião para o ponto de final de transmissão em fluxo que pretende transmitir em fluxo do. 
-8. Combine o URL no passo 6 com o nome de anfitrião no passo 7 para obter o URL completo.
-
-Para obter mais informações, consulte um [tutorial de transmissão em fluxo em direto](stream-live-tutorial-with-api.md) que se baseia a [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

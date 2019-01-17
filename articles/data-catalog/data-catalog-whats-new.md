@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406333"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353146"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no catálogo de dados do Azure
 Atualiza para **catálogo de dados do Azure** são lançadas regularmente. Nem todas as versão inclui novas funcionalidades destinadas ao utilizador, como algumas versões estão focalizadas em capacidades do serviço de back-end. Esta página destaca os novos recursos de destinada ao utilizador adicionados ao serviço catálogo de dados do Azure.
@@ -45,7 +45,7 @@ A partir de Agosto de 2017, as seguintes funcionalidades foram adicionadas ao ca
 
 ## <a name="whats-new-for-july-2017"></a>O que há de novo em Julho de 2017 
 A partir de Julho de 2017, as seguintes funcionalidades foram adicionadas ao catálogo de dados do Azure:
-*   Suporte para um controle mais granular sobre as operações de metadados de permitido incluindo:
+*   Suporte para um controle mais granular sobre as operações de metadados permitidos, incluindo:
     - Os administradores do catálogo podem restringir a capacidade dos próprios utilizadores contribuam com etiquetas e os metadados relacionados para o catálogo, ativar o acesso só de leitura ao catálogo de.
     - Os administradores do catálogo podem restringir a capacidade dos próprios utilizadores para registar novas origens de dados no catálogo.
     - Os administradores do catálogo podem restringir a capacidade dos próprios utilizadores para assumir a propriedade de metadados do recurso de dados no catálogo.
@@ -138,7 +138,7 @@ A partir de Maio de 2016, as seguintes funcionalidades foram adicionadas ao cat�
 * Um glossário comercial que permite aos administradores do catálogo definir termos de negócios e hierarquias para criar um vocabulário de negócios comuns. Os utilizadores podem Etiquetar recursos de dados registados com os termos do glossário para facilitar a detetar e compreender o conteúdo do catálogo. Para obter mais informações, veja [How to set up the Business Glossary for Governed Tagging (Como configurar o Glossário Comercial para Etiquetagem Regida)](data-catalog-how-to-business-glossary.md).  
 * Aprimoramentos para o glossário de negócios de catálogo de dados que permite aos utilizadores atualizar vários termos do glossário numa única operação. Os utilizadores podem selecionar vários termos para editar os campos seguintes:
   * Termo principal: O utilizador pode selecionar um novo termo de principal e todos os termos selecionados são atualizados para ser subordinados do termo principal selecionado. Se selecionado de termos de todos os tenham o mesmo elemento principal, o pai é mostrado na caixa de texto, caso contrário, o termo principal campo é definido como em branco.   
-  * As etiquetas e partes interessadas: os utilizadores podem adicionar e remover etiquetas e partes interessadas para vários termos do glossário usando a mesma experiência como marcação de vários recursos de dados.
+  * As etiquetas e partes interessadas: Os utilizadores podem adicionar e remover etiquetas e partes interessadas para vários termos do glossário usando a mesma experiência como marcação de vários recursos de dados.
 
 > [!NOTE]
 > O glossário comercial está disponível apenas a Standard Edition do catálogo de dados Azure. A edição gratuita não fornece capacidades para a marcação governados ou um glossário de negócios.
@@ -153,7 +153,7 @@ A partir de Fevereiro de 2016, as seguintes funcionalidades foram adicionadas ao
 
 * Uma seleção de fonte de dados recém-reestruturado experiência na ferramenta de registo de origem de dados do catálogo de dados do Azure. A ferramenta de registo da origem de dados foi atualizada para que seja mais fácil de localizar e selecionar a partir de origens de dados suportados pelo catálogo de dados do Azure.
 * Suporte para 10 idiomas adicionais no portal do catálogo de dados do Azure e a ferramenta de registo da origem de dados. Para além de inglês, a experiência de catálogo de dados do Azure está agora disponível em alemão, espanhol, francês, italiano, japonês, coreano, português (Brasil), russo, chinês simplificado e chinês tradicional. A experiência de utilizador do catálogo de dados do Azure é localizada com base nas preferências de idioma definido no Windows ou no browser do utilizador.
-* Suporte para georreplicação de dados do catálogo de dados do Azure para a recuperação de desastre e continuidade de negócio. Todos os conteúdos do catálogo de dados do Azure, incluindo origem extraídos da Comunidade e metadados anotações de dados, agora são replicados entre duas regiões do Azure sem custos adicionais aos clientes. Regiões do Azure previamente estão emparelhadas, pelo menos de 500 quilómetros de distância e siga o mapeamento, conforme descrito em [Business continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
+* Suporte para georreplicação de dados do catálogo de dados do Azure para a recuperação de desastre e continuidade de negócio. Todos os conteúdos do catálogo de dados do Azure, incluindo origem extraídos da Comunidade e metadados anotações de dados, agora são replicados entre duas regiões do Azure sem custos adicionais aos clientes. Regiões do Azure previamente estão emparelhadas, pelo menos de 500 quilómetros de distância e siga o mapeamento, conforme descrito em [Business continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
 * Suporte para alterar a subscrição do Azure utilizada pelo catálogo de dados do Azure. Os administradores do catálogo de dados do Azure podem utilizar a página de definições no portal do catálogo de dados do Azure para selecionar uma subscrição diferente do Azure para fins de faturação.
 
 ## <a name="whats-new-for-january-2016"></a>O que há de novo para Janeiro de 2016
@@ -263,6 +263,6 @@ A partir de Agosto de 2015, as seguintes funcionalidades foram adicionadas ao ca
 * Suporte para fornecer informações de pedido de acesso para origens de dados registados. Para recursos de dados registados, os usuários agora podem fornecer instruções para pedir acesso, incluindo ligações de e-mail ou URLs, fácil integração com ferramentas e processos existentes.
 * Dicas de ferramentas para etiquetas e especialistas, para que seja mais fácil de descobrir o que os utilizadores tenham fornecido que metadados para recursos de dados registados.
 * Adicionámos um novo botão de "User" e um menu para nossa barra de navegação superior. Esse menu permite que o utilizador veja a conta utilizada para iniciar sessão no catálogo de dados do Azure e terminar sessão, se assim o desejar. Esse menu também exibe o nome do catálogo, o que é valioso para os desenvolvedores que usam a API de REST do catálogo de dados do Azure.
-* Edição Standard apenas: Ao adicionar os proprietários de recursos de dados, o catálogo de dados do Azure agora suporta contas de utilizador e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário para recursos de dados selecionada, pode introduzir o nome a apresentar do grupo ou o endereço de email UPN do grupo, se ele tiver um.
+* Standard Edition: Ao adicionar os proprietários de recursos de dados, o catálogo de dados do Azure suporta agora as contas de utilizador e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário para recursos de dados selecionada, pode introduzir o nome a apresentar do grupo ou o endereço de email UPN do grupo, se ele tiver um.
 * Suporte para origens de dados do armazenamento de Blobs do Azure. Os utilizadores podem agora registar e detetar blobs de armazenamento do Azure e diretórios.
 

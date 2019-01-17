@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330726"
+ms.locfileid: "54352517"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens no Azure Logic Apps do batch
 
@@ -60,10 +60,17 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
    |----------|-------------|
    | **Modo de lote** | - **Inline**: Para definir critérios de versão do acionador de lote <br>- **Conta de integração**: Para definir várias configurações de critérios de lançamento por meio de um [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, pode manter estas configurações, tudo num único local, em vez de em aplicações lógicas separadas. | 
    | **Nome do lote** | O nome para o batch, o que é "TestBatch" neste exemplo e aplica-se apenas ao **Inline** modo de lote |  
-   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo e seleciona os critérios para atender às antes do processamento de cada lote do batch: <p>- **Com base de contagem de mensagens**: O número de mensagens para recolher no lote, por exemplo, 10 mensagens <br>- **Tamanho com base**: O tamanho de lote máximo em bytes, por exemplo, 10 MB <br>- **Programação com base**: O intervalo e a frequência entre as versões do batch, por exemplo, 10 minutos. A periodicidade mínima é de 60 segundos ou 1 minuto. Os valores de minutos fracionados efetivamente são arredondados para 1 minuto. Para especificar uma data de início e hora, escolha **Mostrar opções avançadas**. <br>- **Selecionar tudo**: Utilize os critérios especificados. | 
+   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo e seleciona os critérios para atender às antes do processamento de cada lote do batch: <p>- **Com base de contagem de mensagens**: O batch com base no número de mensagens recolhidas pelo lote de versão. <br>- **Tamanho com base**: O batch com base no tamanho total em bytes para todas as mensagens recolhidas por esse lote de versão. <br>- **Agenda**: O batch com base numa agenda de periodicidade, que especifica um intervalo e a frequência de versão. Nas opções avançadas, também pode selecionar um fuso horário e forneça uma data de início e hora. <br>- **Selecionar tudo**: Utilize os critérios especificados. | 
+   | **Contagem de mensagens** | O número de mensagens para recolher no lote, por exemplo, 10 mensagens. Limite de um lote é de 8000 mensagens. | 
+   | **Tamanho do lote** | O tamanho total em bytes para recolher no lote, por exemplo, 10 MB. Limite de tamanho de um lote é 80 MB. | 
+   | **Agenda** | O intervalo e a frequência entre as versões do batch, por exemplo, 10 minutos. A periodicidade mínima é de 60 segundos ou 1 minuto. Minutos fracionados efetivamente são arredondados para 1 minuto. Para especificar um fuso horário ou uma data de início e hora, escolha **Mostrar opções avançadas**. | 
    ||| 
 
-   Este exemplo mostra todos os critérios, mas para seus próprios testes, selecione apenas um critério:
+   > [!NOTE]
+   > 
+   > Se alterar os critérios de versão, enquanto o acionador ainda tem em lotes, mas as mensagens não enviadas, o acionador utiliza os critérios de versão atualizada para lidar com as mensagens não enviadas. 
+
+   Este exemplo mostra todos os critérios, mas para seu próprio teste, tente apenas um critério:
 
    ![Fornecer detalhes do acionador de lote](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544588"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354455"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de dados do Azure para MariaDB escalões de preço
 
@@ -49,12 +49,11 @@ O armazenamento que Aprovisiona é a quantidade de capacidade de armazenamento d
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB e 4 TB | 5 GB e 4 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>IOPS de 6000 máx. | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>IOPS de 6000 máx. |
+| IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS |
 
 É possível adicionar a capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
 
-Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da CLI do Azure. As métricas relevantes para monitorizar são o limite de armazenamento, percentagem de armazenamento, armazenamento utilizado e por cento de e/s.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, percentagem de armazenamento, armazenamento utilizado e por cento de e/s](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
@@ -64,7 +63,7 @@ Apesar de o serviço tentar tornar o servidor só de leitura, todos os novos ped
 
 Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-metric.md).
 
 ## <a name="backup"></a>Cópia de segurança
 

@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 1839ca0d2495a07f6fc734501540cddcdcb28e18
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d94173f9b1940613c26451658b90c956c71876fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332875"
+ms.locfileid: "54353248"
 ---
 # <a name="transactional-replication-with-azure-sql-logical-server-and-azure-sql-managed-instance"></a>Replicação transacional com o servidor lógico da SQL do Azure e a instância gerida do SQL do Azure
 
 Replicação transacional é uma funcionalidade de base de dados do Azure SQL, instância gerida e SQL Server que permite-lhe replicar dados de uma tabela numa base de dados do Azure SQL ou SQL Server para as tabelas colocadas em bancos de dados remotos. Esta funcionalidade permite-lhe sincronizar várias tabelas nas bases de dados diferentes.
+
+## <a name="when-to-use-transactional-replication"></a>Quando utilizar a replicação transacional
+
+Replicação transacional é útil nos seguintes cenários:
+- Publicar as alterações feitas numa ou mais tabelas numa base de dados e distribuí-los para as bases de dados uma ou mais o SQL Server ou o SQL do Azure que subscrito para que as alterações.
+- Tenha várias bases de dados distribuídas em estado sincronizadas.
+- Migre bases de dados de um SQL Server ou a instância gerida para outra base de dados publicando continuamente as alterações.
 
 ## <a name="overview"></a>Descrição geral 
 Os principais componentes na replicação transacional são mostrados na imagem seguinte:  
@@ -81,16 +88,19 @@ Em geral, o publicador e distribuidor tem de estar na cloud ou no local. São su
 
 ![Instância única, como o publicador e distribuidor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Editor e distribuidor estão configurados numa única instância gerida. 
+Editor e distribuidor estão configurados numa única instância gerida e distribuir as alterações a outra instância gerida, base de dados individual ou o SQL Server no local. Nesta configuração, o publicador/distribuidor a instância gerida não pode ser configurado com [grupos de ativação pós-falha georreplicação e automática](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Publicador com o distribuidor remoto numa instância gerida
+
+Nesta configuração, uma instância gerida publica as alterações para o distribuidor colocado na outra instância gerida que possa servir várias instâncias de gerido de origem e distribuir as alterações para um ou muitos destinos na instância gerida, base de dados individual ou o SQL Server.
 
 ![Instâncias separadas para o publicador e distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
 Editor e distribuidor estão configurados em duas instâncias geridas. Nesta configuração
 
 - Ambas as instâncias geridas estão na mesma vNet.
-- Ambas as instâncias geridas estão na mesma localização. 
+- Ambas as instâncias geridas estão na mesma localização.
+- Instâncias geridas que alojam publicado e bases de dados do distribuidor não podem ser [georreplicado com grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-managed-instance-or-logical-server"></a>Editor e distribuidor no local com um subscritor numa instância gerida ou servidor lógico 
 

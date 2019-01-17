@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53748459"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354664"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
-O série Lsv2 funcionalidades alto débito, baixa latência, diretamente mapeado armazenamento local de NVMe em execução no [AMD EPYC<sup>TM</sup> processador 7551](https://www.amd.com/en/products/epyc-7000-series) com um todos os núcleos propulsão 2.55 GHz e um aumento máximo de 3.0 GHz. As VMs da série Lsv2 vêm em tamanhos de 8 para 80 vCPU numa configuração simultânea de vários segmentos.  Há 8 GiB de memória por vCPU e um dispositivo de NVMe SSD M.2 1.92TB por 8 vCPUs, com até 19,2 TB (10x1.92TB) disponível na v2 L80s.
+O série Lsv2 funcionalidades alto débito, baixa latência, diretamente mapeado armazenamento local de NVMe em execução no [AMD EPYC &trade; processador 7551](https://www.amd.com/en/products/epyc-7000-series) com um todos os núcleos propulsão 2.55 GHz e um aumento máximo de 3.0 GHz. As VMs da série Lsv2 existem em tamanhos que variam entre as 8 e as 80 vCPUs numa configuração de multithreading simultâneo.  Inclui memória de 8 GiB por vCPU e um dispositivo NVMe SSD M.2 de 1,92 TB por 8 vCPUs, com um valor máximo de 19,2 TB (10 x 1,92 TB) disponível na versão L80s v2.
 
 A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.
 
@@ -25,19 +25,19 @@ A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 famí
 > As VMs da série Lsv2 são otimizadas para utilizar o disco local no nó ligados diretamente à VM, em vez de utilizar discos de dados durável.  Isso possibilita maior IOPs / débito das cargas de trabalho.  A série Ls e Lsv2 não suportam a criação de um cache local para aumentar o IOPS alcançável por discos de dados durável. O alto débito e IOPS de disco local torna as VMs de série Ls e Lsv2 ideal para arquivos de NoSQL, como o Apache Cassandra e MongoDB que replique dados em várias VMs para alcançar a persistência no caso de falha de uma única VM. 
 
 ## <a name="lsv2-series"></a>Série Lsv2
-ACU: 150 175
+ACU: 150-175
 
 Armazenamento Premium: Suportadas
 
-Armazenamento de Preminu colocação em cache: Não suportado
+Cache de armazenamento Premium: Não suportado
 
 | Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe | Débito de disco de NVMe<sup>2</sup> (IOPS de leitura / MBps) | Tamanho da Cache do anfitrião<sup>3</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2.000 | N/A | 16 | 2 / 3,200  | 
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9000    | N/A | 32 | 8 / 12,800 | 
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18,000   | N/A | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32.000 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32,000 |
  
 <sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações.
 
@@ -48,7 +48,7 @@ Armazenamento de Preminu colocação em cache: Não suportado
 
 
 ## <a name="ls-series"></a>Série Ls
-ACU: 180 240
+ACU: 180-240
 
 Armazenamento Premium:  Suportadas
 

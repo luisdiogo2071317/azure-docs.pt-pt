@@ -1,5 +1,5 @@
 ---
-title: Associar um recurso dos serviços cognitivos com um conjunto de capacidades - Azure Search
+title: Anexar um recurso de serviços cognitivos com um conjunto de capacidades - Azure Search
 description: Instruções para anexar uma subscrição de tudo-em-um dos serviços cognitivos para um pipeline de enriquecimento cognitivos no Azure Search.
 manager: cgronlun
 author: LuisCabrer
@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231432"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351463"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Associar um recurso dos serviços cognitivos com um conjunto de capacidades no Azure Search 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivos com um conjunto de capacidades no Azure Search 
 
 Os algoritmos de IA dirigir [pipelines de pesquisa cognitiva](cognitive-search-concept-intro.md) para processar dados não estruturados são baseiam [ **recursos dos serviços cognitivos**](https://azure.microsoft.com/services/cognitive-services/). Recursos, como [ **de imagem digitalizada** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) fornecer análise de imagem e reconhecimento ótico de carateres (OCR) para extrair texto e a estrutura de arquivos de imagem, enquanto [ **texto Análise** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece processamento, como o reconhecimento e a chave frase extração de entidades, para mencionar alguns linguagem natural.
 
-Pode enriquecer um número limitado de documentos gratuitamente ou anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante a indexação.
+Pode enriquecer um número limitado de documentos gratuitamente ou anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante [indexação de pesquisa do Azure](search-what-is-an-index.md).
 
 Se o seu pipeline consiste exclusivamente [competências personalizadas](cognitive-search-create-custom-skill-example.md), não é necessário anexar um recurso dos serviços cognitivos.
 
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, pode associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isto permite-nos ser cobrada a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
 >
-> A execução de [capacidades cognitivas incorporadas](cognitive-search-predefined-skills.md) é cobrada a [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/), em para classificar o mesmo como se tivesse executado a tarefa de forma independente da Azure Search. Preços de extração de imagem é cobrado a preços de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de [capacidades cognitivas incorporadas](cognitive-search-predefined-skills.md) é cobrada a [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services), em para classificar o mesmo como se realizados diretamente a tarefa. Extração de imagem é um evento de sujeito a faturação do Azure Search, atualmente oferecido a preços de pré-visualização. Para obter detalhes, consulte a [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) ou [como funciona a faturação](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Utilizar recursos gratuitos
 
-Pode utilizar uma opção de processamento limitado e gratuito que dá direito a 20 possível de documento numa base diária, suficiente para concluir os exercícios de tutorial e guia de introdução de pesquisa cognitiva. 
+Pode utilizar uma opção de processamento limitado e gratuito para concluir os exercícios de tutorial e guia de introdução de pesquisa cognitiva. 
 
 > [!Important]
-> A partir de 1 de Fevereiro de 2019, o **gratuito (limitado possível)** está restrito a 20 documentos por dia. 
+> A partir de 1 de Fevereiro de 2019, o **gratuito (limitado possível)** irá ser restritos a 20 documentos por dia. 
 
 1. Abra o **importar dados** assistente.
 

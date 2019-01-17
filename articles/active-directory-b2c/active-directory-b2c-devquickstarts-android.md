@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413a69f31125c6c8f18401bb997a490c0f99f948
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833929"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352092"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>O Azure AD B2C: Início de sessão com uma aplicação Android
+# <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Inicie sessão com uma aplicação Android no Azure Active Directory B2C
 
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Esses padrões permitem-lhe tirar partido de qualquer biblioteca que pretende integrar com o Azure Active Directory B2C. Para ajudar a utilizar outras bibliotecas, pode utilizar um passo a passo como esta para demonstrar como configurar o 3º bibliotecas de terceiros para ligar à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [especificação do especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) pode ligar-se para a plataforma do Microsoft Identity.
 
@@ -30,7 +30,7 @@ Se não estiver familiarizado com o OAuth2 ou o OpenID Connect, este exemplo de 
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório do Azure AD B2C
 
-Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino. Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos, etc. Se ainda não tiver um, [crie um diretório do B2C](active-directory-b2c-get-started.md) antes de continuar.
+Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino. Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos, etc. Se ainda não tiver um, [crie um diretório do B2C](tutorial-create-tenant.md) antes de continuar.
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
@@ -42,13 +42,11 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporci
 
 ## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
 
-No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md), que é um conjunto de políticas que controlam o comportamento do Azure AD. Esta aplicação contém uma experiência de identidade: um fluxo de utilizador de início de sessão e inscrição combinados. Tem de criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Quando cria o fluxo de utilizador, certifique-se de que para:
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md), que é um conjunto de políticas que controlam o comportamento do Azure AD. Esta aplicação requer um fluxo de utilizador de início de sessão e inscrição. Quando cria o fluxo de utilizador, certifique-se de que para:
 
 * Escolha o **nome a apresentar** como um atributo Inscreva-se no seu fluxo de utilizador.
 * Escolha o **nome a apresentar** e **ID de objeto** afirmações de aplicação em cada fluxo de utilizador. Também pode escolher outras afirmações.
 * Copiar o **nome** de cada fluxo de utilizador depois de o criar. Deve ter o prefixo `b2c_1_`.  Terá o nome do fluxo de utilizador mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar os fluxos de utilizador, está pronto para criar a sua aplicação.
 
@@ -134,6 +132,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 Consulte a [guia de AppAuth](https://openid.github.io/AppAuth-Android/) sobre como concluir o resto do processo. Se precisar de iniciar rapidamente a uma aplicação de trabalho, veja [nosso exemplo](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Siga os passos a [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) para introduzir a sua própria configuração do Azure AD B2C.
-
-Estamos sempre abertas para comentários e sugestões! Se tiver quaisquer problemas com este artigo, ou tiver recomendações para melhorar este conteúdo, Agradecemos os seus comentários na parte inferior da página. Para pedidos de funcionalidades, adicioná-los ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 4a3c3f4b97da75d3e73f89866efe6f2fa4adeb65
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 127002dc59db6ab9940e4bc2a66678adecc33160
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043418"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354132"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>o Azure Cosmos DB: Criar uma aplicação de tarefas com Xamarin
 
@@ -112,9 +112,9 @@ Esta solução demonstra como criar uma aplicação de lista de tarefas com a AP
 
 O código na solução ToDoItems contém:
 
-* Todoitems: Este é um projeto .NET Standard que contém um projeto xamarin. Forms e o código de lógica de aplicação partilhado que mantém os itens de afazeres no Azure Cosmos DB.
-* Todoitems: Este projeto contém a aplicação Android.
-* Todoitems.: Este projeto contém a aplicação iOS.
+* ToDoItems.Core: Este é um projeto .NET Standard que contém um projeto xamarin. Forms e o código de lógica de aplicação partilhado que mantém os itens de afazeres no Azure Cosmos DB.
+* ToDoItems.Android: Este projeto contém a aplicação Android.
+* ToDoItems.iOS: Este projeto contém a aplicação iOS.
 
 Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
 
@@ -200,7 +200,7 @@ Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
     }
     ```
 
-    Mais uma vez, repare que o URI do documento exclusivo vai ser criado e transmitido para a função `DocumentClient.DeleteDocumentAsync`.
+    Novamente em atenção o URI de documento exclusivo a ser criado e transmitido para o `DocumentClient.DeleteDocumentAsync` função.
 
 ## <a name="run-the-app"></a>Executar a aplicação
 

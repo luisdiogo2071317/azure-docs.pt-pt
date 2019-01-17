@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 318778a83c82b0ddb88f8bbd852442ab389fedb3
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808983"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352262"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
@@ -48,7 +48,7 @@ O contrato de nível de serviço (SLA) do Azure líder da indústria, que garant
 ## <a name="secure-your-data"></a>Proteger os dados
 Por norma, os serviços de base de dados do Azure asseguram a segurança dos dados. O mesmo se aplica à Base de Dados do Azure para PostgreSQL ao dispor de funcionalidades que limitam o acesso, protegem dados inativos e em movimento, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
 
-A Base de Dados do Azure para o serviço PostgreSQL utiliza a encriptação de armazenamento para dados inativos. Os dados, incluindo as cópias de segurança, estão encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
+A base de dados do Azure para o serviço PostgreSQL utiliza a encriptação de armazenamento para dados inativos e está em conformidade com a FIPS 140-2. Os dados, incluindo as cópias de segurança, estão encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
 Por predefinição, a Base de Dados do Azure para o serviço PostgreSQL está configurada para exigir [Segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
 

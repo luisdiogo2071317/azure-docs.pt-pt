@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714836"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353061"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
@@ -274,12 +274,12 @@ Esta categoria contém o registo de quaisquer eventos de estado de funcionamento
 | submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
 | subscriptionId |ID de subscrição do Azure. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento.|
-| Properties.title | Uma cadeia de amigável de utilizador que descreve o estado de funcionamento do recurso. |
-| Properties.details | Uma cadeia de amigável de utilizador que descreve mais detalhes sobre o evento. |
+| properties.title | Uma cadeia de amigável de utilizador que descreve o estado de funcionamento do recurso. |
+| properties.details | Uma cadeia de amigável de utilizador que descreve mais detalhes sobre o evento. |
 | properties.currentHealthStatus | O estado de funcionamento atual do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degradado" e "Desconhecido". |
 | properties.previousHealthStatus | O estado de funcionamento anterior do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degradado" e "Desconhecido". |
-| Properties.Type | Uma descrição do tipo de evento de estado de funcionamento de recursos. |
-| Properties.cause | Uma descrição da causa do evento de estado de funcionamento do recurso. "UserInitiated" e "PlatformInitiated". |
+| properties.type | Uma descrição do tipo de evento de estado de funcionamento de recursos. |
+| properties.cause | Uma descrição da causa do evento de estado de funcionamento do recurso. "UserInitiated" e "PlatformInitiated". |
 
 
 ## <a name="alert"></a>Alerta
@@ -380,7 +380,7 @@ O campo de propriedades irá conter valores diferentes dependendo da origem do e
 | properties.resourceId | O ID de recurso do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
 | properties.eventTimestamp | O evento carimbo de hora do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
 | properties.operationName | O nome da operação do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
-| Properties | O estado do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado.|
+| properties.status | O estado do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades de alertas de métricas
 | Nome do elemento | Descrição |
@@ -458,7 +458,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| chamador | Sempre insights/autoscalesettings |
+| chamador | Always Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Admin, operação" |
 | afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, do motor de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -471,7 +471,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. |
-| Propriedades. Descrição | Descrição detalhada do que estava fazendo o mecanismo de dimensionamento automático. |
+| properties.Description | Descrição detalhada do que estava fazendo o mecanismo de dimensionamento automático. |
 | properties.ResourceName | ID de recurso do recurso afetado (o recurso no qual estava a ser efetuada a ação de dimensionamento) |
 | properties.OldInstancesCount | O número de instâncias antes da ação de dimensionamento automático demorou efeito. |
 | properties.NewInstancesCount | O número de instâncias após a ação de dimensionamento automático demorou efeito. |
@@ -649,6 +649,123 @@ Esta categoria contém o registo de quaisquer novas recomendações que são ger
 | properties.recommendationImpact| Impacto da recomendação. Os valores possíveis são "Alta", "Medium", "Baixa" |
 | properties.recommendationRisk| Risco da recomendação. Os valores possíveis são "Error", "Aviso", "None" |
 
+## <a name="policy"></a>Política
+
+Esta categoria contém registos de todas as operações de ação de efeito realizadas por [do Azure Policy](../../governance/policy/overview.md). Os exemplos dos tipos de eventos que veria nesta categoria incluem _auditoria_ e _negar_. Cada ação tomada pela política é modelada como uma operação num recurso.
+
+### <a name="sample-policy-event"></a>Evento de diretiva de exemplo
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de evento de política
+
+| Nome do elemento | Descrição |
+| --- | --- |
+| Autorização | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e o âmbito do pedido que disparou a avaliação. Para obter recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
+| chamador | Para novos recursos, a identidade que iniciou uma implementação. Para os recursos existentes, o GUID da RP de informações de política do Microsoft Azure. |
+| canais | Eventos de política utilizam apenas o canal de "Operação". |
+| afirmações | O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
+| correlationId | Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
+| descrição | Este campo está em branco para eventos de política. |
+| eventDataId | Identificador exclusivo de um evento. |
+| eventName | "BeginRequest" ou "EndRequest". "BeginRequest" é utilizado para as avaliações auditIfNotExists e deployIfNotExists atrasadas e quando um efeito de deployIfNotExists é iniciada uma implementação do modelo. Todas as outras operações devolvem "EndRequest". |
+| categoria | Declara o registo de eventos de atividade como pertencentes ao "Policy". |
+| eventTimestamp | Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
+| ID | Identificador exclusivo do evento no recurso específico. |
+| nível | Nível do evento. Auditoria utiliza "Aviso" e negar utiliza "Erro". Um erro de auditIfNotExists ou deployIfNotExists pode gerar "Aviso" ou "Erro", dependendo da gravidade. Todos os outros eventos de política utilizam "Informativo". |
+| operationId | Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
+| operationName | Nome da operação e diretamente está correlacionada com o efeito de política. |
+| resourceGroupName | Nome do grupo de recursos para o recurso avaliado. |
+| resourceProviderName | Nome do fornecedor de recursos para o recurso avaliado. |
+| resourceType | Para novos recursos, é o tipo a ser avaliado. Para obter recursos existentes, devolve "Microsoft.Resources/checkPolicyCompliance". |
+| resourceId | ID de recurso do recurso avaliado. |
+| status | A cadeia de caracteres que descreve o estado do resultado da avaliação da política. A maioria das avaliações de política retornam "Com êxito", mas um efeito de recusa devolve "Falhado". Erros no auditIfNotExists ou deployIfNotExists também retornam "Falhado". |
+| subStatus | Este campo está em branco para eventos de política. |
+| submissionTimestamp | Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId | ID de subscrição do Azure. |
+| properties.isComplianceCheck | Devolve "False" quando um novo recurso está implementado ou propriedades do Gestor de recursos de um recurso existente são atualizadas. Todos os outros [acionadores de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) resultar em "True". |
+| properties.resourceLocation | A região do Azure do recurso a ser avaliada. |
+| Properties.ancestors | Pediu uma lista separada por vírgulas dos grupos de gestão principal do principal direto para avô mais distante. |
+| Properties.Policies | Inclui detalhes sobre a definição de política, atribuição, em vigor e parâmetros que essa avaliação de política é o resultado do. |
+| relatedEvents | Este campo está em branco para eventos de política. |
+
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mapeamento de esquema de registos de diagnóstico
 
 Quando o registo de atividades do Azure para uma conta de armazenamento ou o espaço de nomes de Hubs de eventos de transmissão em fluxo, os dados seguem os [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md). Este é o mapeamento das propriedades do esquema acima para o esquema de registos de diagnóstico:
@@ -659,8 +776,8 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName são inferidos do resourceId. |
 | operationName | operationName.value |  |
 | categoria | Parte do nome da operação | Abertas do tipo de operação - "Escrever" / "eliminar" / "Action" |
-| resultType | Status.Value | |
-| resultSignature | Substatus.Value | |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
 | resultDescription | descrição |  |
 | durationMs | N/A | Sempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |

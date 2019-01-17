@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d238e5e7c129241fc599e3b656d785d750b330c7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332050"
+ms.locfileid: "54354472"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Referência de linguagem do Azure Cosmos DB SQL 
 
@@ -2543,7 +2543,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. 
+Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode procurar uma correspondência parcial ou completa de um objeto ao utilizar uma expressão booleana dentro do comando. 
 
  **Sintaxe**  
   
@@ -2563,7 +2563,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     É qualquer expressão booleana.       
+     É qualquer expressão booleana. Se estiver definido como ' true'and se o valor de pesquisa especificada é um objeto, que o comando verifica a existência de uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se estiver definido como 'false', o comando verifica a existência de uma correspondência completa de todos os objetos dentro da matriz. O valor predefinido se não for especificado é false. 
   
  **Tipos de retorno**  
   

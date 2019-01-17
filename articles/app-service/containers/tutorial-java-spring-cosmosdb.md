@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: e148165afd91d76917e06577198950ee7552995f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107711"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353571"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Tutorial: Criar uma aplicação de web de Java com o Spring e o Azure Cosmos DB
 
@@ -331,20 +331,16 @@ Se não precisar destes recursos para outro tutorial (veja os [Passos seguintes]
   
 ```bash
 az group delete --name your-azure-group-name
-``` 
+```
 
 <a name="next"></a>
 
-## Next steps
+## <a name="next-steps"></a>Passos Seguintes
 
-[Azure for Java Developers](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot), 
-[Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
-[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
-and
-[App Service Linux](/azure/app-service/containers/app-service-linux-intro).
+[Azure para programadores Java](/java/azure/)
+[da Primavera de arranque](https://spring.io/projects/spring-boot), [da Primavera de dados para Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) e [Linux do serviço de aplicações ](/azure/app-service/containers/app-service-linux-intro).
 
-Learn more about running Java apps on App Service on Linux in the developer guide.
+Saiba mais sobre como executar aplicações Java no serviço de aplicações no Linux no Guia do programador.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](/azure/app-service/containers/app-service-linux-java)
+> [Java no guia de desenvolvimento do Linux do serviço de aplicações](/azure/app-service/containers/app-service-linux-java)

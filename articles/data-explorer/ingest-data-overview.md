@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 1/14/2019
+ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636004"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354625"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -23,17 +23,17 @@ Ingestão de dados é o processo usado para carregar os registos de dados a part
 
 O serviço de gestão de dados do Explorador de dados do Azure, que é responsável por ingestão de dados, fornece as seguintes funcionalidades:
 
-1. **Extração de dados**: extrair dados de fontes externas (os Hubs de eventos) ou pedidos de ingestão de leitura da fila do Azure.
+1. **Extração de dados**: Extrair dados de fontes externas (os Hubs de eventos) ou pedidos de ingestão de leitura da fila do Azure.
 
-1. **Criação de batches**: fluxo de dados para a mesma base de dados e tabela para otimizar o débito de ingestão do Batch.
+1. **Criação de batches**: Fluxo para a mesma base de dados e tabela para otimizar o débito de ingestão de dados de batch.
 
-1. **Validação**: preliminar conversão de formato e validação se necessário.
+1. **Validação**: Preliminar validação e o formato de conversão se necessário.
 
-1. **Manipulação de dados**: esquema correspondente, organizar, a indexação, a codificação e a compressão dos dados.
+1. **Manipulação de dados**: Correspondência de esquema, organizar, a indexação, a codificação e a compressão dos dados.
 
-1. **Ponto de persistência no fluxo de ingestão**: Gerir a carga de ingestão das repetições de motor e identificador após falhas transitórias.
+1. **Ponto de persistência no fluxo de ingestão**: Gerir a carga de ingestão no motor e processar várias repetições após falhas transitórias.
 
-1. **Consolidar os dados de ingestão**: torna os dados disponíveis para consulta.
+1. **Consolidar os dados de ingestão**: Disponibiliza os dados para consulta.
 
 ## <a name="ingestion-methods"></a>Métodos de ingestão
 
@@ -41,16 +41,19 @@ O Explorador de dados do Azure suporta vários métodos de ingestão, cada um co
 
 ### <a name="ingestion-using-pipelines"></a>Com pipelines de ingestão
 
-O Explorador de dados do Azure suporta, atualmente, o pipeline de Hub de eventos, que pode ser gerido com o Assistente de gestão no portal do Azure. Para obter mais informações, consulte [início rápido: ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md).
+O Explorador de dados do Azure suporta, atualmente, o pipeline de Hub de eventos, que pode ser gerido com o Assistente de gestão no portal do Azure. Para obter mais informações, consulte [início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md).
 
 ### <a name="ingestion-using-connectors-and-plugins"></a>Utilizar conectores e plug-ins de ingestão
-O Explorador de dados do Azure suporta atualmente o plug-in do Logstash. Para obter mais informações, consulte [Plug-in do Logstash saída para o Explorador de dados do Azure](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* O Explorador de dados do Azure suporta o plug-in do Logstash. Para obter mais informações, consulte [Plug-in do Logstash saída para o Explorador de dados do Azure](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* O Explorador de dados do Azure suporta o conector do Kafka. Para obter mais informações, consulte [início rápido: Ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md)
 
 ### <a name="programmatic-ingestion"></a>Ingestão programática
 
 O Explorador de dados do Azure disponibiliza SDKs que podem ser utilizadas para ingestão de dados e de consultas. Ingestão programático é otimizada para reduzir os custos de ingestão (COGs), minimizando as transações de armazenamento durante e após o processo de ingestão.
 
-**SDKs disponíveis e projetos de código aberto**:
+**SDKs disponíveis e projetos de código-fonte aberto**:
 
 Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dados com:
 
@@ -68,7 +71,7 @@ Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dado
 
 * Ingestão de dados através do serviço de gestão de dados do Azure Data Explorer (ingestão de alto débito e fiável):
 
-  * [**Ingestão de lote** ](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornecido pelo SDK): o cliente carrega os dados para o armazenamento de Blobs do Azure (designado pelo serviço de gestão de dados do Explorador de dados do Azure) e envia uma notificação para uma fila do Azure. Essa é a técnica recomendada para ingestão de dados de grande volume, fiáveis e barato.
+    [**Ingestão de lote** ](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornecido pelo SDK): o cliente carrega os dados para o armazenamento de Blobs do Azure (designado pelo serviço de gestão de dados do Explorador de dados do Azure) e envia uma notificação para uma fila do Azure. Ingestão de batch é a técnica recomendada para elevado volume, confiável e a ingestão de dados barato.
 
 * Ingestão de dados diretamente para o mecanismo de Explorador de dados do Azure (mais adequado para a exploração e a criação de protótipos):
 
@@ -88,7 +91,7 @@ Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dado
 | **Ingestão em fila** | Hora de criação de batches + tempo de processamento |
 | |
 
-Tempo de processamento depende do tamanho de dados, normalmente, menos do que alguns segundos. Criação de batches tempo a predefinição é 5 minutos.
+Tempo de processamento depende do tamanho de dados, menos do que alguns segundos. Criação de batches tempo a predefinição é 5 minutos.
 
 ## <a name="choosing-the-most-appropriate-ingestion-method"></a>Escolher o método mais apropriado de ingestão
 
@@ -105,11 +108,11 @@ Antes de começar a ingestão de dados, deve se fazer as perguntas seguintes.
 * Quais são os requisitos de latência? 
 * Um dos pipelines de ingestão gerido existente sirva? 
 
-Para organizações com uma infraestrutura existente, com base num serviço de mensagens, como o Hub de eventos, através de um conector é provavelmente a solução mais apropriada. Ingestão em fila é adequada para grandes volumes de dados.
+Para organizações com uma infraestrutura existente que se baseiam num serviço de mensagens, como o Hub de eventos, através de um conector é provavelmente a solução mais apropriada. Ingestão em fila é adequada para grandes volumes de dados.
 
 ## <a name="supported-data-formats"></a>Formatos de dados suportados
 
-Para a ingestão de todos os métodos diferentes de ingestão de consulta, os dados têm de ser formatados em um dos formatos de dados suportados, de modo a que o Explorador de dados do Azure pode analisá-lo.
+Para a ingestão de todos os métodos diferentes de ingestão de consulta, formate os dados para que o Explorador de dados do Azure pode analisá-lo. Os formatos de dados suportados são:
 
 * CSV, TSV, PSV, SCSV, SOH
 * Avro (separados por linha, com várias linha), de JSON
@@ -119,21 +122,30 @@ Para a ingestão de todos os métodos diferentes de ingestão de consulta, os da
 > Quando está a ser ingeridos dados, os tipos de dados são inferidos com base nas colunas da tabela de destino. Se um registo está incompleto ou um campo não pode ser analisado como o tipo de dados necessários, as colunas da tabela correspondente serão preenchidas com valores nulos.
 
 ## <a name="ingestion-recommendations-and-limitations"></a>Recomendações de ingestão e limitações
+
 * A política de retenção em vigor a partir de dados ingeridos é derivada de política de retenção da base de dados. Ver [política de retenção](/azure/kusto/concepts/retentionpolicy) para obter detalhes. Ingestão de dados requer **ingestor de tabela** ou **ingestor de base de dados** permissões.
-* Ingestão suporta um tamanho de ficheiro máximo de 5GB. Recomenda-se para a ingestão de ficheiros entre 100MB e 1GB.
+* Ingestão suporta um tamanho de ficheiro máximo de 5 GB. Recomenda-se para a ingestão de ficheiros entre 100 MB e 1 GB.
 
 ## <a name="schema-mapping"></a>Mapeamento de esquema
 
-Mapeamento de esquema ajuda determinística vincular os campos de dados de origem a colunas da tabela de destino.
+Mapeamento de esquema ajuda a vincular os campos de dados de origem a colunas da tabela de destino.
 
-* [Mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os ordinal com base em formatos e pode ser passado como o parâmetro de comando de ingestão ou [previamente criado na tabela](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e referenciado do parâmetro de comando de ingestão.
-* [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e [Avro mapeamento](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) pode ser passado como o parâmetro de comando de ingestão ou [previamente criado na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciado do parâmetro de comando de ingestão.
+* [Mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos baseados em ordinal. Isso pode ser executado usando o parâmetro de comando de ingestão ou [criados previamente na tabela](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e referenciado do parâmetro de comando de ingestão.
+* [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e [Avro mapeamento](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) pode ser efetuado utilizando o parâmetro de comando de ingestão ou [previamente criado na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciado do comando de ingestão parâmetro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md)
 
-[Início Rápido: ingerir dados através da biblioteca Python do Azure Data Explorer](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md)
 
-[Início rápido: Ingerir dados com a biblioteca de nó de Explorador de dados do Azure](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [Quickstart: Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)

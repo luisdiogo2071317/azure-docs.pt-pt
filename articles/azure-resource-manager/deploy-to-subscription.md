@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435298"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352279"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Criar grupos de recursos e recursos para uma subscrição do Azure
 
@@ -289,7 +289,7 @@ O exemplo seguinte atribui uma definição de política existente para a subscri
 }
 ```
 
-Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure. Neste exemplo, a política não tem parâmetros
+Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure:
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure. Neste exemplo, a política tem parâmetros.
+Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure:
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ Pode [definir](../azure-policy/policy-definition.md) e atribuir uma política no
 }
 ```
 
-Para criar a definição de política na sua subscrição e aplicá-la para a subscrição, utilize o seguinte comando da CLI.
+Para criar a definição de política na sua subscrição e aplicá-la para a subscrição, utilize o seguinte comando da CLI:
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>Atribuir função
+## <a name="assign-role-at-subscription"></a>Atribuir função na subscrição
 
-O exemplo seguinte atribui uma função a um utilizador ou grupo.
+O exemplo seguinte atribui uma função a um utilizador ou grupo para a subscrição. Neste exemplo, não especifique um âmbito para a atribuição de uma vez que o âmbito é automaticamente definido para a subscrição.
 
 ```json
 {
@@ -439,7 +439,7 @@ O exemplo seguinte atribui uma função a um utilizador ou grupo.
 }
 ```
 
-Para atribuir um grupo do Active Directory a uma função para a sua subscrição, utilize os seguintes comandos do CLI do Azure.
+Para atribuir um grupo do Active Directory a uma função para a sua subscrição, utilize os seguintes comandos do CLI do Azure:
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>Atribuir função no âmbito
+
+O modelo de nível de subscrição seguinte atribui uma função a um utilizador ou grupo que está confinado para um grupo de recursos dentro da subscrição. O âmbito tem de ser igual ou abaixo do nível de implementação. Pode implementar para uma subscrição e especificar uma atribuição de função no âmbito de um grupo de recursos nessa subscrição. No entanto, não é possível implementar um grupo de recursos e especificar um âmbito de atribuição de função à subscrição.
+
+Para atribuir a função a um âmbito, utilize uma implementação aninhada. Tenha em atenção que o nome do grupo de recursos é especificado nas propriedades para o recurso de implantação e na propriedade do âmbito da atribuição de função.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Para atribuir um grupo do Active Directory a uma função para a sua subscrição, utilize os seguintes comandos do CLI do Azure:
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+Para implementar este modelo com o PowerShell, utilize:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

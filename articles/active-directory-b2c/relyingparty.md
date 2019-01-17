@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a6e25bdbcec2a99e323ac7f426307dd49e50d76c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835102"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352432"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -104,7 +104,7 @@ O **DefaultUserJourney** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador do percurso do utilizador na política. Para obter mais informações, consulte [jornadas de utilizador](userjourneys.md) |
+| ReferenceId | Sim | Um identificador do percurso do utilizador na política. Para obter mais informações, consulte [jornadas de utilizador](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
@@ -153,7 +153,7 @@ O **ContentDefinitionParameters** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ContentDefinitionParameter | 0: n | Uma cadeia que contém o par chave-valor que é acrescentado à cadeia de consulta de um URI de carga de definição de conteúdo. |
+| ContentDefinitionParameter | 0:n | Uma cadeia que contém o par chave-valor que é acrescentado à cadeia de consulta de um URI de carga de definição de conteúdo. |
 
 O **ContentDefinitionParameter** elemento contém o atributo seguinte:
 
@@ -194,7 +194,7 @@ O **OutputClaims** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| outputClaim | 0: n | O nome de um tipo de afirmação esperado na lista suportada para a política para que a entidade confiadora subscreve. Esta afirmação serve como uma saída para o perfil técnico. |
+| OutputClaim | 0:n | O nome de um tipo de afirmação esperado na lista suportada para a política para que a entidade confiadora subscreve. Esta afirmação serve como uma saída para o perfil técnico. |
 
 O **OutputClaim** elemento contém os seguintes atributos:
 

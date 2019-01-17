@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200091"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353967"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -54,7 +54,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 Ação recomendada:<br>
 Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza.
 > [!NOTE]
-    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` por exemplo: AzureBackupRG_northeurope_1
+    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Passo 1: [Remova o bloqueio do grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [Limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
@@ -122,33 +122,8 @@ Pelo requisito de implementação, a VM não tem acesso à internet. Em alternat
 
 Para funcionar corretamente, a extensão de cópia de segurança precisa de conectividade para os endereços IP públicos do Azure. A extensão envia comandos para um ponto final de armazenamento do Azure (HTTPs URL) de gerir os instantâneos da VM. Se a extensão não tiver acesso à internet pública, cópia de segurança, eventualmente, falha.
 
-É possível implementar um servidor proxy para encaminhar o tráfego VM.
-##### <a name="create-a-path-for-https-traffic"></a>Criar um caminho para o tráfego de HTTPs
-
-1. Se tiver restrições de rede no local (por exemplo, um grupo de segurança de rede), implementa um servidor de proxy de HTTPs para encaminhar o tráfego.
-2. Para permitir o acesso à internet do servidor de proxy de HTTPs, adicione regras para o grupo de segurança de rede, se tiver uma.
-
-Para saber como configurar um proxy de HTTPs para cópias de segurança VM, veja [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-A cópia de segurança de VM ou o servidor de proxy por meio do qual o tráfego é encaminhado requer acesso a endereços IP públicos do Azure
-
 ####  <a name="solution"></a>Solução
-Para resolver o problema, experimente um dos seguintes métodos:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Permitir o acesso ao armazenamento do Azure, que corresponde à região
-
-Pode usar [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para permitir ligações para o armazenamento da região específica. Certifique-se de que a regra que permite o acesso à conta de armazenamento tem uma prioridade mais alta do que a regra que bloqueia o acesso de internet.
-
-![Grupo de segurança de rede com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Para compreender o procedimento passo a passo para configurar as etiquetas de serviço, veja [este vídeo](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Etiquetas de serviço de armazenamento estão em pré-visualização. Eles estão disponíveis apenas nas regiões específicas. Para obter uma lista de regiões, consulte [etiquetas para o armazenamento de serviço](../virtual-network/security-overview.md#service-tags).
-
-Se utilizar Managed Disks do Azure, poderá ter de abertura de portas adicionais (porta 8443) nas firewalls.
-
-Além disso, se a sub-rede não tiver uma rota para tráfego de saída da internet, terá de adicionar um ponto final de serviço com a etiqueta de serviço "Microsoft. Storage" à sua sub-rede.
+Para resolver o problema de rede, consulte [estabelecer conectividade de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)
 
@@ -187,7 +162,7 @@ Mais relacionados com o agente ou relacionados com a extensão de falhas para VM
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
-   * / var/iniciar/azure / *
+   * /var/log/azure/*
 
 Se é necessário o registo verboso para waagent, siga estes passos:
 

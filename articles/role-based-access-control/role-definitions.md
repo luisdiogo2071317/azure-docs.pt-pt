@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231908"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354322"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -173,7 +173,11 @@ Para visualizar e trabalhar com operações de dados, tem de ter as versões cor
 | [Azure para Python](/python/azure) | 0.40.0 ou posterior |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou posterior |
 
-O portal do Azure também permite aos utilizadores procurar e gerir o conteúdo das filas e BLOBs experiência de pré-visualização de contentores através do Azure AD. Ver e gerir o conteúdo de um contentor de BLOBs ou filas, clique na ligação "Dados de explorar com pré-visualização do Azure AD" na descrição geral da conta de armazenamento.
+Para ver e utilizar as operações de dados na REST API, tem de definir o **versão de api** parâmetro para a versão seguinte ou posterior:
+
+- 2018-01-01-pré-visualização
+
+O portal do Azure também permite aos utilizadores procurar e gerir o conteúdo das filas e BLOBs experiência de pré-visualização de contentores através do Azure AD. Ver e gerir o conteúdo de um clique de contentor de BLOBs ou filas a **explorar dados com o Azure AD preview** na descrição geral da conta de armazenamento.
 
 ![Explore as filas e BLOBs contentores com a pré-visualização do Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
 
@@ -216,7 +220,7 @@ O `NotDataActions` permissão Especifica as operações de dados que são exclu�
 > Se um utilizador é atribuído uma função que exclui uma operação de dados no `NotDataActions`e é atribuído uma segunda função concede acesso à mesma operação de dados, o utilizador tem permissão para executar essa operação de dados. `NotDataActions` Não é uma negação de regra – é simplesmente uma forma conveniente para criar um conjunto de operações de dados permitido quando precisam de operações de dados específicas a serem excluídos.
 >
 
-## <a name="assignablescopes"></a>assignableScopes
+## <a name="assignablescopes"></a>AssignableScopes
 
 O `AssignableScopes` propriedade especifica os âmbitos (subscrições, grupos de recursos ou recursos) que a função está disponível para atribuição. Pode disponibilizar a função para atribuição apenas a subscrições ou grupos de recursos que exigem e não pelo usuário desordem experiência para o restante do subscrições ou grupos de recursos. Tem de utilizar, pelo menos, uma subscrição, grupo de recursos ou ID de recurso.
 

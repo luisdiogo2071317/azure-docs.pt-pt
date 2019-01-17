@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631441"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352143"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
 
@@ -21,7 +21,8 @@ Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de ar
 Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure. 
 
 > [!NOTE]
-> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Para obter mais informações, veja a secção [Preços e faturação](#pricing-and-billing).
+> Atualize a sua conta de armazenamento para uma conta para fins gerais v2 é gratuito.
+> A alteração da camada de acesso de armazenamento pode resultar em alterações à sua fatura. Para obter mais informações, veja a secção [Preços e faturação](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Atualizar com o portal do Azure
 
@@ -62,8 +63,8 @@ Escalões de acesso permitem-lhe escolher o armazenamento mais económico com ba
 
 Por predefinição, é criada uma nova conta de armazenamento no escalão acesso frequente e uma conta de armazenamento para fins gerais v1 é atualizada para o escalão de acesso frequente. Se está a explorar a camada de acesso a utilizar para a sua pós-atualização de dados, considere o seu cenário. Existem dois cenários de usuário comum para a migração para uma conta para fins gerais v2:
 
-* Tem uma conta de armazenamento para fins gerais v1 existente e pretende avaliar uma alteração para uma conta de armazenamento para fins gerais v2, com a camada de armazenamento correta para dados de Blobs.
-* Decidiu utilizar uma conta de armazenamento para fins gerais v2 ou já tiver uma e pretende avaliar se deve utilizar a camada de armazenamento de acesso frequente ou esporádico para dados de Blobs.
+* Tem uma conta de armazenamento para fins gerais v1 existente e quer avaliar uma atualização para uma conta de armazenamento para fins gerais v2, com a camada de acesso de armazenamento correta para dados de Blobs.
+* Decidiu utilizar uma conta de armazenamento para fins gerais v2 ou já tiver uma e pretende avaliar se deve utilizar a camada de acesso de armazenamento de acesso frequente ou esporádico para dados de Blobs.
 
 Em ambos os casos, a primeira prioridade é estimar os custos de armazenamento, acesso e a funcionar nos seus dados armazenados numa conta de armazenamento para fins gerais v2 e compará-los com seus custos atuais.
 
@@ -71,9 +72,9 @@ Em ambos os casos, a primeira prioridade é estimar os custos de armazenamento, 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
 
-* **Os custos de armazenamento**: Para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+* **Os custos de armazenamento**: Para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
 
-* **Os custos de acesso a dados**: Aumentar os custos de acesso de dados conforme a camada se torna mais esporádica. Para os dados na camada frequente e de armazenamento de arquivo, é cobrada uma taxa de acesso a dados por gigabyte pelas operações de leitura.
+* **Os custos de acesso a dados**: Aumentar os custos de acesso de dados conforme a camada se torna mais esporádica. Para dados na camada de acesso de armazenamento esporádico e de arquivo, é cobrada uma taxa de acesso de dados por gigabyte para leituras.
 
 * **Os custos de transação**: Existe um custo por transação para todas as camadas que aumenta conforme a camada se torna mais esporádica.
 
@@ -81,7 +82,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 
 * **Custos de transferência de dados de saída**: Transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) incorrem a faturação de utilização de largura de banda numa base por gigabyte, consistente com as contas de armazenamento para fins gerais.
 
-* **A alteração da camada de armazenamento**: Alteração da camada de armazenamento de conta de acesso esporádico para frequente incorre um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
+* **A alteração da camada de acesso de armazenamento**: Alteração da camada de acesso de armazenamento de conta de acesso esporádico para frequente incorre um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
 
 > [!NOTE]
 > Para obter mais informações sobre o modelo de preços das contas de armazenamento, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -156,7 +157,7 @@ Para que possa estimar os custos de acesso a dados para as contas do Armazenamen
 Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.
 
 > [!NOTE]
-> Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de armazenamento frequente ou esporádico, veja as perguntas mais frequentes com o nome *“O que são as camadas de acesso Frequente e Esporádico e como posso determinar qual delas utilizar?”* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+> Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de acesso de armazenamento frequente ou esporádico, dê uma olhada nas perguntas mais frequentes intituladas *"quais são os escalões de acesso frequente e esporádico e como devo decidir sobre qual devo utilizar?"* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

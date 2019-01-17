@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024897"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354268"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Atividade obter metadados da fábrica de dados do Azure
 Atividade GetMetadata pode ser usada para recuperar **metadados** de quaisquer dados no Azure Data Factory. Esta atividade pode ser usada nos seguintes cenários:
@@ -33,7 +33,7 @@ A seguinte funcionalidade está disponível no fluxo de controlo:
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-A atividade GetMetadata usa um conjunto de dados como entrada necessária e apresenta informações de metadados disponíveis como saída da atividade. Atualmente, os conectores seguintes com meatadata recuperável correspondente são suportados e o tamanho máximo de metadados suportados é até **1MB**.
+A atividade GetMetadata usa um conjunto de dados como entrada necessária e apresenta informações de metadados disponíveis como saída da atividade. Atualmente, os conectores com metadados recuperável correspondente que se seguem são suportados e o tamanho máximo de metadados suportados é até **1MB**.
 
 >[!NOTE]
 >Se executar a atividade GetMetadata no Integration Runtime autoalojado, a capacidade de mais recente é suportada na versão 3.6 ou posterior. 
@@ -42,10 +42,10 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 
 **Armazenamento de ficheiros:**
 
-| Conector/metadados | itemName<br>(ficheiro/pasta) | ItemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | Existe<br>(ficheiro/pasta) |
+| Conector/metadados | itemName<br>(ficheiro/pasta) | itemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | Existe<br>(ficheiro/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
-| Blob do Azure | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento de Ficheiros do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Sistema de Ficheiros | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -71,7 +71,7 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 | Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
-| ItemType | Tipo de ficheiro ou pasta. Valor de saída é `File` ou `Folder`. |
+| itemType | Tipo de ficheiro ou pasta. Valor de saída é `File` ou `Folder`. |
 | tamanho | Tamanho do ficheiro em bytes. Aplicável a apenas de ficheiros. |
 | criado | Datetime de criação do ficheiro ou pasta. |
 | lastModified | Última modificação datetime do ficheiro ou pasta. |

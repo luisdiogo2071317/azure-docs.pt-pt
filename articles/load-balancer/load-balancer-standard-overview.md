@@ -5,6 +5,7 @@ description: Descrição geral das funcionalidades do Balanceador de carga Stand
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -13,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245170"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352585"
 ---
-# <a name="azure-standard-balancer-overview"></a>Descrição geral do Balanceador de Standard do Azure
+# <a name="azure-standard-load-balancer-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
 O Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
 
 Este artigo se concentra no balanceador de carga Standard.  Para obter uma descrição geral mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) também.
 
-## <a name="what-is-standard-load-balancer"></a>O que é o Balanceador de carga Standard?
+## <a name="what-is-standard-load-balancer"></a>O que é o Balanceador de Carga Standard?
 
 Balanceador de carga Standard é um novo produto de Balanceador de carga para aplicativos de todos os TCP e UDP com um conjunto ao longo do Balanceador de carga básico de recursos expandidos e mais granulares.  Embora existam muitas semelhanças, é importante familiarizar-se com as diferenças, conforme descrito neste artigo.
 

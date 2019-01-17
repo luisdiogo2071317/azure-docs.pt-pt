@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 682d1d123d3381a52c9d356cd1bf226d2a847df4
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438426"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352874"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca da VPN ponto a Site
 
@@ -22,7 +22,7 @@ Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligaç�
 
 VPN Point-to-site pode utilizar um dos seguintes protocolos:
 
-* OpenVPN, um SSL/TLS com base em protocolo VPN. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. OpenVPN pode ser utilizado para ligar a partir do Android, iOS, dispositivos de Linux e Mac (versões de OSX 10.11 e posterior).
+* OpenVPN, um SSL/TLS com base em protocolo VPN. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. OpenVPN pode ser utilizado para ligar a partir do Android, iOS (versões 11.0 e posterior), dispositivos de Linux e Mac (versões OSX 10.13 e acima).
 
 * Secure Socket Tunneling Protocol (SSTP), um protocolo proprietário de VPN baseado em SSL. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que têm de SSTP (Windows 7 e posterior).
 
@@ -57,7 +57,7 @@ Um servidor RADIUS também pode integrar com outros sistemas de identidade exter
 >Protocolo de OpenVPN não é suportado com a autenticação RADIUS.
 >
 
-![ponto a site](./media/point-to-site-about/p2s.png "ponto a Site")
+![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Quais são os requisitos de configuração de cliente?
 

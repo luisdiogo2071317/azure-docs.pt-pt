@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: b5975f3d11a76d7713928ab008dbd9ec19b85738
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54bb66d79979e68c55a671035fa2bc11d8220b17
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082583"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351599"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registe uma subscrição do Azure individual e veja os dados de custos
 
@@ -29,7 +29,7 @@ Utilize a subscrição do Azure para efetuar o registo na Cloudyn. O registo con
 
 1. No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços.
 2. Em **Descrição geral**, clique em **Cloudyn**  
-    ![Página da Cloudyn mostrada portal do Azure](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![Página de Cloudyn mostrada no portal do Azure](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. Na página **Cost Management**, clique em **Aceder à Cloudyn** para abrir a página de registo da Cloudyn numa janela nova.
 4. Na página de registo de avaliação do portal da Cloudyn, escreva o nome da empresa e, em seguida, selecione **Proprietário de Subscrição Individual do Azure** e clique em **Seguinte**. O nome de conta e o ID do Inquilino é automaticamente adicionado ao formulário.  
     ![Página de registo de avaliação em que introduzir as informações de registo](./media/quick-register-azure-sub/trial-reg-ind.png)
