@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231619"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320095"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -114,9 +114,6 @@ O [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tre
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade de dispositivo é o identificador exclusivo atribuído para todos os dispositivos registados no [registo de identidade](#identity-registry).
 
-## <a name="module-identity"></a>Identidade do módulo
-A identidade do módulo é o identificador exclusivo atribuído a cada módulo que pertencem a um dispositivo. Identidade do módulo também é registrada no [registo de identidade](#identity-registry).
-
 ## <a name="device-management"></a>Gestão de dispositivos
 Gestão de dispositivos abrange o ciclo de vida completo associado à gestão de dispositivos na sua solução de IoT, incluindo o planejamento, aprovisionamento, configuração, monitorização e extinção.
 
@@ -131,15 +128,6 @@ Aprovisionamento de dispositivos é o processo de adição inicial [dados de dis
 
 ## <a name="device-twin"></a>Dispositivo duplo
 R [dispositivo duplo](iot-hub-devguide-device-twins.md) é um documento JSON que armazena informações de estado do dispositivo como metadados, configurações e condições. [IoT Hub](#iot-hub) cria um dispositivo duplo para cada dispositivo que for aprovisionado do seu hub IoT. Os gémeos de dispositivos permitem-lhe sincronizar [condições de dispositivo](#device-condition) e configurações entre o dispositivo e a solução de back-end. Pode consultar dispositivos duplos para localizar dispositivos específicos e consultar o estado das operações de longa execução.
-
-## <a name="module-twin"></a>Módulo duplo
-Assim como o dispositivo duplo, um duplo do módulo é um documento JSON que armazena informações de estado do módulo como metadados, configurações e condições. O IoT Hub cria um módulo duplo para cada identidade de módulo que for aprovisionado sob uma identidade de dispositivo do seu hub IoT. Duplos de módulo permitem-lhe sincronizar condições de módulo e configurações entre o módulo e o back-end de solução. Pode consultar duplos de módulo para localizar os módulos específicos e consultar o estado das operações de longa execução.
-
-## <a name="twin-queries"></a>Consultas de gémeos
-[Consultas de gémeos de dispositivo e módulo](iot-hub-devguide-query-language.md) utilizar a linguagem de consulta do Hub de IoT de tipo SQL para obter informações a partir dos dispositivos duplos ou duplos de módulo. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [](#job) em execução no seu hub IoT.
-
-## <a name="twin-synchronization"></a>Sincronização de duplo
-Duplo sincronização utiliza a [propriedades pretendidas](#desired-properties) no seu dispositivos duplos ou duplos de módulo para configurar seus dispositivos ou os módulos e recuperar [propriedades comunicadas](#reported-properties) dos mesmos para armazenar no duplo.
 
 ## <a name="direct-method"></a>Método direto
 R [método direto](iot-hub-devguide-direct-methods.md) é uma forma para que possa acionar um método para executar num dispositivo ao invocar uma API no seu hub IoT.
@@ -190,6 +178,17 @@ Aceleradores de solução de IoT do Azure reúne, vários serviços do Azure em 
 
 ## <a name="job"></a>Tarefa
 Pode utilizar a sua solução de back-end [tarefas](iot-hub-devguide-jobs.md) para agendar e monitorizar atividades num conjunto de dispositivos registados com o seu hub IoT. As atividades incluem a atualizar o dispositivo duplo [propriedades pretendidas](#desired-properties), a atualização do dispositivo duplo [etiquetas](#tags)e a invocação [métodos diretos](#direct-method). [IoT Hub](#iot-hub) também utiliza para [importar para e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) da [registo de identidade](#identity-registry).
+
+## <a name="modules"></a>Módulos
+No lado do dispositivo, os SDKs do dispositivo do IoT Hub permitem que crie [módulos](iot-hub-devguide-module-twins.md) onde cada um deles é aberta uma ligação independente para o IoT Hub. Esta funcionalidade permite-lhe utilizar espaços de nomes separados para diferentes componentes no seu dispositivo.
+
+Identidade do módulo e módulo duplo fornecem as mesmas capacidades do [identidade do dispositivo](#device-identity) e [dispositivo duplo](#device-twin) mas a uma granularidade mais fina. Este granularidade mais fina permite compatível com dispositivos, como dispositivos baseados no sistema operativo ou de dispositivos com firmware gerir vários componentes, para isolar a configuração e condições para cada um desses componentes.
+
+## <a name="module-identity"></a>Identidade do módulo
+A identidade do módulo é o identificador exclusivo atribuído a cada módulo que pertencem a um dispositivo. Identidade do módulo também é registrada no [registo de identidade](#identity-registry).
+
+## <a name="module-twin"></a>Módulo duplo
+Assim como o dispositivo duplo, um duplo do módulo é um documento JSON que armazena informações de estado do módulo como metadados, configurações e condições. O IoT Hub cria um módulo duplo para cada identidade de módulo que for aprovisionado sob uma identidade de dispositivo do seu hub IoT. Duplos de módulo permitem-lhe sincronizar condições de módulo e configurações entre o módulo e o back-end de solução. Pode consultar duplos de módulo para localizar os módulos específicos e consultar o estado das operações de longa execução.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) é um do messaging protocolos que [IoT Hub](#iot-hub) oferece suporte para comunicação com dispositivos. Para obter mais informações sobre os protocolos de mensagens que o IoT Hub suporta, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Dispositivos recolher dados de telemetria, como velocidade do vento ou temperatu
 
 ## <a name="token-service"></a>Serviço de token
 Pode utilizar um serviço de token para implementar um mecanismo de autenticação para os seus dispositivos. Ele usa um IoT Hub [partilhado a política de acesso](#shared-access-policy) com **DeviceConnect** permissões para criar *no âmbito do dispositivo* tokens. Estes tokens permitem que um dispositivo para ligar ao seu hub IoT. Um dispositivo utiliza um mecanismo de autenticação personalizados para autenticar com o serviço de token. Se o dispositivo é autenticado com êxito, o serviço de token emite um token SAS para o dispositivo utilize para aceder ao seu hub IoT.
+
+## <a name="twin-queries"></a>Consultas de gémeos
+[Consultas de gémeos de dispositivo e módulo](iot-hub-devguide-query-language.md) utilizar a linguagem de consulta do Hub de IoT de tipo SQL para obter informações a partir dos dispositivos duplos ou duplos de módulo. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [](#job) em execução no seu hub IoT.
+
+## <a name="twin-synchronization"></a>Sincronização de duplo
+Duplo sincronização utiliza a [propriedades pretendidas](#desired-properties) no seu dispositivos duplos ou duplos de módulo para configurar seus dispositivos ou os módulos e recuperar [propriedades comunicadas](#reported-properties) dos mesmos para armazenar no duplo.
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Um dispositivo pode utilizar um certificado X.509 para autenticar com o [IoT Hub](#iot-hub). O uso de um certificado X.509 é uma alternativa à utilização uma [SAS token](#shared-access-signature).
